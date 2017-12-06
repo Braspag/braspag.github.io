@@ -1,11 +1,11 @@
 ---
 layout: manual
-title: Antifraude
+title: Manual de integração
 description: Integração técnica antifraude
 search: true
 categories: manual
 tags:
-  - Documentos Braspag
+  - AntiFraude
 language_tabs:
   json: JSON
   html: HTML
