@@ -5,7 +5,7 @@ description: Integração técnica Gateway Braspag
 search: true
 categories: manual
 tags:
-  - Documentos Braspag
+  - Pagador
 language_tabs:
   json: JSON
 ---
