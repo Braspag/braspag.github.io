@@ -1,11 +1,11 @@
 ---
 layout: tutorial
-title: Cartão Protegido
+title: Manual de integração
 description: Integração técnica Tokenização Braspag
 search: true
 categories: tutorial
 tags:
-  - Documentos Braspag
+  - Cartão Protegido
 ---
 
 # Introdução ao Cartão Protegido
