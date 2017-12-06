@@ -1,11 +1,11 @@
 ---
 layout: manual
-title: POS-Virtual Braspag
+title: Manual de Utilização
 description: Como utilizar o POS-Virtual Braspag
 search: true
 categories: manual
 tags:
-  - Documentos Braspag
+  - POS-Virtual
 ---
 
 # Criar Grupos
