@@ -1,11 +1,11 @@
 ---
 layout: manual
-title: Conciliador
+title: Manual de Arquivos
 description: Integração técnica
 search: true
 categories: manual
 tags:
-  - Documentos Braspag
+  - Conciliador
 language_tabs:
   xml: XML
 ---
