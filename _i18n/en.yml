@@ -1,0 +1,19 @@
+global:
+  tagline: English
+  github: GitHub
+  contact: Contact
+  languages: Languages
+  support: Help
+  toggle_code: Toggle
+  toggle_right: Toggle
+  toggle_left: Toggle
+  sidebar: left column
+  darkbox: right column
+  complementary: Complementary materials
+  search: Search
+  home: Home
+  need_help_title: Need Help?
+  need_help_description: If you didn't find your answer, <a href="http://www.braspag.com.br/fale-conosco/">send us a message</a>
+langs:
+  en: English
+  pt: Português
