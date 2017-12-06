@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Documentações e tutoriais</title>
-    <link href="/atom.xml" rel="self"/>
-    <link href="/"/>
-    <logo>/assets/images/logo.png</logo>
-    <icon>/assets/favicon.ico</icon>
-    <updated>2017-12-06T10:00:36-02:00</updated>
-    <id>/</id>
+    <link href="https://braspag.github.io//atom.xml" rel="self"/>
+    <link href="https://braspag.github.io//"/>
+    <logo>https://braspag.github.io//assets/images/logo.png</logo>
+    <icon>https://braspag.github.io//assets/favicon.ico</icon>
+    <updated>2017-12-06T12:12:20+00:00</updated>
+    <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
@@ -15,16 +15,16 @@
     <entry>
         <title>POS-Virtual Braspag</title>
         <category term="manual" />
-        <link href="/manual/braspag-pos-virtual"/>
-        <updated>2017-07-26T00:00:00-03:00</updated>
-        <id>/manual/braspag-pos-virtual</id>
+        <link href="https://braspag.github.io//manual/braspag-pos-virtual"/>
+        <updated>2017-07-26T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//manual/braspag-pos-virtual</id>
         <content type="html">&lt;h1 id=&quot;criar-grupos&quot;&gt;Criar Grupos&lt;/h1&gt;
 
 &lt;p&gt;É necessário criar pelo menos um grupo para que as vendas sejam realizadas no POS Virtual. O grupo determina quais são as pemissões que um determinado operador possui.&lt;/p&gt;
 
 &lt;p&gt;Para criar um grupo, acesse Configurações &amp;gt; Grupos, e preencha corretamente os campos identificados abaixo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/criargrupos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/criargrupos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -114,7 +114,7 @@
 
 &lt;p&gt;Acesse Configurações &amp;gt; Operadores, e preencha corretamente o forumulário abaixo. Assim que os dados forem submetidos, um e-mail com as instruções será enviado no endereço cadastrado.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/cadastraroperador.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/cadastraroperador.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -157,7 +157,7 @@
 
 &lt;p&gt;Para a criação de um novo pedido, o usuário deverá acessar a tela através do menu:  POS Virtual -&amp;gt; Realizar Venda&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/menucriarpedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/menucriarpedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;passo-a-passo&quot;&gt;Passo a Passo&lt;/h2&gt;
 
@@ -173,7 +173,7 @@
 O campo de e-mail é opcional, e pode ser configurado para ser exibido na tela de criação de um novo pedido no momento do setup do seu POS Virtual.
 Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/camposdadosdopedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosdopedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -218,7 +218,7 @@ Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
 Os campos com os dados de endereço de entrega são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;br /&gt;
 Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/camposdadosendereco.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosendereco.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -293,7 +293,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/dadosdarecorrencia1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -328,7 +328,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/dadosdarecorrencia2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -368,7 +368,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/dadosdarecorrencia3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -408,7 +408,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Os campos com os dados de endereço de cobrança são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/camposdadosenderecocobranca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosenderecocobranca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -468,7 +468,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Para o campo meio de pagamento, as bandeiras estarão disponíveis de acordo com as opções de meios de pagamentos configurados para o seu POS Virtual.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/dadospagamento.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadospagamento.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -525,13 +525,13 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;O botão “limpar”, limpa todos os campos da tela de criação de um novo pedido.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/btnpagarlimpar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/btnpagarlimpar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;lista-de-pedidos&quot;&gt;Lista de pedidos&lt;/h1&gt;
 
 &lt;p&gt;Conforme imagem abaixo, nesta sessão serão exibidos todos os pedidos realizados pelo operador:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/listapedidos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/listapedidos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Acima da lista de pedidos, existem duas legendas com informações dos totais. Estas representam o valor total pago e o valor total pendente de captura.&lt;/p&gt;
 
@@ -557,7 +557,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Caso a opção seja por captura parcial no setup do seu POS Virtual, o usuário ao clicar no link “Capturar”, a tela abaixo será exibida, deixando assim o usuário escolher o valor a ser capturado.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/capturar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/capturar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;lt;aside class=”notice)Obs.: A ação de capturar só poderá ocorrer uma única vez, então caso seja realizada uma captura parcial conforme exemplo acima, os outros R$ 50,00 restantes não poderá ser mais capturado, disponibilizando novamente esses R$ 50,00 no limite do cliente. &amp;lt;/aside&amp;gt;&lt;/p&gt;
 
@@ -578,7 +578,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Será exibida uma tela de confirmação do cancelamento conforme imagem abaixo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/cancelar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/cancelar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;imprimir&quot;&gt;Imprimir&lt;/h2&gt;
 
@@ -586,16 +586,16 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;A impressão terá os detalhes do pedido conforme imagem abaixo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/posvirtual/imprimir.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/imprimir.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </content>
     </entry>
     
     <entry>
         <title>Pagador</title>
         <category term="manual" />
-        <link href="/manual/braspag-pagador"/>
-        <updated>2017-07-26T00:00:00-03:00</updated>
-        <id>/manual/braspag-pagador</id>
+        <link href="https://braspag.github.io//manual/braspag-pagador"/>
+        <updated>2017-07-26T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//manual/braspag-pagador</id>
         <content type="html">&lt;h1 id=&quot;introdução-ao-pagador-api&quot;&gt;Introdução ao Pagador API&lt;/h1&gt;
 
 &lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.&lt;/p&gt;
@@ -14948,9 +14948,9 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
     <entry>
         <title>Conciliador</title>
         <category term="manual" />
-        <link href="/manual/braspag-conciliador"/>
-        <updated>2017-07-26T00:00:00-03:00</updated>
-        <id>/manual/braspag-conciliador</id>
+        <link href="https://braspag.github.io//manual/braspag-conciliador"/>
+        <updated>2017-07-26T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//manual/braspag-conciliador</id>
         <content type="html">&lt;h1 id=&quot;arquivos-de-vendas-externas---csv&quot;&gt;Arquivos de vendas Externas - CSV&lt;/h1&gt;
 
 &lt;h2 id=&quot;arquivo-de-transações-para-upload&quot;&gt;Arquivo de Transações para Upload&lt;/h2&gt;
@@ -15185,7 +15185,7 @@ As informações são guardadas em três tipos de registros, Header, Transação
   &lt;li&gt;Localize o botão &lt;strong&gt;“Upload de arquivos de Transações”&lt;/strong&gt;, ao clicar, aparecerá a seguinte tela:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/conciliador/upload.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/conciliador/upload.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Agora basta selecionar a loja, e realizar o upload escolhendo o arquivo que deseja transmitir de sua máquina. Para iniciar a transmissão click em “Efetuar upload”.&lt;/p&gt;
 
@@ -15200,7 +15200,7 @@ Porém para que seja possível a realização da automação, esse processo exig
   &lt;li&gt;A Braspag terá acesso liberado para se conectar e realizar as baixas&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/conciliador/fluxo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/conciliador/fluxo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;transferência-de-arquivos-automática-via-webservice&quot;&gt;Transferência de arquivos automática via Webservice:&lt;/h3&gt;
 
@@ -15268,11 +15268,11 @@ Caso o cliente queira codificar/decodificar um conteúdo como teste, ele pode ac
 
 &lt;h4 id=&quot;request&quot;&gt;Request&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/conciliador/request.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/conciliador/request.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;response&quot;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/conciliador/response.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/conciliador/response.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;tipos-de-erro&quot;&gt;Tipos de erro&lt;/h2&gt;
 
@@ -15319,7 +15319,7 @@ Caso o cliente queira codificar/decodificar um conteúdo como teste, ele pode ac
 
 &lt;h3 id=&quot;exemplo&quot;&gt;Exemplo&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/conciliador/error.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/conciliador/error.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;arquivos-fluxo-de-caixa-20---xml&quot;&gt;Arquivos Fluxo de Caixa 2.0 - XML&lt;/h1&gt;
 
@@ -17251,7 +17251,7 @@ xsd&lt;/p&gt;
 Esta classe pode ser inserida em um projeto na linguagem C#, e com algumas alterações pode representar o conteúdo do arquivo por meio de deserialização. &lt;br /&gt;
 Consulte o suporte de sua linguagem de desenvolvimento para verificar se a mesma possui algum tipo de automatização para interpretar a leitura do arquivo em XML. Isto pode facilitar seu processo de desenvolvimento e aprendizado do layout do mesmo&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/conciliador/xml20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/conciliador/xml20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;arquivos-fluxo-de-caixa-20---csv&quot;&gt;Arquivos Fluxo de Caixa 2.0 - CSV&lt;/h1&gt;
 
@@ -19146,16 +19146,16 @@ xsd&lt;/p&gt;
 Esta classe pode ser inserida em um projeto na linguagem C#, e com algumas alterações pode representar o conteúdo do arquivo por meio de deserialização. &lt;br /&gt;
 Consulte o suporte de sua linguagem de desenvolvimento para verificar se a mesma possui algum tipo de automatização para interpretar a leitura do arquivo em XML. Isto pode facilitar seu processo de desenvolvimento e aprendizado do layout do mesmo&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/conciliador/xml20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/conciliador/xml20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </content>
     </entry>
     
     <entry>
         <title>Cartão Protegido</title>
         <category term="tutorial" />
-        <link href="/tutorial/braspag-cartao-protegido"/>
-        <updated>2017-07-26T00:00:00-03:00</updated>
-        <id>/tutorial/braspag-cartao-protegido</id>
+        <link href="https://braspag.github.io//tutorial/braspag-cartao-protegido"/>
+        <updated>2017-07-26T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//tutorial/braspag-cartao-protegido</id>
         <content type="html">&lt;h1 id=&quot;introdução-ao-cartão-protegido&quot;&gt;Introdução ao Cartão Protegido&lt;/h1&gt;
 
 &lt;p&gt;A plataforma do &lt;strong&gt;CARTÃO PROTEGIDO&lt;/strong&gt; é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
@@ -19198,7 +19198,7 @@ Segurança).&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. &lt;/aside&gt;
 
-&lt;h1 id=&quot;parâmetro-justclickalias&quot;&gt;&lt;strong&gt;PARÂMETRO&lt;/strong&gt; JustClickAlias&lt;/h1&gt;
+&lt;h1 id=&quot;parÂmetro-justclickalias&quot;&gt;&lt;strong&gt;PARÂMETRO&lt;/strong&gt; JustClickAlias&lt;/h1&gt;
 
 &lt;p&gt;Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. O cliente poderá, no momento do salvamento do cartão, criar um Alias (apelido) que identificará esse cartão na Plataforma CARTÃO PROTEGIDO. Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. Para isso, o lojista deveria indicar que o JustClickKey está desabilitado. Dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.&lt;/p&gt;
 
@@ -19275,7 +19275,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;fluxo-de-autorização-via-plataforma-cartão-protegido&quot;&gt;FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO&lt;/h1&gt;
+&lt;h1 id=&quot;fluxo-de-autorizaÇÃo-via-plataforma-cartÃo-protegido&quot;&gt;FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO&lt;/h1&gt;
 
 &lt;p&gt;Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.&lt;/p&gt;
 
@@ -19295,15 +19295,15 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
   &lt;li&gt;Receber o resultado da autorização&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/cartaoprotegido/autorizacaocomopcaosalvarcartao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/autorizacaocomopcaosalvarcartao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;fluxo-de-autorização-via-pagador&quot;&gt;FLUXO DE AUTORIZAÇÃO VIA PAGADOR&lt;/h1&gt;
+&lt;h1 id=&quot;fluxo-de-autorizaÇÃo-via-pagador&quot;&gt;FLUXO DE AUTORIZAÇÃO VIA PAGADOR&lt;/h1&gt;
 
 &lt;p&gt;Abaixo estão representados os fluxos de uma requisição para salvar um cartão de um cliente durante uma venda e de uma compra via CARTÃO PROTEGIDO, ambas utilizando a integração PAGADOR/CARTÃO PROTEGIDO&lt;/p&gt;
 
-&lt;h2 id=&quot;autorização-com-opção-salvar-cartão&quot;&gt;AUTORIZAÇÃO COM OPÇÃO SALVAR CARTÃO&lt;/h2&gt;
+&lt;h2 id=&quot;autorizaÇÃo-com-opÇÃo-salvar-cartÃo&quot;&gt;AUTORIZAÇÃO COM OPÇÃO SALVAR CARTÃO&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/cartaoprotegido/pgautorizacaocomopcaosalvarcartao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/pgautorizacaocomopcaosalvarcartao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro SaveCreditCard;&lt;/li&gt;
@@ -19312,9 +19312,9 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
   &lt;li&gt;Como resultado, o PAGADOR envia resposta da autorização e do armazenamento, ao cliente;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;autorização-com-cartão-já-salvo&quot;&gt;AUTORIZAÇÃO COM CARTÃO JÁ SALVO&lt;/h2&gt;
+&lt;h2 id=&quot;autorizaÇÃo-com-cartÃo-jÁ-salvo&quot;&gt;AUTORIZAÇÃO COM CARTÃO JÁ SALVO&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/cartaoprotegido/pgautorizacaocomcartaosalvo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/pgautorizacaocomcartaosalvo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro CredicardToken;&lt;/li&gt;
@@ -19325,15 +19325,15 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Note que toda a comunicação é feita pelo estabelecimento através da plataforma PAGADOR. Para obter todas as informações sobre os métodos dos Webserivces e seus parâmetros, assim como aqueles da integração via Post, solicite os devidos manuais da plataforma PAGADOR.&lt;/aside&gt;
 
-&lt;h2 id=&quot;autorização-via-post&quot;&gt;AUTORIZAÇÃO VIA POST&lt;/h2&gt;
+&lt;h2 id=&quot;autorizaÇÃo-via-post&quot;&gt;AUTORIZAÇÃO VIA POST&lt;/h2&gt;
 
 &lt;p&gt;Abaixo, fluxo de autorização via Post. Mostrando uma transação onde o cliente possui a chave gerada pelo Cartão Protegido e outra onde essa chave ainda irá ser criada e enviada ao cliente (CredicardToken).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/cartaoprotegido/pgautorizacaopost.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/pgautorizacaopost.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;O parâmetro “CreditCardToken” retornado pelo PAGADOR é a própria “JustClickKey” do CARTÃO PROTEGIDO.&lt;/aside&gt;
 
-&lt;h1 id=&quot;código-de-segurança-cvv&quot;&gt;CÓDIGO DE SEGURANÇA (CVV)&lt;/h1&gt;
+&lt;h1 id=&quot;cÓdigo-de-seguranÇa-cvv&quot;&gt;CÓDIGO DE SEGURANÇA (CVV)&lt;/h1&gt;
 
 &lt;p&gt;O código de segurança é obrigatório para que uma autorização, em compras não presenciais, seja aceita pelo banco emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. Por isso, as regras da indústria de cartões (PCI) permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança. Este deve ser sempre solicitado no ato da compra para validação. Sendo a BRASPAG uma empresa PCI compliance, ela não armazena o código de segurança, que deverá ser solicitado pelo estabelecimento no ato da confirmação da venda via CARTÃO PROTEGIDO, caso seja obrigatório o uso da Adquirente em questão.&lt;/p&gt;
 
@@ -19341,7 +19341,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Esta condição de recorrência é concedida exclusivamente pelas Adquirentes, não dependendo da BRASPAG.&lt;/aside&gt;
 
-&lt;h1 id=&quot;dicas-de-implementação&quot;&gt;DICAS DE IMPLEMENTAÇÃO&lt;/h1&gt;
+&lt;h1 id=&quot;dicas-de-implementaÇÃo&quot;&gt;DICAS DE IMPLEMENTAÇÃO&lt;/h1&gt;
 
 &lt;h2 id=&quot;implementando-justclickshop-compra-com-1-clique&quot;&gt;IMPLEMENTANDO JUSTCLICKSHOP (COMPRA COM 1 CLIQUE)&lt;/h2&gt;
 
@@ -19354,7 +19354,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
   &lt;li&gt;Autorizar direto a transação na Operadora via PAGADOR (sendo este o mais indicado, por garantir maior segurança dos dados).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;boas-práticas&quot;&gt;BOAS PRÁTICAS&lt;/h3&gt;
+&lt;h3 id=&quot;boas-prÁticas&quot;&gt;BOAS PRÁTICAS&lt;/h3&gt;
 
 &lt;p&gt;Salvar o número do cartão mascarado para apresentar ao cliente qual cartão ele tem habilitado para “a compra com 1 clique” no site;&lt;/p&gt;
 
@@ -19365,7 +19365,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
   &lt;li&gt;Controlar variáveis de sessão para evitar que o usuário (login do cliente) permaneça logado no site e outra pessoa acesse depois fazendo “compras via 1 clique” com este login (ex: usuários conectados em lan houses).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;implementando-cobrança-recorrente&quot;&gt;IMPLEMENTANDO COBRANÇA RECORRENTE&lt;/h2&gt;
+&lt;h2 id=&quot;implementando-cobranÇa-recorrente&quot;&gt;IMPLEMENTANDO COBRANÇA RECORRENTE&lt;/h2&gt;
 
 &lt;p&gt;Para cada pedido a ser cobrado com recorrência de cartão de crédito, o estabelecimento deve salvar os dados do cartão de crédito na plataforma do Cartão Protegido e receber a chave (JustClickKey) que representa aquele “pedido-cartão”. Chegado o dia da cobrança da recorrência, basta que o método de autorização de cartão seja chamado, passando os dados para pagamento e, ao invés dos dados do cartão (número + data de validade), a chave que o representa (JustClickKey ou JustClickAlias).&lt;/p&gt;
 
@@ -19375,7 +19375,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
 
 &lt;p&gt;Se o estabelecimento optar por não processar a autorização da transação pela integração PAGADOR/CARTÃO PROTEGIDO, é fundamental que em nenhum momento o número do cartão seja gravado (persistido em banco ou em seção do browser) para que a segurança das informações seja mantida.&lt;/p&gt;
 
-&lt;h1 id=&quot;métodos-do-cartão-protegido&quot;&gt;MÉTODOS DO CARTÃO PROTEGIDO&lt;/h1&gt;
+&lt;h1 id=&quot;mÉtodos-do-cartÃo-protegido&quot;&gt;MÉTODOS DO CARTÃO PROTEGIDO&lt;/h1&gt;
 
 &lt;p&gt;Abaixo estão representados os fluxos dos webmethods da plataforma do CARTÃO PROTEGIDO, para execução dos procedimentos via webservice descritos nas seções anteriores.&lt;/p&gt;
 
@@ -19383,7 +19383,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
 
 &lt;p&gt;O método SaveCreditCard recebe o objeto SaveCreditCardRequest e deve ser chamado para salvar os dados de uma cartão de crédito e receber a chave identificadora (token) da dupla “cartão de crédito-cliente” para futuras autorizações via “compra com 1 clique”. Não se deve informar RequestId repetidos para essa operação, pois essa informação será necessária para recuperar o JustClickKey na utilização do método GetJustClickKey().&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/cartaoprotegido/savecreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/savecreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -19493,11 +19493,11 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;recuperação-do-número-do-cartão-de-crédito-com-retorno-mascarado&quot;&gt;RECUPERAÇÃO do número do Cartão de Crédito, com retorno Mascarado&lt;/h2&gt;
+&lt;h2 id=&quot;recuperaÇÃo-do-número-do-cartão-de-crédito-com-retorno-mascarado&quot;&gt;RECUPERAÇÃO do número do Cartão de Crédito, com retorno Mascarado&lt;/h2&gt;
 
 &lt;p&gt;O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito de forma PCI Compliance, ou seja, apenas o número mascarado do cartão é retornado no método GetMaskedCreditCardResponse, juntamente com as demais informações não sensíveis.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/cartaoprotegido/getcreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/getcreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -19605,7 +19605,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
 
 &lt;p&gt;O método GetCreditCard recebe o objeto GetCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito, incluindo o número aberto do cartão. Em geral, esse método será utilizado apenas quando se desejar autorizar a transação via outra plataforma que não o PAGADOR. Este método deve ser usado com muito cuidado por ter informações sensíveis.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/cartaoprotegido/getcreditcardraw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/getcreditcardraw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-2&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -19720,7 +19720,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
 &lt;p&gt;O método GetJustClickKey recebe o objeto GetJustClickKeyRequest, e deve ser chamado para consultar uma JustClickKey. Em geral, esse método será utilizado apenas quando o lojista, por algum motivo, perder a JustClickKey
 de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) vezes consecutivas passando um ‘SaveCreditCardRequestId’ inválido, a loja ficará impossibilitada de utilizar o método até que entre em contato com o suporte da Braspag para efetuar a liberação.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/cartaoprotegido/getjustclickkey.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/getjustclickkey.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-3&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -19804,7 +19804,7 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
 
 &lt;p&gt;O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/cartaoprotegido/invalidatecreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/invalidatecreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-4&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -20012,9 +20012,9 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     <entry>
         <title>Antifraude</title>
         <category term="manual" />
-        <link href="/manual/antifraude"/>
-        <updated>2017-07-26T00:00:00-03:00</updated>
-        <id>/manual/antifraude</id>
+        <link href="https://braspag.github.io//manual/antifraude"/>
+        <updated>2017-07-26T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//manual/antifraude</id>
         <content type="html">&lt;h1 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h1&gt;
 
 &lt;p&gt;Esta página descreve como se autenticar na plataforma Antifraude Gateway, para que seja possivel realizar Análises de transações.&lt;/p&gt;
@@ -20036,7 +20036,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
   &lt;li&gt;O token de acesso é obtido através do fluxo de autorização &lt;strong&gt;Client Credentials&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/af/antifraudeauthentication.png&quot; alt=&quot;Obtenção de Tokens de Acesso&quot; class=&quot;centerimg&quot; title=&quot;Fluxo para obtenção do Token de Acesso &quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/antifraudeauthentication.png&quot; alt=&quot;Obtenção de Tokens de Acesso&quot; class=&quot;centerimg&quot; title=&quot;Fluxo para obtenção do Token de Acesso &quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Fluxo de obtenção do Token de Acesso:&lt;/p&gt;
 
@@ -21756,7 +21756,7 @@ Para maior detalhes de como realizar o GET, consultar em Análise a sessão &lt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/af/postnotification.png&quot; alt=&quot;Notificação de Mudança de Status&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/postnotification.png&quot; alt=&quot;Notificação de Mudança de Status&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;hosts-2&quot;&gt;Hosts&lt;/h2&gt;
 
@@ -21794,7 +21794,7 @@ Para maior detalhes de como realizar o GET, consultar em Análise a sessão &lt;
 
 &lt;h2 id=&quot;como-funciona&quot;&gt;Como funciona?&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/af/fingerprint.png&quot; alt=&quot;Fluxo&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprint.png&quot; alt=&quot;Fluxo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a &lt;em&gt;caixa preta&lt;/em&gt;&lt;br /&gt;
 2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo &lt;em&gt;hidden&lt;/em&gt;&lt;br /&gt;
@@ -21897,14 +21897,14 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 &lt;p&gt;&lt;strong&gt;Sobre a integração&lt;/strong&gt;&lt;br /&gt;
 Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma &lt;em&gt;caixa preta&lt;/em&gt; que contém todas as informações do dispositivo disponíveis.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/braspag/af/fingerprintmobile.png&quot; alt=&quot;Fluxo&quot; class=&quot;centerimg&quot; title=&quot;Fluxo da coleta do fingerprint mobile&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintmobile.png&quot; alt=&quot;Fluxo&quot; class=&quot;centerimg&quot; title=&quot;Fluxo da coleta do fingerprint mobile&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Integrando com aplicativos iOS&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Arquivos e requisitos de integração do iOS&lt;br /&gt;
-&lt;img src=&quot;/images/braspag/af/fingerprintios1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração iOS&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração iOS&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Esta versão suporta iOS 5.1.1 ou superior nos seguintes dispositivos:&lt;br /&gt;
         iPhone 3GS e posterior&lt;br /&gt;
@@ -21917,16 +21917,16 @@ Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações s
 
     &lt;p&gt;1 - Baixe e descompacte o SDK&lt;br /&gt;
   2 - No Xcode, arraste &lt;em&gt;iovation.framework&lt;/em&gt; na área de navegação do seu projeto&lt;br /&gt;
-&lt;img src=&quot;/images/braspag/af/fingerprintios2.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios2.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
   3 - Na caixa de diálogo que aparece:&lt;br /&gt;
       Selecione &lt;em&gt;Copy items if needed&lt;/em&gt; para copiar o framework para o diretório do projeto&lt;br /&gt;
       Marque a caixa de seleção para os destinos nos quais você planeja usar o framework&lt;br /&gt;
-&lt;img src=&quot;/images/braspag/af/fingerprintios3.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios3.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
   4 - Clique em Finish&lt;br /&gt;
   5 - Adicione os frameworks a seguir ao destino da aplicação no XCode:&lt;br /&gt;
       - &lt;em&gt;ExternalAccessory.framework&lt;/em&gt;. Se você verificar que o Wireless Accessory Configuration está ativado no Xcode 6 ou superior e não precisa, desativa e adicione novamente o ExternalAccessory.framework&lt;br /&gt;
       - &lt;em&gt;CoreTelephony.framework&lt;/em&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/braspag/af/fingerprintios4.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios4.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
   6 - Opcionalmente, adicione esses frameworks se o seu aplicativo fizer uso deles:&lt;br /&gt;
       - &lt;em&gt;AdSupport.framework&lt;/em&gt;. Se o seu aplicativo exibe anúncios&lt;br /&gt;
       Obs.: Não incluir se o seu aplicativo não utilizar anúncios, pois a App Store rejeita aplicativos que incluem o framework mas não usam anúncios&lt;br /&gt;
@@ -21981,7 +21981,7 @@ A &lt;em&gt;caixa preta&lt;/em&gt; que retornou de &lt;em&gt;+ioBegin&lt;/em&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Arquivos e requisitos de integração do Android&lt;br /&gt;
-&lt;img src=&quot;/images/braspag/af/fingerprintandroid.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;NOTA&lt;/strong&gt;&lt;br /&gt;
 Se as permissões listadas não são necessárias pelo aplicativo, os valores obtidos obtidos utilizando essas permissões serão ignorados. As permissões não são necessárias para obter uma &lt;em&gt;caixa preta&lt;/em&gt;, mas ajudam a obter mais informações do dispositivo.&lt;/p&gt;
@@ -21999,7 +21999,7 @@ Se as permissões listadas não são necessárias pelo aplicativo, os valores ob
   4 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; New Module&lt;/em&gt;. Expande &lt;em&gt;More Modules&lt;/em&gt; e escolha &lt;em&gt;Import existing .jar or .aar package&lt;/em&gt;
   5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em &lt;em&gt;Finish&lt;/em&gt;
   6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle&lt;br /&gt;
-&lt;img src=&quot;/images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Usando a função ioBegin&lt;/p&gt;
@@ -22054,7 +22054,7 @@ Se a opção para executar o módulo não aparecer, selecione &lt;em&gt;File -&a
 7 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; New Module&lt;/em&gt;. Expande &lt;em&gt;More Modules&lt;/em&gt; e escolha &lt;em&gt;Import existing .jar or .aar package&lt;/em&gt;&lt;br /&gt;
 8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em &lt;em&gt;Finish&lt;/em&gt;&lt;br /&gt;
 9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle&lt;br /&gt;
-&lt;img src=&quot;/images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;br /&gt;
 10 - Abra a pasta DevicePrintSampleActivity&lt;br /&gt;
 11 - Na opção de navegação do projeto, abra &lt;em&gt;src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java&lt;/em&gt;&lt;br /&gt;
 12 - Clique com o botão direito e selecione &lt;em&gt;Run DevicePrintSampleAct&lt;/em&gt;&lt;br /&gt;
@@ -22511,9 +22511,9 @@ Altera o status da transação&lt;/p&gt;
     <entry>
         <title>Split de Pagamentos</title>
         <category term="manual" />
-        <link href="/manual/split"/>
-        <updated>2003-03-03T00:00:00-03:00</updated>
-        <id>/manual/split</id>
+        <link href="https://braspag.github.io//manual/split"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//manual/split</id>
         <content type="html">&lt;h1 id=&quot;o-que-é-o-split-de-pagamentos-&quot;&gt;O que é o Split de Pagamentos ?&lt;/h1&gt;
 
 &lt;p&gt;O Split de Pagamentos permite a divisão de uma transação entre diferentes participantes de uma venda.&lt;/p&gt;

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Documentações e tutoriais</title>
-    <link href="/en/atom.xml" rel="self"/>
-    <link href="/en/"/>
-    <logo>/en/assets/images/logo.png</logo>
-    <icon>/en/assets/favicon.ico</icon>
-    <updated>2017-12-06T10:00:38-02:00</updated>
-    <id>/en/</id>
+    <link href="https://braspag.github.io//en/atom.xml" rel="self"/>
+    <link href="https://braspag.github.io//en/"/>
+    <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
+    <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
+    <updated>2017-12-06T12:12:26+00:00</updated>
+    <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
