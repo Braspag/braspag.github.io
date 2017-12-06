@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Pagador
+title: Manual de integração
 description: Integração técnica Gateway Braspag
 search: true
 categories: manual
