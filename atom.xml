@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-06T20:56:28+00:00</updated>
+    <updated>2017-12-06T20:59:25+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -14946,7 +14946,7 @@ diferentes.&lt;/p&gt;
     </entry>
     
     <entry>
-        <title>Conciliador</title>
+        <title>Manual de Arquivos</title>
         <category term="manual" />
         <link href="https://braspag.github.io//manual/braspag-conciliador"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
@@ -19151,7 +19151,7 @@ Consulte o suporte de sua linguagem de desenvolvimento para verificar se a mesma
     </entry>
     
     <entry>
-        <title>Cartão Protegido</title>
+        <title>Manual de integração</title>
         <category term="tutorial" />
         <link href="https://braspag.github.io//tutorial/braspag-cartao-protegido"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
