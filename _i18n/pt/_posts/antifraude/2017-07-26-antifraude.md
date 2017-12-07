@@ -17,7 +17,7 @@ Esta página descreve como se autenticar na plataforma Antifraude Gateway, para 
 
 A API do Antifraude Gateway utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos.
 
-Este documento descreve o fluxo necessário para que aplicações **cliente** obtenham tokens de acesso válidos para uso na plataforma. Caso deseje mais informações sobre o protocolo OAuth 2.0, consulte [https://oauth.net/2/](https://oauth.net/2/){:target="_blank"}.  
+Este documento descreve o fluxo necessário para que aplicações **cliente** obtenham tokens de acesso válidos para uso na plataforma. Caso deseje mais informações sobre o protocolo OAuth 2.0, consulte [https://oauth.net/2/](https://oauth.net/2/){:target="_blank"}
 
 ## Hosts
 
