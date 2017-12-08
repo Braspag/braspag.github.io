@@ -94,9 +94,28 @@ Exemplo:
 |-|-|
 |`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway.|
 |`token_type`|Indica o valor do tipo de token.|
-|`expires_in`|Por quanto tempo o token de acesso é válido (em segundos). Neste caso, quando o token expirar, é necessário obter um novo token.|
+|`expires_in`|Expiração do o token de acesso, em segundos. Neste caso, quando o token expirar, é necessário obter um novo token.|
 
 # Análise de fraude
+
+A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todos os dados. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade.
+
+||||ReDShield||Cybersource||
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|Obrigatório|Tamanho|
+|-|-|-|-|-|-|-|
+|`MerchantOrderId` |Número do pedido da loja.|`string`|`sim`|`100`|`sim`|`100`|
+|`TotalOrderAmount`|Valor total do pedido em centavos.<br>
+                    Ex: 150000 = r$ 1.500,00|`long`|`sim`|`100`|`sim`|`100`|
+|`TransactionAmount`|Valor da transação em centavos.|`string`   |`required` |`100`|`required` | `100`|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
 
 **MerchantOrderId**{:.custom-attrib} `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Número do Pedido da Loja. `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
