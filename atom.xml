@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-08T18:53:58+00:00</updated>
+    <updated>2017-12-08T19:36:56+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20015,82 +20015,89 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
         <link href="https://braspag.github.io//manual/antifraude"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
         <id>https://braspag.github.io//manual/antifraude</id>
-        <content type="html">&lt;h1 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
 
-&lt;p&gt;Esta página descreve como se autenticar na plataforma Antifraude Gateway, para que seja possivel realizar Análises de transações.&lt;/p&gt;
+&lt;p&gt;Antifraude Gateway é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por ser realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.&lt;/p&gt;
 
-&lt;p&gt;A API do Antifraude Gateway utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos.&lt;/p&gt;
+&lt;p&gt;A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.&lt;/p&gt;
 
-&lt;p&gt;Este documento descreve o fluxo necessário para que aplicações &lt;strong&gt;cliente&lt;/strong&gt; obtenham tokens de acesso válidos para uso na plataforma. Caso deseje mais informações sobre o protocolo OAuth 2.0, consulte &lt;a href=&quot;https://oauth.net/2/&quot; target=&quot;_blank&quot;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h1 id=&quot;objetivo&quot;&gt;Objetivo&lt;/h1&gt;
+
+&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
+
+&lt;p&gt;Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
+
+&lt;h1 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h1&gt;
+
+&lt;h2 id=&quot;tokens-de-acesso&quot;&gt;Tokens de Acesso&lt;/h2&gt;
+
+&lt;p&gt;A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na plataforma.&lt;/p&gt;
+
+&lt;h2 id=&quot;obtenção-do-token-de-acesso&quot;&gt;Obtenção do token de acesso&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Test&lt;/strong&gt; https://authhomolog.braspag.com.br&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Live&lt;/strong&gt; https://auth.braspag.com.br&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;fluxo-para-obtenção-do-token-de-acesso&quot;&gt;Fluxo para obtenção do token de acesso&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;O token de acesso é obtido através do fluxo de autorização &lt;strong&gt;Client Credentials&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;API Antifraude Gateway&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/antifraudeauthentication.png&quot; alt=&quot;Obtenção de Tokens de Acesso&quot; class=&quot;centerimg&quot; title=&quot;Fluxo para obtenção do Token de Acesso &quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Fluxo de obtenção do Token de Acesso:&lt;/p&gt;
-
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;A &lt;em&gt;Aplicação Cliente&lt;/em&gt;, informa à API do &lt;em&gt;OAuth Braspag&lt;/em&gt; suas credenciais.&lt;/p&gt;
+    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, informa à API &lt;strong&gt;BraspagAuth&lt;/strong&gt; sua credencial.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;O &lt;em&gt;OAuth Braspag&lt;/em&gt; valida a credencial recebida. Se for válida, retorna o token de acesso para a &lt;em&gt;Aplicação Cliente&lt;/em&gt;.&lt;/p&gt;
+    &lt;p&gt;O &lt;strong&gt;BraspagAuth&lt;/strong&gt; valida a credencial recebida. Se for válida, retorna o token de acesso para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;API Antifraude Gateway Braspag&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Se o token de acesso for válido, a requisição é processada e os dados são retornados para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Fluxo de Análise:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;A &lt;em&gt;Aplicação Cliente&lt;/em&gt; informa o token de acesso no cabeçalho da requisições HTTP de Análise de Fraude.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Se o token de acesso for válido, a requisição é processada e a resposta de análise é retornada &lt;em&gt;Aplicação Cliente&lt;/em&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;exemplo-de-requisição-http&quot;&gt;Exemplo de requisição HTTP&lt;/h2&gt;
-
-&lt;h3 id=&quot;cenário-i-obtenção-de-token-de-acesso&quot;&gt;Cenário I: Obtenção de token de acesso&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.&lt;br /&gt;
+&lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Para se autenticar com a API do Antifraude, é necessário que sejam previamente criadas as credenciais &lt;strong&gt;user&lt;/strong&gt; e &lt;strong&gt;password&lt;/strong&gt;, as quais deverão ser solicitadas à equipe de implantação da Braspag.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Uma vez em posse dessas credenciais, será necessário “codificá-la” em  Base64, utilizando a convenção &lt;strong&gt;user:password&lt;/strong&gt;.&lt;br /&gt;
-Exemplo:&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;User: &lt;strong&gt;braspagtestes&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Password: &lt;strong&gt;1q2w3e4r&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;String a ser codificada em Base64: &lt;strong&gt;braspagtestes:1q2w3e4r&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção &lt;strong&gt;client_id:client_secret&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;client_id: &lt;strong&gt;braspagtestes&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;client_secret: &lt;strong&gt;1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;String a ser codificada em Base64: &lt;strong&gt;braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Resultado após a codificação: &lt;strong&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;REQUEST:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;https://authhomolog.braspag.com.br/oauth2/token&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://authhomolog.braspag.com.br&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Content-Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;application/x-www-form-urlencoded&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Authorization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Basic {Resultado_Da_String_Codificada_Em_Base64}&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;AntifraudGatewayApp&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Cache-Control&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;no-cache&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;/oauth2/token&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;Host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;{braspagauth endpoint}&lt;/span&gt;
 
-grant_type=client_credentials
+|Header||
+|Key|Value|
+|-|-|
+|`Content-Type`|application/x-www-form-urlencoded|
+|`Authorization`|{resultado_string_codificada_base64}|
+
+|Header||
+|Key|Value|
+|-|-|
+|`scope`|AntifraudGatewayApp|
+|`grant_type`|client_credentials|
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -20119,16 +20126,7 @@ grant_type=client_credentials
 &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1 id=&quot;analise&quot;&gt;Analise&lt;/h1&gt;
-
-&lt;p&gt;Esta página descreve os campos do contrato do Antifraude Gateway, além de conter exemplos de requisições HTTP.&lt;/p&gt;
-
-&lt;h2 id=&quot;hosts-1&quot;&gt;Hosts&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
-&lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
-
-&lt;h2 id=&quot;atributos-do-request&quot;&gt;Atributos do Request&lt;/h2&gt;
+&lt;h1 id=&quot;análise-de-fraude&quot;&gt;Análise de fraude&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;MerchantOrderId&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;100&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
 Número do Pedido da Loja. &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;100&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt;&lt;br /&gt;
@@ -21758,7 +21756,7 @@ Para maior detalhes de como realizar o GET, consultar em Análise a sessão &lt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/postnotification.png&quot; alt=&quot;Notificação de Mudança de Status&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts-2&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h2 id=&quot;hosts&quot;&gt;Hosts&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
@@ -22190,7 +22188,7 @@ ACI / ReD Shield poder recomendar regras para evitar ataques de fraude subsequen
 
 &lt;p&gt;Obs.: O serviço aceita requisição POST com no máximo 100 itens na coleção.&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts-3&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h2 id=&quot;hosts-1&quot;&gt;Hosts&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
@@ -22338,7 +22336,7 @@ Retroalimentação de chargeback&lt;/p&gt;
 2 - Realiza a autorização
 3 - O 3º passo deverá ser a chamada ao a este serviço para associar a transação do Pagador à transação do Antifraude Gateway.&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts-4&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h2 id=&quot;hosts-2&quot;&gt;Hosts&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
@@ -22406,7 +22404,7 @@ Associa a transação do Pagador à transação do Antifraude Gateway&lt;/p&gt;
 
 &lt;p&gt;Serviço para alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject), disponível somente para o provedor Cybersource.&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts-5&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h2 id=&quot;hosts-3&quot;&gt;Hosts&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;

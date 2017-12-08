@@ -117,82 +117,89 @@
             </div>
 
             <div class="post">
-  <h1 id="autenticação">Autenticação</h1>
+  <h1 id="visão-geral">Visão Geral</h1>
 
-<p>Esta página descreve como se autenticar na plataforma Antifraude Gateway, para que seja possivel realizar Análises de transações.</p>
+<p>Antifraude Gateway é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por ser realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.</p>
 
-<p>A API do Antifraude Gateway utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos.</p>
+<p>A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.</p>
 
-<p>Este documento descreve o fluxo necessário para que aplicações <strong>cliente</strong> obtenham tokens de acesso válidos para uso na plataforma. Caso deseje mais informações sobre o protocolo OAuth 2.0, consulte <a href="https://oauth.net/2/" target="_blank">https://oauth.net/2/</a></p>
+<p>A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.</p>
 
-<h2 id="hosts">Hosts</h2>
+<h1 id="objetivo">Objetivo</h1>
+
+<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.</p>
+
+<p>Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.</p>
+
+<h1 id="autenticação">Autenticação</h1>
+
+<h2 id="tokens-de-acesso">Tokens de Acesso</h2>
+
+<p>A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
+
+<p>Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na plataforma.</p>
+
+<h2 id="obtenção-do-token-de-acesso">Obtenção do token de acesso</h2>
 
 <ul>
-  <li><strong>Test</strong> https://authhomolog.braspag.com.br</li>
-  <li><strong>Live</strong> https://auth.braspag.com.br</li>
-</ul>
-
-<h2 id="fluxo-para-obtenção-do-token-de-acesso">Fluxo para obtenção do token de acesso</h2>
-
-<ul>
-  <li>O token de acesso é obtido através do fluxo de autorização <strong>Client Credentials</strong>.</li>
+  <li>O token de acesso é obtido através do fluxo oauth <strong>client_credentials</strong>. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a <strong>Aplicação Cliente</strong>, a <strong>API BraspagAuth</strong> e a <strong>API Antifraude Gateway</strong>.</li>
 </ul>
 
 <p><img src="https://braspag.github.io//images/braspag/af/antifraudeauthentication.png" alt="Obtenção de Tokens de Acesso" class="centerimg" title="Fluxo para obtenção do Token de Acesso " /></p>
 
-<p>Fluxo de obtenção do Token de Acesso:</p>
-
 <ol>
   <li>
-    <p>A <em>Aplicação Cliente</em>, informa à API do <em>OAuth Braspag</em> suas credenciais.</p>
+    <p>A <strong>Aplicação Cliente</strong>, informa à API <strong>BraspagAuth</strong> sua credencial.</p>
   </li>
   <li>
-    <p>O <em>OAuth Braspag</em> valida a credencial recebida. Se for válida, retorna o token de acesso para a <em>Aplicação Cliente</em>.</p>
+    <p>O <strong>BraspagAuth</strong> valida a credencial recebida. Se for válida, retorna o token de acesso para a <strong>Aplicação Cliente</strong>.</p>
+  </li>
+  <li>
+    <p>A <strong>Aplicação Cliente</strong> informa o token de acesso no cabeçalho das requisições HTTP feitas à <strong>API Antifraude Gateway Braspag</strong>.</p>
+  </li>
+  <li>
+    <p>Se o token de acesso for válido, a requisição é processada e os dados são retornados para a <strong>Aplicação Cliente</strong>.</p>
   </li>
 </ol>
 
-<p>Fluxo de Análise:</p>
-
-<ol>
-  <li>
-    <p>A <em>Aplicação Cliente</em> informa o token de acesso no cabeçalho da requisições HTTP de Análise de Fraude.</p>
-  </li>
-  <li>
-    <p>Se o token de acesso for válido, a requisição é processada e a resposta de análise é retornada <em>Aplicação Cliente</em>.</p>
-  </li>
-</ol>
-
-<h2 id="exemplo-de-requisição-http">Exemplo de requisição HTTP</h2>
-
-<h3 id="cenário-i-obtenção-de-token-de-acesso">Cenário I: Obtenção de token de acesso</h3>
+<blockquote>
+  <p>Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.<br />
+<a href="https://suporte.braspag.com.br/hc/pt-br">Suporte Braspag</a></p>
+</blockquote>
 
 <ul>
-  <li>
-    <p>Para se autenticar com a API do Antifraude, é necessário que sejam previamente criadas as credenciais <strong>user</strong> e <strong>password</strong>, as quais deverão ser solicitadas à equipe de implantação da Braspag.</p>
-  </li>
-  <li>
-    <p>Uma vez em posse dessas credenciais, será necessário “codificá-la” em  Base64, utilizando a convenção <strong>user:password</strong>.<br />
-Exemplo:</p>
-  </li>
-  <li>User: <strong>braspagtestes</strong></li>
-  <li>Password: <strong>1q2w3e4r</strong></li>
-  <li>String a ser codificada em Base64: <strong>braspagtestes:1q2w3e4r</strong></li>
+  <li>Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção <strong>client_id:client_secret</strong>.</li>
+</ul>
+
+<p>Exemplo:</p>
+<ul>
+  <li>client_id: <strong>braspagtestes</strong></li>
+  <li>client_secret: <strong>1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
+  <li>String a ser codificada em Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
   <li>Resultado após a codificação: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong></li>
 </ul>
 
-<p><br /></p>
+<h3 id="request">Request</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
 <p><strong>REQUEST:</strong></p>
 
 <div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">
-</span><span class="nf">POST</span> <span class="nn">https://authhomolog.braspag.com.br/oauth2/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">https://authhomolog.braspag.com.br</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic {Resultado_Da_String_Codificada_Em_Base64}</span>
-<span class="na">Scope</span><span class="p">:</span> <span class="s">AntifraudGatewayApp</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-cache</span>
+</span><span class="nf">POST</span> <span class="nn">/oauth2/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{braspagauth endpoint}</span>
 
-grant_type=client_credentials
+|Header||
+|Key|Value|
+|-|-|
+|`Content-Type`|application/x-www-form-urlencoded|
+|`Authorization`|{resultado_string_codificada_base64}|
+
+|Header||
+|Key|Value|
+|-|-|
+|`scope`|AntifraudGatewayApp|
+|`grant_type`|client_credentials|
 
 </code></pre></div></div>
 
@@ -221,16 +228,7 @@ grant_type=client_credentials
 <a href="https://suporte.braspag.com.br/hc/pt-br">Suporte Braspag</a></p>
 </blockquote>
 
-<h1 id="analise">Analise</h1>
-
-<p>Esta página descreve os campos do contrato do Antifraude Gateway, além de conter exemplos de requisições HTTP.</p>
-
-<h2 id="hosts-1">Hosts</h2>
-
-<p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
-<strong>Live</strong> https://risk.braspag.com.br</p>
-
-<h2 id="atributos-do-request">Atributos do Request</h2>
+<h1 id="análise-de-fraude">Análise de fraude</h1>
 
 <p><strong class="custom-attrib">MerchantOrderId</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">100</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
 Número do Pedido da Loja. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">100</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
@@ -1860,7 +1858,7 @@ Para maior detalhes de como realizar o GET, consultar em Análise a sessão <str
 
 <p><img src="https://braspag.github.io//images/braspag/af/postnotification.png" alt="Notificação de Mudança de Status" /></p>
 
-<h2 id="hosts-2">Hosts</h2>
+<h2 id="hosts">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
@@ -2292,7 +2290,7 @@ ACI / ReD Shield poder recomendar regras para evitar ataques de fraude subsequen
 
 <p>Obs.: O serviço aceita requisição POST com no máximo 100 itens na coleção.</p>
 
-<h2 id="hosts-3">Hosts</h2>
+<h2 id="hosts-1">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
@@ -2440,7 +2438,7 @@ Retroalimentação de chargeback</p>
 2 - Realiza a autorização
 3 - O 3º passo deverá ser a chamada ao a este serviço para associar a transação do Pagador à transação do Antifraude Gateway.</p>
 
-<h2 id="hosts-4">Hosts</h2>
+<h2 id="hosts-2">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
@@ -2508,7 +2506,7 @@ Associa a transação do Pagador à transação do Antifraude Gateway</p>
 
 <p>Serviço para alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject), disponível somente para o provedor Cybersource.</p>
 
-<h2 id="hosts-5">Hosts</h2>
+<h2 id="hosts-3">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
