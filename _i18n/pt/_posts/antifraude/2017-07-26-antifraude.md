@@ -104,7 +104,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|Obrigatório|Tamanho|
 |-|-|-|-|-|-|-|
 |`MerchantOrderId` |Número do pedido da loja.|`string`|`sim`|`100`|`sim`|`100`|
-|`TotalOrderAmount`|Valor total do pedido em centavos.  Ex: 150000 = r$ 1.500,00|`long`|`sim`|`100`|`sim`|`100`|
+|`TotalOrderAmount`|Valor total do pedido em centavos. <br/> Ex: 150000 = r$ 1.500,00|`long`|`sim`|`100`|`sim`|`100`|
 |`TransactionAmount`|Valor da transação em centavos.|`string`   |`required` |`100`|`required` | `100`|
 |**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
 |**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
