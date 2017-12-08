@@ -241,25 +241,25 @@
 <table>
   <thead>
     <tr>
-      <th>Key</th>
-      <th>Value</th>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Content-Type</code></td>
-      <td>application/x-www-form-urlencoded</td>
+      <td><code class="highlighter-rouge">access_token</code></td>
+      <td>O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Authorization</code></td>
-      <td>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</td>
+      <td><code class="highlighter-rouge">token_type</code></td>
+      <td>Indica o valor do tipo de token.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">expires_in</code></td>
+      <td>Por quanto tempo o token de acesso é válido (em segundos). Neste caso, quando o token expirar, é necessário obter um novo token.</td>
     </tr>
   </tbody>
 </table>
-
-<ul>
-  <li>Na resposta é importante ressaltar o campo <strong>expires_in</strong>, com o tempo de expiração to access_token em segundos. Quando o token expirar, é necessário consumir o serviço novamente para obter um novo token.</li>
-</ul>
 
 <h1 id="análise-de-fraude">Análise de fraude</h1>
 

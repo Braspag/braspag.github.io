@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-08T20:31:23+00:00</updated>
+    <updated>2017-12-08T22:01:43+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20139,25 +20139,25 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
+      &lt;th&gt;Parâmetro&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;application/x-www-form-urlencoded&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;access_token&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;token_type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Indica o valor do tipo de token.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;expires_in&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Por quanto tempo o token de acesso é válido (em segundos). Neste caso, quando o token expirar, é necessário obter um novo token.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Na resposta é importante ressaltar o campo &lt;strong&gt;expires_in&lt;/strong&gt;, com o tempo de expiração to access_token em segundos. Quando o token expirar, é necessário consumir o serviço novamente para obter um novo token.&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;h1 id=&quot;análise-de-fraude&quot;&gt;Análise de fraude&lt;/h1&gt;
 
