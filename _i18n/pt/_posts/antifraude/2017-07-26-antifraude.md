@@ -98,14 +98,13 @@ Exemplo:
 
 # Análise de fraude
 
-A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todos os dados. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade.
+A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todos os dados. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.
 
 ||||ReDShield||Cybersource||
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|Obrigatório|Tamanho|
 |-|-|-|-|-|-|-|
 |`MerchantOrderId` |Número do pedido da loja.|`string`|`sim`|`100`|`sim`|`100`|
-|`TotalOrderAmount`|Valor total do pedido em centavos.<br>
-                    Ex: 150000 = r$ 1.500,00|`long`|`sim`|`100`|`sim`|`100`|
+|`TotalOrderAmount`|Valor total do pedido em centavos.  Ex: 150000 = r$ 1.500,00|`long`|`sim`|`100`|`sim`|`100`|
 |`TransactionAmount`|Valor da transação em centavos.|`string`   |`required` |`100`|`required` | `100`|
 |**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
 |**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
