@@ -52,9 +52,9 @@ Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham
 > Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.  
 [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
 
-## Como obter o token  
+## Como obter o token
 
-Uma vez em posse da credencial, será necessário "codificá-la" em Base64, utilizando a convenção **client_id:client_secret**.
+Uma vez em posse da credencial, será necessário "codificá-la" em Base64, utilizando a convenção **client_id:client_secret**, e enviar o resultado no cabeçalho através do campo **Authorization**.
 
 Exemplo:
 * client_id: **braspagtestes**
@@ -70,7 +70,7 @@ Exemplo:
 |Key|Value|
 |-|-|
 |`Content-Type`|application/x-www-form-urlencoded|
-|`Authorization`|{resultado_string_codificada_base64}|
+|`Authorization`|ResultadoStringCodificadaBase64|
 
 **Parâmtros do corpo (Body)**
 |Key|Value|
