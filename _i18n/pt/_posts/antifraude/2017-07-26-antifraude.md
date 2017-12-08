@@ -103,30 +103,14 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 ||||ReDShield||Cybersource||
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|:-:|-:|
-|`MerchantOrderId` |Número do pedido da loja.|`string`|`sim`|`100`|`sim`|`100`|
-|`TotalOrderAmount`|Valor total do pedido em centavos. <br/> Ex: 150000 = r$ 1.500,00|`long`|`sim`|-|`sim`|`100`|
-|`TransactionAmount`|Valor da transação em centavos.|`long`|`sim`|`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+|`MerchantOrderId` |Número do pedido da loja. <br/> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint.|`string`|`sim`|`100`|`sim`|`100`|
+|`TotalOrderAmount`|Valor total do pedido em centavos. <br/> Ex: 123456 = r$ 1.234,56|`long`|`sim`|`-`|`sim`|`-`|
+|`TransactionAmount`|Valor da transação financeira em centavos. <br/> Ex: 150000 = r$ 1.500,00|`long`|`sim`|`-`|`sm`|`-`|
+|`Currency`|Moeda <br/> Ex.: BRL (Real Brasileiro) | USD(Dólar Americano) <br/> Mais informações em [ISO 4217 - Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|`string`|`sim`|`-`|`sm`|`-`|
+|`Currency`|Moeda|`string`|`sim`|`-`|`sm`|`-`|
+|`Currency`|Moeda|`string`|`sim`|`-`|`sm`|`-`|
+|`Currency`|Moeda|`string`|`sim`|`-`|`sm`|`-`|
 
-**MerchantOrderId**{:.custom-attrib} `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Número do Pedido da Loja. `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint.  
-
-**TotalOrderAmount**{:.custom-attrib} `required`{:.custom-tag} `long`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Valor total do pedido em centavos. `required`{:.custom-tag} `long`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: 150000 (Valor equivalente a R$1.500,00)
-
-**TransactionAmount**{:.custom-attrib} `required`{:.custom-tag} `long`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Valor da transação financeira a ser analisada. `required`{:.custom-tag} `long`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: 123456 Valor equivalente a R$1.234,56)
 
 **Currency**{:.custom-attrib} `required`{:.custom-tag} `3`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Moeda. `required`{:.custom-tag} `3`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
