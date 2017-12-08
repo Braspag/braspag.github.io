@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-08T20:13:09+00:00</updated>
+    <updated>2017-12-08T20:25:42+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20085,7 +20085,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;oauth2/token&lt;/span&gt;&lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmtros do cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros do cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -20101,12 +20101,12 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;ResultadoStringCodificadaBase64&lt;/td&gt;
+      &lt;td&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmtros do corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros do corpo (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -20128,13 +20128,6 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;/table&gt;
 
 &lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;RESPONSE:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;OK&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Content-Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;application/json;charset=UTF-8&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;access_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;faSYkjfiod8ddJxFTU3vti_rQV9fGvMrBNn0ZIZDqrLadEPKTUjt6ZPJSnNHtvOoJ6KO6gakgeyXNmSxFYHx7Y_-OCf8zgzILTVzCN5G1WTBWOKZHt-RknkmQLOgA882pWhC1gtOIQoq2tFX6-1VhOqsSCrdI3cUa2HolbGkxZWZMTPOl4Jzuy6ejo_USCMBNPqzvinchS0M33Bi8PiWMYwdpAbvwAe_nhIKNGmsAG6s7PTgWc2RksG6DaX8exdjvlGE9CMADq5LeM4JJ-BguZoHAP3yDBVZpe_DzI3JOrAYv0yzToBllPIMmq6CY-V8GJmckWByOGooBKr6COkZ1R9NPg2bvruYEC3g8hzKloUG21CD5r_la-t-0FvGHHY-8L7cKGybLidIYtw5aWOUgO2Aq0YScEnj1byDAsY6ROMnnzLrywkqscsf5xJACJwBmmEggHRyTVMY1-oOzmH6B2GNtC621i2XQ-8U6KVx9qD0R4qdWRn__AFatL7miTthMfO_PO2HWdDX_xD0i0jqcw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
