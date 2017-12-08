@@ -13,7 +13,7 @@ language_tabs:
 
 # Visão Geral
 
-Antifraude Gateway é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por ser realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.
+Antifraude Gateway é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.
 
 A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
 
@@ -35,7 +35,7 @@ A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.
 
 Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na plataforma.
 
-## Obtenção do token de acesso
+## Obtenção do token de acesso  
 
 * O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Antifraude Gateway**.
 
@@ -52,7 +52,9 @@ Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham
 > Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.  
 [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
 
-* Uma vez em posse da credencial, será necessário "codificá-la" em Base64, utilizando a convenção **client_id:client_secret**.
+## Como obter o token  
+
+Uma vez em posse da credencial, será necessário "codificá-la" em Base64, utilizando a convenção **client_id:client_secret**.
 
 Exemplo:
 * client_id: **braspagtestes**
@@ -64,26 +66,17 @@ Exemplo:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-**REQUEST:**  
-
-```http
-
-POST /oauth2/token HTTP/1.1
-Host: {braspagauth endpoint}
-
-|Header||
+**Parâmtros do cabeçalho (Header)**
 |Key|Value|
 |-|-|
 |`Content-Type`|application/x-www-form-urlencoded|
 |`Authorization`|{resultado_string_codificada_base64}|
 
-|Header||
+**Parâmtros do corpo (Body)**
 |Key|Value|
 |-|-|
 |`scope`|AntifraudGatewayApp|
 |`grant_type`|client_credentials|
-
-```
 
 **RESPONSE:**  
 
@@ -102,11 +95,6 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 * Na resposta é importante ressaltar o campo **expires_in**, com o tempo de expiração to access_token em segundos. Quando o token expirar, é necessário consumir o serviço novamente para obter um novo token.
-
-### Como obter uma credencial?  
-
-> Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.  
-[Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
 
 # Análise de fraude
 
