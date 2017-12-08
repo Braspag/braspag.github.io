@@ -71,7 +71,7 @@ Exemplo:
 |Key|Value|
 |-|-|
 |`Content-Type`|application/x-www-form-urlencoded|
-|`Authorization`|ResultadoStringCodificadaBase64|
+|`Authorization`|YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
 
 **Parâmetros do corpo (Body)**
 
@@ -81,14 +81,6 @@ Exemplo:
 |`grant_type`|client_credentials|
 
 ### Response
-
-**RESPONSE:**  
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-
-```
 
 ```json
 {
