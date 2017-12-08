@@ -256,12 +256,156 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">expires_in</code></td>
-      <td>Por quanto tempo o token de acesso é válido (em segundos). Neste caso, quando o token expirar, é necessário obter um novo token.</td>
+      <td>Expiração do o token de acesso, em segundos. Neste caso, quando o token expirar, é necessário obter um novo token.</td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="análise-de-fraude">Análise de fraude</h1>
+
+<p>A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todos os dados. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th>ReDShield</th>
+      <th> </th>
+      <th>Cybersource</th>
+      <th> </th>
+    </tr>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número do pedido da loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">sim</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">sim</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TotalOrderAmount</code></td>
+      <td>Valor total do pedido em centavos.<br /></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ex: 150000 = r$ 1.500,00</td>
+      <td><code class="highlighter-rouge">long</code></td>
+      <td><code class="highlighter-rouge">sim</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">sim</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TransactionAmount</code></td>
+      <td>Valor da transação em centavos.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><strong>MerchantOrderId</strong></td>
+      <td>Número do Pedido da Loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><strong>MerchantOrderId</strong></td>
+      <td>Número do Pedido da Loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><strong>MerchantOrderId</strong></td>
+      <td>Número do Pedido da Loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><strong>MerchantOrderId</strong></td>
+      <td>Número do Pedido da Loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><strong>MerchantOrderId</strong></td>
+      <td>Número do Pedido da Loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><strong>MerchantOrderId</strong></td>
+      <td>Número do Pedido da Loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><strong>MerchantOrderId</strong></td>
+      <td>Número do Pedido da Loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><strong>MerchantOrderId</strong></td>
+      <td>Número do Pedido da Loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+    <tr>
+      <td><strong>MerchantOrderId</strong></td>
+      <td>Número do Pedido da Loja.</td>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+      <td><code class="highlighter-rouge">required</code></td>
+      <td><code class="highlighter-rouge">100</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong class="custom-attrib">MerchantOrderId</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">100</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
 Número do Pedido da Loja. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">100</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
