@@ -90,12 +90,11 @@ Exemplo:
 }
 ```
 
-|Key|Value|
+|Parâmetro|Descrição|
 |-|-|
-|`Content-Type`|application/x-www-form-urlencoded|
-|`Authorization`|YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
-
-* Na resposta é importante ressaltar o campo **expires_in**, com o tempo de expiração to access_token em segundos. Quando o token expirar, é necessário consumir o serviço novamente para obter um novo token.
+|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway.|
+|`token_type`|Indica o valor do tipo de token.|
+|`expires_in`|Por quanto tempo o token de acesso é válido (em segundos). Neste caso, quando o token expirar, é necessário obter um novo token.|
 
 # Análise de fraude
 
