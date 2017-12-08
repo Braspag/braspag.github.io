@@ -17,6 +17,8 @@ Antifraude Gateway é uma plataforma desenvolvida pelo time de Risco da Braspag 
 
 A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
 
+> Para saber mais sobre OAuth 2, consulte [https://oauth.net/2/](https://oauth.net/2/)
+
 A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.
 
 # Objetivo
