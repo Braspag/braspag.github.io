@@ -66,14 +66,14 @@ Exemplo:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-**Parâmtros do cabeçalho (Header)**
+**Parâmetros do cabeçalho (Header)**
 
 |Key|Value|
 |-|-|
 |`Content-Type`|application/x-www-form-urlencoded|
 |`Authorization`|ResultadoStringCodificadaBase64|
 
-**Parâmtros do corpo (Body)**
+**Parâmetros do corpo (Body)**
 
 |Key|Value|
 |-|-|
