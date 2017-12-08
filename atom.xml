@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-08T19:44:35+00:00</updated>
+    <updated>2017-12-08T19:51:16+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20017,7 +20017,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
         <id>https://braspag.github.io//manual/antifraude</id>
         <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
 
-&lt;p&gt;Antifraude Gateway é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por ser realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.&lt;/p&gt;
+&lt;p&gt;Antifraude Gateway é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.&lt;/p&gt;
 
 &lt;p&gt;A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.&lt;/p&gt;
 
@@ -20069,9 +20069,9 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção &lt;strong&gt;client_id:client_secret&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;como-obter-o-token&quot;&gt;Como obter o token&lt;/h2&gt;
+
+&lt;p&gt;Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção &lt;strong&gt;client_id:client_secret&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Exemplo:&lt;/p&gt;
 &lt;ul&gt;
@@ -20085,25 +20085,19 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;oauth2/token&lt;/span&gt;&lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;REQUEST:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;/oauth2/token&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;{braspagauth endpoint}&lt;/span&gt;
-
-|Header||
+&lt;p&gt;&lt;strong&gt;Parâmtros do cabeçalho (Header)&lt;/strong&gt;
 |Key|Value|
 |-|-|
-|`Content-Type`|application/x-www-form-urlencoded|
-|`Authorization`|{resultado_string_codificada_base64}|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/x-www-form-urlencoded|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;|{resultado_string_codificada_base64}|&lt;/p&gt;
 
-|Header||
+&lt;p&gt;&lt;strong&gt;Parâmtros do corpo (Body)&lt;/strong&gt;
 |Key|Value|
 |-|-|
-|`scope`|AntifraudGatewayApp|
-|`grant_type`|client_credentials|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;scope&lt;/code&gt;|AntifraudGatewayApp|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;grant_type&lt;/code&gt;|client_credentials|&lt;/p&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;RESPONSE:&lt;/strong&gt;&lt;/p&gt;
 
@@ -20122,13 +20116,6 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Na resposta é importante ressaltar o campo &lt;strong&gt;expires_in&lt;/strong&gt;, com o tempo de expiração to access_token em segundos. Quando o token expirar, é necessário consumir o serviço novamente para obter um novo token.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&quot;como-obter-uma-credencial&quot;&gt;Como obter uma credencial?&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.&lt;br /&gt;
-&lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;análise-de-fraude&quot;&gt;Análise de fraude&lt;/h1&gt;
 
