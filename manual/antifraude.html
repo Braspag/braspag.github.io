@@ -187,7 +187,7 @@
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-<p><strong>Parâmetros do cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
 <table>
   <thead>
@@ -203,12 +203,12 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Authorization</code></td>
-      <td>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</td>
+      <td>Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Parâmetros do corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (Body)</strong></p>
 
 <table>
   <thead>
@@ -237,6 +237,25 @@
   </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>application/x-www-form-urlencoded</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</td>
+    </tr>
+  </tbody>
+</table>
 
 <ul>
   <li>Na resposta é importante ressaltar o campo <strong>expires_in</strong>, com o tempo de expiração to access_token em segundos. Quando o token expirar, é necessário consumir o serviço novamente para obter um novo token.</li>
