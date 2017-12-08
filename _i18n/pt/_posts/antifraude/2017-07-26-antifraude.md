@@ -112,7 +112,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|sim|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|não|-|não|-|
 
-
 **Provider**{:.custom-attrib} `required`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag}  
 Nome do Provedor da Solução de Analise de Fraude.  
 Enum.: ReDShield | Cybersource
