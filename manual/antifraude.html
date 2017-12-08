@@ -173,7 +173,7 @@
 
 <h2 id="como-obter-o-token">Como obter o token</h2>
 
-<p>Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção <strong>client_id:client_secret</strong>.</p>
+<p>Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção <strong>client_id:client_secret</strong>, e enviar o resultado no cabeçalho através do campo <strong>Authorization</strong>.</p>
 
 <p>Exemplo:</p>
 <ul>
@@ -191,7 +191,7 @@
 |Key|Value|
 |-|-|
 |<code class="highlighter-rouge">Content-Type</code>|application/x-www-form-urlencoded|
-|<code class="highlighter-rouge">Authorization</code>|{resultado_string_codificada_base64}|</p>
+|<code class="highlighter-rouge">Authorization</code>|ResultadoStringCodificadaBase64|</p>
 
 <p><strong>Parâmtros do corpo (Body)</strong>
 |Key|Value|

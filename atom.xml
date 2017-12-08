@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-08T19:51:16+00:00</updated>
+    <updated>2017-12-08T19:56:34+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20071,7 +20071,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-obter-o-token&quot;&gt;Como obter o token&lt;/h2&gt;
 
-&lt;p&gt;Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção &lt;strong&gt;client_id:client_secret&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção &lt;strong&gt;client_id:client_secret&lt;/strong&gt;, e enviar o resultado no cabeçalho através do campo &lt;strong&gt;Authorization&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Exemplo:&lt;/p&gt;
 &lt;ul&gt;
@@ -20089,7 +20089,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 |Key|Value|
 |-|-|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/x-www-form-urlencoded|
-|&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;|{resultado_string_codificada_base64}|&lt;/p&gt;
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;|ResultadoStringCodificadaBase64|&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Parâmtros do corpo (Body)&lt;/strong&gt;
 |Key|Value|
