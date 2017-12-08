@@ -187,17 +187,47 @@
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-<p><strong>Parâmtros do cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/x-www-form-urlencoded|
-|<code class="highlighter-rouge">Authorization</code>|ResultadoStringCodificadaBase64|</p>
+<p><strong>Parâmtros do cabeçalho (Header)</strong></p>
 
-<p><strong>Parâmtros do corpo (Body)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">scope</code>|AntifraudGatewayApp|
-|<code class="highlighter-rouge">grant_type</code>|client_credentials|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>application/x-www-form-urlencoded</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>ResultadoStringCodificadaBase64</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmtros do corpo (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">scope</code></td>
+      <td>AntifraudGatewayApp</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">grant_type</code></td>
+      <td>client_credentials</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="response">Response</h3>
 
