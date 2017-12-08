@@ -1,7 +1,7 @@
 ---
 layout: manual
 title: Manual de integração
-description: Integração técnica antifraude
+description: Integração técnica API Antifraude Gateway Braspag
 search: true
 categories: manual
 tags:
@@ -11,65 +11,75 @@ language_tabs:
   html: HTML
 ---
 
+# Visão Geral
+
+Antifraude Gateway é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por ser realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.
+
+A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
+
+A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.
+
+# Objetivo
+
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.
+
+Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
+
 # Autenticação
 
-Esta página descreve como se autenticar na plataforma Antifraude Gateway, para que seja possivel realizar Análises de transações.
+## Tokens de Acesso
 
-A API do Antifraude Gateway utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos.
+A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
 
-Este documento descreve o fluxo necessário para que aplicações **cliente** obtenham tokens de acesso válidos para uso na plataforma. Caso deseje mais informações sobre o protocolo OAuth 2.0, consulte [https://oauth.net/2/](https://oauth.net/2/){:target="_blank"}
+Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na plataforma.
 
-## Hosts
+## Obtenção do token de acesso
 
-* **Test** https://authhomolog.braspag.com.br  
-* **Live** https://auth.braspag.com.br
-
-## Fluxo para obtenção do token de acesso  
-
-* O token de acesso é obtido através do fluxo de autorização **Client Credentials**.
+* O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Antifraude Gateway**.
 
 ![Obtenção de Tokens de Acesso]({{ site.baseurl_root }}/images/braspag/af/antifraudeauthentication.png){: .centerimg }{:title="Fluxo para obtenção do Token de Acesso "}
 
-Fluxo de obtenção do Token de Acesso:
+1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
 
-1. A *Aplicação Cliente*, informa à API do *OAuth Braspag* suas credenciais.  
+2. O **BraspagAuth** valida a credencial recebida. Se for válida, retorna o token de acesso para a **Aplicação Cliente**.
 
-2. O *OAuth Braspag* valida a credencial recebida. Se for válida, retorna o token de acesso para a *Aplicação Cliente*.  
+3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **API Antifraude Gateway Braspag**.
 
-Fluxo de Análise:
+4. Se o token de acesso for válido, a requisição é processada e os dados são retornados para a **Aplicação Cliente**.
 
-3. A *Aplicação Cliente* informa o token de acesso no cabeçalho da requisições HTTP de Análise de Fraude.   
+> Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.  
+[Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
 
-4. Se o token de acesso for válido, a requisição é processada e a resposta de análise é retornada *Aplicação Cliente*.
+* Uma vez em posse da credencial, será necessário "codificá-la" em Base64, utilizando a convenção **client_id:client_secret**.
 
-## Exemplo de requisição HTTP  
-
-### Cenário I: Obtenção de token de acesso  
-
-* Para se autenticar com a API do Antifraude, é necessário que sejam previamente criadas as credenciais **user** e **password**, as quais deverão ser solicitadas à equipe de implantação da Braspag.
-
-* Uma vez em posse dessas credenciais, será necessário "codificá-la" em  Base64, utilizando a convenção **user:password**.  
 Exemplo:
-
-* User: **braspagtestes**
-* Password: **1q2w3e4r**
-* String a ser codificada em Base64: **braspagtestes:1q2w3e4r**
+* client_id: **braspagtestes**
+* client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
+* String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
 * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
 
-<br>
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
 **REQUEST:**  
 
 ```http
 
-POST https://authhomolog.braspag.com.br/oauth2/token HTTP/1.1
-Host: https://authhomolog.braspag.com.br
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic {Resultado_Da_String_Codificada_Em_Base64}
-Scope: AntifraudGatewayApp
-Cache-Control: no-cache
+POST /oauth2/token HTTP/1.1
+Host: {braspagauth endpoint}
 
-grant_type=client_credentials
+|Header||
+|Key|Value|
+|-|-|
+|`Content-Type`|application/x-www-form-urlencoded|
+|`Authorization`|{resultado_string_codificada_base64}|
+
+|Header||
+|Key|Value|
+|-|-|
+|`scope`|AntifraudGatewayApp|
+|`grant_type`|client_credentials|
 
 ```
 
@@ -96,16 +106,7 @@ Content-Type: application/json;charset=UTF-8
 > Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.  
 [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
 
-# Analise
-
-Esta página descreve os campos do contrato do Antifraude Gateway, além de conter exemplos de requisições HTTP.  
-
-## Hosts
-
-**Test** https://riskhomolog.braspag.com.br  
-**Live** https://risk.braspag.com.br
-
-## Atributos do Request
+# Análise de fraude
 
 **MerchantOrderId**{:.custom-attrib} `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Número do Pedido da Loja. `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
