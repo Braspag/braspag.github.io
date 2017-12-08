@@ -66,14 +66,14 @@ Exemplo:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-**Parâmetros do cabeçalho (Header)**
+**Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
 |-|-|
 |`Content-Type`|application/x-www-form-urlencoded|
-|`Authorization`|YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
+|`Authorization`|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
 
-**Parâmetros do corpo (Body)**
+**Parâmetros no corpo (Body)**
 
 |Key|Value|
 |-|-|
@@ -89,6 +89,11 @@ Exemplo:
   "expires_in": 599
 }
 ```
+
+|Key|Value|
+|-|-|
+|`Content-Type`|application/x-www-form-urlencoded|
+|`Authorization`|YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
 
 * Na resposta é importante ressaltar o campo **expires_in**, com o tempo de expiração to access_token em segundos. Quando o token expirar, é necessário consumir o serviço novamente para obter um novo token.
 
