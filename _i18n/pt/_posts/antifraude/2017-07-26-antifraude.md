@@ -78,6 +78,8 @@ Exemplo:
 |`scope`|AntifraudGatewayApp|
 |`grant_type`|client_credentials|
 
+### Response
+
 **RESPONSE:**  
 
 ```http
