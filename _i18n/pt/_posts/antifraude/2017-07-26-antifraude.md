@@ -104,19 +104,14 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 ||||ReDShield||Cybersource||
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|:-:|-:|
-|`MerchantOrderId` |Número do pedido da loja. <br/> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint.|`string`|`sim`|`100`|`sim`|`100`|
-|`TotalOrderAmount`|Valor total do pedido em centavos. <br/> Ex: 123456 = r$ 1.234,56|`long`|`sim`|`-`|`sim`|`-`|
-|`TransactionAmount`|Valor da transação financeira em centavos. <br/> Ex: 150000 = r$ 1.500,00|`long`|`sim`|`-`|`sm`|`-`|
-|`Currency`|Moeda <br/> Ex.: BRL (Real Brasileiro) | USD(Dólar Americano) <br/> Mais informações em [ISO 4217 - Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|`string`|`sim`|`-`|`sm`|`-`|
-|`Currency`|Moeda|`string`|`sim`|`-`|`sm`|`-`|
-|`Currency`|Moeda|`string`|`sim`|`-`|`sm`|`-`|
-|`Currency`|Moeda|`string`|`sim`|`-`|`sm`|`-`|
+|`MerchantOrderId` |Número do pedido da loja <br/> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint.|`string`|`sim`|`100`|`sim`|`100`|
+|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|`long`|`sim`|`-`|`sim`|`-`|
+|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|`long`|`sim`|`-`|`sim`|`-`|
+|`Currency`|Moeda - Tabela 1|string|sim|3|sim|3|
+|`Provider`|Provedor da solução de antifraude - Tabela 2|string|sim|15|sim|15|
+|`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|sim|-|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|não|-|não|-|
 
-
-**Currency**{:.custom-attrib} `required`{:.custom-tag} `3`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Moeda. `required`{:.custom-tag} `3`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Mais informações em [ISO 4217 - Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)
-Ex.: BRL (Real Brasileiro) | USD(Dólar Americano)
 
 **Provider**{:.custom-attrib} `required`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag}  
 Nome do Provedor da Solução de Analise de Fraude.  
