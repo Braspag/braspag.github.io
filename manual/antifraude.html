@@ -289,7 +289,7 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td style="text-align: left">Número do pedido da loja.</td>
+      <td style="text-align: left">Número do pedido da loja <br /> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint.</td>
       <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
       <td style="text-align: center"><code class="highlighter-rouge">sim</code></td>
       <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
@@ -298,122 +298,60 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">TotalOrderAmount</code></td>
-      <td style="text-align: left">Valor total do pedido em centavos. <br /> Ex: 150000 = r$ 1.500,00</td>
+      <td style="text-align: left">Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
       <td style="text-align: center"><code class="highlighter-rouge">long</code></td>
       <td style="text-align: center"><code class="highlighter-rouge">sim</code></td>
-      <td style="text-align: right">-</td>
+      <td style="text-align: right"><code class="highlighter-rouge">-</code></td>
       <td style="text-align: center"><code class="highlighter-rouge">sim</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
+      <td style="text-align: right"><code class="highlighter-rouge">-</code></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">TransactionAmount</code></td>
-      <td style="text-align: left">Valor da transação em centavos.</td>
+      <td style="text-align: left">Valor da transação financeira em centavos <br /> Ex: 150000 = r$ 1.500,00</td>
       <td style="text-align: center"><code class="highlighter-rouge">long</code></td>
       <td style="text-align: center"><code class="highlighter-rouge">sim</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
+      <td style="text-align: right"><code class="highlighter-rouge">-</code></td>
+      <td style="text-align: center"><code class="highlighter-rouge">sim</code></td>
+      <td style="text-align: right"><code class="highlighter-rouge">-</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>MerchantOrderId</strong></td>
-      <td style="text-align: left">Número do Pedido da Loja.</td>
-      <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Currency</code></td>
+      <td style="text-align: left">Moeda - Tabela 1</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">3</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>MerchantOrderId</strong></td>
-      <td style="text-align: left">Número do Pedido da Loja.</td>
-      <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Provider</code></td>
+      <td style="text-align: left">Provedor da solução de antifraude - Tabela 2</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">15</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">15</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>MerchantOrderId</strong></td>
-      <td style="text-align: left">Número do Pedido da Loja.</td>
-      <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">OrderDate</code></td>
+      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag</td>
+      <td style="text-align: center">datetime</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>MerchantOrderId</strong></td>
-      <td style="text-align: left">Número do Pedido da Loja.</td>
-      <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>MerchantOrderId</strong></td>
-      <td style="text-align: left">Número do Pedido da Loja.</td>
-      <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>MerchantOrderId</strong></td>
-      <td style="text-align: left">Número do Pedido da Loja.</td>
-      <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>MerchantOrderId</strong></td>
-      <td style="text-align: left">Número do Pedido da Loja.</td>
-      <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>MerchantOrderId</strong></td>
-      <td style="text-align: left">Número do Pedido da Loja.</td>
-      <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>MerchantOrderId</strong></td>
-      <td style="text-align: left">Número do Pedido da Loja.</td>
-      <td style="text-align: center"><code class="highlighter-rouge">string</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
-      <td style="text-align: center"><code class="highlighter-rouge">required</code></td>
-      <td style="text-align: right"><code class="highlighter-rouge">100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Pagador da Braspag.</td>
+      <td style="text-align: center">guid</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
     </tr>
   </tbody>
 </table>
-
-<p><strong class="custom-attrib">MerchantOrderId</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">100</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Número do Pedido da Loja. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">100</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint.</p>
-
-<p><strong class="custom-attrib">TotalOrderAmount</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">long</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Valor total do pedido em centavos. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">long</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Ex.: 150000 (Valor equivalente a R$1.500,00)</p>
-
-<p><strong class="custom-attrib">TransactionAmount</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">long</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Valor da transação financeira a ser analisada. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">long</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Ex.: 123456 Valor equivalente a R$1.234,56)</p>
-
-<p><strong class="custom-attrib">Currency</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">3</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Moeda. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">3</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Mais informações em <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 - Currency Codes</a>
-Ex.: BRL (Real Brasileiro) | USD(Dólar Americano)</p>
 
 <p><strong class="custom-attrib">Provider</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">15</code> <code class="custom-tag highlighter-rouge">string</code><br />
 Nome do Provedor da Solução de Analise de Fraude.<br />
