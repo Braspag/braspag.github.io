@@ -60,7 +60,7 @@ Exemplo:
 
 ### Request
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
 **REQUEST:**  
 
