@@ -111,47 +111,14 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |`Provider`|Provedor da solução de antifraude - Tabela 2|string|sim|15|sim|15|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|sim|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|não|-|não|-|
-
-**Provider**{:.custom-attrib} `required`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag}  
-Nome do Provedor da Solução de Analise de Fraude.  
-Enum.: ReDShield | Cybersource
-
-**OrderDate**{:.custom-attrib} `optional`{:.custom-tag} `datetime`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Data do pedido. `optional`{:.custom-tag} `datetime`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: 2016-12-09T19:16:38.155Z  
-Obs.: Caso não envie a data do pedido, será gerada uma data pela Braspag.  
-
-**BraspagTransactionId**{:.custom-attrib} `optional`{:.custom-tag} `Guid`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Id da transação no Pagador da Braspag. `optional`{:.custom-tag} `Guid`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: ED3B6646-5B6E-451C-B3CF-4FF5E807CB69  
-Obs.: Se o fluxo implementado ao seu negócio for a primeira chamada para fazer a análise de fraude atravpes do Antifraude Gateway e a segunda for a autorização através do Pagador, realizar uma terceira chamada para que as transações do Antifraude Gateway e Pagador sejam vinculadas. Para mais detalhes acessar: **Associar transação Pagador e Antifraude**
-
-**SplitingPaymentMethod**{:.custom-attrib} `default = None`{:.custom-tag} `optional`{:.custom-tag} `23`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Identifica se a autorização da transação é com um ou dois cartões ou com mais de um meio de pagamento, por exemplo, cartão de crédito e boleto bancário.  
-Enum:  
-None -> Pagamento com um cartão apenas.  
-CardSplit -> Pagamento com mais de um cartão.  
-MixedPaymentMethodSplit -> Pagamento com mais de um meio de pagamento.  
-
-**IsRetryTransaction**{:.custom-attrib} `default = false`{:.custom-tag} `optional`{:.custom-tag} `bool`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Identifica que é uma retentativa de uma análise. Este campo deve ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900, que identifica timeout entre Braspag e o Provedor. Este campo deve ser enviado somente quando Provedor igual a ReDShield.  
-
-**Card.Number**{:.custom-attrib} `required`{:.custom-tag} `19`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Número do cartão de crédito. `required`{:.custom-tag} `20`{:.custom-tag} `string`{:.custom-tag}. `Cybersource`{:.custom-provider-cyber}  
-
-**Card.Holder**{:.custom-attrib} `required`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Nome do cartão de crédito.  `required`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Card.ExpirationDate**{:.custom-attrib} `required`{:.custom-tag} `7`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Data de expiração do cartão de crédito. `required`{:.custom-tag} `7`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: 01/2023
-
-**Card.CVV**{:.custom-attrib} `required`{:.custom-tag} `4`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Código de segurança do cartão de crédito.
-
-**Card.Brand**{:.custom-attrib} `required`{:.custom-tag} `10`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Bandeira do cartão de crédito. `required`{:.custom-tag} `10`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Bandeiras suportadas: Amex | Diners | Discover | JCB | Master | Dankort | Cartebleue | Maestro | Visa | Elo | Hipercard  
+|`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3|string|não|23|-|-|
+|`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|bool|não|-|-|-|
+|`Card.Number`|Número do cartão de crédito|string|sim|19|sim|20|
+|`Card.Holder`|Nome do cartão de crédito|string|sim|50|sim|50|
+|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|sim|7|
+|`Card.Cvv`|Código de segurança do cartão de crédito|string|sim|4|-|-|
+|`Card.Brand`|Bandeira do cartão de crédito - Tabela 4|string|sim|10|sim|10|
+|`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|não|1|-|-|
 
 **Card.EciThreeDSecure**{:.custom-attrib} `optional`{:.custom-tag} `1`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Código do ECI (Eletronic Commerce Indicator) de autenticação  
