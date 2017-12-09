@@ -350,49 +350,80 @@
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">SplitingPaymentMethod</code></td>
+      <td style="text-align: left">Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">23</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">IsRetryTransaction</code></td>
+      <td style="text-align: left">Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900</td>
+      <td style="text-align: center">bool</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
+      <td style="text-align: left">Número do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">19</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
+      <td style="text-align: left">Nome do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">50</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">7</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">7</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Cvv</code></td>
+      <td style="text-align: left">Código de segurança do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">4</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
+      <td style="text-align: left">Bandeira do cartão de crédito - Tabela 4</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">10</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.EciThreeDSecure</code></td>
+      <td style="text-align: left">Código do ECI (Eletronic Commerce Indicator) de autenticação</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
   </tbody>
 </table>
-
-<p><strong class="custom-attrib">Provider</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">15</code> <code class="custom-tag highlighter-rouge">string</code><br />
-Nome do Provedor da Solução de Analise de Fraude.<br />
-Enum.: ReDShield | Cybersource</p>
-
-<p><strong class="custom-attrib">OrderDate</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">datetime</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Data do pedido. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">datetime</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Ex.: 2016-12-09T19:16:38.155Z<br />
-Obs.: Caso não envie a data do pedido, será gerada uma data pela Braspag.</p>
-
-<p><strong class="custom-attrib">BraspagTransactionId</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">Guid</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Id da transação no Pagador da Braspag. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">Guid</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Ex.: ED3B6646-5B6E-451C-B3CF-4FF5E807CB69<br />
-Obs.: Se o fluxo implementado ao seu negócio for a primeira chamada para fazer a análise de fraude atravpes do Antifraude Gateway e a segunda for a autorização através do Pagador, realizar uma terceira chamada para que as transações do Antifraude Gateway e Pagador sejam vinculadas. Para mais detalhes acessar: <strong>Associar transação Pagador e Antifraude</strong></p>
-
-<p><strong class="custom-attrib">SplitingPaymentMethod</strong> <code class="custom-tag highlighter-rouge">default = None</code> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">23</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Identifica se a autorização da transação é com um ou dois cartões ou com mais de um meio de pagamento, por exemplo, cartão de crédito e boleto bancário.<br />
-Enum:<br />
-None -&gt; Pagamento com um cartão apenas.<br />
-CardSplit -&gt; Pagamento com mais de um cartão.<br />
-MixedPaymentMethodSplit -&gt; Pagamento com mais de um meio de pagamento.</p>
-
-<p><strong class="custom-attrib">IsRetryTransaction</strong> <code class="custom-tag highlighter-rouge">default = false</code> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">bool</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Identifica que é uma retentativa de uma análise. Este campo deve ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900, que identifica timeout entre Braspag e o Provedor. Este campo deve ser enviado somente quando Provedor igual a ReDShield.</p>
-
-<p><strong class="custom-attrib">Card.Number</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">19</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Número do cartão de crédito. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">20</code> <code class="custom-tag highlighter-rouge">string</code>. <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Card.Holder</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">50</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Nome do cartão de crédito.  <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">50</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Card.ExpirationDate</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">7</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Data de expiração do cartão de crédito. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">7</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Ex.: 01/2023</p>
-
-<p><strong class="custom-attrib">Card.CVV</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">4</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Código de segurança do cartão de crédito.</p>
-
-<p><strong class="custom-attrib">Card.Brand</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">10</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Bandeira do cartão de crédito. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">10</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Bandeiras suportadas: Amex | Diners | Discover | JCB | Master | Dankort | Cartebleue | Maestro | Visa | Elo | Hipercard</p>
 
 <p><strong class="custom-attrib">Card.EciThreeDSecure</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">1</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
 Código do ECI (Eletronic Commerce Indicator) de autenticação</p>

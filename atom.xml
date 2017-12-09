@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-09T01:56:44+00:00</updated>
+    <updated>2017-12-09T02:14:53+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20248,49 +20248,80 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitingPaymentMethod&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;23&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IsRetryTransaction&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;bool&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Number&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do cartão de crédito&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;19&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Holder&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nome do cartão de crédito&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.ExpirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data de expiração do cartão de crédito &lt;br /&gt; Ex.: 01/2023&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Cvv&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de segurança do cartão de crédito&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Brand&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bandeira do cartão de crédito - Tabela 4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.EciThreeDSecure&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código do ECI (Eletronic Commerce Indicator) de autenticação&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;Provider&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;15&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt;&lt;br /&gt;
-Nome do Provedor da Solução de Analise de Fraude.&lt;br /&gt;
-Enum.: ReDShield | Cybersource&lt;/p&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;OrderDate&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;datetime&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
-Data do pedido. &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;datetime&lt;/code&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt;&lt;br /&gt;
-Ex.: 2016-12-09T19:16:38.155Z&lt;br /&gt;
-Obs.: Caso não envie a data do pedido, será gerada uma data pela Braspag.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;BraspagTransactionId&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;Guid&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
-Id da transação no Pagador da Braspag. &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;Guid&lt;/code&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt;&lt;br /&gt;
-Ex.: ED3B6646-5B6E-451C-B3CF-4FF5E807CB69&lt;br /&gt;
-Obs.: Se o fluxo implementado ao seu negócio for a primeira chamada para fazer a análise de fraude atravpes do Antifraude Gateway e a segunda for a autorização através do Pagador, realizar uma terceira chamada para que as transações do Antifraude Gateway e Pagador sejam vinculadas. Para mais detalhes acessar: &lt;strong&gt;Associar transação Pagador e Antifraude&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;SplitingPaymentMethod&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;default = None&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;23&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
-Identifica se a autorização da transação é com um ou dois cartões ou com mais de um meio de pagamento, por exemplo, cartão de crédito e boleto bancário.&lt;br /&gt;
-Enum:&lt;br /&gt;
-None -&amp;gt; Pagamento com um cartão apenas.&lt;br /&gt;
-CardSplit -&amp;gt; Pagamento com mais de um cartão.&lt;br /&gt;
-MixedPaymentMethodSplit -&amp;gt; Pagamento com mais de um meio de pagamento.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;IsRetryTransaction&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;default = false&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;bool&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
-Identifica que é uma retentativa de uma análise. Este campo deve ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900, que identifica timeout entre Braspag e o Provedor. Este campo deve ser enviado somente quando Provedor igual a ReDShield.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;Card.Number&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;19&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
-Número do cartão de crédito. &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;20&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt;. &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;Card.Holder&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;50&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
-Nome do cartão de crédito.  &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;50&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;Card.ExpirationDate&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;7&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
-Data de expiração do cartão de crédito. &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;7&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt;&lt;br /&gt;
-Ex.: 01/2023&lt;/p&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;Card.CVV&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;4&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
-Código de segurança do cartão de crédito.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;Card.Brand&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;10&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
-Bandeira do cartão de crédito. &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;10&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt;&lt;br /&gt;
-Bandeiras suportadas: Amex | Diners | Discover | JCB | Master | Dankort | Cartebleue | Maestro | Visa | Elo | Hipercard&lt;/p&gt;
 
 &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;Card.EciThreeDSecure&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;1&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
 Código do ECI (Eletronic Commerce Indicator) de autenticação&lt;/p&gt;
