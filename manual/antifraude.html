@@ -425,9 +425,6 @@
   </tbody>
 </table>
 
-<p><strong class="custom-attrib">Card.EciThreeDSecure</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">1</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Código do ECI (Eletronic Commerce Indicator) de autenticação</p>
-
 <p><strong class="custom-attrib">Card.Token</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">Guid</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
 Identificador do cartão de crédito salvo no Cartão Protegido. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">Guid</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
 Obs.: Este campo pode ser enviado no lugar dos campos <strong>Card.Number, Card.Holder, Card.ExpirationDate</strong>, tornando-os assim como não obrigatórios. O sistema irá consumir o Cartão Protegido enviando este campo para preencher os citados.</p>
@@ -444,30 +441,82 @@ O Token gerado na plataforma Cartão Protegido associado aos dados de cartão de
 Obs.: Os seguintes campos serão salvos no Cartão Protegido: <strong>Card.Number, Card.Holder, Card.ExpirationDate</strong>.<br />
 Obs2.: A ação de salvar os dados do cartão de crédito, só será feita se a loja possuir o produto Cartão Protegido contratado.</p>
 
-<p><strong class="custom-attrib">Billing.Street</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">24</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Logradouro do endereço de cobrança. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">54</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Billing.Number</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">5</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Número do endereço de cobrança. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">5</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Billing.Complement</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">14</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Complemento do endereço de cobrança. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">14</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Billing.Neighborhood</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">15</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Bairro do endereço de cobrança. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">45</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Billing.City</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">20</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Cidade do endereço de cobrança. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">50</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Billing.State</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">2</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Estado do endereço de cobrança. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">2</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Billing.Country</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">2</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-País do endereço de cobrança. <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">2</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></p>
-
-<p><strong class="custom-attrib">Billing.ZipCode</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">9</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Código postal do endereço de cobrança. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">9</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
+<table>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Billing.Street</code></td>
+      <td>Logradouro do endereço de cobrança</td>
+      <td>string</td>
+      <td>não</td>
+      <td>24</td>
+      <td>sim</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Billing.Number</code></td>
+      <td>Número do endereço de cobrança</td>
+      <td>string</td>
+      <td>não</td>
+      <td>5</td>
+      <td>sim</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Billing.Complement</code></td>
+      <td>Complemento do endereço de cobrança</td>
+      <td>string</td>
+      <td>não</td>
+      <td>14</td>
+      <td>não</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Billing.Neighborhood</code></td>
+      <td>Bairro do endereço de cobrança</td>
+      <td>string</td>
+      <td>não</td>
+      <td>15</td>
+      <td>não</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Billing.City</code></td>
+      <td>Cidade do endereço de cobrança</td>
+      <td>string</td>
+      <td>não</td>
+      <td>20</td>
+      <td>sim</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Billing.State</code></td>
+      <td>Estado do endereço de cobrança</td>
+      <td>string</td>
+      <td>não</td>
+      <td>2</td>
+      <td>não</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Billing.Country</code></td>
+      <td>País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td>string</td>
+      <td>não</td>
+      <td>2</td>
+      <td>sim</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Billing.ZipCode</code></td>
+      <td>Código postal do endereço de cobrança</td>
+      <td>string</td>
+      <td>não</td>
+      <td>9</td>
+      <td>não</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong class="custom-attrib">Shipping.Street</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">24</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
 Logradouro do endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">54</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
