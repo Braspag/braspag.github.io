@@ -104,9 +104,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 ||||ReDShield||Cybersource||
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|:-:|-:|
-|`MerchantOrderId` |Número do pedido da loja <br/> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint.|`string`|`sim`|`100`|`sim`|`100`|
-|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|`long`|`sim`|`-`|`sim`|`-`|
-|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|`long`|`sim`|`-`|`sim`|`-`|
+|`MerchantOrderId` |Número do pedido da loja <br/> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint.|string|sim|100|sim|100|
+|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|sim|-|
+|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|sim|-|
 |`Currency`|Moeda - Tabela 1|string|sim|3|sim|3|
 |`Provider`|Provedor da solução de antifraude - Tabela 2|string|sim|15|sim|15|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|sim|-|
