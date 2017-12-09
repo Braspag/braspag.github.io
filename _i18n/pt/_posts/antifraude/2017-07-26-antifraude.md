@@ -120,9 +120,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |`Card.Brand`|Bandeira do cartão de crédito - Tabela 4|string|sim|10|sim|10|
 |`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|não|1|-|-|
 
-**Card.EciThreeDSecure**{:.custom-attrib} `optional`{:.custom-tag} `1`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Código do ECI (Eletronic Commerce Indicator) de autenticação  
-
 **Card.Token**{:.custom-attrib} `optional`{:.custom-tag} `Guid`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Identificador do cartão de crédito salvo no Cartão Protegido. `optional`{:.custom-tag} `Guid`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
 Obs.: Este campo pode ser enviado no lugar dos campos **Card.Number, Card.Holder, Card.ExpirationDate**, tornando-os assim como não obrigatórios. O sistema irá consumir o Cartão Protegido enviando este campo para preencher os citados.  
@@ -139,30 +136,14 @@ O Token gerado na plataforma Cartão Protegido associado aos dados de cartão de
 Obs.: Os seguintes campos serão salvos no Cartão Protegido: **Card.Number, Card.Holder, Card.ExpirationDate**.  
 Obs2.: A ação de salvar os dados do cartão de crédito, só será feita se a loja possuir o produto Cartão Protegido contratado.  
 
-**Billing.Street**{:.custom-attrib} `optional`{:.custom-tag} `24`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Logradouro do endereço de cobrança. `required`{:.custom-tag} `54`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Billing.Number**{:.custom-attrib} `optional`{:.custom-tag} `5`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Número do endereço de cobrança. `required`{:.custom-tag} `5`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Billing.Complement**{:.custom-attrib} `optional`{:.custom-tag} `14`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Complemento do endereço de cobrança. `optional`{:.custom-tag} `14`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Billing.Neighborhood**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Bairro do endereço de cobrança. `optional`{:.custom-tag} `45`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Billing.City**{:.custom-attrib} `optional`{:.custom-tag} `20`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Cidade do endereço de cobrança. `required`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Billing.State**{:.custom-attrib} `optional`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Estado do endereço de cobrança. `optional`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Billing.Country**{:.custom-attrib} `optional`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-País do endereço de cobrança. `required`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)
-
-**Billing.ZipCode**{:.custom-attrib} `optional`{:.custom-tag} `9`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Código postal do endereço de cobrança. `optional`{:.custom-tag} `9`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
+|`Billing.Street`|Logradouro do endereço de cobrança|string|não|24|sim|54|
+|`Billing.Number`|Número do endereço de cobrança|string|não|5|sim|5|
+|`Billing.Complement`|Complemento do endereço de cobrança|string|não|14|não|14|
+|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|não|15|não|45|
+|`Billing.City`|Cidade do endereço de cobrança|string|não|20|sim|50|
+|`Billing.State`|Estado do endereço de cobrança|string|não|2|não|2|
+|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|sim|2|
+|`Billing.ZipCode`|Código postal do endereço de cobrança|string|não|9|não|9|
 
 **Shipping.Street**{:.custom-attrib} `optional`{:.custom-tag} `24`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Logradouro do endereço de entrega. `optional`{:.custom-tag} `54`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
