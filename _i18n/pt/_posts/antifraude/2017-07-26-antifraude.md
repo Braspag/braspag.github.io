@@ -100,7 +100,7 @@ Exemplo:
 
 A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todos os dados. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.
 
-||||:-:||:-:||
+||||-:||-:||
 ||||ReDShield||Cybersource||
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|:-:|-:|
