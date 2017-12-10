@@ -317,20 +317,20 @@
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Currency</code></td>
       <td style="text-align: left">Moeda - Tabela 1</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">3</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">3</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Provider</code></td>
       <td style="text-align: left">Provedor da solução de antifraude - Tabela 2</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">15</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">15</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">OrderDate</code></td>
@@ -353,9 +353,9 @@
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">SplitingPaymentMethod</code></td>
       <td style="text-align: left">Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">23</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
@@ -407,11 +407,11 @@
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
       <td style="text-align: left">Bandeira do cartão de crédito - Tabela 4</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">10</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">10</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.EciThreeDSecure</code></td>
@@ -515,81 +515,161 @@ Obs2.: A ação de salvar os dados do cartão de crédito, só será feita se a 
       <td>não</td>
       <td>9</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Street</code></td>
+      <td>Logradouro do endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>24</td>
+      <td>não</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Number</code></td>
+      <td>Número do endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>5</td>
+      <td>não</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Complement</code></td>
+      <td>Complemento do endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>14</td>
+      <td>não</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Neighborhood</code></td>
+      <td>Bairro do endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>15</td>
+      <td>não</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.City</code></td>
+      <td>Cidade do endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>20</td>
+      <td>não</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.State</code></td>
+      <td>Estado do endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>2</td>
+      <td>não</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Country</code></td>
+      <td>País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td>string</td>
+      <td>não</td>
+      <td>2</td>
+      <td>não</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.ZipCode</code></td>
+      <td>Código postal do endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>9</td>
+      <td>não</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Email</code></td>
+      <td>E-mail do responsável a receber o produto no endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>60</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.FirstName</code></td>
+      <td>Primeiro nome do responsável a receber o produto no endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>30</td>
+      <td>não</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.MiddleName</code></td>
+      <td>Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>1</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.LastName</code></td>
+      <td>Último do nome do responsável a receber o produto no endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>30</td>
+      <td>não</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Phone</code></td>
+      <td>Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
+      <td>string</td>
+      <td>não</td>
+      <td>19</td>
+      <td>não</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.WorkPhone</code></td>
+      <td>Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114701</td>
+      <td>string</td>
+      <td>não</td>
+      <td>19</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Mobile</code></td>
+      <td>Número do celular do responsável a receber o produto no endereço de entrega <br /> Ex.: 5521987654321</td>
+      <td>string</td>
+      <td>não</td>
+      <td>19</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
+      <td>Meio de entrega do produto - Tabela 5</td>
+      <td>enum</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Comment</code></td>
+      <td>Referências do endereço de entrega</td>
+      <td>string</td>
+      <td>não</td>
+      <td>160</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
   </tbody>
 </table>
-
-<p><strong class="custom-attrib">Shipping.Street</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">24</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Logradouro do endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">54</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Shipping.Number</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">5</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Número do endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">5</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Shipping.Complement</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">14</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Complemento do endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">14</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Shipping.Neighborhood</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">15</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Bairro do endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">45</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Shipping.City</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">20</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Cidade do endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">50</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Shipping.State</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">2</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Estado do endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">2</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Shipping.Country</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">2</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-País do endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">2</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></p>
-
-<p><strong class="custom-attrib">Shipping.ZipCode</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">9</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Código postal do endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">9</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Shipping.Email</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">60</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-E-mail do responsável a receber o produto no endereço de entrega.</p>
-
-<p><strong class="custom-attrib">Shipping.FirstName</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">30</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Primeiro nome do responsável a receber o produto no endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">60</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Shipping.MiddleName</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">1</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Nome do meio do responsável a receber o produto no endereço de entrega.</p>
-
-<p><strong class="custom-attrib">Shipping.LastName</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">30</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Último nome do responsável a receber o produto no endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">60</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code></p>
-
-<p><strong class="custom-attrib">Shipping.Phone</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">19</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Número do telefone do responsável a receber o produto no endereço de entrega. <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">15</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Ex.: 552121114700<br />
-55 = Código do País<br />
-21 = DDD do estado<br />
-21114700 = Número do Telefone</p>
-
-<p><strong class="custom-attrib">Shipping.WorkPhone</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">19</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Número do telefone de trabalho do responsável a receber o produto no endereço de entrega.<br />
-Ex.: 552121114701<br />
-55 = Código do País<br />
-21 = DDD do estado<br />
-21114701 = Número do Telefone</p>
-
-<p><strong class="custom-attrib">Shipping.Mobile</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">19</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Número do celular do responsável a receber o produto no endereço de entrega.<br />
-Ex.: 5521988776655<br />
-55 = Código do País<br />
-21 = DDD do estado<br />
-988776655 = Número do Celular</p>
-
-<p><strong class="custom-attrib">Shipping.ShippingMethod</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">string</code><br />
-Meio de entrega.<br />
-Enum:<br />
-SameDay = Meio de entrega no mesmo dia <code class="custom-provider-cyber highlighter-rouge">Cybersource</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-NextDay = Meio de entrega no próximo dia <code class="custom-provider-cyber highlighter-rouge">Cybersource</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-TwoDay = Meio de entrega em dois dias <code class="custom-provider-cyber highlighter-rouge">Cybersource</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-ThreeDay = Meio de entrega em três dias <code class="custom-provider-cyber highlighter-rouge">Cybersource</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-LowCost = Meio de entrega de baixo custo <code class="custom-provider-cyber highlighter-rouge">Cybersource</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Pickup = Retirada na loja <code class="custom-provider-cyber highlighter-rouge">Cybersource</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-CarrierDesignatedByCustomer = Meio de entrega designada pelo comprador <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-International = Meio de entrega internacional <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Military = Meio de entrega militar <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-Other = Outro meio de entrega <code class="custom-provider-cyber highlighter-rouge">Cybersource</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
-None = Sem meio de entrega, pois é um serviço ou assinatura. <code class="custom-provider-cyber highlighter-rouge">Cybersource</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code></p>
 
 <p><strong class="custom-attrib">Shipping.Comment</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">160</code> <code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-red highlighter-rouge">ReDShield</code><br />
 Referências do endereço de entrega.</p>
