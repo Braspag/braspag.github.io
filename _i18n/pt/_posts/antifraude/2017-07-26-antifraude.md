@@ -107,17 +107,17 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |`MerchantOrderId` |Número do pedido da loja <br/> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint.|string|sim|100|sim|100|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|sim|-|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|sim|-|
-|`Currency`|Moeda - Tabela 1|string|sim|3|sim|3|
-|`Provider`|Provedor da solução de antifraude - Tabela 2|string|sim|15|sim|15|
+|`Currency`|Moeda - Tabela 1|enum|-|-|-|-|
+|`Provider`|Provedor da solução de antifraude - Tabela 2|enum|-|-|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|sim|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|não|-|não|-|
-|`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3|string|não|23|-|-|
+|`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3|enum|-|-|-|-|
 |`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|bool|não|-|-|-|
 |`Card.Number`|Número do cartão de crédito|string|sim|19|sim|20|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|50|sim|50|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|sim|7|
 |`Card.Cvv`|Código de segurança do cartão de crédito|string|sim|4|-|-|
-|`Card.Brand`|Bandeira do cartão de crédito - Tabela 4|string|sim|10|sim|10|
+|`Card.Brand`|Bandeira do cartão de crédito - Tabela 4|enum|-|-|-|-|
 |`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|não|1|-|-|
 
 **Card.Token**{:.custom-attrib} `optional`{:.custom-tag} `Guid`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
@@ -144,79 +144,23 @@ Obs2.: A ação de salvar os dados do cartão de crédito, só será feita se a 
 |`Billing.State`|Estado do endereço de cobrança|string|não|2|não|2|
 |`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|sim|2|
 |`Billing.ZipCode`|Código postal do endereço de cobrança|string|não|9|não|9|
-
-**Shipping.Street**{:.custom-attrib} `optional`{:.custom-tag} `24`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Logradouro do endereço de entrega. `optional`{:.custom-tag} `54`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Shipping.Number**{:.custom-attrib} `optional`{:.custom-tag} `5`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Número do endereço de entrega. `optional`{:.custom-tag} `5`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Shipping.Complement**{:.custom-attrib} `optional`{:.custom-tag} `14`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Complemento do endereço de entrega. `optional`{:.custom-tag} `14`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Shipping.Neighborhood**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Bairro do endereço de entrega. `optional`{:.custom-tag} `45`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Shipping.City**{:.custom-attrib} `optional`{:.custom-tag} `20`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Cidade do endereço de entrega. `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Shipping.State**{:.custom-attrib} `optional`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Estado do endereço de entrega. `optional`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Shipping.Country**{:.custom-attrib} `optional`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-País do endereço de entrega. `optional`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)
-
-**Shipping.ZipCode**{:.custom-attrib} `optional`{:.custom-tag} `9`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Código postal do endereço de entrega. `optional`{:.custom-tag} `9`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Shipping.Email**{:.custom-attrib} `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-E-mail do responsável a receber o produto no endereço de entrega.
-
-**Shipping.FirstName**{:.custom-attrib} `optional`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Primeiro nome do responsável a receber o produto no endereço de entrega. `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Shipping.MiddleName**{:.custom-attrib} `optional`{:.custom-tag} `1`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Nome do meio do responsável a receber o produto no endereço de entrega.
-
-**Shipping.LastName**{:.custom-attrib} `optional`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Último nome do responsável a receber o produto no endereço de entrega. `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Shipping.Phone**{:.custom-attrib} `optional`{:.custom-tag} `19`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Número do telefone do responsável a receber o produto no endereço de entrega. `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: 552121114700  
-55 = Código do País  
-21 = DDD do estado  
-21114700 = Número do Telefone  
-
-**Shipping.WorkPhone**{:.custom-attrib} `optional`{:.custom-tag} `19`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Número do telefone de trabalho do responsável a receber o produto no endereço de entrega.  
-Ex.: 552121114701  
-55 = Código do País  
-21 = DDD do estado  
-21114701 = Número do Telefone  
-
-**Shipping.Mobile**{:.custom-attrib} `optional`{:.custom-tag} `19`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Número do celular do responsável a receber o produto no endereço de entrega.  
-Ex.: 5521988776655  
-55 = Código do País  
-21 = DDD do estado  
-988776655 = Número do Celular  
-
-**Shipping.ShippingMethod**{:.custom-attrib} `optional`{:.custom-tag} `string`{:.custom-tag}  
-Meio de entrega.  
-Enum:  
-SameDay = Meio de entrega no mesmo dia `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-NextDay = Meio de entrega no próximo dia `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-TwoDay = Meio de entrega em dois dias `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-ThreeDay = Meio de entrega em três dias `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-LowCost = Meio de entrega de baixo custo `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-Pickup = Retirada na loja `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-CarrierDesignatedByCustomer = Meio de entrega designada pelo comprador `ReDShield`{:.custom-provider-red}  
-International = Meio de entrega internacional `ReDShield`{:.custom-provider-red}  
-Military = Meio de entrega militar `ReDShield`{:.custom-provider-red}  
-Other = Outro meio de entrega `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-None = Sem meio de entrega, pois é um serviço ou assinatura. `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
+|`Shipping.Street`|Logradouro do endereço de entrega|string|não|24|não|54|
+|`Shipping.Number`|Número do endereço de entrega|string|não|5|não|5|
+|`Shipping.Complement`|Complemento do endereço de entrega|string|não|14|não|14|
+|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|não|15|não|45|
+|`Shipping.City`|Cidade do endereço de entrega|string|não|20|não|50|
+|`Shipping.State`|Estado do endereço de entrega|string|não|2|não|2|
+|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|não|2|
+|`Shipping.ZipCode`|Código postal do endereço de entrega|string|não|9|não|9|
+|`Shipping.Email`|E-mail do responsável a receber o produto no endereço de entrega|string|não|60|-|-|
+|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|não|30|não|60|
+|`Shipping.MiddleName`|Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega|string|não|1|-|-|
+|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|não|30|não|60|
+|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|19|não|15|
+|`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114701|string|não|19|-|-|
+|`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|não|19|-|-|
+|`Shipping.ShippingMethod`|Meio de entrega do produto - Tabela 5|enum|-|-|-|-|
+|`Shipping.Comment`|Referências do endereço de entrega|string|não|160|-|-|
 
 **Shipping.Comment**{:.custom-attrib} `optional`{:.custom-tag} `160`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Referências do endereço de entrega.
