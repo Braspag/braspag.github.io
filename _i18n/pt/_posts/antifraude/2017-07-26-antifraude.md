@@ -157,25 +157,25 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|não|19|-|-|
 |`Shipping.ShippingMethod`|Meio de entrega do pedido - Tabela 5|enum|-|-|-|-|
 |`Shipping.Comment`|Referências do endereço de entrega|string|não|160|-|-|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> Ex.: CPF | CNPJ | CNH | Passaporte|string|sim|16|sim|16|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador - Tabela 6|string|sim|16|sim|16|
 |`Customer.FirstName`|Primeiro nome do comprador|string|sim|30|sim|60|
 |`Customer.MiddleName`|Primeira letra do nome do comprador|string|não|1|-|-|
 |`Customer.LastName`|Último nome do comprador|string|sim|30|sim|60|
 |`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|sim|-|
-|`Customer.Gender`|Sexo do comprador - Tabela 6|string|não|6|-|-|
+|`Customer.Gender`|Sexo do comprador - Tabela 7|string|não|6|-|-|
 |`Customer.Email`|E-mail do comprador|string|não|60|sim|100|
 |`Customer.Ip`|Endereço de IP do comprador|string|não|15|não|15|
 |`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|não|19|não|15|
 |`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|não|19|-|-|
 |`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|não|19|-|-|
-|`Customer.Status`|Status do comprador na loja - Tabela 7|string|não|8|-|-|
+|`Customer.Status`|Status do comprador na loja - Tabela 8|string|não|8|-|-|
 |`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - LINK PARA CONFIG FINGERPRINT|string|sim|6005|-|-|
 |`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|-|-|não|60|
 |`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|-|-|-|-|
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|-|-|não|100|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP (`Customer.Email`)|string|-|-|não|40|
 |`CartItem[n].ProductName`|Nome do produto|string|não|50|sim|255|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks - Tabela 8|enum|-|-|-|-|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks - Tabela 9|enum|-|-|-|-|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|não|-|sim|-|
 |`CartItem[n].OriginalPrice`|Preço original do produto <br/> Ex: 11490 = r$ 114,90|long|não|-|-|-|
 |`CartItem[n].MerchantItemId`|ID do produto na loja|string|não|30|-|-|
@@ -184,15 +184,15 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |`CartItem[n].GiftMessage`|Mensagem de presente|string|não|160|-|-|
 |`CartItem[n].Description`|Descrição do produto|string|não|76|-|-|
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|-|-|
-|`CartItem[n].ShippingMethod`|Meio de entrega do produto - Tabela 9|enum|-|-|-|-|
-|`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto - Tabela 9|string|19|-|-|-|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - Tabela 10|enum|-|-|-|-|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - Tabela 11|enum|-|-|-|-|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - Tabela 12|enum|-|-|-|-|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - Tabela 13|enum|-|-|-|-|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - Tabela 14|enum|-|-|-|-|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - Tabela 15|enum|-|-|-|-|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - Tabela 16|enum|-|-|-|-|
+|`CartItem[n].ShippingMethod`|Meio de entrega do produto - Tabela 10|enum|-|-|-|-|
+|`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|19|-|-|-|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - Tabela 11|enum|-|-|-|-|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - Tabela 12|enum|-|-|-|-|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - Tabela 13|enum|-|-|-|-|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - Tabela 14|enum|-|-|-|-|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - Tabela 15|enum|-|-|-|-|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - Tabela 16|enum|-|-|-|-|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - Tabela 17|enum|-|-|-|-|
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|-|-|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|-|-|não|255|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|-|-|
@@ -211,7 +211,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|-|-|não|30|
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|-|-|não|-|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|-|-|não|-|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 17|enum|-|-|não|-|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|-|-|não|-|
 
 
 
