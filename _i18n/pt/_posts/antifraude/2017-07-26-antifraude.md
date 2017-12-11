@@ -162,9 +162,6 @@ Obs2.: A ação de salvar os dados do cartão de crédito, só será feita se a 
 |`Shipping.ShippingMethod`|Meio de entrega do produto - Tabela 5|enum|-|-|-|-|
 |`Shipping.Comment`|Referências do endereço de entrega|string|não|160|-|-|
 
-**Shipping.Comment**{:.custom-attrib} `optional`{:.custom-tag} `160`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Referências do endereço de entrega.
-
 **Customer.MerchantCustomerId**{:.custom-attrib} `required`{:.custom-tag} `16`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Número do documento de identificação do comprador. `required`{:.custom-tag} `16`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
 Ex.: CPF | CNPJ | CNH | Passaporte
