@@ -13,6 +13,18 @@ title: Home
 
 {% assign sorted = site.tags | sort %}
 
+<div class="dev-hub-title">
+    <div class="dev-hub-info">
+        <h2>
+            Developer Hub
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fringilla consequat est. 
+Vestibulum tempor pellentesque nibh, at bibendum massa. Vivamus velit urna, feugiat id dignissim.
+        </p>
+    </div>
+</div>
+
 <div class="post-list home">
     <ul class="product-list">
     {% for tag in sorted %}
@@ -24,6 +36,7 @@ title: Home
             {% for post in pages_list %}
                 <li class="doc-title">
                     <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </li>
             {% endfor %}
             </ul>
