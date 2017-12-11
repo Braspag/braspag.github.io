@@ -202,20 +202,25 @@ Obs2.: A ação de salvar os dados do cartão de crédito, só será feita se a 
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|-|-|
 |`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
 |`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
+|`Bank.Address`|Endereço do banco do comprador <br/> Este campo poderá ser usado somente quando for transações com meio de pagamento transferência|string|-|-|255|não|
+|`Bank.Code`|Código do banco do comprador <br/> Este campo poderá ser usado somente quando for transações com meio de pagamento transferência|string|-|-|15|não|
+|`Bank.Agency`|Agência do banco do comprador <br/> Este campo poderá ser usado somente quando for transações com meio de pagamento transferência|string|-|-|15|não|
+|`Bank.City`|Agência do banco do comprador <br/> Este campo poderá ser usado somente quando for transações com meio de pagamento transferência|string|-|-|15|não|
+
 
 
 
 
 **Bank.Address**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Endereço do banco do comprador.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
+
+.  
 
 **Bank.Code**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Código do banco do comprador.  
+.  
 Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
 
-**Bank.Agency**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Agência do banco do comprador.  
+**Bank.**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
+.  
 Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
 
 **Bank.City**{:.custom-attrib} `optional`{:.custom-tag} `35`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
