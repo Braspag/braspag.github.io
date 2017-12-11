@@ -119,23 +119,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |`Card.Cvv`|Código de segurança do cartão de crédito|string|sim|4|-|-|
 |`Card.Brand`|Bandeira do cartão de crédito - Tabela 4|enum|-|-|-|-|
 |`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|não|1|-|-|
-
-**Card.Token**{:.custom-attrib} `optional`{:.custom-tag} `Guid`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Identificador do cartão de crédito salvo no Cartão Protegido. `optional`{:.custom-tag} `Guid`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Obs.: Este campo pode ser enviado no lugar dos campos **Card.Number, Card.Holder, Card.ExpirationDate**, tornando-os assim como não obrigatórios. O sistema irá consumir o Cartão Protegido enviando este campo para preencher os citados.  
-
-**Card.Alias**{:.custom-attrib} `optional`{:.custom-tag} `64`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Alias (apelido) do cartão de crédito salvo no Cartão Protegido. `optional`{:.custom-tag} `64`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Obs.: Este campo pode ser enviado na análise de fraude quando se deseja salvar um cartão no Cartão Protegido, em conjunto com o campo **Card.Save** igual a TRUE.  
-Obs2.: Este campo pode ser enviado no lugar dos campos **Card.Number, Card.Holder, Card.ExpirationDate**, tornando-os assim como não obrigatórios. O sistema irá consumir o Cartão Protegido enviando este campo para preencher os citados.  
-Obs3.: Este campo perde em prioridade caso o campo **Card.Token** seja enviado também.  
-
-**Card.Save**{:.custom-attrib} `default = false`{:.custom-tag} `optional`{:.custom-tag} `bool`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido. `default = false`{:.custom-tag} `optional`{:.custom-tag} `bool`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-O Token gerado na plataforma Cartão Protegido associado aos dados de cartão de crédito, retornará no response da análise de fraude através campo **Card.Token**.  
-Obs.: Os seguintes campos serão salvos no Cartão Protegido: **Card.Number, Card.Holder, Card.ExpirationDate**.  
-Obs2.: A ação de salvar os dados do cartão de crédito, só será feita se a loja possuir o produto Cartão Protegido contratado.  
-
+|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|não|-|
+|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|não|-|
+|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|não|64|não|64|
 |`Billing.Street`|Logradouro do endereço de cobrança|string|não|24|sim|54|
 |`Billing.Number`|Número do endereço de cobrança|string|não|5|sim|5|
 |`Billing.Complement`|Complemento do endereço de cobrança|string|não|14|não|14|
@@ -202,82 +188,22 @@ Obs2.: A ação de salvar os dados do cartão de crédito, só será feita se a 
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|-|-|
 |`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
 |`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
-|`Bank.Address`|Endereço do banco do comprador <br/> Este campo poderá ser usado somente quando for transações com meio de pagamento transferência|string|-|-|255|não|
-|`Bank.Code`|Código do banco do comprador <br/> Este campo poderá ser usado somente quando for transações com meio de pagamento transferência|string|-|-|15|não|
-|`Bank.Agency`|Agência do banco do comprador <br/> Este campo poderá ser usado somente quando for transações com meio de pagamento transferência|string|-|-|15|não|
-|`Bank.City`|Agência do banco do comprador <br/> Este campo poderá ser usado somente quando for transações com meio de pagamento transferência|string|-|-|15|não|
+|`Bank.Name`|Nome do banco do comprador|string|-|-|não|40|
+|`Bank.Code`|Código do banco do comprador|string|-|-|não|15|
+|`Bank.Agency`|Agência do banco do comprador|string|-|-|não|15|
+|`Bank.Address`|Endereço do banco do comprador|string|-|-|não|255|
+|`Bank.City`|Cidade onde está localizado o banco do comprador|string|-|-|não|15|
+|`Bank.Country`|País onde está localizado o banco do comprador <br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|-|-|não|2|
+|`Bank.SwiftCode`|Código identificador único do banco do comprador|string|-|-|não|30|
+|`FundTransfer.AccountName`|Nome vinculado a conta bancária|string|-|-|não|30|
+|`FundTransfer.AccountNumber`|Número da conta bancária do comprador|string|-|-|não|30|
+|`FundTransfer.BankCheckDigit`|Código utilizado para validar a conta bancária do comprador|string|-|-|não|2|
+|`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|-|-|não|30|
+|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|-|-|não|-|
+|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|-|-|não|-|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador - Tabela 17|enum|-|-|não|-|
 
 
-
-
-
-**Bank.Address**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-.  
-
-**Bank.Code**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-
-**Bank.**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-
-**Bank.City**{:.custom-attrib} `optional`{:.custom-tag} `35`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Cidade onde está localizado o banco do comprador. Caso este campo não seja enviado, será considerado a cidade do banco enviada através do campo **Billing.City**. E como alguns bancos validam as informações da conta bancária, é muito importante enviar este campo caso a cidade não seja a mesma informada no campo **Billing.City**.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-
-**Bank.Country**{:.custom-attrib} `optional`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-País onde está localizado o banco do comprador.  
-Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-
-**Bank.Name**{:.custom-attrib} `optional`{:.custom-tag} `40`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nome do banco do comprador.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-
-**Bank.SwiftCode**{:.custom-attrib} `optional`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Código identificador único do banco do comprador. A sigla SWIFT significa Society for Worldwide Interbank Financial Telecommunication.  
-Este campo é obrigatório para pagamentos em outros países.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-
-**FundTransfer.AccountName**{:.custom-attrib} `optional`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nome vinculado a conta bancária.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-
-**FundTransfer.AccountNumber**{:.custom-attrib} `optional`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Número da conta bancária do comprador.  
-Este campo é obrigatório se não tem ou não é autorizado a fornecer o IBAN.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-Este campo não deve ser preenchido com o IBAN, para isso use o campo **FundTransfer.Iban**.  
-
-**FundTransfer.BankCheckDigit**{:.custom-attrib} `optional`{:.custom-tag} `2`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Código utilizado para validar a conta bancária do comprador.  
-Este campo é obrigatório se não tem ou não é autorizado a fornecer o IBAN.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-
-**FundTransfer.Iban**{:.custom-attrib} `optional`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Número internacional da conta bancária (IBAN).  
-Este campo pode ser enviado no lugar das informações tradicionais da conta bancária caso tenha ou é autorizado a fornecer.  
-Este campo poderá ser usado somente quando for transações com meio de pagamento transferência.  
-
-**Invoice.IsGift**{:.custom-attrib} `optional`{:.custom-tag} `bool`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Indica se o pedido realizado pelo comprador é para presente ou não.  
-
-**Invoice.ReturnsAccepted**{:.custom-attrib} `optional`{:.custom-tag} `bool`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Indica se o pedido realizado pelo comprador pode ser desvolvido ou não a loja.  
-
-**Invoice.Tender**{:.custom-attrib} `default = Consumer`{:.custom-tag}`optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Forma de pagamento utilizada pelo comprador.  
-Enum:  
-Consumer = Cartão de crédito pessoal.  
-Corporate = Cartão de crédito corporativo.  
-Debit = Cartão de débito.  
-CollectDelivery = Cobrança na entrega.  
-EletronicCheck = Cheque eletrônico.  
-PaymentP2P = Pagamento de pessoa para pessoa.  
-PrivateLabel = Pagamento com cartão de crédito privado.  
-Other = Pagamentos com outros métodos.  
 
 ## Atributos do Response
 
