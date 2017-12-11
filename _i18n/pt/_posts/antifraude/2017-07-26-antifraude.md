@@ -73,7 +73,7 @@ curl
 --header "Content-Type: application/x-www-form-urlencoded"
 
 --body "scope: AntifraudGatewayApp"
---grant_type: "client_credentials"
+--body "grant_type: client_credentials"
 ```
 
 **Parâmetros no cabeçalho (Header)**
