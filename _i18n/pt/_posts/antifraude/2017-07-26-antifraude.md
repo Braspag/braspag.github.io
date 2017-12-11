@@ -159,279 +159,52 @@ Obs2.: A ação de salvar os dados do cartão de crédito, só será feita se a 
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|19|não|15|
 |`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114701|string|não|19|-|-|
 |`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|não|19|-|-|
-|`Shipping.ShippingMethod`|Meio de entrega do produto - Tabela 5|enum|-|-|-|-|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido - Tabela 5|enum|-|-|-|-|
 |`Shipping.Comment`|Referências do endereço de entrega|string|não|160|-|-|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> Ex.: CPF | CNPJ | CNH | Passaporte|string|sim|16|sim|16|
+|`Customer.FirstName`|Primeiro nome do comprador|string|sim|30|sim|60|
+|`Customer.MiddleName`|Primeira letra do nome do comprador|string|não|1|-|-|
+|`Customer.LastName`|Último nome do comprador|string|sim|30|sim|60|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|sim|-|
+|`Customer.Gender`|Sexo do comprador - Tabela 6|string|não|6|-|-|
+|`Customer.Email`|E-mail do comprador|string|não|60|sim|100|
+|`Customer.Ip`|Endereço de IP do comprador|string|não|15|não|15|
+|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|não|19|não|15|
+|`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|não|19|-|-|
+|`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|não|19|-|-|
+|`Customer.Status`|Status do comprador na loja - Tabela 7|string|não|8|-|-|
+|`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - LINK PARA CONFIG FINGERPRINT|string|sim|6005|-|-|
+|`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|-|-|não|60|
+|`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|-|-|-|-|
+|`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|-|-|não|100|
+|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP (`Customer.Email`)|string|-|-|não|40|
+|`CartItem[n].ProductName`|Nome do produto|string|não|50|sim|255|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks - Tabela 8|enum|-|-|-|-|
+|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|não|-|sim|-|
+|`CartItem[n].OriginalPrice`|Preço original do produto <br/> Ex: 11490 = r$ 114,90|long|não|-|-|-|
+|`CartItem[n].MerchantItemId`|ID do produto na loja|string|não|30|-|-|
+|`CartItem[n].Sku`|Sku do produto|string|não|12|não|255|
+|`CartItem[n].Quantity`|Quantidade do produto|int|não|-|não|-|
+|`CartItem[n].GiftMessage`|Mensagem de presente|string|não|160|-|-|
+|`CartItem[n].Description`|Descrição do produto|string|não|76|-|-|
+|`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|-|-|
+|`CartItem[n].ShippingMethod`|Meio de entrega do produto - Tabela 9|enum|-|-|-|-|
+|`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto - Tabela 9|string|19|-|-|-|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - Tabela 10|enum|-|-|-|-|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - Tabela 11|enum|-|-|-|-|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - Tabela 12|enum|-|-|-|-|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - Tabela 13|enum|-|-|-|-|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - Tabela 14|enum|-|-|-|-|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - Tabela 15|enum|-|-|-|-|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - Tabela 16|enum|-|-|-|-|
+|`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|-|-|
+|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|-|-|não|255|
+|`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|-|-|
+|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
+|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
 
-**Customer.MerchantCustomerId**{:.custom-attrib} `required`{:.custom-tag} `16`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Número do documento de identificação do comprador. `required`{:.custom-tag} `16`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: CPF | CNPJ | CNH | Passaporte
 
-**Customer.FirstName**{:.custom-attrib} `required`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Primeiro nome do comprador. `required`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
 
-**Customer.MiddleName**{:.custom-attrib} `optional`{:.custom-tag} `1`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Nome do meio do comprador.
-
-**Customer.LastName**{:.custom-attrib} `required`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Último nome do comprador do comprador. `required`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Customer.BirthDate**{:.custom-attrib} `required`{:.custom-tag} `date`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Data de nascimento do comprador. `required`{:.custom-tag} `date`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: 1983-10-01
-
-**Customer.Gender**{:.custom-attrib} `optional`{:.custom-tag} `6`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Sexo do comprador.  
-Enum: Male | Female
-
-**Customer.Email**{:.custom-attrib} `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-E-mail do comprador. `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Customer.Ip**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Endereço de IP do comprador. `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**Customer.Phone**{:.custom-attrib} `optional`{:.custom-tag} `19`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Telefone do comprador. `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: 552121114700  
-55 = Código do País  
-21 = DDD do estado  
-21114700 = Número do Telefone  
-
-**Customer.Mobile**{:.custom-attrib} `optional`{:.custom-tag} `19`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Celular do comprador.  
-Ex.: 5521988776655  
-55 = Código do País  
-21 = DDD do estado  
-988776655 = Número do Celular  
-
-**Customer.WorkPhone**{:.custom-attrib} `optional`{:.custom-tag} `19`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Telefone de trabalho do comprador.  
-Ex.: 552121114701  
-55 = Código do País  
-21 = DDD do estado  
-21114701 = Número do Telefone  
-
-**Customer.Status**{:.custom-attrib} `optional`{:.custom-tag} `8`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Status do comprador na loja.  
-Enum:  
-New = Identifica quando o comprador é novo na loja, nunca fez uma compra.  
-Existing = Identifica quando o comprador é existente na loja, já realizou uma compra.  
-
-**Customer.BrowserFingerPrint**{:.custom-attrib} `required`{:.custom-tag} `6005`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Impressão digital de dispositivos e geolocalização real do IP do comprador. `required`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-**Configuração do Fingerprint**
-
-**Customer.BrowserHostName**{:.custom-attrib} `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP.  
-
-**Customer.BrowserCookiesAccepted**{:.custom-attrib} `optional`{:.custom-tag} `bool`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Identifica se o browser do comprador aceita cookies ou não.  
-
-**Customer.BrowserEmail**{:.custom-attrib} `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (Customer.Email).  
-
-**Customer.BrowserType**{:.custom-attrib} `optional`{:.custom-tag} `40`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP.  
-
-**CartItem[n].ProductName**{:.custom-attrib} `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Nome do produto. `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**CartItem[n].Risk**{:.custom-attrib} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nível de risco do produto associado a quantidade de chargebacks.  
-Enum:  
-Low = Produto associado com pouco chargebacks.  
-Normal = Produto associado com a quantidade normal de chargebacks.  
-High = Produto associado com muito chargebacks.  
-
-**CartItem[n].UnitPrice**{:.custom-attrib} `optional`{:.custom-tag} `long`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Preço unitário do produto. `required`{:.custom-tag} `long`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Ex.: 10950 (Valor equivalente a R$109,50)  
-
-**CartItem[n].OriginalPrice**{:.custom-attrib} `optional`{:.custom-tag} `long`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Preço original do produto.  
-Ex.: 11490 (Valor equivalente a R$114,90)  
-
-**CartItem[n].MerchantItemId**{:.custom-attrib} `optional`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-ID do produto na loja.
-
-**CartItem[n].Sku**{:.custom-attrib} `optional`{:.custom-tag} `12`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Sku do produto. `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**CartItem[n].Quantity**{:.custom-attrib} `optional`{:.custom-tag} `int`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Quantidade do produto. `optional`{:.custom-tag} `int`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-
-**CartItem[n].GiftMessage**{:.custom-attrib} `optional`{:.custom-tag} `160`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Mensagem de presente.
-
-**CartItem[n].Description**{:.custom-attrib} `optional`{:.custom-tag} `76`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Nome do produto.
-
-**CartItem[n].ShippingInstructions**{:.custom-attrib} `optional`{:.custom-tag} `160`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Instruções de entrega do produto.
-
-**CartItem[n].ShippingMethod**{:.custom-attrib} `optional`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Meio de entrega do produto.  
-Enum:  
-SameDay = Meio de entrega no mesmo dia  
-NextDay = Meio de entrega no próximo dia  
-TwoDay = Meio de entrega em dois dias  
-ThreeDay = Meio de entrega em três dias  
-LowCost = Meio de entrega de baixo custo  
-Pickup = Retirada na loja  
-CarrierDesignatedByCustomer = Meio de entrega designada pelo comprador  
-International = Meio de entrega internacional  
-Military = Meio de entrega militar  
-Other = Outro meio de entrega  
-None = Sem meio de entrega, pois é um serviço ou assinatura.  
-
-**CartItem[n].ShippingTranckingNumber**{:.custom-attrib} `optional`{:.custom-tag} `19`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Número de rastreamento do produto.  
-
-**CartItem[n].AddressRiskVerify**{:.custom-attrib} `default = No`{:.custom-tag} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países.  
-Enum:  
-Yes = Em caso de divergência entre endereços de cobrança e entrega, atribui risco baixo ao pedido.  
-No = Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido.  
-Off = Diferenças entre os endereços de cobrança e entrega não afetam a pontuação.  
-
-**CartItem[n].HostHedge**{:.custom-attrib} `default = Normal`{:.custom-tag} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude.  
-Enum:  
-Low = Baixa  
-Normal = Média  
-High = Alta  
-Off = Não irão afetar o score da análise de fraude.  
-
-**CartItem[n].NonSensicalHedge**{:.custom-attrib} `default = Normal`{:.custom-tag} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude.  
-Enum:  
-Low = Baixa  
-Normal = Média  
-High = Alta  
-Off = Não irão afetar o score da análise de fraude.
-
-**CartItem[n].ObscenitiesHedge**{:.custom-attrib} `default = Normal`{:.custom-tag} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude.  
-Enum:  
-Low = Baixa  
-Normal = Média  
-High = Alta  
-Off = Não irão afetar o score da análise de fraude.
-
-**CartItem[n].TimeHedge**{:.custom-attrib} `default = Normal`{:.custom-tag} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido.  
-Enum:  
-Low = Baixa  
-Normal = Média  
-High = Alta  
-Off = Não irá afetar o score da análise de fraude.  
-
-**CartItem[n].PhoneHedge**{:.custom-attrib} `default = Normal`{:.custom-tag} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude.  
-Enum:  
-Low = Baixa  
-Normal = Média  
-High = Alta  
-Off = Não irão afetar o score da análise de fraude.  
-
-**CartItem[n].VelocityHedge**{:.custom-attrib} `default = Normal`{:.custom-tag} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores.  
-Enum:  
-Low = Baixa  
-Normal = Média  
-High = Alta  
-Off = Não irá afetar o score da análise de fraude.  
-
-**CartItem[n].Passenger.FirstName**{:.custom-attrib} `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Primeiro nome do passageiro.
-
-<!--**CartItem[n].Passenger.MiddleName**{:.custom-attrib} `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nome do meio do passageiro.-->
-
-**CartItem[n].Passenger.LastName**{:.custom-attrib} `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Último nome do comprador do passageiro.  
-
-**CartItem[n].Passenger.DateOfBirth**{:.custom-attrib} `optional`{:.custom-tag} `date`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Data de nascimento do passageiro.  
-Ex.: 1985-07-22
-
-**CartItem[n].Passenger.PassangerId**{:.custom-attrib} `optional`{:.custom-tag} `32`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-ID do passageiro a quem o passageiro foi emitido.  
-
-**CartItem[n].Passenger.Status**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Classificação da empresa aérea.  
-Enum.: Standard | Gold | Platinum  
-
-**CartItem[n].Passenger.PassengerType**{:.custom-attrib} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Tipo do passageiro.  
-Enum:  
-Adult = Adulto  
-Child = Criança  
-Infant = Infantil  
-Youth = Adolescente  
-Student = Estudante  
-SeniorCitizen = Idoso  
-Military = Militar  
-
-**CartItem[n].Passenger.Email**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-E-mail do passageiro.
-
-**CartItem[n].Passenger.Phone**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Telefone do passageiro.
-Ex.: 552121114700  
-55 = Código do País  
-21 = DDD do estado  
-21114700 = Número do Telefone  
-
-<!--**CustomerConfigurationData.ServiceId**{:.custom-attrib}  `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag}  
-Id do serviço no sistema de risco. Esse campo geralmente é definido por alguma configuração, mas em algumas situações, você pode querer usar a opção baseada em solicitação dinâmica.
-Para o ReDShield isso define qual serviço de triagem de fraude deve ser usado.-->
-
-<!--**CustomerConfiguration.RiskBrand**{:.custom-attrib}  `optional`{:.custom-tag} `50`{:.custom-tag} `long`{:.custom-tag}  
-Bandeira de risco do pedido.  -->
-
-**CustomerConfiguration.Website**{:.custom-attrib} `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Website da loja.
-
-**CustomerConfiguration.Comments**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Comentários que a loja poderá associar a análise de fraude.  
-
-**CustomerConfiguration.ScoreThreshold**{:.custom-attrib} `optional`{:.custom-tag} `int`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Nível aceitável de risco para cada produto.  
-
-<!--**CustomerConfigurationData.AccessTokenS**{:.custom-attrib}  `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  -->
-
-**MerchantDefinedData.Key**{:.custom-attrib} `optional`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Campo definido junto ao provedor de antifraude.
-
-**MerchantDefinedData.Value**{:.custom-attrib} `optional`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
-Campo definido junto ao provedor de antifraude.  
-
-Obs.: Entre os 15 campos disponíveis para customização, 5 são de tamanho de 256 caracteres alphanuméricos e 10 são de tamanho de 32 caracteres alphanuméricos.  
-Obs2.: Já existem 2 campos além dos 15 disponíveis, que a loja poderá enviar, que são:  
-     - Segment = Código do segmento do lojista (MCC). Caso o mesmo se encaixe em mais de um segmento, enviar o código do segmento principal que a loja atua.  
-     - MerchantId = Identificador da loja no lojista. Este identificar não é o identificador da loja no antifraude na Braspag. Exemplo de envio, quando a loja trabalha com marketplace, onde poderá enviar o identificador da loja vendedora (Seller).  
-
-**Travel.CompleteRoute**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Rota completa da viagem. Concatenação das pernas (código do aeroporto) de origem e destino da viagem no formato, ORIG1-DEST1:ORIG2-DEST2.  
-Ex.: SFO-JFK:JFK-LHR:LHR-CDG
-
-**Travel.DepartureTime**{:.custom-attrib} `optional`{:.custom-tag} `datetime`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Data de partida do vôo.  
-Ex.: 2017-03-01T15:10:15.258Z
-
-**Travel.JourneyType**{:.custom-attrib} `optional`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Tipo de viagem.  
-Enum.:  
-OneWayTrip = Viagem somente de ida.  
-RoundTrip = Viagem de ida e volta.  
-
-**Travel.TravelLeg[n].Origin**{:.custom-attrib} `optional`{:.custom-tag} `3`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Código do aeroporto de origem da viagem.  
-Ex.: SFO
-
-**Travel.TravelLeg[n].Destination**{:.custom-attrib} `optional`{:.custom-tag} `3`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Código do aeroporto de destino da viagem.  
-Ex.: JFK  
 
 **Bank.Address**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
 Endereço do banco do comprador.  
