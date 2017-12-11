@@ -24,7 +24,7 @@ All operations require specific credentials (Merchant ID and Merchant Key) to ac
 Try our APIs for free!
 
 |Information|Description|
-|-----------|-----------|
+|---|---|
 |API Credentials|Access here [Sandbox Registration](https://cadastrosandbox.braspag.com.br/) and register for free.<BR>You will receive a `MerchantId` and a `MerchantKey`,<BR> necessary to access the APIs|
 |Transactional Endpoint|https://apisandbox.braspag.com.br/|
 |Query Endpoint|https://apiquerysandbox.braspag.com.br/|
@@ -34,7 +34,7 @@ Try our APIs for free!
 Use this environment to validate the integration!
 
 |Information|Description|
-|-----------|-----------|
+|---|---|
 |API Credentials|Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!|
 |Transactional Endpoint|https://apihomolog.braspag.com.br/|
 |Query Endpoint|https://apiqueryhomolog.braspag.com.br/|
@@ -44,7 +44,7 @@ Use this environment to validate the integration!
 Ready to GoLive!
 
 |Information|Description|
-|-----------|-----------|
+|---|---|
 |API Credentials|Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!|
 |Transactional Endpoint|https://api.braspag.com.br/|
 |Query Endpoint|https://apiquery.braspag.com.br/|
@@ -94,15 +94,15 @@ For the better use of all the features available in our API, first of all, it is
 Below we have the list of acquirers that support refund transaction:
 
 |Acquirer|Deadline for Refund Request|
-|-----------|----|
+|---|---|
 |Cielo|300 days|
-|Rede| Komerci tecnology: 90 days; eRede tecnology: 60 days|
+|Rede|Komerci tecnology: 90 days; eRede tecnology: 60 days|
 |Getnet|90 days|
-|Transbank|90 days| 
-|Global Payments| -- |
-|First Data| -- |
-|Banorte| -- |
-|Credibanco| -- |
+|Transbank|90 days|
+|Global Payments|--|
+|First Data|--|
+|Banorte|--|
+|Credibanco|--|
 
 <aside class="warning">Please, check if the acquirer supports Void or Refund operation before development</aside>
 
@@ -128,7 +128,7 @@ Example of a simple credit card transaction jsut with mandatory data. Some featu
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -158,7 +158,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -173,7 +173,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -307,8 +307,8 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -344,9 +344,9 @@ This is an example with customer's data, capture behavior, authentication option
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
+       "District":"Alphaville"
       },
-	  "DeliveryAddress": {
+     "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -354,8 +354,8 @@ This is an example with customer's data, capture behavior, authentication option
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+       "District":"Alphaville"
+       }
    },
    "Payment":{  
      "Provider":"Simulado",
@@ -410,9 +410,9 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
+       "District":"Alphaville"
       },
-	  "DeliveryAddress": {
+     "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -420,8 +420,8 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+       "District":"Alphaville"
+       }
    },
    "Payment":{  
      "Provider":"Simulado",
@@ -454,7 +454,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -520,7 +520,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
@@ -530,7 +530,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     }
   },
   "Payment": {
@@ -612,7 +612,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
@@ -622,7 +622,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     }
   },
   "Payment": {
@@ -685,8 +685,8 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -718,9 +718,9 @@ When a transaction is submitted to an authentication process, the customer is re
    },
    "Payment":{  
       "Provider":"Cielo",
-	  "Type":"CreditCard",
+     "Type":"CreditCard",
       "Amount":10000, 
-	  "Capture":true,
+     "Capture":true,
       "Installments":1,
       "Authenticate":true,
       "ReturnUrl":"http://www.braspag.com.br",
@@ -750,9 +750,9 @@ curl
    },
    "Payment":{  
       "Provider":"Cielo",
-	  "Type":"CreditCard",
+     "Type":"CreditCard",
       "Amount":10000,   
-	  "Capture":true,
+     "Capture":true,
       "Installments":1,
       "Authenticate":true,
       "ReturnUrl":"http://www.braspag.com.br",
@@ -769,7 +769,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -883,8 +883,8 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -914,9 +914,9 @@ When a transaction is submitted to an external authentication process, the custo
    },
    "Payment":{  
       "Provider":"Cielo",
-	  "Type":"CreditCard",
+     "Type":"CreditCard",
       "Amount":10000,    
-      "Capture":true,	  
+      "Capture":true,     
       "Installments":1,
       "Authenticate":true,
       "ReturnUrl":"http://www.braspag.com.br",
@@ -927,7 +927,7 @@ When a transaction is submitted to an external authentication process, the custo
          "SecurityCode":"123",
          "Brand":"Visa"
       },
-	  "ExternalAuthentication":{
+     "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
        "Eci":"5",
@@ -951,9 +951,9 @@ curl
    },
    "Payment":{  
       "Provider":"Cielo",
-	  "Type":"CreditCard",
+     "Type":"CreditCard",
       "Amount":10000, 
-      "Capture":true,	  
+      "Capture":true,     
       "Installments":1,
       "Authenticate":true,
       "ReturnUrl":"http://www.braspag.com.br",
@@ -964,7 +964,7 @@ curl
          "SecurityCode":"123",
          "Brand":"Visa"
       },
-	  "ExternalAuthentication":{
+     "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
        "Eci":"5",
@@ -975,7 +975,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -1018,7 +1018,7 @@ curl
       "SaveCard": false,
       "Brand": "Visa"
     },
-	"ExternalAuthentication":{
+   "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
        "Eci":"5",
@@ -1071,7 +1071,7 @@ curl
       "SaveCard": false,
       "Brand": "Visa"
     },
-	"ExternalAuthentication":{
+   "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
        "Eci":"5",
@@ -1102,8 +1102,8 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -1140,9 +1140,9 @@ The Fraud Prevention requires the "FraudAnalysis" node filled.
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
+       "District":"Alphaville"
       },
-	  "DeliveryAddress": {
+     "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -1150,8 +1150,8 @@ The Fraud Prevention requires the "FraudAnalysis" node filled.
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+       "District":"Alphaville"
+       }
    },
    "Payment":{  
      "Provider":"Simulado",
@@ -1180,58 +1180,58 @@ The Fraud Prevention requires the "FraudAnalysis" node filled.
        "CaptureOnLowRisk":false,
        "VoidOnHighRisk":false,       
        "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",    
-	   "Browser":{
-		 "CookiesAccepted":false,
-		 "Email":"comprador@braspag.com.br",
-		 "HostName":"Teste",
-		 "IpAddress":"127.0.0.1",
-		 "Type":"Chrome"
-		},
+      "Browser":{
+       "CookiesAccepted":false,
+       "Email":"comprador@braspag.com.br",
+       "HostName":"Teste",
+       "IpAddress":"127.0.0.1",
+       "Type":"Chrome"
+      },
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
          "Items":[{
-				"GiftCategory":"Undefined",
-				"HostHedge":"Off",
-				"NonSensicalHedge":"Off",
-				"ObscenitiesHedge":"Off",
-				"PhoneHedge":"Off",
-				"Name":"ItemTeste",
-				"Quantity":1,
-				"Sku":"20170511",
-				"UnitPrice":10000,
-				"Risk":"High",
-				"TimeHedge":"Normal",
-				"Type":"AdultContent",
-				"VelocityHedge":"High",
-				"Passenger":{
-				"Email":"comprador@braspag.com.br",
-				"Identity":"1234567890",
-				"Name": "Customer's Name",
-				"Rating":"Adult",
-				"Phone":"999994444",
-				"Status":"Accepted"
-			}
+            "GiftCategory":"Undefined",
+            "HostHedge":"Off",
+            "NonSensicalHedge":"Off",
+            "ObscenitiesHedge":"Off",
+            "PhoneHedge":"Off",
+            "Name":"ItemTeste",
+            "Quantity":1,
+            "Sku":"20170511",
+            "UnitPrice":10000,
+            "Risk":"High",
+            "TimeHedge":"Normal",
+            "Type":"AdultContent",
+            "VelocityHedge":"High",
+            "Passenger":{
+            "Email":"comprador@braspag.com.br",
+            "Identity":"1234567890",
+            "Name": "Customer's Name",
+            "Rating":"Adult",
+            "Phone":"999994444",
+            "Status":"Accepted"
+         }
            }]
        },
-	    "MerchantDefinedFields":[{
-			"Id":95,
-			"Value":"Dado Definido pela Loja"
-		}],
-		"Shipping":{
-			"Addressee":"Alameda Xingu, 512",
-			"Method":"LowCost",
-			"Phone":"1121840540"
-		},
-		"Travel":{
-			"DepartureTime":"2020-01-01",
-			"JourneyType":"Ida",
-			"Route":"MAO-RJO",
-		"Legs":[{
-			"Destination":"GYN",
-			"Origin":"VCP"
+       "MerchantDefinedFields":[{
+         "Id":95,
+         "Value":"Dado Definido pela Loja"
+      }],
+      "Shipping":{
+         "Addressee":"Alameda Xingu, 512",
+         "Method":"LowCost",
+         "Phone":"1121840540"
+      },
+      "Travel":{
+         "DepartureTime":"2020-01-01",
+         "JourneyType":"Ida",
+         "Route":"MAO-RJO",
+      "Legs":[{
+         "Destination":"GYN",
+         "Origin":"VCP"
           }]
-		}
+      }
      }
   }
 }
@@ -1261,9 +1261,9 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
+       "District":"Alphaville"
       },
-	  "DeliveryAddress": {
+     "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -1271,8 +1271,8 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+       "District":"Alphaville"
+       }
    },
    "Payment":{  
      "Provider":"Simulado",
@@ -1301,58 +1301,58 @@ curl
        "CaptureOnLowRisk":false,
        "VoidOnHighRisk":false,       
        "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",    
-	   "Browser":{
-		 "CookiesAccepted":false,
-		 "Email":"comprador@braspag.com.br",
-		 "HostName":"Teste",
-		 "IpAddress":"127.0.0.1",
-		 "Type":"Chrome"
-		},
+      "Browser":{
+       "CookiesAccepted":false,
+       "Email":"comprador@braspag.com.br",
+       "HostName":"Teste",
+       "IpAddress":"127.0.0.1",
+       "Type":"Chrome"
+      },
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
          "Items":[{
-				"GiftCategory":"Undefined",
-				"HostHedge":"Off",
-				"NonSensicalHedge":"Off",
-				"ObscenitiesHedge":"Off",
-				"PhoneHedge":"Off",
-				"Name":"ItemTeste",
-				"Quantity":1,
-				"Sku":"20170511",
-				"UnitPrice":10000,
-				"Risk":"High",
-				"TimeHedge":"Normal",
-				"Type":"AdultContent",
-				"VelocityHedge":"High",
-				"Passenger":{
-				"Email":"comprador@braspag.com.br",
-				"Identity":"1234567890",
-				"Name": "Customer's Name",
-				"Rating":"Adult",
-				"Phone":"999994444",
-				"Status":"Accepted"
-			}
+            "GiftCategory":"Undefined",
+            "HostHedge":"Off",
+            "NonSensicalHedge":"Off",
+            "ObscenitiesHedge":"Off",
+            "PhoneHedge":"Off",
+            "Name":"ItemTeste",
+            "Quantity":1,
+            "Sku":"20170511",
+            "UnitPrice":10000,
+            "Risk":"High",
+            "TimeHedge":"Normal",
+            "Type":"AdultContent",
+            "VelocityHedge":"High",
+            "Passenger":{
+            "Email":"comprador@braspag.com.br",
+            "Identity":"1234567890",
+            "Name": "Customer's Name",
+            "Rating":"Adult",
+            "Phone":"999994444",
+            "Status":"Accepted"
+         }
            }]
        },
-	    "MerchantDefinedFields":[{
-			"Id":95,
-			"Value":"Dado Definido pela Loja"
-		}],
-		"Shipping":{
-			"Addressee":"Alameda Xingu, 512",
-			"Method":"LowCost",
-			"Phone":"1121840540"
-		},
-		"Travel":{
-			"DepartureTime":"2020-01-01",
-			"JourneyType":"Ida",
-			"Route":"MAO-RJO",
-		"Legs":[{
-			"Destination":"GYN",
-			"Origin":"VCP"
+       "MerchantDefinedFields":[{
+         "Id":95,
+         "Value":"Dado Definido pela Loja"
+      }],
+      "Shipping":{
+         "Addressee":"Alameda Xingu, 512",
+         "Method":"LowCost",
+         "Phone":"1121840540"
+      },
+      "Travel":{
+         "DepartureTime":"2020-01-01",
+         "JourneyType":"Ida",
+         "Route":"MAO-RJO",
+      "Legs":[{
+         "Destination":"GYN",
+         "Origin":"VCP"
           }]
-		}
+      }
      }
   }
 }
@@ -1360,7 +1360,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -1443,7 +1443,7 @@ curl
 |`FraudAnalysis.Shipping.Method`|Text||No|Shippint type<BR><UL><LI>SameDay</LI><LI>OneDay</LI><LI>TwoDay</LI><LI>ThreeDay</LI><LI>LowCost(</LI><LI>Pickup</LI><LI>Other</LI><LI>None</LI></UL>|
 |`FraudAnalysis.Shipping.Phone`|Text|15|No|Delivery recipient’s phone. Ex. 552133665599 (Country Code 55, City Code 21, phone number 33665599)|
 |`FraudAnalysis.Travel.DepartureTime`|DateTime|23|No|Date, hour and minute of flight departure AAAA-MM-DD HH:mm:SS|
-|`FraudAnalysis.Travel.JourneyType`|Text|32|No|Trip type. Ex. "Só Ida", "Só Volta", "Ida e Volta" |
+|`FraudAnalysis.Travel.JourneyType`|Text|32|No|Trip type. Ex. "Só Ida", "Só Volta", "Ida e Volta"|
 |`FraudAnalysis.Travel.Route`|Text|255|No|Route trip. Concatenation of flight connections in ORIG1- DEST1 format|
 |`FraudAnalysis.Travel.Legs.Destination`|Text|3|No|Airport code of the destination|
 |`FraudAnalysis.Travel.Legs.Origin`|Text|3|No|Airport code of the origin|
@@ -1467,7 +1467,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
@@ -1477,7 +1477,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     }
   },
   "Payment": {
@@ -1495,7 +1495,7 @@ curl
       "Brand": "Undefined"
     },
     "SoftDescriptor": "Mensagem",
-	"FraudAnalysis": {
+   "FraudAnalysis": {
             "Sequence": "AnalyseFirst",
             "SequenceCriteria": "Always",
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
@@ -1616,7 +1616,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
@@ -1626,7 +1626,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     }
   },
   "Payment": {
@@ -1644,7 +1644,7 @@ curl
       "Brand": "Undefined"
     },
     "SoftDescriptor": "Mensagem",
-	"FraudAnalysis": {
+   "FraudAnalysis": {
             "Sequence": "AnalyseFirst",
             "SequenceCriteria": "Always",
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
@@ -1746,8 +1746,8 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`SoftDescriptor`|Text que será impresso na fatura do portador|Text|13|Alphanumeric Text|
@@ -1759,7 +1759,7 @@ curl
 |`ProviderReturnCode`|Acquirer or Bank’s return code.|Text|32|57|
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 |`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Text|300|Alphanumeric Text|
-|`FraudAnalysis.Status`|Transaction Status |Byte|3|Ex.: 500|
+|`FraudAnalysis.Status`|Transaction Status|Byte|3|Ex.: 500|
 |`FraudAnalysis.FraudAnalysisReasonCode`|Analysis Reason Code|Byte|---|<UL><LI>100 - Successful operation</LI>
 <LI>101 - There are one or more missed requests fields. Possible action: See the fields that are missing in AntiFraudResponse list.MissingFieldCollection. Resend the request with complete information</LI>
 <LI>102 - One or more request fields contain invalid data. Possible action: See the invalid fields in AntiFraudResponse list.InvalidFieldCollection. Resubmit the request with the correct information</LI>
@@ -1865,7 +1865,7 @@ The Fraud Prevention requires the "FraudAnalysis" node filled.
     "Payment": {
         "Type": "CreditCard",
         "Amount": 15700,
-		"Capture":true,
+      "Capture":true,
         "Provider": "Simulado",
         "Installments": 1,
         "CreditCard": {
@@ -2011,7 +2011,7 @@ curl
     "Payment": {
         "Type": "CreditCard",
         "Amount": 15700,
-		"Capture":true,
+      "Capture":true,
         "Provider": "Simulado",
         "Installments": 1,
         "CreditCard": {
@@ -2114,7 +2114,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -2152,7 +2152,7 @@ curl
 |`CreditCard.Holder`|Text|25|Yes|Cardholder name|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiration Date (MM/YYYY)|
 |`CreditCard.SecurityCode`|Text|4|Yes|Security Code (CVV2)|
-|`CreditCard.Brand`|Text|10|Sim |Card's brand|
+|`CreditCard.Brand`|Text|10|Sim|Card's brand|
 |`Payment.Interest`|Text|10|No|Installment Type - if by merchant (ByMerchant) and if by Issuer (ByIssuer)|
 |`Payment.Capture`Boolean|---|No (Default false)|If automatic capture behavior is required, send true. Else, false. Check with the Acquirer if this feature is supported|
 |`Payment.Authenticate`Boolean|---|No (Default false)|If authentication behavior is required, send true. Else, false. Check with the Acquirer if this feature is supported|
@@ -2631,8 +2631,8 @@ in risk assessment. High - High significance of the purchaser's order obscenitie
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`SoftDescriptor`|Texto que será impresso na fatura do portador|Text|13|Alphanumeric Text|
@@ -2644,7 +2644,7 @@ in risk assessment. High - High significance of the purchaser's order obscenitie
 |`ProviderReturnCode`|Acquirer or Bank’s return code.|Text|32|57|
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 |`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Text|300|Alphanumeric Text|
-|`FraudAnalysis.Status`|Transaction Status |Byte|3|Ex.: 500|
+|`FraudAnalysis.Status`|Transaction Status|Byte|3|Ex.: 500|
 |`FraudAnalysis.ReplyData.FactorCode`|Codes that identifies the score level of an order|Text|100|Ex: B^D^R^Z<br /><UL><LI>A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.</LI>
 <LI>B - BIN card or risk authorization. Risk factors are related to credit card and BIN / or card authorization checks.</LI>
 <LI>C - High numbers of credit cards.The customer has used more than six numbers of credit cards in the past six months.</LI>
@@ -2684,7 +2684,7 @@ Using the "Cartão Protegido), it is possible to save a card in the form of a To
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -2693,7 +2693,7 @@ Using the "Cartão Protegido), it is possible to save a card in the form of a To
          "SecurityCode":"123",
          "Brand":"Visa",
          "SaveCard":true,
-		 "Alias": "Cliente1"
+       "Alias": "Cliente1"
      }
    }
 }
@@ -2716,7 +2716,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -2725,7 +2725,7 @@ curl
          "SecurityCode":"123",
          "Brand":"Visa",
          "SaveCard":true,
-		 "Alias": "Cliente1"
+       "Alias": "Cliente1"
      }
    }
 }
@@ -2733,7 +2733,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -2749,7 +2749,7 @@ curl
 |`CreditCard.SecurityCode`|Text|4|Yes|Security Code (CVV2)|
 |`CreditCard.Brand`|Text|10|Yes|Card's Brand|
 |`CreditCard.SaveCard`|Boolean|10|No|No (Default false)|If the card must be saved, then true. Else false.|
-|`CreditCard.Alias`|Text|64|Não |Alias (Nickname) of the credit card|
+|`CreditCard.Alias`|Text|64|Não|Alias (Nickname) of the credit card|
 
 ### Response
 
@@ -2773,7 +2773,7 @@ curl
       "SaveCard": true,
       "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
       "Brand": "Visa",
-	  "Alias": "Cliente1"
+     "Alias": "Cliente1"
     },
     "ProofOfSale": "3519928",
     "AcquirerTransactionId": "0511023519928",
@@ -2838,7 +2838,7 @@ curl
       "SaveCard": true,
       "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
       "Brand": "Visa",
-	  "Alias": "Cliente1"
+     "Alias": "Cliente1"
     },
     "ProofOfSale": "3519928",
     "AcquirerTransactionId": "0511023519928",
@@ -2878,8 +2878,8 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -2890,7 +2890,6 @@ curl
 |`ProviderReturnCode`|Acquirer or Bank’s return code.|Text|32|57|
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 |`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-
 
 ## Credit Card Payment with Token
 
@@ -2910,7 +2909,7 @@ This is an example of how to use the previously saved Card Token to create a new
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
@@ -2938,7 +2937,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
@@ -2951,7 +2950,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -3079,8 +3078,8 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -3109,7 +3108,7 @@ This is an example of how to use the previously saved Alias to create a new tran
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "Alias":"Cliente1",
@@ -3137,7 +3136,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "Alias":"Cliente1",
@@ -3150,7 +3149,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -3163,7 +3162,7 @@ curl
 |`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`CreditCard.SecurityCode`|Text|4|Yes|Security Code (CVV2)|
 |`CreditCard.Brand`|Text|10|Yes|Card's Brand|
-|`CreditCard.Alias`|Text|64|Não |Alias (Nickname) of the credit card|
+|`CreditCard.Alias`|Text|64|Não|Alias (Nickname) of the credit card|
 
 ### Response
 
@@ -3279,8 +3278,8 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -3299,7 +3298,8 @@ A pre-authorized transaction requires a "Capture" operation to confirm the trans
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
-```json
+```
+
 ```
 
 ```shell
@@ -3313,7 +3313,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -3371,7 +3371,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`Status`|Transaction's Status. | Byte | --- | 2|
 |`ReasonCode`|Código de retorno da adquirente. | Texto | 32 | Texto alfanumérico |
 |`ReasonMessage`|Mensagem de retorno da adquirente. | Texto | 512 | Texto alfanumérico |
@@ -3384,7 +3384,8 @@ To void or refund a transaction, follow the example bellow
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
-```json
+```
+
 ```
 
 ```shell
@@ -3398,7 +3399,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -3442,7 +3443,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`Status`|Transaction's Status|Byte|---|10|
 |`ReasonCode`|Operation's return code|Text|32|Alphanumeric Text|
 |`ReasonMessage`|Operation's return Message|Text|512|Alphanumeric Text|
@@ -3475,7 +3476,7 @@ In case of rejection by Velocity, the ProviderReasonCode will be BP171 - Rejecte
          "State":"SP",
          "Country":"BRA"
       },
-	  "DeliveryAddress": {
+     "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -3483,13 +3484,13 @@ In case of rejection by Velocity, the ProviderReasonCode will be BP171 - Rejecte
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA"
-	    }
+       }
    },
    "Payment":{
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -3526,7 +3527,7 @@ curl
          "State":"SP",
          "Country":"BRA"
       },
-	  "DeliveryAddress": {
+     "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -3534,13 +3535,13 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA"
-	    }
+       }
    },
    "Payment":{
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -3555,7 +3556,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -3742,7 +3743,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`VelocityAnalysis.Id`|Velocity Identification ID|GUID|36|
 |`VelocityAnalysis.ResultMessage`|Accept ou Reject|Text|25|
 |`VelocityAnalysis.Score`|100|Number|10|
@@ -3767,7 +3768,7 @@ The "Renova Fácil" is a feature developed by CIELO and the banks, in order to i
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000183",
@@ -3796,7 +3797,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+    "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000183",
@@ -3811,7 +3812,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -3932,12 +3933,12 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`NewCard.CardNumber`|Novo Credit Card number|Text|16|
 |`NewCard.Holder`|Nome do portador impresso no novo cartão|Text|25|
 |`NewCard.ExpirationDate`|Data de validade impresso no novo cartão|Text|7|
 |`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão|Text|4|
-|`NewCard.Brand`|Bandeira do novo cartão|Text|10 |
+|`NewCard.Brand`|Bandeira do novo cartão|Text|10|
 
 # Debit Card Payment
 
@@ -4003,7 +4004,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -4114,8 +4115,8 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
-|`AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -4128,7 +4129,7 @@ curl
 |`AuthenticationUrl`|Authentication URL to be sent to the customer|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 # Electronic Transfer Payments
-	
+   
 ## Creating a transaction
 
 To create an electronic transfer payment (known as Online Debit as well), it is necessary make a POST as presented below.
@@ -4148,14 +4149,14 @@ To create an electronic transfer payment (known as Online Debit as well), it is 
         "Email": "comprador@braspag.com.br",
         "Address": 
         {
-			 "Street":"Alameda Xingu",
-			 "Number":"512",
-			 "Complement":"27 andar",
-			 "ZipCode":"12345987",
-			 "City":"São Paulo",
-			 "State":"SP",
-			 "Country":"BRA",
-			 "District":"Alphaville"
+          "Street":"Alameda Xingu",
+          "Number":"512",
+          "Complement":"27 andar",
+          "ZipCode":"12345987",
+          "City":"São Paulo",
+          "State":"SP",
+          "Country":"BRA",
+          "District":"Alphaville"
         }
     },
     "Payment":
@@ -4186,14 +4187,14 @@ curl
         "Email": "comprador@braspag.com.br",
         "Address": 
         {
-			 "Street":"Alameda Xingu",
-			 "Number":"512",
-			 "Complement":"27 andar",
-			 "ZipCode":"12345987",
-			 "City":"São Paulo",
-			 "State":"SP",
-			 "Country":"BRA",
-			 "District":"Alphaville"
+          "Street":"Alameda Xingu",
+          "Number":"512",
+          "Complement":"27 andar",
+          "ZipCode":"12345987",
+          "City":"São Paulo",
+          "State":"SP",
+          "Country":"BRA",
+          "District":"Alphaville"
         }
     },
     "Payment":
@@ -4208,7 +4209,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -4241,14 +4242,14 @@ curl
         "Email": "comprador@braspag.com.br",
         "Address": 
         {
-			 "Street":"Alameda Xingu",
-			 "Number":"512",
-			 "Complement":"27 andar",
-			 "ZipCode":"12345987",
-			 "City":"São Paulo",
-			 "State":"SP",
-			 "Country":"BRA",
-			 "District":"Alphaville"
+          "Street":"Alameda Xingu",
+          "Number":"512",
+          "Complement":"27 andar",
+          "ZipCode":"12345987",
+          "City":"São Paulo",
+          "State":"SP",
+          "Country":"BRA",
+          "District":"Alphaville"
         }
     },
     "Payment": {
@@ -4309,7 +4310,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Url`|Authentication URL to be sent to the customer|Text|256|URL|
 |`Status`|Transaction's Status|Byte|2|1|
@@ -4334,13 +4335,13 @@ To create a boleto without registration payment (known as "Boleto sem Registro" 
     "Payment":
     {  
         "Provider":"Simulado",
-		"Type":"Boleto",
+      "Type":"Boleto",
         "Amount":10000,
-		"Assignor": "Braspag Tecnologia de Pagamento Ltda",
+      "Assignor": "Braspag Tecnologia de Pagamento Ltda",
         "Demonstrative": "Texto para Demonstrativo",
         "ExpirationDate": "2017-12-31",
         "Identification": "01234567000189",
-        "Instructions": "Aceitar somente até a data de vencimento"		
+        "Instructions": "Aceitar somente até a data de vencimento"      
     }
 }
 ```
@@ -4362,9 +4363,9 @@ curl
     "Payment":
     {  
         "Provider":"Simulado",
-		"Type":"Boleto",
+      "Type":"Boleto",
         "Amount":10000,
-		"Assignor": "Braspag Tecnologia de Pagamento Ltda",
+      "Assignor": "Braspag Tecnologia de Pagamento Ltda",
         "Demonstrative": "Texto para Demonstrativo",
         "ExpirationDate": "2017-12-31",
         "Identification": "01234567000189",
@@ -4375,7 +4376,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -4384,7 +4385,7 @@ curl
 |`Payment.Provider`|Text|15|Yes|Payment Method Provider's name de Boleto|
 |`Payment.Type`|Text|100|Yes|Payment Method's Type. No caso "Boleto"|
 |`Payment.Amount`|Number|15|Yes|Transaction Amount (must be sent in cents)|
-|`Payment.BoletoNumber`|Text|50 |No| Boleto Identification Number ("Nosso Número"). If this fiel is filled, it will override the configured value. |
+|`Payment.BoletoNumber`|Text|50 |No|Boleto Identification Number ("Nosso Número"). If this fiel is filled, it will override the configured value.|
 |`Payment.Assignor`|Text|200|No|Assignor's name. If this fiel is filled, it will override the configured value|
 |`Payment.Demonstrative`|Text|450|No|Demonstrative message. If this fiel is filled, it will override the configured value.|
 |`Payment.ExpirationDate`|Date |10 |No|Days to expiration. If this fiel is filled, it will override the configured value.|
@@ -4473,14 +4474,14 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`PaymentId`|Braspag's Transaction ID. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`ExpirationDate`|Data de expiração. |Text|10 |2014-12-25 |
 |`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
 |`Number`|"NossoNumero" gerado. |Text|50 |1000000012-8 |
 |`BarCodeNumber`|Representação numérica do código de barras. |Text|44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Text|256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço do Loja cadastrada no banco |Text|256 |Av. Teste, 160 |
+|`Address`|Endereço do Loja cadastrada no banco|Text|256 |Av. Teste, 160 |
 |`Status`|Transaction's Status. |Byte |--- |1|
 
 ## Creating a Registered Boleto Payment
@@ -4498,22 +4499,22 @@ To create a registered boleto payment (known as "Boleto Registrado" as well), it
     {  
         "Name": "Customer's Name",
         "Identity":"12345678909",
-		"IdentityType":"CPF",
-		"Address":{  
-			"Street":"Alameda Xingu",
-			"Number":"512",
-			"Complement":"27 andar",
-			"ZipCode":"12345987",
-			"City":"São Paulo",
-			"State":"SP",
-			"Country":"BRA",
-			"District":"Alphaville"
-		}	
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }   
     },
     "Payment":
     {  
         "Provider":"Simulado",
-		"Type":"Boleto",
+      "Type":"Boleto",
         "Amount":10000,
         "Assignor": "Empresa Teste",
         "Demonstrative": "Desmonstrative Teste",
@@ -4538,22 +4539,22 @@ curl
     {  
         "Name": "Customer's Name",
         "Identity":"12345678909",
-		"IdentityType":"CPF",
-		"Address":{  
-			"Street":"Alameda Xingu",
-			"Number":"512",
-			"Complement":"27 andar",
-			"ZipCode":"12345987",
-			"City":"São Paulo",
-			"State":"SP",
-			"Country":"BRA",
-			"District":"Alphaville"
-		}	
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }   
     },
     "Payment":
     {  
         "Provider":"Simulado",
-		"Type":"Boleto",
+      "Type":"Boleto",
         "Amount":10000,
         "Assignor": "Empresa Teste",
         "Demonstrative": "Desmonstrative Teste",
@@ -4566,7 +4567,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -4585,7 +4586,7 @@ curl
 |`Payment.Provider`|Text|15|Yes|Payment Method Provider's name de Boleto|
 |`Payment.Type`|Text|100|Yes|Payment Method's Type. In this case, "Boleto"|
 |`Payment.Amount`|Number|15|Yes|Valor do Pedido (deve ser enviado em centavos)|
-|`Payment.BoletoNumber`|Text|See the table below|No| Boleto Identification Number ("Nosso Número"). If this fiel is filled, it overrides the configured value. |
+|`Payment.BoletoNumber`|Text|See the table below|No|Boleto Identification Number ("Nosso Número"). If this fiel is filled, it overrides the configured value.|
 |`Payment.Assignor`|Text|200|No|Assignor's name. If this fiel is filled, it will override the configured value|
 |`Payment.Demonstrative`|Text|See the table below|No|Demonstrative message. If this fiel is filled, it will override the configured value.|
 |`Payment.ExpirationDate`|Date |10 |No|Days to expiration. If this fiel is filled, it will override the configured value.|
@@ -4594,22 +4595,22 @@ curl
 
 ### Fields max length specification for each bank
 
-| Property | Bradesco | BancoBanco do Brasil | Itaú | Santander | Caixa Econômica | Citibank |
-|------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
-| Provider | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
-| `MerchantOrderId` | 27 (OBS 1) | 50 (OBS 1) | 8 | 50 (OBS 1) | 11 (OBS 1) | 10 (OBS 1) |
-| `Payment.BoletoNumber` | 11 (OBS 2) | 9 (OBS 2) | 8 (OBS 1) | 13 (OBS 2) | 14 (OBS 2) | 11 (OBS 2) |
-| `Customer.Name` | 34 (OBS 3) | 60 (OBS,3) | 30 | 40 (OBS 3) | 40 (OBS 3) | 50 (OBS 3) |
-| `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` | Street: 70 (OBS 4); Number: 10 (OBS 4); Complement: 20 (OBS 4); District: 50 (OBS 4) | These fields must have up to 60 characters | Street, Number e Complement must have up to 40 characters;  District: 15 | Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3) | Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3) | Street, Number e Complement must have up to 40 characters (OBS 3); District: 50 (OBS 3) |
-| `Customer.Address.City` | 50 (OBS 4) | 18 (OBS 3) | 15 | 30 (OBS 3) | 15 (OBS 3) | 50 (OBS 4) |
-| `Payment.Instructions` | 450 | 450 | this field is not sent to the bank | 450 | 450 | 450 |
-| `Payment.Demonstrative` | 255 | this field is not sent to the bank | this field is not sent to the bank | 255 | 255 | 255 |
-| >>>>>>>>>>>>>>>>>>>>>> |  |  |  |  |  |  |
-| Additional Obsrevations: | OBS 1: alphabets, numbers e characters like "_" and "$" | OBS 1: this field is not sent to the bank | OBS geral: the Pagador truncates the fields automatically | OBS 1: this field is not sent to the bank | OBS 1: when the value is greater than 11 digits, the Pagador will generate a number based on configured number in the admin panel | General OBS: the Pagador does not validate the fields, but the Bank truncates the fields automatically|
-|  | OBS 2: the bank validates the limit | OBS 2: the value is truncated when pass 9 digits, considering the last 9 positions | OBS 1: the "nosso número" alwats will be the same value as "Order ID", and pagador validates the limit | OBS 2: the bank validates the limit | OBS 2: start with "14" + 14 digits + verification digit generates automatically. When greater than 14 digits, the Pagador truncate the value considering the last 14 digits | OBS 1: when greather than the max limit, the Pagador generates a incremental number configured in the admin panel |
-|  | OBS 3: the Pagador truncate automatically| OBS 3: accepted characteres: alphabets A a Z (CAPS LOCK); special characters: (-), ('), without space between these characters; Correct Examples: D'EL-REI, D'ALCORTIVO, SANT'ANA. Incorrect Examples: D'EL - REI; you can use one space between two words |  | OBS 3: the Pagador validates the limit | OBS 3: the Pagador validates the limit | OBS 2: when the value is greater than limit, the Pagador generates one randomic number |
-|  | OBS 4: the Pagador validates the limit |  |  |  |  | OBS 3: te Pagador removes the special characters 
-|  |  |  |  |  |  | OBS 4: this field is not sent to the bank |
+|Property|Bradesco|BancoBanco do Brasil|Itaú|Santander|Caixa Econômica|Citibank|
+|---|---|---|---|---|---|---|
+|Provider|Bradesco2|BancoDoBrasil2|ItauShopline|Santander2|Caixa2|Citibank2|
+|`MerchantOrderId`|27 (OBS 1)|50 (OBS 1)|8|50 (OBS 1)|11 (OBS 1)|10 (OBS 1)|
+|`Payment.BoletoNumber`|11 (OBS 2)|9 (OBS 2)|8 (OBS 1)|13 (OBS 2)|14 (OBS 2)|11 (OBS 2)|
+|`Customer.Name`|34 (OBS 3)|60 (OBS,3)|30|40 (OBS 3)|40 (OBS 3)|50 (OBS 3)|
+|`Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District`|Street: 70 (OBS 4); Number: 10 (OBS 4); Complement: 20 (OBS 4); District: 50 (OBS 4)|These fields must have up to 60 characters|Street, Number e Complement must have up to 40 characters;  District: 15|Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)|Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)|Street, Number e Complement must have up to 40 characters (OBS 3); District: 50 (OBS 3)|
+|`Customer.Address.City`|50 (OBS 4)|18 (OBS 3)|15|30 (OBS 3)|15 (OBS 3)|50 (OBS 4)|
+|`Payment.Instructions`|450|450|this field is not sent to the bank|450|450|450|
+|`Payment.Demonstrative`|255|this field is not sent to the bank|this field is not sent to the bank|255|255|255|
+|>>>>>>>>>>>>>>>>>>>>>>|||||||
+|Additional Obsrevations:|OBS 1: alphabets, numbers e characters like "_" and "$"|OBS 1: this field is not sent to the bank|OBS geral: the Pagador truncates the fields automatically|OBS 1: this field is not sent to the bank|OBS 1: when the value is greater than 11 digits, the Pagador will generate a number based on configured number in the admin panel|General OBS: the Pagador does not validate the fields, but the Bank truncates the fields automatically|
+||OBS 2: the bank validates the limit|OBS 2: the value is truncated when pass 9 digits, considering the last 9 positions|OBS 1: the "nosso número" alwats will be the same value as "Order ID", and pagador validates the limit|OBS 2: the bank validates the limit|OBS 2: start with "14" + 14 digits + verification digit generates automatically. When greater than 14 digits, the Pagador truncate the value considering the last 14 digits|OBS 1: when greather than the max limit, the Pagador generates a incremental number configured in the admin panel|
+||OBS 3: the Pagador truncate automatically|OBS 3: accepted characteres: alphabets A a Z (CAPS LOCK); special characters: (-), ('), without space between these characters; Correct Examples: D'EL-REI, D'ALCORTIVO, SANT'ANA. Incorrect Examples: D'EL - REI; you can use one space between two words||OBS 3: the Pagador validates the limit|OBS 3: the Pagador validates the limit|OBS 2: when the value is greater than limit, the Pagador generates one randomic number|
+||OBS 4: the Pagador validates the limit|||||OBS 3: te Pagador removes the special characters 
+|||||||OBS 4: this field is not sent to the bank|
 
 ### Response
 
@@ -4680,7 +4681,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     }
   },
   "Payment": {
@@ -4716,11 +4717,11 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`PaymentId`|Braspag's Transaction ID. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`ExpirationDate`|Data de expiração. |Text|10 |2014-12-25 |
 |`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`Number`|Boleto Identification Number ("NossoNumero") |Text|50 |1000000012-8 |
+|`Number`|Boleto Identification Number ("NossoNumero")|Text|50 |1000000012-8 |
 |`BarCodeNumber`|Barcode number|Text|44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Formatted Barcode number|Text|256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
 |`Address`|Merchant's Address|Text|256 |Av. Teste, 160 |
@@ -4801,7 +4802,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -4966,7 +4967,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`RecurrentPaymentId`|Recurrent Payment ID used to further queries |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`NextRecurrency`|The next payment date|Text|7 |05/2019 (MM/YYYY) |
 |`EndDate`|Recurrency end date |Text|7 |05/2019 (MM/YYYY) |
@@ -5046,7 +5047,7 @@ curl
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|--------|----|----|---------|-----------|
+|---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Merchant Identifier|
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
@@ -5162,7 +5163,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`RecurrentPaymentId`|Recurrent Payment ID used to further queries |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`NextRecurrency`|The next payment date|Text|7 |05/2019 (MM/YYYY) |
 |`StartDate`|Recurrency start date |Text|7 |05/2019 (MM/YYYY) |
@@ -5180,31 +5181,31 @@ Follow the example below to change only customer's data of a recurrent payment
 
 ```json
 {  
-	"Name":"Outro Customer's Name",
-	"Email":"outrocomprador@braspag.com.br",
-	"Birthdate":"1999-12-12",
-	"Identity":"0987654321",
-	"IdentityType":"CPF",
-	"Address":{  
-		"Street":"Avenida Brigadeiro Faria Lima",
-		"Number":"1500",
-		"Complement":"AP 201",
-		"ZipCode":"05426200",
-		"City":"São Paulo",
-		"State":"SP",
-		"Country":"BRA",
-		"District":"Pinheiros"
-	},
-	"DeliveryAddress":{  
-		"Street":"Avenida Brigadeiro Faria Lima",
-		"Number":"1500",
-		"Complement":"AP 201",
-		"ZipCode":"05426200",
-		"City":"São Paulo",
-		"State":"SP",
-		"Country":"BRA",
-		"District":"Pinheiros"
-	}
+   "Name":"Outro Customer's Name",
+   "Email":"outrocomprador@braspag.com.br",
+   "Birthdate":"1999-12-12",
+   "Identity":"0987654321",
+   "IdentityType":"CPF",
+   "Address":{  
+      "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Pinheiros"
+   },
+   "DeliveryAddress":{  
+      "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Pinheiros"
+   }
 }
 ```
 
@@ -5217,37 +5218,37 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-	"Name":"Outro Customer's Name",
-	"Email":"outrocomprador@braspag.com.br",
-	"Birthdate":"1999-12-12",
-	"Identity":"0987654321",
-	"IdentityType":"CPF",
-	"Address":{  
-		"Street":"Avenida Brigadeiro Faria Lima",
-		"Number":"1500",
-		"Complement":"AP 201",
-		"ZipCode":"05426200",
-		"City":"São Paulo",
-		"State":"SP",
-		"Country":"BRA",
-		"District":"Pinheiros"
-	},
-	"DeliveryAddress":{  
-		"Street":"Avenida Brigadeiro Faria Lima",
-		"Number":"1500",
-		"Complement":"AP 201",
-		"ZipCode":"05426200",
-		"City":"São Paulo",
-		"State":"SP",
-		"Country":"BRA",
-		"District":"Pinheiros"
-	}
+   "Name":"Outro Customer's Name",
+   "Email":"outrocomprador@braspag.com.br",
+   "Birthdate":"1999-12-12",
+   "Identity":"0987654321",
+   "IdentityType":"CPF",
+   "Address":{  
+      "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Pinheiros"
+   },
+   "DeliveryAddress":{  
+      "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Pinheiros"
+   }
 }
 --verbose
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5308,7 +5309,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5348,7 +5349,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5411,7 +5412,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5451,7 +5452,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5493,7 +5494,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5563,7 +5564,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5607,7 +5608,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5625,7 +5626,6 @@ See [HTTP Status Code](#http-status-code). This list contains all the HTTP Statu
 
 To Reactivate a Recurrency Payment, follow the example bellow
 
-
 ### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
@@ -5642,7 +5642,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5678,7 +5678,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5799,7 +5799,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`MerchantOrderId`|Merchant Order ID|Text|50|Alphanumeric Text|
 |`Customer.Name`|Customer's Name|Text|255|Alphanumeric Text|
 |`Customer.Identity`|Customer's RG, CPF or CNPJ|Text|14 |Alphanumeric Text|
@@ -5829,14 +5829,14 @@ curl
 |`Payment.Currency`|Currency Code|Text|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
 |`Payment.Country`|Country Code|Text|3|BRA|
 |`Payment.Installments`|Number of Installments|Number|2|6|
-|`Payment.Interest`|Installment Type |Text|10|if by merchant (ByMerchant) and if by Issuer (ByIssuer)|
+|`Payment.Interest`|Installment Type|Text|10|if by merchant (ByMerchant) and if by Issuer (ByIssuer)|
 |`Payment.Capture`|If automatic capture behavior is required, send true. Else, false. Check with the Acquirer if this feature is supported|Boolean|--- (Default false)|Boolean|
 |`Payment.Authenticate`|If authentication behavior is required, send true. Else, false. Check with the Acquirer if this feature is supported|Boolean|--- (Default false)|Boolean|
 |`Payment.Recurrent`|If recurrent behavior is required, send true. Else, false. Check with the Acquirer if this feature is supported|Boolean|--- (Default false)|Boolean|
 |`Payment.SoftDescriptor`|Text que será impresso na fatura do portador|Text|13|Alphanumeric Text|
 |`Payment.ExtraDataCollection.Name`|Extra Data field's name|Text|50|Alphanumeric Text|
 |`Payment.ExtraDataCollection.Value`|Extra Data field's value|Text|1024|Alphanumeric Text|
-|`Payment.AcquirerTransactionId`|Provider's Transaction ID |Text|40|Alphanumeric Text|
+|`Payment.AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`Payment.ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`Payment.AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
 |`Payment.PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -5850,9 +5850,8 @@ curl
 |`CreditCard.Holder`|Cardholder's name|Text|25|
 |`CreditCard.ExpirationDate`|Card's Expiration Date|Text|7|
 |`CreditCard.SecurityCode`|Security Code (CVV2)|Text|4|
-|`CreditCard.Brand`|Card's Brand|Text|10 |
+|`CreditCard.Brand`|Card's Brand|Text|10|
 |`CreditCard.SaveCard`|If the card must be saved, then true. Else false.|Boolean|--- (Default false)|
-
 
 ## Query by Merchant's order ID
 
@@ -5874,7 +5873,7 @@ curls
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -5918,7 +5917,7 @@ curls
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Query a Recurring Transaction
@@ -5941,7 +5940,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`MerchantId`|Merchant Identifier|Guid|3|Yes|
 |`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
 |`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
@@ -6049,7 +6048,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|--------|-----------|----|----|------|
+|---|---|---|---|---|
 |`RecurrentPaymentId`|Recurrent Payment ID used to further queries |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`NextRecurrency`|The next payment date|Text|7 |05/2019 (MM/YYYY) |
 |`StartDate`|Recurrency start date |Text|7 |05/2019 (MM/YYYY) |
@@ -6058,7 +6057,7 @@ curl
 |`CurrentRecurrencyTry`|Indentify the number of attempts |Number|1|1|
 |`OrderNumber`|Merchant's order number|Text|50 |2017051101|
 |`Status`|Recurrence Status|Number|1 |<UL><LI>1 - Active</LI><LI>2 - Finished</LI><LI>3,4,5 - Disabled</LI></UL> |
-|`RecurrencyDay`|Recurrent Day |Number|2 |22 |
+|`RecurrencyDay`|Recurrent Day|Number|2 |22 |
 |`SuccessfulRecurrences`|Number of successful recurrences|Number|2 |5|
 |`RecurrentTransactions.RecurrentPaymentId`|Recurrence ID to further queries|Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`RecurrentTransactions.TransactionId`|Transaction ID at Braspag|Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
@@ -6082,13 +6081,13 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 ```
 
 |Property|Description|Type|Size|Mandatory|
-|--------|-----------|----|----|---------|
+|---|---|---|---|---|
 |`RecurrentPaymentId`|Recurrent Payment ID for further queries|Text|50 |Yes|
 |`PaymentId`|Identificador que representa a transação|GUID|36|Yes|
 |`ChangeType`|Type of notification. See bellow| Número | 1 |Yes|
 
 |ChangeType|Descrição|
-|-----------|-----------|
+|---|---|
 |1|Transaction's Status changing|
 |2|New recurrency transaction created|
 |3|Fraud Analysis' Status changing|
@@ -6102,7 +6101,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 ### Credit Card Payments Provider
 
 |Provider|Brand|
-|--------|-----|
+|---|---|
 |Simulado|---|
 |Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
 |Cielo30 (Cielo 3.0)|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
@@ -6120,7 +6119,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 ### Debit Card Payments Provider
 
 |Provider|Brand|
-|--------|-----|
+|---|---|
 |Cielo|Visa, Master|
 |Cielo30 (Cielo 3.0)|Visa, Master|
 |Getnet|Visa, Master|
@@ -6130,25 +6129,25 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 ### Boleto without Registration Payments Provider
 
 |Provider|
-|--------|
+|---|
 |Simulado, Bradesco, BancoDoBrasil, CitiBank, Itau, Caixa, Santander|
 
 ### Registered Boleto Payments Provider
 
 |Provider|
-|--------|
+|---|
 |Bradesco2, BancoDoBrasil2, ItauShopline, Santander2, Caixa2, CitiBank2|
 
 ### Electronic Transfer Payments Provider (Online Debit)
 
 |Provider|
-|--------|
+|---|
 |Bradesco, BancoDoBrasil, SafetyPay, Itau|
 
 ## Transaction's Status
 
 |Code|Status|Description|
-|----|------|-----------|
+|---|---|---|
 |0|NotFinished|Failed Transaction due to conectivity problem|
 |1|Authorized|Transaction Authorized, Boleto Generated|
 |2|PaymentConfirmed|Transaction Captured, Boleto Paid|
@@ -6162,7 +6161,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 ## Fraud Analysis' Status
 
 |Code|Description|
-|------|---------|
+|---|---|
 |500|Started|
 |501|Accept|
 |502|Review|
@@ -6174,7 +6173,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 ## HTTP Status Code List
 
 |HTTP Status Code|Description|
-|----------------|---------|
+|---|---|
 |200|OK|
 |400|Bad Request|
 |404|Resource Not Found|
@@ -6183,49 +6182,49 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 ## Recurrency Payment Status List
 
 |Code|Description|
-|------|---------|
-|1|	Active|
-|2|	Finished|
-|3|	DisabledByMerchant|
-|4|	DisabledMaxAttempts|
-|5|	DisabledExpiredCreditCard|
+|---|---|
+|1|Active|
+|2|Finished|
+|3|DisabledByMerchant|
+|4|DisabledMaxAttempts|
+|5|DisabledExpiredCreditCard|
 
 ## ReasonCode/ReasonMessage List
 
 |Reason Code|Reason Message|
-|-----------|--------------|
-|0|	Successful|
-|1|	AffiliationNotFound|
-|2|	IssuficientFunds|
-|3|	CouldNotGetCreditCard|
-|4|	ConnectionWithAcquirerFailed|
-|5|	InvalidTransactionType|
-|6|	InvalidPaymentPlan|
-|7|	Denied|
-|8|	Scheduled|
-|9|	Waiting|
-|10|	Authenticated|
-|11|	NotAuthenticated|
-|12|	ProblemsWithCreditCard|
-|13|	CardCanceled|
-|14|	BlockedCreditCard|
-|15|	CardExpired|
-|16|	AbortedByFraud|
-|17|	CouldNotAntifraud|
-|18|	TryAgain|
-|19|	InvalidAmount|
-|20|	ProblemsWithIssuer|
-|21|	InvalidCardNumber|
-|22|	TimeOut|
-|23|	CartaoProtegidoIsNotEnabled|
-|24|	PaymentMethodIsNotEnabled|
-|98|	InvalidRequest|
-|99|	InternalError|
+|---|---|
+|0|Successful|
+|1|AffiliationNotFound|
+|2|IssuficientFunds|
+|3|CouldNotGetCreditCard|
+|4|ConnectionWithAcquirerFailed|
+|5|InvalidTransactionType|
+|6|InvalidPaymentPlan|
+|7|Denied|
+|8|Scheduled|
+|9|Waiting|
+|10|Authenticated|
+|11|NotAuthenticated|
+|12|ProblemsWithCreditCard|
+|13|CardCanceled|
+|14|BlockedCreditCard|
+|15|CardExpired|
+|16|AbortedByFraud|
+|17|CouldNotAntifraud|
+|18|TryAgain|
+|19|InvalidAmount|
+|20|ProblemsWithIssuer|
+|21|InvalidCardNumber|
+|22|TimeOut|
+|23|CartaoProtegidoIsNotEnabled|
+|24|PaymentMethodIsNotEnabled|
+|98|InvalidRequest|
+|99|InternalError|
 
 ## API Error Code List
 
 |Code|Message|
-|----|-------|
+|---|---|
 |0|Internal error|
 |100|RequestId is required|
 |101|MerchantId is required|
@@ -6332,10 +6331,10 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 |203|Cart item Name is required|
 |204|Cart item Quantity is required|
 |205|Cart item type is required|
-|206|Cart item name length exceeded |
-|207|Cart item description length exceeded |
-|208|Cart item sku length exceeded |
-|209|Shipping addressee sku length exceeded |
+|206|Cart item name length exceeded|
+|207|Cart item description length exceeded|
+|208|Cart item sku length exceeded|
+|209|Shipping addressee sku length exceeded|
 |210|Shipping data cannot be null|
 |211|WalletKey is invalid|
 |212|Merchant Wallet Configuration not found|
@@ -6372,7 +6371,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 The "Simulado" is a payment method that emulates the use of credit card payment. With this payment method is possible to simulate all the Authorization, Capture and Cancellation streams. For better use of Mock Payment Method, we are providing test cards on the table below. The status of the transaction will be as the use of each card.
 
 |Status to Simulate|Credit Card Number|Return Code|Return Message|
-|------------------|------------------|-----------|--------------|
+|---|---|---|---|
 |Autorizado (authorized)|0000.0000.0000.0001 / 0000.0000.0000.0004|4|Operação realizada com sucesso|
 |Não Autorizado (denied)|0000.0000.0000.0002|2|Não Autorizada|
 |Autorização Aleatória (random)|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
@@ -6404,6 +6403,7 @@ Domain:
 ‹session ID›: use the same value used for “DeviceFingerprintID”
 
 ###PNG image
+
 ```html
 ‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&session_id=‹merchant id›‹session ID›&m=1)"›‹/p›
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&session_id=‹merchant id›‹session ID›&m=2" alt=""›
@@ -6450,5 +6450,5 @@ id=‹merchant id›‹session ID›" type="text/javascript"›
 #FAQ
 
 |Questions|Answeres|Theme|
-|---------|--------|----|
+|---|---|---|
 |What is the difference between Status, ReasonCode and ProviderReturnCode?|The answer is:<BR><UL><LI>Status: represents the current status of the transaction.</LI><LI>ReasonCode: represents the status of the request.</LI><LI>ProviderReturnCode: represents the response code from the acquirer or bank.</LI></UL>For example, an authorization request may have a return with ReasonCode = 0 (Sucessfull), ie the request has been successfully completed, but the Status may be 0-Denied, for having the transaction not authorized by the buyer, ProviderReturnCode 57 (one of Cielo's denied codes)|Integration|
