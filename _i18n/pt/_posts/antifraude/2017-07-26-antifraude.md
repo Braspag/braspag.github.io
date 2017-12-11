@@ -201,7 +201,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todo
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|-|-|não|30|
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|-|-|não|-|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|-|-|não|-|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador - Tabela 17|enum|-|-|não|-|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 17|enum|-|-|não|-|
 
 
 
