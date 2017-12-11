@@ -4,6 +4,7 @@ title: Manual de integração
 description: Integração técnica Gateway Braspag
 search: true
 categories: manual
+translated: true
 tags:
   - Pagador
 language_tabs:
