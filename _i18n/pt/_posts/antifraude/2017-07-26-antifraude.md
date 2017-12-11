@@ -66,6 +66,16 @@ Exemplo:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
+```shell
+curl
+--request POST "https://brapagauth.com.br/oauth2/token"
+--header "Authorization: Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg=="
+--header "Content-Type: application/x-www-form-urlencoded"
+
+--body "scope: AntifraudGatewayApp"
+--grant_type: "client_credentials"
+```
+
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
