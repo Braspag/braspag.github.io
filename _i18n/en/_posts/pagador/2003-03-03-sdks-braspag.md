@@ -11,7 +11,7 @@ tags:
 
 # SDKs Pagador
 
-O Pagador oferece uma gama de SDks disponiveis no Repositório oficial Github:
+Braspag offers a range of SDKs available in the official Github Repository for "Pagador" as:
 
 |SDK Mobile                                                        |
 |------------------------------------------------------------------|
