@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Manual de Utilização
-description: Como utilizar o POS-Virtual Braspag
+title: User Manual
+description: User Manual POS-Virtual Braspag
 search: true
 categories: manual
 translated: true
