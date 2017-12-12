@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-12T13:31:13+00:00</updated>
+    <updated>2017-12-12T13:41:55+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -14670,6 +14670,237 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
     </entry>
     
     <entry>
+        <title>Postman Cielo</title>
+        <category term="tutorial" />
+        <link href="https://braspag.github.io//tutorial/postman"/>
+        <updated>2017-07-26T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//tutorial/postman</id>
+        <content type="html">&lt;h1 id=&quot;o-que-é-o-postman&quot;&gt;O que é o POSTMAN?&lt;/h1&gt;
+
+&lt;p&gt;O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações &lt;strong&gt;HTTP e HTTPs&lt;/strong&gt; simples e complexas, bem como ler suas respostas.&lt;/p&gt;
+
+&lt;h1 id=&quot;por-que-utilizar-o-postman&quot;&gt;Por que utilizar o POSTMAN?&lt;/h1&gt;
+
+&lt;p&gt;Além da praticidade de ter todos os exemplos e códigos de integração prontos, o POSTMAN é a ferramenta oficial de teste pelas equipes de desenvolvimento e suporte Cielo. Dessa maneira ao realizar integrações, caso você possua duvidas, será mais rápido e simples de confirmar o que pode estar ocorrendo com o seu código.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Outras vantagens do POSTMAN&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ferramenta gratuita&lt;/li&gt;
+  &lt;li&gt;Não é necessário instalar EXE - é uma extensão do Google Chrome&lt;/li&gt;
+  &lt;li&gt;Funciona em qualquer plataforma: Windows, MacOS e Linux&lt;/li&gt;
+  &lt;li&gt;Converte JSON em várias linguagens (EX: Python, PHP, RUBY)&lt;/li&gt;
+  &lt;li&gt;Sincronização entre diversos aplicativos&lt;/li&gt;
+  &lt;li&gt;Sincroniza código entre equipes (Versão paga)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;download-e-cadastro&quot;&gt;Download e cadastro&lt;/h1&gt;
+
+&lt;p&gt;Para utilizar o Postman, basta instalar o APP em seu computador. Isso pode ser realizado de duas maneiras:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Instalando a versão desktop&lt;/strong&gt;: Basta acessar &lt;a href=&quot;https://www.getpostman.com/&quot;&gt;https://www.getpostman.com/&lt;/a&gt; , baixar a versão para sua plataforma e instalar o executável&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Instalando a extensão do Chrome&lt;/strong&gt;: Basta acessar a Chrome Store e instalar a extensão do Postman&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;instalando-a-extensão-do-chrome&quot;&gt;Instalando a extensão do Chrome&lt;/h2&gt;
+
+&lt;p&gt;1.Acesse a Chrome Store, pesquise por POSTMAN  em APPs&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/documentos-adicionais/tutorial-postman/p1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.Na aba de Apps no seu Google Chrome acesse o ícone do Postman&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/p2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3.Ao acessar o Postman pela primeira vez, o App ira requisitar um login. Essa etapa é opcional, mas sugerismos que uma conta seja criada, pois isso sincroniza suas configurações com a sua conta POSTMAN, ou seja, se for necessario realiza um login em outro computador, suas configurações já estarão prontas para serem usadas&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/p3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4.Pronto, basta configurar suas Coleções  e ambientes para iniciar os testes&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/p4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;explicando-componentes-do-postman&quot;&gt;Explicando Componentes do POSTMAN&lt;/h1&gt;
+
+&lt;p&gt;Nesta área vamos explicar os diferentes componentes do Postman e suas funções. Depois dessa introdução, as próximas partes deste tutorial vão focar na configurações e usos para teste das APIs&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/pc.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt; - &lt;strong&gt;Environment (Ambiente)&lt;/strong&gt;:
+Ambiente para onde serão direcionadas as requisições. Nesta área que serão definidos dados de:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Dados&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;MerchantId&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador de sua loja nas APIs Cielo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;MerchantKey&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Chave de segurança da sua loja nas APIs Cielo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;URL do POST/PUT&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Endpoint Para criar ou editar transações&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;URL do GET&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Endpoint para consulta de transações&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Sugerimos que sejam criados dois ambientes, um com dados de produção e outro para Sandbox, cada um com suas respectivas credenciais e URLs.
+Desta maneira se torna muito mais simples realizar testes com o mesmo contrato para ambos os ambientes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;B&lt;/strong&gt; - &lt;strong&gt;Header&lt;/strong&gt;
+Aqui existem o MerchantId/MerchantKey, que por padrão usam os mesmos dados registrados em &lt;code class=&quot;highlighter-rouge&quot;&gt;Environment&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt; - &lt;strong&gt;Body&lt;/strong&gt;:
+É o conteúdo das Requisições. Aqui é onde você pode alterar ou criar exemplos para a API e validar o conteúdo do seu &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;D&lt;/strong&gt; - &lt;strong&gt;Collection (Coleções)&lt;/strong&gt; :
+Local que contém todas os exemplos e códigos que podem ser utilizados na API. Aqui existem as criações de transações, consultas e outras funcionalidades que existem nas APIs Cielo.
+O número de coleções é ilimitado, ou seja, você pode criar várias coleções para se adequar ao seu estilo de uso do Postman.&lt;/p&gt;
+
+&lt;h2 id=&quot;criando-environment-cielo&quot;&gt;Criando Environment Cielo&lt;/h2&gt;
+
+&lt;p&gt;O primeiro passo na utilização do postman é a criação do ambiente (environment) da API. Essa configuração vai definir quais credenciais e endpoints serão utilizados como padrão, assim evitando a necessidade de realizar configurações a cada teste.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Realizando a criação do ambiente&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;1 - No canto superior direito, clique na engrenagem e selecione “Manage environment”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/p7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2 - Na tela de gerenciamento, basta preencher as configurações de acordo com a tela abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/p8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3 - Pronto,  agora os endereços e credenciais para teste já estão cadastrada. Sugerimos que você crie um ambiente para Produção e um para Sandbox assim,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Na &lt;strong&gt;API Cielo Ecommerce&lt;/strong&gt; as credenciais, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantID&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;, devem coincindir com o ambiente das URLs, ou seja, Credenciais de sandbox funcionam apenas com URLs de Sandbox
+No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; nem diferença entre Sandbox e produção. Para realizar testes, deve ser ativado o &lt;strong&gt;“Modo de Teste”&lt;/strong&gt;. Para mais informações sobre o Modo de teste, acesso o &lt;a href=&quot;https://developercielo.github.io/Checkout-Backoffice/&quot;&gt;Tutorial do backoffice&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;importando-uma-collection&quot;&gt;Importando uma Collection&lt;/h2&gt;
+
+&lt;p&gt;A Cielo dispõe de coleções padrões para suas APIs. Você pode importa-las diretamente para o seu POSTMAN e ter todos os exemplos prontos para utilização instantaneamente, sem a necessidade de copia-los diretamente do manual.&lt;/p&gt;
+
+&lt;p&gt;Para realizar a importação basta:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Acessar a área do manual onde o link da Coleção está disponível e copia-lo
+  a. IMPORTANTE: para que a sua coleção sempre esteja atualizada, sugerimos que sempre busque a ultima versão da coleção no manual. O link NÃO ATUALIZA A COLEÇÃO IMPORTADA AUTOMATICAMENTE&lt;/li&gt;
+  &lt;li&gt;Com o Postman aberto, use o botão IMPORT, e selecione a opção “IMPORT FROM LINK”.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/p5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Pronto, sua coleção Cielo já está disponível. Basta selecionar Environment e a requisição. Ao clicar em SEND, o Postman vai executar a comunicação com a Cielo.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/p6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;collections-e-environments--cielo&quot;&gt;Collections e Environments  Cielo&lt;/h2&gt;
+
+&lt;p&gt;Abaixo, listamos as collections e os Environments Cielo. Use-as em seu Postman para realizar testes e integrações.&lt;/p&gt;
+
+&lt;h3 id=&quot;api-cielo-ecommerce&quot;&gt;Api Cielo Ecommerce&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; -  &lt;a href=&quot;https://www.getpostman.com/collections/139520c8fe2210654d7c&quot;&gt;https://www.getpostman.com/collections/139520c8fe2210654d7c&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Ambiente&lt;/th&gt;
+      &lt;th&gt;URLs&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sandbox&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;:  https://apisandbox.cieloecommerce.cielo.com.br &lt;br /&gt; &lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Produção&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/ &lt;br /&gt; &lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;checkout-cielo&quot;&gt;Checkout Cielo&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt;  -  &lt;a href=&quot;https://www.getpostman.com/collections/97969ec643738aac42f4&quot;&gt;https://www.getpostman.com/collections/97969ec643738aac42f4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Ambiente&lt;/th&gt;
+      &lt;th&gt;URLs&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Produção&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;: https://cieloecommerce.cielo.com.br/api&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;realizando-uma-requisição&quot;&gt;Realizando uma requisição&lt;/h1&gt;
+
+&lt;p&gt;Com a sua Collection e Environmet configurados, realizar uma transação junto a Cielo é extremamente facil:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/pr.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Seleciona qual requisição você deseja usar.&lt;/li&gt;
+  &lt;li&gt;Verifique que o Environment correto está selecionado&lt;/li&gt;
+  &lt;li&gt;Clique em SEND.&lt;/li&gt;
+  &lt;li&gt;Na parte inferior você verá 2 informações:
+  a. O Body do Response - Aqui é onde ficam listadas os dados retornados de suas transações
+  b. O HTTP Status - Aqui você verifica se a sua requisição funcionou.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;:Se você não receber um response verifique o status HTTP.&lt;/p&gt;
+
+&lt;h2 id=&quot;gerando-exemplos-em-outras-linguagens&quot;&gt;Gerando exemplos em outras linguagens.&lt;/h2&gt;
+
+&lt;p&gt;O POSTMAN permite criar exemplos de outras linguagens baseadas nas requisições JSON dos produtos Cielo.&lt;/p&gt;
+
+&lt;p&gt;Abaixo demonstramos como gerar um exemplo em Python&lt;/p&gt;
+
+&lt;p&gt;1 - Acesse a requisição que você deseja converter e clique em &lt;code class=&quot;highlighter-rouge&quot;&gt;CODE&lt;/code&gt; no canto direito da tela.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;OBS&lt;/em&gt;:Caso esse link não exista em sua tela, clique em &lt;code class=&quot;highlighter-rouge&quot;&gt;Params&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/p10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2 - Selecione a Linguagem que deseje converter, neste caso, Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/pcode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3 - Pronto. O exemplo Json está convertido para Python&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/pcode2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
         <title>Manual de Arquivos</title>
         <category term="manual" />
         <link href="https://braspag.github.io//manual/braspag-conciliador"/>
@@ -21742,6 +21973,817 @@ Altera o status da transação&lt;/p&gt;
     </entry>
     
     <entry>
+        <title>Configurando Boletos e Débito Online</title>
+        <category term="tutorial" />
+        <link href="https://braspag.github.io//tutorial/habilitacao-meios-de-pagamento"/>
+        <updated>2015-08-25T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//tutorial/habilitacao-meios-de-pagamento</id>
+        <content type="html">&lt;h1 id=&quot;meios-de-pagamento&quot;&gt;Meios de Pagamento&lt;/h1&gt;
+
+&lt;h2 id=&quot;sobre-este-manual&quot;&gt;Sobre este Manual&lt;/h2&gt;
+
+&lt;p&gt;Este manual tem como objetivo orientar o &lt;strong&gt;LOJISTA&lt;/strong&gt; na contratação e configuração do BOLETOs e DÉBITOs ONLINE disponíveis no &lt;strong&gt;CHECKOUT CIELO&lt;/strong&gt; e na &lt;strong&gt;API Cielo Ecommerce&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;sobre-boletos-e-cielo&quot;&gt;Sobre Boletos e Cielo&lt;/h2&gt;
+
+&lt;p&gt;As soluções e-commerce Cielo suportam 2 tipos de Boletos dos Bancos &lt;strong&gt;Bradesco&lt;/strong&gt; e &lt;strong&gt;Banco do Brasil&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tipo de boleto&lt;/th&gt;
+      &lt;th&gt;Banco&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Solução Cielo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Boleto Registrado&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Banco do Brasil X Bradesco&lt;/td&gt;
+      &lt;td&gt;São boleto emitidos dentro do ambiente Bancario. A Cielo enviará as informações para o banco emissor. É necessario ter as credenciais fornecidas pelo Banco para utilização da funcionalidade&lt;/td&gt;
+      &lt;td&gt;Api Cielo E-commerce &amp;amp; Checkout Cielo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Boleto Não registrado&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Banco do Brasil X Bradesco&lt;/td&gt;
+      &lt;td&gt;São boletos gerados em Ambiente Cielo. Todos os bancos deixaram de gerar esses boletos até 2020&lt;/td&gt;
+      &lt;td&gt;Api Cielo E-commerce &amp;amp; Checkout Cielo&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;sobre-débito-online-e-cielo&quot;&gt;Sobre Débito online e Cielo&lt;/h2&gt;
+
+&lt;p&gt;O Débito Online é uma transferência eletronica que ocorre dentro do Ambiente Bancario.
+O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferência para a conta da loja onde a transação ocorre.&lt;/p&gt;
+
+&lt;p&gt;Para utilizar o Débito Online, é necessario que o banco do lojista permita tal operação para a conta do lojista.&lt;/p&gt;
+
+&lt;h1 id=&quot;boletos&quot;&gt;Boletos&lt;/h1&gt;
+
+&lt;h2 id=&quot;bradesco&quot;&gt;Bradesco&lt;/h2&gt;
+
+&lt;p&gt;Os critérios para utilizar o Boleto Bradesco Com. Eletrônico são:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ser correntista Bradesco Pessoa Jurídica;&lt;/li&gt;
+  &lt;li&gt;Contatar o gerente de conta Bradesco para assinar contrato específico do Comércio Eletrônico.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para solicitar/configurar o Boleto Bradesco, você precisa:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Contatar o banco/agência e fazer a solicitação de boleto com registro carteira 26. Esse passo envolve assinatura de contrato com o Banco.&lt;/li&gt;
+  &lt;li&gt;Receber um e-mail do Banco (Kit Scopus) com URL do gerenciador, e-mail de login e senha de acesso ao ambiente Bradesco.  Você deve acessar o ambiente Bradesco pela URL do gerenciador. Veja os exemplos enviados no email (Kit Scopus):
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;URL do gerenciador&lt;/strong&gt; - (https://meiosdepagamentobradesco.com.br/gerenciador/login.jsp)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;E-mail de Login&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Senha de acesso&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Para configurar o Boleto:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; No ambiente Bradesco, acesse as abas CONFIGURAÇÕES &amp;gt; MEIOS DE PAGAMENTO &amp;gt; BOLETO e preencha os seguintes dados:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Habilitar “frase” do boleto&lt;/strong&gt;: Inativo&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Habilitar “referência” do boleto&lt;/strong&gt;: Ativo&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Apresentar Agência e Conta&lt;/strong&gt;: Inativo&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vencimento&lt;/strong&gt;: 5 dias&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/boleto-bradesco-passo-2.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Obs:&lt;/strong&gt; O vencimento deverá ser o mesmo configurado no Checkout Cielo.&lt;/aside&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;URL de notificação&lt;/strong&gt;: https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost&lt;/li&gt;
+  &lt;li&gt;No campo &lt;strong&gt;Chave de Segurança&lt;/strong&gt; clique em “&lt;strong&gt;Gerar chave de segurança&lt;/strong&gt;”&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Endereço de IP da loja&lt;/strong&gt;  (numérico)&lt;/li&gt;
+  &lt;li&gt;Para os campos de &lt;strong&gt;URL de resposta, URL de falha e URL de redirecionamento&lt;/strong&gt;, inserir o seguinte link: &lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/boleto-bradesco-passo-3.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; Em cada um dos três Paramêtros a seguir, preencher com o Parâmetro de Comunicação abaixo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Parâmetro de notificação&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numOrder=[%lid_m%]&amp;amp;merchantid=[%merchantid%]&amp;amp;cod=[%errorcod%]&amp;amp;cctype=[%cctype%]&amp;amp;ccname=[%ccname%]&amp;amp;ccemail=[%ccemail%]&amp;amp;numparc=[%numparc%]&amp;amp;valparc=[%valparc%]&amp;amp;valtotal=[%valtotal%]&amp;amp;prazo=[%prazo%]&amp;amp;comb=[%comb%]&amp;amp;assinatura=[%assinatura%]&amp;amp;&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Parâmetro de confirmação&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numOrder=[%lid_m%]&amp;amp;merchantid=[%merchantid%]&amp;amp;cod=[%errorcod%]&amp;amp;cctype=[%cctype%]&amp;amp;ccname=[%ccname%]&amp;amp;ccemail=[%ccemail%]&amp;amp;numparc=[%numparc%]&amp;amp;valparc=[%valparc%]&amp;amp;valtotal=[%valtotal%]&amp;amp;prazo=[%prazo%]&amp;amp;comb=[%comb%]&amp;amp;assinatura=[%assinatura%]&amp;amp;&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Parâmetro de falha&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numOrder=[%lid_m%]&amp;amp;merchantid=[%merchantid%]&amp;amp;cod=[%errorcod%]&amp;amp;cctype=[%cctype%]&amp;amp;ccname=[%ccname%]&amp;amp;ccemail=[%ccemail%]&amp;amp;numparc=[%numparc%]&amp;amp;valparc=[%valparc%]&amp;amp;valtotal=[%valtotal%]&amp;amp;prazo=[%prazo%]&amp;amp;comb=[%comb%]&amp;amp;assinatura=[%assinatura%]&amp;amp;&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Paramêtro de Comunicação&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numOrder=[%lid_m%]&amp;amp;merchantid=[%merchantid%]&amp;amp;cod=[%errorcod%]&amp;amp;cctype=[%cctype%]&amp;amp;ccname=[%ccname%]&amp;amp;ccemail=[%ccemail%]&amp;amp;numparc=[%numparc%]&amp;amp;valparc=[%valparc%]&amp;amp;valtotal=[%valtotal%]&amp;amp;prazo=[%prazo%]&amp;amp;comb=[%comb%]&amp;amp;assinatura=[%assinatura%]&amp;amp;&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/boleto-bradesco-passo-4.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Obs:&lt;/strong&gt; Não podem existir espaços ou quebras de texto nos parâmetros expostos acima.&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Clique no botão “&lt;strong&gt;Gravar todas as configurações realizadas&lt;/strong&gt;”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Concluída essa etapa, você deve:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Encaminhar um e-mail para Cielo e-Commerce &lt;a href=&quot;mailto:cieloecommerce@cielo.com.br&quot;&gt;cieloecommerce@cielo.com.br&lt;/a&gt; com os seguintes dados:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Agência&lt;/strong&gt;: 0000&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Conta&lt;/strong&gt;: 0000000 (7 dígitos sem o dígito verificador, mantendo os zeros à esquerda conforme exemplo: 0001111&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Convênio&lt;/strong&gt;: 000000&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Carteira&lt;/strong&gt;: 26 – COM REGISTRO&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vencimento&lt;/strong&gt; (contado em dias):&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Conciliação&lt;/strong&gt; (Afiliação do Bradesco):
+    &lt;ul&gt;
+      &lt;li&gt;Exemplo de Conciliação: 004601478&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chave de Segurança&lt;/strong&gt; (Bradesco):
+    &lt;ul&gt;
+      &lt;li&gt;Exemplo de Chave de Segurança: &lt;code class=&quot;highlighter-rouge&quot;&gt;ZDE50B48D41D59BDD1562CC2A48546454ZC149308CBD283E0E49210C57958A6A38A068A3ZZA8B075095A1B9E1DEAZB64BF1682C5610ZC8285DC8630FA6E300FA00B9D43054C84ACA958ZCFB435CF5A27ZC440637777EBAFEED1BCZDCA82D5778B266B3BB4E90774302D56A0C7EDZZ1A532A51F7A889DA83AEFA08CA4E91A08Z2&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Obs:&lt;/strong&gt; A afiliação do Bradesco está localizada no topo do gerenciador web.&lt;/aside&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/boleto-bradesco-passo-5.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; O Cielo e-Commerce confirmará, em até 3 dias, a inclusão do boleto como forma de pagamento da sua loja online.&lt;/p&gt;
+
+&lt;h2 id=&quot;banco-do-brasil&quot;&gt;Banco do Brasil&lt;/h2&gt;
+
+&lt;p&gt;Os critérios para habilitar a opção de Boleto Banco do Brasil são:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ser correntista Banco do Brasil Pessoa Jurídica;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para solicitar o Boleto Banco do Brasil, você precisa:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Contatar o banco/agência e fazer a solicitação de boleto sem registro carteira 18. Esse passo envolve assinatura de contrato com o Banco&lt;/li&gt;
+  &lt;li&gt;Encaminhar um e-mail para Cielo e-Commerce &lt;a href=&quot;mailto:cieloecommerce@cielo.com.br&quot;&gt;cieloecommerce@cielo.com.br&lt;/a&gt; com os seguintes dados:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Agência&lt;/strong&gt;: 0000&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Conta Corrente&lt;/strong&gt;: 00000-0&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Convênio&lt;/strong&gt;: 0000000&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Vencimento&lt;/strong&gt; (contado em dias):&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Carteira&lt;/strong&gt;: 18 - SEM REGISTRO&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;**Validade do Boleto** – Caso o boleto expire em um dia não útil, como sábado, ele será válido até o próximo dia útil&lt;/aside&gt;
+
+&lt;h1 id=&quot;débito-online&quot;&gt;Débito online&lt;/h1&gt;
+
+&lt;h2 id=&quot;bradesco-1&quot;&gt;Bradesco&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Solicitar ao seu gerente a liberação do débito online do Bradesco (SPS Bradesco). A afiliação será enviada pelo Bradesco no padrão:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Convênio de homologação&lt;/strong&gt;: 101xx1&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;login&lt;/strong&gt;: dm_cm132&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;senha&lt;/strong&gt;: 12345678&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Assinatura&lt;/strong&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;8EA7657E-6373-667D-0229-A82E842A3A1A&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ao receber estas informações o lojista deverá Solicitar a habilitação do meio de pagamento para Cielo.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cadastrar no MUP Teste (sistema do Bradesco, o e-mail de com os dados do Bradesco virá com a URL para acesso). Cadastrar as informações abaixo:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Endereço IP da loja&lt;/strong&gt;: 209.134.48.121&lt;/li&gt;
+      &lt;li&gt;Em “&lt;em&gt;Página de confirmação de compra&lt;/em&gt;” e “&lt;em&gt;Página de falha no pagamento&lt;/em&gt;”: https://www.pagador.com.br/pagador/recebe.asp&lt;/li&gt;
+      &lt;li&gt;Em “&lt;em&gt;URL para notificação p/ Cartões Bradesco&lt;/em&gt;”: https://www.pagador.com.br/pagador/bradesco/setTransacao.asp&lt;/li&gt;
+      &lt;li&gt;Nos Campos “&lt;em&gt;Post a ser enviado para a loja na notificação&lt;/em&gt;”, “&lt;em&gt;Post a ser enviado para a loja na confirmação de compra&lt;/em&gt;” e “&lt;em&gt;Post a ser enviado para a loja na falha da autorização&lt;/em&gt;”:
+        &lt;ul&gt;
+          &lt;li&gt;&lt;strong&gt;Adicionar&lt;/strong&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;numOrder=[%lid_m%]&amp;amp;merchantid=[%merchantid%]&amp;amp;cod=[%errorcod%]&amp;amp;cctype=[%cctype%]&amp;amp;ccname=[%ccname%]&amp;amp;ccemail=[%ccemail%]&amp;amp;numparc=[%numparc%]&amp;amp;valparc=[%valparc%]&amp;amp;valtotal=[%valtotal%]&amp;amp;prazo=[%prazo%]&amp;amp;tipopagto=[%tipopagto%]&amp;amp;assinatura=[%assinatura%]&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Em “&lt;em&gt;URL de entrada na loja&lt;/em&gt;”: endereço do site&lt;/li&gt;
+      &lt;li&gt;Em “&lt;em&gt;URL do gerenciador da loja&lt;/em&gt;”: https://www.pagador.com.br/admin/login.asp&lt;/li&gt;
+      &lt;li&gt;Na última opção:  &lt;code class=&quot;highlighter-rouge&quot;&gt;capture now (1001)&lt;/code&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Enviar o e-mail abaixo para a Scopus solicitando a homologação
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Para&lt;/strong&gt;: &lt;a href=&quot;mailto:homologacao@scopus.com.br&quot;&gt;homologacao@scopus.com.br&lt;/a&gt;; &lt;a href=&quot;mailto:kit@scopus.com.br&quot;&gt;kit@scopus.com.br&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Assunto&lt;/strong&gt;: Dados do ambiente de produção Débito SPS&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Corpo do email&lt;/strong&gt;:&lt;br /&gt;Prezados,&lt;br /&gt;&lt;br /&gt;Favor liberar o cliente abaixo no ambiente de produção:&lt;br /&gt;&lt;br /&gt;Razão Social: XXXXX&lt;br /&gt;CNPJ: XXXX&lt;br /&gt;Nome da loja: XXXXX&lt;br /&gt;Número da loja: XXXXX&lt;br /&gt;Manager: XXXXX&lt;br /&gt;Senha: XXXXXXX&lt;br /&gt;URL da Loja: https://www.XXXXXXXXX&lt;br /&gt;Meio de Pagamento para Homologar: Débito em Conta&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Receber os dados de produção:
+    &lt;ul&gt;
+      &lt;li&gt;A afiliação será enviada pelo Bradesco no padrão:
+        &lt;ul&gt;
+          &lt;li&gt;&lt;strong&gt;Convênio de Produção&lt;/strong&gt;: 101xx1&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;login&lt;/strong&gt;: dm_cm132&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;senha&lt;/strong&gt;: 12345678&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;URL para teste&lt;/strong&gt;: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cadastrar no MUP Produção, as mesmas informações do Passo 3.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Solicitar à Cielo para atualizar o número de Convênio para número de produção que recebeu no passo 5.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;banco-do-brasil-1&quot;&gt;Banco do Brasil&lt;/h2&gt;
+
+&lt;p&gt;Solicite ao seu gerente do banco a liberação do convênio do débito online via internet (&lt;strong&gt;Comércio eletrônico Banco do Brasil - BBPAG&lt;/strong&gt;) e o cadastramento da URL de comunicação com a Cielo.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;URL de Comunicação&lt;/strong&gt;: &lt;a href=&quot;https://www.pagador.com.br/&quot;&gt;https://www.pagador.com.br/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A URL deve ser cadastrada pelo &lt;strong&gt;Gerente no ato da liberação do convênio&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;Se o cadastro não ocorre, a transação não será viavel.&lt;/aside&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Exemplo de convênio&lt;/strong&gt;: Convênio: 000000&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Artigos e informações</title>
+        <category term="tutorial" />
+        <link href="https://braspag.github.io//tutorial/artigos"/>
+        <updated>2015-08-25T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//tutorial/artigos</id>
+        <content type="html">&lt;h1 id=&quot;boas-práticas-ecommerce&quot;&gt;Boas Práticas eCommerce&lt;/h1&gt;
+
+&lt;p&gt;Seja por curiosidade, seja por necessidade, você já deve ter se perguntado sobre como é definido o número de um cartão de crédito. Algumas pessoas chegam a achar que são números aleatórios, ou sequênciais, atribuídos pelas bandeiras ou pelos bancos emissores, mas a realidade é que o número do cartão segue um padrão especificado e que é possível saber qual é a bandeira, tipo do cartão e a conta do portador, apenas observando o número do cartão; em alguns casos, de fato, é possível saber até o país de origem do cartão, apenas observando seu número.&lt;/p&gt;
+
+&lt;p&gt;Com o objetivo de contribuir para a redução as transações negadas pelo código 14 – cartão inválido, a Cielo recomenda o uso do algoritmo de Luhn para verificação da sequência de números dos cartões de credito e débito utilizados na sua loja. A partir desta medida, o lojista conseguirá evitar que uma transação com o cartão digitado incorretamente seja enviado para processamento.&lt;/p&gt;
+
+&lt;p&gt;Por isso, a Cielo recomenda que, no momento que o portador digitar o número do cartão e o algoritmo de Luhn detectar que a digitação está incorreta, o lojista deverá exibir a informação clara para o portador, solicitando que o cartão seja digitado novamente ou tente outro cartão”&lt;/p&gt;
+
+&lt;h2 id=&quot;números-de-cartões&quot;&gt;Números de cartões&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/cartao.png&quot; alt=&quot;Cartão Visa&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Basicamente, o número do cartão é composto por três partes:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Bin ou Inn&lt;/strong&gt; - Bank identification number, ou Issuer identification number, é o número que identifica o banco emissor das bandeiras Visa, Mastercard, Amex, entre outras, por meio dos primeiros dígitos do cartão. No caso do cartão de exemplo acima, o Bin é 4, que é o identificador da Visa.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Conta do cliente&lt;/strong&gt; - Após o bin, os próximos dígitos identificam o número da conta do portador no banco emissor. Logo após o Bin, os próximos 14 dúgitos são o identificador da conta do cliente: &lt;strong&gt;012 0010 3714 111&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dígito de verificação&lt;/strong&gt; - Esse último dígito é utilizado para verificar se o número do cartão de crédito é válido. Para se chegar no dígito verificador é utilizado um algorítimo chamado Luhn. No caso do cartão de exemplo acima, o dígito verificador é &lt;strong&gt;2&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;informações-de-cartões&quot;&gt;Informações de cartões&lt;/h2&gt;
+
+&lt;p&gt;Após validar que o número do cartão é válido através do dígito verificador obtido através do algoritmo Luhn, podemos verificar se o número do cartão está correto segundo a bandeira escolhida. A Cielo não recomenda que se faça uma validação de bandeiras através do BIN - primeiros dígitos do cartão; essa recomendação é importante porque pode haver colisão de mesmo número de BINs para bandeiras diferentes. Algumas bandeiras possuem 13, 15 ou 16 dígitos e o CVV possui 3 ou 4 dígitos. A tabela abaixo mostra a quantidade de dígitos de cada bandeira e seus respectivos CVV. Utilize essa informação em conjunto com o algoritmo Luhn para uma validação completa do número do cartão do cliente.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Bandeira&lt;/th&gt;
+      &lt;th&gt;Número de dígitos&lt;/th&gt;
+      &lt;th&gt;Dígitos do CVV&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Visa&lt;/td&gt;
+      &lt;td&gt;13 ou 16 dígitos&lt;/td&gt;
+      &lt;td&gt;3 dígitos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Mastercard&lt;/td&gt;
+      &lt;td&gt;16 dígitos&lt;/td&gt;
+      &lt;td&gt;3 dígitos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Amex&lt;/td&gt;
+      &lt;td&gt;15 dígitos&lt;/td&gt;
+      &lt;td&gt;4 dígitos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Diners Club International&lt;/td&gt;
+      &lt;td&gt;14 dígitos&lt;/td&gt;
+      &lt;td&gt;3 dígitos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JCB&lt;/td&gt;
+      &lt;td&gt;16 dígitos&lt;/td&gt;
+      &lt;td&gt;3 dígitos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ELO&lt;/td&gt;
+      &lt;td&gt;16 dígitos&lt;/td&gt;
+      &lt;td&gt;3 dígitos&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;validação-dos-números-do-cartão&quot;&gt;Validação dos números do cartão&lt;/h1&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;A Cielo não realiza suporte ou se responsabiliza pelo atendimento desse tipo de implementação. Esse tutorial é meramente informativo, com o propósito de ajudar o lojista a diminuir o número de transações negadas com o código 14.&lt;/aside&gt;
+
+&lt;h2 id=&quot;validação-dos-números-do-cartão-1&quot;&gt;Validação dos números do cartão&lt;/h2&gt;
+
+&lt;p&gt;A validação do número de cartão da maioria das bandeiras em todo o mundo é feita através de um algorítimo chamado Luhn, também conhecido como módulo 10. Vamos supor que o cliente tenha informado o seguinte número de cartão de crédito: 4012001037141112.&lt;/p&gt;
+
+&lt;p&gt;O primeiro passo é remover temporariamente o último dígito, no caso o dígito 2. O novo número vai ficar assim: 401200103714111.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Posição&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;th&gt;8&lt;/th&gt;
+      &lt;th&gt;9&lt;/th&gt;
+      &lt;th&gt;10&lt;/th&gt;
+      &lt;th&gt;11&lt;/th&gt;
+      &lt;th&gt;12&lt;/th&gt;
+      &lt;th&gt;13&lt;/th&gt;
+      &lt;th&gt;14&lt;/th&gt;
+      &lt;th&gt;15&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Número do cartão&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;x&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;O segundo passo é multiplicar, iniciando do primeiro dígito, todos os dígitos que estão em posição par por 2 e todos os dígitos em posição impar por 1:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Posição&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;th&gt;8&lt;/th&gt;
+      &lt;th&gt;9&lt;/th&gt;
+      &lt;th&gt;10&lt;/th&gt;
+      &lt;th&gt;11&lt;/th&gt;
+      &lt;th&gt;12&lt;/th&gt;
+      &lt;th&gt;13&lt;/th&gt;
+      &lt;th&gt;14&lt;/th&gt;
+      &lt;th&gt;15&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Número do cartão&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Multiplicações&lt;/td&gt;
+      &lt;td&gt;x2&lt;/td&gt;
+      &lt;td&gt;x1&lt;/td&gt;
+      &lt;td&gt;x2&lt;/td&gt;
+      &lt;td&gt;x1&lt;/td&gt;
+      &lt;td&gt;x2&lt;/td&gt;
+      &lt;td&gt;x1&lt;/td&gt;
+      &lt;td&gt;x2&lt;/td&gt;
+      &lt;td&gt;x1&lt;/td&gt;
+      &lt;td&gt;x2&lt;/td&gt;
+      &lt;td&gt;x1&lt;/td&gt;
+      &lt;td&gt;x2&lt;/td&gt;
+      &lt;td&gt;x1&lt;/td&gt;
+      &lt;td&gt;x2&lt;/td&gt;
+      &lt;td&gt;x1&lt;/td&gt;
+      &lt;td&gt;x2&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Resultados&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;O terceiro passo é pegar os resultados das multiplicações e somar todos os dígitos:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Dígitos&lt;/th&gt;
+      &lt;th&gt;Cálculo&lt;/th&gt;
+      &lt;th&gt;Resultado&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;802200206724212&lt;/td&gt;
+      &lt;td&gt;8+0+2+2+0+0+2+0+6+7+2+4+2+1+2&lt;/td&gt;
+      &lt;td&gt;38&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;O quarto passo é obter o resto da divisão euclidiana do resultado do terceiro passo por 10: 38 / 10 = 3, com resto 8. O quinto passo é subtrair o resto de 10: 10 - 8 = 2.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Cálculo IV&lt;/th&gt;
+      &lt;th&gt;Quociente&lt;/th&gt;
+      &lt;th&gt;Resto&lt;/th&gt;
+      &lt;th&gt;Cálculo V&lt;/th&gt;
+      &lt;th&gt;Resultado&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;38/10&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;10-8&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;O número 2 é o dígito de verificação; se o resultado da subtração no passo 4 for 10, então o dígito de verificação será 0. Para verificar se o número do cartão informado pelo cliente é válido, basta verificar o número do primeiro passo + o dígito de verificação é igual ao número de cartão informado pelo cliente.&lt;/p&gt;
+
+&lt;p&gt;Um outro exemplo do cálculo, dessa vez com um cartão Martercard:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Cartão&lt;/th&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;th&gt;Resultado&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Passo 1&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Passo 2&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Passo 3&lt;/td&gt;
+      &lt;td&gt;1+0&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1+0&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;1+2&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1+2&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;23&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Passo 4&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;23%10&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Passo 5&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;10-3&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;7&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;validação-no-backend&quot;&gt;Validação no backend&lt;/h2&gt;
+
+&lt;p&gt;Porém, mesmo tendo o plugin verificador no frontend, é fundamental, até por considerações de segurança, que uma validação de fato ocorra no backend. Para isso, a função abaixo irá ajudá-lo a fazer essa validação:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cardIsValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$cardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$cardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$doubles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$doubles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nv&quot;&gt;$sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$doubles&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$cardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Para utilizá-la, basta testar o número do cartão enviado pelo cliente:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cardIsValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$customerCardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// o cartão é válido e podemos dar andamento na integração
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;como-usar-azure-kubernetes-services&quot;&gt;Como usar Azure Kubernetes Services&lt;/h1&gt;
+
+&lt;h2 id=&quot;sobre-o-autor&quot;&gt;Sobre o Autor:&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tiago Rosendo&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Desenvolvedor na Braspag e Cielo, backend de coração e apaixonado pelo frontend, entusiasta de JS e Docker e nas horas vagas não dispensa uma jogatina online.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;LinkedIn:&lt;/strong&gt; https://www.linkedin.com/in/trosendo / &lt;strong&gt;E-mail:&lt;/strong&gt; trosendo@braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
+
+&lt;p&gt;Vamos falar um pouco sobre o Azure Kubernetes Services, vulgo AKS.
+O utilizamos para realizar deploys em nossas principais aplicações, desde as mais básicas as mais complexas tudo com alta disponibilidade!&lt;/p&gt;
+
+&lt;p&gt;Rodar containers Docker em um computador local é muito simples, basta um comando &lt;code class=&quot;highlighter-rouge&quot;&gt;docker run nginx&lt;/code&gt; e pronto, você tem seu container lindo rodando, porém quando você tem a necessidade de rodar esse mesmo container em um ambiente de nuvem a história muda… 
+Você tem que montar seu cluster, configurar o auto-scale, configurar o load balance… MEU DEUS QUANTA COISA!
+Um certo dia, parei para pesquisar uma solução que poupasse meu tempo, logo, pensei comigo:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Uma das soluções encontradas foi o &lt;strong&gt;Azure Kubernetes Services&lt;/strong&gt;, ele te permite montar um cluster de Kubernetes com 1 único comando, com isso sobra tempo pra focar na sua aplicação e não na configuração de máquinas
+&lt;br /&gt;
+&lt;strong&gt;Mas o que é Kubernetes?&lt;/strong&gt; Falando por alto, Kubernetes é uma ferramenta de orquestração para containers, você monta seu container com o Docker e o Kubernetes faz todo o trabalho de deploy, auto scale, service discovery e muito mais. 
+Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;https://kubernetes.io/docs/tutorials/kubernetes-basics/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;montando-um-cluster-em-kubernetes&quot;&gt;Montando um Cluster em Kubernetes&lt;/h2&gt;
+
+&lt;p&gt;Estou levando em consideração que você já tenha o &lt;code class=&quot;highlighter-rouge&quot;&gt;Azure CLI&lt;/code&gt; configurado na sua máquina, caso não tenha segue um tutorial de configuração:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Para montar um cluster utilizando o AKS basta um único comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Substitua o &lt;code class=&quot;highlighter-rouge&quot;&gt;NomeDoSeuCluster&lt;/code&gt; pelo nome do seu cluster.&lt;/p&gt;
+
+&lt;p&gt;Substitua o &lt;code class=&quot;highlighter-rouge&quot;&gt;NomeDoGrupoDeRecursos&lt;/code&gt; pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.&lt;/p&gt;
+
+&lt;p&gt;Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/CFwO4Jz.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Caso tudo dê certo você irá receber a seguinte mensagem:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/oLSo4j4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;az aks install-cli&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Se tudo ocorreu bem será exibido a seguinte mensagem:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/pihYQw1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl get nodes&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Qyygi8y.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;run&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl run meu-nginx --image=nginx --replicas=1 --port=80&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/gGNYlk2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos chamar o &lt;code class=&quot;highlighter-rouge&quot;&gt;get pods&lt;/code&gt; para verificar se nossa aplicação foi deployada com sucesso:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/IxKDQJ8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Como vimos na imagem acima nossa aplicação foi “deployada”, porém ela ainda não está disponivel na internet
+Para disponibilizar nossa aplicação na internet vamos utilizar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;expose&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/JVJH82V.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora basta chamar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;get services&lt;/code&gt; para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl get services --watch&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/DaKu0HU.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Como podemos ver nossa aplicação recebeu o IP: 52.179.85.102
+Por fim, vamos acessar o IP da nossa aplicação para ver se deu tudo certo!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/5Uvpr0e.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;E não é que funciona mesmo? 😊&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão:&lt;/h2&gt;
+
+&lt;p&gt;Por hoje é isso galera, espero que tenham gostado, essa foi uma pequena demonstração de como o AKS/Kubernetes pode nos ajudar na orquestração de nossos containers,pretendo fazer uma parte 2 deste artigo explicando sobre como utilizar o Azure Container Instance junto com o Kubernetes, deixo logo abaixo alguns links interessantes para quem quer se aprofundar no assunto:&lt;/p&gt;
+
+&lt;h2 id=&quot;bibliografia&quot;&gt;Bibliografia:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Introducing AKS (managed Kubernetes) and Azure Container Registry improvements&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://azure.microsoft.com/en-us/blog/introducing-azure-container-service-aks-managed-kubernetes-and-azure-container-registry-geo-replication/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Kubernetes.io&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://kubernetes.io/docs/tutorials/kubernetes-basics/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Explore Multicloud Deployments with Microsoft’s ACI Connector for Kubernetes&lt;/li&gt;
+  &lt;li&gt;https://thenewstack.io/explore-multicloud-deployments-aci-connector-kubernetes/&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </entry>
+    
+    <entry>
         <title>Manual de Integração</title>
         <category term="manual" />
         <link href="https://braspag.github.io//manual/split"/>
@@ -24160,6 +25202,116 @@ No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o
 
 &lt;p&gt;&lt;br /&gt;
 Para ser notificado com relação ao status de uma transação, utilize o &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação&quot;&gt;serviço de notificação&lt;/a&gt; da API Cielo E-Commerce.&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>SDKs Cielo</title>
+        <category term="tutorial" />
+        <link href="https://braspag.github.io//tutorial/sdks-cielo"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//tutorial/sdks-cielo</id>
+        <content type="html">&lt;h1 id=&quot;sdks-api-e-commerce-cielo&quot;&gt;SDKs Api e-Commerce Cielo&lt;/h1&gt;
+
+&lt;p&gt;A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK Mobile&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;sdks-cielo-lio&quot;&gt;SDKs Cielo LIO&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Sample&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local&quot;&gt;&lt;strong&gt;Integração Local&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Order Management&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/order-management&quot;&gt;&lt;strong&gt;Integração Local&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Android&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-PHP&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Java&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Java&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;CSharp&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-CSHARP&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;sdks-webservice-15&quot;&gt;SDKs Webservice 1.5&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-csharp&quot;&gt;&lt;strong&gt;CSharp&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-php&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-java&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-ruby&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     
