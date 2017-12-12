@@ -75,6 +75,8 @@ curl
 --body "scope: AntifraudGatewayApp"
 --body "grant_type: client_credentials"
 --data-binary
+{
+}
 --verbose
 ```
 
