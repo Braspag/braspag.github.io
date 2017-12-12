@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2017-12-12T16:41:38+00:00</updated>
+    <updated>2017-12-12T16:48:03+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13,578 +13,561 @@
     </author>
     
     <entry>
-        <title>Manual de Utilização</title>
+        <title>User Manual</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/braspag-pos-virtual"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
         <id>https://braspag.github.io//en/manual/braspag-pos-virtual</id>
-        <content type="html">&lt;h1 id=&quot;criar-grupos&quot;&gt;Criar Grupos&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;creating-a-group&quot;&gt;Creating a group&lt;/h1&gt;
 
-&lt;p&gt;É necessário criar pelo menos um grupo para que as vendas sejam realizadas no POS Virtual. O grupo determina quais são as pemissões que um determinado operador possui.&lt;/p&gt;
+&lt;p&gt;It is mandatory to create at least one group before inicitate the sales using virtual POS. The group determinates the operator’s access level.&lt;/p&gt;
 
-&lt;p&gt;Para criar um grupo, acesse Configurações &amp;gt; Grupos, e preencha corretamente os campos identificados abaixo:&lt;/p&gt;
+&lt;p&gt;To create a group, access Configuration &amp;gt; Groups, and fill the fields correctly:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/criargrupos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório?&lt;/th&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Nome&lt;/td&gt;
       &lt;td&gt;Nome do grupo&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Permissões&lt;/td&gt;
       &lt;td&gt;selecione as permissões que este grupo poderá ter&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;A lista de permissões são:&lt;/p&gt;
+&lt;p&gt;The list of permissions:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Permissão&lt;/th&gt;
+      &lt;th&gt;Permission&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Alterar data da próxima cobrança da recorrência&lt;/td&gt;
+      &lt;td&gt;Change the next recurrence date&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Alterar data fim da recorrência&lt;/td&gt;
+      &lt;td&gt;Change the recurrence end date&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Alterar dia da recorrência&lt;/td&gt;
+      &lt;td&gt;Change the day of recurrency&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Alterar periodicidade da recorrência&lt;/td&gt;
+      &lt;td&gt;Change the interval of recurrency&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Alterar valor da recorrência&lt;/td&gt;
+      &lt;td&gt;Change the recurrency payment amount&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Ativar/Desativar pedido de recorrência&lt;/td&gt;
+      &lt;td&gt;Enable or Disable a recurrency&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cancelar Transação&lt;/td&gt;
+      &lt;td&gt;Void a transaction created by user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cancelar Transação via Relatório&lt;/td&gt;
+      &lt;td&gt;Void a transaction created by user using report interface&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cancelar Transaç&amp;amp;ões De Todos Usuários&lt;/td&gt;
+      &lt;td&gt;Void any transactions&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Capturar Transação&lt;/td&gt;
+      &lt;td&gt;Capture a transaction created by user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Capturar Transação via Relatório&lt;/td&gt;
+      &lt;td&gt;Capture a transaction created by user using report interface&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Criar Transação&lt;/td&gt;
+      &lt;td&gt;Create an order&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Estornar Transação via Relatório&lt;/td&gt;
+      &lt;td&gt;Refund a transaction using report interface&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Visualizar Pedidos de Recorrência&lt;/td&gt;
+      &lt;td&gt;View recurrent orders&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Visualizar suas Transaç&amp;amp;ões&lt;/td&gt;
+      &lt;td&gt;View transactions created by user&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Visualizar Transaç&amp;amp;ões Recorrentes&lt;/td&gt;
+      &lt;td&gt;View recurrent transactions&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;criar-operadores&quot;&gt;Criar Operadores&lt;/h1&gt;
+&lt;h1 id=&quot;creating-operators&quot;&gt;Creating Operators&lt;/h1&gt;
 
-&lt;p&gt;Através do usuário “gerente”, é possível criar usuários operadores, que terão permissão para realizar novas vendas.&lt;/p&gt;
+&lt;p&gt;The “managers” are able to create other users called “operators”, that have permissions to create an order.&lt;/p&gt;
 
-&lt;p&gt;Acesse Configurações &amp;gt; Operadores, e preencha corretamente o forumulário abaixo. Assim que os dados forem submetidos, um e-mail com as instruções será enviado no endereço cadastrado.&lt;/p&gt;
+&lt;p&gt;Access Configuration &amp;gt; Operators, and fill the all mandatory fields below. When the information is submitted, an e-mail will be sent to the registered address.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/cadastraroperador.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório?&lt;/th&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Usuário&lt;/td&gt;
-      &lt;td&gt;username a ser utilizado para acessar o POS&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Username&lt;/td&gt;
+      &lt;td&gt;username to be used to access the POS&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Nome&lt;/td&gt;
-      &lt;td&gt;Nome do operador&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Name&lt;/td&gt;
+      &lt;td&gt;Operator’s name&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;E-mail&lt;/td&gt;
-      &lt;td&gt;E-mail do operador&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Operator’s E-mail&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Grupo&lt;/td&gt;
-      &lt;td&gt;Grupo de permissão que o operador pertence&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Group&lt;/td&gt;
+      &lt;td&gt;Operator’s group&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Lojas&lt;/td&gt;
-      &lt;td&gt;Lojas para as quais o operador fará as vendas&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Stores&lt;/td&gt;
+      &lt;td&gt;Stores that operator will perform an order&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;realizar-venda&quot;&gt;Realizar Venda&lt;/h1&gt;
+&lt;h1 id=&quot;perform-an-order&quot;&gt;Perform an order&lt;/h1&gt;
 
-&lt;p&gt;Para a criação de um novo pedido, o usuário deverá acessar a tela através do menu:  POS Virtual -&amp;gt; Realizar Venda&lt;/p&gt;
+&lt;p&gt;To create a new order, the operator has to access to the order form: Virtual POS -&amp;gt; Sell Form&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/menucriarpedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;passo-a-passo&quot;&gt;Passo a Passo&lt;/h2&gt;
+&lt;h2 id=&quot;step-by-step&quot;&gt;Step by Step&lt;/h2&gt;
 
-&lt;p&gt;A tela de criação de um novo pedido pelo POS Virtual é dividida em blocos com campos que são obrigatórios e não obrigatórios.&lt;/p&gt;
+&lt;p&gt;The form has some group of information with mandatory and optional fields.&lt;/p&gt;
 
-&lt;p&gt;Alguns blocos são opcionais de serem exibidos na tela, e para os mesmos ficarem disponíveis é necessário configurá-los no momento do setup do seu POS Virtual.&lt;/p&gt;
+&lt;p&gt;You can configure the form to show just some groups you need to you business.&lt;/p&gt;
 
-&lt;p&gt;A seguir iremos explicar passo a passo quais os blocos disponíveis com seus campos e a obrigatoriedade de cada campo referente ao bloco que pertence.&lt;/p&gt;
+&lt;p&gt;Below, you will see the details of each possible block of information.&lt;/p&gt;
 
-&lt;h3 id=&quot;dados-do-pedido&quot;&gt;Dados do Pedido&lt;/h3&gt;
+&lt;h3 id=&quot;order&quot;&gt;Order&lt;/h3&gt;
 
-&lt;p&gt;Neste passo é possível informar os dados do pedido.
-O campo de e-mail é opcional, e pode ser configurado para ser exibido na tela de criação de um novo pedido no momento do setup do seu POS Virtual.
-Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
+&lt;p&gt;This group requires the informations about the order.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosdopedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório?&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Número do Pedido&lt;/td&gt;
-      &lt;td&gt;Identificador do pedido da loja&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Order Number&lt;/td&gt;
+      &lt;td&gt;merchant’s order number&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Nome&lt;/td&gt;
-      &lt;td&gt;Nome do cliente&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Customer’s Name&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;CPF/CNPJ&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;CPF/CNPJ do cliente&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Customer’s CPF/CNPJ. In case of foreigner customer, fill zeros&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;E-mail&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;E-mail do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Customer’s E-mail&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;endereço-de-entrega&quot;&gt;Endereço de Entrega&lt;/h3&gt;
+&lt;h3 id=&quot;delivery-address&quot;&gt;Delivery Address&lt;/h3&gt;
 
-&lt;p&gt;Neste passo é possível informar os dados do endereço de entrega do pedido.
-Os campos com os dados de endereço de entrega são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;br /&gt;
-Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
+&lt;p&gt;This group requires the informations about the delivery address&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosendereco.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório?&lt;/th&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Rua&lt;/td&gt;
-      &lt;td&gt;Nome da rua do endereço de entrega do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Street&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address street name&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;Número do endereço de entrega do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address street building number&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Complemento&lt;/td&gt;
-      &lt;td&gt;Complemento do endereço de entrega do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Complement&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address complement&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cidade&lt;/td&gt;
-      &lt;td&gt;Cidade do endereço de entrega do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;City&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address city&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Estado&lt;/td&gt;
-      &lt;td&gt;Estado do endereço de entrega do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;State&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address state&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Bairro&lt;/td&gt;
-      &lt;td&gt;Bairro do endereço de entrega do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;District&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address district&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;CEP&lt;/td&gt;
-      &lt;td&gt;CEP do endereço de entrega do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Zip Code&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address zip code&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;País&lt;/td&gt;
-      &lt;td&gt;País do endereço de entrega do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Country&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address country&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;dados-da-recorrência&quot;&gt;Dados da Recorrência&lt;/h3&gt;
+&lt;h3 id=&quot;recurrency&quot;&gt;Recurrency&lt;/h3&gt;
 
-&lt;p&gt;Neste passo é possível informar os dados do pedido criando uma recorrência com umas das 3 opções:&lt;/p&gt;
+&lt;p&gt;This part defines recurrency configuration to an order. There are three possibilities:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Agendar para uma data futura&lt;/li&gt;
-  &lt;li&gt;Cobrar agora e agendar as demais recorrências para o mesmo dia&lt;/li&gt;
-  &lt;li&gt;Cobrar agora e agendar as demais recorrências para um dia diferente&lt;/li&gt;
+  &lt;li&gt;Just schedule the further payments&lt;/li&gt;
+  &lt;li&gt;Charge now and schedule the further payments to the same day&lt;/li&gt;
+  &lt;li&gt;Charge now and schedule the further payments to the other day&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Os campos com os dados para criação de um pedido de recorrência são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Option 1: Just schedule the further payments&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Para cada opção de recorrência abaixo os campos têm comportamentos de obrigatoriedades
-diferentes.&lt;/p&gt;
+&lt;p&gt;In this option, the recurrency will be scheduled accordint to the informations provided below. In this case, the customer will be charged just when the first recurrency occurs (start date).&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Opção 1: Agendar para uma data futura&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Nesta opção uma recorrência será agendada de acordo com as informações fornecidas nos campos exibidos abaixo. Neste caso o cliente só será cobrado quando a primeira recorrência ocorrer, ou seja, no dia da data início informada.&lt;/p&gt;
-
-&lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
+&lt;p&gt;If the end date is not informed, the recurrency will never end.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório?&lt;/th&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Intervalo&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência Obs.: por padrão Mensal&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Interval&lt;/td&gt;
+      &lt;td&gt;Interval of recurrency. Default: Monthly&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Data Início&lt;/td&gt;
-      &lt;td&gt;Data para início da recorrência&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Start Date&lt;/td&gt;
+      &lt;td&gt;Recurrency start date&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Data Fim&lt;/td&gt;
-      &lt;td&gt;Data para término da recorrência&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;End date&lt;/td&gt;
+      &lt;td&gt;recurrency end date&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;em&gt;Opção 2: Cobrar agora e agendar as demais recorrências para o mesmo dia&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Option 2: Charge now and schedule the further payments to the same day&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Nesta opção uma recorrência será criada e a primeira recorrência será cobrada de imediato.  As demais recorrências sempre irão ocorrer no mesmo dia da data de início da recorrência.&lt;/p&gt;
+&lt;p&gt;In this option, the recurrency payment will be created and the first chage will occur immediately. The further recurrences always will occur in the same day of first charge.&lt;/p&gt;
 
-&lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
+&lt;p&gt;If the end date is not informed, the recurrency will never end.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório?&lt;/th&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Intervalo&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência Obs.: por padrão Mensal&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Interval&lt;/td&gt;
+      &lt;td&gt;Interval of recurrency. Default: Monthly&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Data Início&lt;/td&gt;
-      &lt;td&gt;Data para início da recorrência Obs.: Não é possível alterar&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Start Date&lt;/td&gt;
+      &lt;td&gt;Recurrency start date. Fixed value&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Dia das demais recorrências&lt;/td&gt;
-      &lt;td&gt;Dia em que as demais recorrências irão acontecer. Ex.: a próxima neste exemplo será em 02/10/2016. Obs.: Não é possível alterar&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Recurrence Day&lt;/td&gt;
+      &lt;td&gt;The day that occurs further charges. Fixed Value.&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Data Fim&lt;/td&gt;
-      &lt;td&gt;Data para término da recorrência&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;End date&lt;/td&gt;
+      &lt;td&gt;recurrency end date&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;em&gt;Opção 3: Cobrar agora e agendar as demais recorrências para um dia diferente&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Option 3: Charge now and schedule the further payments to the other day&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Nesta opção uma recorrência será criada e a primeira recorrência será cobrada de imediato.  As demais recorrências sempre irão ocorrer no dia definido para o campo “Dia das demais recorrências”.&lt;/p&gt;
+&lt;p&gt;In this option, the recurrency payment will be created and the first chage will occur immediately. The further recurrences always will occur in the day selected in the form.&lt;/p&gt;
 
-&lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
+&lt;p&gt;If the end date is not informed, the recurrency will never end.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório?&lt;/th&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Intervalo&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência Obs.: por padrão Mensal&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Interval of recurrency. Default: Monthly&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Data Início&lt;/td&gt;
-      &lt;td&gt;Data para início da recorrência Obs.: Não é possível alterar&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Start Date&lt;/td&gt;
+      &lt;td&gt;Recurrency start date. Fixed value&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Dia das demais recorrências&lt;/td&gt;
-      &lt;td&gt;Dia em que as demais recorrências irão acontecer. Ex.: a próxima poderá ser em 15/10/2016 por exemplo&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Recurrence Day&lt;/td&gt;
+      &lt;td&gt;The day that occurs further charges&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Data Fim&lt;/td&gt;
-      &lt;td&gt;Data para término da recorrência&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;End date&lt;/td&gt;
+      &lt;td&gt;recurrency end date&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;endereço-de-cobrança&quot;&gt;Endereço de Cobrança&lt;/h3&gt;
+&lt;h3 id=&quot;billing-address&quot;&gt;Billing Address&lt;/h3&gt;
 
-&lt;p&gt;Neste passo é possível informar os dados do endereço de cobrança do pedido.&lt;/p&gt;
-
-&lt;p&gt;Os campos com os dados de endereço de cobrança são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;/p&gt;
+&lt;p&gt;This group requires the informations about the billing address&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosenderecocobranca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório?&lt;/th&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Rua&lt;/td&gt;
-      &lt;td&gt;Nome da rua do endereço de cobrança do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Street&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address street name&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;Número do endereço de cobrança do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address street building number&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Complemento&lt;/td&gt;
-      &lt;td&gt;Complemento do endereço de cobrança do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Complement&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address complement&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cidade&lt;/td&gt;
-      &lt;td&gt;Cidade do endereço de cobrança do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;City&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address city&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Estado&lt;/td&gt;
-      &lt;td&gt;Estado do endereço de cobrança do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;State&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address state&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Bairro&lt;/td&gt;
-      &lt;td&gt;Bairro do endereço de cobrança do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;District&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address district&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;CEP&lt;/td&gt;
-      &lt;td&gt;CEP do endereço de cobrança do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Zip Code&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address zip code&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;País&lt;/td&gt;
-      &lt;td&gt;País do endereço de cobrança do cliente&lt;/td&gt;
-      &lt;td&gt;NÃO&lt;/td&gt;
+      &lt;td&gt;Country&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address country&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;dados-de-pagamento&quot;&gt;Dados de Pagamento&lt;/h3&gt;
+&lt;h3 id=&quot;payment-data&quot;&gt;Payment Data&lt;/h3&gt;
 
-&lt;p&gt;Neste passo é possível informar os dados do pagamento do pedido.&lt;/p&gt;
-
-&lt;p&gt;Para o campo meio de pagamento, as bandeiras estarão disponíveis de acordo com as opções de meios de pagamentos configurados para o seu POS Virtual.&lt;/p&gt;
+&lt;p&gt;This group requires the informations about the payment data&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadospagamento.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório?&lt;/th&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Meio de Pagamento&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão de crédito&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Payment Method&lt;/td&gt;
+      &lt;td&gt;The brand of credit card&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Portador&lt;/td&gt;
-      &lt;td&gt;Nome do portador do cartão de crédito&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Card holder&lt;/td&gt;
+      &lt;td&gt;Card Holder name&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Número do cartão&lt;/td&gt;
-      &lt;td&gt;Número do cartão de crédito do cliente&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Card Number&lt;/td&gt;
+      &lt;td&gt;Credit card number&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Código de Segurança&lt;/td&gt;
-      &lt;td&gt;Código de segurança do cartão de crédito&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Card Security Code&lt;/td&gt;
+      &lt;td&gt;Card Security Code&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Validade&lt;/td&gt;
-      &lt;td&gt;Validade do cartão de crédito&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Expiration Date&lt;/td&gt;
+      &lt;td&gt;Card expiration date&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Valor&lt;/td&gt;
-      &lt;td&gt;Valor do pedido&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Amount&lt;/td&gt;
+      &lt;td&gt;Transaction’s amount&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Número de Parcelas&lt;/td&gt;
-      &lt;td&gt;Quantidade de parcelas do pedido Obs.: Caso seja um pedido de recorrência, este campo não é obrigatório e o mesmo é ocultado na tela&lt;/td&gt;
-      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt;Installments&lt;/td&gt;
+      &lt;td&gt;Installment number. In case of recurrency transaction, this field will not be showed.&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;pagar-ou-limpar&quot;&gt;Pagar ou Limpar&lt;/h2&gt;
+&lt;h2 id=&quot;submit-or-clean&quot;&gt;Submit or Clean&lt;/h2&gt;
 
-&lt;p&gt;Através do botão “Pagar”, o pedido será criado de acordo com os dados preenchidos nos campos citados acima.&lt;/p&gt;
+&lt;p&gt;The Submit button will submit the order to authorization process.&lt;/p&gt;
 
-&lt;p&gt;Caso o seu POS Virtual esteja configurado com a opção de “captura automática”, ao clicar em pagar, o pedido será autorizado e capturado imediatamente. Caso contrário, o pedido será somente autorizado e através da opção “capturar” em “Ações” na lista de pedidos, será possível realizar a captura do pedido.&lt;/p&gt;
+&lt;p&gt;If you configured the option “automatic capture”, the order will be authorized and captured immediately. Else, the transaction will be captured only if you access the report and capture manually.&lt;/p&gt;
 
-&lt;p&gt;O botão “limpar”, limpa todos os campos da tela de criação de um novo pedido.&lt;/p&gt;
+&lt;p&gt;The Clean button will clean the filled information.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/btnpagarlimpar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;lista-de-pedidos&quot;&gt;Lista de pedidos&lt;/h1&gt;
+&lt;h1 id=&quot;order-report&quot;&gt;Order Report&lt;/h1&gt;
 
-&lt;p&gt;Conforme imagem abaixo, nesta sessão serão exibidos todos os pedidos realizados pelo operador:&lt;/p&gt;
+&lt;p&gt;Access the Virtual POS &amp;gt; Transactions to see the orders performed previously&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/listapedidos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Acima da lista de pedidos, existem duas legendas com informações dos totais. Estas representam o valor total pago e o valor total pendente de captura.&lt;/p&gt;
+&lt;p&gt;Abote the order list, there are two labels about amounts. One represents the captured Amount, and other, the partial amount to be captured.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Total pago - valor total de pedidos capturados na lista de pedidos&lt;/li&gt;
-  &lt;li&gt;Total pendente de captura - valor total de pedidos que foram apenas autorizados, ou seja, estão passíveis de serem capturados&lt;/li&gt;
+  &lt;li&gt;Captured amoun - the total amount already captured&lt;/li&gt;
+  &lt;li&gt;Amount to be captured - total amount that could be captured&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;A coluna “Ações” possui links onde o usuário poderá tomar a ação desejada, que são:&lt;/p&gt;
+&lt;p&gt;The action column has links to take an one of actions:&lt;/p&gt;
 
-&lt;h2 id=&quot;capturar&quot;&gt;Capturar&lt;/h2&gt;
+&lt;h2 id=&quot;capture&quot;&gt;Capture&lt;/h2&gt;
 
-&lt;p&gt;Esta ação ficará disponível para o usuário caso o seu POS Virtual no momento do setup não desejar que a forma de pagamento seja com captura automática, ou seja, ao realizar o passo 7 clicando no botão “Pagar”, o pedido será autorizado apenas, necessitando da ação de clicar no link “Capturar” do usuário para mudar o status de “Não Pago” para “Pago”. Para esta opção, no momento do setup do seu POS Virtual, é possível escolher por captura parcial ou total.&lt;/p&gt;
+&lt;p&gt;This action will be available to the Virtual POS if you not choosed to make automatic capture. 
+All the orders just authorized must be captured here. When the capture process is successfully completed, the order status will change from “Not Paid” to “Paid”.&lt;/p&gt;
 
-&lt;h3 id=&quot;captura-parcial&quot;&gt;Captura Parcial&lt;/h3&gt;
+&lt;h3 id=&quot;partial-capture&quot;&gt;Partial Capture&lt;/h3&gt;
 
-&lt;p&gt;É a ação de capturar um determinado valor menor que o valor autorizado. Ex.:&lt;/p&gt;
+&lt;p&gt;This action must be used when you need to partially capture the amount. Ex.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Transação autorizada de R$ 100,00&lt;/li&gt;
-  &lt;li&gt;Captura parcial de R$ 50,00&lt;/li&gt;
+  &lt;li&gt;Authorized amount: R$ 100,00&lt;/li&gt;
+  &lt;li&gt;Partial Capture of R$ 50,00&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Caso a opção seja por captura parcial no setup do seu POS Virtual, o usuário ao clicar no link “Capturar”, a tela abaixo será exibida, deixando assim o usuário escolher o valor a ser capturado.&lt;/p&gt;
+&lt;p&gt;The Virtual POS will show a field to input the partial amount.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/capturar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;aside class=”notice)Obs.: A ação de capturar só poderá ocorrer uma única vez, então caso seja realizada uma captura parcial conforme exemplo acima, os outros R$ 50,00 restantes não poderá ser mais capturado, disponibilizando novamente esses R$ 50,00 no limite do cliente. &amp;lt;/aside&amp;gt;&lt;/p&gt;
+&lt;aside class=&quot;notice&quot;&gt;Note: the partial capture must be used just once. The remaining amount after a partial capture will be released automatically.&lt;/aside&gt;
 
-&lt;h3 id=&quot;captura-total&quot;&gt;Captura Total&lt;/h3&gt;
+&lt;h3 id=&quot;total-capture&quot;&gt;Total Capture&lt;/h3&gt;
 
-&lt;p&gt;É a ação de capturar o valor total autorizado. Ex.:&lt;/p&gt;
+&lt;p&gt;This action must be used when you need to capture all the amount. Ex.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Transação autorizada de R$ 100,00&lt;/li&gt;
-  &lt;li&gt;Captura total de R$ 100,00&lt;/li&gt;
+  &lt;li&gt;Authorized amount: R$ 100,00&lt;/li&gt;
+  &lt;li&gt;Total Capture of R$ 100,00&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&amp;lt;aside class=”notice)Obs.: Caso no momento do setup do seu POS Virtual a configuração seja de pagamento com captura automática, o link “Capturar” não será exibido como uma das possíveis ações a serem tomadas na lista de pedidos, e ao realizar o passo 7 clicando no botão “Pagar”, o pedido será autorizado e capturado no mesmo instante. &amp;lt;/aside&amp;gt;&lt;/p&gt;
+&lt;aside class=&quot;notice&quot;&gt;If you are using automatic capture configuration, this option will not be available. &lt;/aside&gt;
 
-&lt;h2 id=&quot;cancelar&quot;&gt;Cancelar&lt;/h2&gt;
+&lt;h2 id=&quot;void&quot;&gt;Void&lt;/h2&gt;
 
-&lt;p&gt;Esta ação poderá ser tomada para o usuário cancelar um pedido, sendo assim o limite do cliente ficará disponível novamente em seu cartão.&lt;/p&gt;
+&lt;p&gt;This action is destinated to void a transaction.&lt;/p&gt;
 
-&lt;p&gt;Será exibida uma tela de confirmação do cancelamento conforme imagem abaixo:&lt;/p&gt;
+&lt;p&gt;You need to confirm the action, as show below.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/cancelar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;imprimir&quot;&gt;Imprimir&lt;/h2&gt;
+&lt;h2 id=&quot;print&quot;&gt;Print&lt;/h2&gt;
 
-&lt;p&gt;Esta ação poderá ser tomada para o usuário imprimir um comprovante com os dados do pedido.&lt;/p&gt;
+&lt;p&gt;This action will show you a print version of an order.&lt;/p&gt;
 
-&lt;p&gt;A impressão terá os detalhes do pedido conforme imagem abaixo:&lt;/p&gt;
+&lt;p&gt;See the example below.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/imprimir.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </content>
