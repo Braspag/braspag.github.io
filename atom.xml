@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-12T13:41:55+00:00</updated>
+    <updated>2017-12-12T13:46:17+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -22236,9 +22236,9 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;p&gt;Seja por curiosidade, seja por necessidade, você já deve ter se perguntado sobre como é definido o número de um cartão de crédito. Algumas pessoas chegam a achar que são números aleatórios, ou sequênciais, atribuídos pelas bandeiras ou pelos bancos emissores, mas a realidade é que o número do cartão segue um padrão especificado e que é possível saber qual é a bandeira, tipo do cartão e a conta do portador, apenas observando o número do cartão; em alguns casos, de fato, é possível saber até o país de origem do cartão, apenas observando seu número.&lt;/p&gt;
 
-&lt;p&gt;Com o objetivo de contribuir para a redução as transações negadas pelo código 14 – cartão inválido, a Cielo recomenda o uso do algoritmo de Luhn para verificação da sequência de números dos cartões de credito e débito utilizados na sua loja. A partir desta medida, o lojista conseguirá evitar que uma transação com o cartão digitado incorretamente seja enviado para processamento.&lt;/p&gt;
+&lt;p&gt;Com o objetivo de contribuir para a redução as transações negadas pelo código 14 – cartão inválido, a Braspag recomenda o uso do algoritmo de Luhn para verificação da sequência de números dos cartões de credito e débito utilizados na sua loja. A partir desta medida, o lojista conseguirá evitar que uma transação com o cartão digitado incorretamente seja enviado para processamento.&lt;/p&gt;
 
-&lt;p&gt;Por isso, a Cielo recomenda que, no momento que o portador digitar o número do cartão e o algoritmo de Luhn detectar que a digitação está incorreta, o lojista deverá exibir a informação clara para o portador, solicitando que o cartão seja digitado novamente ou tente outro cartão”&lt;/p&gt;
+&lt;p&gt;Por isso, a Braspag recomenda que, no momento que o portador digitar o número do cartão e o algoritmo de Luhn detectar que a digitação está incorreta, o lojista deverá exibir a informação clara para o portador, solicitando que o cartão seja digitado novamente ou tente outro cartão”&lt;/p&gt;
 
 &lt;h2 id=&quot;números-de-cartões&quot;&gt;Números de cartões&lt;/h2&gt;
 
@@ -22254,7 +22254,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;h2 id=&quot;informações-de-cartões&quot;&gt;Informações de cartões&lt;/h2&gt;
 
-&lt;p&gt;Após validar que o número do cartão é válido através do dígito verificador obtido através do algoritmo Luhn, podemos verificar se o número do cartão está correto segundo a bandeira escolhida. A Cielo não recomenda que se faça uma validação de bandeiras através do BIN - primeiros dígitos do cartão; essa recomendação é importante porque pode haver colisão de mesmo número de BINs para bandeiras diferentes. Algumas bandeiras possuem 13, 15 ou 16 dígitos e o CVV possui 3 ou 4 dígitos. A tabela abaixo mostra a quantidade de dígitos de cada bandeira e seus respectivos CVV. Utilize essa informação em conjunto com o algoritmo Luhn para uma validação completa do número do cartão do cliente.&lt;/p&gt;
+&lt;p&gt;Após validar que o número do cartão é válido através do dígito verificador obtido através do algoritmo Luhn, podemos verificar se o número do cartão está correto segundo a bandeira escolhida. A Braspag não recomenda que se faça uma validação de bandeiras através do BIN - primeiros dígitos do cartão; essa recomendação é importante porque pode haver colisão de mesmo número de BINs para bandeiras diferentes. Algumas bandeiras possuem 13, 15 ou 16 dígitos e o CVV possui 3 ou 4 dígitos. A tabela abaixo mostra a quantidade de dígitos de cada bandeira e seus respectivos CVV. Utilize essa informação em conjunto com o algoritmo Luhn para uma validação completa do número do cartão do cliente.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22300,7 +22300,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;h1 id=&quot;validação-dos-números-do-cartão&quot;&gt;Validação dos números do cartão&lt;/h1&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;A Cielo não realiza suporte ou se responsabiliza pelo atendimento desse tipo de implementação. Esse tutorial é meramente informativo, com o propósito de ajudar o lojista a diminuir o número de transações negadas com o código 14.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;A Braspag não realiza suporte ou se responsabiliza pelo atendimento desse tipo de implementação. Esse tutorial é meramente informativo, com o propósito de ajudar o lojista a diminuir o número de transações negadas com o código 14.&lt;/aside&gt;
 
 &lt;h2 id=&quot;validação-dos-números-do-cartão-1&quot;&gt;Validação dos números do cartão&lt;/h2&gt;
 
@@ -22652,7 +22652,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Tiago Rosendo&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Desenvolvedor na Braspag e Cielo, backend de coração e apaixonado pelo frontend, entusiasta de JS e Docker e nas horas vagas não dispensa uma jogatina online.&lt;/td&gt;
+      &lt;td&gt;Desenvolvedor na Braspag, backend de coração e apaixonado pelo frontend, entusiasta de JS e Docker e nas horas vagas não dispensa uma jogatina online.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt; &lt;/td&gt;
