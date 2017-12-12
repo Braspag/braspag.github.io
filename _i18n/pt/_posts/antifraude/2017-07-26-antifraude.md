@@ -101,6 +101,28 @@ Exemplo:
 
 A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.
 
+||||ReDShield||Cybersource||
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|Obrigatório|Tamanho|
+|:-|:-|:-:|:-:|-:|:-:|-:|
+|`MerchantOrderId` |Número do pedido da loja <br/> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint|string|sim|100|sim|100|
+|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|sim|-|
+|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|sim|-|
+|`Currency`|Moeda - Tabela 1|enum|-|-|-|-|
+|`Provider`|Provedor da solução de antifraude - Tabela 2|enum|-|-|-|-|
+|`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|sim|-|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|não|-|não|-|
+|`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3|enum|-|-|-|-|
+|`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|bool|não|-|-|-|
+|`Card.Number`|Número do cartão de crédito|string|sim|19|sim|20|
+|`Card.Holder`|Nome do cartão de crédito|string|sim|50|sim|50|
+|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|sim|7|
+|`Card.Cvv`|Código de segurança do cartão de crédito|string|sim|4|-|-|
+|`Card.Brand`|Bandeira do cartão de crédito - Tabela 4|enum|-|-|-|-|
+|`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|não|1|-|-|
+|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|não|-|
+|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|não|-|
+|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|não|64|não|64|
+
 ## Atributos do Response
 
 **Id** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
