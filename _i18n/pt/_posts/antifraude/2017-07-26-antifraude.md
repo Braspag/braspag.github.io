@@ -68,6 +68,7 @@ Exemplo:
 
 ```shell
 curl
+{
 --request POST "https://brapagauth.com.br/oauth2/token"
 --header "Authorization: Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg=="
 --header "Content-Type: application/x-www-form-urlencoded"
@@ -75,9 +76,8 @@ curl
 --body "scope: AntifraudGatewayApp"
 --body "grant_type: client_credentials"
 --data-binary
-{
-}
 --verbose
+}
 ```
 
 **Parâmetros no cabeçalho (Header)**
