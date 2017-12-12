@@ -6522,28 +6522,34 @@ Certifique-se de copiar todos os dados corretamente e de remover os sinais de ta
 
 ### PNG image
 
-``` html
+```
+html
 ‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&session_id=‹merchant id›‹session ID›&m=1)"›‹/p›
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&session_id=‹merchant id›‹session ID›&m=2" alt=""›
 
 ```
 
-``` html
+```
+html
+
 <!-- EXEMPLO -->
 ‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&session_id=sample_merchantIDsample_sessionID&m=1)"›‹/p›
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&session_\id=sample_merchantIDsample_sessionID&m=2" alt=""›
+
 ```
 
 ### Flash code
 
-``` html
+```
+html
 ‹object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=‹org ID›&session_id=‹merchant id›‹session ID›" width="1" height="1"id="thm_fp"›
 ‹param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=‹orgID›&session_id=‹merchant id›‹session ID›" /›
 ‹div›‹/div›
 ‹/object›
 ```
 
-``` html
+```
+html
 <!-- EXEMPLO -->
 ‹object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&session_id=sample_merchantIDsample_sessionID"width="1" height="1" id="thm_fp"›
 ‹param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&session_id=sample_merchantIDsample_sessionID" /›
@@ -6553,7 +6559,8 @@ Certifique-se de copiar todos os dados corretamente e de remover os sinais de ta
 
 ### JavaScript code
 
-``` html
+```
+html
 
 ‹script src="https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&session_
 id=‹merchant id›‹session ID›" type="text/javascript"›
@@ -6561,11 +6568,14 @@ id=‹merchant id›‹session ID›" type="text/javascript"›
 
 ```
 
-``` html
+```
+html
+
 <!-- EXEMPLO -->
 ‹script src="https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&session_
 id=‹merchant id›‹session ID›" type="text/javascript"›
 ‹/script›
+
 ```
 
 # FAQ
