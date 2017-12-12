@@ -5,6 +5,7 @@ description: Lista de Sdks Api Pagador
 toc_footers: true
 categories: tutorial
 sort_order: 5
+translated: true
 tags:
   - Pagador
 ---
