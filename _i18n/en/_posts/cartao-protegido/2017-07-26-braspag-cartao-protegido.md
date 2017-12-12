@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Manual de integração
+title: Integration Manual
 description: Integração técnica Tokenização Braspag
 search: true
 categories: tutorial
