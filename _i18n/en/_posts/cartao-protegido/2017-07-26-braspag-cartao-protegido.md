@@ -7,6 +7,7 @@ categories: tutorial
 tags:
   - Cartão Protegido
 ---
+
 # Card Tokenization Overview
 
 CARTÃO PROTEGIDO (card tokenization) is a safe credit card information storage platform. The data stored at the Protected Card Platform follows PCI standards that ensure the integrity of the card information stored.
@@ -20,7 +21,7 @@ While product, CARTÃO PROTEGIDO (card tokenization), as a solution to the probl
 * **1 Click Shop:** “1 Click Shop” allows an online payment (via credit card) be made skipping the step of filling in the payment details or even the whole process of the shopping cart, since card data were previously reported by the buyer in past purchases and will be replicated in future purchases through its authorization.
 * **Recurrent Billing:** Establishments that already have an internal solution for managing recurrences can use the platform just to the sensitive part: storing data and credit card processing via PAGADOR, charges in Acquirers by using only the token.
 * **Retry sending transaction (sale):** For establishments that store data sale to pass in a second time, and to re-try sending a credit card transaction for a Purchaser or to any internal procedure before authorizing the sale (inventory validation, analysis of fraud), the platform perfectly serves this purpose. The establishment needs to understand and manipulate just one token, remaining adherent to the security rules of the industry of credit cards.
-* **Or for any other purpose, which is necessary to store data from a credit card safely, even temporarily. 
+* Or for any other purpose, which is necessary to store data from a credit card safely, even temporarily. 
 
 The "One Click Shop" enables online payments via credit card skipping the step of filling out payment details or even the whole shopping basket process, since all card details have previously been informed by the purchaser on past purchases and will be automatically replicated in new purchases upon the purchaser's authorization. 
 
