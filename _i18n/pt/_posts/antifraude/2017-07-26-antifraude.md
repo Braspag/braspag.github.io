@@ -74,6 +74,26 @@ curl
 
 --body "scope: AntifraudGatewayApp"
 --body "grant_type: client_credentials"
+{
+   "MerchantOrderId":"2017051001",
+   "Customer":{
+      "Name":"Nome do Cliente"
+   },
+   "Payment":{
+     "Provider":"Simulado",
+     "Type":"CreditCard",
+     "Amount":10000,
+     "Capture":true,
+     "Installments":1,
+     "CreditCard":{
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     }
+   }
+}
 --verbose
 ```
 
