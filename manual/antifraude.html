@@ -57,6 +57,8 @@
                     
                     <li><a data-language-name='curl'>CURL</a></li>
                     
+                    <li><a data-language-name='html'>HTML</a></li>
+                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -187,19 +189,6 @@
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="o">{</span>
-<span class="nt">--request</span> POST <span class="s2">"https://brapagauth.com.br/oauth2/token"</span>
-<span class="nt">--header</span> <span class="s2">"Authorization: Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg=="</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
-
-<span class="nt">--body</span> <span class="s2">"scope: AntifraudGatewayApp"</span>
-<span class="nt">--body</span> <span class="s2">"grant_type: client_credentials"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
 <table>
@@ -250,6 +239,220 @@
   </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">access_token</code></td>
+      <td>O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">token_type</code></td>
+      <td>Indica o valor do tipo de token</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">expires_in</code></td>
+      <td>Expiração do o token de acesso, em segundos <br />O token quando expirar, é necessário obter um novo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="análise-de-fraude">Análise de fraude</h1>
+
+<p>A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">ReDShield</th>
+      <th style="text-align: right"> </th>
+      <th style="text-align: center">Cybersource</th>
+      <th style="text-align: right"> </th>
+    </tr>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Obrigatório</th>
+      <th style="text-align: right">Tamanho</th>
+      <th style="text-align: center">Obrigatório</th>
+      <th style="text-align: right">Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td style="text-align: left">Número do pedido da loja <br /> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">100</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">100</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">TotalOrderAmount</code></td>
+      <td style="text-align: left">Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">TransactionAmount</code></td>
+      <td style="text-align: left">Valor da transação financeira em centavos <br /> Ex: 150000 = r$ 1.500,00</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Currency</code></td>
+      <td style="text-align: left">Moeda - Tabela 1</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Provider</code></td>
+      <td style="text-align: left">Provedor da solução de antifraude - Tabela 2</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">OrderDate</code></td>
+      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag</td>
+      <td style="text-align: center">datetime</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Pagador da Braspag.</td>
+      <td style="text-align: center">guid</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">SplitingPaymentMethod</code></td>
+      <td style="text-align: left">Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">IsRetryTransaction</code></td>
+      <td style="text-align: left">Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900</td>
+      <td style="text-align: center">bool</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
+      <td style="text-align: left">Número do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">19</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
+      <td style="text-align: left">Nome do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">50</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">7</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">7</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Cvv</code></td>
+      <td style="text-align: left">Código de segurança do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">4</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
+      <td style="text-align: left">Bandeira do cartão de crédito - Tabela 4</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.EciThreeDSecure</code></td>
+      <td style="text-align: left">Código do ECI (Eletronic Commerce Indicator) de autenticação</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Save</code></td>
+      <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
+      <td style="text-align: center">bool</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Token</code></td>
+      <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: center">guid</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Alias</code></td>
+      <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">64</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">64</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="atributos-do-response">Atributos do Response</h2>
 
@@ -2247,6 +2450,8 @@ Altera o status da transação</p>
         
         langs += "<a data-language-name='curl'>CURL</a>";
         
+        langs += "<a data-language-name='html'>HTML</a>";
+        
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
@@ -2254,7 +2459,7 @@ Altera o status da transação</p>
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json",  "curl", ]);
+                setupLanguages([  "json",  "curl",  "html", ]);
             });
         </script>
         
