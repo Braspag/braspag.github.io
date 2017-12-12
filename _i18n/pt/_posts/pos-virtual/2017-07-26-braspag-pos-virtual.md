@@ -4,6 +4,7 @@ title: Manual de Utilização
 description: Como utilizar o POS-Virtual Braspag
 search: true
 categories: manual
+translated: true
 tags:
   - POS-Virtual
 ---
