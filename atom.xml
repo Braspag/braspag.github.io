@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-12T17:35:37+00:00</updated>
+    <updated>2017-12-12T17:36:03+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -26303,11 +26303,11 @@ Para ser notificado com relação ao status de uma transação, utilize o &lt;a 
     </entry>
     
     <entry>
-        <title>SDKs Braspag</title>
-        <category term="tutorial" />
-        <link href="https://braspag.github.io//tutorial/braspag-soap"/>
+        <title>Manual de Integração - SOAP</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//manual/braspag-soap"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//tutorial/braspag-soap</id>
+        <id>https://braspag.github.io//manual/braspag-soap</id>
         <content type="html">&lt;h1 id=&quot;sdks-pagador&quot;&gt;SDKs Pagador&lt;/h1&gt;
 
 &lt;p&gt;O Pagador oferece uma gama de SDks disponiveis no Repositório oficial Github:&lt;/p&gt;
