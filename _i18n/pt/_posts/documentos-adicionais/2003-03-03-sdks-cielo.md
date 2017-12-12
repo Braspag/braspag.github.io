@@ -1,45 +1,26 @@
 ---
 layout: tutorial
-title:  SDKs Cielo
-description: Lista de Sdks Api cielo ecommerce
+title:  SDKs Braspag
+description: Lista de Sdks Api Pagador
 toc_footers: true
 categories: tutorial
 sort_order: 5
 tags:
-  - Documentos Adicionais
+  - Pagador
 ---
 
-# SDKs Api e-Commerce Cielo
+# SDKs Pagador
 
-A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:
+O Pagador oferece uma gama de SDks disponiveis no Repositório oficial Github:
 
-|SDK Mobile                                                        |                                                                  |
-|------------------------------------------------------------------|------------------------------------------------------------------|
-|[**Android**](https://github.com/DeveloperCielo/API-3.0-Android)  |[**iOS**](https://github.com/DeveloperCielo/API-3.0-iOS)          |
+|SDK Mobile                                                        |
+|------------------------------------------------------------------|
+|[**Android**](ttps://github.com/Braspag/BraspagApiAndroidSdk)     |
 
 |SDK                                                               |
 |------------------------------------------------------------------|
-|[**PHP**](https://github.com/DeveloperCielo/API-3.0-PHP)          |
-|[**JAVA**](https://github.com/DeveloperCielo/API-3.0-Java)        |
+|[**PHP**](https://github.com/Braspag/BraspagApiPhpSdk)            |
+|[**JAVA**](https://github.com/Braspag/BraspagApiJavaSdk)          |
 |[**Python**](https://github.com/DeveloperCielo/API-3.0-Python)    |
-|[**Ruby**](https://github.com/DeveloperCielo/API-3.0-Ruby)        |
-
-# SDKs Cielo LIO
-
-| Tipo                 | SDK                                                                                                 |
-|----------------------|-----------------------------------------------------------------------------------------------------|
-| **Sample**           | [**Integração Local**](https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local)           |
-| **Order Management** | [**Integração Local**](https://github.com/DeveloperCielo/order-management)                          |
-| **Android**          | [**Integração Remota**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Android) |
-| **PHP**              | [**Integração Remota**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-PHP)     |
-| **Java**             | [**Integração Remota**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Java)    |
-| **CSharp**           | [**Integração Remota**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-CSHARP)  |
-
-# SDKs Webservice 1.5
-
-|SDK                                                                      |
-|-------------------------------------------------------------------------|
-|[**CSharp**](https://github.com/DeveloperCielo/Webservice-1.5-csharp)    |
-|[**PHP**](https://github.com/DeveloperCielo/Webservice-1.5-php)          |
-|[**JAVA**](https://github.com/DeveloperCielo/Webservice-1.5-java)        |
-|[**Ruby**](https://github.com/DeveloperCielo/Webservice-1.5-ruby)        |
+|[**Ruby**](https://github.com/Braspag/BraspagApiRubySdk)          |
+|[**.NET**](https://github.com/Braspag/BraspagApiDotNetSdk)        |
