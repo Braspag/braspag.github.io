@@ -74,6 +74,7 @@ curl
 
 --body "scope: AntifraudGatewayApp"
 --body "grant_type: client_credentials"
+--data-binary
 {
    "MerchantOrderId":"2017051001",
    "Customer":{
