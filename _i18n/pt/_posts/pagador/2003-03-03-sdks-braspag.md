@@ -4,6 +4,7 @@ title:  SDKs Braspag
 description: Lista de Sdks Api Pagador
 toc_footers: true
 categories: tutorial
+translated: true
 sort_order: 5
 tags:
   - Pagador
