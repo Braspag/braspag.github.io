@@ -91,6 +91,12 @@ Exemplo:
 }
 ```
 
+|Parâmetro|Descrição|
+|-|-|
+|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway|
+|`token_type`|Indica o valor do tipo de token|
+|`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
+
 ## Atributos do Response
 
 **Id** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
