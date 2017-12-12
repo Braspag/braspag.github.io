@@ -8,7 +8,7 @@ tags:
   - AntiFraude
 language_tabs:
   json: JSON
-  html: HTML
+  curl: CURL
 ---
 
 # Visão Geral
@@ -61,58 +61,6 @@ Exemplo:
 * client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
 * String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
 * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
-
-### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
-
-```shell
-curl
---request POST "https://brapagauth.com.br/oauth2/token"
---header "Authorization: Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg=="
---header "Content-Type: application/x-www-form-urlencoded"
-
---body "scope: AntifraudGatewayApp"
---body "grant_type: client_credentials"
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|-|-|
-|`Content-Type`|application/x-www-form-urlencoded|
-|`Authorization`|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
-
-**Parâmetros no corpo (Body)**
-
-|Key|Value|
-|-|-|
-|`scope`|AntifraudGatewayApp|
-|`grant_type`|client_credentials|
-
-### Response
-
-```json
-{
-  "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
-  "token_type": "bearer",
-  "expires_in": 599
-}
-```
-
-|Parâmetro|Descrição|
-|-|-|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway.|
-|`token_type`|Indica o valor do tipo de token.|
-|`expires_in`|Expiração do o token de acesso, em segundos. Neste caso, quando o token expirar, é necessário obter um novo token.|
-
-# Análise de fraude
-
-A Braspag ao receber os dados do pedido, encaminha para o provedor analisar todos os dados. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.
-
-
-
-
 
 ## Atributos do Response
 
