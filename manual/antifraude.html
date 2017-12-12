@@ -188,6 +188,7 @@
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="o">{</span>
 <span class="nt">--request</span> POST <span class="s2">"https://brapagauth.com.br/oauth2/token"</span>
 <span class="nt">--header</span> <span class="s2">"Authorization: Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg=="</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
@@ -195,9 +196,8 @@
 <span class="nt">--body</span> <span class="s2">"scope: AntifraudGatewayApp"</span>
 <span class="nt">--body</span> <span class="s2">"grant_type: client_credentials"</span>
 <span class="nt">--data-binary</span>
-<span class="o">{</span>
-<span class="o">}</span>
 <span class="nt">--verbose</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
