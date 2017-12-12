@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2017-12-12T14:57:54+00:00</updated>
+    <updated>2017-12-12T16:21:12+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14352,12 +14352,869 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
     </entry>
     
     <entry>
-        <title>Braspag Cartao Protegido</title>
-        <category term="" />
-        <link href="https://braspag.github.io//en/braspag-cartao-protegido"/>
+        <title>Integration Manual</title>
+        <category term="tutorial" />
+        <link href="https://braspag.github.io//en/tutorial/braspag-cartao-protegido"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/braspag-cartao-protegido</id>
-        <content type="html">
+        <id>https://braspag.github.io//en/tutorial/braspag-cartao-protegido</id>
+        <content type="html">&lt;h1 id=&quot;card-tokenization-overview&quot;&gt;Card Tokenization Overview&lt;/h1&gt;
+
+&lt;p&gt;CARTÃO PROTEGIDO (card tokenization) is a safe credit card information storage platform. The data stored at the Protected Card Platform follows PCI standards that ensure the integrity of the card information stored.&lt;/p&gt;
+
+&lt;p&gt;The CARTÃO PROTEGIDO (card tokenization) integrates with gateway PAGADOR (BRASPAG), facilitating the submission and processing of credit card transactions via token.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-the-product&quot;&gt;ABOUT THE PRODUCT&lt;/h2&gt;
+
+&lt;p&gt;While product, CARTÃO PROTEGIDO (card tokenization), as a solution to the problem of secure data storage of credit card can be used for various purposes such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;1 Click Shop:&lt;/strong&gt; “1 Click Shop” allows an online payment (via credit card) be made skipping the step of filling in the payment details or even the whole process of the shopping cart, since card data were previously reported by the buyer in past purchases and will be replicated in future purchases through its authorization.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Recurrent Billing:&lt;/strong&gt; Establishments that already have an internal solution for managing recurrences can use the platform just to the sensitive part: storing data and credit card processing via PAGADOR, charges in Acquirers by using only the token.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Retry sending transaction (sale):&lt;/strong&gt; For establishments that store data sale to pass in a second time, and to re-try sending a credit card transaction for a Purchaser or to any internal procedure before authorizing the sale (inventory validation, analysis of fraud), the platform perfectly serves this purpose. The establishment needs to understand and manipulate just one token, remaining adherent to the security rules of the industry of credit cards.&lt;/li&gt;
+  &lt;li&gt;Or for any other purpose, which is necessary to store data from a credit card safely, even temporarily.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The “One Click Shop” enables online payments via credit card skipping the step of filling out payment details or even the whole shopping basket process, since all card details have previously been informed by the purchaser on past purchases and will be automatically replicated in new purchases upon the purchaser’s authorization.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-this-manual&quot;&gt;ABOUT THIS MANUAL&lt;/h2&gt;
+
+&lt;p&gt;This manual aims to guide the Merchant’s developer on the integration with the CARTÃO PROTEGIDO platform, describing existing functions and methods to be used, listing information to be sent and received, and providing examples.&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;To get the production URL, please ask our implementation team through our support tool. &lt;/aside&gt;
+
+&lt;h2 id=&quot;integration-guide&quot;&gt;integration Guide&lt;/h2&gt;
+
+&lt;p&gt;Please see the graphics for the sales process flows in the sections below. There are 3 ways to integrate the product:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Directly via CARTÃO PROTEGIDO platform&lt;/li&gt;
+  &lt;li&gt;Via PAGADOR platform - through Web services.&lt;/li&gt;
+  &lt;li&gt;Via PAGADOR platform - through Data Posts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following data is required to store a credit card in the platform: Customer’s CPF (Taxpayer ID), Customer’s Name, Cardholder’s Name, Card Number, and Expiration Date. The security code is not stored (please refer to the Security Code section&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;The CARTÃO PROTEGIDO platform safely stores credit card data, with 100% PCI Compliance.&lt;/aside&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;Since the transaction authorization is carried via PAGADOR, all other functions for transaction confirmation - Second Post (confirmation post), and Third Post (probe) - continue to work the same way.&lt;/aside&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;For enhanced security, only previously registered IPs of the Merchant will be allowed to query credit card numbers or authorize transactions using the CARTÃO PROTEGIDO (PROTECTED CARD) key (JustClickKey).  &lt;/aside&gt;
+
+&lt;h1 id=&quot;parameter-justclickalias&quot;&gt;PARAMETER JustClickAlias&lt;/h1&gt;
+
+&lt;p&gt;This parameter is intended to facilitate the storage, by the customer, of information related to a Secured Card The customer may at the time of the rescue card, create an alias (name) will identify the card in Platform CARTÃO PROTEGIDO.&lt;/p&gt;
+
+&lt;p&gt;Another advantage is the fact that this alias can be associated with a new JustClickKey, which facilitates the exchange of a card when, for example, its validity expires.&lt;/p&gt;
+
+&lt;p&gt;Para isso, o lojista deveria indicar que o JustClickKey está desabilitado. Dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.&lt;/p&gt;
+
+&lt;h2 id=&quot;right-way-of-association&quot;&gt;Right Way of Association&lt;/h2&gt;
+
+&lt;p&gt;An Alias can be associated with a new token, since before being disassociated from the old Token as shown in the example below:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Merchant Id&lt;/th&gt;
+      &lt;th&gt;JustClickKey (Token)&lt;/th&gt;
+      &lt;th&gt;Alias&lt;/th&gt;
+      &lt;th&gt;Enabled&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 1&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 2&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 3&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Note: Disassociation occurs after the execution of the method InvalidateCreditCard&lt;/aside&gt;
+
+&lt;h2 id=&quot;form-not-accepted-of-association&quot;&gt;Form not accepted of Association&lt;/h2&gt;
+
+&lt;p&gt;An Alias can be associated with a new token, since before being disassociated Token old, in the example below is shown a way that would not allow this association because the Alias will only be released to a new association that is disconnected from a particular Token:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Merchant Id&lt;/th&gt;
+      &lt;th&gt;JustClickKey (Token)&lt;/th&gt;
+      &lt;th&gt;Alias&lt;/th&gt;
+      &lt;th&gt;Enabled&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 1&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 2&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 3&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;authorization-process-via-cartÃo-protegido-platform&quot;&gt;AUTHORIZATION PROCESS VIA CARTÃO PROTEGIDO PLATFORM&lt;/h1&gt;
+
+&lt;p&gt;Below is the process of request for saving customer card details during a sale transaction, followed by another process in which the same customer makes a purchase via CARTÃO PROTEGIDO&lt;/p&gt;
+
+&lt;p&gt;After having the customer’s permission to save his/her card details, the merchant should:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Submit the purchase authorization request via Gateway. Standard process already adopted today&lt;/li&gt;
+  &lt;li&gt;Receive the authorization result&lt;/li&gt;
+  &lt;li&gt;Submit the card details for storage in the CARTÃO PROTEGIDO (PROTECTED CARD) platform&lt;/li&gt;
+  &lt;li&gt;Receive and store the “JustClickKey”, which is the key representing the pair “credit card-customer” for future “One Click Shops”.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;When the customer returns to the site for a new purchase and logs in, the site can offer the “One Click Shop” option and the flow will be:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;To invoke the transaction authorization directly from the CARTÃO PROTEGIDO platform, passing the customer’s “JustClickKey” and, optionally, the CVV (please refer to the Security Code section)&lt;/li&gt;
+  &lt;li&gt;Receive the authorization result&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/autorizacaocomopcaosalvarcartao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;authorization-process-via-pagador&quot;&gt;AUTHORIZATION PROCESS VIA PAGADOR&lt;/h1&gt;
+
+&lt;p&gt;Below are the processes of request for saving a customer card during a sale transaction and a purchase via CARTÃO PROTEGIDO (PROTECTED CARD) platform, both using the PAGADOR/CARTÃO PROTEGIDO integration&lt;/p&gt;
+
+&lt;h2 id=&quot;authorization-with-the-option-to-save-card-details&quot;&gt;AUTHORIZATION WITH THE OPTION TO SAVE CARD DETAILS&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/pgautorizacaocomopcaosalvarcartao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Submit the purchase authorization request via PAGADOR with the SaveCreditCard parameter;&lt;/li&gt;
+  &lt;li&gt;PAGADOR submits the credit card details to the CARTÃO PROTEGIDO (PROTECTED CARD) platform for storage;&lt;/li&gt;
+  &lt;li&gt;CARTÃO PROTEGIDO platform submits the card details storage response to PAGADOR;&lt;/li&gt;
+  &lt;li&gt;As a result, PAGADOR submits the authorization and storage response to the customer;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;authorization-via-previously-saved-card&quot;&gt;AUTHORIZATION VIA PREVIOUSLY SAVED CARD&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/pgautorizacaocomcartaosalvo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Submit the purchase authorization request via PAGADOR with the CredicardToken parameter;&lt;/li&gt;
+  &lt;li&gt;PAGADOR submits the credit card details to the CARTÃO PROTEGIDO (PROTECTED CARD) platform for retrieval of previously saved card details;&lt;/li&gt;
+  &lt;li&gt;CARTÃO PROTEGIDO (PROTECTED CARD) platform submits the card details response to PAGADOR;&lt;/li&gt;
+  &lt;li&gt;As a result, PAGADOR submits the authorization response to the customer;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Note that all communication is held by the merchant via PAGADOR platform. For all information on the Web services methods and parameters, as well as the methods of the integration via Post, please request the respective manuals of the PAGADOR platform.&lt;/aside&gt;
+
+&lt;h2 id=&quot;authorization-via-post&quot;&gt;AUTHORIZATION VIA POST&lt;/h2&gt;
+
+&lt;p&gt;Below is the process of authorization via Post. Showing a transaction where the customer has the key generated by the CARTÃO PROTEGIDO (PROTECTED CARD) platform, and another transaction where this key is still to be generated and sent to the customer (CredicardToken).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/pgautorizacaopost.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;The “CreditCardToken” parameter returned by the PAGADOR platform is the “JustClickKey” of the CARTÃO PROTEGIDO (PROTECTED CARD) platform. 
+&lt;/aside&gt;
+
+&lt;h1 id=&quot;security-code-cvv&quot;&gt;SECURITY CODE (CVV)&lt;/h1&gt;
+
+&lt;p&gt;The security code is required to enable the authorization of a remote purchase to be accepted by the bank issuing the card. It is another security mechanism in the antifraud process that seeks to confirm that the person who is using a card is unmistakably the cardholder. Therefore, the card industry regulations (PCI) allow the storage of the card’s number and expiration date, but never the security code. This code should always be requested at the time of purchase, for validation. As BRASPAG is a PCI-compliant company, it does not store the security code, which will have to be requested by the merchant upon sales confirmation via CARTÃO PROTEGIDO (PROTECTED CARD).&lt;/p&gt;
+
+&lt;p&gt;However, the issuing banks and credit card operators can eliminate the obligation of security code to affiliations of merchants that have a business model based on recurrence, such as Service Subscriptions. For such merchants, the authorization of transactions without the security code is allowed.&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;This recurrence condition is granted exclusively by the Operators, not depending on BRASPAG.&lt;/aside&gt;
+
+&lt;h1 id=&quot;tips-for-implementation&quot;&gt;TIPS FOR IMPLEMENTATION&lt;/h1&gt;
+
+&lt;h2 id=&quot;implementing-justclickshop&quot;&gt;IMPLEMENTING JUSTCLICKSHOP&lt;/h2&gt;
+
+&lt;p&gt;To make a sale through one click, it is necessary that the property already has an authorization provided by the customer to store the data of your credit card. Thus, in the next shop he can choose to pay with a credit card previously saved.&lt;/p&gt;
+
+&lt;p&gt;Granted authorization for storage, just that the establishment send card data to the platform PROTECTED CARD, receiving in response a key that represents the double “credit-card customer.” For each distinct card that the customer authorizes the storage, provide a key CARTÃO PROTEGIDO (PROTECTED CARD) also distinct.&lt;/p&gt;
+
+&lt;p&gt;In the next sales to this customer, the establishment will offer “buy with one click” as payment. This can be done via a button “buy with one click” on the product / service selected, or more as a means of payment in the process of finalizing the shopping cart.&lt;/p&gt;
+
+&lt;p&gt;To process a sale via “buy with one click”, just that it is passed to the platform CARD PROTECTED previously provided the key that identifies the “credit card-customer” and, depending on which service PROTECTED CARD establishment chooses to use, the platform will:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Return the card data to establish authorize the transaction;&lt;/li&gt;
+  &lt;li&gt;Authorize the transaction in Direct Operator via PAY (this being the most suitable for ensuring greater data security).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;best-practices&quot;&gt;BEST PRACTICES&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Save the credit card number masked to indicate the customer which cards are enable at the site for “One Click Shop”;&lt;/li&gt;
+  &lt;li&gt;Optionally, save the expiration date to actively communicate the customer that the card stored has expired and suggest replacement;&lt;/li&gt;
+  &lt;li&gt;Only save the card in the CARTÃO PROTEGIDO (PROTECTED CARD) platform when it was successfully authorized in the last purchase of the customer;&lt;/li&gt;
+  &lt;li&gt;Safety of login and password of the site users – too weak passwords are easily guessed and the fraudster can make a purchase even without the card (if the site do not request for the CVV);&lt;/li&gt;
+  &lt;li&gt;Control session variables to prevent the user (customer’s login) from remaining logged into the site thus being subject to unauthorized access and “One Click Shops” using the open session (e.g., users connected in cybercafés).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;implementing-recurring-charge&quot;&gt;IMPLEMENTING RECURRING CHARGE&lt;/h2&gt;
+
+&lt;p&gt;For each order to be charged with credit card recurrence, the merchant must save the credit card details in the CARTÃO PROTEGIDO (PROTECTED CARD) platform and receive the key (JustClickKey) representing that “ordercard” pair. On the recurrence charge date, simply invoke the card authorization method and pass it the
+payment data and, instead of the card info (number + expiration date), the corresponding key (JustClickKey).&lt;/p&gt;
+
+&lt;p&gt;If you need to replace the card for a specific order, simply save the new card info in the CARTÃO PROTEGIDO (PROTECTED CARD) platform, and the new key generated will be associated to the order in the merchant’s platform. No need to cancel/delete the old card in the platform.&lt;/p&gt;
+
+&lt;p&gt;If there is a need to associate an existing Alias to a new JustClickKey, just disable the old JustClickKey to leave the Alias associated with it, cleared for a new association.&lt;/p&gt;
+
+&lt;p&gt;If the business chooses not process the transaction authorization by integrating PAGADOR / CARTÃO PROTEGIDO (PROTECTED CARD), it is essential that at any moment the card number is written (persisted in the bank or in the browser section) so that information security is maintained.&lt;/p&gt;
+
+&lt;h1 id=&quot;cartÃo-protegido-protected-card-methods&quot;&gt;CARTÃO PROTEGIDO (PROTECTED CARD) METHODS&lt;/h1&gt;
+
+&lt;p&gt;Below are the processes of web methods of the CARTÃO PROTEGIDO (PROTECTED CARD) platform used to execute the procedures described in the previous sections via web service.&lt;/p&gt;
+
+&lt;h2 id=&quot;saving-a-credit-card&quot;&gt;SAVING a credit card&lt;/h2&gt;
+
+&lt;p&gt;The SaveCreditCard method gets a SaveCreditCardRequest object, and should be invoked to save credit card details and get an identification key (token) representing the “credit card-customer” pair for future authorizations via “One Click Shop”. Do not enter duplicated RequestId for this operation, since this info will be required to retrieve the JustClickKey when using the GetJustClickKey() method.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/savecreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Key of the JustClick merchant&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CustomerIdentification&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Purchaser’s CPF (Taxpayer ID)&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CustomerName&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Purchaser’s name&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CardHolder&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Name of the credit card holder&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CardNumber&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Credit card number&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CardExpiration&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Credit card expiration date. Format: mm/yyyy&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JustClickAlias&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Alias (Nickname) of the credit card&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RequestId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Submitted request ID&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Method version. Default: 2.0&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JustClickKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Token (Identification Key) representing the credit card&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CorrelationId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;ID of the response received, which is the “RequestId” sent through the request object&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Success&lt;/td&gt;
+      &lt;td&gt;bool&lt;/td&gt;
+      &lt;td&gt;Success flag for the operation flow (true or false). FALSE indicates the request was not successfully completed, and thus all other return parameters should be ignored&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ErrorReportCollection&lt;/td&gt;
+      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;credit-card-number-retrieval-with-masked-return&quot;&gt;Credit card number RETRIEVAL with masked return&lt;/h2&gt;
+
+&lt;p&gt;The GetMaskedCreditCard method gets the GetMaskedCreditCardRequest object, and should be invoked to query card details under PCI Compliance, i.e., the GetMaskedCreditCardResponse method returns only the card’s masked number, along with the remaining non-sensitive information.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/getcreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Key of the JustClick merchant&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JustClickKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Token that represents the credit card&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JustClickAlias&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Alias (Nickname) of the credit card&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RequestId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Submitted request ID&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Method version. Default: 2.0&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CardHolder&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Card holder name&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CardExpiration&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Expiry Date mm/yyyy&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MaskedCardNumber&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Name of the credit card holder mascarado&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CorrelationId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;ID of the response received, which is the “RequestId” sent through the request object&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RequestId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Submitted request ID&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Success&lt;/td&gt;
+      &lt;td&gt;bool&lt;/td&gt;
+      &lt;td&gt;Success flag for the operation flow (true or false). FALSE indicates the request was not successfully completed, and thus all other return parameters should be ignored&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ErrorReportCollection&lt;/td&gt;
+      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;retrieving-credit-card-information&quot;&gt;RETRIEVING credit card information&lt;/h2&gt;
+
+&lt;p&gt;The GetCreditCard method gets the GetCreditCardRequest object, and should be invoked to query credit card details, including the card open number. In general, this method is used only to authorize the transaction through a gateway other than PAGADOR or directly in the card operator. This method should be used carefully since it handles sensitive data.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/getcreditcardraw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Key of the JustClick merchant&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JustClickKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Token that represents the credit card&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JustClickAlias&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Alias (Nickname) of the credit card&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RequestId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Submitted request ID&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Method version. Default: 2.0&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response-2&quot;&gt;Response&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CardHolder&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Card holder name&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CardNumber&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Name of the credit card holder aberto&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CardExpiration&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Expiry Date mm/yyyy&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MaskedCardNumber&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Name of the credit card holder mascarado&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CorrelationId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;ID of the response received, which is the “RequestId” sent through the request object&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RequestId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Submitted request ID&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Success&lt;/td&gt;
+      &lt;td&gt;bool&lt;/td&gt;
+      &lt;td&gt;Success flag for the operation flow (true or false). FALSE indicates the request was not successfully completed, and thus all other return parameters should be ignored&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ErrorReportCollection&lt;/td&gt;
+      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;retrieving-a-justclickkey&quot;&gt;RETRIEVING a JustClickKey&lt;/h2&gt;
+
+&lt;p&gt;The GetJustClickKey method receives the GetJustClickKeyRequest object, and should be invoked to query a JustClickKey. In general, this method is used only when the merchant looses the JustClickKey for a user. For security reasons, if the merchant uses this method 5 (five) times in a row passing an invalid ‘SaveCreditCardRequestId’, the method will be blocked until the merchant contact Braspag’s support team to release.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/getjustclickkey.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;request-3&quot;&gt;Request&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Key of the JustClick merchant&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SaveCreditCardRequestId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Identificador da requisição ao método SaveCreditCard (parâmetro “RequestId”) que resultou no armazenamento do cartão de crédito na plataforma do Cartão Protegido.&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RequestId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Submitted request ID&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Method version. Default: 2.0&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response-3&quot;&gt;Response&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JustClickKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Token that represents the credit card&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CorrelationId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;ID of the response received, which is the “RequestId” sent through the request object&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Success&lt;/td&gt;
+      &lt;td&gt;bool&lt;/td&gt;
+      &lt;td&gt;Success flag for the operation flow (true or false). FALSE indicates the request was not successfully completed, and thus all other return parameters should be ignored&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ErrorReportCollection&lt;/td&gt;
+      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;invalidating-a-credit-card&quot;&gt;Invalidating a Credit Card&lt;/h2&gt;
+
+&lt;p&gt;The method InvalidateCreditCard receives the object InvalidateCreditCardRequest, and must be called for invalidating a credit card. An invalid card can not be used in an authorization of the PAGADOR&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/cartaoprotegido/invalidatecreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Key of the JustClick merchant&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JustClickKey&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Token that represents the credit card&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JustClickAlias&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Alias (Nickname) of the credit card&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RequestId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;Submitted request ID&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Method version. Default: 2.0&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameters&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CorrelationId&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;ID of the response received, which is the “RequestId” sent through the request object&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Success&lt;/td&gt;
+      &lt;td&gt;bool&lt;/td&gt;
+      &lt;td&gt;Success flag for the operation flow (true or false). FALSE indicates the request was not successfully completed, and thus all other return parameters should be ignored&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ErrorReportCollection&lt;/td&gt;
+      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;important-details-in-the-use-of-the-methods&quot;&gt;Important details in the use of the methods:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;“RequestID”/ “CorrelationID”&lt;/strong&gt;: : In the submission of a Request object, any one guid must be submitted in the “RequestID” parameter to work as an identification key for that Request. After processing the Request, the Response object shall be mounted with the corresponding result, and the “CorrelationID” parameter shall contain the same guid sent in the Request (“RequestID”). Therefore, it is possible to identify which Request the Response object originates
+from;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;“Success”&lt;/strong&gt;: Every Response object has a “Success” parameter that indicates whether or not the requisition was successfully processed by the application. If the “Success” parameter returns FALSE, it means there was an error receiving and/or processing the request, i.e., the method could not perform its function successfully. Thus, this shouldbe the first parameter to be checked in the request return. If it returned FALSE, all further processing should be
+aborted and the error analyzed and addressed.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;“ErrorReportCollection”&lt;/strong&gt;: Every Response object has an “ErrorReportCollection” parameter that contains the error(s) occurred in the processing, i.e., when the “Success” parameter returns FALSE. The processing error can be due to an incorrect parameter, or the absence of an expected parameter.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;error-map&quot;&gt;ERROR MAP&lt;/h1&gt;
+
+&lt;p&gt;Below is a list of potential errors returned by the methods in the “ErrorReportCollection” field&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Code&lt;/th&gt;
+      &lt;th&gt;Message&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;701&lt;/td&gt;
+      &lt;td&gt;Merchant key can not be null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;702&lt;/td&gt;
+      &lt;td&gt;Merchant key is not valid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;703&lt;/td&gt;
+      &lt;td&gt;JustClick key can not be null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;704&lt;/td&gt;
+      &lt;td&gt;JustClick key is not valid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;705&lt;/td&gt;
+      &lt;td&gt;Customer name can not be null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;706&lt;/td&gt;
+      &lt;td&gt;Card holder can not be null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;707&lt;/td&gt;
+      &lt;td&gt;Card number can not be null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;709&lt;/td&gt;
+      &lt;td&gt;Card expiration can not be null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;710&lt;/td&gt;
+      &lt;td&gt;Card expiration is not valid (Format: MM/yyyy)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;731&lt;/td&gt;
+      &lt;td&gt;Invalid IP address&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;720&lt;/td&gt;
+      &lt;td&gt;Merchant JustClick not found&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;724&lt;/td&gt;
+      &lt;td&gt;Credit card not exists for merchant&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;732&lt;/td&gt;
+      &lt;td&gt;SaveCreditCardRequestId can not be null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;733&lt;/td&gt;
+      &lt;td&gt;SaveCreditCardRequestId not found for this Merchant&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;734&lt;/td&gt;
+      &lt;td&gt;Numbers of attempts to Recovery JustClickKey exceeded&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;735&lt;/td&gt;
+      &lt;td&gt;Save Credit Card Request Id Already Exists&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;747&lt;/td&gt;
+      &lt;td&gt;Empty Request&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;749&lt;/td&gt;
+      &lt;td&gt;JustClickAlias Already Exists&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;750&lt;/td&gt;
+      &lt;td&gt;Extra Data Name Is Not Valid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;751&lt;/td&gt;
+      &lt;td&gt;JustClickAlias Is Not Filled&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;752&lt;/td&gt;
+      &lt;td&gt;Data Collection Can Not Be Empty&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;753&lt;/td&gt;
+      &lt;td&gt;JustClickAlias Is Mandatory&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;799&lt;/td&gt;
+      &lt;td&gt;Undefined error&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     
