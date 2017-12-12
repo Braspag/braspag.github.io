@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-12T13:18:17+00:00</updated>
+    <updated>2017-12-12T13:24:28+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -28965,54 +28965,40 @@ Certifique-se de copiar todos os dados corretamente e de remover os sinais de ta
 
 &lt;h3 id=&quot;png-image&quot;&gt;PNG image&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html
-‹p style=&quot;background:url(https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&amp;amp;session_id=‹merchant id›‹session ID›&amp;amp;m=1)&quot;›‹/p›
-‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&amp;amp;session_id=‹merchant id›‹session ID›&amp;amp;m=2&quot; alt=&quot;&quot;›
-
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;‹p style=&quot;background:url(https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=‹merchant id›‹session ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=1)&quot;›‹/p›
+‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=‹merchant id›‹session ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=2&quot; alt=&quot;&quot;›
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html
-
-&amp;lt;!-- EXEMPLO --&amp;gt;
-‹p style=&quot;background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&amp;amp;session_id=sample_merchantIDsample_sessionID&amp;amp;m=1)&quot;›‹/p›
-‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&amp;amp;session_\id=sample_merchantIDsample_sessionID&amp;amp;m=2&quot; alt=&quot;&quot;›
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- EXEMPLO --&amp;gt;&lt;/span&gt;
+‹p style=&quot;background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=1)&quot;›‹/p›
+‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_\id=sample_merchantIDsample_sessionID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=2&quot; alt=&quot;&quot;›
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;flash-code&quot;&gt;Flash code&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html
-‹object type=&quot;application/x-shockwave-flash&quot; data=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=‹org ID›&amp;amp;session_id=‹merchant id›‹session ID›&quot; width=&quot;1&quot; height=&quot;1&quot;id=&quot;thm_fp&quot;›
-‹param name=&quot;movie&quot; value=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=‹orgID›&amp;amp;session_id=‹merchant id›‹session ID›&quot; /›
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;‹object type=&quot;application/x-shockwave-flash&quot; data=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=‹merchant id›‹session ID›&quot; width=&quot;1&quot; height=&quot;1&quot;id=&quot;thm_fp&quot;›
+‹param name=&quot;movie&quot; value=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=‹orgID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=‹merchant id›‹session ID›&quot; /›
 ‹div›‹/div›
 ‹/object›
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html
-&amp;lt;!-- EXEMPLO --&amp;gt;
-‹object type=&quot;application/x-shockwave-flash&quot; data=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&amp;amp;session_id=sample_merchantIDsample_sessionID&quot;width=&quot;1&quot; height=&quot;1&quot; id=&quot;thm_fp&quot;›
-‹param name=&quot;movie&quot; value=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&amp;amp;session_id=sample_merchantIDsample_sessionID&quot; /›
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;‹object type=&quot;application/x-shockwave-flash&quot; data=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&quot;width=&quot;1&quot; height=&quot;1&quot; id=&quot;thm_fp&quot;›
+‹param name=&quot;movie&quot; value=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&quot; /›
 ‹div›‹/div›
 ‹/object›
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;javascript-code&quot;&gt;JavaScript code&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html
-
-‹script src=&quot;https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&amp;amp;session_
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;‹script src=&quot;https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_
 id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
 ‹/script›
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html
-
-&amp;lt;!-- EXEMPLO --&amp;gt;
-‹script src=&quot;https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&amp;amp;session_
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;‹script src=&quot;https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_
 id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
 ‹/script›
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;faq&quot;&gt;FAQ&lt;/h1&gt;
