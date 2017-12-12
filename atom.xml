@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-12T12:51:57+00:00</updated>
+    <updated>2017-12-12T13:01:38+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -19491,13 +19491,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;oauth2/token&lt;/span&gt;&lt;/aside&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-curl&quot;&gt;--request POST &quot;https://brapagauth.com.br/oauth2/token&quot;
---header &quot;Authorization: Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&quot;
---header &quot;Content-Type: application/x-www-form-urlencoded&quot;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://brapagauth.com.br/oauth2/token&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/x-www-form-urlencoded&quot;&lt;/span&gt;
 
---body &quot;scope: AntifraudGatewayApp&quot;
---body &quot;grant_type: client_credentials&quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;nt&quot;&gt;--body&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;scope: AntifraudGatewayApp&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--body&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;grant_type: client_credentials&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
 
