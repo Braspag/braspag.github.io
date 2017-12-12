@@ -28,6 +28,10 @@ ou
 
 > [**Integração POST**](http://www.braspag.com.br/wp-content/uploads/2016/03/pagador-integracao-post-v1.9.11-novos-clientes.pdf)
 
+Para realizar consultas baseadas em SOAP/HTTP-POST, basta acessar a documentação abaixo
+
+> [**Consulta de transações SOAP**](http://www.braspag.com.br/wp-content/uploads/2016/03/pagador-transaction-consulta-v1.4.pdf)
+
 ## Ambientes
 
 ### Ambiente Sandbox
