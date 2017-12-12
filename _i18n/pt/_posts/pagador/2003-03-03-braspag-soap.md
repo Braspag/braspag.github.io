@@ -1,9 +1,9 @@
 ---
-layout: tutorial
-title:  SDKs Braspag
+layout: manual
+title:  Manual de Integração - SOAP
 description: Lista de Sdks Api Pagador
 toc_footers: true
-categories: tutorial
+categories: manual
 translated: true
 sort_order: 5
 tags:
