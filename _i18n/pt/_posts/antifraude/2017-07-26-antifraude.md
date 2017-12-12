@@ -74,6 +74,7 @@ curl
 
 --body "scope: AntifraudGatewayApp"
 --body "grant_type: client_credentials"
+--verbose
 ```
 
 **Parâmetros no cabeçalho (Header)**
