@@ -18,6 +18,14 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para respectivos ambientes: **Sandbox**, **Homologação** e **Produção**. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
 
+## Documentação SOAP
+
+Para integrações com utlizando `.NET` / `SOAP-XML` / `HTTP-POST`, veja nossos documentos a esse modelo de integração em:
+
+> [Integração SOAP](http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Autorizacao_Captura_Cancelamento_e_Estorno_v1.15.5.pdf)
+
+> [Integração POST](http://www.braspag.com.br/wp-content/uploads/2016/03/pagador-integracao-post-v1.9.11-novos-clientes.pdf)
+
 ## Ambientes
 
 ### Ambiente Sandbox
