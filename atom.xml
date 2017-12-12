@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-12T17:36:03+00:00</updated>
+    <updated>2017-12-12T17:42:31+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -26308,47 +26308,31 @@ Para ser notificado com relação ao status de uma transação, utilize o &lt;a 
         <link href="https://braspag.github.io//manual/braspag-soap"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
         <id>https://braspag.github.io//manual/braspag-soap</id>
-        <content type="html">&lt;h1 id=&quot;sdks-pagador&quot;&gt;SDKs Pagador&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;introduÇÃo&quot;&gt;INTRODUÇÃO&lt;/h1&gt;
 
-&lt;p&gt;O Pagador oferece uma gama de SDks disponiveis no Repositório oficial Github:&lt;/p&gt;
+&lt;p&gt;Webservice é uma solução capaz de integrar aplicações e componentes de negócios. E utilizando como meio, a Internet, mantendo segurança das informações trafegadas. As principais vantagens de utilizar webservices são: interoperabilidade entre aplicações distintas e fisicamente distantes, portabilidade entre diferentes plataformas,facilidade de integração e suporte, redução de custos para transporte de dados e formato universal.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;SDK Mobile&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;ttps://github.com/Braspag/BraspagApiAndroidSdk&quot;&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;Para a Plataforma Pagador, o webservice foi desenvolvido em plataforma Microsoft .NET, oferecendo aos desenvolvedores a possibilidade de integração em três meios diferentes:&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;SDK&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/Braspag/BraspagApiPhpSdk&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/Braspag/BraspagApiJavaSdk&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/Braspag/BraspagApiRubySdk&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/Braspag/BraspagApiDotNetSdk&quot;&gt;&lt;strong&gt;.NET&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;ul&gt;
+  &lt;li&gt;.NET&lt;/li&gt;
+  &lt;li&gt;SOAP/XML&lt;/li&gt;
+  &lt;li&gt;HTTP/POST.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Desta forma, o estabelecimento que quiser utilizar o webservice, não necessita instalar novos sistemas, podendo operar em sua plataforma atual, sem mudanças ou adaptações.&lt;/p&gt;
+
+&lt;h2 id=&quot;objetivo&quot;&gt;OBJETIVO&lt;/h2&gt;
+
+&lt;p&gt;Guiar o desenvolvedor da loja virtual na Integração com a solução de comércio eletrônico da Braspag, de modo a disponibilizar ao lojista a possibilidade de venda com cartão de crédito e boleto via webservice.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Url de Homologação: https://homologacao.pagador.com.br/webservice/pagadorTransaction.asmx&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Para homologar temos métodos de pagamento e cartões que simulam operações de crédito. Para mais informações consulte a sessão “Cartões de Teste”.
+Para acesso ao código descritivo do webservice (WSDL), acessar o link “Service Description”, conforme abaixo:&lt;/p&gt;
+
 </content>
     </entry>
     
