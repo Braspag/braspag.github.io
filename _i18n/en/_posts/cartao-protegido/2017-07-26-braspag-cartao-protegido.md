@@ -346,4 +346,3 @@ Below is a list of potential errors returned by the methods in the “ErrorRepor
 |752|Data Collection Can Not Be Empty|
 |753|JustClickAlias Is Mandatory|
 |799|Undefined error|
-
