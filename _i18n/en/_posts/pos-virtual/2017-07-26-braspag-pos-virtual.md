@@ -148,12 +148,12 @@ If the end date is not informed, the recurrency will never end.
 
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/dadosdarecorrencia3.png)
 
-|Field|Description|Mandatory|
-|-----|-----------|---------|
-|Intervalo 	Interval of recurrency. Default: Monthly|Yes| 
-|Start Date|Recurrency start date. Fixed value|Yes|
-|Recurrence Day|The day that occurs further charges|Yes|
-|End date|recurrency end date|No|
+| Field                                              | Description                         | Mandatory |
+|----------------------------------------------------|-------------------------------------|-----------|
+| Intervalo                                          | Interval of recurrency. Default: Monthly  | Yes       |
+| Start Date                                         | Recurrency start date. Fixed value  | Yes       |
+| Recurrence Day                                     | The day that occurs further charges | Yes       |
+| End date                                           | recurrency end date                 | No        |
 
 ### Billing Address
 
@@ -215,7 +215,7 @@ The action column has links to take an one of actions:
 
 This action will be available to the Virtual POS if you not choosed to make automatic capture. 
 All the orders just authorized must be captured here. When the capture process is successfully completed, the order status will change from "Not Paid" to "Paid".
- 	 
+
 ### Partial Capture
 
 This action must be used when you need to partially capture the amount. Ex. 
