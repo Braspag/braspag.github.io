@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-13T02:48:47+00:00</updated>
+    <updated>2017-12-13T02:55:04+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20138,9 +20138,9 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;p&gt;A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.&lt;/p&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
-
 &lt;h2 id=&quot;analisando-uma-transação-na-redshield&quot;&gt;Analisando uma transação na ReDShield&lt;/h2&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;POST https://{antifraude endpoint}/Analysis/v2 HTTP/1.1
 Host: {antifraude endpoint}
@@ -20767,9 +20767,11 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 
 &lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
+&lt;p&gt;AQUI ENTRA O RESPONSE V2 ReD&lt;/p&gt;
 
-&lt;h2 id=&quot;-analisando-uma-transação-na-cybersource&quot;&gt;## Analisando uma transação na Cybersource&lt;/h2&gt;
+&lt;h2 id=&quot;analisando-uma-transação-na-cybersource&quot;&gt;Analisando uma transação na Cybersource&lt;/h2&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;POST https://{antifraude endpoint}/analysis/v2 HTTP/1.1
 Host: {antifraude endpoint}
@@ -21585,6 +21587,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 &lt;/table&gt;
 
 &lt;h2 id=&quot;response-2&quot;&gt;Response&lt;/h2&gt;
+
+&lt;p&gt;AQUI ENTRA RESPONSE V2 Cyber&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Id&lt;/strong&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
 Id da transação no Antifraude Gateway Braspag.&lt;/p&gt;
