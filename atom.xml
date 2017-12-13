@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-13T02:47:57+00:00</updated>
+    <updated>2017-12-13T02:48:47+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20891,6 +20891,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -21582,7 +21584,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;atributos-do-response&quot;&gt;Atributos do Response&lt;/h2&gt;
+&lt;h2 id=&quot;response-2&quot;&gt;Response&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Id&lt;/strong&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt; &lt;code class=&quot;custom-provider-red highlighter-rouge&quot;&gt;ReDShield&lt;/code&gt;&lt;br /&gt;
 Id da transação no Antifraude Gateway Braspag.&lt;/p&gt;
