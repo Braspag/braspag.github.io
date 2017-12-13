@@ -293,8 +293,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 |`CartItem[n].ShippingMethod`|Meio de entrega do produto - Tabela 10|enum|-|-|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
+|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||
+|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||
 
 ## Analisando uma transação na Cybersource
 
