@@ -388,6 +388,510 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Obrigatório</th>
+      <th style="text-align: right">Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td style="text-align: left">Número do pedido da loja</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">100</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">TotalOrderAmount</code></td>
+      <td style="text-align: left">Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">TransactionAmount</code></td>
+      <td style="text-align: left">Valor da transação financeira em centavos <br /> Ex: 150000 = r$ 1.500,00</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Currency</code></td>
+      <td style="text-align: left">Moeda - Tabela 1</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Provider</code></td>
+      <td style="text-align: left">Provedor da solução de antifraude - Tabela 2</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">OrderDate</code></td>
+      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag</td>
+      <td style="text-align: center">datetime</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Pagador da Braspag.</td>
+      <td style="text-align: center">guid</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">SplitingPaymentMethod</code></td>
+      <td style="text-align: left">Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">IsRetryTransaction</code></td>
+      <td style="text-align: left">Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900</td>
+      <td style="text-align: center">bool</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
+      <td style="text-align: left">Número do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
+      <td style="text-align: left">Nome do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">7</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Cvv</code></td>
+      <td style="text-align: left">Código de segurança do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
+      <td style="text-align: left">Bandeira do cartão de crédito - Tabela 4</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.EciThreeDSecure</code></td>
+      <td style="text-align: left">Código do ECI (Eletronic Commerce Indicator) de autenticação</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Save</code></td>
+      <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
+      <td style="text-align: center">bool</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Token</code></td>
+      <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: center">guid</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Alias</code></td>
+      <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">64</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Billing.Street</code></td>
+      <td style="text-align: left">Logradouro do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">24</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Billing.Number</code></td>
+      <td style="text-align: left">Número do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Billing.Complement</code></td>
+      <td style="text-align: left">Complemento do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">14</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Billing.Neighborhood</code></td>
+      <td style="text-align: left">Bairro do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Billing.City</code></td>
+      <td style="text-align: left">Cidade do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Billing.State</code></td>
+      <td style="text-align: left">Estado do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Billing.Country</code></td>
+      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Billing.ZipCode</code></td>
+      <td style="text-align: left">Código postal do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Street</code></td>
+      <td style="text-align: left">Logradouro do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">24</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Number</code></td>
+      <td style="text-align: left">Número do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Complement</code></td>
+      <td style="text-align: left">Complemento do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">14</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Neighborhood</code></td>
+      <td style="text-align: left">Bairro do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.City</code></td>
+      <td style="text-align: left">Cidade do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.State</code></td>
+      <td style="text-align: left">Estado do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Country</code></td>
+      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.ZipCode</code></td>
+      <td style="text-align: left">Código postal do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Email</code></td>
+      <td style="text-align: left">E-mail do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">60</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.FirstName</code></td>
+      <td style="text-align: left">Primeiro nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.MiddleName</code></td>
+      <td style="text-align: left">Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.LastName</code></td>
+      <td style="text-align: left">Último do nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Phone</code></td>
+      <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.WorkPhone</code></td>
+      <td style="text-align: left">Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114701</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Mobile</code></td>
+      <td style="text-align: left">Número do celular do responsável a receber o produto no endereço de entrega <br /> Ex.: 5521987654321</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
+      <td style="text-align: left">Meio de entrega do pedido - Tabela 5</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Comment</code></td>
+      <td style="text-align: left">Referências do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">160</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.MerchantCustomerId</code></td>
+      <td style="text-align: left">Número do documento de identificação do comprador - Tabela 6</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">16</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.FirstName</code></td>
+      <td style="text-align: left">Primeiro nome do comprador</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.MiddleName</code></td>
+      <td style="text-align: left">Primeira letra do nome do comprador</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.LastName</code></td>
+      <td style="text-align: left">Último nome do comprador</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
+      <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
+      <td style="text-align: center">date</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Gender</code></td>
+      <td style="text-align: left">Sexo do comprador - Tabela 7</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">6</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
+      <td style="text-align: left">E-mail do comprador</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">60</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Ip</code></td>
+      <td style="text-align: left">Endereço de IP do comprador</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114700</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.WorkPhone</code></td>
+      <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114701</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Mobile</code></td>
+      <td style="text-align: left">Número do celular do comprador <br /> Ex.: 5521987654321</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Status</code></td>
+      <td style="text-align: left">Status do comprador na loja - Tabela 8</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">8</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserFingerPrint</code></td>
+      <td style="text-align: left">Impressão digital de dispositivos e geolocalização real do IP do comprador - LINK PARA CONFIG FINGERPRINT</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">6005</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ProductName</code></td>
+      <td style="text-align: left">Nome do produto</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].UnitPrice</code></td>
+      <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = r$ 109,50</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].OriginalPrice</code></td>
+      <td style="text-align: left">Preço original do produto <br /> Ex: 11490 = r$ 114,90</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].MerchantItemId</code></td>
+      <td style="text-align: left">ID do produto na loja</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Sku</code></td>
+      <td style="text-align: left">Sku do produto</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">12</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Quantity</code></td>
+      <td style="text-align: left">Quantidade do produto</td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].GiftMessage</code></td>
+      <td style="text-align: left">Mensagem de presente</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">160</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Description</code></td>
+      <td style="text-align: left">Descrição do produto</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">76</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingInstructions</code></td>
+      <td style="text-align: left">Instruções de entrega do produto</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">160</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingMethod</code></td>
+      <td style="text-align: left">Meio de entrega do produto - Tabela 10</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingTranckingNumber</code></td>
+      <td style="text-align: left">Número de rastreamento do produto</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.MerchantWebsite</code></td>
+      <td style="text-align: left">Website da loja</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">60</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Key</code></td>
+      <td style="text-align: left">Campo definido junto ao provedor de antifraude</td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">Consultar o anexo XPTO para mais informações</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Value</code></td>
+      <td style="text-align: left">Campo definido junto ao provedor de antifraude</td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">Consultar o anexo XPTO para mais informações</td>
+      <td style="text-align: right"> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="analisando-uma-transação-na-cybersource">Analisando uma transação na Cybersource</h2>
 
 <table>
