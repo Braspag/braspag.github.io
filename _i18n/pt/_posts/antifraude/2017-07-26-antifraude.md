@@ -773,8 +773,6 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 
 AQUI ENTRA RESPONSE V2 Cyber
 
-
-
 **AnalysisResult.ScoreModelUsed** `Cybersource`{:.custom-provider-cyber}  
 Nome do modelo de score utilizado. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.
 
