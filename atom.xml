@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-13T19:09:35+00:00</updated>
+    <updated>2017-12-13T19:12:36+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20001,6 +20001,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.&lt;/p&gt;
+
+&lt;h2 id=&quot;documentação-soap&quot;&gt;Documentação SOAP&lt;/h2&gt;
+
+&lt;p&gt;Para integrações com utlizando &lt;code class=&quot;highlighter-rouge&quot;&gt;.NET&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;SOAP-XML&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP-POST&lt;/code&gt;, veja nossos documentos a esse modelo de integração em:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.braspag.com.br/wp-content/uploads/2016/03/manual-de-integracao-anti-fraude-v1.7.1.pdf&quot;&gt;&lt;strong&gt;Integração SOAP&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;objetivo&quot;&gt;Objetivo&lt;/h1&gt;
 
