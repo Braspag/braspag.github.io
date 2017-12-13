@@ -509,7 +509,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|não|-|
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|não|-|
 
-## Response
+### Response
 
 AQUI ENTRA RESPONSE V2 Cyber
 
