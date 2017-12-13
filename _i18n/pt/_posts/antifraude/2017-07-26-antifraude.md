@@ -223,6 +223,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
   ]
 }
 ```
+
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
 |`MerchantOrderId`|Número do pedido da loja|string|sim|100|
