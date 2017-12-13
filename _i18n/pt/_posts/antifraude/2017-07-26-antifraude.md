@@ -22,12 +22,6 @@ A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON se
 
 A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.
 
-## Documentação SOAP 
-
-Para integrações com utlizando `.NET` / `SOAP-XML` / `HTTP-POST`, veja nossos documentos a esse modelo de integração em:
-
-> [**Integração SOAP**](http://www.braspag.com.br/wp-content/uploads/2016/03/manual-de-integracao-anti-fraude-v1.7.1.pdf)
-
 # Objetivo
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.
@@ -418,36 +412,29 @@ curl
 
 ### Response
 
-``` http
-HTTP/1.1 201 Created
-Content-Type: application/json;charset=UTF-8
-```
-
 ``` json
 {
   "Id": "5f8a661c-00e0-e711-80c2-000d3a70dd7b",
-    "ProviderAnalysisResult": {
-        "ProviderRequestId": "8a82944a6045a46f01604fd26814233b",
-        "Result": {
-            "ProviderCode": "000.000.000",
-            "ProviderDescription": "Transaction succeeded"
-        },
-        "ResultDetails": {
-            "CSITransactionLink": "https://{redshield endpoint}/index.red#transactiondetail/000548000001XCJ20171213072118102",
-            "Status": "ACCEPT",
-            "ProviderTransactionId": "322066985634",
-            "ProviderResponseCode": "0150",
-            "ProviderOrderId": "000548000001XCJ20171213072118102"
-        },
-        "Ndc": "8a82941859d5969a0159db3f6ecc1418_5b9d6472570843d6b7e261d92827d361"
+  "ProviderAnalysisResult": {
+    "ProviderRequestId": "8a82944a6045a46f01604fd26814233b",
+    "Result": {
+        "ProviderCode": "000.000.000",
+        "ProviderDescription": "Transaction succeeded"
     },
-  "Links": [
-        {
-            "Method": "GET",
-            "Href": "https://{antifraude endpoint}/analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b",
-            "Rel": "Self"
-        }
-  ],
+    "ResultDetails": {
+        "CSITransactionLink": "https://{redshield endpoint}/index.red#transactiondetail/000548000001XCJ20171213072118102",
+        "Status": "ACCEPT",
+        "ProviderTransactionId": "322066985634",
+        "ProviderResponseCode": "0150",
+        "ProviderOrderId": "000548000001XCJ20171213072118102"
+    },
+    "Ndc": "8a82941859d5969a0159db3f6ecc1418_5b9d6472570843d6b7e261d92827d361"
+  },
+  "Links": [{
+    "Method": "GET",
+    "Href": "https://{antifraude endpoint}/analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b",
+    "Rel": "Self"
+  }],
   "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
   "TotalOrderAmount": 15000,
   "TransactionAmount": 14000,
@@ -567,19 +554,11 @@ Content-Type: application/json;charset=UTF-8
 |`ProviderAnalysisResult.ResultDetails.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido da ReDShield|string|
-|`ProviderAnalysisResult.Ndc`|Id único e exclusivo da ReDShield|string|
+|`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
 
 ## Analisando uma transação na Cybersource
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
-
-``` http
-POST https://{antifraude endpoint}/analysis/v2 HTTP/1.1
-Host: {antifraude endpoint}
-Authorization: Bearer {access_token}
-Content-Type: application/json
-MerchantId: {Id da Loja no Antifraude Gateway}
-```
 
 ``` json
 {
@@ -587,7 +566,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
   "TotalOrderAmount": 15000,
   "TransactionAmount": 14000,
   "Currency": "BRL",
-  "Provider": "RedShield",
+  "Provider": "Cybersource",
   "OrderDate": "2016-12-09 12:35:58.852",
   "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
   "Card": {
@@ -777,7 +756,64 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 
 ### Response
 
-AQUI ENTRA RESPONSE V2 Cyber
+"Id": "3671aafd-09e0-e711-80c2-000d3a70dd7b",
+  "ProviderAnalysisResult": {
+    "ProviderTransactionId": "5131719190516173203009",
+    "Status": "ACCEPT",
+    "ProviderCode": "100",
+    "ProviderRequestTransactionId": "AhjzbwSTFjDo9sLLoWZBEAFReTFX1NHtDuphyzhk0kv9Atj2YEFgc0RA",
+    "AfsReply": {
+        "reasonCode": "100",
+        "afsResult": "99",
+        "hostSeverity": "1",
+        "consumerLocalTime": "11:31:59",
+        "afsFactorCode": "F^P^Y^Z",
+        "addressInfoCode": "MM-A^MM-Z^UNV-ADDR",
+        "hotlistInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-SA^REV-IP^REV-SUSP",
+        "suspiciousInfoCode": "RISK-TB^RISK-TS",
+        "velocityInfoCode": "VEL-NAME",
+        "scoreModelUsed": "default_lac"
+    },
+    "DecisionReply": {
+        "casePriority": "3",
+        "activeProfileReply": {},
+        "velocityInfoCode": "GVEL-R2^GVEL-R3^GVEL-R6^GVEL-R7^GVEL-R8"
+    }
+  },
+  "Links": [{
+        "Method": "GET",
+        "Href": "https://risksandbox.braspag.com.br/Analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b",
+        "Rel": "Self"
+  }],
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
+|`ProviderAnalysisResult.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - Tabela 2|int|
+|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na Cybersource|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
+|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4|string|
+|`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
+|`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador - Tabela 5|string|
+|`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
+|`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão - Tabela 6|string|
+|`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
+|`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
+|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas. Ex.: NEG-AFCB^NEG-CC - Tabela 7|string|
+|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas. Ex.: COR-BA^MM-BIN - Tabela 8|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança. Ex.: COR-BA^MM-BIN - Tabela 9|string|
+|`ProviderAnalysisResult.AfsReply.IpCity`|Nome da cidade do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.IpCountry`|Nome do país do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento obtido a partir do endereço de IP para envio da transação - Tabela 10|string|
+|`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador. Ex.: UNV-AC^RISK-AC - Tabela 11|string|
+|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código do motivo retornado pela Cybersource - Tabela 2|int|
+|`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
+|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas. Ex.: RISK-TB^RISK-TS - Tabela 12|string|
+|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras. Ex.: VELV-SA^VELI-CC^VELSIP - Tabela 13|string|
 
 **AnalysisResult.ScoreModelUsed** `Cybersource`{:.custom-provider-cyber}  
 Nome do modelo de score utilizado. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.
@@ -926,6 +962,148 @@ Resolução da tela do comprador no momento da compra.
 **AnalysisResult.DeviceFingerprint.BrowseLanguage** `Cybersource`{:.custom-provider-cyber}  
 Linguagem do browser utilizado pelo comprador no momento da compra.  
 
+``` json
+{
+  "Id": "3671aafd-09e0-e711-80c2-000d3a70dd7b",
+  "ProviderAnalysisResult": {
+    "ProviderTransactionId": "5131719190516173203009",
+    "Status": "ACCEPT",
+    "ProviderCode": "100",
+    "ProviderRequestTransactionId": "AhjzbwSTFjDo9sLLoWZBEAFReTFX1NHtDuphyzhk0kv9Atj2YEFgc0RA",
+    "AfsReply": {
+        "reasonCode": "100",
+        "afsResult": "99",
+        "hostSeverity": "1",
+        "consumerLocalTime": "11:31:59",
+        "afsFactorCode": "F^P^Y^Z",
+        "addressInfoCode": "MM-A^MM-Z^UNV-ADDR",
+        "hotlistInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-SA^REV-IP^REV-SUSP",
+        "suspiciousInfoCode": "RISK-TB^RISK-TS",
+        "velocityInfoCode": "VEL-NAME",
+        "scoreModelUsed": "default_lac"
+    },
+    "DecisionReply": {
+        "casePriority": "3",
+        "activeProfileReply": {},
+        "velocityInfoCode": "GVEL-R2^GVEL-R3^GVEL-R6^GVEL-R7^GVEL-R8"
+    }
+  },
+  "Links": [{
+        "Method": "GET",
+        "Href": "https://risksandbox.braspag.com.br/Analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b",
+        "Rel": "Self"
+  }],
+  "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
+  "TotalOrderAmount": 15000,
+  "TransactionAmount": 14000,
+  "Currency": "BRL",
+  "Provider": "Cybersource",
+  "OrderDate": "2016-12-09 12:35:58.852",
+  "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+  "Card": {
+    "Number" : "4444555566667777",
+    "Holder": "Holder Name",
+    "ExpirationDate": "12/2023",
+    "Cvv": "999",
+    "Brand": "VISA"
+  },
+  "Billing": {
+    "Street": "Rua Saturno",
+    "Number": "12345",
+    "Complement": "Sala 123",
+    "Neighborhood": "Centro",
+    "City": "Rio de Janeiro",
+    "State": "RJ",
+    "Country": "BR",
+    "ZipCode": "20080123"
+  },
+  "Shipping": {
+    "Street": "Rua Neturno",
+    "Number": "30000",
+    "Complement": "sl 123",
+    "Neighborhood": "Centro",
+    "City": "Rio de Janeiro",
+    "State": "RJ",
+    "Country": "BR",
+    "ZipCode": "123456789",
+    "FirstName": "João",
+    "LastName": "Silva",
+    "ShippingMethod": "SameDay",
+    "Phone": "552121114700"
+  },
+  "Customer": {
+    "MerchantCustomerId": "10050665740",
+    "FirstName": "João",
+    "LastName": "Silva",
+    "BirthDate": "2016-12-09",
+    "Email": "emailcomprador@dominio.com.br",
+    "Phone": "552121114700",
+    "Ip": "127.0.0.1",
+    "BrowserHostName":"www.dominiobrowsercomprador.com.br",
+    "BrowserCookiesAccepted":true,
+    "BrowserEmail":"emailbrowsercomprador@dominio.com.br",
+    "BrowserType":"Chrome 58 on Windows 10"
+  },
+  "CartItems": [
+    {
+      "ProductName": "Mouse",
+      "UnitPrice": "12000",
+      "Sku": "abc123",
+      "Quantity": 1,
+      "Risk":"Low",
+      "AddressRiskVerify":"No",
+      "HostHedge":"Low",
+      "NonSensicalHedge":"Normal",
+      "ObscenitiesHedge":"High",
+      "TimeHedge":"Low",
+      "PhoneHedge":"Normal",
+      "VelocityHedge":"High"
+    },
+    {
+      "ProductName": "Teclado",
+      "UnitPrice": "96385",
+      "MerchantItemId": "3",
+      "Sku": "abc456",
+      "Quantity": 1,
+      "Risk": "High"
+    }
+  ],
+  "MerchantDefinedData": [
+    {
+      "Key": "1",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
+    },
+    {
+      "Key": "2",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
+    },
+    {
+      "Key": "3",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
+    }
+  ],
+  "Bank":{
+    "Address": "Rua Marte, 29",
+    "Code": "237",
+    "Agency": "987654",
+    "City": "Rio de Janeiro",
+    "Country": "BR",
+    "Name": "Bradesco",
+    "SwiftCode": "789"
+  },
+  "FundTransfer":{
+    "AccountNumber":"159753",
+    "AccountName":"Conta particular",
+    "BankCheckDigit":"51",
+    "Iban":"123456789"
+  },
+  "Invoice":{
+    "IsGift": false,
+    "ReturnsAccept": true,
+    "Tender": "Consumer"
+  }
+}
+```
 **RESPONSE - Quando request for inválido para qualquer provedor.**  
 
 * Quando os dados enviados para análise tiver alguma inconformidade nos valores, tamanhos permitidos e/ou tipos dos campos conforme especificação do manual.  
