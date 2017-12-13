@@ -436,7 +436,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 |`MerchantOrderId` |Número do pedido da loja <br/> Obs.: Este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint|string|sim|100|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
-|`Currency`|Moeda - Tabela 1|enum|-|-|-|-|
+|`Currency`|Moeda - Tabela 1|enum|-|-|
 |`Provider`|Provedor da solução de antifraude - Tabela 2|enum|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|não|-|
@@ -456,7 +456,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 |`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|sim|2|
 |`Billing.ZipCode`|Código postal do endereço de cobrança|string|não|9|
 |`Shipping.Street`|Logradouro do endereço de entrega|string|não|54|
-|`Shipping.Number`|Número do endereço de entrega|string|não|5|não|5|
+|`Shipping.Number`|Número do endereço de entrega|string|não|5|
 |`Shipping.Complement`|Complemento do endereço de entrega|string|não|14|
 |`Shipping.Neighborhood`|Bairro do endereço de entrega|string|não|45|
 |`Shipping.City`|Cidade do endereço de entrega|string|não|50|
