@@ -427,6 +427,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 }
 ```
 
+### Request
+
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
 |`MerchantOrderId` |Número do pedido da loja <br/> Obs.: Este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint|string|sim|100|
@@ -505,7 +507,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|não|-|
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|não|-|
 
-## Atributos do Response
+## Response
 
 **Id** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
 Id da transação no Antifraude Gateway Braspag.  
