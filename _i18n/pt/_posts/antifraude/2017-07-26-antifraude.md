@@ -223,6 +223,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
   ]
 }
 ```
+
 ## Analisando uma transação na Cybersource
 
 ||||ReDShield||Cybersource||
