@@ -105,14 +105,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
-``` http
-POST https://{antifraude endpoint}/Analysis/v2 HTTP/1.1
-Host: {antifraude endpoint}
-Authorization: Bearer {access_token}
-Content-Type: application/json
-MerchantId: {Id da Loja no Antifraude Gateway}
-```
-
 ``` json
 {
   "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
@@ -224,6 +216,125 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 }
 ```
 
+``` shell
+curl
+--request POST "https://{antifraude endpoint}/analysis/v2"
+--header "Authorization: Bearer {access_token}"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "RequestId: wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww
+--header "Content-Type: application/json"
+--data-binary
+{
+  "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
+  "TotalOrderAmount": 15000,
+  "TransactionAmount": 14000,
+  "Currency": "BRL",
+  "Provider": "RedShield",
+  "OrderDate": "2016-12-09 12:35:58.852",
+  "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+  "SplitingPaymentMethod": "None",
+  "IsRetryTransaction": false,
+  "Card": {
+    "Number" : "4444555566667777",
+    "Holder": "Holder Name",
+    "ExpirationDate": "12/2023",
+    "Cvv": "999",
+    "Brand": "VISA",
+    "EciThreeDSecure": "5"
+  },
+  "Billing": {
+    "Street": "Rua Neturno",
+    "Number": "12345",
+    "Complement": "Sala 123",
+    "Neighborhood": "Centro",
+    "City": "Rio de Janeiro",
+    "State": "RJ",
+    "Country": "BR",
+    "ZipCode": "20080123"
+  },
+  "Shipping": {
+    "Street": "Rua Saturno",
+    "Number": "30000",
+    "Complement": "sl 123",
+    "Neighborhood": "Centro",
+    "City": "Rio de Janeiro",
+    "State": "RJ",
+    "Country": "BR",
+    "ZipCode": "123456789",
+    "Email": "emailentrega@dominio.com.br",
+    "FirstName": "João",
+    "MiddleName": "P",
+    "LastName": "Silvao",
+    "ShippingMethod": "SameDay",
+    "Phone": "552121114700",
+    "WorkPhone": "552121114721",
+    "Mobile": "5521998765432",
+    "Comment": "Em frente ao 322"
+  },
+  "Customer": {
+    "MerchantCustomerId": "10050665740",
+    "FirstName": "João",
+    "MiddleName": "P",
+    "LastName": "Silva",
+    "BirthDate": "1983-10-01",
+    "Gender": "Male",
+    "Email": "emailcomprador@dominio.com.br",
+    "Phone": "552121114700",
+    "WorkPhone": "552121114721",
+    "Mobile": "5521998765432",
+    "Ip": "127.0.0.1",
+    "BrowserFingerprint": "04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==",
+    "Status": "NEW"
+  },
+  "CartItems": [
+    {
+      "ProductName": "Mouse",
+      "UnitPrice": "6500",
+      "MerchantItemId": "4",
+      "Sku": "abc123",
+      "Quantity": 1,
+      "OriginalPrice": "7000",
+      "GiftMessage": "Te amo!",
+      "Description": "Uma description do Mouse",
+      "ShippingInstructions": "Proximo ao 546",
+      "ShippingMethod": "SameDay",
+      "ShippingTrackingNumber": "123456"
+    },
+    {
+      "ProductName": "Teclado",
+      "UnitPrice": "7500",
+      "MerchantItemId": "3",
+      "Sku": "abc456",
+      "Quantity": 1,
+      "OriginalPrice": "8000",
+      "GiftMessage": "Te odeio!",
+      "Description": "Uma description do Teclado",
+      "ShippingInstructions": "Proximo ao 123",
+      "ShippingMethod": "SameDay",
+      "ShippingTrackingNumber": "987654"
+    }
+  ],
+  "CustomConfiguration": {
+    "MerchantWebsite": "www.test.com"
+  },
+  "MerchantDefinedData": [
+    {
+      "Key": "USER_DATA4",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
+    },
+    {
+      "Key": "Segment",
+      "Value": "8999"
+    },
+    {
+      "Key": "MerchantId",
+      "Value": "Seller123456"
+    }
+  ]
+}
+--verbose
+```
+
 ### Request
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
@@ -327,7 +438,7 @@ Content-Type: application/json;charset=UTF-8
   "Links": [
         {
             "Method": "GET",
-            "Href": "https://{antifraude endpoint}/Analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b",
+            "Href": "https://{antifraude endpoint}/analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b",
             "Rel": "Self"
         }
   ],
@@ -440,7 +551,17 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-AQUI ENTRA O RESPONSE V2 ReD
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
+|`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
+|`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
+|`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
+|`ProviderAnalysisResult.ResultDetails.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido da ReDShield|string|
+|`ProviderAnalysisResult.Ndc`|Id único e exclusivo da ReDShield|string|
 
 ## Analisando uma transação na Cybersource
 
@@ -652,33 +773,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 
 AQUI ENTRA RESPONSE V2 Cyber
 
-**Id** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-Id da transação no Antifraude Gateway Braspag.  
 
-**Analysis.Score** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-Score gerado pelo provedor.  
-
-**AnalysisResult.Status** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-Status da transação no Antifraude Gateway Braspag após a análise.  
-Enum:  
-Started = Transação recebida pela Braspag.  
-Accept = Transação aceita após análise de fraude.  
-Review = Transação em revisão após análise de fraude.  
-Reject = Transação rejeitada após análise de fraude.  
-Unfinished = Transação não finalizada por algum erro interno no sistema.  
-ProviderError = Transação com erro no provedor de antifraude.  
-
-**AnalysisResult.Message** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-Mensagem de retorno do provedor.  
-
-**AnalysisResult.ProviderCode** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-Código de retorno do provedor.  
-
-**AnalysisResult.ProviderTransactionId** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-Id da transação no provedor.  
-
-**AnalysisResult.ProviderRequestTransactionId** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
-Id do request da transação no provedor.  
 
 **AnalysisResult.ScoreModelUsed** `Cybersource`{:.custom-provider-cyber}  
 Nome do modelo de score utilizado. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.
