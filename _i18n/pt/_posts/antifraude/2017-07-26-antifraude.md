@@ -22,6 +22,12 @@ A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON se
 
 A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.
 
+## Documentação SOAP 
+
+Para integrações com utlizando `.NET` / `SOAP-XML` / `HTTP-POST`, veja nossos documentos a esse modelo de integração em:
+
+> [**Integração SOAP**](http://www.braspag.com.br/wp-content/uploads/2016/03/manual-de-integracao-anti-fraude-v1.7.1.pdf)
+
 # Objetivo
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.
