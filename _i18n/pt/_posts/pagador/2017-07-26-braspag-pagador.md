@@ -9,6 +9,7 @@ tags:
   - Pagador
 language_tabs:
   json: JSON
+  shell: cURL
   html: HTML
 ---
 
