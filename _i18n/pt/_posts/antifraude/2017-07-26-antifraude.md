@@ -724,11 +724,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-<a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a>
-
-<a name="get_analise"></a>
-
-#### `GET`{:.http-get} Obtenção dos Detalhes da Análise
+### `GET`{:.http-get} Obtenção dos Detalhes da Análise
 
 **PARÂMETROS:**  
 
