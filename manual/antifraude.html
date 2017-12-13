@@ -894,38 +894,153 @@ MerchantId: {Id da Loja no Antifraude Gateway}
   </tbody>
 </table>
 
-<h2 id="analisando-uma-transação-na-cybersource">Analisando uma transação na Cybersource</h2>
+<h3 id="response-1">Response</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+
+<h2 id="-analisando-uma-transação-na-cybersource">## Analisando uma transação na Cybersource</h2>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST https://{antifraude endpoint}/analysis/v2 HTTP/1.1
+Host: {antifraude endpoint}
+Authorization: Bearer {access_token}
+Content-Type: application/json
+MerchantId: {Id da Loja no Antifraude Gateway}
+</span></code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4493d42c-8732-4b13-aadc-b07e89732c26"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RedShield"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"OrderDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 12:35:58.852"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holder Name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Cvv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Saturno"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sala 123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20080123"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Neturno"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sl 123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ShippingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SameDay"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114700"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"MerchantCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10050665740"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emailcomprador@dominio.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114700"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BrowserHostName"</span><span class="p">:</span><span class="s2">"www.dominiobrowsercomprador.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BrowserCookiesAccepted"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BrowserEmail"</span><span class="p">:</span><span class="s2">"emailbrowsercomprador@dominio.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BrowserType"</span><span class="p">:</span><span class="s2">"Chrome 58 on Windows 10"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"CartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mouse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Risk"</span><span class="p">:</span><span class="s2">"Low"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"AddressRiskVerify"</span><span class="p">:</span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"HostHedge"</span><span class="p">:</span><span class="s2">"Low"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"NonSensicalHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ObscenitiesHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TimeHedge"</span><span class="p">:</span><span class="s2">"Low"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PhoneHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"VelocityHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teclado"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96385"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"MerchantItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc456"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"MerchantDefinedData"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"Bank"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Marte, 29"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SwiftCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"FundTransfer"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"AccountNumber"</span><span class="p">:</span><span class="s2">"159753"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AccountName"</span><span class="p">:</span><span class="s2">"Conta particular"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BankCheckDigit"</span><span class="p">:</span><span class="s2">"51"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Iban"</span><span class="p">:</span><span class="s2">"123456789"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Invoice"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"IsGift"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReturnsAccept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Tender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumer"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
-    <tr>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left"> </th>
-      <th style="text-align: center"> </th>
-      <th style="text-align: center">ReDShield</th>
-      <th style="text-align: right"> </th>
-      <th style="text-align: center">Cybersource</th>
-      <th style="text-align: right"> </th>
-    </tr>
     <tr>
       <th style="text-align: left">Parâmetro</th>
       <th style="text-align: left">Descrição</th>
       <th style="text-align: center">Tipo</th>
       <th style="text-align: center">Obrigatório</th>
       <th style="text-align: right">Tamanho</th>
-      <th style="text-align: center">Obrigatório</th>
-      <th style="text-align: right">Tamanho</th>
+      <th> </th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td style="text-align: left">Número do pedido da loja <br /> Obs.: Para a Cybersource, este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint</td>
+      <td style="text-align: left">Número do pedido da loja <br /> Obs.: Este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">100</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">TotalOrderAmount</code></td>
@@ -933,8 +1048,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">long</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">TransactionAmount</code></td>
@@ -942,8 +1057,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">long</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Currency</code></td>
@@ -951,8 +1066,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td>-</td>
+      <td>-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Provider</code></td>
@@ -960,8 +1075,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">OrderDate</code></td>
@@ -969,8 +1084,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">datetime</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
@@ -978,35 +1093,17 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">SplitingPaymentMethod</code></td>
-      <td style="text-align: left">Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3</td>
-      <td style="text-align: center">enum</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">IsRetryTransaction</code></td>
-      <td style="text-align: left">Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900</td>
-      <td style="text-align: center">bool</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
       <td style="text-align: left">Número do cartão de crédito</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
-      <td style="text-align: right">19</td>
-      <td style="text-align: center">sim</td>
       <td style="text-align: right">20</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
@@ -1014,8 +1111,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">50</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">50</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.ExpirationDate</code></td>
@@ -1023,17 +1120,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">7</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">7</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Card.Cvv</code></td>
-      <td style="text-align: left">Código de segurança do cartão de crédito</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">4</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
@@ -1041,17 +1129,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Card.EciThreeDSecure</code></td>
-      <td style="text-align: left">Código do ECI (Eletronic Commerce Indicator) de autenticação</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Save</code></td>
@@ -1059,8 +1138,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">bool</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Token</code></td>
@@ -1068,8 +1147,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Alias</code></td>
@@ -1077,17 +1156,17 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">64</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">64</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Street</code></td>
       <td style="text-align: left">Logradouro do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">24</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">54</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Number</code></td>
@@ -1095,8 +1174,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">5</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">5</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Complement</code></td>
@@ -1104,26 +1183,26 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">14</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">14</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Neighborhood</code></td>
       <td style="text-align: left">Bairro do endereço de cobrança</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">15</td>
-      <td style="text-align: center">não</td>
       <td style="text-align: right">45</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.City</code></td>
       <td style="text-align: left">Cidade do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">20</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">50</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.State</code></td>
@@ -1131,17 +1210,17 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">2</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Country</code></td>
       <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">2</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">2</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.ZipCode</code></td>
@@ -1149,17 +1228,17 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">9</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">9</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Street</code></td>
       <td style="text-align: left">Logradouro do endereço de entrega</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">24</td>
-      <td style="text-align: center">não</td>
       <td style="text-align: right">54</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Number</code></td>
@@ -1167,8 +1246,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">5</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">5</td>
+      <td>não</td>
+      <td>5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Complement</code></td>
@@ -1176,26 +1255,26 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">14</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">14</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Neighborhood</code></td>
       <td style="text-align: left">Bairro do endereço de entrega</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">15</td>
-      <td style="text-align: center">não</td>
       <td style="text-align: right">45</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.City</code></td>
       <td style="text-align: left">Cidade do endereço de entrega</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">20</td>
-      <td style="text-align: center">não</td>
       <td style="text-align: right">50</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.State</code></td>
@@ -1203,8 +1282,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">2</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Country</code></td>
@@ -1212,8 +1291,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">2</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ZipCode</code></td>
@@ -1221,71 +1300,35 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">9</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">9</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Email</code></td>
-      <td style="text-align: left">E-mail do responsável a receber o produto no endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">60</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.FirstName</code></td>
       <td style="text-align: left">Primeiro nome do responsável a receber o produto no endereço de entrega</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">30</td>
-      <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Shipping.MiddleName</code></td>
-      <td style="text-align: left">Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.LastName</code></td>
       <td style="text-align: left">Último do nome do responsável a receber o produto no endereço de entrega</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">30</td>
-      <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Phone</code></td>
       <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">19</td>
-      <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Shipping.WorkPhone</code></td>
-      <td style="text-align: left">Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114701</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">19</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Mobile</code></td>
-      <td style="text-align: left">Número do celular do responsável a receber o produto no endereço de entrega <br /> Ex.: 5521987654321</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">19</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
@@ -1293,17 +1336,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Shipping.Comment</code></td>
-      <td style="text-align: left">Referências do endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">160</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.MerchantCustomerId</code></td>
@@ -1311,35 +1345,26 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">16</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">16</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.FirstName</code></td>
       <td style="text-align: left">Primeiro nome do comprador</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
-      <td style="text-align: right">30</td>
-      <td style="text-align: center">sim</td>
       <td style="text-align: right">60</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.MiddleName</code></td>
-      <td style="text-align: left">Primeira letra do nome do comprador</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.LastName</code></td>
       <td style="text-align: left">Último nome do comprador</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
-      <td style="text-align: right">30</td>
-      <td style="text-align: center">sim</td>
       <td style="text-align: right">60</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
@@ -1347,26 +1372,17 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">date</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Gender</code></td>
-      <td style="text-align: left">Sexo do comprador - Tabela 7</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">6</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
       <td style="text-align: left">E-mail do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">60</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Ip</code></td>
@@ -1374,62 +1390,26 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">15</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phone</code></td>
       <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">19</td>
-      <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.WorkPhone</code></td>
-      <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114701</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">19</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Mobile</code></td>
-      <td style="text-align: left">Número do celular do comprador <br /> Ex.: 5521987654321</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">19</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Status</code></td>
-      <td style="text-align: left">Status do comprador na loja - Tabela 8</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">8</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserFingerPrint</code></td>
-      <td style="text-align: left">Impressão digital de dispositivos e geolocalização real do IP do comprador - LINK PARA CONFIG FINGERPRINT</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">6005</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserHostName</code></td>
       <td style="text-align: left">Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserCookiesAccepted</code></td>
@@ -1437,35 +1417,35 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">bool</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserEmail</code></td>
       <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (<code class="highlighter-rouge">Customer.Email</code>)</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">100</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserType</code></td>
       <td style="text-align: left">Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP (<code class="highlighter-rouge">Customer.Email</code>)</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">40</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ProductName</code></td>
       <td style="text-align: left">Nome do produto</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">50</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">255</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Risk</code></td>
@@ -1473,44 +1453,26 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].UnitPrice</code></td>
       <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = r$ 109,50</td>
       <td style="text-align: center">long</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].OriginalPrice</code></td>
-      <td style="text-align: left">Preço original do produto <br /> Ex: 11490 = r$ 114,90</td>
-      <td style="text-align: center">long</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].MerchantItemId</code></td>
-      <td style="text-align: left">ID do produto na loja</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">30</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Sku</code></td>
       <td style="text-align: left">Sku do produto</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">12</td>
-      <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Quantity</code></td>
@@ -1518,53 +1480,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">int</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].GiftMessage</code></td>
-      <td style="text-align: left">Mensagem de presente</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">160</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Description</code></td>
-      <td style="text-align: left">Descrição do produto</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">76</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingInstructions</code></td>
-      <td style="text-align: left">Instruções de entrega do produto</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">160</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do produto - Tabela 10</td>
-      <td style="text-align: center">enum</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingTranckingNumber</code></td>
-      <td style="text-align: left">Número de rastreamento do produto</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">19</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].AddressRiskVerify</code></td>
@@ -1572,8 +1489,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].HostHedge</code></td>
@@ -1581,8 +1498,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].NonSensicalHedge</code></td>
@@ -1590,8 +1507,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ObscenitiesHedge</code></td>
@@ -1599,8 +1516,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].TimeHedge</code></td>
@@ -1608,8 +1525,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].PhoneHedge</code></td>
@@ -1617,8 +1534,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].VelocityHedge</code></td>
@@ -1626,26 +1543,17 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.MerchantWebsite</code></td>
-      <td style="text-align: left">Website da loja</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">60</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.Comments</code></td>
       <td style="text-align: left">Comentários que a loja poderá associar a análise de fraude</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.ScoreThreshold</code></td>
@@ -1653,8 +1561,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">int</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Key</code></td>
@@ -1662,8 +1570,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">int</td>
       <td style="text-align: center">Consultar o anexo XPTO para mais informações</td>
       <td style="text-align: right"> </td>
-      <td style="text-align: center"> </td>
-      <td style="text-align: right"> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Value</code></td>
@@ -1671,134 +1579,134 @@ MerchantId: {Id da Loja no Antifraude Gateway}
       <td style="text-align: center">int</td>
       <td style="text-align: center">Consultar o anexo XPTO para mais informações</td>
       <td style="text-align: right"> </td>
-      <td style="text-align: center"> </td>
-      <td style="text-align: right"> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Name</code></td>
       <td style="text-align: left">Nome do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">40</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Code</code></td>
       <td style="text-align: left">Código do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Agency</code></td>
       <td style="text-align: left">Agência do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Address</code></td>
       <td style="text-align: left">Endereço do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.City</code></td>
       <td style="text-align: left">Cidade onde está localizado o banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Country</code></td>
       <td style="text-align: left">País onde está localizado o banco do comprador <br /> Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.SwiftCode</code></td>
       <td style="text-align: left">Código identificador único do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.AccountName</code></td>
       <td style="text-align: left">Nome vinculado a conta bancária</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.AccountNumber</code></td>
       <td style="text-align: left">Número da conta bancária do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.BankCheckDigit</code></td>
       <td style="text-align: left">Código utilizado para validar a conta bancária do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.Iban</code></td>
       <td style="text-align: left">Número internacional da conta bancária do comprador (IBAN)</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.IsGift</code></td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador é para presente</td>
       <td style="text-align: center">bool</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.ReturnsAccepted</code></td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser desvolvido a loja</td>
       <td style="text-align: center">bool</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.Tender</code></td>
       <td style="text-align: left">Forma de pagamento utilizada pelo comprador. - Tabela 18</td>
       <td style="text-align: center">enum</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
