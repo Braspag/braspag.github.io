@@ -101,9 +101,9 @@ Exemplo:
 
 A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
-
 ## Analisando uma transação na ReDShield
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
 ``` http
 POST https://{antifraude endpoint}/Analysis/v2 HTTP/1.1
@@ -301,9 +301,11 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 
 ### Response
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+AQUI ENTRA O RESPONSE V2 ReD
 
-## ## Analisando uma transação na Cybersource
+## Analisando uma transação na Cybersource
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
 ``` http
 POST https://{antifraude endpoint}/analysis/v2 HTTP/1.1
@@ -508,6 +510,8 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|não|-|
 
 ## Response
+
+AQUI ENTRA RESPONSE V2 Cyber
 
 **Id** `Cybersource`{:.custom-provider-cyber} `ReDShield`{:.custom-provider-red}  
 Id da transação no Antifraude Gateway Braspag.  
