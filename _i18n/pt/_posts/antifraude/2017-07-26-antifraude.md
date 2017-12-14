@@ -934,14 +934,6 @@ curl
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.Hash`|Hash gerado a partir dos dados coletados pelo script de fingerprint|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ImagesEnabled`|Flag identificando que o browser do comprador estava com cache de imagens habilitado no momento da compra|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled`|Flag identificando que o browser do comprador estava com a execução de sripts em Javascript habilitada no momento da compra|string|
-<!--|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddress`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressActivities`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressAttributes`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyServerType`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartID`||string| 
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartIDConfidenceLevel`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressActivities`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressAttributes`||string| -->
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddress`|Flag identificando que o IP do comprador é real|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCity`|Flag identificando que o IP do comprador é de fato da cidade que deveria ser mesmo|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCountry`|Flag identificando que o IP do comprador é de fato do país que deveria ser mesmo|string|
