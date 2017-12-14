@@ -131,14 +131,6 @@
 
 <p>A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.</p>
 
-<h2 id="documentação-soap">Documentação SOAP</h2>
-
-<p>Para integrações com utlizando <code class="highlighter-rouge">.NET</code> / <code class="highlighter-rouge">SOAP-XML</code> / <code class="highlighter-rouge">HTTP-POST</code>, veja nossos documentos a esse modelo de integração em:</p>
-
-<blockquote>
-  <p><a href="http://www.braspag.com.br/wp-content/uploads/2016/03/manual-de-integracao-anti-fraude-v1.7.1.pdf"><strong>Integração SOAP</strong></a></p>
-</blockquote>
-
 <h1 id="objetivo">Objetivo</h1>
 
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.</p>
@@ -1015,34 +1007,28 @@
 
 <h3 id="response-1">Response</h3>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
-</code></pre></div></div>
-
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f8a661c-00e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"ProviderRequestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a82944a6045a46f01604fd26814233b"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000.000.000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ProviderDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction succeeded"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"ResultDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"CSITransactionLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{redshield endpoint}/index.red#transactiondetail/000548000001XCJ20171213072118102"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"322066985634"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ProviderResponseCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0150"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ProviderOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000548000001XCJ20171213072118102"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"Ndc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a82941859d5969a0159db3f6ecc1418_5b9d6472570843d6b7e261d92827d361"</span><span class="w">
+  </span><span class="s2">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ProviderRequestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a82944a6045a46f01604fd26814233b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000.000.000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ProviderDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction succeeded"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{antifraude endpoint}/analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ResultDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"CSITransactionLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{redshield endpoint}/index.red#transactiondetail/000548000001XCJ20171213072118102"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"322066985634"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ProviderResponseCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0150"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ProviderOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000548000001XCJ20171213072118102"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Ndc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a82941859d5969a0159db3f6ecc1418_5b9d6472570843d6b7e261d92827d361"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{antifraude endpoint}/analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4493d42c-8732-4b13-aadc-b07e89732c26"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
   </span><span class="s2">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
@@ -1203,7 +1189,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Ndc</code></td>
-      <td style="text-align: left">Id único e exclusivo da ReDShield</td>
+      <td style="text-align: left">Id único e exclusivo da requisição da ReDShield</td>
       <td style="text-align: center">string</td>
     </tr>
   </tbody>
@@ -1213,19 +1199,12 @@
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST https://{antifraude endpoint}/analysis/v2 HTTP/1.1
-Host: {antifraude endpoint}
-Authorization: Bearer {access_token}
-Content-Type: application/json
-MerchantId: {Id da Loja no Antifraude Gateway}
-</span></code></pre></div></div>
-
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4493d42c-8732-4b13-aadc-b07e89732c26"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
   </span><span class="s2">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RedShield"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cybersource"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"OrderDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 12:35:58.852"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2028,154 +2007,478 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 
 <h3 id="response-2">Response</h3>
 
-<p>AQUI ENTRA RESPONSE V2 Cyber</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3671aafd-09e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5131719190516173203009"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderRequestTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AhjzbwSTFjDo9sLLoWZBEAFReTFX1NHtDuphyzhk0kv9Atj2YEFgc0RA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AfsReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"afsResult"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hostSeverity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consumerLocalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:31:59"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"afsFactorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F^P^Y^Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MM-A^MM-Z^UNV-ADDR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hotlistInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEG-AFCB^NEG-CC^NEG-EM^NEG-SA^REV-IP^REV-SUSP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"suspiciousInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RISK-TB^RISK-TS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VEL-NAME"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scoreModelUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default_lac"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"DecisionReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"casePriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"activeProfileReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GVEL-R2^GVEL-R3^GVEL-R6^GVEL-R7^GVEL-R8"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://risksandbox.braspag.com.br/Analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4493d42c-8732-4b13-aadc-b07e89732c26"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cybersource"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"OrderDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 12:35:58.852"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holder Name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Cvv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Saturno"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sala 123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20080123"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Neturno"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sl 123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ShippingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SameDay"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114700"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"MerchantCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10050665740"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emailcomprador@dominio.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114700"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BrowserHostName"</span><span class="p">:</span><span class="s2">"www.dominiobrowsercomprador.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BrowserCookiesAccepted"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BrowserEmail"</span><span class="p">:</span><span class="s2">"emailbrowsercomprador@dominio.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BrowserType"</span><span class="p">:</span><span class="s2">"Chrome 58 on Windows 10"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"CartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mouse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Risk"</span><span class="p">:</span><span class="s2">"Low"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"AddressRiskVerify"</span><span class="p">:</span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"HostHedge"</span><span class="p">:</span><span class="s2">"Low"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"NonSensicalHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ObscenitiesHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TimeHedge"</span><span class="p">:</span><span class="s2">"Low"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PhoneHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"VelocityHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teclado"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96385"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"MerchantItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc456"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"MerchantDefinedData"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"Bank"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Marte, 29"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SwiftCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"FundTransfer"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"AccountNumber"</span><span class="p">:</span><span class="s2">"159753"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AccountName"</span><span class="p">:</span><span class="s2">"Conta particular"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BankCheckDigit"</span><span class="p">:</span><span class="s2">"51"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Iban"</span><span class="p">:</span><span class="s2">"123456789"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Invoice"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"IsGift"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReturnsAccept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Tender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumer"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-<p><strong>AnalysisResult.ScoreModelUsed</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Nome do modelo de score utilizado. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.</p>
-
-<p><strong>AnalysisResult.CardScheme</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Tipo da bandeira.<br />
-Possíveis Valores: Maestro Internacional | Maestro UK Domestic | Mastercard Credit | Mastercard Debit | Visa Credit | Visa Debit | Visa Electron</p>
-
-<p><strong>AnalysisResult.CasePriority</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Define o nível de prioridade das regras ou perfis do lojista.<br />
-Este campo somente será retornado se a loja for assinante do Enhanced Case Management.<br />
-O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis.</p>
-
-<p><strong>AnalysisResult.SuspiciousCode</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Sequência de códigos que indicam que o comprador informou dados suspeitos.<br />
-Este campo pode conter um ou mais códigos, separados por carets (^), por exemplo: BAD-FP^OBS-EM^RISK-DEV<br />
-Possíveis Valores:<br />
-BAD-FP = O dispositivo é arriscado.<br />
-INTL-BIN = O cartão de crédito foi emitido fora dos U.S.<br />
-MM-TZTLO = Fuso horário do dispositivo é incompatível com os fusos horários do país.<br />
-MUL-EM = O cliente tem usado mais de quatro endereços de e-mail diferentes.<br />
-NON-BC = A cidade de cobrança é um desconhecida.<br />
-NON-FN = O primeiro nome do cliente é desconhecido.<br />
-NON-LN = O último nome do cliente é desconhecido.<br />
-OBS-BC = A cidade de cobrança contem obscenidades.<br />
-OBS-EM = O endereço de e-mail contem obscenidades.<br />
-RISK-AVS = O resultado do teste combinado AVS e endereço de cobrança normalizado são arriscados, o resultado AVS indica uma correspondência exata, mas o endereço de cobrança não é entrega normalizada.<br />
-RISK-BC = A cidade de cobrança possui caracteres repetidos.<br />
-RISK-BIN = No passado, este BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) mostrou uma elevada incidência de fraude.<br />
-RISK-DEV = Algumas das características do dispositivo são arriscadas.<br />
-RISK-FN = Nome e sobrenome do cliente contêm combinações de letras improváveis.<br />
-RISK-LN = Nome do meio ou o sobrenome do cliente contém combinações de letras improváveis.<br />
-RISK-PIP = O endereço IP do proxy é arriscado.<br />
-RISK-SD = A inconsistência nos países de cobrança e entrega é arriscado.<br />
-RISK-TB = O dia e a hora da ordem associada ao endereço de cobrança é arriscado.<br />
-RISK-TIP = O verdadeiro endereço IP é arriscado.<br />
-RISK-TS = O dia e a hora da ordem associada ao endereço de entrega é arriscado.</p>
-
-<p><strong>AnalysisResult.InternetCode</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Indica um problema com o endereço de e-mail, IP ou o endereço de cobrança do comprador.<br />
-Este campo pode conter um ou mais códigos, separados por carets (^), por exemplo: FREE-EM^MM-IPBC^UNV-NID<br />
-Possíveis Valores:<br />
-FREE-EM = O endereço de e-mail do cliente é de um provedor de e-mail gratuito.<br />
-INTL-IPCO = O país do endereço de e-mail do cliente é fora do U.S.<br />
-INV-EM O = endereço de e-mail do cliente é inválido.<br />
-MM-EMBCO = O domínio do endereço de e-mail do cliente não é consistente com o país do endereço de cobrança.<br />
-MM-IPBC = O endereço de e-mail do cliente não é consistente com a cidade do endereço de cobrança.<br />
-MM-IPBCO = O endereço de e-mail do cliente não é consistente com a país do endereço de cobrança.<br />
-MM-IPBST = O endereço IP do cliente não é consistente com o estado no endereço de cobrança. No entanto, este código de informação não pode ser devolvido quando a inconsistência é entre estados imediatamente adjacentes.<br />
-MM-IPEM = O endereço de e-mail do cliente não é consistente com o endereço IP.<br />
-RISK-EM = O domínio do e-mail do cliente (por exemplo, mail.example.com) está associada com alto risco.<br />
-UNV-NID = O endereço IP do cliente é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP.<br />
-UNV-RI400SK = O endereço IP é de origem de risco.<br />
-UNV-EMBCO = O país do endereço do cliente de e-mail não corresponde ao país do endereço de cobrança.</p>
-
-<p><strong>AnalysisResult.FactorCode</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Combinação de códigos que indicam o score do pedido.<br />
-Este campo pode conter um ou mais códigos, separados por carets (^), por exemplo: B^Y.<br />
-Possíveis Valores:<br />
-A = Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.<br />
-B = BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.<br />
-C = Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.<br />
-D = Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.<br />
-E = Lista positiva. O cliente está na sua lista positiva.<br />
-F = Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.<br />
-G = Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.<br />
-H = Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.<br />
-I = Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.<br />
-N = Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.<br />
-O = Obscenidades. Dados do cliente contém palavras obscenas.<br />
-P = Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.<br />
-Q = Inconsistências do telefone. O número de telefone do cliente é suspeito.<br />
-R = Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.<br />
-T = Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.<br />
-U = Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.<br />
-V = Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.<br />
-W = Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.<br />
-Y = O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.<br />
-Z = Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</p>
-
-<p><strong>AnalysisResult.VelocityCode</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Sequência de códigos que indicam que o comprador tem uma frequência de compras elevada.<br />
-Este campo pode conter um ou mais códigos, separados por carets (^), por exemplo: B^Y.<br />
-Possíveis Valores:<br />
-VEL-ADDR = Diferente estados de faturamento e/ou o envio (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email.<br />
-VEL-CC = Diferentes números de contas foram usados várias vezes com o mesmo nome ou endereço de email.<br />
-VEL-NAME = Diferentes nomes foram usados várias vezes com o número do cartão de crédito e/ou endereço de email.<br />
-VELS-CC = O número de conta tem sido utilizado várias vezes durante o intervalo de controle curto.<br />
-VELI-CC = O número de conta tem sido utilizado várias vezes durante o intervalo de controle médio.<br />
-VELL-CC = O número de conta tem sido utilizado várias vezes durante o intervalo de controle longo.<br />
-VELV-CC = O número de conta tem sido utilizado várias vezes durante o intervalo de controle muito longo.<br />
-VELS-EM = O endereço de e-mail tem sido utilizado várias vezes durante o intervalo de controle curto.<br />
-VELI-EM = O endereço de e-mail tem sido utilizado várias vezes durante o intervalo de controle médio.<br />
-VELL-EM = O endereço de e-mail tem sido utilizado várias vezes durante o intervalo de controle longo.<br />
-VELV-EM = O endereço de e-mail tem sido utilizado várias vezes durante o intervalo de controle muito longo.<br />
-VELS-FP = O device fingerprint tem sido utilizado várias vezes durante um intervalo curto.<br />
-VELI-FP = O device fingerprint tem sido utilizado várias vezes durante um intervalo médio.<br />
-VELL-FP = O device fingerprint tem sido utilizado várias vezes durante um intervalo longo.<br />
-VELV-FP = O device fingerprint tem sido utilizado várias vezes durante um intervalo muito longo.<br />
-VELS-IP = O endereço IP tem sido utilizado várias vezes durante o intervalo de controle curto.<br />
-VELI-IP = O endereço IP tem sido utilizado várias vezes durante o intervalo de controle médio.<br />
-VELL-IP = O endereço IP tem sido utilizado várias vezes durante o intervalo de controle longo.<br />
-VELV-IP = O endereço IP tem sido utilizado várias vezes durante o intervalo de controle muito longo.<br />
-VELS-SA = O endereço de entrega tem sido utilizado várias vezes durante o intervalo de controle curto.<br />
-VELI-SA = O endereço de entrega tem sido utilizado várias vezes durante o intervalo de controle médio.<br />
-VELL-SA = O endereço de entrega tem sido utilizado várias vezes durante o intervalo de controle longo.<br />
-VELV-SA = O endereço de entrega tem sido utilizado várias vezes durante o intervalo de controle muito longo.<br />
-VELS-TIP = O endereço IP verdadeiro tem sido utilizado várias vezes durante o intervalo de controle curto.<br />
-VELI-TIP = O endereço IP verdadeiro tem sido utilizado várias vezes durante o intervalo de controle médio.<br />
-VELL-TIP = O endereço IP verdadeiro tem sido utilizado várias vezes durante o intervalo de controle longo.</p>
-
-<p><strong>AnalysisResult.VelocityCodeDetail</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Lista de identificadores das regras que foram gerados no momento do cadastro das mesmas.</p>
-
-<p><strong>AnalysisResult.DeviceFingerprint.CookiesEnabled</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Flag identificando que o browser do comprador estava habilitado para armazenar cookies temporariamente no momento da compra.</p>
-
-<p><strong>AnalysisResult.DeviceFingerprint.FlashEnabled</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Flag identificando que o browser do comprador habilitado a execução de conteúdos em Flash no momento da compra.</p>
-
-<p><strong>AnalysisResult.DeviceFingerprint.Hash</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Hash gerado a partir dos dados coletados pelo script de fingerprint.</p>
-
-<p><strong>AnalysisResult.DeviceFingerprint.ImagesEnabled</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Flag identificando que o browser do comprador estava com cache de imagens habilitado no momento da compra.</p>
-
-<p><strong>AnalysisResult.DeviceFingerprint.JavascriptEnabled</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Flag identificando que o browser do comprador estava com a execução de sripts em Javascript habilitada no momento da compra.</p>
-
-<p><strong>AnalysisResult.DeviceFingerprint.TrueIpAddress</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Flag identificando que o IP do comprador é real.</p>
-
-<p><strong>AnalysisResult.DeviceFingerprint.TrueIpAddressCity</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Flag identificando que o IP do comprador é de fato da cidade que deveria ser mesmo.</p>
-
-<p><strong>AnalysisResult.DeviceFingerprint.TrueIpAddressCountry</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Flag identificando que o IP do comprador é de fato do país que deveria ser mesmo.</p>
-
-<!--**AnalysisResult.DeviceFingerprint.SmartId** `Cybersource`{:.custom-provider-cyber}  
-
-**AnalysisResult.DeviceFingerprint.SmartIdConfidencial** `Cybersource`{:.custom-provider-cyber}  -->
-
-<p><strong>AnalysisResult.DeviceFingerprint.ScreenResolution</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Resolução da tela do comprador no momento da compra.</p>
-
-<p><strong>AnalysisResult.DeviceFingerprint.BrowseLanguage</strong> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
-Linguagem do browser utilizado pelo comprador no momento da compra.</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
+      <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: center">guid</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderTransactionId</code></td>
+      <td style="text-align: left">Id da transação na Cybersource</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Status</code></td>
+      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1</td>
+      <td style="text-align: center">enum</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderCode</code></td>
+      <td style="text-align: left">Código de retorno da Cybersouce - Tabela 2</td>
+      <td style="text-align: center">int</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderRequestId</code></td>
+      <td style="text-align: left">Id do request da transação na Cybersource</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.AddressInfoCode</code></td>
+      <td style="text-align: left">Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.AfsFactorCode</code></td>
+      <td style="text-align: left">Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.AfsResult</code></td>
+      <td style="text-align: left">Score total calculado para o pedido</td>
+      <td style="text-align: center">int</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.BinCountry</code></td>
+      <td style="text-align: left">Código do país do BIN do cartão usado na análise. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.CardAccountType</code></td>
+      <td style="text-align: left">Tipo do cartão do comprador - Tabela 5</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.CardIssuer</code></td>
+      <td style="text-align: left">Nome do banco ou entidade emissora do cartão</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.CardScheme</code></td>
+      <td style="text-align: left">Bandeira do cartão - Tabela 6</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.ConsumerLocalTime</code></td>
+      <td style="text-align: left">Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.HostSeverity</code></td>
+      <td style="text-align: left">Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto</td>
+      <td style="text-align: center">int</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.HotListInfoCode</code></td>
+      <td style="text-align: left">Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas. Ex.: NEG-AFCB^NEG-CC - Tabela 7</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.IdentityInfoCode</code></td>
+      <td style="text-align: left">Códigos que indicam mudanças de identidade excessivas. Ex.: COR-BA^MM-BIN - Tabela 8</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.InternetInfoCode</code></td>
+      <td style="text-align: left">Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança. Ex.: COR-BA^MM-BIN - Tabela 9</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.IpCity</code></td>
+      <td style="text-align: left">Nome da cidade do comprador obtido a partir do endereço de IP</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.IpCountry</code></td>
+      <td style="text-align: left">Nome do país do comprador obtido a partir do endereço de IP</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.IpRoutingMethod</code></td>
+      <td style="text-align: left">Método de roteamento obtido a partir do endereço de IP para envio da transação - Tabela 10</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.IpState</code></td>
+      <td style="text-align: left">Nome do estado do comprador obtido a partir do endereço de IP</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.PhoneInfoCode</code></td>
+      <td style="text-align: left">Códigos que indicam um problema com o número de telefone do comprador. Ex.: UNV-AC^RISK-AC - Tabela 11</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.ReasonCode</code></td>
+      <td style="text-align: left">Código do motivo retornado pela Cybersource - Tabela 2</td>
+      <td style="text-align: center">int</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.ScoreModelUsed</code></td>
+      <td style="text-align: left">Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</code></td>
+      <td style="text-align: left">Códigos que indicam que o comprador forneceu potencialmente informações suspeitas. Ex.: RISK-TB^RISK-TS - Tabela 12</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.VelocityInfoCode</code></td>
+      <td style="text-align: left">Códigos que indicam que o comprador tem uma alta frequência de compras. Ex.: VELV-SA^VELI-CC^VELSIP - Tabela 13</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage</code></td>
+      <td style="text-align: left">Linguagem do browser utilizado pelo comprador no momento da compra</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution</code></td>
+      <td style="text-align: left">Resolução da tela do comprador no momento da compra</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled</code></td>
+      <td style="text-align: left">Flag identificando que o browser do comprador estava habilitado para armazenar cookies temporariamente no momento da compra</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.FlashEnabled</code></td>
+      <td style="text-align: left">Flag identificando que o browser do comprador habilitado a execução de conteúdos em Flash no momento da compra</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.Hash</code></td>
+      <td style="text-align: left">Hash gerado a partir dos dados coletados pelo script de fingerprint</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.ImagesEnabled</code></td>
+      <td style="text-align: left">Flag identificando que o browser do comprador estava com cache de imagens habilitado no momento da compra</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled</code></td>
+      <td style="text-align: left">Flag identificando que o browser do comprador estava com a execução de sripts em Javascript habilitada no momento da compra</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&lt;!–</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddress</code></td>
+      <td style="text-align: center"> </td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressActivities</code></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressAttributes</code></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyServerType</code></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartID</code></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartIDConfidenceLevel</code></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressActivities</code></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressAttributes</code></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center">string</td>
+      <td>–&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddress</code></td>
+      <td style="text-align: left">Flag identificando que o IP do comprador é real</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCity</code></td>
+      <td style="text-align: left">Flag identificando que o IP do comprador é de fato da cidade que deveria ser mesmo</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCountry</code></td>
+      <td style="text-align: left">Flag identificando que o IP do comprador é de fato do país que deveria ser mesmo</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue</code></td>
+      <td style="text-align: left">Quando modo verbose ativado, nome da fila para onde as transações não aceitas automaticamente são enviadas</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name</code></td>
+      <td style="text-align: left">Quando modo verbose ativado, nome do perfil selecionado na análise. Se não tiver nenhum, o perfil padrão foi selecionado</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy</code></td>
+      <td style="text-align: left">Quando modo verbose ativado, nome do seletor de regras que seleciona o perfil de regras</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId</code></td>
+      <td style="text-align: left">Quando modo verbose ativado, id da regra</td>
+      <td style="text-align: center">enum</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision</code></td>
+      <td style="text-align: left">Quando modo verbose ativado, decisão tomada pela regra - Tabela 14</td>
+      <td style="text-align: center">enum</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation</code></td>
+      <td style="text-align: left">Quando modo verbose ativado, avaliação da regra - Tabela 15</td>
+      <td style="text-align: center">enum</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name</code></td>
+      <td style="text-align: left">Quando modo verbose ativado, nome da regra</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.CasePriority</code></td>
+      <td style="text-align: left">Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.VelocityInfoCode</code></td>
+      <td style="text-align: left">Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>RESPONSE - Quando request for inválido para qualquer provedor.</strong></p>
 
