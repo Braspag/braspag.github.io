@@ -2386,24 +2386,7 @@
   </tbody>
 </table>
 
-<p><strong>RESPONSE - Quando request for inválido para qualquer provedor.</strong></p>
-
-<ul>
-  <li>Quando os dados enviados para análise tiver alguma inconformidade nos valores, tamanhos permitidos e/ou tipos dos campos conforme especificação do manual.</li>
-</ul>
-
-<p><strong>Message</strong><br />
-Mensagem para um requisição inválida.</p>
-
-<p><strong>ModelState</strong><br />
-Caso algum campo não esteja de acordo com o tipo ou domínio especificado no manual.</p>
-
-<p><strong>ModelState.FraudAnalysisRequestError</strong><br />
-Caso algum campo não esteja de acordo com o tamanho especificado no manual.</p>
-
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
-</code></pre></div></div>
+<h1 id="indicando-erros-de-integração">Indicando erros de integração</h1>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
@@ -2421,6 +2404,49 @@ Caso algum campo não esteja de acordo com o tamanho especificado no manual.</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--header</span> <span class="s2">"StatusCode: 400 Bad Request"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+  <span class="s2">"Message"</span>: <span class="s2">"The request is invalid."</span>,
+  <span class="s2">"ModelState"</span>: <span class="o">{</span>
+    <span class="s2">"request.Customer.Gender"</span>: <span class="o">[</span>
+      <span class="s2">"Error converting value </span><span class="se">\"</span><span class="s2">M</span><span class="se">\"</span><span class="s2"> to type 'Antifraude.Domain.Enums.GenderType'. Path 'Customer.Gender', line 51, position 17."</span>
+    <span class="o">]</span>,
+    <span class="s2">"FraudAnalysisRequestError"</span>: <span class="o">[</span>
+      <span class="s2">"The Card.EciThreeDSecure lenght is gratter than 1"</span>,
+      <span class="s2">"The Shipping.Complement lenght is gratter than 14"</span>,
+      <span class="s2">"The Shipping.MiddleName lenght is gratter than 1"</span>,
+      <span class="s2">"The Customer.MerchantCustomerId lenght is gratter than 16"</span>,
+      <span class="s2">"The Customer.MiddleName lenght is gratter than 1"</span>
+    <span class="o">]</span>
+  <span class="o">}</span>
+<span class="nt">--verbose</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Parâmetro</td>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Message</code></td>
+      <td>Mensagem informando que o request é inválido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ModelState</code></td>
+      <td>Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysisRequestError</code></td>
+      <td>Coleção que conterá mensagens com os campos que não estejam de acordo com o tamanho especificado no manual</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="get-obtenção-dos-detalhes-da-análise"><code class="http-get highlighter-rouge">GET</code> Obtenção dos Detalhes da Análise</h3>
 
