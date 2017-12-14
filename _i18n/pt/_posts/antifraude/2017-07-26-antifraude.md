@@ -814,18 +814,29 @@ curl
 |`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
 |`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas. Ex.: RISK-TB^RISK-TS - Tabela 12|string|
 |`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras. Ex.: VELV-SA^VELI-CC^VELSIP - Tabela 13|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.FlashEnabled`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.Hash`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ImagesEnabled`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddress`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressActivities`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressAttributes`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyServerType`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartID`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`||string|
 
-**AnalysisResult.ScoreModelUsed** `Cybersource`{:.custom-provider-cyber}  
-Nome do modelo de score utilizado. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.
-
-**AnalysisResult.CardScheme** `Cybersource`{:.custom-provider-cyber}  
-Tipo da bandeira.  
-Possíveis Valores: Maestro Internacional | Maestro UK Domestic | Mastercard Credit | Mastercard Debit | Visa Credit | Visa Debit | Visa Electron  
-
-**AnalysisResult.CasePriority** `Cybersource`{:.custom-provider-cyber}  
-Define o nível de prioridade das regras ou perfis do lojista.  
-Este campo somente será retornado se a loja for assinante do Enhanced Case Management.  
-O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis.  
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue`|Quando modo verbose ativado, nome da fila para onde as transações não aceitas automaticamente são enviadas|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|Quando modo verbose ativado, nome do perfil selecionado na análise. Se não tiver nenhum, o perfil padrão foi selecionado|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|Quando modo verbose ativado, nome do seletor de regras que seleciona o perfil de regras|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|Quando modo verbose ativado, id da regra|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra - Tabela 14|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra - Tabela 15|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|Quando modo verbose ativado, nome da regra|string|
+|`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
+|`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
 
 **AnalysisResult.SuspiciousCode** `Cybersource`{:.custom-provider-cyber}  
 Sequência de códigos que indicam que o comprador informou dados suspeitos.  
