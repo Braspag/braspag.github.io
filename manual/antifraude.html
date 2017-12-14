@@ -381,125 +381,36 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://{antifraude endpoint}/analysis/v2"</span>
-<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww
---header "</span>Content-Type: application/json<span class="s2">"
---data-binary
-{
-  "</span>MerchantOrderId<span class="s2">": "</span>4493d42c-8732-4b13-aadc-b07e89732c26<span class="s2">",
-  "</span>TotalOrderAmount<span class="s2">": 15000,
-  "</span>TransactionAmount<span class="s2">": 14000,
-  "</span>Currency<span class="s2">": "</span>BRL<span class="s2">",
-  "</span>Provider<span class="s2">": "</span>RedShield<span class="s2">",
-  "</span>OrderDate<span class="s2">": "</span>2016-12-09 12:35:58.852<span class="s2">",
-  "</span>BraspagTransactionId<span class="s2">":"</span>a3e08eb2-2144-4e41-85d4-61f1befc7a3b<span class="s2">",
-  "</span>SplitingPaymentMethod<span class="s2">": "</span>None<span class="s2">",
-  "</span>IsRetryTransaction<span class="s2">": false,
-  "</span>Card<span class="s2">": {
-    "</span>Number<span class="s2">" : "</span>4444555566667777<span class="s2">",
-    "</span>Holder<span class="s2">": "</span>Holder Name<span class="s2">",
-    "</span>ExpirationDate<span class="s2">": "</span>12/2023<span class="s2">",
-    "</span>Cvv<span class="s2">": "</span>999<span class="s2">",
-    "</span>Brand<span class="s2">": "</span>VISA<span class="s2">",
-    "</span>EciThreeDSecure<span class="s2">": "</span>5<span class="s2">"
-  },
-  "</span>Billing<span class="s2">": {
-    "</span>Street<span class="s2">": "</span>Rua Neturno<span class="s2">",
-    "</span>Number<span class="s2">": "</span>12345<span class="s2">",
-    "</span>Complement<span class="s2">": "</span>Sala 123<span class="s2">",
-    "</span>Neighborhood<span class="s2">": "</span>Centro<span class="s2">",
-    "</span>City<span class="s2">": "</span>Rio de Janeiro<span class="s2">",
-    "</span>State<span class="s2">": "</span>RJ<span class="s2">",
-    "</span>Country<span class="s2">": "</span>BR<span class="s2">",
-    "</span>ZipCode<span class="s2">": "</span>20080123<span class="s2">"
-  },
-  "</span>Shipping<span class="s2">": {
-    "</span>Street<span class="s2">": "</span>Rua Saturno<span class="s2">",
-    "</span>Number<span class="s2">": "</span>30000<span class="s2">",
-    "</span>Complement<span class="s2">": "</span>sl 123<span class="s2">",
-    "</span>Neighborhood<span class="s2">": "</span>Centro<span class="s2">",
-    "</span>City<span class="s2">": "</span>Rio de Janeiro<span class="s2">",
-    "</span>State<span class="s2">": "</span>RJ<span class="s2">",
-    "</span>Country<span class="s2">": "</span>BR<span class="s2">",
-    "</span>ZipCode<span class="s2">": "</span>123456789<span class="s2">",
-    "</span>Email<span class="s2">": "</span>emailentrega@dominio.com.br<span class="s2">",
-    "</span>FirstName<span class="s2">": "</span>João<span class="s2">",
-    "</span>MiddleName<span class="s2">": "</span>P<span class="s2">",
-    "</span>LastName<span class="s2">": "</span>Silvao<span class="s2">",
-    "</span>ShippingMethod<span class="s2">": "</span>SameDay<span class="s2">",
-    "</span>Phone<span class="s2">": "</span>552121114700<span class="s2">",
-    "</span>WorkPhone<span class="s2">": "</span>552121114721<span class="s2">",
-    "</span>Mobile<span class="s2">": "</span>5521998765432<span class="s2">",
-    "</span>Comment<span class="s2">": "</span>Em frente ao 322<span class="s2">"
-  },
-  "</span>Customer<span class="s2">": {
-    "</span>MerchantCustomerId<span class="s2">": "</span>10050665740<span class="s2">",
-    "</span>FirstName<span class="s2">": "</span>João<span class="s2">",
-    "</span>MiddleName<span class="s2">": "</span>P<span class="s2">",
-    "</span>LastName<span class="s2">": "</span>Silva<span class="s2">",
-    "</span>BirthDate<span class="s2">": "</span>1983-10-01<span class="s2">",
-    "</span>Gender<span class="s2">": "</span>Male<span class="s2">",
-    "</span>Email<span class="s2">": "</span>emailcomprador@dominio.com.br<span class="s2">",
-    "</span>Phone<span class="s2">": "</span>552121114700<span class="s2">",
-    "</span>WorkPhone<span class="s2">": "</span>552121114721<span class="s2">",
-    "</span>Mobile<span class="s2">": "</span>5521998765432<span class="s2">",
-    "</span>Ip<span class="s2">": "</span>127.0.0.1<span class="s2">",
-    "</span>BrowserFingerprint<span class="s2">": "</span>04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw<span class="o">==</span><span class="s2">",
-    "</span>Status<span class="s2">": "</span>NEW<span class="s2">"
-  },
-  "</span>CartItems<span class="s2">": [
-    {
-      "</span>ProductName<span class="s2">": "</span>Mouse<span class="s2">",
-      "</span>UnitPrice<span class="s2">": "</span>6500<span class="s2">",
-      "</span>MerchantItemId<span class="s2">": "</span>4<span class="s2">",
-      "</span>Sku<span class="s2">": "</span>abc123<span class="s2">",
-      "</span>Quantity<span class="s2">": 1,
-      "</span>OriginalPrice<span class="s2">": "</span>7000<span class="s2">",
-      "</span>GiftMessage<span class="s2">": "</span>Te amo!<span class="s2">",
-      "</span>Description<span class="s2">": "</span>Uma description <span class="k">do </span>Mouse<span class="s2">",
-      "</span>ShippingInstructions<span class="s2">": "</span>Proximo ao 546<span class="s2">",
-      "</span>ShippingMethod<span class="s2">": "</span>SameDay<span class="s2">",
-      "</span>ShippingTrackingNumber<span class="s2">": "</span>123456<span class="s2">"
-    },
-    {
-      "</span>ProductName<span class="s2">": "</span>Teclado<span class="s2">",
-      "</span>UnitPrice<span class="s2">": "</span>7500<span class="s2">",
-      "</span>MerchantItemId<span class="s2">": "</span>3<span class="s2">",
-      "</span>Sku<span class="s2">": "</span>abc456<span class="s2">",
-      "</span>Quantity<span class="s2">": 1,
-      "</span>OriginalPrice<span class="s2">": "</span>8000<span class="s2">",
-      "</span>GiftMessage<span class="s2">": "</span>Te odeio!<span class="s2">",
-      "</span>Description<span class="s2">": "</span>Uma description <span class="k">do </span>Teclado<span class="s2">",
-      "</span>ShippingInstructions<span class="s2">": "</span>Proximo ao 123<span class="s2">",
-      "</span>ShippingMethod<span class="s2">": "</span>SameDay<span class="s2">",
-      "</span>ShippingTrackingNumber<span class="s2">": "</span>987654<span class="s2">"
-    }
-  ],
-  "</span>CustomConfiguration<span class="s2">": {
-    "</span>MerchantWebsite<span class="s2">": "</span>www.test.com<span class="s2">"
-  },
-  "</span>MerchantDefinedData<span class="s2">": [
-    {
-      "</span>Key<span class="s2">": "</span>USER_DATA4<span class="s2">",
-      "</span>Value<span class="s2">": "</span>Valor definido com o Provedor a ser enviado neste campo.<span class="s2">"
-    },
-    {
-      "</span>Key<span class="s2">": "</span>Segment<span class="s2">",
-      "</span>Value<span class="s2">": "</span>8999<span class="s2">"
-    },
-    {
-      "</span>Key<span class="s2">": "</span>MerchantId<span class="s2">",
-      "</span>Value<span class="s2">": "</span>Seller123456<span class="s2">"
-    }
-  ]
-}
---verbose
-</span></code></pre></div></div>
-
 <h3 id="request-1">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -1313,6 +1224,35 @@
 </span></code></pre></div></div>
 
 <h3 id="request-2">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -2405,29 +2345,28 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--header</span> <span class="s2">"StatusCode: 400 Bad Request"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-  <span class="s2">"Message"</span>: <span class="s2">"The request is invalid."</span>,
-  <span class="s2">"ModelState"</span>: <span class="o">{</span>
-    <span class="s2">"request.Customer.Gender"</span>: <span class="o">[</span>
-      <span class="s2">"Error converting value </span><span class="se">\"</span><span class="s2">M</span><span class="se">\"</span><span class="s2"> to type 'Antifraude.Domain.Enums.GenderType'. Path 'Customer.Gender', line 51, position 17."</span>
-    <span class="o">]</span>,
-    <span class="s2">"FraudAnalysisRequestError"</span>: <span class="o">[</span>
-      <span class="s2">"The Card.EciThreeDSecure lenght is gratter than 1"</span>,
-      <span class="s2">"The Shipping.Complement lenght is gratter than 14"</span>,
-      <span class="s2">"The Shipping.MiddleName lenght is gratter than 1"</span>,
-      <span class="s2">"The Customer.MerchantCustomerId lenght is gratter than 16"</span>,
-      <span class="s2">"The Customer.MiddleName lenght is gratter than 1"</span>
-    <span class="o">]</span>
-  <span class="o">}</span>
-<span class="nt">--verbose</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
 <h3 id="response-3">Response</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <tbody>
@@ -2588,6 +2527,37 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<h3 id="request-4">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="response-4">Response</h3>
 
@@ -2995,9 +2965,9 @@
 
 <h2 id="consultando-uma-transação-cybersource">Consultando uma transação Cybersource</h2>
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+<h3 id="request-5">Request</h3>
 
-<h3 id="request-4">Request</h3>
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3671aafd-09e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
@@ -3759,18 +3729,59 @@
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-<h3 id="request-5">Request</h3>
+<h3 id="request-6">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="response-6">Response</h3>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--header</span> <span class="s2">"StatusCode: 404 Not Found"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{}</span>
-<span class="nt">--verbose</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="post-de-notificação-de-mudança-de-status">Post de notificação de Mudança de Status</h1>
 

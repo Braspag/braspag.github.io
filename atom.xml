@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-14T19:22:09+00:00</updated>
+    <updated>2017-12-14T20:04:16+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -22302,125 +22302,36 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
-&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://{antifraude endpoint}/analysis/v2&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Bearer {access_token}&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww
---header &quot;&lt;/span&gt;Content-Type: application/json&lt;span class=&quot;s2&quot;&gt;&quot;
---data-binary
-{
-  &quot;&lt;/span&gt;MerchantOrderId&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;4493d42c-8732-4b13-aadc-b07e89732c26&lt;span class=&quot;s2&quot;&gt;&quot;,
-  &quot;&lt;/span&gt;TotalOrderAmount&lt;span class=&quot;s2&quot;&gt;&quot;: 15000,
-  &quot;&lt;/span&gt;TransactionAmount&lt;span class=&quot;s2&quot;&gt;&quot;: 14000,
-  &quot;&lt;/span&gt;Currency&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;BRL&lt;span class=&quot;s2&quot;&gt;&quot;,
-  &quot;&lt;/span&gt;Provider&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;RedShield&lt;span class=&quot;s2&quot;&gt;&quot;,
-  &quot;&lt;/span&gt;OrderDate&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;2016-12-09 12:35:58.852&lt;span class=&quot;s2&quot;&gt;&quot;,
-  &quot;&lt;/span&gt;BraspagTransactionId&lt;span class=&quot;s2&quot;&gt;&quot;:&quot;&lt;/span&gt;a3e08eb2-2144-4e41-85d4-61f1befc7a3b&lt;span class=&quot;s2&quot;&gt;&quot;,
-  &quot;&lt;/span&gt;SplitingPaymentMethod&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;None&lt;span class=&quot;s2&quot;&gt;&quot;,
-  &quot;&lt;/span&gt;IsRetryTransaction&lt;span class=&quot;s2&quot;&gt;&quot;: false,
-  &quot;&lt;/span&gt;Card&lt;span class=&quot;s2&quot;&gt;&quot;: {
-    &quot;&lt;/span&gt;Number&lt;span class=&quot;s2&quot;&gt;&quot; : &quot;&lt;/span&gt;4444555566667777&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Holder&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Holder Name&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;ExpirationDate&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;12/2023&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Cvv&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;999&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Brand&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;VISA&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;EciThreeDSecure&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;5&lt;span class=&quot;s2&quot;&gt;&quot;
-  },
-  &quot;&lt;/span&gt;Billing&lt;span class=&quot;s2&quot;&gt;&quot;: {
-    &quot;&lt;/span&gt;Street&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Rua Neturno&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Number&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;12345&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Complement&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Sala 123&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Neighborhood&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Centro&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;City&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Rio de Janeiro&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;State&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;RJ&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Country&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;BR&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;ZipCode&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;20080123&lt;span class=&quot;s2&quot;&gt;&quot;
-  },
-  &quot;&lt;/span&gt;Shipping&lt;span class=&quot;s2&quot;&gt;&quot;: {
-    &quot;&lt;/span&gt;Street&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Rua Saturno&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Number&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;30000&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Complement&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;sl 123&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Neighborhood&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Centro&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;City&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Rio de Janeiro&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;State&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;RJ&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Country&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;BR&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;ZipCode&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;123456789&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Email&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;emailentrega@dominio.com.br&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;FirstName&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;João&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;MiddleName&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;P&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;LastName&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Silvao&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;ShippingMethod&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;SameDay&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Phone&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;552121114700&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;WorkPhone&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;552121114721&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Mobile&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;5521998765432&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Comment&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Em frente ao 322&lt;span class=&quot;s2&quot;&gt;&quot;
-  },
-  &quot;&lt;/span&gt;Customer&lt;span class=&quot;s2&quot;&gt;&quot;: {
-    &quot;&lt;/span&gt;MerchantCustomerId&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;10050665740&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;FirstName&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;João&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;MiddleName&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;P&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;LastName&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Silva&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;BirthDate&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;1983-10-01&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Gender&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Male&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Email&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;emailcomprador@dominio.com.br&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Phone&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;552121114700&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;WorkPhone&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;552121114721&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Mobile&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;5521998765432&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Ip&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;127.0.0.1&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;BrowserFingerprint&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-    &quot;&lt;/span&gt;Status&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;NEW&lt;span class=&quot;s2&quot;&gt;&quot;
-  },
-  &quot;&lt;/span&gt;CartItems&lt;span class=&quot;s2&quot;&gt;&quot;: [
-    {
-      &quot;&lt;/span&gt;ProductName&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Mouse&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;UnitPrice&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;6500&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;MerchantItemId&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;4&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;Sku&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;abc123&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;Quantity&lt;span class=&quot;s2&quot;&gt;&quot;: 1,
-      &quot;&lt;/span&gt;OriginalPrice&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;7000&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;GiftMessage&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Te amo!&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;Description&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Uma description &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;Mouse&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;ShippingInstructions&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Proximo ao 546&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;ShippingMethod&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;SameDay&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;ShippingTrackingNumber&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;123456&lt;span class=&quot;s2&quot;&gt;&quot;
-    },
-    {
-      &quot;&lt;/span&gt;ProductName&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Teclado&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;UnitPrice&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;7500&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;MerchantItemId&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;3&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;Sku&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;abc456&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;Quantity&lt;span class=&quot;s2&quot;&gt;&quot;: 1,
-      &quot;&lt;/span&gt;OriginalPrice&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;8000&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;GiftMessage&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Te odeio!&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;Description&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Uma description &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;Teclado&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;ShippingInstructions&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Proximo ao 123&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;ShippingMethod&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;SameDay&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;ShippingTrackingNumber&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;987654&lt;span class=&quot;s2&quot;&gt;&quot;
-    }
-  ],
-  &quot;&lt;/span&gt;CustomConfiguration&lt;span class=&quot;s2&quot;&gt;&quot;: {
-    &quot;&lt;/span&gt;MerchantWebsite&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;www.test.com&lt;span class=&quot;s2&quot;&gt;&quot;
-  },
-  &quot;&lt;/span&gt;MerchantDefinedData&lt;span class=&quot;s2&quot;&gt;&quot;: [
-    {
-      &quot;&lt;/span&gt;Key&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;USER_DATA4&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;Value&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Valor definido com o Provedor a ser enviado neste campo.&lt;span class=&quot;s2&quot;&gt;&quot;
-    },
-    {
-      &quot;&lt;/span&gt;Key&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Segment&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;Value&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;8999&lt;span class=&quot;s2&quot;&gt;&quot;
-    },
-    {
-      &quot;&lt;/span&gt;Key&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;MerchantId&lt;span class=&quot;s2&quot;&gt;&quot;,
-      &quot;&lt;/span&gt;Value&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;Seller123456&lt;span class=&quot;s2&quot;&gt;&quot;
-    }
-  ]
-}
---verbose
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Key&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Bearer {access_token}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -23234,6 +23145,35 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Key&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Bearer {access_token}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -24326,29 +24266,28 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;StatusCode: 400 Bad Request&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;Message&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;The request is invalid.&quot;&lt;/span&gt;,
-  &lt;span class=&quot;s2&quot;&gt;&quot;ModelState&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;request.Customer.Gender&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;Error converting value &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; to type 'Antifraude.Domain.Enums.GenderType'. Path 'Customer.Gender', line 51, position 17.&quot;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;FraudAnalysisRequestError&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;The Card.EciThreeDSecure lenght is gratter than 1&quot;&lt;/span&gt;,
-      &lt;span class=&quot;s2&quot;&gt;&quot;The Shipping.Complement lenght is gratter than 14&quot;&lt;/span&gt;,
-      &lt;span class=&quot;s2&quot;&gt;&quot;The Shipping.MiddleName lenght is gratter than 1&quot;&lt;/span&gt;,
-      &lt;span class=&quot;s2&quot;&gt;&quot;The Customer.MerchantCustomerId lenght is gratter than 16&quot;&lt;/span&gt;,
-      &lt;span class=&quot;s2&quot;&gt;&quot;The Customer.MiddleName lenght is gratter than 1&quot;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;h3 id=&quot;response-3&quot;&gt;Response&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Key&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;400 Bad Request&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
@@ -24509,6 +24448,37 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Key&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Bearer {access_token}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
 
@@ -24916,9 +24886,9 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h2 id=&quot;consultando-uma-transação-cybersource&quot;&gt;Consultando uma transação Cybersource&lt;/h2&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/{Id}&lt;/span&gt;&lt;/aside&gt;
+&lt;h3 id=&quot;request-5&quot;&gt;Request&lt;/h3&gt;
 
-&lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/{Id}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;3671aafd-09e0-e711-80c2-000d3a70dd7b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -25680,18 +25650,59 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/{Id}&lt;/span&gt;&lt;/aside&gt;
 
-&lt;h3 id=&quot;request-5&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-6&quot;&gt;Request&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Key&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Bearer {access_token}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&quot;response-6&quot;&gt;Response&lt;/h3&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;StatusCode: 404 Not Found&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Key&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;404 Not Found&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h1 id=&quot;post-de-notificação-de-mudança-de-status&quot;&gt;Post de notificação de Mudança de Status&lt;/h1&gt;
 
