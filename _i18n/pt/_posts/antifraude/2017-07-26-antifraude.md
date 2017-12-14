@@ -756,223 +756,6 @@ curl
 
 ### Response
 
-"Id": "3671aafd-09e0-e711-80c2-000d3a70dd7b",
-  "ProviderAnalysisResult": {
-    "ProviderTransactionId": "5131719190516173203009",
-    "Status": "ACCEPT",
-    "ProviderCode": "100",
-    "ProviderRequestTransactionId": "AhjzbwSTFjDo9sLLoWZBEAFReTFX1NHtDuphyzhk0kv9Atj2YEFgc0RA",
-    "AfsReply": {
-        "reasonCode": "100",
-        "afsResult": "99",
-        "hostSeverity": "1",
-        "consumerLocalTime": "11:31:59",
-        "afsFactorCode": "F^P^Y^Z",
-        "addressInfoCode": "MM-A^MM-Z^UNV-ADDR",
-        "hotlistInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-SA^REV-IP^REV-SUSP",
-        "suspiciousInfoCode": "RISK-TB^RISK-TS",
-        "velocityInfoCode": "VEL-NAME",
-        "scoreModelUsed": "default_lac"
-    },
-    "DecisionReply": {
-        "casePriority": "3",
-        "activeProfileReply": {},
-        "velocityInfoCode": "GVEL-R2^GVEL-R3^GVEL-R6^GVEL-R7^GVEL-R8"
-    }
-  },
-  "Links": [{
-        "Method": "GET",
-        "Href": "https://risksandbox.braspag.com.br/Analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b",
-        "Rel": "Self"
-  }],
-
-|Parâmetro|Descrição|Tipo|
-|:-|:-|:-:|
-|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
-|`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
-|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - Tabela 2|int|
-|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na Cybersource|string|
-|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
-|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4|string|
-|`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
-|`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador - Tabela 5|string|
-|`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
-|`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão - Tabela 6|string|
-|`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
-|`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
-|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas. Ex.: NEG-AFCB^NEG-CC - Tabela 7|string|
-|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas. Ex.: COR-BA^MM-BIN - Tabela 8|string|
-|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança. Ex.: COR-BA^MM-BIN - Tabela 9|string|
-|`ProviderAnalysisResult.AfsReply.IpCity`|Nome da cidade do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.IpCountry`|Nome do país do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento obtido a partir do endereço de IP para envio da transação - Tabela 10|string|
-|`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador. Ex.: UNV-AC^RISK-AC - Tabela 11|string|
-|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código do motivo retornado pela Cybersource - Tabela 2|int|
-|`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
-|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas. Ex.: RISK-TB^RISK-TS - Tabela 12|string|
-|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras. Ex.: VELV-SA^VELI-CC^VELSIP - Tabela 13|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.FlashEnabled`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.Hash`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ImagesEnabled`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddress`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressActivities`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressAttributes`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyServerType`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartID`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`||string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`||string|
-
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue`|Quando modo verbose ativado, nome da fila para onde as transações não aceitas automaticamente são enviadas|string|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|Quando modo verbose ativado, nome do perfil selecionado na análise. Se não tiver nenhum, o perfil padrão foi selecionado|string|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|Quando modo verbose ativado, nome do seletor de regras que seleciona o perfil de regras|string|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|Quando modo verbose ativado, id da regra|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra - Tabela 14|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra - Tabela 15|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|Quando modo verbose ativado, nome da regra|string|
-|`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
-|`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
-
-**AnalysisResult.SuspiciousCode** `Cybersource`{:.custom-provider-cyber}  
-Sequência de códigos que indicam que o comprador informou dados suspeitos.  
-Este campo pode conter um ou mais códigos, separados por carets (^), por exemplo: BAD-FP^OBS-EM^RISK-DEV  
-Possíveis Valores:  
-BAD-FP = O dispositivo é arriscado.  
-INTL-BIN = O cartão de crédito foi emitido fora dos U.S.  
-MM-TZTLO = Fuso horário do dispositivo é incompatível com os fusos horários do país.  
-MUL-EM = O cliente tem usado mais de quatro endereços de e-mail diferentes.  
-NON-BC = A cidade de cobrança é um desconhecida.  
-NON-FN = O primeiro nome do cliente é desconhecido.  
-NON-LN = O último nome do cliente é desconhecido.  
-OBS-BC = A cidade de cobrança contem obscenidades.  
-OBS-EM = O endereço de e-mail contem obscenidades.  
-RISK-AVS = O resultado do teste combinado AVS e endereço de cobrança normalizado são arriscados, o resultado AVS indica uma correspondência exata, mas o endereço de cobrança não é entrega normalizada.  
-RISK-BC = A cidade de cobrança possui caracteres repetidos.  
-RISK-BIN = No passado, este BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) mostrou uma elevada incidência de fraude.  
-RISK-DEV = Algumas das características do dispositivo são arriscadas.  
-RISK-FN = Nome e sobrenome do cliente contêm combinações de letras improváveis.  
-RISK-LN = Nome do meio ou o sobrenome do cliente contém combinações de letras improváveis.  
-RISK-PIP = O endereço IP do proxy é arriscado.  
-RISK-SD = A inconsistência nos países de cobrança e entrega é arriscado.  
-RISK-TB = O dia e a hora da ordem associada ao endereço de cobrança é arriscado.  
-RISK-TIP = O verdadeiro endereço IP é arriscado.  
-RISK-TS = O dia e a hora da ordem associada ao endereço de entrega é arriscado.  
-
-**AnalysisResult.InternetCode** `Cybersource`{:.custom-provider-cyber}  
-Indica um problema com o endereço de e-mail, IP ou o endereço de cobrança do comprador.  
-Este campo pode conter um ou mais códigos, separados por carets (^), por exemplo: FREE-EM^MM-IPBC^UNV-NID  
-Possíveis Valores:  
-FREE-EM = O endereço de e-mail do cliente é de um provedor de e-mail gratuito.  
-INTL-IPCO = O país do endereço de e-mail do cliente é fora do U.S.  
-INV-EM O = endereço de e-mail do cliente é inválido.  
-MM-EMBCO = O domínio do endereço de e-mail do cliente não é consistente com o país do endereço de cobrança.  
-MM-IPBC = O endereço de e-mail do cliente não é consistente com a cidade do endereço de cobrança.  
-MM-IPBCO = O endereço de e-mail do cliente não é consistente com a país do endereço de cobrança.  
-MM-IPBST = O endereço IP do cliente não é consistente com o estado no endereço de cobrança. No entanto, este código de informação não pode ser devolvido quando a inconsistência é entre estados imediatamente adjacentes.  
-MM-IPEM = O endereço de e-mail do cliente não é consistente com o endereço IP.  
-RISK-EM = O domínio do e-mail do cliente (por exemplo, mail.example.com) está associada com alto risco.  
-UNV-NID = O endereço IP do cliente é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP.  
-UNV-RI400SK = O endereço IP é de origem de risco.  
-UNV-EMBCO = O país do endereço do cliente de e-mail não corresponde ao país do endereço de cobrança.  
-
-**AnalysisResult.FactorCode** `Cybersource`{:.custom-provider-cyber}  
-Combinação de códigos que indicam o score do pedido.  
-Este campo pode conter um ou mais códigos, separados por carets (^), por exemplo: B^Y.  
-Possíveis Valores:  
-A = Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.  
-B = BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.  
-C = Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.  
-D = Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.  
-E = Lista positiva. O cliente está na sua lista positiva.  
-F = Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.  
-G = Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.  
-H = Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.  
-I = Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.  
-N = Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.  
-O = Obscenidades. Dados do cliente contém palavras obscenas.  
-P = Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.  
-Q = Inconsistências do telefone. O número de telefone do cliente é suspeito.  
-R = Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.  
-T = Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.  
-U = Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.  
-V = Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.  
-W = Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.  
-Y = O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.  
-Z = Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.  
-
-**AnalysisResult.VelocityCode** `Cybersource`{:.custom-provider-cyber}  
-Sequência de códigos que indicam que o comprador tem uma frequência de compras elevada.  
-Este campo pode conter um ou mais códigos, separados por carets (^), por exemplo: B^Y.  
-Possíveis Valores:  
-VEL-ADDR = Diferente estados de faturamento e/ou o envio (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email.  
-VEL-CC = Diferentes números de contas foram usados várias vezes com o mesmo nome ou endereço de email.  
-VEL-NAME = Diferentes nomes foram usados várias vezes com o número do cartão de crédito e/ou endereço de email.  
-VELS-CC = O número de conta tem sido utilizado várias vezes durante o intervalo de controle curto.  
-VELI-CC = O número de conta tem sido utilizado várias vezes durante o intervalo de controle médio.  
-VELL-CC = O número de conta tem sido utilizado várias vezes durante o intervalo de controle longo.  
-VELV-CC = O número de conta tem sido utilizado várias vezes durante o intervalo de controle muito longo.  
-VELS-EM = O endereço de e-mail tem sido utilizado várias vezes durante o intervalo de controle curto.  
-VELI-EM = O endereço de e-mail tem sido utilizado várias vezes durante o intervalo de controle médio.  
-VELL-EM = O endereço de e-mail tem sido utilizado várias vezes durante o intervalo de controle longo.  
-VELV-EM = O endereço de e-mail tem sido utilizado várias vezes durante o intervalo de controle muito longo.  
-VELS-FP = O device fingerprint tem sido utilizado várias vezes durante um intervalo curto.  
-VELI-FP = O device fingerprint tem sido utilizado várias vezes durante um intervalo médio.  
-VELL-FP = O device fingerprint tem sido utilizado várias vezes durante um intervalo longo.  
-VELV-FP = O device fingerprint tem sido utilizado várias vezes durante um intervalo muito longo.  
-VELS-IP = O endereço IP tem sido utilizado várias vezes durante o intervalo de controle curto.  
-VELI-IP = O endereço IP tem sido utilizado várias vezes durante o intervalo de controle médio.  
-VELL-IP = O endereço IP tem sido utilizado várias vezes durante o intervalo de controle longo.  
-VELV-IP = O endereço IP tem sido utilizado várias vezes durante o intervalo de controle muito longo.  
-VELS-SA = O endereço de entrega tem sido utilizado várias vezes durante o intervalo de controle curto.  
-VELI-SA = O endereço de entrega tem sido utilizado várias vezes durante o intervalo de controle médio.  
-VELL-SA = O endereço de entrega tem sido utilizado várias vezes durante o intervalo de controle longo.  
-VELV-SA = O endereço de entrega tem sido utilizado várias vezes durante o intervalo de controle muito longo.  
-VELS-TIP = O endereço IP verdadeiro tem sido utilizado várias vezes durante o intervalo de controle curto.  
-VELI-TIP = O endereço IP verdadeiro tem sido utilizado várias vezes durante o intervalo de controle médio.  
-VELL-TIP = O endereço IP verdadeiro tem sido utilizado várias vezes durante o intervalo de controle longo.  
-
-**AnalysisResult.VelocityCodeDetail** `Cybersource`{:.custom-provider-cyber}  
-Lista de identificadores das regras que foram gerados no momento do cadastro das mesmas.  
-
-**AnalysisResult.DeviceFingerprint.CookiesEnabled** `Cybersource`{:.custom-provider-cyber}  
-Flag identificando que o browser do comprador estava habilitado para armazenar cookies temporariamente no momento da compra.  
-
-**AnalysisResult.DeviceFingerprint.FlashEnabled** `Cybersource`{:.custom-provider-cyber}  
-Flag identificando que o browser do comprador habilitado a execução de conteúdos em Flash no momento da compra.  
-
-**AnalysisResult.DeviceFingerprint.Hash** `Cybersource`{:.custom-provider-cyber}  
-Hash gerado a partir dos dados coletados pelo script de fingerprint.  
-
-**AnalysisResult.DeviceFingerprint.ImagesEnabled** `Cybersource`{:.custom-provider-cyber}  
-Flag identificando que o browser do comprador estava com cache de imagens habilitado no momento da compra.  
-
-**AnalysisResult.DeviceFingerprint.JavascriptEnabled** `Cybersource`{:.custom-provider-cyber}  
-Flag identificando que o browser do comprador estava com a execução de sripts em Javascript habilitada no momento da compra.  
-
-**AnalysisResult.DeviceFingerprint.TrueIpAddress** `Cybersource`{:.custom-provider-cyber}  
-Flag identificando que o IP do comprador é real.  
-
-**AnalysisResult.DeviceFingerprint.TrueIpAddressCity** `Cybersource`{:.custom-provider-cyber}  
-Flag identificando que o IP do comprador é de fato da cidade que deveria ser mesmo.  
-
-**AnalysisResult.DeviceFingerprint.TrueIpAddressCountry** `Cybersource`{:.custom-provider-cyber}  
-Flag identificando que o IP do comprador é de fato do país que deveria ser mesmo.  
-
-<!--**AnalysisResult.DeviceFingerprint.SmartId** `Cybersource`{:.custom-provider-cyber}  
-
-**AnalysisResult.DeviceFingerprint.SmartIdConfidencial** `Cybersource`{:.custom-provider-cyber}  -->
-
-**AnalysisResult.DeviceFingerprint.ScreenResolution** `Cybersource`{:.custom-provider-cyber}  
-Resolução da tela do comprador no momento da compra.
-
-**AnalysisResult.DeviceFingerprint.BrowseLanguage** `Cybersource`{:.custom-provider-cyber}  
-Linguagem do browser utilizado pelo comprador no momento da compra.  
-
 ``` json
 {
   "Id": "3671aafd-09e0-e711-80c2-000d3a70dd7b",
@@ -1115,6 +898,63 @@ Linguagem do browser utilizado pelo comprador no momento da compra.
   }
 }
 ```
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
+|`ProviderAnalysisResult.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - Tabela 2|int|
+|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na Cybersource|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
+|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4|string|
+|`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
+|`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador - Tabela 5|string|
+|`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
+|`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão - Tabela 6|string|
+|`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
+|`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
+|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas. Ex.: NEG-AFCB^NEG-CC - Tabela 7|string|
+|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas. Ex.: COR-BA^MM-BIN - Tabela 8|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança. Ex.: COR-BA^MM-BIN - Tabela 9|string|
+|`ProviderAnalysisResult.AfsReply.IpCity`|Nome da cidade do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.IpCountry`|Nome do país do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento obtido a partir do endereço de IP para envio da transação - Tabela 10|string|
+|`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador. Ex.: UNV-AC^RISK-AC - Tabela 11|string|
+|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código do motivo retornado pela Cybersource - Tabela 2|int|
+|`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
+|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas. Ex.: RISK-TB^RISK-TS - Tabela 12|string|
+|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras. Ex.: VELV-SA^VELI-CC^VELSIP - Tabela 13|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`|Linguagem do browser utilizado pelo comprador no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution`|Resolução da tela do comprador no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`|Flag identificando que o browser do comprador estava habilitado para armazenar cookies temporariamente no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.FlashEnabled`|Flag identificando que o browser do comprador habilitado a execução de conteúdos em Flash no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.Hash`|Hash gerado a partir dos dados coletados pelo script de fingerprint|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ImagesEnabled`|Flag identificando que o browser do comprador estava com cache de imagens habilitado no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled`|Flag identificando que o browser do comprador estava com a execução de sripts em Javascript habilitada no momento da compra|string|
+<!--|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddress`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressActivities`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyIPAddressAttributes`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ProxyServerType`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartID`||string| 
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartIDConfidenceLevel`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressActivities`||string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressAttributes`||string| -->
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddress`|Flag identificando que o IP do comprador é real|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCity`|Flag identificando que o IP do comprador é de fato da cidade que deveria ser mesmo|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCountry`|Flag identificando que o IP do comprador é de fato do país que deveria ser mesmo|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue`|Quando modo verbose ativado, nome da fila para onde as transações não aceitas automaticamente são enviadas|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|Quando modo verbose ativado, nome do perfil selecionado na análise. Se não tiver nenhum, o perfil padrão foi selecionado|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|Quando modo verbose ativado, nome do seletor de regras que seleciona o perfil de regras|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|Quando modo verbose ativado, id da regra|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra - Tabela 14|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra - Tabela 15|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|Quando modo verbose ativado, nome da regra|string|
+|`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
+|`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
+
 **RESPONSE - Quando request for inválido para qualquer provedor.**  
 
 * Quando os dados enviados para análise tiver alguma inconformidade nos valores, tamanhos permitidos e/ou tipos dos campos conforme especificação do manual.  
