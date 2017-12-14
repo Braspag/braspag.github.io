@@ -3225,10 +3225,10 @@ Retroalimentação de chargeback</p>
 
 <p><strong>REQUEST:</strong></p>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">https://riskhomolog.braspag.com.br/Chargeback/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{antifraude endpoint}</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST https://riskhomolog.braspag.com.br/Chargeback/ HTTP/1.1
+Host: {antifraude endpoint}
+Authorization: Bearer {access_token}
+Content-Type: application/json
 </code></pre></div></div>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -3271,7 +3271,9 @@ Retroalimentação de chargeback</p>
 
 <p>Quando todas as transações de chargeback enviadas forem processadas com sucesso</p>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">Ok</span>
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">
+</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">Ok</span>
+
 </code></pre></div></div>
 
 <p>Quando não ocorrer o processamento de todas as transações de chargeback enviadas, será retornado o identificador das transações com motivo através do campo “ChargebackProcessingStatus”.</p>
@@ -3282,7 +3284,9 @@ Retroalimentação de chargeback</p>
 * Motivo igual a "NotFound", a transação de chargeback não deverá ser reenviada, pois a origem desta vinculada a análise de fraude não foi encontrada na base de dados.  
 </code></pre></div></div>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">300</span> <span class="ne">Multiple Choices</span>
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">
+</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">300</span> <span class="ne">Multiple Choices</span>
+
 </code></pre></div></div>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
