@@ -1020,8 +1020,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 }
 ```
 
-### Request
-
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
