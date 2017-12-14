@@ -875,6 +875,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
+
 |Parâmetro|Descrição
 |`Message`|Mensagem informando que o request é inválido|
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual|
