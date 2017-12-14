@@ -1738,7 +1738,7 @@ Retroalimentação de chargeback
 
 **REQUEST:**  
 
-``` http
+``` 
 POST https://riskhomolog.braspag.com.br/Chargeback/ HTTP/1.1
 Host: {antifraude endpoint}
 Authorization: Bearer {access_token}
@@ -1787,7 +1787,9 @@ Content-Type: application/json
 Quando todas as transações de chargeback enviadas forem processadas com sucesso
 
 ``` http
+
 HTTP/1.1 200 Ok
+
 ```
 
 Quando não ocorrer o processamento de todas as transações de chargeback enviadas, será retornado o identificador das transações com motivo através do campo "ChargebackProcessingStatus".  
@@ -1798,7 +1800,9 @@ Quando não ocorrer o processamento de todas as transações de chargeback envia
     * Motivo igual a "NotFound", a transação de chargeback não deverá ser reenviada, pois a origem desta vinculada a análise de fraude não foi encontrada na base de dados.  
 
 ``` http
+
 HTTP/1.1 300 Multiple Choices
+
 ```
 
 ``` json
