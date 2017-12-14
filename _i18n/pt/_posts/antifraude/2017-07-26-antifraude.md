@@ -83,7 +83,7 @@ Exemplo:
 
 ### Response
 
-```json
+``` json
 {
   "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
   "token_type": "bearer",
@@ -1145,7 +1145,7 @@ HTTP/1.1 201 Created
 Content-Type: application/json;charset=UTF-8
 ```
 
-```json
+``` json
 {
   "AnalysisResult": {
     "Id": "0c72cb49-985d-e711-93ff-000d3ac03bed",
@@ -1419,7 +1419,7 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 **Exemplo**  
 
-```html
+``` xml
 
 <html>
 <head>
@@ -1501,7 +1501,7 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
 
 * Exemplo  
 
-```html
+``` html
 #import "sampleViewController.h"
 #import <iovation/iovation.h>
 @implementation SampleViewController
@@ -1583,7 +1583,7 @@ Se a opção para executar o módulo não aparecer, selecione *File -> Project S
 
 O exemplo a seguir é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a *caixa preta*. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.  
 
-```html
+``` html
 package com.iovation.mobile.android.sample;
 import android.app.Activity;
 import android.os.Bundle;
@@ -1641,7 +1641,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 * PNG Image  
 
-```html
+``` html
 
 <html>
 <head></head>
@@ -1657,7 +1657,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 * Flash Code  
 
-```html
+``` html
 
 <html>
 <head></head>
@@ -1675,7 +1675,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 * Javascript Code
 
-```html
+``` html
 <html>
 <head></head>
 <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script>
@@ -1745,7 +1745,7 @@ Authorization: Bearer {access_token}
 Content-Type: application/json
 ```
 
-```json
+``` json
 {
     "Chargebacks":
     [
@@ -1801,7 +1801,7 @@ Quando não ocorrer o processamento de todas as transações de chargeback envia
 HTTP/1.1 300 Multiple Choices
 ```
 
-```json
+``` json
 {
     "Chargebacks":
     [
@@ -1898,7 +1898,7 @@ Content-Type: application/json
 
 Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway
 
-```http
+``` http
 
 HTTP/1.1 200 Ok
 
@@ -1906,21 +1906,21 @@ HTTP/1.1 200 Ok
 
 Quando a transação do Pagador não for informada na requisição
 
-```http
+``` http
 HTTP/1.1 400 Bad Request
 
 ```
 
 Quando a transação do Antifraude Gateway não for encontrada na base de dados
 
-```http
+``` http
 HTTP/1.1 404 Not found
 
 ```
 
 Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway
 
-```http
+``` http
 HTTP/1.1 409 Conflict
 
 ```
@@ -1980,7 +1980,7 @@ Quando a transação for recebida para processamento.
 HTTP/1.1 200 OK
 ```
 
-```json
+``` json
 {
     "Message": "Change status request successfully received. New status: Accept."
 }
@@ -1992,7 +1992,7 @@ Quando a transação não for encontrada na base de dados.
 HTTP/1.1 404 Not found
 ```
 
-```json
+``` json
 {
     "Message": "The transaction does not exist."
 }
@@ -2004,7 +2004,7 @@ Quando a transação não estiver elegivel para alteração de status.
 HTTP/1.1 400 Bad Request
 ```
 
-```json
+``` json
 {
     "Message": "The transaction is not able to update status. Actual status: Reject."
 }
@@ -2016,7 +2016,7 @@ Quando o novo status enviado for diferente de Accept ou Reject.
 HTTP/1.1 400 Bad Request
 ```
 
-```json
+``` json
 {
     "Message": "The new status is invalid to update transaction. Accepted status are: 'Accept' or 'Reject'."
 }
@@ -2028,7 +2028,7 @@ Quando o tipo ou tamanho de algum campo não for enviado conforme especificado n
 HTTP/1.1 400 Bad Request
 ```
 
-```json
+``` json
 {
     "Message": "The request is invalid.",
     "ModelState": {
