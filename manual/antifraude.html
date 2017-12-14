@@ -2454,11 +2454,9 @@
 
 <h2 id="consultando-uma-transação-redshield">Consultando uma transação ReDShield</h2>
 
-<h3 id="transação-existente">Transação existente</h3>
+<h3 id="request-3">Request</h3>
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
-
-<h4 id="request-3">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f8a661c-00e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
@@ -2591,7 +2589,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="response-4">Response</h4>
+<h3 id="response-4">Response</h3>
 
 <table>
   <thead>
@@ -2999,9 +2997,7 @@
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-<h3 id="transação-existente-1">Transação existente</h3>
-
-<h4 id="request-4">Request</h4>
+<h3 id="request-4">Request</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3671aafd-09e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
@@ -3145,7 +3141,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="response-5">Response</h4>
+<h3 id="response-5">Response</h3>
 
 <table>
   <thead>
@@ -3759,13 +3755,13 @@
   </tbody>
 </table>
 
-<h3 id="transação-inexistente">Transação inexistente</h3>
+<h2 id="consultando-uma-transação-inexistente">Consultando uma transação inexistente</h2>
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-<h4 id="request-5">Request</h4>
+<h3 id="request-5">Request</h3>
 
-<h4 id="response-6">Response</h4>
+<h3 id="response-6">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--header</span> <span class="s2">"StatusCode: 404 Not Found"</span>
