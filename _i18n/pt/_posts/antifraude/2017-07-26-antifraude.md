@@ -225,7 +225,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
@@ -573,7 +573,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
@@ -875,7 +875,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-
 |Parâmetro|Descrição
 |`Message`|Mensagem informando que o request é inválido|
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual|
@@ -1030,7 +1029,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
 ### Response
 
@@ -1402,7 +1401,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
 ### Response
 
