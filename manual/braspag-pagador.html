@@ -297,8 +297,53 @@
 
 <ul>
   <li><strong>Cancelamento</strong>: O cancelamento é necessário quando, por algum motivo, não se quer mais efetivar uma venda. No caso de uma pré-autorização, o cancelamento irá liberar o limite do cartão que foi sensibilizado em uma pré-autorização. Quando a transação já estiver sido capturada, o cancelamento irá desfazer a venda, mas deve ser executado até às 23:59:59 da data da autorização/captura.</li>
-  <li><strong>Estorno</strong>: O estorno é aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida no processo de ‘chargeback’ pela adquirente.</li>
+  <li><strong>Estorno</strong>: O estorno é aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida no processo de ‘chargeback’ pela adquirente.</li>
 </ul>
+
+<p>Abaixo segue a lista de adquirentes com as quais temos integração para solicitações de estorno:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Adquirente</th>
+      <th>Prazo Máximo para Solicitação de Estorno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cielo</td>
+      <td>300 dias</td>
+    </tr>
+    <tr>
+      <td>Rede</td>
+      <td>Tecnologia Komerci: 90 dias; Tecnologia eRede: 60 dias</td>
+    </tr>
+    <tr>
+      <td>Getnet</td>
+      <td>90 dias</td>
+    </tr>
+    <tr>
+      <td>Transbank</td>
+      <td>90 dias</td>
+    </tr>
+    <tr>
+      <td>Global Payments</td>
+      <td>–</td>
+    </tr>
+    <tr>
+      <td>First Data</td>
+      <td>–</td>
+    </tr>
+    <tr>
+      <td>Banorte</td>
+      <td>–</td>
+    </tr>
+    <tr>
+      <td>Credibanco</td>
+      <td>–</td>
+    </tr>
+  </tbody>
+</table>
 
 <aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
