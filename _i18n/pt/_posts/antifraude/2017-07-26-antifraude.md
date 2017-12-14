@@ -989,6 +989,7 @@ curl
 --verbose
 }
 ```
+
 ### Response
 
 |Parâmetro|Descrição
