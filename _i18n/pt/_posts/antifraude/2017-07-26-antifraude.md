@@ -947,7 +947,7 @@ curl
 |`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
 
-# Indicando erros de integração
+## Indicando erros de integração
 
 ``` json
 {
@@ -989,6 +989,7 @@ curl
 --verbose
 }
 ```
+### Response
 
 |Parâmetro|Descrição
 |`Message`|Mensagem informando que o request é inválido|
