@@ -1001,11 +1001,9 @@ curl
 
 ## Consultando uma transação ReDShield
 
-### Transação existente
+### Request
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
-
-#### Request
 
 ``` json
 {
@@ -1139,7 +1137,7 @@ curl
 }
 ```
 
-#### Response
+### Response
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
@@ -1226,9 +1224,7 @@ curl
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-### Transação existente
-
-#### Request
+### Request
 
 ``` json
 {
@@ -1373,7 +1369,7 @@ curl
 }
 ```
 
-#### Response
+### Response
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
@@ -1498,13 +1494,13 @@ curl
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|
 
-### Transação inexistente
+## Consultando uma transação inexistente 
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-#### Request
+### Request
 
-#### Response
+### Response
 
 ``` shell
 curl
