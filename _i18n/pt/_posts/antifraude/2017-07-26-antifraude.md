@@ -947,23 +947,7 @@ curl
 |`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
 
-**RESPONSE - Quando request for inválido para qualquer provedor.**  
-
-* Quando os dados enviados para análise tiver alguma inconformidade nos valores, tamanhos permitidos e/ou tipos dos campos conforme especificação do manual.  
-
-**Message**  
-Mensagem para um requisição inválida.  
-
-**ModelState**  
-Caso algum campo não esteja de acordo com o tipo ou domínio especificado no manual.  
-
-**ModelState.FraudAnalysisRequestError**  
-Caso algum campo não esteja de acordo com o tamanho especificado no manual.  
-
-``` http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json;charset=UTF-8
-```
+# Indicando erros de integração
 
 ``` json
 {
@@ -982,6 +966,34 @@ Content-Type: application/json;charset=UTF-8
   }
 }
 ```
+
+``` shell
+curl
+--header "StatusCode: 400 Bad Request"
+--header "Content-Type: application/json"
+--data-binary
+{
+  "Message": "The request is invalid.",
+  "ModelState": {
+    "request.Customer.Gender": [
+      "Error converting value \"M\" to type 'Antifraude.Domain.Enums.GenderType'. Path 'Customer.Gender', line 51, position 17."
+    ],
+    "FraudAnalysisRequestError": [
+      "The Card.EciThreeDSecure lenght is gratter than 1",
+      "The Shipping.Complement lenght is gratter than 14",
+      "The Shipping.MiddleName lenght is gratter than 1",
+      "The Customer.MerchantCustomerId lenght is gratter than 16",
+      "The Customer.MiddleName lenght is gratter than 1"
+    ]
+  }
+--verbose
+}
+```
+
+|Parâmetro|Descrição
+|`Message`|Mensagem informando que o request é inválido|
+|`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual|
+|`FraudAnalysisRequestError`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tamanho especificado no manual|
 
 ### `GET`{:.http-get} Obtenção dos Detalhes da Análise
 
