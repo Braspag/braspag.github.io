@@ -1599,7 +1599,7 @@
 
 <p>When a transaction is submitted to an authentication process, the customer is redirected to the issuer’s environment, where it must perform a confirmation of its data. When the validation is successfully validated, the “liability” of the transaction is transfered to the bank. In case of dispute, the bank will be responsible for chageback.</p>
 
-<aside class="notice"><strong>Authantication:</strong>The cardholder is redirected to the authentication environment of the card issuing bank where the card password is required. Applicable only to Cielo's payent methods.</aside>
+<aside class="notice">Authantication:The cardholder is redirected to the authentication environment of the card issuing bank where the card password is required. Applicable only to Cielo's payent methods.</aside>
 
 <h3 id="request-2">Request</h3>
 
@@ -2023,7 +2023,7 @@
 
 <p>When a transaction is submitted to an external authentication process, the customer is redirected to the issuer’s environment, where it must perform a confirmation of its data. When the validation is successfully validated, the “liability” of the transaction is transfered to the bank. In case of dispute, the bank will be responsible for chageback.</p>
 
-<aside class="notice"><strong>Authantication:</strong>The cardholder is redirected to the authentication environment of the card issuing bank where the card password is required. Applicable to Cielo, Global Payments and Banorte's payent methods.</aside>
+<aside class="notice">Authantication:The cardholder is redirected to the authentication environment of the card issuing bank where the card password is required. Applicable to Cielo, Global Payments and Banorte's payent methods.</aside>
 
 <h3 id="request-3">Request</h3>
 
@@ -3279,7 +3279,7 @@
       <td>Text</td>
       <td> </td>
       <td>No</td>
-      <td>Importance level of customer order per time of day <br />Low (lowr risk)<br />Normal (medium risk)<br />High (hight risk)&lt;/LI&gt;&lt;Off (ignore this criteria)<br /></td>
+      <td>Importance level of customer order per time of day <br />Low (lowr risk)<br />Normal (medium risk)<br />High (hight risk)</td>
       <td> </td>
     </tr>
     <tr>
@@ -3887,7 +3887,7 @@
       <td>Analysis Reason Code</td>
       <td>Byte</td>
       <td>—</td>
-      <td><br />100 - Successful operation<br /><br />101 - There are one or more missed requests fields. Possible action: See the fields that are missing in AntiFraudResponse list.MissingFieldCollection. Resend the request with complete information<br /><br />102 - One or more request fields contain invalid data. Possible action: See the invalid fields in AntiFraudResponse list.InvalidFieldCollection. Resubmit the request with the correct information<br /><br />150 - Failure in the general system. Possible action: wait a few minutes and try resending the request<br /><br />151 - The request was received, but time-out occurred on the server.This error does not include time-out between the client and the server. Possible action: wait a few minutes and try resending the request<br /><br />152 The request was received, but was time-out. Possible action: wait a few minutes and resubmit the request<br /><br />202 - Fraud Prevention refused the request because the card has expired. You can also receive this code if the expiration date does not coincide with the date on issuing bank file. If payment processor allows emission credits for expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other method of payment<br /><br />231 The account number is invalid. Possible action: Request a card or other method of payment<br /><br />234 - There is a problem with the merchant setup. Possible action: Do not click. Please contact customer support to correct the configuration problem<br /><br />400 A fraud score exceeds its limit. Possible action: Review the customer’s request<br /><br />480 The request was scheduled for review by Decision Manager<br /><br />481 - The request was rejected by Manager decision<br /></td>
+      <td><br />100 - Successful operation<br />101 - There are one or more missed requests fields. Possible action: See the fields that are missing in AntiFraudResponse list.MissingFieldCollection. Resend the request with complete information<br />102 - One or more request fields contain invalid data. Possible action: See the invalid fields in AntiFraudResponse list.InvalidFieldCollection. Resubmit the request with the correct information<br />150 - Failure in the general system. Possible action: wait a few minutes and try resending the request<br />151 - The request was received, but time-out occurred on the server.This error does not include time-out between the client and the server. Possible action: wait a few minutes and try resending the request<br />152 The request was received, but was time-out. Possible action: wait a few minutes and resubmit the request<br />202 - Fraud Prevention refused the request because the card has expired. You can also receive this code if the expiration date does not coincide with the date on issuing bank file. If payment processor allows emission credits for expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other method of payment<br />231 The account number is invalid. Possible action: Request a card or other method of payment<br />234 - There is a problem with the merchant setup. Possible action: Do not click. Please contact customer support to correct the configuration problem<br />400 A fraud score exceeds its limit. Possible action: Review the customer’s request<br />480 The request was scheduled for review by Decision Manager<br />481 - The request was rejected by Manager decision<br /></td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -3898,7 +3898,7 @@
       <td>Codes that identifies the error in Addresses</td>
       <td>Text</td>
       <td>255</td>
-      <td>Ex: COR-BA^MM-BIN<br /><br />COR-BA - The billing address can be normalized<br /><br />COR-SA - The delivery address can be normalized<br /><br />INTL-BA - The billing country is outside the US<br />INTL-SA - Delivery country is outside the US<br />MIL-USA - This is a military address in the US<br />MM-A - billing and shipping addresses use different street names<br /><br />MM-BIN - The BIN card (the first six digits number) does not match the country<br /><br />MM-C - The billing and delivery addresses use different cities<br /><br />MM-CO - The billing and delivery addresses use different countries<br /><br />MM-ST - The billing and delivery addresses use different states<br /><br />MM-Z - The billing and delivery addresses use different zip codes<br /><br />UNV-ADDR - The address is unverifiable<br /></td>
+      <td>Ex: COR-BA^MM-BIN<br /><br />COR-BA - The billing address can be normalized<br />COR-SA - The delivery address can be normalized<br />INTL-BA - The billing country is outside the US<br />INTL-SA - Delivery country is outside the US<br />MIL-USA - This is a military address in the US<br />MM-A - billing and shipping addresses use different street names<br />MM-BIN - The BIN card (the first six digits number) does not match the country<br />MM-C - The billing and delivery addresses use different cities<br />MM-CO - The billing and delivery addresses use different countries<br />MM-ST - The billing and delivery addresses use different states<br />MM-Z - The billing and delivery addresses use different zip codes<br />UNV-ADDR - The address is unverifiable<br /></td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -3909,7 +3909,7 @@
       <td>Codes that identifies the score level of an order</td>
       <td>Text</td>
       <td>100</td>
-      <td>Ex: B^D^R^Z<br /><br />A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.<br /><br />B - BIN card or risk authorization. Risk factors are related to credit card and BIN / or card authorization checks.<br /><br />C - High numbers of credit cards.The customer has used more than six numbers of credit cards in the past six months.<br /><br />D - Impact of the e-mail address.The customer uses a free email provider or e-mail address is risky.<br /><br />E - Positive list. The customer is in its positive list.<br /><br />F - Negative list. The account number, address, email address or IP address for this purpose appears in its negative list.<br /><br />G - geolocation inconsistencies.The email client domain, phone number, billing address, shipping address or IP address is suspect.<br /><br />H - excessive name changes.The customer changed its name twice or more in the past six months.<br /><br />I - Internet inconsistencies.The IP address and e-mail domain are not consistent with the billing address.<br /><br />N - Entrance meaningless.The customer name and address fields contain meaningless words or language.<br /><br />The - obscenities.Customer data contains obscene words.<br /><br />P - morphing identity. Various amounts of an identity element are attached to a different value of an identity element. For example, various telephone numbers are connected to a single account number.<br /><br />Q - Inconsistencies phone. The customer’s phone number is suspect.<br /><br />R - risky Order.The transaction, the customer and the merchant show information correlated high risk.<br /><br />T - Time Coverage. The client is attempting a purchase outside the expected time.<br /><br />U - unverifiable address. The billing address or delivery can not be verified.<br /><br />V - Velocity.The account number was used many times in the last 15 minutes.<br /><br />W - marked as suspect. The billing address and delivery is similar to an address previously marked suspect.<br /><br />Y - The address, city, state or country of billing and shipping addresses do not correlate.<br /><br />Z - Invalid value. As the request it contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the application carefully to detect abnormalities.<br /></td>
+      <td>Ex: B^D^R^Z<br /><br />A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.<br />B - BIN card or risk authorization. Risk factors are related to credit card and BIN / or card authorization checks.<br />C - High numbers of credit cards.The customer has used more than six numbers of credit cards in the past six months.<br />D - Impact of the e-mail address.The customer uses a free email provider or e-mail address is risky.<br />E - Positive list. The customer is in its positive list.<br />F - Negative list. The account number, address, email address or IP address for this purpose appears in its negative list.<br />G - geolocation inconsistencies.The email client domain, phone number, billing address, shipping address or IP address is suspect.<br />H - excessive name changes.The customer changed its name twice or more in the past six months.<br />I - Internet inconsistencies.The IP address and e-mail domain are not consistent with the billing address.<br />N - Entrance meaningless.The customer name and address fields contain meaningless words or language.<br />The - obscenities.Customer data contains obscene words.<br />P - morphing identity. Various amounts of an identity element are attached to a different value of an identity element. For example, various telephone numbers are connected to a single account number.<br />Q - Inconsistencies phone. The customer’s phone number is suspect.<br />R - risky Order.The transaction, the customer and the merchant show information correlated high risk.<br />T - Time Coverage. The client is attempting a purchase outside the expected time.<br />U - unverifiable address. The billing address or delivery can not be verified.<br />V - Velocity.The account number was used many times in the last 15 minutes.<br />W - marked as suspect. The billing address and delivery is similar to an address previously marked suspect.<br />Y - The address, city, state or country of billing and shipping addresses do not correlate.<br />Z - Invalid value. As the request it contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the application carefully to detect abnormalities.<br /></td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -3953,7 +3953,7 @@
       <td>Card Brand</td>
       <td>Text</td>
       <td>20</td>
-      <td><br />MaestroInternational - Maestro International<br /><br />MaestroUkDomestic - Maestro UK Domestic<br /><br />MastercardCredit - MasterCard Credit<br /><br />MastercardDebit - MasterCard Debit<br /><br />VisaCredit - Visa Credit<br /><br />VisaDebit - Visa Debit<br /><br />VisaElectron - Visa Electron<br /></td>
+      <td><br />MaestroInternational - Maestro International<br />MaestroUkDomestic - Maestro UK Domestic<br />MastercardCredit - MasterCard Credit<br />MastercardDebit - MasterCard Debit<br />VisaCredit - Visa Credit<br />VisaDebit - Visa Debit<br />VisaElectron - Visa Electron<br /></td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -3975,7 +3975,7 @@
       <td>Sequence of codes that indicate that there is an excessive change in the buyer’s identity. The codes are concatenated using the ^.</td>
       <td>Text</td>
       <td>255</td>
-      <td>Ex: <br /><br />MORPH-B - The same billing address has been used several times with multiple client identities<br /><br />MORPH-C - The same account number has been used several times with multiple client identities<br /><br />MORPH-E - The same e-mail address has been used several times with multiple client identities<br />MORPH I - The same IP address has been used multiple times with multiple clients identities<br /><br />MORPH-P - The same phone number has been used several times with multiple client identities<br /><br />MORPH-S - The same delivery address has been used multiple times with multiple clients identities<br /></td>
+      <td>Ex: <br /><br />MORPH-B - The same billing address has been used several times with multiple client identities<br />MORPH-C - The same account number has been used several times with multiple client identities<br />MORPH-E - The same e-mail address has been used several times with multiple client identities<br />MORPH I - The same IP address has been used multiple times with multiple clients identities<br />MORPH-P - The same phone number has been used several times with multiple client identities<br />MORPH-S - The same delivery address has been used multiple times with multiple clients identities<br /></td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -3986,7 +3986,7 @@
       <td>IP routing type used by the computer</td>
       <td>Text</td>
       <td>—</td>
-      <td><br />Anonymizer<br /><br />AolBased<br /><br />CacheProxy<br /><br />Fixed<br /><br />InternationalProxy<br /><br />MobileGateway<br /><br />Pop<br /><br />RegionalProxy<br /><br />Satellite<br /><br />SuperPop<br /></td>
+      <td><br />Anonymizer<br />AolBased<br />CacheProxy<br />Fixed<br />InternationalProxy<br />MobileGateway<br />Pop<br />RegionalProxy<br />Satellite<br />SuperPop<br /></td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -4694,7 +4694,7 @@
       <td>Text</td>
       <td>14</td>
       <td>Yes</td>
-      <td>Possible values:<br />AnalyseFirst<br /><br />AuthorizeFirst<br /></td>
+      <td>Possible values:<br />AnalyseFirst<br />AuthorizeFirst<br /></td>
       <td> </td>
     </tr>
     <tr>
@@ -4702,7 +4702,7 @@
       <td>Text</td>
       <td>9</td>
       <td>Yes</td>
-      <td>Flow criteria.<br /><br />OnSuccess - on success of chosen sequence<br /><br />Always - analyse independently the result of chosen sequence<br /></td>
+      <td>Flow criteria.<br />OnSuccess - on success of chosen sequence<br />Always - analyse independently the result of chosen sequence<br /></td>
       <td> </td>
     </tr>
     <tr>
@@ -5038,7 +5038,7 @@
       <td>Text</td>
       <td>6</td>
       <td>No</td>
-      <td>Product risk level <br /><br />Low (lowr risk)<br /><br />Normal (medium risk)<br /><br />High (hight risk)<br /></td>
+      <td>Product risk level <br />Low (lowr risk)<br />Normal (medium risk)<br />High (hight risk)<br /></td>
       <td> </td>
     </tr>
     <tr>
@@ -5046,7 +5046,7 @@
       <td>Text</td>
       <td> </td>
       <td>No</td>
-      <td>Importance level of customer order per time of day <br /><br />Low (lowr risk)<br /><br />Normal (medium risk)<br /><br />High (hight risk)<br />&lt;Off (ignore this criteria)<br /></td>
+      <td>Importance level of customer order per time of day <br />Low (lowr risk)<br />Normal (medium risk)<br />High (hight risk)<br /></td>
       <td> </td>
     </tr>
     <tr>
@@ -5054,7 +5054,7 @@
       <td>Text</td>
       <td> </td>
       <td>No</td>
-      <td>Product Type<br /><br />AdultContent<br /><br />Coupon<br /><br />Default<br /><br />EletronicGood<br /><br />EletronicSoftware<br /><br />GiftCertificate<br /><br />HandlingOnly<br /><br />Service<br /><br />ShippingAndHandling<br /><br />ShippingOnly<br /><br />Subscription<br /></td>
+      <td>Product Type<br />AdultContent<br />Coupon<br />Default<br />EletronicGood<br />EletronicSoftware<br />GiftCertificate<br />HandlingOnly<br />Service<br />ShippingAndHandling<br />ShippingOnly<br />Subscription<br /></td>
       <td> </td>
     </tr>
     <tr>
@@ -5062,7 +5062,7 @@
       <td>Text</td>
       <td>6</td>
       <td>No</td>
-      <td>Importance level of customer purchase frequency<br /><br />Low (low relevance for last 15 minutes)<br /><br />Normal (medium relevance for last 15 minutes)<br /><br />High (hight relevance for last 15 minutes)<br /><br />Off (ignore this criteria)<br /></td>
+      <td>Importance level of customer purchase frequency<br />Low (low relevance for last 15 minutes)<br />Normal (medium relevance for last 15 minutes)<br />High (hight relevance for last 15 minutes)<br />Off (ignore this criteria)<br /></td>
       <td> </td>
     </tr>
     <tr>
@@ -5094,7 +5094,7 @@
       <td>Text</td>
       <td> </td>
       <td>No</td>
-      <td>Passenger classification<br /><br />Adult<br /><br />Child<br /><br />Infant<br /><br />Youth<br /><br />Student)<br /><br />SeniorCitizen<br /><br />Military<br /></td>
+      <td>Passenger classification<br />Adult<br />Child<br />Infant<br />Youth<br />Student)<br />SeniorCitizen<br />Military<br /></td>
       <td> </td>
     </tr>
     <tr>
@@ -5134,7 +5134,7 @@
       <td>Text</td>
       <td>16</td>
       <td>No</td>
-      <td>Shippint type<br /><br />SameDay<br /><br />OneDay<br /><br />TwoDay<br /><br />ThreeDay<br /><br />LowCost(<br /><br />Pickup<br /><br />Other<br /><br />None<br /></td>
+      <td>Shippint type<br />SameDay<br />OneDay<br />TwoDay<br />ThreeDay<br />LowCost(<br />Pickup<br />Other<br />None<br /></td>
       <td> </td>
     </tr>
     <tr>
@@ -5762,7 +5762,7 @@
       <td>Codes that identifies the score level of an order</td>
       <td>Text</td>
       <td>100</td>
-      <td>Ex: B^D^R^Z<br />&lt;UL&gt;&lt;LI&gt;A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.&lt;/LI&gt;</td>
+      <td>Ex: B^D^R^Z<br />A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -10091,7 +10091,7 @@
       <td>Text</td>
       <td>10 </td>
       <td>No</td>
-      <td>Interval between recurrences<br />&lt;ul&gt;&lt;li&gt;Monthly (Default) &lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt; </td>
+      <td>Interval between recurrences<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
@@ -10318,7 +10318,7 @@
       <td>Recurrency Interval </td>
       <td>Text</td>
       <td>10 </td>
-      <td>&lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt; </td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AuthorizeNow</code></td>
@@ -10493,7 +10493,7 @@
       <td>Text</td>
       <td>10 </td>
       <td>No</td>
-      <td>Interval between recurrencies.<br />&lt;ul&gt;&lt;li&gt;Monthly (Default) &lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt; </td>
+      <td>Interval between recurrencies.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code>Boolean </td>
@@ -10677,7 +10677,7 @@
       <td>Interval between recurrences </td>
       <td>Text</td>
       <td>10 </td>
-      <td>&lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt; </td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AuthorizeNow</code></td>
@@ -11134,7 +11134,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Interval</code></td>
-      <td>Interval between recurrencies. &lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Interval between recurrencies. MonthlyBimonthly Quarterly SemiAnnual Annual</td>
       <td>Number</td>
       <td>2 </td>
       <td>Yes</td>
@@ -11153,14 +11153,12 @@
 
 <p>To change Change the recurrency day, follow the example bellow</p>
 
-<aside class="notice"><strong>Examples:</strong>
-<br /><br />If the new day informed is greater than the present day, the system will update the recurrence day in effect at the next recurrence.
+<aside class="notice">Examples:If the new day informed is greater than the present day, the system will update the recurrence day in effect at the next recurrence.
 Ex:<br />
 Today: Sep 5th<br />
 Current next scheduled recurrence date: Sep 25th <br />
 New recurrence day: 10<br />
 New next scheduled recurrence date: Sep 10th <br />
-<br /><br />
 If the new day informed is less than the present day and next recurrence will be in the current month, the system will update the recurrence day after the next execution of recurrence.<br />
 Ex:<br />
 Today: Sep 5th<br />
@@ -11168,7 +11166,6 @@ Current next scheduled recurrence date: Sep 25th <br />
 New recurrence day: 2<br />
 Next scheduled recurrence date: Sep 25th<br />
 Next scheduled recurrence date: Oct 2th <br />
-<br /><br />
 If the new day informed is less than the present day and next recurrence will be in diferent month, the new recurrence day will be updated, in effect at the next recurrence.<br />
 Today: Sep 5th<br />
 Current next scheduled recurrence date: Oct 25th <br />
@@ -11412,7 +11409,7 @@ New Next scheduled recurrence date: Oct 2th <br />
 
 <p>To Change the payment data, such as Credit Card number, follow the example bellow</p>
 
-<aside class="notice"><strong>Attention:</strong> This operation changes onlu "Payment" node, and other informatios such as recurrency rules and customer's dada, will not be affected</aside>
+<aside class="notice">Attention: This operation changes onlu "Payment" node, and other informatios such as recurrency rules and customer's dada, will not be affected</aside>
 
 <h3 id="request-25">Request</h3>
 
@@ -12605,7 +12602,7 @@ New Next scheduled recurrence date: Oct 2th <br />
       <td>Recurrence Status</td>
       <td>Number</td>
       <td>1 </td>
-      <td>&lt;UL&gt;&lt;LI&gt;1 - Active&lt;/LI&gt;&lt;LI&gt;2 - Finished&lt;/LI&gt;&lt;LI&gt;3,4,5 - Disabled&lt;/LI&gt;&lt;/UL&gt; </td>
+      <td>1 - Active2 - Finished3,4,5 - Disabled </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RecurrencyDay</code></td>
@@ -13815,12 +13812,12 @@ New Next scheduled recurrence date: Oct 2th <br />
 
 <h2 id="device-finger-print">Device Finger Print</h2>
 
-<p>You will need to add a 1-pixel image, which is not visible on the screen, and 2 scripts in the tag &lt;Body&gt; from your checkout page. Make sure that all process will take 10 seconds (rendering the code to submiiting process)</p>
+<p>You will need to add a 1-pixel image, which is not visible on the screen, and 2 scripts in the tag  from your checkout page. Make sure that all process will take 10 seconds (rendering the code to submiiting process)</p>
 
 <p>OBS: If this process is not concluded successfully, the result might not be pricise.</p>
 
 <p>Scripts
-Place the code segments above the &lt;/ Body&gt; tag to ensure that a Web page is rendered correctly. Never add code segments into visible HTML elements. Code segments need to be loaded before the customer completes the purchase order, otherwise an error will be generated.</p>
+Place the code segments above the  tag to ensure that a Web page is rendered correctly. Never add code segments into visible HTML elements. Code segments need to be loaded before the customer completes the purchase order, otherwise an error will be generated.</p>
 
 <p>Replacing the variables
 Copy the codes bellow, and replace the variables with correct values.</p>
@@ -13838,7 +13835,7 @@ Copy the codes bellow, and replace the variables with correct values.</p>
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›<span class="err">&amp;</span>session_id=‹merchant id›‹session ID›<span class="err">&amp;</span>m=2" alt=""›
 </code></pre></div></div>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- EXEMPLO --&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 ‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID<span class="err">&amp;</span>session_id=sample_merchantIDsample_sessionID<span class="err">&amp;</span>m=1)"›‹/p›
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID<span class="err">&amp;</span>session_\id=sample_merchantIDsample_sessionID<span class="err">&amp;</span>m=2" alt=""›
 </code></pre></div></div>
@@ -13851,7 +13848,7 @@ Copy the codes bellow, and replace the variables with correct values.</p>
 ‹/object› 
 </code></pre></div></div>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- EXEMPLO --&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 ‹object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID<span class="err">&amp;</span>session_id=sample_merchantIDsample_sessionID"width="1" height="1" id="thm_fp"›
 ‹param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID<span class="err">&amp;</span>session_id=sample_merchantIDsample_sessionID" /›
 ‹div›‹/div›
@@ -13865,7 +13862,7 @@ id=‹merchant id›‹session ID›" type="text/javascript"›
 ‹/script› 
 </code></pre></div></div>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- EXEMPLO --&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 ‹script src="https://h.online-metrix.net/fp/check.js?org_id=‹org ID›<span class="err">&amp;</span>session_
 id=‹merchant id›‹session ID›" type="text/javascript"›
 ‹/script› 
@@ -13884,7 +13881,7 @@ id=‹merchant id›‹session ID›" type="text/javascript"›
   <tbody>
     <tr>
       <td>What is the difference between Status, ReasonCode and ProviderReturnCode?</td>
-      <td>The answer is:<br />&lt;UL&gt;&lt;LI&gt;Status: represents the current status of the transaction.&lt;/LI&gt;&lt;LI&gt;ReasonCode: represents the status of the request.&lt;/LI&gt;&lt;LI&gt;ProviderReturnCode: represents the response code from the acquirer or bank.&lt;/LI&gt;&lt;/UL&gt;For example, an authorization request may have a return with ReasonCode = 0 (Sucessfull), ie the request has been successfully completed, but the Status may be 0-Denied, for having the transaction not authorized by the buyer, ProviderReturnCode 57 (one of Cielo’s denied codes)</td>
+      <td>The answer is:<br />Status: represents the current status of the transaction.ReasonCode: represents the status of the request.ProviderReturnCode: represents the response code from the acquirer or bank.For example, an authorization request may have a return with ReasonCode = 0 (Sucessfull), ie the request has been successfully completed, but the Status may be 0-Denied, for having the transaction not authorized by the buyer, ProviderReturnCode 57 (one of Cielo’s denied codes)</td>
       <td>Integration</td>
     </tr>
   </tbody>

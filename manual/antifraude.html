@@ -2814,8 +2814,8 @@ Para maior detalhes de como realizar o GET, consultar em Análise a sessão <str
   <li>
     <p>Incluindo o javascript da Iovation</p>
 
-    <p>Para incluir o javascript, adicione o seguinte elemento <code class="highlighter-rouge">&lt;script&gt;</code> na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.<br />
-  <strong>Exemplo:</strong> <code class="highlighter-rouge">&lt;script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"&gt;&lt;/script&gt;</code></p>
+    <p>Para incluir o javascript, adicione o seguinte elemento <code class="highlighter-rouge">na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.  
+  **Exemplo:**</code></p>
   </li>
   <li>
     <p>Parâmetros de configuração</p>
@@ -2865,22 +2865,22 @@ Para maior detalhes de como realizar o GET, consultar em Análise a sessão <str
 <p><strong>Exemplo</strong></p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;script&gt;</span>
+
+
+
     var io_install_flash = false;
     var io_install_stm = false;
     var io_bbout_element_id = 'gatewayFingerprint';
-<span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://mpsnare.iesnare.com/snare.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;form&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"gatewayFingerprint"</span> <span class="na">id=</span><span class="s">"gatewayFingerprint"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/form&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+
+
+
+
+    
+        
+    
+
+
 
 </code></pre></div></div>
 
@@ -2963,7 +2963,7 @@ A <em>caixa preta</em> que retornou de <em>+ioBegin</em> nunca deve estar vazio.
 </ul>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#import "sampleViewController.h"
-#import <span class="nt">&lt;iovation</span><span class="err">/</span><span class="na">iovation</span><span class="err">.</span><span class="na">h</span><span class="nt">&gt;</span>
+#import 
 @implementation SampleViewController
 @property (strong, nonatomic) UILabel *blackbox;
 // Button press updates text field with blackbox value
@@ -3079,7 +3079,7 @@ public class DevicePrintSampleActivity extends Activity
     * Called when the activity is first created.
     * @param savedInstanceState If the activity is being re-initialized after
     * previously being shut down then this Bundle contains the data it most
-    * recently supplied in onSaveInstanceState(Bundle). <span class="nt">&lt;b&gt;</span>Note: Otherwise it is null.<span class="nt">&lt;/b&gt;</span>
+    * recently supplied in onSaveInstanceState(Bundle). Note: Otherwise it is null.
     */
 
     @Override
@@ -3102,14 +3102,14 @@ public class DevicePrintSampleActivity extends Activity
 
 <h2 id="cybersource">Cybersource</h2>
 
-<p>Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag <em>&lt;body&gt;</em> da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.</p>
+<p>Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ** da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.</p>
 
 <p><strong>IMPORTANTE!</strong><br />
 Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.</p>
 
 <p><strong>Colocando os segmentos de código e substituindo os valores das variáveis</strong></p>
 
-<p>Coloque os segmentos de código imediatamente acima da tag <em>&lt;/body&gt;</em> para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.</p>
+<p>Coloque os segmentos de código imediatamente acima da tag ** para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.</p>
 
 <p>Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.</p>
 
@@ -3128,15 +3128,15 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 </ul>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;form&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;amp;session_id=ProviderMerchantIdProviderSessionId&amp;amp;m=1)"</span><span class="nt">&gt;&lt;/p&gt;</span>  
-        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;amp;session_id=ProviderMerchantIdProviderSessionId&amp;amp;m=2"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>  
-    <span class="nt">&lt;/form&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+
+
+
+    
+          
+          
+    
+
+
 
 </code></pre></div></div>
 
@@ -3145,17 +3145,17 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 </ul>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;form&gt;</span>
-        <span class="nt">&lt;object</span> <span class="na">type=</span><span class="s">"application/x-shockwave-flash"</span> <span class="na">data=</span><span class="s">"https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;amp;session_id=ProviderMerchantIdProviderSessionId"</span> <span class="na">width=</span><span class="s">"1"</span> <span class="na">height=</span><span class="s">"1"</span> <span class="na">id=</span><span class="s">"thm_fp"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">"movie"</span> <span class="na">value=</span><span class="s">"https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;amp;session_id=ProviderMerchantIdProviderSessionId"</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;div&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;/object&gt;</span>
-    <span class="nt">&lt;/form&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+
+
+
+    
+        
+            
+            
+        
+    
+
+
 
 </code></pre></div></div>
 
@@ -3163,11 +3163,11 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
   <li>Javascript Code</li>
 </ul>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;&lt;/head&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;amp;session_id=ProviderMerchantIdProviderSessionId"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;body&gt;&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+
 </code></pre></div></div>
 
 <p><strong>IMPORTANTE!</strong><br />

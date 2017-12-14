@@ -440,7 +440,7 @@ Caso o cliente queira codificar/decodificar um conteúdo como teste, ele pode ac
 
 <h2 id="tipos-de-erro">Tipos de erro</h2>
 
-<p>Quando o valor da TAG <code class="highlighter-rouge">&lt;Sucess&gt;</code> for igual a false, a coleção de <code class="highlighter-rouge">&lt;ErrorReport&gt;</code> será retornada de acordo com um ou mais códigos de erros. Vide tabela abaixo.</p>
+<p>Quando o valor da TAG <code class="highlighter-rouge">for igual a false, a coleção de</code> será retornada de acordo com um ou mais códigos de erros. Vide tabela abaixo.</p>
 
 <table>
   <thead>
@@ -2236,22 +2236,22 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
 
 <h3 id="request-1">Request</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;soapenv:Envelope</span> <span class="na">xmlns:soapenv=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:rec=</span><span class="s">"https://reconciliation.braspag.com.br"</span><span class="nt">&gt;</span>   
-   <span class="nt">&lt;soapenv:Header/&gt;</span>   
-   <span class="nt">&lt;soapenv:Body&gt;</span>   
-      <span class="nt">&lt;rec:GetReconciliationFile&gt;</span>   
-         <span class="nt">&lt;rec:request&gt;</span>   
-            <span class="nt">&lt;rec:RequestId&gt;</span>[Guid aleatório]<span class="nt">&lt;/rec:RequestId&gt;</span>   
-            <span class="nt">&lt;rec:RequestingUserName&gt;</span>[Login do usuário da loja]<span class="nt">&lt;/rec:RequestingUserName&gt;</span>   
-            <span class="nt">&lt;rec:MerchantId&gt;</span>[Identificador da loja, fornecido pela Braspag]<span class="nt">&lt;/rec:MerchantId&gt;</span>   
-            <span class="nt">&lt;rec:AcquirerId&gt;</span>[Identificador da adquirente]<span class="nt">&lt;/rec:AcquirerId&gt;</span>   
-            <span class="nt">&lt;rec:RequestingPassword&gt;</span>[Senha do usuário da loja]<span class="nt">&lt;/rec:RequestingPassword&gt;</span>   
-            <span class="nt">&lt;rec:ReferenceDate&gt;</span>[Data de referência do arquivo]<span class="nt">&lt;/rec:ReferenceDate&gt;</span>   
-            <span class="nt">&lt;rec:FileExtensionType&gt;</span>[Extensão do arquivo]<span class="nt">&lt;/rec:FileExtensionType&gt;</span>   
-            <span class="nt">&lt;rec:FileType&gt;</span>[Tipo do arquivo]<span class="nt">&lt;/rec:FileType&gt;</span>   
-         <span class="nt">&lt;/rec:request&gt;</span>   
-      <span class="nt">&lt;/rec:GetReconciliationFile&gt;</span>   
-   <span class="nt">&lt;/soapenv:Body&gt;</span>  
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   
+      
+      
+         
+            
+            [Guid aleatório]   
+            [Login do usuário da loja]   
+            [Identificador da loja, fornecido pela Braspag]   
+            [Identificador da adquirente]   
+            [Senha do usuário da loja]   
+            [Data de referência do arquivo]   
+            [Extensão do arquivo]   
+            [Tipo do arquivo]   
+            
+         
+     
 </code></pre></div></div>
 
 <table>
@@ -2311,35 +2311,35 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 --Bem sucedido
 
-<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchemainstance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>    <span class="nt">&lt;soap:Body&gt;</span>   
-      <span class="nt">&lt;GetReconciliationFileResponse</span> <span class="na">xmlns=</span><span class="s">"https://reconciliation.braspag.com.br"</span><span class="nt">&gt;</span>   
-         <span class="nt">&lt;GetReconciliationFileResult&gt;</span>   
-            <span class="nt">&lt;CorrelatedId&gt;</span>124be5db-a809-47e1-b456-1f2e103caa17<span class="nt">&lt;/CorrelatedId&gt;</span>   
-            <span class="nt">&lt;Success&gt;</span>true<span class="nt">&lt;/Success&gt;</span>               <span class="nt">&lt;ErrorReportCollection/&gt;</span>   
-            <span class="nt">&lt;FileContent&gt;</span> QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==<span class="nt">&lt;/FileContent&gt;</span>   
-         <span class="nt">&lt;/GetReconciliationFileResult&gt;</span>   
-      <span class="nt">&lt;/GetReconciliationFileResponse&gt;</span>   
-   <span class="nt">&lt;/soap:Body&gt;</span>   
-<span class="nt">&lt;/soap:Envelope&gt;</span>   
+       
+         
+            
+            124be5db-a809-47e1-b456-1f2e103caa17   
+            true                  
+             QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==   
+            
+         
+      
+   
 </code></pre></div></div>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 -- Mal Sucedida   
 
-<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchemainstance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>    <span class="nt">&lt;soap:Body&gt;</span>   
-      <span class="nt">&lt;GetReconciliationFileResponse</span> <span class="na">xmlns=</span><span class="s">"https://reconciliation.braspag.com.br"</span><span class="nt">&gt;</span>   
-         <span class="nt">&lt;GetReconciliationFileResult&gt;</span>   
-            <span class="nt">&lt;CorrelatedId&gt;</span>124be5db-a809-47e1-b456-1f2e103caa17<span class="nt">&lt;/CorrelatedId&gt;</span>   
-            <span class="nt">&lt;Success&gt;</span>false<span class="nt">&lt;/Success&gt;</span>   
-            <span class="nt">&lt;ErrorReportCollection&gt;</span>   
-               <span class="nt">&lt;ErrorReport&gt;</span>   
-                  <span class="nt">&lt;Code&gt;</span>44<span class="nt">&lt;/Code&gt;</span>   
-                  <span class="nt">&lt;Message&gt;</span>Acesso não autorizado do IP para a loja fornecida na requisição.<span class="nt">&lt;/Message&gt;&lt;/ErrorReport&gt;</span>   
-            <span class="nt">&lt;/ErrorReportCollection&gt;</span>   
-         <span class="nt">&lt;/GetReconciliationFileResult&gt;</span>   
-      <span class="nt">&lt;/GetReconciliationFileResponse&gt;</span>   
-   <span class="nt">&lt;/soap:Body&gt;</span>   
-<span class="nt">&lt;/soap:Envelope&gt;</span>   
+       
+         
+            
+            124be5db-a809-47e1-b456-1f2e103caa17   
+            false   
+               
+                  
+                  44   
+                  Acesso não autorizado do IP para a loja fornecida na requisição.   
+               
+            
+         
+      
+   
 </code></pre></div></div>
 
 <table>
@@ -4131,22 +4131,22 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
 
 <h3 id="request-2">Request</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;soapenv:Envelope</span> <span class="na">xmlns:soapenv=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:rec=</span><span class="s">"https://reconciliation.braspag.com.br"</span><span class="nt">&gt;</span>   
-   <span class="nt">&lt;soapenv:Header/&gt;</span>   
-   <span class="nt">&lt;soapenv:Body&gt;</span>   
-      <span class="nt">&lt;rec:GetReconciliationFile&gt;</span>   
-         <span class="nt">&lt;rec:request&gt;</span>   
-            <span class="nt">&lt;rec:RequestId&gt;</span>[Guid aleatório]<span class="nt">&lt;/rec:RequestId&gt;</span>   
-            <span class="nt">&lt;rec:RequestingUserName&gt;</span>[Login do usuário da loja]<span class="nt">&lt;/rec:RequestingUserName&gt;</span>   
-            <span class="nt">&lt;rec:MerchantId&gt;</span>[Identificador da loja, fornecido pela Braspag]<span class="nt">&lt;/rec:MerchantId&gt;</span>   
-            <span class="nt">&lt;rec:AcquirerId&gt;</span>[Identificador da adquirente]<span class="nt">&lt;/rec:AcquirerId&gt;</span>   
-            <span class="nt">&lt;rec:RequestingPassword&gt;</span>[Senha do usuário da loja]<span class="nt">&lt;/rec:RequestingPassword&gt;</span>   
-            <span class="nt">&lt;rec:ReferenceDate&gt;</span>[Data de referência do arquivo]<span class="nt">&lt;/rec:ReferenceDate&gt;</span>   
-            <span class="nt">&lt;rec:FileExtensionType&gt;</span>[Extensão do arquivo]<span class="nt">&lt;/rec:FileExtensionType&gt;</span>   
-            <span class="nt">&lt;rec:FileType&gt;</span>[Tipo do arquivo]<span class="nt">&lt;/rec:FileType&gt;</span>   
-         <span class="nt">&lt;/rec:request&gt;</span>   
-      <span class="nt">&lt;/rec:GetReconciliationFile&gt;</span>   
-   <span class="nt">&lt;/soapenv:Body&gt;</span>  
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   
+      
+      
+         
+            
+            [Guid aleatório]   
+            [Login do usuário da loja]   
+            [Identificador da loja, fornecido pela Braspag]   
+            [Identificador da adquirente]   
+            [Senha do usuário da loja]   
+            [Data de referência do arquivo]   
+            [Extensão do arquivo]   
+            [Tipo do arquivo]   
+            
+         
+     
 </code></pre></div></div>
 
 <table>
@@ -4206,35 +4206,35 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 --Bem sucedido
 
-<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchemainstance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>    <span class="nt">&lt;soap:Body&gt;</span>   
-      <span class="nt">&lt;GetReconciliationFileResponse</span> <span class="na">xmlns=</span><span class="s">"https://reconciliation.braspag.com.br"</span><span class="nt">&gt;</span>   
-         <span class="nt">&lt;GetReconciliationFileResult&gt;</span>   
-            <span class="nt">&lt;CorrelatedId&gt;</span>124be5db-a809-47e1-b456-1f2e103caa17<span class="nt">&lt;/CorrelatedId&gt;</span>   
-            <span class="nt">&lt;Success&gt;</span>true<span class="nt">&lt;/Success&gt;</span>               <span class="nt">&lt;ErrorReportCollection/&gt;</span>   
-            <span class="nt">&lt;FileContent&gt;</span> QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==<span class="nt">&lt;/FileContent&gt;</span>   
-         <span class="nt">&lt;/GetReconciliationFileResult&gt;</span>   
-      <span class="nt">&lt;/GetReconciliationFileResponse&gt;</span>   
-   <span class="nt">&lt;/soap:Body&gt;</span>   
-<span class="nt">&lt;/soap:Envelope&gt;</span>   
+       
+         
+            
+            124be5db-a809-47e1-b456-1f2e103caa17   
+            true                  
+             QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==   
+            
+         
+      
+   
 </code></pre></div></div>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 -- Mal Sucedida   
 
-<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchemainstance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>    <span class="nt">&lt;soap:Body&gt;</span>   
-      <span class="nt">&lt;GetReconciliationFileResponse</span> <span class="na">xmlns=</span><span class="s">"https://reconciliation.braspag.com.br"</span><span class="nt">&gt;</span>   
-         <span class="nt">&lt;GetReconciliationFileResult&gt;</span>   
-            <span class="nt">&lt;CorrelatedId&gt;</span>124be5db-a809-47e1-b456-1f2e103caa17<span class="nt">&lt;/CorrelatedId&gt;</span>   
-            <span class="nt">&lt;Success&gt;</span>false<span class="nt">&lt;/Success&gt;</span>   
-            <span class="nt">&lt;ErrorReportCollection&gt;</span>   
-               <span class="nt">&lt;ErrorReport&gt;</span>   
-                  <span class="nt">&lt;Code&gt;</span>44<span class="nt">&lt;/Code&gt;</span>   
-                  <span class="nt">&lt;Message&gt;</span>Acesso não autorizado do IP para a loja fornecida na requisição.<span class="nt">&lt;/Message&gt;&lt;/ErrorReport&gt;</span>   
-            <span class="nt">&lt;/ErrorReportCollection&gt;</span>   
-         <span class="nt">&lt;/GetReconciliationFileResult&gt;</span>   
-      <span class="nt">&lt;/GetReconciliationFileResponse&gt;</span>   
-   <span class="nt">&lt;/soap:Body&gt;</span>   
-<span class="nt">&lt;/soap:Envelope&gt;</span>   
+       
+         
+            
+            124be5db-a809-47e1-b456-1f2e103caa17   
+            false   
+               
+                  
+                  44   
+                  Acesso não autorizado do IP para a loja fornecida na requisição.   
+               
+            
+         
+      
+   
 </code></pre></div></div>
 
 <table>

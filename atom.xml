@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-14T11:51:42+00:00</updated>
+    <updated>2017-12-14T13:30:53+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -2675,7 +2675,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o “liability” da transação passa a ser do banco, ou seja, em casos de contestação, o banco será o responsável.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Autenticação:&lt;/strong&gt;Nesta modalidade o portador do cartão é direcionado para o ambiente de autenticação do banco emissor do cartão onde será solicitada a inclusão da senha do cartão. Aplicável somente para Cielo.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Autenticação:Nesta modalidade o portador do cartão é direcionado para o ambiente de autenticação do banco emissor do cartão onde será solicitada a inclusão da senha do cartão. Aplicável somente para Cielo.&lt;/aside&gt;
 
 &lt;h3 id=&quot;requisição-3&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -3629,7 +3629,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Critério do fluxo.&lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;OnSuccess - Só realiza a analise se tiver sucesso na transação&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Always - Sempre realiza a analise&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Critério do fluxo.&lt;br /&gt;OnSuccess - Só realiza a analise se tiver sucesso na transaçãoAlways - Sempre realiza a analise&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.CaptureOnLowRisk&lt;/code&gt;&lt;/td&gt;
@@ -3706,35 +3706,35 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países&lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (Ignora a análise de risco para endereços divergentes)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países&lt;br /&gt;Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)Off (Ignora a análise de risco para endereços divergentes)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.HostHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância do e-mail e endereço IP na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância do e-mail e endereço IP na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância do e-mail e endereço IP na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (E-mail e endereço IP não afetam a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. &lt;br /&gt;Low (Baixa importância do e-mail e endereço IP na análise de risco)Normal (Média importância do e-mail e endereço IP na análise de risco)High (Alta importância do e-mail e endereço IP na análise de risco)Off (E-mail e endereço IP não afetam a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.NonSensicalHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (Verificação do pedido do comprador não afeta a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. &lt;br /&gt;Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)Off (Verificação do pedido do comprador não afeta a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.ObscenitiesHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de obscenidade dos pedidos recebedidos. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível de obscenidade dos pedidos recebedidos. &lt;br /&gt;Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.PhoneHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível dos testes realizados com os números de telefones. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância nos testes realizados com números de telefone)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância nos testes realizados com números de telefone)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância nos testes realizados com números de telefone)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (Testes de números de telefone não afetam a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível dos testes realizados com os números de telefones. &lt;br /&gt;Low (Baixa importância nos testes realizados com números de telefone)Normal (Média importância nos testes realizados com números de telefone)High (Alta importância nos testes realizados com números de telefone)Off (Testes de números de telefone não afetam a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Name&lt;/code&gt;&lt;/td&gt;
@@ -3769,28 +3769,28 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível do risco do produto. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (O produto tem um histórico de poucos chargebacks)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (O produto tem um histórico de chargebacks considerado normal)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (O produto tem um histórico de chargebacks acima da média)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível do risco do produto. &lt;br /&gt;Low (O produto tem um histórico de poucos chargebacks)Normal (O produto tem um histórico de chargebacks considerado normal)High (O produto tem um histórico de chargebacks acima da média)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.TimeHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância da hora do dia do pedido do cliente. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (O horário da compra não afeta a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível de importância da hora do dia do pedido do cliente. &lt;br /&gt;Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)Off (O horário da compra não afeta a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Type&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Tipo do produto. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;AdultContent(Conteúdo adulto)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Coupon(Cupon de desconto)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;EletronicGood(Produto eletrônico)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;EletronicSoftware(Softwares distribuídos eletronicamente via download)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;GiftCertificate(Vale presente)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;HandlingOnly(Taxa de instalação ou manuseio)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Service(Serviço)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ShippingAndHandling(Frete e taxa de instalação ou manuseio)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ShippingOnly(Frete)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Subscription(Assinatura)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Tipo do produto. &lt;br /&gt;AdultContent(Conteúdo adulto)Coupon(Cupon de desconto)Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)EletronicGood(Produto eletrônico)EletronicSoftware(Softwares distribuídos eletronicamente via download)GiftCertificate(Vale presente)HandlingOnly(Taxa de instalação ou manuseio)Service(Serviço)ShippingAndHandling(Frete e taxa de instalação ou manuseio)ShippingOnly(Frete)Subscription(Assinatura)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.VelocityHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância de frequência de compra do cliente. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível de importância de frequência de compra do cliente. &lt;br /&gt;Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Email&lt;/code&gt;&lt;/td&gt;
@@ -3818,7 +3818,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Classificação do Passageiro. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Adult (Passageiro adulto)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Child(Passageiro criança)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Infant(Passageiro infantil)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Youth(Passageiro adolescente)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Student(Passageiro estudante)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;SeniorCitizen(Passageiro idoso)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Military(Passageiro militar)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Classificação do Passageiro. &lt;br /&gt;Adult (Passageiro adulto)Child(Passageiro criança)Infant(Passageiro infantil)Youth(Passageiro adolescente)Student(Passageiro estudante)SeniorCitizen(Passageiro idoso)Military(Passageiro militar)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Phone&lt;/code&gt;&lt;/td&gt;
@@ -3860,7 +3860,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Tipo de serviço de entrega do produto. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;SameDay(Serviço de entrega no mesmo dia)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;OneDay(Serviço de entrega noturna ou no dia seguint)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;TwoDay(Serviço de entrega em dois dias)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ThreeDay(Serviço de entrega em três dias)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;LowCost(Serviço de entrega de baixo custo)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Pickup(Produto retirado na loja)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Other(Outro método de entrega)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;None(Sem serviço de entrega, pois é um serviço ou assinatura)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Tipo de serviço de entrega do produto. &lt;br /&gt;SameDay(Serviço de entrega no mesmo dia)OneDay(Serviço de entrega noturna ou no dia seguint)TwoDay(Serviço de entrega em dois dias)ThreeDay(Serviço de entrega em três dias)LowCost(Serviço de entrega de baixo custo)Pickup(Produto retirado na loja)Other(Outro método de entrega)None(Sem serviço de entrega, pois é um serviço ou assinatura)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Shipping.Phone&lt;/code&gt;&lt;/td&gt;
@@ -4309,21 +4309,21 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Resultado da análise&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;100 - Operação bem sucedida.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;481 - O pedido foi rejeitado pelo Gerenciador de Decisão&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.ReplyData.AddressInfoCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Combinação de códigos que indicam erro no endereço de cobrança e/ou entrega. Os códigos são concatenados usando o caractere ^&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Ex: COR-BA^MM-BIN&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;COR-BA - O endereço de cobrança pode ser normalizado.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;COR-SA - O endereço de entrega pode ser normalizado.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;INTL-BA - O país de cobrança é fora dos U.S.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;INTL-SA - O país de entrega é fora dos U.S.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MIL-USA - Este é um endereço militar nos U.S.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-C - Os endereços de cobrança e entrega usam cidades diferentes.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-CO - Os endereços de cobrança e entrega usam países diferentes.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-ST - Os endereços de cobrança e entrega usam estados diferentes.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;UNV-ADDR - O endereço é inverificável.&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Ex: COR-BA^MM-BIN&lt;br /&gt;COR-BA - O endereço de cobrança pode ser normalizado.COR-SA - O endereço de entrega pode ser normalizado.INTL-BA - O país de cobrança é fora dos U.S.INTL-SA - O país de entrega é fora dos U.S.MIL-USA - Este é um endereço militar nos U.S.MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.MM-C - Os endereços de cobrança e entrega usam cidades diferentes.MM-CO - Os endereços de cobrança e entrega usam países diferentes.MM-ST - Os endereços de cobrança e entrega usam estados diferentes.MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.UNV-ADDR - O endereço é inverificável.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.ReplyData.FactorCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;E - Lista positiva. O cliente está na sua lista positiva.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;O - Obscenidades. Dados do cliente contém palavras obscenas.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.ReplyData.Score&lt;/code&gt;&lt;/td&gt;
@@ -4351,7 +4351,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Tipo da bandeira&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;MaestroInternational - Maestro International&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MaestroUkDomestic - Maestro UK Domestic&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MastercardCredit - MasterCard Credit&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MastercardDebit - MasterCard Debit&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;VisaCredit - Visa Credit&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;VisaDebit - Visa Debit&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;VisaElectron - Visa Electron&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;MaestroInternational - Maestro InternationalMaestroUkDomestic - Maestro UK DomesticMastercardCredit - MasterCard CreditMastercardDebit - MasterCard DebitVisaCredit - Visa CreditVisaDebit - Visa DebitVisaElectron - Visa Electron&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.ReplyData.HostSeverity&lt;/code&gt;&lt;/td&gt;
@@ -4365,14 +4365,14 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Sequência de códigos que indicam que existe uma excessiva alteração de identidades do comprador. Os códigos são concatenados usando o caractere ^&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Ex: &lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Ex: &lt;br /&gt;MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.ReplyData.IpRoutingMethod&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Tipo de roteamento de IP utilizado pelo computador&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Anonymizer&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AolBased&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;CacheProxy&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Fixed&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;InternationalProxy&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MobileGateway&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Pop&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;RegionalProxy&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Satellite&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SuperPop&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;AnonymizerAolBasedCacheProxyFixedInternationalProxyMobileGatewayPopRegionalProxySatelliteSuperPop&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.ReplyData.ScoreModelUsed&lt;/code&gt;&lt;/td&gt;
@@ -5378,7 +5378,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Critério do fluxo.&lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;OnSuccess - Só realiza a analise se tiver sucesso na transação&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Always - Sempre realiza a analise&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Critério do fluxo.&lt;br /&gt;OnSuccess - Só realiza a analise se tiver sucesso na transaçãoAlways - Sempre realiza a analise&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5812,7 +5812,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países&lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (Ignora a análise de risco para endereços divergentes)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países&lt;br /&gt;Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)Off (Ignora a análise de risco para endereços divergentes)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5826,7 +5826,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância do e-mail e endereço IP na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância do e-mail e endereço IP na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância do e-mail e endereço IP na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (E-mail e endereço IP não afetam a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. &lt;br /&gt;Low (Baixa importância do e-mail e endereço IP na análise de risco)Normal (Média importância do e-mail e endereço IP na análise de risco)High (Alta importância do e-mail e endereço IP na análise de risco)Off (E-mail e endereço IP não afetam a análise de risco)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5840,7 +5840,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (Verificação do pedido do comprador não afeta a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. &lt;br /&gt;Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)Off (Verificação do pedido do comprador não afeta a análise de risco)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5854,7 +5854,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de obscenidade dos pedidos recebedidos. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível de obscenidade dos pedidos recebedidos. &lt;br /&gt;Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5868,7 +5868,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível dos testes realizados com os números de telefones. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância nos testes realizados com números de telefone)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância nos testes realizados com números de telefone)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância nos testes realizados com números de telefone)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (Testes de números de telefone não afetam a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível dos testes realizados com os números de telefones. &lt;br /&gt;Low (Baixa importância nos testes realizados com números de telefone)Normal (Média importância nos testes realizados com números de telefone)High (Alta importância nos testes realizados com números de telefone)Off (Testes de números de telefone não afetam a análise de risco)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5938,7 +5938,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível do risco do produto. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (O produto tem um histórico de poucos chargebacks)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (O produto tem um histórico de chargebacks considerado normal)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (O produto tem um histórico de chargebacks acima da média)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível do risco do produto. &lt;br /&gt;Low (O produto tem um histórico de poucos chargebacks)Normal (O produto tem um histórico de chargebacks considerado normal)High (O produto tem um histórico de chargebacks acima da média)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5952,7 +5952,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância da hora do dia do pedido do cliente. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (O horário da compra não afeta a análise de risco)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível de importância da hora do dia do pedido do cliente. &lt;br /&gt;Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)Off (O horário da compra não afeta a análise de risco)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5966,7 +5966,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Tipo do produto. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;AdultContent(Conteúdo adulto)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Coupon(Cupon de desconto)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;EletronicGood(Produto eletrônico)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;EletronicSoftware(Softwares distribuídos eletronicamente via download)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;GiftCertificate(Vale presente)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;HandlingOnly(Taxa de instalação ou manuseio)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Service(Serviço)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ShippingAndHandling(Frete e taxa de instalação ou manuseio)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ShippingOnly(Frete)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Subscription(Assinatura)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Tipo do produto. &lt;br /&gt;AdultContent(Conteúdo adulto)Coupon(Cupon de desconto)Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)EletronicGood(Produto eletrônico)EletronicSoftware(Softwares distribuídos eletronicamente via download)GiftCertificate(Vale presente)HandlingOnly(Taxa de instalação ou manuseio)Service(Serviço)ShippingAndHandling(Frete e taxa de instalação ou manuseio)ShippingOnly(Frete)Subscription(Assinatura)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5980,7 +5980,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância de frequência de compra do cliente. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Nível de importância de frequência de compra do cliente. &lt;br /&gt;Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -6036,7 +6036,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Classificação do Passageiro. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Adult (Passageiro adulto)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Child(Passageiro criança)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Infant(Passageiro infantil)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Youth(Passageiro adolescente)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Student(Passageiro estudante)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;SeniorCitizen(Passageiro idoso)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Military(Passageiro militar)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Classificação do Passageiro. &lt;br /&gt;Adult (Passageiro adulto)Child(Passageiro criança)Infant(Passageiro infantil)Youth(Passageiro adolescente)Student(Passageiro estudante)SeniorCitizen(Passageiro idoso)Military(Passageiro militar)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -6106,7 +6106,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Tipo de serviço de entrega do produto. &lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;SameDay(Serviço de entrega no mesmo dia)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;OneDay(Serviço de entrega noturna ou no dia seguint)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;TwoDay(Serviço de entrega em dois dias)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ThreeDay(Serviço de entrega em três dias)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;LowCost(Serviço de entrega de baixo custo)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Pickup(Produto retirado na loja)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;Other(Outro método de entrega)&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;None(Sem serviço de entrega, pois é um serviço ou assinatura)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Tipo de serviço de entrega do produto. &lt;br /&gt;SameDay(Serviço de entrega no mesmo dia)OneDay(Serviço de entrega noturna ou no dia seguint)TwoDay(Serviço de entrega em dois dias)ThreeDay(Serviço de entrega em três dias)LowCost(Serviço de entrega de baixo custo)Pickup(Produto retirado na loja)Other(Outro método de entrega)None(Sem serviço de entrega, pois é um serviço ou assinatura)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Shipping.Phone&lt;/code&gt;&lt;/td&gt;
@@ -6728,7 +6728,7 @@ diferentes.&lt;/p&gt;
       &lt;td&gt;Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;E - Lista positiva. O cliente está na sua lista positiva.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;O - Obscenidades. Dados do cliente contém palavras obscenas.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -9018,7 +9018,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;h2 id=&quot;criando-uma-transação&quot;&gt;Criando uma transação&lt;/h2&gt;
 
-&lt;p&gt;Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação. &lt;br /&gt;&lt;br /&gt;Atualmente, somente o Provider “Cielo” ou “Cielo30” suportam processamento desta modalidade.&lt;/p&gt;
+&lt;p&gt;Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação. &lt;br /&gt;Atualmente, somente o Provider “Cielo” ou “Cielo30” suportam processamento desta modalidade.&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-13&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -10773,7 +10773,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência.&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly (Default) &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência.&lt;br /&gt;Monthly (Default) Bimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -11000,7 +11000,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Intervalo entre as recorrência.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -11175,7 +11175,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência.&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly (Default) &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência.&lt;br /&gt;Monthly (Default) Bimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -11359,7 +11359,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Intervalo entre as recorrência.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -11783,7 +11783,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência. &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência. MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
@@ -11802,7 +11802,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para modificar o dia da recorrência, basta fazer um PUT conforme o exemplo.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Regra:&lt;/strong&gt; Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Regra: Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09&lt;/aside&gt;
 
 &lt;h3 id=&quot;requisição-22&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -12040,7 +12040,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para alterar os dados de pagamento da Recorrência, basta fazer um PUT conforme o exemplo.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.&lt;/aside&gt;
 
 &lt;h3 id=&quot;requisição-24&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -12893,12 +12893,12 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Regra:&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag&amp;lt;/a&amp;gt;&lt;/li&gt;
-&lt;li&gt;Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag&amp;lt;/a&amp;gt; com a opção “Histórico” selecionada&lt;/li&gt;
-&lt;li&gt;Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag&lt;/li&gt;
-&lt;/ul&gt;
+&lt;aside class=&quot;notice&quot;&gt;Regra:
+
+Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag
+Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag com a opção “Histórico” selecionada
+Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag
+
 &lt;/aside&gt;
 
 &lt;h2 id=&quot;consultando-uma-venda-pelo-identificador-da-loja&quot;&gt;Consultando uma venda pelo identificador da loja&lt;/h2&gt;
@@ -13019,12 +13019,12 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Regra:&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag&amp;lt;/a&amp;gt;&lt;/li&gt;
-&lt;li&gt;Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag&amp;lt;/a&amp;gt; com a opção “Histórico” selecionada&lt;/li&gt;
-&lt;li&gt;Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag&lt;/li&gt;
-&lt;/ul&gt;
+&lt;aside class=&quot;notice&quot;&gt;Regra:
+
+Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag
+Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag com a opção “Histórico” selecionada
+Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag
+
 &lt;/aside&gt;
 
 &lt;h2 id=&quot;consultando-um-pedido-recorrente&quot;&gt;Consultando um pedido Recorrente&lt;/h2&gt;
@@ -13230,7 +13230,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Intervalo entre as recorrência.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CurrentRecurrencyTry&lt;/code&gt;&lt;/td&gt;
@@ -13251,7 +13251,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Status do pedido recorrente&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;1 - Ativo&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;2 - Finalizado&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;3,4,5 - Inativo&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;1 - Ativo2 - Finalizado3,4,5 - Inativo&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrencyDay&lt;/code&gt;&lt;/td&gt;
@@ -14626,7 +14626,7 @@ Production - Altere o domínio para uma URL local, e configure seu servidor Web 
 ‹org id›: Para obter esse valor entre em contato com a Braspag
 ‹merchant ID›: Para obter esse valor entre em contato com a Braspag
 ‹session ID›: Use o mesmo valor passado no parametro “DeviceFingerprintID”, do serviço de requisição de análise de fraude.
-Certifique-se de copiar todos os dados corretamente e de remover os sinais de tag (&amp;lt;&amp;gt;) ao substituir as variáveis.&lt;/p&gt;
+Certifique-se de copiar todos os dados corretamente e de remover os sinais de tag () ao substituir as variáveis.&lt;/p&gt;
 
 &lt;h3 id=&quot;png-image&quot;&gt;PNG image&lt;/h3&gt;
 
@@ -14634,7 +14634,7 @@ Certifique-se de copiar todos os dados corretamente e de remover os sinais de ta
 ‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=‹merchant id›‹session ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=2&quot; alt=&quot;&quot;›
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- EXEMPLO --&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 ‹p style=&quot;background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=1)&quot;›‹/p›
 ‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_\id=sample_merchantIDsample_sessionID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=2&quot; alt=&quot;&quot;›
 
@@ -14679,7 +14679,7 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Qual é a diferença entre &lt;em&gt;Status&lt;/em&gt;, ReasonCode e ProviderReturnCode?&lt;/td&gt;
-      &lt;td&gt;A explicação conforme a seguir:&lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Status: representa o status atual da transação.&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ReasonCode: representa o status da requisição.&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ProviderReturnCode: representa o código de resposta da transação da adquirente.&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;Por exemplo, uma requisição de autorização poderá ter o retorno com ReasonCode=0 (Sucessfull), ou seja, a requisição finalizou com sucesso, porém, o Status poderá ser 0-Denied, por ter a transação não autorizada pela adquirente, por exemplo, ProviderReturnCode 57 (um dos códigos de negada da Cielo)&lt;/td&gt;
+      &lt;td&gt;A explicação conforme a seguir:&lt;br /&gt;Status: representa o status atual da transação.ReasonCode: representa o status da requisição.ProviderReturnCode: representa o código de resposta da transação da adquirente.Por exemplo, uma requisição de autorização poderá ter o retorno com ReasonCode=0 (Sucessfull), ou seja, a requisição finalizou com sucesso, porém, o Status poderá ser 0-Denied, por ter a transação não autorizada pela adquirente, por exemplo, ProviderReturnCode 57 (um dos códigos de negada da Cielo)&lt;/td&gt;
       &lt;td&gt;Integração&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -15020,7 +15020,7 @@ Caso o cliente queira codificar/decodificar um conteúdo como teste, ele pode ac
 
 &lt;h2 id=&quot;tipos-de-erro&quot;&gt;Tipos de erro&lt;/h2&gt;
 
-&lt;p&gt;Quando o valor da TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;Sucess&amp;gt;&lt;/code&gt; for igual a false, a coleção de &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ErrorReport&amp;gt;&lt;/code&gt; será retornada de acordo com um ou mais códigos de erros. Vide tabela abaixo.&lt;/p&gt;
+&lt;p&gt;Quando o valor da TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;for igual a false, a coleção de&lt;/code&gt; será retornada de acordo com um ou mais códigos de erros. Vide tabela abaixo.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -16816,22 +16816,22 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
 
 &lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;soapenv:Envelope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:soapenv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:rec=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://reconciliation.braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;soapenv:Header/&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;soapenv:Body&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:GetReconciliationFile&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:request&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:RequestId&amp;gt;&lt;/span&gt;[Guid aleatório]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:RequestId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:RequestingUserName&amp;gt;&lt;/span&gt;[Login do usuário da loja]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:RequestingUserName&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:MerchantId&amp;gt;&lt;/span&gt;[Identificador da loja, fornecido pela Braspag]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:MerchantId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:AcquirerId&amp;gt;&lt;/span&gt;[Identificador da adquirente]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:AcquirerId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:RequestingPassword&amp;gt;&lt;/span&gt;[Senha do usuário da loja]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:RequestingPassword&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:ReferenceDate&amp;gt;&lt;/span&gt;[Data de referência do arquivo]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:ReferenceDate&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:FileExtensionType&amp;gt;&lt;/span&gt;[Extensão do arquivo]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:FileExtensionType&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:FileType&amp;gt;&lt;/span&gt;[Tipo do arquivo]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:FileType&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:request&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:GetReconciliationFile&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/soapenv:Body&amp;gt;&lt;/span&gt;  
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   
+      
+      
+         
+            
+            [Guid aleatório]   
+            [Login do usuário da loja]   
+            [Identificador da loja, fornecido pela Braspag]   
+            [Identificador da adquirente]   
+            [Senha do usuário da loja]   
+            [Data de referência do arquivo]   
+            [Extensão do arquivo]   
+            [Tipo do arquivo]   
+            
+         
+     
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
@@ -16891,35 +16891,35 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 --Bem sucedido
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;soap:Envelope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:soap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchemainstance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsd=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soap:Body&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;GetReconciliationFileResponse&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://reconciliation.braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;GetReconciliationFileResult&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;CorrelatedId&amp;gt;&lt;/span&gt;124be5db-a809-47e1-b456-1f2e103caa17&lt;span class=&quot;nt&quot;&gt;&amp;lt;/CorrelatedId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;Success&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Success&amp;gt;&lt;/span&gt;               &lt;span class=&quot;nt&quot;&gt;&amp;lt;ErrorReportCollection/&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;FileContent&amp;gt;&lt;/span&gt; QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==&lt;span class=&quot;nt&quot;&gt;&amp;lt;/FileContent&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/GetReconciliationFileResult&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/GetReconciliationFileResponse&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/soap:Body&amp;gt;&lt;/span&gt;   
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soap:Envelope&amp;gt;&lt;/span&gt;   
+       
+         
+            
+            124be5db-a809-47e1-b456-1f2e103caa17   
+            true                  
+             QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==   
+            
+         
+      
+   
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 -- Mal Sucedida   
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;soap:Envelope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:soap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchemainstance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsd=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soap:Body&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;GetReconciliationFileResponse&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://reconciliation.braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;GetReconciliationFileResult&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;CorrelatedId&amp;gt;&lt;/span&gt;124be5db-a809-47e1-b456-1f2e103caa17&lt;span class=&quot;nt&quot;&gt;&amp;lt;/CorrelatedId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;Success&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Success&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;ErrorReportCollection&amp;gt;&lt;/span&gt;   
-               &lt;span class=&quot;nt&quot;&gt;&amp;lt;ErrorReport&amp;gt;&lt;/span&gt;   
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;Code&amp;gt;&lt;/span&gt;44&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Code&amp;gt;&lt;/span&gt;   
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;Message&amp;gt;&lt;/span&gt;Acesso não autorizado do IP para a loja fornecida na requisição.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Message&amp;gt;&amp;lt;/ErrorReport&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ErrorReportCollection&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/GetReconciliationFileResult&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/GetReconciliationFileResponse&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/soap:Body&amp;gt;&lt;/span&gt;   
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soap:Envelope&amp;gt;&lt;/span&gt;   
+       
+         
+            
+            124be5db-a809-47e1-b456-1f2e103caa17   
+            false   
+               
+                  
+                  44   
+                  Acesso não autorizado do IP para a loja fornecida na requisição.   
+               
+            
+         
+      
+   
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
@@ -18711,22 +18711,22 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;soapenv:Envelope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:soapenv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:rec=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://reconciliation.braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;soapenv:Header/&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;soapenv:Body&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:GetReconciliationFile&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:request&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:RequestId&amp;gt;&lt;/span&gt;[Guid aleatório]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:RequestId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:RequestingUserName&amp;gt;&lt;/span&gt;[Login do usuário da loja]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:RequestingUserName&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:MerchantId&amp;gt;&lt;/span&gt;[Identificador da loja, fornecido pela Braspag]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:MerchantId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:AcquirerId&amp;gt;&lt;/span&gt;[Identificador da adquirente]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:AcquirerId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:RequestingPassword&amp;gt;&lt;/span&gt;[Senha do usuário da loja]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:RequestingPassword&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:ReferenceDate&amp;gt;&lt;/span&gt;[Data de referência do arquivo]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:ReferenceDate&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:FileExtensionType&amp;gt;&lt;/span&gt;[Extensão do arquivo]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:FileExtensionType&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;rec:FileType&amp;gt;&lt;/span&gt;[Tipo do arquivo]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:FileType&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:request&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/rec:GetReconciliationFile&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/soapenv:Body&amp;gt;&lt;/span&gt;  
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   
+      
+      
+         
+            
+            [Guid aleatório]   
+            [Login do usuário da loja]   
+            [Identificador da loja, fornecido pela Braspag]   
+            [Identificador da adquirente]   
+            [Senha do usuário da loja]   
+            [Data de referência do arquivo]   
+            [Extensão do arquivo]   
+            [Tipo do arquivo]   
+            
+         
+     
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
@@ -18786,35 +18786,35 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 --Bem sucedido
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;soap:Envelope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:soap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchemainstance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsd=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soap:Body&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;GetReconciliationFileResponse&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://reconciliation.braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;GetReconciliationFileResult&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;CorrelatedId&amp;gt;&lt;/span&gt;124be5db-a809-47e1-b456-1f2e103caa17&lt;span class=&quot;nt&quot;&gt;&amp;lt;/CorrelatedId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;Success&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Success&amp;gt;&lt;/span&gt;               &lt;span class=&quot;nt&quot;&gt;&amp;lt;ErrorReportCollection/&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;FileContent&amp;gt;&lt;/span&gt; QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==&lt;span class=&quot;nt&quot;&gt;&amp;lt;/FileContent&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/GetReconciliationFileResult&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/GetReconciliationFileResponse&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/soap:Body&amp;gt;&lt;/span&gt;   
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soap:Envelope&amp;gt;&lt;/span&gt;   
+       
+         
+            
+            124be5db-a809-47e1-b456-1f2e103caa17   
+            true                  
+             QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==   
+            
+         
+      
+   
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 -- Mal Sucedida   
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;soap:Envelope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:soap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchemainstance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsd=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soap:Body&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;GetReconciliationFileResponse&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://reconciliation.braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;GetReconciliationFileResult&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;CorrelatedId&amp;gt;&lt;/span&gt;124be5db-a809-47e1-b456-1f2e103caa17&lt;span class=&quot;nt&quot;&gt;&amp;lt;/CorrelatedId&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;Success&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Success&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;ErrorReportCollection&amp;gt;&lt;/span&gt;   
-               &lt;span class=&quot;nt&quot;&gt;&amp;lt;ErrorReport&amp;gt;&lt;/span&gt;   
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;Code&amp;gt;&lt;/span&gt;44&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Code&amp;gt;&lt;/span&gt;   
-                  &lt;span class=&quot;nt&quot;&gt;&amp;lt;Message&amp;gt;&lt;/span&gt;Acesso não autorizado do IP para a loja fornecida na requisição.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Message&amp;gt;&amp;lt;/ErrorReport&amp;gt;&lt;/span&gt;   
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ErrorReportCollection&amp;gt;&lt;/span&gt;   
-         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/GetReconciliationFileResult&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/GetReconciliationFileResponse&amp;gt;&lt;/span&gt;   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/soap:Body&amp;gt;&lt;/span&gt;   
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soap:Envelope&amp;gt;&lt;/span&gt;   
+       
+         
+            
+            124be5db-a809-47e1-b456-1f2e103caa17   
+            false   
+               
+                  
+                  44   
+                  Acesso não autorizado do IP para a loja fornecida na requisição.   
+               
+            
+         
+      
+   
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
@@ -18903,7 +18903,6 @@ Consulte o suporte de sua linguagem de desenvolvimento para verificar se a mesma
         <content type="html">&lt;h1 id=&quot;introdução-ao-cartão-protegido&quot;&gt;Introdução ao Cartão Protegido&lt;/h1&gt;
 
 &lt;p&gt;A plataforma do &lt;strong&gt;CARTÃO PROTEGIDO&lt;/strong&gt; é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
-&lt;br /&gt;&lt;br /&gt;
 O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&lt;/strong&gt;, facilitando o envio e processamento de transações de cartão de crédito via token.&lt;/p&gt;
 
 &lt;h2 id=&quot;sobre-o-produto&quot;&gt;Sobre o Produto&lt;/h2&gt;
@@ -19230,7 +19229,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
@@ -19338,7 +19337,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
@@ -19452,7 +19451,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
@@ -19537,7 +19536,7 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
@@ -19621,7 +19620,7 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
@@ -22454,8 +22453,8 @@ Para maior detalhes de como realizar o GET, consultar em Análise a sessão &lt;
   &lt;li&gt;
     &lt;p&gt;Incluindo o javascript da Iovation&lt;/p&gt;
 
-    &lt;p&gt;Para incluir o javascript, adicione o seguinte elemento &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt; na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.&lt;br /&gt;
-  &lt;strong&gt;Exemplo:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;https://mpsnare.iesnare.com/snare.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/p&gt;
+    &lt;p&gt;Para incluir o javascript, adicione o seguinte elemento &lt;code class=&quot;highlighter-rouge&quot;&gt;na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.  
+  **Exemplo:**&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Parâmetros de configuração&lt;/p&gt;
@@ -22505,22 +22504,22 @@ Para maior detalhes de como realizar o GET, consultar em Análise a sessão &lt;
 &lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+
+
+
     var io_install_flash = false;
     var io_install_stm = false;
     var io_bbout_element_id = 'gatewayFingerprint';
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://mpsnare.iesnare.com/snare.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hidden&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gatewayFingerprint&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gatewayFingerprint&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+
+
+
+    
+        
+    
+
+
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -22603,7 +22602,7 @@ A &lt;em&gt;caixa preta&lt;/em&gt; que retornou de &lt;em&gt;+ioBegin&lt;/em&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#import &quot;sampleViewController.h&quot;
-#import &lt;span class=&quot;nt&quot;&gt;&amp;lt;iovation&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;iovation&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+#import 
 @implementation SampleViewController
 @property (strong, nonatomic) UILabel *blackbox;
 // Button press updates text field with blackbox value
@@ -22719,7 +22718,7 @@ public class DevicePrintSampleActivity extends Activity
     * Called when the activity is first created.
     * @param savedInstanceState If the activity is being re-initialized after
     * previously being shut down then this Bundle contains the data it most
-    * recently supplied in onSaveInstanceState(Bundle). &lt;span class=&quot;nt&quot;&gt;&amp;lt;b&amp;gt;&lt;/span&gt;Note: Otherwise it is null.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/b&amp;gt;&lt;/span&gt;
+    * recently supplied in onSaveInstanceState(Bundle). Note: Otherwise it is null.
     */
 
     @Override
@@ -22742,14 +22741,14 @@ public class DevicePrintSampleActivity extends Activity
 
 &lt;h2 id=&quot;cybersource&quot;&gt;Cybersource&lt;/h2&gt;
 
-&lt;p&gt;Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag &lt;em&gt;&amp;lt;body&amp;gt;&lt;/em&gt; da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.&lt;/p&gt;
+&lt;p&gt;Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ** da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
 Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Colocando os segmentos de código e substituindo os valores das variáveis&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Coloque os segmentos de código imediatamente acima da tag &lt;em&gt;&amp;lt;/body&amp;gt;&lt;/em&gt; para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.&lt;/p&gt;
+&lt;p&gt;Coloque os segmentos de código imediatamente acima da tag ** para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.&lt;/p&gt;
 
 &lt;p&gt;Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.&lt;/p&gt;
 
@@ -22768,15 +22767,15 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&amp;amp;amp;m=1)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;  
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&amp;amp;amp;m=2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+
+
+    
+          
+          
+    
+
+
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -22785,17 +22784,17 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;object&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;application/x-shockwave-flash&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;thm_fp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;param&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;movie&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+
+
+    
+        
+            
+            
+        
+    
+
+
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -22803,11 +22802,11 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
   &lt;li&gt;Javascript Code&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+
+
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
@@ -23237,7 +23236,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/boleto-bradesco-passo-2.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Obs:&lt;/strong&gt; O vencimento deverá ser o mesmo configurado no Checkout Cielo.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Obs: O vencimento deverá ser o mesmo configurado no Checkout Cielo.&lt;/aside&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;URL de notificação&lt;/strong&gt;: https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost&lt;/li&gt;
@@ -23275,7 +23274,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/boleto-bradesco-passo-4.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Obs:&lt;/strong&gt; Não podem existir espaços ou quebras de texto nos parâmetros expostos acima.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Obs: Não podem existir espaços ou quebras de texto nos parâmetros expostos acima.&lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Clique no botão “&lt;strong&gt;Gravar todas as configurações realizadas&lt;/strong&gt;”&lt;/p&gt;
 
@@ -23301,7 +23300,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Obs:&lt;/strong&gt; A afiliação do Bradesco está localizada no topo do gerenciador web.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Obs: A afiliação do Bradesco está localizada no topo do gerenciador web.&lt;/aside&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/boleto-bradesco-passo-5.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
 
@@ -23795,143 +23794,82 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;p&gt;Porém, mesmo tendo o plugin verificador no frontend, é fundamental, até por considerações de segurança, que uma validação de fato ocorra no backend. Para isso, a função abaixo irá ajudá-lo a fazer essa validação:&lt;/p&gt;
 
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cardIsValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$cardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$cardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$doubles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;s2&quot;&gt;&quot;não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo&quot;&lt;/span&gt;
 
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nv&quot;&gt;$doubles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Uma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;das&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;soluções&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encontradas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foi&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Azure&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Services&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;te&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;permite&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;montar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cluster&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;único&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comando&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sobra&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tempo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pra&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;focar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sua&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aplicação&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;não&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configuração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;máquinas&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Mas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?**&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Falando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;por&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;alto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ferramenta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orquestração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;monta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seu&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Docker&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;faz&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;trabalho&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;discovery&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;muito&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; 
+&lt;span class=&quot;nx&quot;&gt;Caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;queira&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;saber&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sobre&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;da&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;documentação&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
 
-    &lt;span class=&quot;nv&quot;&gt;$sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tutorials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;basics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
 
-    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$doubles&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nv&quot;&gt;$sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;## Montando um Cluster em Kubernetes
+&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Estou&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;levando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;em&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;consideração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;já&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`Azure CLI`&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configurado&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sua&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;máquina&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;não&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tutorial&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configuração&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$cardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;microsoft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;us&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;Para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;montar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cluster&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utilizando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AKS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;basta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;único&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comando&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;“az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos –generate-ssh-keys”&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Substitua o `NomeDoSeuCluster` pelo nome do seu cluster.
 
-&lt;p&gt;Para utilizá-la, basta testar o número do cartão enviado pelo cliente:&lt;/p&gt;
+Substitua o `NomeDoGrupoDeRecursos` pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.
 
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cardIsValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$customerCardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// o cartão é válido e podemos dar andamento na integração
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:
+
+![](https://i.imgur.com/CFwO4Jz.png)
+
+Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;“az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos”&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Caso tudo dê certo você irá receber a seguinte mensagem:
 
-&lt;h1 id=&quot;como-usar-azure-kubernetes-services&quot;&gt;Como usar Azure Kubernetes Services&lt;/h1&gt;
+![](https://i.imgur.com/oLSo4j4.png)
 
-&lt;h2 id=&quot;sobre-o-autor&quot;&gt;Sobre o Autor:&lt;/h2&gt;
+Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Tiago Rosendo&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Desenvolvedor na Braspag, backend de coração e apaixonado pelo frontend, entusiasta de JS e Docker e nas horas vagas não dispensa uma jogatina online.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;LinkedIn:&lt;/strong&gt; https://www.linkedin.com/in/trosendo / &lt;strong&gt;E-mail:&lt;/strong&gt; trosendo@braspag.com.br&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
-
-&lt;p&gt;Vamos falar um pouco sobre o Azure Kubernetes Services, vulgo AKS.
-O utilizamos para realizar deploys em nossas principais aplicações, desde as mais básicas as mais complexas tudo com alta disponibilidade!&lt;/p&gt;
-
-&lt;p&gt;Rodar containers Docker em um computador local é muito simples, basta um comando &lt;code class=&quot;highlighter-rouge&quot;&gt;docker run nginx&lt;/code&gt; e pronto, você tem seu container lindo rodando, porém quando você tem a necessidade de rodar esse mesmo container em um ambiente de nuvem a história muda… 
-Você tem que montar seu cluster, configurar o auto-scale, configurar o load balance… MEU DEUS QUANTA COISA!
-Um certo dia, parei para pesquisar uma solução que poupasse meu tempo, logo, pensei comigo:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Uma das soluções encontradas foi o &lt;strong&gt;Azure Kubernetes Services&lt;/strong&gt;, ele te permite montar um cluster de Kubernetes com 1 único comando, com isso sobra tempo pra focar na sua aplicação e não na configuração de máquinas
-&lt;br /&gt;
-&lt;strong&gt;Mas o que é Kubernetes?&lt;/strong&gt; Falando por alto, Kubernetes é uma ferramenta de orquestração para containers, você monta seu container com o Docker e o Kubernetes faz todo o trabalho de deploy, auto scale, service discovery e muito mais. 
-Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;https://kubernetes.io/docs/tutorials/kubernetes-basics/&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;montando-um-cluster-em-kubernetes&quot;&gt;Montando um Cluster em Kubernetes&lt;/h2&gt;
-
-&lt;p&gt;Estou levando em consideração que você já tenha o &lt;code class=&quot;highlighter-rouge&quot;&gt;Azure CLI&lt;/code&gt; configurado na sua máquina, caso não tenha segue um tutorial de configuração:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Para montar um cluster utilizando o AKS basta um único comando:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;“az aks install-cli”&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Se tudo ocorreu bem será exibido a seguinte mensagem:
 
-&lt;p&gt;Substitua o &lt;code class=&quot;highlighter-rouge&quot;&gt;NomeDoSeuCluster&lt;/code&gt; pelo nome do seu cluster.&lt;/p&gt;
+![](https://i.imgur.com/pihYQw1.png)
 
-&lt;p&gt;Substitua o &lt;code class=&quot;highlighter-rouge&quot;&gt;NomeDoGrupoDeRecursos&lt;/code&gt; pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.&lt;/p&gt;
+Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:
 
-&lt;p&gt;Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/CFwO4Jz.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;“kubectl get nodes”&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+![](https://i.imgur.com/Qyygi8y.png)
 
-&lt;p&gt;Caso tudo dê certo você irá receber a seguinte mensagem:&lt;/p&gt;
+Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando `run`:
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/oLSo4j4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;az aks install-cli&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;“kubectl run meu-nginx –image=nginx –replicas=1 –port=80”&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+![](https://i.imgur.com/gGNYlk2.png)
 
-&lt;p&gt;Se tudo ocorreu bem será exibido a seguinte mensagem:&lt;/p&gt;
+Vamos chamar o `get pods` para verificar se nossa aplicação foi deployada com sucesso:
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/pihYQw1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+![](https://i.imgur.com/IxKDQJ8.png)
+ 
+Como vimos na imagem acima nossa aplicação foi &quot;deployada&quot;, porém ela ainda não está disponivel na internet
+Para disponibilizar nossa aplicação na internet vamos utilizar o comando `expose`:
 
-&lt;p&gt;Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl get nodes&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;“kubectl expose deployment meu-nginx –port=80 –type=LoadBalancer”&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+![](https://i.imgur.com/JVJH82V.png)
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Qyygi8y.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+Agora basta chamar o comando `get services` para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:
 
-&lt;p&gt;Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;run&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl run meu-nginx --image=nginx --replicas=1 --port=80&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/gGNYlk2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Vamos chamar o &lt;code class=&quot;highlighter-rouge&quot;&gt;get pods&lt;/code&gt; para verificar se nossa aplicação foi deployada com sucesso:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/IxKDQJ8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Como vimos na imagem acima nossa aplicação foi “deployada”, porém ela ainda não está disponivel na internet
-Para disponibilizar nossa aplicação na internet vamos utilizar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;expose&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/JVJH82V.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Agora basta chamar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;get services&lt;/code&gt; para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl get services --watch&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;“kubectl get services –watch”
+```&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/DaKu0HU.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 

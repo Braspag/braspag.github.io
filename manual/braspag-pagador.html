@@ -2218,7 +2218,7 @@
 
 <p>Quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o “liability” da transação passa a ser do banco, ou seja, em casos de contestação, o banco será o responsável.</p>
 
-<aside class="notice"><strong>Autenticação:</strong>Nesta modalidade o portador do cartão é direcionado para o ambiente de autenticação do banco emissor do cartão onde será solicitada a inclusão da senha do cartão. Aplicável somente para Cielo.</aside>
+<aside class="notice">Autenticação:Nesta modalidade o portador do cartão é direcionado para o ambiente de autenticação do banco emissor do cartão onde será solicitada a inclusão da senha do cartão. Aplicável somente para Cielo.</aside>
 
 <h3 id="requisição-3">Requisição</h3>
 
@@ -3172,7 +3172,7 @@
       <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
-      <td>Critério do fluxo.<br />&lt;UL&gt;&lt;LI&gt;OnSuccess - Só realiza a analise se tiver sucesso na transação&lt;/LI&gt;&lt;LI&gt;Always - Sempre realiza a analise&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Critério do fluxo.<br />OnSuccess - Só realiza a analise se tiver sucesso na transaçãoAlways - Sempre realiza a analise</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code></td>
@@ -3249,35 +3249,35 @@
       <td>Texto</td>
       <td>9</td>
       <td>Não</td>
-      <td>Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países<br />&lt;UL&gt;&lt;LI&gt;Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)&lt;/LI&gt;&lt;LI&gt;No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)&lt;/LI&gt;&lt;LI&gt;Off (Ignora a análise de risco para endereços divergentes)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países<br />Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)Off (Ignora a análise de risco para endereços divergentes)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.HostHedge</code></td>
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância do e-mail e endereço IP na análise de risco)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância do e-mail e endereço IP na análise de risco)&lt;/LI&gt;&lt;LI&gt;High (Alta importância do e-mail e endereço IP na análise de risco)&lt;/LI&gt;&lt;LI&gt;Off (E-mail e endereço IP não afetam a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. <br />Low (Baixa importância do e-mail e endereço IP na análise de risco)Normal (Média importância do e-mail e endereço IP na análise de risco)High (Alta importância do e-mail e endereço IP na análise de risco)Off (E-mail e endereço IP não afetam a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.NonSensicalHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;Off (Verificação do pedido do comprador não afeta a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. <br />Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)Off (Verificação do pedido do comprador não afeta a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.ObscenitiesHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível de obscenidade dos pedidos recebedidos. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível de obscenidade dos pedidos recebedidos. <br />Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.PhoneHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível dos testes realizados com os números de telefones. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância nos testes realizados com números de telefone)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância nos testes realizados com números de telefone)&lt;/LI&gt;&lt;LI&gt;High (Alta importância nos testes realizados com números de telefone)&lt;/LI&gt;&lt;LI&gt;Off (Testes de números de telefone não afetam a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível dos testes realizados com os números de telefones. <br />Low (Baixa importância nos testes realizados com números de telefone)Normal (Média importância nos testes realizados com números de telefone)High (Alta importância nos testes realizados com números de telefone)Off (Testes de números de telefone não afetam a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.Name</code></td>
@@ -3312,28 +3312,28 @@
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível do risco do produto. <br />&lt;UL&gt;&lt;LI&gt;Low (O produto tem um histórico de poucos chargebacks)&lt;/LI&gt;&lt;LI&gt;Normal (O produto tem um histórico de chargebacks considerado normal)&lt;/LI&gt;&lt;LI&gt;High (O produto tem um histórico de chargebacks acima da média)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível do risco do produto. <br />Low (O produto tem um histórico de poucos chargebacks)Normal (O produto tem um histórico de chargebacks considerado normal)High (O produto tem um histórico de chargebacks acima da média)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.TimeHedge</code></td>
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Nível de importância da hora do dia do pedido do cliente. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)&lt;/LI&gt;&lt;LI&gt;High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)&lt;/LI&gt;&lt;LI&gt;Off (O horário da compra não afeta a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível de importância da hora do dia do pedido do cliente. <br />Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)Off (O horário da compra não afeta a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.Type</code></td>
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Tipo do produto. <br />&lt;UL&gt;&lt;LI&gt;AdultContent(Conteúdo adulto)&lt;/LI&gt;&lt;LI&gt;Coupon(Cupon de desconto)&lt;/LI&gt;&lt;LI&gt;Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)&lt;/LI&gt;&lt;LI&gt;EletronicGood(Produto eletrônico)&lt;/LI&gt;&lt;LI&gt;EletronicSoftware(Softwares distribuídos eletronicamente via download)&lt;/LI&gt;&lt;LI&gt;GiftCertificate(Vale presente)&lt;/LI&gt;&lt;LI&gt;HandlingOnly(Taxa de instalação ou manuseio)&lt;/LI&gt;&lt;LI&gt;Service(Serviço)&lt;/LI&gt;&lt;LI&gt;ShippingAndHandling(Frete e taxa de instalação ou manuseio)&lt;/LI&gt;&lt;LI&gt;ShippingOnly(Frete)&lt;/LI&gt;&lt;LI&gt;Subscription(Assinatura)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Tipo do produto. <br />AdultContent(Conteúdo adulto)Coupon(Cupon de desconto)Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)EletronicGood(Produto eletrônico)EletronicSoftware(Softwares distribuídos eletronicamente via download)GiftCertificate(Vale presente)HandlingOnly(Taxa de instalação ou manuseio)Service(Serviço)ShippingAndHandling(Frete e taxa de instalação ou manuseio)ShippingOnly(Frete)Subscription(Assinatura)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.VelocityHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível de importância de frequência de compra do cliente. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&lt;/LI&gt;&lt;LI&gt;High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&lt;/LI&gt;&lt;LI&gt;Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível de importância de frequência de compra do cliente. <br />Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.Passenger.Email</code></td>
@@ -3361,7 +3361,7 @@
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Classificação do Passageiro. <br />&lt;UL&gt;&lt;LI&gt;Adult (Passageiro adulto)&lt;/LI&gt;&lt;LI&gt;Child(Passageiro criança)&lt;/LI&gt;&lt;LI&gt;Infant(Passageiro infantil)&lt;/LI&gt;&lt;LI&gt;Youth(Passageiro adolescente)&lt;/LI&gt;&lt;LI&gt;Student(Passageiro estudante)&lt;/LI&gt;&lt;LI&gt;SeniorCitizen(Passageiro idoso)&lt;/LI&gt;&lt;LI&gt;Military(Passageiro militar)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Classificação do Passageiro. <br />Adult (Passageiro adulto)Child(Passageiro criança)Infant(Passageiro infantil)Youth(Passageiro adolescente)Student(Passageiro estudante)SeniorCitizen(Passageiro idoso)Military(Passageiro militar)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.Passenger.Phone</code></td>
@@ -3403,7 +3403,7 @@
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Tipo de serviço de entrega do produto. <br />&lt;UL&gt;&lt;LI&gt;SameDay(Serviço de entrega no mesmo dia)&lt;/LI&gt;&lt;LI&gt;OneDay(Serviço de entrega noturna ou no dia seguint)&lt;/LI&gt;&lt;LI&gt;TwoDay(Serviço de entrega em dois dias)&lt;/LI&gt;&lt;LI&gt;ThreeDay(Serviço de entrega em três dias)&lt;/LI&gt;&lt;LI&gt;LowCost(Serviço de entrega de baixo custo)&lt;/LI&gt;&lt;LI&gt;Pickup(Produto retirado na loja)&lt;/LI&gt;&lt;LI&gt;Other(Outro método de entrega)&lt;/LI&gt;&lt;LI&gt;None(Sem serviço de entrega, pois é um serviço ou assinatura)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Tipo de serviço de entrega do produto. <br />SameDay(Serviço de entrega no mesmo dia)OneDay(Serviço de entrega noturna ou no dia seguint)TwoDay(Serviço de entrega em dois dias)ThreeDay(Serviço de entrega em três dias)LowCost(Serviço de entrega de baixo custo)Pickup(Produto retirado na loja)Other(Outro método de entrega)None(Sem serviço de entrega, pois é um serviço ou assinatura)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Shipping.Phone</code></td>
@@ -3852,21 +3852,21 @@
       <td>Resultado da análise</td>
       <td>Byte</td>
       <td>—</td>
-      <td>&lt;ul&gt;&lt;li&gt;100 - Operação bem sucedida.&lt;/li&gt;&lt;li&gt;101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.&lt;/li&gt;&lt;li&gt;102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.&lt;/li&gt;&lt;li&gt;150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.&lt;/li&gt;&lt;li&gt;151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.&lt;/li&gt;&lt;li&gt;152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.&lt;/li&gt;&lt;li&gt;202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.&lt;/li&gt;&lt;li&gt;231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.&lt;/li&gt;&lt;li&gt;234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.&lt;/li&gt;&lt;li&gt;400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.&lt;/li&gt;&lt;li&gt;480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.&lt;/li&gt;&lt;li&gt;481 - O pedido foi rejeitado pelo Gerenciador de Decisão&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.ReplyData.AddressInfoCode</code></td>
       <td>Combinação de códigos que indicam erro no endereço de cobrança e/ou entrega. Os códigos são concatenados usando o caractere ^</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Ex: COR-BA^MM-BIN<br />&lt;ul&gt;&lt;li&gt;COR-BA - O endereço de cobrança pode ser normalizado.&lt;/li&gt;&lt;li&gt;COR-SA - O endereço de entrega pode ser normalizado.&lt;/li&gt;&lt;li&gt;INTL-BA - O país de cobrança é fora dos U.S.&lt;/li&gt;&lt;li&gt;INTL-SA - O país de entrega é fora dos U.S.&lt;/li&gt;&lt;li&gt;MIL-USA - Este é um endereço militar nos U.S.&lt;/li&gt;&lt;li&gt;MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.&lt;/li&gt;&lt;li&gt;MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.&lt;/li&gt;&lt;li&gt;MM-C - Os endereços de cobrança e entrega usam cidades diferentes.&lt;/li&gt;&lt;li&gt;MM-CO - Os endereços de cobrança e entrega usam países diferentes.&lt;/li&gt;&lt;li&gt;MM-ST - Os endereços de cobrança e entrega usam estados diferentes.&lt;/li&gt;&lt;li&gt;MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.&lt;/li&gt;&lt;li&gt;UNV-ADDR - O endereço é inverificável.&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Ex: COR-BA^MM-BIN<br />COR-BA - O endereço de cobrança pode ser normalizado.COR-SA - O endereço de entrega pode ser normalizado.INTL-BA - O país de cobrança é fora dos U.S.INTL-SA - O país de entrega é fora dos U.S.MIL-USA - Este é um endereço militar nos U.S.MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.MM-C - Os endereços de cobrança e entrega usam cidades diferentes.MM-CO - Os endereços de cobrança e entrega usam países diferentes.MM-ST - Os endereços de cobrança e entrega usam estados diferentes.MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.UNV-ADDR - O endereço é inverificável.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.ReplyData.FactorCode</code></td>
       <td>Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Ex: B^D^R^Z<br />&lt;ul&gt;&lt;li&gt;A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.&lt;/li&gt;&lt;li&gt;B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.&lt;/li&gt;&lt;li&gt;C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.&lt;/li&gt;&lt;li&gt;D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.&lt;/li&gt;&lt;li&gt;E - Lista positiva. O cliente está na sua lista positiva.&lt;/li&gt;&lt;li&gt;F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.&lt;/li&gt;&lt;li&gt;G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.&lt;/li&gt;&lt;li&gt;H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.&lt;/li&gt;&lt;li&gt;I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.&lt;/li&gt;&lt;li&gt;N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.&lt;/li&gt;&lt;li&gt;O - Obscenidades. Dados do cliente contém palavras obscenas.&lt;/li&gt;&lt;li&gt;P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.&lt;/li&gt;&lt;li&gt;Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.&lt;/li&gt;&lt;li&gt;R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.&lt;/li&gt;&lt;li&gt;T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.&lt;/li&gt;&lt;li&gt;U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.&lt;/li&gt;&lt;li&gt;V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.&lt;/li&gt;&lt;li&gt;W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.&lt;/li&gt;&lt;li&gt;Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.&lt;/li&gt;&lt;li&gt;Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Ex: B^D^R^Z<br />A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.ReplyData.Score</code></td>
@@ -3894,7 +3894,7 @@
       <td>Tipo da bandeira</td>
       <td>Texto</td>
       <td>20</td>
-      <td>&lt;ul&gt;&lt;li&gt;MaestroInternational - Maestro International&lt;/li&gt;&lt;li&gt;MaestroUkDomestic - Maestro UK Domestic&lt;/li&gt;&lt;li&gt;MastercardCredit - MasterCard Credit&lt;/li&gt;&lt;li&gt;MastercardDebit - MasterCard Debit&lt;/li&gt;&lt;li&gt;VisaCredit - Visa Credit&lt;/li&gt;&lt;li&gt;VisaDebit - Visa Debit&lt;/li&gt;&lt;li&gt;VisaElectron - Visa Electron&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>MaestroInternational - Maestro InternationalMaestroUkDomestic - Maestro UK DomesticMastercardCredit - MasterCard CreditMastercardDebit - MasterCard DebitVisaCredit - Visa CreditVisaDebit - Visa DebitVisaElectron - Visa Electron</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.ReplyData.HostSeverity</code></td>
@@ -3908,14 +3908,14 @@
       <td>Sequência de códigos que indicam que existe uma excessiva alteração de identidades do comprador. Os códigos são concatenados usando o caractere ^</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Ex: <br />&lt;ul&gt;&lt;li&gt;MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.&lt;/li&gt;&lt;li&gt;MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.&lt;/li&gt;&lt;li&gt;MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.&lt;/li&gt;&lt;li&gt;MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.&lt;/li&gt;&lt;li&gt;MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Ex: <br />MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.ReplyData.IpRoutingMethod</code></td>
       <td>Tipo de roteamento de IP utilizado pelo computador</td>
       <td>Texto</td>
       <td>—</td>
-      <td>&lt;ul&gt;&lt;li&gt;Anonymizer&lt;/li&gt;&lt;li&gt;AolBased&lt;/li&gt;&lt;li&gt;CacheProxy&lt;/li&gt;&lt;li&gt;Fixed&lt;/li&gt;&lt;li&gt;InternationalProxy&lt;/li&gt;&lt;li&gt;MobileGateway&lt;/li&gt;&lt;li&gt;Pop&lt;/li&gt;&lt;li&gt;RegionalProxy&lt;/li&gt;&lt;li&gt;Satellite&lt;/li&gt;&lt;li&gt;SuperPop&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>AnonymizerAolBasedCacheProxyFixedInternationalProxyMobileGatewayPopRegionalProxySatelliteSuperPop</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.ReplyData.ScoreModelUsed</code></td>
@@ -4921,7 +4921,7 @@
       <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
-      <td>Critério do fluxo.<br />&lt;UL&gt;&lt;LI&gt;OnSuccess - Só realiza a analise se tiver sucesso na transação&lt;/LI&gt;&lt;LI&gt;Always - Sempre realiza a analise&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Critério do fluxo.<br />OnSuccess - Só realiza a analise se tiver sucesso na transaçãoAlways - Sempre realiza a analise</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5355,7 +5355,7 @@
       <td>Texto</td>
       <td>9</td>
       <td>Não</td>
-      <td>Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países<br />&lt;UL&gt;&lt;LI&gt;Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)&lt;/LI&gt;&lt;LI&gt;No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)&lt;/LI&gt;&lt;LI&gt;Off (Ignora a análise de risco para endereços divergentes)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países<br />Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)Off (Ignora a análise de risco para endereços divergentes)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5369,7 +5369,7 @@
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância do e-mail e endereço IP na análise de risco)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância do e-mail e endereço IP na análise de risco)&lt;/LI&gt;&lt;LI&gt;High (Alta importância do e-mail e endereço IP na análise de risco)&lt;/LI&gt;&lt;LI&gt;Off (E-mail e endereço IP não afetam a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. <br />Low (Baixa importância do e-mail e endereço IP na análise de risco)Normal (Média importância do e-mail e endereço IP na análise de risco)High (Alta importância do e-mail e endereço IP na análise de risco)Off (E-mail e endereço IP não afetam a análise de risco)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5383,7 +5383,7 @@
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;Off (Verificação do pedido do comprador não afeta a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. <br />Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)Off (Verificação do pedido do comprador não afeta a análise de risco)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5397,7 +5397,7 @@
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível de obscenidade dos pedidos recebedidos. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&lt;/LI&gt;&lt;LI&gt;Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível de obscenidade dos pedidos recebedidos. <br />Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5411,7 +5411,7 @@
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível dos testes realizados com os números de telefones. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância nos testes realizados com números de telefone)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância nos testes realizados com números de telefone)&lt;/LI&gt;&lt;LI&gt;High (Alta importância nos testes realizados com números de telefone)&lt;/LI&gt;&lt;LI&gt;Off (Testes de números de telefone não afetam a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível dos testes realizados com os números de telefones. <br />Low (Baixa importância nos testes realizados com números de telefone)Normal (Média importância nos testes realizados com números de telefone)High (Alta importância nos testes realizados com números de telefone)Off (Testes de números de telefone não afetam a análise de risco)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5481,7 +5481,7 @@
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível do risco do produto. <br />&lt;UL&gt;&lt;LI&gt;Low (O produto tem um histórico de poucos chargebacks)&lt;/LI&gt;&lt;LI&gt;Normal (O produto tem um histórico de chargebacks considerado normal)&lt;/LI&gt;&lt;LI&gt;High (O produto tem um histórico de chargebacks acima da média)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível do risco do produto. <br />Low (O produto tem um histórico de poucos chargebacks)Normal (O produto tem um histórico de chargebacks considerado normal)High (O produto tem um histórico de chargebacks acima da média)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5495,7 +5495,7 @@
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Nível de importância da hora do dia do pedido do cliente. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)&lt;/LI&gt;&lt;LI&gt;High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)&lt;/LI&gt;&lt;LI&gt;Off (O horário da compra não afeta a análise de risco)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível de importância da hora do dia do pedido do cliente. <br />Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)Off (O horário da compra não afeta a análise de risco)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5509,7 +5509,7 @@
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Tipo do produto. <br />&lt;UL&gt;&lt;LI&gt;AdultContent(Conteúdo adulto)&lt;/LI&gt;&lt;LI&gt;Coupon(Cupon de desconto)&lt;/LI&gt;&lt;LI&gt;Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)&lt;/LI&gt;&lt;LI&gt;EletronicGood(Produto eletrônico)&lt;/LI&gt;&lt;LI&gt;EletronicSoftware(Softwares distribuídos eletronicamente via download)&lt;/LI&gt;&lt;LI&gt;GiftCertificate(Vale presente)&lt;/LI&gt;&lt;LI&gt;HandlingOnly(Taxa de instalação ou manuseio)&lt;/LI&gt;&lt;LI&gt;Service(Serviço)&lt;/LI&gt;&lt;LI&gt;ShippingAndHandling(Frete e taxa de instalação ou manuseio)&lt;/LI&gt;&lt;LI&gt;ShippingOnly(Frete)&lt;/LI&gt;&lt;LI&gt;Subscription(Assinatura)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Tipo do produto. <br />AdultContent(Conteúdo adulto)Coupon(Cupon de desconto)Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)EletronicGood(Produto eletrônico)EletronicSoftware(Softwares distribuídos eletronicamente via download)GiftCertificate(Vale presente)HandlingOnly(Taxa de instalação ou manuseio)Service(Serviço)ShippingAndHandling(Frete e taxa de instalação ou manuseio)ShippingOnly(Frete)Subscription(Assinatura)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5523,7 +5523,7 @@
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível de importância de frequência de compra do cliente. <br />&lt;UL&gt;&lt;LI&gt;Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&lt;/LI&gt;&lt;LI&gt;Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&lt;/LI&gt;&lt;LI&gt;High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&lt;/LI&gt;&lt;LI&gt;Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Nível de importância de frequência de compra do cliente. <br />Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5579,7 +5579,7 @@
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Classificação do Passageiro. <br />&lt;UL&gt;&lt;LI&gt;Adult (Passageiro adulto)&lt;/LI&gt;&lt;LI&gt;Child(Passageiro criança)&lt;/LI&gt;&lt;LI&gt;Infant(Passageiro infantil)&lt;/LI&gt;&lt;LI&gt;Youth(Passageiro adolescente)&lt;/LI&gt;&lt;LI&gt;Student(Passageiro estudante)&lt;/LI&gt;&lt;LI&gt;SeniorCitizen(Passageiro idoso)&lt;/LI&gt;&lt;LI&gt;Military(Passageiro militar)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Classificação do Passageiro. <br />Adult (Passageiro adulto)Child(Passageiro criança)Infant(Passageiro infantil)Youth(Passageiro adolescente)Student(Passageiro estudante)SeniorCitizen(Passageiro idoso)Military(Passageiro militar)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5649,7 +5649,7 @@
       <td>Texto</td>
       <td> </td>
       <td>Não</td>
-      <td>Tipo de serviço de entrega do produto. <br />&lt;UL&gt;&lt;LI&gt;SameDay(Serviço de entrega no mesmo dia)&lt;/LI&gt;&lt;LI&gt;OneDay(Serviço de entrega noturna ou no dia seguint)&lt;/LI&gt;&lt;LI&gt;TwoDay(Serviço de entrega em dois dias)&lt;/LI&gt;&lt;LI&gt;ThreeDay(Serviço de entrega em três dias)&lt;/LI&gt;&lt;LI&gt;LowCost(Serviço de entrega de baixo custo)&lt;/LI&gt;&lt;LI&gt;Pickup(Produto retirado na loja)&lt;/LI&gt;&lt;LI&gt;Other(Outro método de entrega)&lt;/LI&gt;&lt;LI&gt;None(Sem serviço de entrega, pois é um serviço ou assinatura)&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>Tipo de serviço de entrega do produto. <br />SameDay(Serviço de entrega no mesmo dia)OneDay(Serviço de entrega noturna ou no dia seguint)TwoDay(Serviço de entrega em dois dias)ThreeDay(Serviço de entrega em três dias)LowCost(Serviço de entrega de baixo custo)Pickup(Produto retirado na loja)Other(Outro método de entrega)None(Sem serviço de entrega, pois é um serviço ou assinatura)</td>
       <td> </td>
       <td> </td>
       <td><code class="highlighter-rouge">FraudAnalysis.Shipping.Phone</code></td>
@@ -6271,7 +6271,7 @@
       <td>Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Ex: B^D^R^Z<br />&lt;ul&gt;&lt;li&gt;A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.&lt;/li&gt;&lt;li&gt;B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.&lt;/li&gt;&lt;li&gt;C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.&lt;/li&gt;&lt;li&gt;D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.&lt;/li&gt;&lt;li&gt;E - Lista positiva. O cliente está na sua lista positiva.&lt;/li&gt;&lt;li&gt;F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.&lt;/li&gt;&lt;li&gt;G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.&lt;/li&gt;&lt;li&gt;H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.&lt;/li&gt;&lt;li&gt;I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.&lt;/li&gt;&lt;li&gt;N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.&lt;/li&gt;&lt;li&gt;O - Obscenidades. Dados do cliente contém palavras obscenas.&lt;/li&gt;&lt;li&gt;P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.&lt;/li&gt;&lt;li&gt;Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.&lt;/li&gt;&lt;li&gt;R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.&lt;/li&gt;&lt;li&gt;T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.&lt;/li&gt;&lt;li&gt;U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.&lt;/li&gt;&lt;li&gt;V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.&lt;/li&gt;&lt;li&gt;W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.&lt;/li&gt;&lt;li&gt;Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.&lt;/li&gt;&lt;li&gt;Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Ex: B^D^R^Z<br />A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</td>
     </tr>
   </tbody>
 </table>
@@ -8561,7 +8561,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <h2 id="criando-uma-transação">Criando uma transação</h2>
 
-<p>Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação. <br /><br />Atualmente, somente o Provider “Cielo” ou “Cielo30” suportam processamento desta modalidade.</p>
+<p>Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação. <br />Atualmente, somente o Provider “Cielo” ou “Cielo30” suportam processamento desta modalidade.</p>
 
 <h3 id="requisição-13">Requisição</h3>
 
@@ -10316,7 +10316,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
-      <td>Intervalo da recorrência.<br />&lt;ul&gt;&lt;li&gt;Monthly (Default) &lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Intervalo da recorrência.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
@@ -10543,7 +10543,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Intervalo entre as recorrência.</td>
       <td>Texto</td>
       <td>10</td>
-      <td>&lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AuthorizeNow</code></td>
@@ -10718,7 +10718,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
-      <td>Intervalo da recorrência.<br />&lt;ul&gt;&lt;li&gt;Monthly (Default) &lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Intervalo da recorrência.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
@@ -10902,7 +10902,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Intervalo entre as recorrência.</td>
       <td>Texto</td>
       <td>10</td>
-      <td>&lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AuthorizeNow</code></td>
@@ -11326,7 +11326,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Interval</code></td>
-      <td>Intervalo da recorrência. &lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Intervalo da recorrência. MonthlyBimonthly Quarterly SemiAnnual Annual</td>
       <td>Número</td>
       <td>2</td>
       <td>Sim</td>
@@ -11345,7 +11345,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para modificar o dia da recorrência, basta fazer um PUT conforme o exemplo.</p>
 
-<aside class="notice"><strong>Regra:</strong> Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
+<aside class="notice">Regra: Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
 
 <h3 id="requisição-22">Requisição</h3>
 
@@ -11583,7 +11583,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para alterar os dados de pagamento da Recorrência, basta fazer um PUT conforme o exemplo.</p>
 
-<aside class="notice"><strong>Atenção:</strong> Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
+<aside class="notice">Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
 
 <h3 id="requisição-24">Requisição</h3>
 
@@ -12436,12 +12436,12 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<aside class="notice"><strong>Regra:</strong>
-<ul>
-<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag&lt;/a&gt;</li>
-<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag&lt;/a&gt; com a opção “Histórico” selecionada</li>
-<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
-</ul>
+<aside class="notice">Regra:
+
+Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag
+Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag com a opção “Histórico” selecionada
+Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag
+
 </aside>
 
 <h2 id="consultando-uma-venda-pelo-identificador-da-loja">Consultando uma venda pelo identificador da loja</h2>
@@ -12562,12 +12562,12 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<aside class="notice"><strong>Regra:</strong>
-<ul>
-<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag&lt;/a&gt;</li>
-<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag&lt;/a&gt; com a opção “Histórico” selecionada</li>
-<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
-</ul>
+<aside class="notice">Regra:
+
+Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag
+Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag com a opção “Histórico” selecionada
+Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag
+
 </aside>
 
 <h2 id="consultando-um-pedido-recorrente">Consultando um pedido Recorrente</h2>
@@ -12773,7 +12773,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Intervalo entre as recorrência.</td>
       <td>Texto</td>
       <td>10</td>
-      <td>&lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CurrentRecurrencyTry</code></td>
@@ -12794,7 +12794,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Status do pedido recorrente</td>
       <td>Número</td>
       <td>1</td>
-      <td>&lt;UL&gt;&lt;LI&gt;1 - Ativo&lt;/LI&gt;&lt;LI&gt;2 - Finalizado&lt;/LI&gt;&lt;LI&gt;3,4,5 - Inativo&lt;/LI&gt;&lt;/UL&gt;</td>
+      <td>1 - Ativo2 - Finalizado3,4,5 - Inativo</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RecurrencyDay</code></td>
@@ -14169,7 +14169,7 @@ Production - Altere o domínio para uma URL local, e configure seu servidor Web 
 ‹org id›: Para obter esse valor entre em contato com a Braspag
 ‹merchant ID›: Para obter esse valor entre em contato com a Braspag
 ‹session ID›: Use o mesmo valor passado no parametro “DeviceFingerprintID”, do serviço de requisição de análise de fraude.
-Certifique-se de copiar todos os dados corretamente e de remover os sinais de tag (&lt;&gt;) ao substituir as variáveis.</p>
+Certifique-se de copiar todos os dados corretamente e de remover os sinais de tag () ao substituir as variáveis.</p>
 
 <h3 id="png-image">PNG image</h3>
 
@@ -14177,7 +14177,7 @@ Certifique-se de copiar todos os dados corretamente e de remover os sinais de ta
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›<span class="err">&amp;</span>session_id=‹merchant id›‹session ID›<span class="err">&amp;</span>m=2" alt=""›
 </code></pre></div></div>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- EXEMPLO --&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 ‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID<span class="err">&amp;</span>session_id=sample_merchantIDsample_sessionID<span class="err">&amp;</span>m=1)"›‹/p›
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID<span class="err">&amp;</span>session_\id=sample_merchantIDsample_sessionID<span class="err">&amp;</span>m=2" alt=""›
 
@@ -14222,7 +14222,7 @@ id=‹merchant id›‹session ID›" type="text/javascript"›
   <tbody>
     <tr>
       <td>Qual é a diferença entre <em>Status</em>, ReasonCode e ProviderReturnCode?</td>
-      <td>A explicação conforme a seguir:<br />&lt;UL&gt;&lt;LI&gt;Status: representa o status atual da transação.&lt;/LI&gt;&lt;LI&gt;ReasonCode: representa o status da requisição.&lt;/LI&gt;&lt;LI&gt;ProviderReturnCode: representa o código de resposta da transação da adquirente.&lt;/LI&gt;&lt;/UL&gt;Por exemplo, uma requisição de autorização poderá ter o retorno com ReasonCode=0 (Sucessfull), ou seja, a requisição finalizou com sucesso, porém, o Status poderá ser 0-Denied, por ter a transação não autorizada pela adquirente, por exemplo, ProviderReturnCode 57 (um dos códigos de negada da Cielo)</td>
+      <td>A explicação conforme a seguir:<br />Status: representa o status atual da transação.ReasonCode: representa o status da requisição.ProviderReturnCode: representa o código de resposta da transação da adquirente.Por exemplo, uma requisição de autorização poderá ter o retorno com ReasonCode=0 (Sucessfull), ou seja, a requisição finalizou com sucesso, porém, o Status poderá ser 0-Denied, por ter a transação não autorizada pela adquirente, por exemplo, ProviderReturnCode 57 (um dos códigos de negada da Cielo)</td>
       <td>Integração</td>
     </tr>
   </tbody>

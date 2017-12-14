@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2017-12-14T11:51:45+00:00</updated>
+    <updated>2017-12-14T13:30:59+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2041,7 +2041,7 @@ All the orders just authorized must be captured here. When the capture process i
 
 &lt;p&gt;When a transaction is submitted to an authentication process, the customer is redirected to the issuer’s environment, where it must perform a confirmation of its data. When the validation is successfully validated, the “liability” of the transaction is transfered to the bank. In case of dispute, the bank will be responsible for chageback.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Authantication:&lt;/strong&gt;The cardholder is redirected to the authentication environment of the card issuing bank where the card password is required. Applicable only to Cielo's payent methods.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Authantication:The cardholder is redirected to the authentication environment of the card issuing bank where the card password is required. Applicable only to Cielo's payent methods.&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
@@ -2465,7 +2465,7 @@ All the orders just authorized must be captured here. When the capture process i
 
 &lt;p&gt;When a transaction is submitted to an external authentication process, the customer is redirected to the issuer’s environment, where it must perform a confirmation of its data. When the validation is successfully validated, the “liability” of the transaction is transfered to the bank. In case of dispute, the bank will be responsible for chageback.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Authantication:&lt;/strong&gt;The cardholder is redirected to the authentication environment of the card issuing bank where the card password is required. Applicable to Cielo, Global Payments and Banorte's payent methods.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Authantication:The cardholder is redirected to the authentication environment of the card issuing bank where the card password is required. Applicable to Cielo, Global Payments and Banorte's payent methods.&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-3&quot;&gt;Request&lt;/h3&gt;
 
@@ -3721,7 +3721,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Importance level of customer order per time of day &lt;br /&gt;Low (lowr risk)&lt;br /&gt;Normal (medium risk)&lt;br /&gt;High (hight risk)&amp;lt;/LI&amp;gt;&amp;lt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Importance level of customer order per time of day &lt;br /&gt;Low (lowr risk)&lt;br /&gt;Normal (medium risk)&lt;br /&gt;High (hight risk)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4329,7 +4329,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Analysis Reason Code&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;&lt;br /&gt;100 - Successful operation&lt;br /&gt;&lt;br /&gt;101 - There are one or more missed requests fields. Possible action: See the fields that are missing in AntiFraudResponse list.MissingFieldCollection. Resend the request with complete information&lt;br /&gt;&lt;br /&gt;102 - One or more request fields contain invalid data. Possible action: See the invalid fields in AntiFraudResponse list.InvalidFieldCollection. Resubmit the request with the correct information&lt;br /&gt;&lt;br /&gt;150 - Failure in the general system. Possible action: wait a few minutes and try resending the request&lt;br /&gt;&lt;br /&gt;151 - The request was received, but time-out occurred on the server.This error does not include time-out between the client and the server. Possible action: wait a few minutes and try resending the request&lt;br /&gt;&lt;br /&gt;152 The request was received, but was time-out. Possible action: wait a few minutes and resubmit the request&lt;br /&gt;&lt;br /&gt;202 - Fraud Prevention refused the request because the card has expired. You can also receive this code if the expiration date does not coincide with the date on issuing bank file. If payment processor allows emission credits for expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other method of payment&lt;br /&gt;&lt;br /&gt;231 The account number is invalid. Possible action: Request a card or other method of payment&lt;br /&gt;&lt;br /&gt;234 - There is a problem with the merchant setup. Possible action: Do not click. Please contact customer support to correct the configuration problem&lt;br /&gt;&lt;br /&gt;400 A fraud score exceeds its limit. Possible action: Review the customer’s request&lt;br /&gt;&lt;br /&gt;480 The request was scheduled for review by Decision Manager&lt;br /&gt;&lt;br /&gt;481 - The request was rejected by Manager decision&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;br /&gt;100 - Successful operation&lt;br /&gt;101 - There are one or more missed requests fields. Possible action: See the fields that are missing in AntiFraudResponse list.MissingFieldCollection. Resend the request with complete information&lt;br /&gt;102 - One or more request fields contain invalid data. Possible action: See the invalid fields in AntiFraudResponse list.InvalidFieldCollection. Resubmit the request with the correct information&lt;br /&gt;150 - Failure in the general system. Possible action: wait a few minutes and try resending the request&lt;br /&gt;151 - The request was received, but time-out occurred on the server.This error does not include time-out between the client and the server. Possible action: wait a few minutes and try resending the request&lt;br /&gt;152 The request was received, but was time-out. Possible action: wait a few minutes and resubmit the request&lt;br /&gt;202 - Fraud Prevention refused the request because the card has expired. You can also receive this code if the expiration date does not coincide with the date on issuing bank file. If payment processor allows emission credits for expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other method of payment&lt;br /&gt;231 The account number is invalid. Possible action: Request a card or other method of payment&lt;br /&gt;234 - There is a problem with the merchant setup. Possible action: Do not click. Please contact customer support to correct the configuration problem&lt;br /&gt;400 A fraud score exceeds its limit. Possible action: Review the customer’s request&lt;br /&gt;480 The request was scheduled for review by Decision Manager&lt;br /&gt;481 - The request was rejected by Manager decision&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -4340,7 +4340,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Codes that identifies the error in Addresses&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Ex: COR-BA^MM-BIN&lt;br /&gt;&lt;br /&gt;COR-BA - The billing address can be normalized&lt;br /&gt;&lt;br /&gt;COR-SA - The delivery address can be normalized&lt;br /&gt;&lt;br /&gt;INTL-BA - The billing country is outside the US&lt;br /&gt;INTL-SA - Delivery country is outside the US&lt;br /&gt;MIL-USA - This is a military address in the US&lt;br /&gt;MM-A - billing and shipping addresses use different street names&lt;br /&gt;&lt;br /&gt;MM-BIN - The BIN card (the first six digits number) does not match the country&lt;br /&gt;&lt;br /&gt;MM-C - The billing and delivery addresses use different cities&lt;br /&gt;&lt;br /&gt;MM-CO - The billing and delivery addresses use different countries&lt;br /&gt;&lt;br /&gt;MM-ST - The billing and delivery addresses use different states&lt;br /&gt;&lt;br /&gt;MM-Z - The billing and delivery addresses use different zip codes&lt;br /&gt;&lt;br /&gt;UNV-ADDR - The address is unverifiable&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Ex: COR-BA^MM-BIN&lt;br /&gt;&lt;br /&gt;COR-BA - The billing address can be normalized&lt;br /&gt;COR-SA - The delivery address can be normalized&lt;br /&gt;INTL-BA - The billing country is outside the US&lt;br /&gt;INTL-SA - Delivery country is outside the US&lt;br /&gt;MIL-USA - This is a military address in the US&lt;br /&gt;MM-A - billing and shipping addresses use different street names&lt;br /&gt;MM-BIN - The BIN card (the first six digits number) does not match the country&lt;br /&gt;MM-C - The billing and delivery addresses use different cities&lt;br /&gt;MM-CO - The billing and delivery addresses use different countries&lt;br /&gt;MM-ST - The billing and delivery addresses use different states&lt;br /&gt;MM-Z - The billing and delivery addresses use different zip codes&lt;br /&gt;UNV-ADDR - The address is unverifiable&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -4351,7 +4351,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Codes that identifies the score level of an order&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;&lt;br /&gt;A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.&lt;br /&gt;&lt;br /&gt;B - BIN card or risk authorization. Risk factors are related to credit card and BIN / or card authorization checks.&lt;br /&gt;&lt;br /&gt;C - High numbers of credit cards.The customer has used more than six numbers of credit cards in the past six months.&lt;br /&gt;&lt;br /&gt;D - Impact of the e-mail address.The customer uses a free email provider or e-mail address is risky.&lt;br /&gt;&lt;br /&gt;E - Positive list. The customer is in its positive list.&lt;br /&gt;&lt;br /&gt;F - Negative list. The account number, address, email address or IP address for this purpose appears in its negative list.&lt;br /&gt;&lt;br /&gt;G - geolocation inconsistencies.The email client domain, phone number, billing address, shipping address or IP address is suspect.&lt;br /&gt;&lt;br /&gt;H - excessive name changes.The customer changed its name twice or more in the past six months.&lt;br /&gt;&lt;br /&gt;I - Internet inconsistencies.The IP address and e-mail domain are not consistent with the billing address.&lt;br /&gt;&lt;br /&gt;N - Entrance meaningless.The customer name and address fields contain meaningless words or language.&lt;br /&gt;&lt;br /&gt;The - obscenities.Customer data contains obscene words.&lt;br /&gt;&lt;br /&gt;P - morphing identity. Various amounts of an identity element are attached to a different value of an identity element. For example, various telephone numbers are connected to a single account number.&lt;br /&gt;&lt;br /&gt;Q - Inconsistencies phone. The customer’s phone number is suspect.&lt;br /&gt;&lt;br /&gt;R - risky Order.The transaction, the customer and the merchant show information correlated high risk.&lt;br /&gt;&lt;br /&gt;T - Time Coverage. The client is attempting a purchase outside the expected time.&lt;br /&gt;&lt;br /&gt;U - unverifiable address. The billing address or delivery can not be verified.&lt;br /&gt;&lt;br /&gt;V - Velocity.The account number was used many times in the last 15 minutes.&lt;br /&gt;&lt;br /&gt;W - marked as suspect. The billing address and delivery is similar to an address previously marked suspect.&lt;br /&gt;&lt;br /&gt;Y - The address, city, state or country of billing and shipping addresses do not correlate.&lt;br /&gt;&lt;br /&gt;Z - Invalid value. As the request it contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the application carefully to detect abnormalities.&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;&lt;br /&gt;A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.&lt;br /&gt;B - BIN card or risk authorization. Risk factors are related to credit card and BIN / or card authorization checks.&lt;br /&gt;C - High numbers of credit cards.The customer has used more than six numbers of credit cards in the past six months.&lt;br /&gt;D - Impact of the e-mail address.The customer uses a free email provider or e-mail address is risky.&lt;br /&gt;E - Positive list. The customer is in its positive list.&lt;br /&gt;F - Negative list. The account number, address, email address or IP address for this purpose appears in its negative list.&lt;br /&gt;G - geolocation inconsistencies.The email client domain, phone number, billing address, shipping address or IP address is suspect.&lt;br /&gt;H - excessive name changes.The customer changed its name twice or more in the past six months.&lt;br /&gt;I - Internet inconsistencies.The IP address and e-mail domain are not consistent with the billing address.&lt;br /&gt;N - Entrance meaningless.The customer name and address fields contain meaningless words or language.&lt;br /&gt;The - obscenities.Customer data contains obscene words.&lt;br /&gt;P - morphing identity. Various amounts of an identity element are attached to a different value of an identity element. For example, various telephone numbers are connected to a single account number.&lt;br /&gt;Q - Inconsistencies phone. The customer’s phone number is suspect.&lt;br /&gt;R - risky Order.The transaction, the customer and the merchant show information correlated high risk.&lt;br /&gt;T - Time Coverage. The client is attempting a purchase outside the expected time.&lt;br /&gt;U - unverifiable address. The billing address or delivery can not be verified.&lt;br /&gt;V - Velocity.The account number was used many times in the last 15 minutes.&lt;br /&gt;W - marked as suspect. The billing address and delivery is similar to an address previously marked suspect.&lt;br /&gt;Y - The address, city, state or country of billing and shipping addresses do not correlate.&lt;br /&gt;Z - Invalid value. As the request it contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the application carefully to detect abnormalities.&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -4395,7 +4395,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Card Brand&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
-      &lt;td&gt;&lt;br /&gt;MaestroInternational - Maestro International&lt;br /&gt;&lt;br /&gt;MaestroUkDomestic - Maestro UK Domestic&lt;br /&gt;&lt;br /&gt;MastercardCredit - MasterCard Credit&lt;br /&gt;&lt;br /&gt;MastercardDebit - MasterCard Debit&lt;br /&gt;&lt;br /&gt;VisaCredit - Visa Credit&lt;br /&gt;&lt;br /&gt;VisaDebit - Visa Debit&lt;br /&gt;&lt;br /&gt;VisaElectron - Visa Electron&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;br /&gt;MaestroInternational - Maestro International&lt;br /&gt;MaestroUkDomestic - Maestro UK Domestic&lt;br /&gt;MastercardCredit - MasterCard Credit&lt;br /&gt;MastercardDebit - MasterCard Debit&lt;br /&gt;VisaCredit - Visa Credit&lt;br /&gt;VisaDebit - Visa Debit&lt;br /&gt;VisaElectron - Visa Electron&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -4417,7 +4417,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Sequence of codes that indicate that there is an excessive change in the buyer’s identity. The codes are concatenated using the ^.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Ex: &lt;br /&gt;&lt;br /&gt;MORPH-B - The same billing address has been used several times with multiple client identities&lt;br /&gt;&lt;br /&gt;MORPH-C - The same account number has been used several times with multiple client identities&lt;br /&gt;&lt;br /&gt;MORPH-E - The same e-mail address has been used several times with multiple client identities&lt;br /&gt;MORPH I - The same IP address has been used multiple times with multiple clients identities&lt;br /&gt;&lt;br /&gt;MORPH-P - The same phone number has been used several times with multiple client identities&lt;br /&gt;&lt;br /&gt;MORPH-S - The same delivery address has been used multiple times with multiple clients identities&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Ex: &lt;br /&gt;&lt;br /&gt;MORPH-B - The same billing address has been used several times with multiple client identities&lt;br /&gt;MORPH-C - The same account number has been used several times with multiple client identities&lt;br /&gt;MORPH-E - The same e-mail address has been used several times with multiple client identities&lt;br /&gt;MORPH I - The same IP address has been used multiple times with multiple clients identities&lt;br /&gt;MORPH-P - The same phone number has been used several times with multiple client identities&lt;br /&gt;MORPH-S - The same delivery address has been used multiple times with multiple clients identities&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -4428,7 +4428,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;IP routing type used by the computer&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;&lt;br /&gt;Anonymizer&lt;br /&gt;&lt;br /&gt;AolBased&lt;br /&gt;&lt;br /&gt;CacheProxy&lt;br /&gt;&lt;br /&gt;Fixed&lt;br /&gt;&lt;br /&gt;InternationalProxy&lt;br /&gt;&lt;br /&gt;MobileGateway&lt;br /&gt;&lt;br /&gt;Pop&lt;br /&gt;&lt;br /&gt;RegionalProxy&lt;br /&gt;&lt;br /&gt;Satellite&lt;br /&gt;&lt;br /&gt;SuperPop&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;br /&gt;Anonymizer&lt;br /&gt;AolBased&lt;br /&gt;CacheProxy&lt;br /&gt;Fixed&lt;br /&gt;InternationalProxy&lt;br /&gt;MobileGateway&lt;br /&gt;Pop&lt;br /&gt;RegionalProxy&lt;br /&gt;Satellite&lt;br /&gt;SuperPop&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5136,7 +5136,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;14&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Possible values:&lt;br /&gt;AnalyseFirst&lt;br /&gt;&lt;br /&gt;AuthorizeFirst&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Possible values:&lt;br /&gt;AnalyseFirst&lt;br /&gt;AuthorizeFirst&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5144,7 +5144,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Flow criteria.&lt;br /&gt;&lt;br /&gt;OnSuccess - on success of chosen sequence&lt;br /&gt;&lt;br /&gt;Always - analyse independently the result of chosen sequence&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Flow criteria.&lt;br /&gt;OnSuccess - on success of chosen sequence&lt;br /&gt;Always - analyse independently the result of chosen sequence&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5480,7 +5480,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Product risk level &lt;br /&gt;&lt;br /&gt;Low (lowr risk)&lt;br /&gt;&lt;br /&gt;Normal (medium risk)&lt;br /&gt;&lt;br /&gt;High (hight risk)&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Product risk level &lt;br /&gt;Low (lowr risk)&lt;br /&gt;Normal (medium risk)&lt;br /&gt;High (hight risk)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5488,7 +5488,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Importance level of customer order per time of day &lt;br /&gt;&lt;br /&gt;Low (lowr risk)&lt;br /&gt;&lt;br /&gt;Normal (medium risk)&lt;br /&gt;&lt;br /&gt;High (hight risk)&lt;br /&gt;&amp;lt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Importance level of customer order per time of day &lt;br /&gt;Low (lowr risk)&lt;br /&gt;Normal (medium risk)&lt;br /&gt;High (hight risk)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5496,7 +5496,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Product Type&lt;br /&gt;&lt;br /&gt;AdultContent&lt;br /&gt;&lt;br /&gt;Coupon&lt;br /&gt;&lt;br /&gt;Default&lt;br /&gt;&lt;br /&gt;EletronicGood&lt;br /&gt;&lt;br /&gt;EletronicSoftware&lt;br /&gt;&lt;br /&gt;GiftCertificate&lt;br /&gt;&lt;br /&gt;HandlingOnly&lt;br /&gt;&lt;br /&gt;Service&lt;br /&gt;&lt;br /&gt;ShippingAndHandling&lt;br /&gt;&lt;br /&gt;ShippingOnly&lt;br /&gt;&lt;br /&gt;Subscription&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Product Type&lt;br /&gt;AdultContent&lt;br /&gt;Coupon&lt;br /&gt;Default&lt;br /&gt;EletronicGood&lt;br /&gt;EletronicSoftware&lt;br /&gt;GiftCertificate&lt;br /&gt;HandlingOnly&lt;br /&gt;Service&lt;br /&gt;ShippingAndHandling&lt;br /&gt;ShippingOnly&lt;br /&gt;Subscription&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5504,7 +5504,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Importance level of customer purchase frequency&lt;br /&gt;&lt;br /&gt;Low (low relevance for last 15 minutes)&lt;br /&gt;&lt;br /&gt;Normal (medium relevance for last 15 minutes)&lt;br /&gt;&lt;br /&gt;High (hight relevance for last 15 minutes)&lt;br /&gt;&lt;br /&gt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Importance level of customer purchase frequency&lt;br /&gt;Low (low relevance for last 15 minutes)&lt;br /&gt;Normal (medium relevance for last 15 minutes)&lt;br /&gt;High (hight relevance for last 15 minutes)&lt;br /&gt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5536,7 +5536,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Passenger classification&lt;br /&gt;&lt;br /&gt;Adult&lt;br /&gt;&lt;br /&gt;Child&lt;br /&gt;&lt;br /&gt;Infant&lt;br /&gt;&lt;br /&gt;Youth&lt;br /&gt;&lt;br /&gt;Student)&lt;br /&gt;&lt;br /&gt;SeniorCitizen&lt;br /&gt;&lt;br /&gt;Military&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Passenger classification&lt;br /&gt;Adult&lt;br /&gt;Child&lt;br /&gt;Infant&lt;br /&gt;Youth&lt;br /&gt;Student)&lt;br /&gt;SeniorCitizen&lt;br /&gt;Military&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5576,7 +5576,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;16&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Shippint type&lt;br /&gt;&lt;br /&gt;SameDay&lt;br /&gt;&lt;br /&gt;OneDay&lt;br /&gt;&lt;br /&gt;TwoDay&lt;br /&gt;&lt;br /&gt;ThreeDay&lt;br /&gt;&lt;br /&gt;LowCost(&lt;br /&gt;&lt;br /&gt;Pickup&lt;br /&gt;&lt;br /&gt;Other&lt;br /&gt;&lt;br /&gt;None&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Shippint type&lt;br /&gt;SameDay&lt;br /&gt;OneDay&lt;br /&gt;TwoDay&lt;br /&gt;ThreeDay&lt;br /&gt;LowCost(&lt;br /&gt;Pickup&lt;br /&gt;Other&lt;br /&gt;None&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -6204,7 +6204,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Codes that identifies the score level of an order&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.&amp;lt;/LI&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -10533,7 +10533,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10 &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Interval between recurrences&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly (Default) &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &lt;/td&gt;
+      &lt;td&gt;Interval between recurrences&lt;br /&gt;Monthly (Default) Bimonthly Quarterly SemiAnnual Annual &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -10760,7 +10760,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Recurrency Interval &lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10 &lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &lt;/td&gt;
+      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -10935,7 +10935,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10 &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Interval between recurrencies.&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly (Default) &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &lt;/td&gt;
+      &lt;td&gt;Interval between recurrencies.&lt;br /&gt;Monthly (Default) Bimonthly Quarterly SemiAnnual Annual &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt;Boolean &lt;/td&gt;
@@ -11119,7 +11119,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Interval between recurrences &lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10 &lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &lt;/td&gt;
+      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -11576,7 +11576,7 @@ All the orders just authorized must be captured here. When the capture process i
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Interval between recurrencies. &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Interval between recurrencies. MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2 &lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -11595,14 +11595,12 @@ All the orders just authorized must be captured here. When the capture process i
 
 &lt;p&gt;To change Change the recurrency day, follow the example bellow&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Examples:&lt;/strong&gt;
-&lt;br /&gt;&lt;br /&gt;If the new day informed is greater than the present day, the system will update the recurrence day in effect at the next recurrence.
+&lt;aside class=&quot;notice&quot;&gt;Examples:If the new day informed is greater than the present day, the system will update the recurrence day in effect at the next recurrence.
 Ex:&lt;br /&gt;
 Today: Sep 5th&lt;br /&gt;
 Current next scheduled recurrence date: Sep 25th &lt;br /&gt;
 New recurrence day: 10&lt;br /&gt;
 New next scheduled recurrence date: Sep 10th &lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;
 If the new day informed is less than the present day and next recurrence will be in the current month, the system will update the recurrence day after the next execution of recurrence.&lt;br /&gt;
 Ex:&lt;br /&gt;
 Today: Sep 5th&lt;br /&gt;
@@ -11610,7 +11608,6 @@ Current next scheduled recurrence date: Sep 25th &lt;br /&gt;
 New recurrence day: 2&lt;br /&gt;
 Next scheduled recurrence date: Sep 25th&lt;br /&gt;
 Next scheduled recurrence date: Oct 2th &lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;
 If the new day informed is less than the present day and next recurrence will be in diferent month, the new recurrence day will be updated, in effect at the next recurrence.&lt;br /&gt;
 Today: Sep 5th&lt;br /&gt;
 Current next scheduled recurrence date: Oct 25th &lt;br /&gt;
@@ -11854,7 +11851,7 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
 
 &lt;p&gt;To Change the payment data, such as Credit Card number, follow the example bellow&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Attention:&lt;/strong&gt; This operation changes onlu &quot;Payment&quot; node, and other informatios such as recurrency rules and customer's dada, will not be affected&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Attention: This operation changes onlu &quot;Payment&quot; node, and other informatios such as recurrency rules and customer's dada, will not be affected&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-25&quot;&gt;Request&lt;/h3&gt;
 
@@ -13047,7 +13044,7 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
       &lt;td&gt;Recurrence Status&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;1 &lt;/td&gt;
-      &lt;td&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;1 - Active&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;2 - Finished&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;3,4,5 - Disabled&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt; &lt;/td&gt;
+      &lt;td&gt;1 - Active2 - Finished3,4,5 - Disabled &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrencyDay&lt;/code&gt;&lt;/td&gt;
@@ -14257,12 +14254,12 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
 
 &lt;h2 id=&quot;device-finger-print&quot;&gt;Device Finger Print&lt;/h2&gt;
 
-&lt;p&gt;You will need to add a 1-pixel image, which is not visible on the screen, and 2 scripts in the tag &amp;lt;Body&amp;gt; from your checkout page. Make sure that all process will take 10 seconds (rendering the code to submiiting process)&lt;/p&gt;
+&lt;p&gt;You will need to add a 1-pixel image, which is not visible on the screen, and 2 scripts in the tag  from your checkout page. Make sure that all process will take 10 seconds (rendering the code to submiiting process)&lt;/p&gt;
 
 &lt;p&gt;OBS: If this process is not concluded successfully, the result might not be pricise.&lt;/p&gt;
 
 &lt;p&gt;Scripts
-Place the code segments above the &amp;lt;/ Body&amp;gt; tag to ensure that a Web page is rendered correctly. Never add code segments into visible HTML elements. Code segments need to be loaded before the customer completes the purchase order, otherwise an error will be generated.&lt;/p&gt;
+Place the code segments above the  tag to ensure that a Web page is rendered correctly. Never add code segments into visible HTML elements. Code segments need to be loaded before the customer completes the purchase order, otherwise an error will be generated.&lt;/p&gt;
 
 &lt;p&gt;Replacing the variables
 Copy the codes bellow, and replace the variables with correct values.&lt;/p&gt;
@@ -14280,7 +14277,7 @@ Copy the codes bellow, and replace the variables with correct values.&lt;/p&gt;
 ‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=‹merchant id›‹session ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=2&quot; alt=&quot;&quot;›
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- EXEMPLO --&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 ‹p style=&quot;background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=1)&quot;›‹/p›
 ‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_\id=sample_merchantIDsample_sessionID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=2&quot; alt=&quot;&quot;›
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -14293,7 +14290,7 @@ Copy the codes bellow, and replace the variables with correct values.&lt;/p&gt;
 ‹/object› 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- EXEMPLO --&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 ‹object type=&quot;application/x-shockwave-flash&quot; data=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&quot;width=&quot;1&quot; height=&quot;1&quot; id=&quot;thm_fp&quot;›
 ‹param name=&quot;movie&quot; value=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&quot; /›
 ‹div›‹/div›
@@ -14307,7 +14304,7 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
 ‹/script› 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- EXEMPLO --&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 ‹script src=&quot;https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_
 id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
 ‹/script› 
@@ -14326,7 +14323,7 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;What is the difference between Status, ReasonCode and ProviderReturnCode?&lt;/td&gt;
-      &lt;td&gt;The answer is:&lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Status: represents the current status of the transaction.&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ReasonCode: represents the status of the request.&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ProviderReturnCode: represents the response code from the acquirer or bank.&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;For example, an authorization request may have a return with ReasonCode = 0 (Sucessfull), ie the request has been successfully completed, but the Status may be 0-Denied, for having the transaction not authorized by the buyer, ProviderReturnCode 57 (one of Cielo’s denied codes)&lt;/td&gt;
+      &lt;td&gt;The answer is:&lt;br /&gt;Status: represents the current status of the transaction.ReasonCode: represents the status of the request.ProviderReturnCode: represents the response code from the acquirer or bank.For example, an authorization request may have a return with ReasonCode = 0 (Sucessfull), ie the request has been successfully completed, but the Status may be 0-Denied, for having the transaction not authorized by the buyer, ProviderReturnCode 57 (one of Cielo’s denied codes)&lt;/td&gt;
       &lt;td&gt;Integration&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -14679,7 +14676,7 @@ payment data and, instead of the card info (number + expiration date), the corre
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
@@ -14787,7 +14784,7 @@ payment data and, instead of the card info (number + expiration date), the corre
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
@@ -14901,7 +14898,7 @@ payment data and, instead of the card info (number + expiration date), the corre
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
@@ -14985,7 +14982,7 @@ payment data and, instead of the card info (number + expiration date), the corre
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
@@ -15069,7 +15066,7 @@ payment data and, instead of the card info (number + expiration date), the corre
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ErrorReportCollection&lt;/td&gt;
-      &lt;td&gt;List&lt;ErrorReport&gt;&lt;/ErrorReport&gt;&lt;/td&gt;
+      &lt;td&gt;List&lt;/td&gt;
       &lt;td&gt;Error/Validation list generated in the operation flow. Please refer to “Error Map” section&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
