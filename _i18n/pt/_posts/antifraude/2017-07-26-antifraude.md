@@ -407,8 +407,8 @@ curl
 |`CartItem[n].ShippingMethod`|Meio de entrega do produto - Tabela 10|enum|-|-|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||
+|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações||
+|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações||
 
 ### Response
 
@@ -754,8 +754,6 @@ curl
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|não|-|
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|não|-|
 
-### Response
-
 ``` json
 {
   "Id": "3671aafd-09e0-e711-80c2-000d3a70dd7b",
@@ -784,7 +782,7 @@ curl
   },
   "Links": [{
         "Method": "GET",
-        "Href": "https://risksandbox.braspag.com.br/Analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b",
+        "Href": "https://{antifraude endpoint}/analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b",
         "Rel": "Self"
   }],
   "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
@@ -899,6 +897,8 @@ curl
 }
 ```
 
+### Response
+
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`Id`|Id da transação no Antifraude Gateway Braspag|guid|
@@ -997,55 +997,42 @@ curl
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual|
 |`FraudAnalysisRequestError`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tamanho especificado no manual|
 
-### `GET`{:.http-get} Obtenção dos Detalhes da Análise
+# Consultas
 
-**PARÂMETROS:**  
+## Consultando uma transação ReDShield
 
-``` csharp
-Id: Guid  // Id da Transação no Antifraude
+### Transação existente
 
-```
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-**REQUEST:**  
-
-``` http
-GET https://riskhomolog.braspag.com.br/Analysis/{Id} HTTP/1.1
-Host: riskhomolog.braspag.com.br
-Authorization: Bearer {access_token}
-Content-Type: application/json
-```
-
-**RESPONSE:**  
-
-* Quando a transação não for encontrada na base de dados.  
-
-``` http
-HTTP/1.1 404 Not Found
-Content-Type: application/json;charset=UTF-8
-```
-
-* Quando a transação for encontrada na base de dados.
-
-**REDSHIELD**
-
-``` http
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-```
+#### Request
 
 ``` json
 {
-  "Id": "22b5e829-edf1-e611-9414-0050569318a7",
-  "AnalysisResult": {
-    "Status": "Review",
-    "Message": "Payment void and transaction challenged by ReD Shield",
-    "ProviderCode": "100.400.148",
-    "ProviderTransactionId": "487931363026",
-    "ProviderRequestTransactionId": "8a8394865a353cc4015a37947c5f7e35"
+  "Id": "5f8a661c-00e0-e711-80c2-000d3a70dd7b",
+  "ProviderAnalysisResult": {
+    "ProviderRequestId": "8a82944a6045a46f01604fd26814233b",
+    "Result": {
+        "ProviderCode": "000.000.000",
+        "ProviderDescription": "Transaction succeeded"
+    },
+    "ResultDetails": {
+        "CSITransactionLink": "https://{redshield endpoint}/index.red#transactiondetail/000548000001XCJ20171213072118102",
+        "Status": "ACCEPT",
+        "ProviderTransactionId": "322066985634",
+        "ProviderResponseCode": "0150",
+        "ProviderOrderId": "000548000001XCJ20171213072118102"
+    },
+    "Ndc": "8a82941859d5969a0159db3f6ecc1418_5b9d6472570843d6b7e261d92827d361"
   },
+  "Links": [{
+    "Method": "GET",
+    "Href": "https://{antifraude endpoint}/analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b",
+    "Rel": "Self"
+  }],
   "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
-  "TotalOrderAmount": 1500,
-  "TransactionAmount": 1000,
+  "TotalOrderAmount": 15000,
+  "TransactionAmount": 14000,
   "Currency": "BRL",
   "Provider": "RedShield",
   "OrderDate": "2016-12-09 12:35:58.852",
@@ -1053,7 +1040,7 @@ Content-Type: application/json;charset=UTF-8
   "SplitingPaymentMethod": "None",
   "IsRetryTransaction": false,
   "Card": {
-    "Number" : "4000111231110112",
+    "Number" : "4444555566667777",
     "Holder": "Holder Name",
     "ExpirationDate": "12/2023",
     "Cvv": "999",
@@ -1094,7 +1081,7 @@ Content-Type: application/json;charset=UTF-8
     "FirstName": "João",
     "MiddleName": "P",
     "LastName": "Silva",
-    "BirthDate": "2016-12-09",
+    "BirthDate": "1983-10-01",
     "Gender": "Male",
     "Email": "emailcomprador@dominio.com.br",
     "Phone": "552121114700",
@@ -1107,11 +1094,11 @@ Content-Type: application/json;charset=UTF-8
   "CartItems": [
     {
       "ProductName": "Mouse",
-      "UnitPrice": "12000",
+      "UnitPrice": "6500",
       "MerchantItemId": "4",
       "Sku": "abc123",
       "Quantity": 1,
-      "OriginalPrice": "12000",
+      "OriginalPrice": "7000",
       "GiftMessage": "Te amo!",
       "Description": "Uma description do Mouse",
       "ShippingInstructions": "Proximo ao 546",
@@ -1120,11 +1107,11 @@ Content-Type: application/json;charset=UTF-8
     },
     {
       "ProductName": "Teclado",
-      "UnitPrice": "96385",
+      "UnitPrice": "7500",
       "MerchantItemId": "3",
       "Sku": "abc456",
       "Quantity": 1,
-      "OriginalPrice": "96385",
+      "OriginalPrice": "8000",
       "GiftMessage": "Te odeio!",
       "Description": "Uma description do Teclado",
       "ShippingInstructions": "Proximo ao 123",
@@ -1152,36 +1139,137 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-**CYBERSOURCE**
+#### Response
 
-``` http
-HTTP/1.1 201 Created
-Content-Type: application/json;charset=UTF-8
-```
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
+|`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
+|`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
+|`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
+|`ProviderAnalysisResult.ResultDetails.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido da ReDShield|string|
+|`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
+|`MerchantOrderId`|Número do pedido da loja|string|
+|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
+|`Currency`|Moeda - Tabela 1|enum|
+|`Provider`|Provedor da solução de antifraude - Tabela 2|enum|
+|`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155|datetime|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|
+|`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3|enum|
+|`IsRetryTransaction`|Identifica se foi uma transação retentada|bool|
+|`Card.Number`|Número do cartão de crédito|string|
+|`Card.Holder`|Nome do cartão de crédito|string|
+|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|
+|`Card.Cvv`|Código de segurança do cartão de crédito|string|
+|`Card.Brand`|Bandeira do cartão de crédito - Tabela 4|enum|
+|`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|
+|`Card.Save`|Indica se os dados do cartão de crédito foram armazenados no Cartão Protegido|bool|
+|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|
+|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|
+|`Billing.Street`|Logradouro do endereço de cobrança|string|
+|`Billing.Number`|Número do endereço de cobrança|string|
+|`Billing.Complement`|Complemento do endereço de cobrança|string|
+|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|
+|`Billing.City`|Cidade do endereço de cobrança|string|
+|`Billing.State`|Estado do endereço de cobrança|string|
+|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Billing.ZipCode`|Código postal do endereço de cobrança|string|
+|`Shipping.Street`|Logradouro do endereço de entrega|string|
+|`Shipping.Number`|Número do endereço de entrega|string|
+|`Shipping.Complement`|Complemento do endereço de entrega|string|
+|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|
+|`Shipping.City`|Cidade do endereço de entrega|string|
+|`Shipping.State`|Estado do endereço de entrega|string|
+|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Shipping.ZipCode`|Código postal do endereço de entrega|string|
+|`Shipping.Email`|E-mail do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.MiddleName`|Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido - Tabela 5|enum|
+|`Shipping.Comment`|Referências do endereço de entrega|string|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador - Tabela 6|string|
+|`Customer.FirstName`|Primeiro nome do comprador|string|
+|`Customer.MiddleName`|Primeira letra do nome do comprador|string|
+|`Customer.LastName`|Último nome do comprador|string|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|
+|`Customer.Gender`|Sexo do comprador - Tabela 7|string|
+|`Customer.Email`|E-mail do comprador|string|
+|`Customer.Ip`|Endereço de IP do comprador|string|
+|`Customer.Phone`|Número do telefone do comprador|string|
+|`Customer.WorkPhone`|Número do telefone do comprador|string|
+|`Customer.Mobile`|Número do celular do comprador|string|
+|`Customer.Status`|Status do comprador na loja - Tabela 8|string|
+|`CartItem[n].ProductName`|Nome do produto|string|
+|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
+|`CartItem[n].OriginalPrice`|Preço original do produto <br/> Ex: 11490 = r$ 114,90|long|
+|`CartItem[n].MerchantItemId`|ID do produto na loja|string|
+|`CartItem[n].Sku`|Sku do produto|string|
+|`CartItem[n].Quantity`|Quantidade do produto|int|
+|`CartItem[n].GiftMessage`|Mensagem de presente|string|
+|`CartItem[n].Description`|Descrição do produto|string|
+|`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|
+|`CartItem[n].ShippingMethod`|Meio de entrega do produto - Tabela 10|enum|
+|`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|
+|`CustomConfiguration.MerchantWebsite`|Website da loja|string|
+|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|
+|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|
+
+## Consultando uma transação Cybersource
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+
+### Transação existente
+
+#### Request
 
 ``` json
 {
-  "AnalysisResult": {
-    "Id": "0c72cb49-985d-e711-93ff-000d3ac03bed",
-    "Status": "Reject",
-    "Score": "99",
-    "ProviderCode": "481",
-    "ProviderTransactionId": "4988294363046705503011",
-    "SuspiciousCode": "RISK-SD",
-    "ScoreModelUsed": "travel",
-    "FactorCode": "F^I^P^Y^Z",
-    "VelocityCodeDetail": "GVEL-R7^GVEL-R2^GVEL-R6",
-    "CasePriority": "3"
+  "Id": "3671aafd-09e0-e711-80c2-000d3a70dd7b",
+  "ProviderAnalysisResult": {
+    "ProviderTransactionId": "5131719190516173203009",
+    "Status": "ACCEPT",
+    "ProviderCode": "100",
+    "ProviderRequestTransactionId": "AhjzbwSTFjDo9sLLoWZBEAFReTFX1NHtDuphyzhk0kv9Atj2YEFgc0RA",
+    "AfsReply": {
+        "reasonCode": "100",
+        "afsResult": "99",
+        "hostSeverity": "1",
+        "consumerLocalTime": "11:31:59",
+        "afsFactorCode": "F^P^Y^Z",
+        "addressInfoCode": "MM-A^MM-Z^UNV-ADDR",
+        "hotlistInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-SA^REV-IP^REV-SUSP",
+        "suspiciousInfoCode": "RISK-TB^RISK-TS",
+        "velocityInfoCode": "VEL-NAME",
+        "scoreModelUsed": "default_lac"
+    },
+    "DecisionReply": {
+        "casePriority": "3",
+        "activeProfileReply": {},
+        "velocityInfoCode": "GVEL-R2^GVEL-R3^GVEL-R6^GVEL-R7^GVEL-R8"
+    }
   },
+  "Links": [{
+        "Method": "GET",
+        "Href": "https://{antifraude endpoint}/analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b",
+        "Rel": "Self"
+  }],
   "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
-  "TotalOrderAmount": 1500,
-  "TransactionAmount": 1000,
+  "TotalOrderAmount": 15000,
+  "TransactionAmount": 14000,
   "Currency": "BRL",
   "Provider": "Cybersource",
   "OrderDate": "2016-12-09 12:35:58.852",
   "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
   "Card": {
-    "Number" : "4000111231110112",
+    "Number" : "4444555566667777",
     "Holder": "Holder Name",
     "ExpirationDate": "12/2023",
     "Cvv": "999",
@@ -1231,16 +1319,6 @@ Content-Type: application/json;charset=UTF-8
       "Sku": "abc123",
       "Quantity": 1,
       "Risk":"Low",
-      "Passenger": {
-        "FirstName": "João",
-        "LastName": "Silva",
-        "PassengerId": "1",
-        "Status": "NEW",
-        "PassengerType": "Adult",
-        "Email": "emailpassageiro@dominio.com.br",
-        "Phone" : "552121114700",
-        "DateOfBirth": "1982-04-30"
-      },
       "AddressRiskVerify":"No",
       "HostHedge":"Low",
       "NonSensicalHedge":"Normal",
@@ -1260,33 +1338,18 @@ Content-Type: application/json;charset=UTF-8
   ],
   "MerchantDefinedData": [
     {
-      "Key": "USER_DATA4",
+      "Key": "1",
       "Value": "Valor definido com o Provedor a ser enviado neste campo."
     },
     {
-      "Key": "Segment",
-      "Value": "8999"
+      "Key": "2",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
     },
     {
-      "Key": "MerchantId",
-      "Value": "Seller123456"
+      "Key": "3",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
     }
   ],
-  "Travel": {
-    "CompleteRoute": "GIG-CGH-EZE:EZE-CGH-GIG",
-    "DepartueTime": "2016-12-10 11:31:00.000",
-    "JourneyType": "OneWayTrip",
-    "TravelLegs": [
-      {
-        "Origin": "GIG",
-        "Destination": "CGH"
-      },
-      {
-        "Origin": "CGH",
-        "Destination": "EZE"
-      }
-    ]
-  },
   "Bank":{
     "Address": "Rua Marte, 29",
     "Code": "237",
@@ -1306,7 +1369,150 @@ Content-Type: application/json;charset=UTF-8
     "IsGift": false,
     "ReturnsAccept": true,
     "Tender": "Consumer"
-  }  
+  }
+}
+```
+
+#### Response
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
+|`ProviderAnalysisResult.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - Tabela 2|int|
+|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na Cybersource|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
+|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4|string|
+|`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
+|`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador - Tabela 5|string|
+|`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
+|`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão - Tabela 6|string|
+|`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
+|`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
+|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas. Ex.: NEG-AFCB^NEG-CC - Tabela 7|string|
+|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas. Ex.: COR-BA^MM-BIN - Tabela 8|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança. Ex.: COR-BA^MM-BIN - Tabela 9|string|
+|`ProviderAnalysisResult.AfsReply.IpCity`|Nome da cidade do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.IpCountry`|Nome do país do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento obtido a partir do endereço de IP para envio da transação - Tabela 10|string|
+|`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador. Ex.: UNV-AC^RISK-AC - Tabela 11|string|
+|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código do motivo retornado pela Cybersource - Tabela 2|int|
+|`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
+|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas. Ex.: RISK-TB^RISK-TS - Tabela 12|string|
+|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras. Ex.: VELV-SA^VELI-CC^VELSIP - Tabela 13|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`|Linguagem do browser utilizado pelo comprador no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution`|Resolução da tela do comprador no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`|Flag identificando que o browser do comprador estava habilitado para armazenar cookies temporariamente no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.FlashEnabled`|Flag identificando que o browser do comprador habilitado a execução de conteúdos em Flash no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.Hash`|Hash gerado a partir dos dados coletados pelo script de fingerprint|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ImagesEnabled`|Flag identificando que o browser do comprador estava com cache de imagens habilitado no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled`|Flag identificando que o browser do comprador estava com a execução de sripts em Javascript habilitada no momento da compra|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddress`|Flag identificando que o IP do comprador é real|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCity`|Flag identificando que o IP do comprador é de fato da cidade que deveria ser mesmo|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCountry`|Flag identificando que o IP do comprador é de fato do país que deveria ser mesmo|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue`|Quando modo verbose ativado, nome da fila para onde as transações não aceitas automaticamente são enviadas|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|Quando modo verbose ativado, nome do perfil selecionado na análise. Se não tiver nenhum, o perfil padrão foi selecionado|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|Quando modo verbose ativado, nome do seletor de regras que seleciona o perfil de regras|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|Quando modo verbose ativado, id da regra|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra - Tabela 14|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra - Tabela 15|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|Quando modo verbose ativado, nome da regra|string|
+|`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
+|`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
+|`MerchantOrderId` |Número do pedido da loja|string|
+|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
+|`Currency`|Moeda - Tabela 1|enum|
+|`Provider`|Provedor da solução de antifraude - Tabela 2|enum|
+|`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155|datetime|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|
+|`Card.Number`|Número do cartão de crédito|string|
+|`Card.Holder`|Nome do cartão de crédito|string|
+|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|
+|`Card.Brand`|Bandeira do cartão de crédito - Tabela 4|enum|
+|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|
+|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|
+|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|
+|`Billing.Street`|Logradouro do endereço de cobrança|string|
+|`Billing.Number`|Número do endereço de cobrança|string|
+|`Billing.Complement`|Complemento do endereço de cobrança|string|
+|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|
+|`Billing.City`|Cidade do endereço de cobrança|string|
+|`Billing.State`|Estado do endereço de cobrança|string|
+|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Billing.ZipCode`|Código postal do endereço de cobrança|string|
+|`Shipping.Street`|Logradouro do endereço de entrega|string|
+|`Shipping.Number`|Número do endereço de entrega|string|
+|`Shipping.Complement`|Complemento do endereço de entrega|string|
+|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|
+|`Shipping.City`|Cidade do endereço de entrega|string|
+|`Shipping.State`|Estado do endereço de entrega|string|
+|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Shipping.ZipCode`|Código postal do endereço de entrega|string|
+|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega|string|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido - Tabela 5|enum|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador - Tabela 6|string|
+|`Customer.FirstName`|Primeiro nome do comprador|string|
+|`Customer.LastName`|Último nome do comprador|string|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|
+|`Customer.Email`|E-mail do comprador|string|
+|`Customer.Ip`|Endereço de IP do comprador|string|
+|`Customer.Phone`|Número do telefone do comprador|string|
+|`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|
+|`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|
+|`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|
+|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP (`Customer.Email`)|string|
+|`CartItem[n].ProductName`|Nome do produto|string|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks - Tabela 9|enum|
+|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
+|`CartItem[n].Sku`|Sku do produto|string|
+|`CartItem[n].Quantity`|Quantidade do produto|int|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - Tabela 11|enum|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - Tabela 12|enum|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - Tabela 13|enum|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - Tabela 14|enum|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - Tabela 15|enum|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - Tabela 16|enum|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - Tabela 17|enum|
+|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
+|`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|
+|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|
+|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|
+|`Bank.Name`|Nome do banco do comprador|string|
+|`Bank.Code`|Código do banco do comprador|string|
+|`Bank.Agency`|Agência do banco do comprador|string|
+|`Bank.Address`|Endereço do banco do comprador|string|
+|`Bank.City`|Cidade onde está localizado o banco do comprador|string|
+|`Bank.Country`|País onde está localizado o banco do comprador <br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Bank.SwiftCode`|Código identificador único do banco do comprador|string|
+|`FundTransfer.AccountName`|Nome vinculado a conta bancária|string|
+|`FundTransfer.AccountNumber`|Número da conta bancária do comprador|string|
+|`FundTransfer.BankCheckDigit`|Código utilizado para validar a conta bancária do comprador|string|
+|`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|
+|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|
+|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|
+
+### Transação inexistente
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+
+#### Request
+
+#### Response
+
+``` shell
+curl
+--header "StatusCode: 404 Not Found"
+--header "Content-Type: application/json"
+--data-binary
+{}
+--verbose
 }
 ```
 
