@@ -1738,8 +1738,7 @@ Retroalimentação de chargeback
 
 **REQUEST:**  
 
-``` 
-
+``` html
 POST https://riskhomolog.braspag.com.br/Chargeback/ HTTP/1.1
 Host: {antifraude endpoint}
 Authorization: Bearer {access_token}
