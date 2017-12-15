@@ -1661,9 +1661,9 @@ Esta sessão descreve como enviar para a Braspag as transações que já foram a
 
 Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.
 
-> O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo:
-> 1 - Realiza análise através do Antifraude Gateway Braspag
-> 2 - Realiza a autorização através do Pagador
+> O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo: <br/>
+> 1 - Realiza análise através do Antifraude Gateway Braspag <br/>
+> 2 - Realiza a autorização através do Pagador <br/>
 > 3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag
 
 ## Atributos
