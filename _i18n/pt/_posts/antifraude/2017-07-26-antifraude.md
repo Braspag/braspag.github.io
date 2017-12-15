@@ -2170,27 +2170,25 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 >        <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt=""> <br/>
 >    </form> <br/>
 > </body> <br/>
+> </html> <br/><br/>
+> Flash Code  <br/>
+> <html> <br/>
+> <head></head> <br/>
+> <body> <br/>
+>    <form> <br/>
+>        <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" width="1" height="1" id="thm_fp"> <br/>
+>            <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" /> <br/>
+>            <div></div> <br/>
+>        </object> <br/>
+>    </form> <br/>
+> </body> <br/>
+> </html><br/><br/>
+> Javascript Code <br/>
+> <html> <br/>
+>   <head></head> <br/>
+>   <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script> <br/>
+>   <body></body> <br/>
 > </html> <br/>
-
-> Flash Code  
-> <html>
-> <head></head>
-> <body>
->    <form>
->        <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" width="1" height="1" id="thm_fp">
->            <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" />
->            <div></div>
->        </object>
->    </form>
-> </body>
-> </html>
-
-> Javascript Code
-> <html>
->   <head></head>
->   <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script>
->   <body></body>
-> </html>
 
 **IMPORTANTE!**  
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.  
