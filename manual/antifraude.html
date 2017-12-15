@@ -189,17 +189,47 @@
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/x-www-form-urlencoded|
-|<code class="highlighter-rouge">Authorization</code>|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
-<p><strong>Parâmetros no corpo (Body)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">scope</code>|AntifraudGatewayApp|
-|<code class="highlighter-rouge">grant_type</code>|client_credentials|</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/x-www-form-urlencoded</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">scope</code></td>
+      <td style="text-align: left">AntifraudGatewayApp</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">grant_type</code></td>
+      <td style="text-align: left">client_credentials</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="response">Response</h3>
 
@@ -213,22 +243,22 @@
 <table>
   <thead>
     <tr>
-      <th>Parâmetro</th>
-      <th>Descrição</th>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">access_token</code></td>
-      <td>O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway</td>
+      <td style="text-align: left"><code class="highlighter-rouge">access_token</code></td>
+      <td style="text-align: left">O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">token_type</code></td>
-      <td>Indica o valor do tipo de token</td>
+      <td style="text-align: left"><code class="highlighter-rouge">token_type</code></td>
+      <td style="text-align: left">Indica o valor do tipo de token</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">expires_in</code></td>
-      <td>Expiração do o token de acesso, em segundos <br />O token quando expirar, é necessário obter um novo</td>
+      <td style="text-align: left"><code class="highlighter-rouge">expires_in</code></td>
+      <td style="text-align: left">Expiração do o token de acesso, em segundos <br />O token quando expirar, é necessário obter um novo</td>
     </tr>
   </tbody>
 </table>
@@ -353,13 +383,34 @@
 
 <h3 id="request-1">Request</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Authorization</code>|Bearer {access_token}|
-|<code class="highlighter-rouge">MerchantId</code>|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|<code class="highlighter-rouge">RequestId</code>|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -998,11 +1049,26 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Status</code>|201 Created|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">201 Created</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -1180,13 +1246,34 @@
 
 <h3 id="request-2">Request</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Authorization</code>|Bearer {access_token}|
-|<code class="highlighter-rouge">MerchantId</code>|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|<code class="highlighter-rouge">RequestId</code>|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -2023,11 +2110,26 @@
 
 <h3 id="response-2">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Status</code>|201 Created|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">201 Created</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -2287,29 +2389,46 @@
 
 <h3 id="response-3">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Status</code>|400 Bad Request|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
 <table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Parâmetro</td>
-      <td>Descrição</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Message</code></td>
-      <td>Mensagem informando que o request é inválido</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem informando que o request é inválido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ModelState</code></td>
-      <td>Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ModelState</code></td>
+      <td style="text-align: left">Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysisRequestError</code></td>
-      <td>Coleção que conterá mensagens com os campos que não estejam de acordo com o tamanho especificado no manual</td>
+      <td style="text-align: left"><code class="highlighter-rouge">FraudAnalysisRequestError</code></td>
+      <td style="text-align: left">Coleção que conterá mensagens com os campos que não estejam de acordo com o tamanho especificado no manual</td>
     </tr>
   </tbody>
 </table>
@@ -2453,21 +2572,57 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Authorization</code>|Bearer {access_token}|
-|<code class="highlighter-rouge">MerchantId</code>|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|<code class="highlighter-rouge">RequestId</code>|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="response-4">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Status</code>|200 OK|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -3019,21 +3174,57 @@
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Authorization</code>|Bearer {access_token}|
-|<code class="highlighter-rouge">MerchantId</code>|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|<code class="highlighter-rouge">RequestId</code>|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="response-5">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Status</code>|200 OK|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -3653,21 +3844,57 @@
 
 <h3 id="request-5">Request</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Authorization</code>|Bearer {access_token}|
-|<code class="highlighter-rouge">MerchantId</code>|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|<code class="highlighter-rouge">RequestId</code>|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="response-6">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong>
-|Key|Value|
-|-|-|
-|<code class="highlighter-rouge">Content-Type</code>|application/json|
-|<code class="highlighter-rouge">Status</code>|404 Not Found|</p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="post-de-notificação-de-mudança-de-status">Post de notificação de Mudança de Status</h1>
 
