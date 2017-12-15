@@ -8,8 +8,6 @@ tags:
   - AntiFraude
 language_tabs:
   json: JSON
-  curl: CURL
-  html: HTML
 ---
 
 # Visão Geral
@@ -27,6 +25,13 @@ A plataforma foi construída utilizando um dos principais produtos da Braspag, o
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.
 
 Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
+
+# Hosts
+
+|Ambiente|URL|
+|:-|:-|
+|`Sandbox`|`https:\\risksandbox.braspag.com.br|
+|`Produção`|https:\\risk.braspag.com.br|
 
 # Autenticação
 
