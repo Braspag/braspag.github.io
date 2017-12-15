@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-15T21:31:52+00:00</updated>
+    <updated>2017-12-15T21:45:16+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -27067,37 +27067,27 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
         &lt;br /&gt;
         &lt;br /&gt;
     &lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+ &lt;br /&gt;
+ &lt;br /&gt;&lt;br /&gt;
+Flash Code  &lt;br /&gt;
+ &lt;br /&gt;
+ &lt;br /&gt;
+ &lt;br /&gt;
+    &lt;br /&gt;
+        &lt;br /&gt;
+            &lt;br /&gt;
+            &lt;br /&gt;
+        &lt;br /&gt;
+    &lt;br /&gt;
+ &lt;br /&gt;
+&lt;br /&gt;&lt;br /&gt;
+Javascript Code &lt;br /&gt;
+ &lt;br /&gt;
+   &lt;br /&gt;
+   &lt;br /&gt;
+   &lt;br /&gt;
+ &lt;br /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Flash Code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-
-    
-        
-            
-            
-        
-    
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Javascript Code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.&lt;/p&gt;
