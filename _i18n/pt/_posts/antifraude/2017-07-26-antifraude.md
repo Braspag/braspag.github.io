@@ -28,10 +28,19 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 # Hosts
 
+## API BraspagAuth
+
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|`https:\\risksandbox.braspag.com.br|
-|`Produção`|https:\\risk.braspag.com.br|
+|`Sandbox`|https:\\\\authhomolog.braspag.com.br|
+|`Produção`|https:\\\\auth.braspag.com.br|
+
+## API Antifraude Gateway
+
+|Ambiente|URL|
+|:-|:-|
+|`Sandbox`|`https:\\\\risksandbox.braspag.com.br|
+|`Produção`|https:\\\\risk.braspag.com.br|
 
 # Autenticação
 
@@ -43,9 +52,7 @@ Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham
 
 ## Obtenção do token de acesso  
 
-* O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Antifraude Gateway**.
-
-![Obtenção de Tokens de Acesso]({{ site.baseurl_root }}/images/braspag/af/antifraudeauthentication.png){: .centerimg }{:title="Fluxo para obtenção do Token de Acesso "}
+O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Antifraude Gateway**.
 
 1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
 
@@ -104,7 +111,7 @@ Exemplo:
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
 
-# Análise de fraude
+# Realizando uma análise de fraude
 
 A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.
 
