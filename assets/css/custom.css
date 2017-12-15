@@ -417,7 +417,7 @@ code {
     width: 100%;
 }
 
-.content-container.no-dark-box .language-buttons {
+.content-container.no-dark-box > .language-tabs .language-buttons {
     display: none;
 }
 
