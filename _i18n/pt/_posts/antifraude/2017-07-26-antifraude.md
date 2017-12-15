@@ -8,6 +8,7 @@ tags:
   - AntiFraude
 language_tabs:
   json: JSON
+  html: HTML
 ---
 
 # Visão Geral
@@ -1947,7 +1948,6 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 **Exemplo**  
 
 ``` xml
-
 <html>
 <head>
 <script>
@@ -1964,7 +1964,6 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
     </form>
 </body>
 </html>
-
 ```
 
 ## Integração em aplicativos mobile
@@ -2039,7 +2038,6 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
     self.blackbox.text = [iovation ioBegin];
 }
 @end
-
 ```
 
 ### Integrando com aplicativos Android  
@@ -2142,7 +2140,6 @@ public class DevicePrintSampleActivity extends Activity
         bbResult.setVisibility(View.VISIBLE);
     }
 }
-
 ```
 
 ## Cybersource
@@ -2169,7 +2166,6 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 * PNG Image  
 
 ``` html
-
 <html>
 <head></head>
 <body>
@@ -2179,13 +2175,11 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
     </form>
 </body>
 </html>
-
 ```
 
 * Flash Code  
 
 ``` html
-
 <html>
 <head></head>
 <body>
@@ -2197,7 +2191,6 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
     </form>
 </body>
 </html>
-
 ```
 
 * Javascript Code
