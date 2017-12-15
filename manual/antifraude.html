@@ -135,6 +135,8 @@
 
 <h1 id="hosts">Hosts</h1>
 
+<h2 id="api-braspagauth">API BraspagAuth</h2>
+
 <table>
   <thead>
     <tr>
@@ -145,11 +147,32 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
-      <td style="text-align: left">`https:\risksandbox.braspag.com.br</td>
+      <td style="text-align: left">https:\\authhomolog.braspag.com.br</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
-      <td style="text-align: left">https:\risk.braspag.com.br</td>
+      <td style="text-align: left">https:\\auth.braspag.com.br</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="api-antifraude-gateway">API Antifraude Gateway</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ambiente</th>
+      <th style="text-align: left">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
+      <td style="text-align: left">`https:\\risksandbox.braspag.com.br</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
+      <td style="text-align: left">https:\\risk.braspag.com.br</td>
     </tr>
   </tbody>
 </table>
@@ -164,11 +187,7 @@
 
 <h2 id="obtenção-do-token-de-acesso">Obtenção do token de acesso</h2>
 
-<ul>
-  <li>O token de acesso é obtido através do fluxo oauth <strong>client_credentials</strong>. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a <strong>Aplicação Cliente</strong>, a <strong>API BraspagAuth</strong> e a <strong>API Antifraude Gateway</strong>.</li>
-</ul>
-
-<p><img src="https://braspag.github.io//images/braspag/af/antifraudeauthentication.png" alt="Obtenção de Tokens de Acesso" class="centerimg" title="Fluxo para obtenção do Token de Acesso " /></p>
+<p>O token de acesso é obtido através do fluxo oauth <strong>client_credentials</strong>. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a <strong>Aplicação Cliente</strong>, a <strong>API BraspagAuth</strong> e a <strong>API Antifraude Gateway</strong>.</p>
 
 <ol>
   <li>
@@ -282,7 +301,7 @@
   </tbody>
 </table>
 
-<h1 id="análise-de-fraude">Análise de fraude</h1>
+<h1 id="realizando-uma-análise-de-fraude">Realizando uma análise de fraude</h1>
 
 <p>A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.</p>
 
