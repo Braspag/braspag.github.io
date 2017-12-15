@@ -91,6 +91,8 @@ Exemplo:
 }
 ```
 
+**Parâmetros no corpo (Body)**
+
 |Parâmetro|Descrição|
 |:-|:-|
 |`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway|
@@ -226,6 +228,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
@@ -441,6 +445,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Status`|201 Created|
 
+**Parâmetros no corpo (Body)**
+
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`Id`|Id da transação no Antifraude Gateway Braspag|guid|
@@ -581,6 +587,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
@@ -812,6 +820,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Status`|201 Created|
 
+**Parâmetros no corpo (Body)**
+
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`Id`|Id da transação no Antifraude Gateway Braspag|guid|
@@ -888,6 +898,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
+
+**Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|
 |:-|:-|
@@ -1052,6 +1064,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
+
+**Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
@@ -1301,6 +1315,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
+**Parâmetros no corpo (Body)**
+
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`Id`|Id da transação no Antifraude Gateway Braspag|guid|
@@ -1461,8 +1477,8 @@ Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada p
 
 * A URL de mudança de status somente pode utilizar a porta 80 (padrão para http) ou a porta 443 (padrão para https). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.  
 
-* Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://riskhomolog.braspag.com.br/Analysis/{Id}, enviando Id da transação que foi recebido na notficação da mudança de status.  
-Para maior detalhes de como realizar o GET, consultar em Análise a sessão **Obtenção dos Detalhes da Análise**
+* Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://riskhomolog.braspag.com.br/analysis/v2/{Id}, enviando Id da transação que foi recebido na notficação da mudança de status.  
+Para maior detalhes de como realizar o GET,  **Obtenção dos Detalhes da Análise**
 
 ![Notificação de Mudança de Status]({{ site.baseurl_root }}/images/braspag/af/postnotification.png)
 
