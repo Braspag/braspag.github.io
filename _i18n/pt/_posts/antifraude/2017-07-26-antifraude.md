@@ -1659,20 +1659,12 @@ Esta sessão descreve como enviar para a Braspag as transações que já foram a
 
 # Associar transação Pagador e Antifraude
 
-Esta página descreve como associar transações do Pagador Braspag à transações do Antifraude Gateway Braspag.
+Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.
 
-Serviço que associa uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.
-
-**O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo:**
-
-1 - Realiza a análise de fraude
-2 - Realiza a autorização
-3 - O 3º passo deverá ser a chamada ao a este serviço para associar a transação do Pagador à transação do Antifraude Gateway.
-
-## Hosts
-
-**Test** https://riskhomolog.braspag.com.br  
-**Live** https://risk.braspag.com.br
+> O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo:
+> 1 - Realiza análise através do Antifraude Gateway Braspag
+> 2 - Realiza a autorização através do Pagador
+> 3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag
 
 ## Atributos
 
