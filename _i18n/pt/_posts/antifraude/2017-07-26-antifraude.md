@@ -1661,39 +1661,14 @@ Esta sessão descreve como enviar para a Braspag as transações que já foram a
 
 Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.
 
-> O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo: <br/>
+> Você deverá realizar esta chamada quando estiver utilizando o fluxo abaixo: <br/>
 > 1 - Realiza análise através do Antifraude Gateway Braspag <br/>
 > 2 - Realiza a autorização através do Pagador <br/>
 > 3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag
 
-## Atributos
+## Request
 
-**BraspagTransactionId**{:.custom-attrib}  `required`{:.custom-tag} `Guid`{:.custom-tag}  
-Id da transação no Pagador da Braspag.  
-Ex.: a3e08eb2-2144-4e41-85d4-61f1befc7a3b
-
-## Operação HTTP
-
-`PATCH`{:.http-patch} [https://riskhomolog.braspag.com.br/Transaction/{Id}]
-Associa a transação do Pagador à transação do Antifraude Gateway
-
-#### `PATCH`{:.http-patch} Associa a transação do Pagador à transação do Antifraude Gateway
-
-**PARÂMETROS:**  
-
-``` csharp
-Id: Guid  // Id da Transação no Antifraude Gateway
-```
-
-**REQUEST:**  
-
-``` http
-GET https://riskhomolog.braspag.com.br/Transaction/{Id} HTTP/1.1
-Host: riskhomolog.braspag.com.br
-Authorization: Bearer {access_token}
-Content-Type: application/json
-
-```
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
 ``` json
 {
@@ -1701,36 +1676,52 @@ Content-Type: application/json
 }
 ```
 
-**RESPONSE:**  
+**Parâmetros no cabeçalho (Header)**
 
-Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-``` http
+**Parâmetros no corpo (Body)**
 
-HTTP/1.1 200 Ok
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|:-|:-|:-:|:-:|-:|
+|`BraspagTransactionId`|Id da transação no Pagador Braspag|guid|sim|-|
 
-```
+## Response
 
-Quando a transação do Pagador não for informada na requisição
+**Parâmetros no cabeçalho (Header)**
 
-``` http
-HTTP/1.1 400 Bad Request
+* Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway
 
-```
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
 
-Quando a transação do Antifraude Gateway não for encontrada na base de dados
+* Quando a transação do Pagador não for informada na requisição
 
-``` http
-HTTP/1.1 404 Not found
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
 
-```
+* Quando a transação do Antifraude Gateway não for encontrada na base de dados
 
-Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
 
-``` http
-HTTP/1.1 409 Conflict
+* Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway
 
-```
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|409 Conflict|
 
 # Update de Status
 
