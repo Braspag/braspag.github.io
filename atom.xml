@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-15T17:15:54+00:00</updated>
+    <updated>2017-12-15T20:26:59+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -26237,9 +26237,9 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;p&gt;Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo:
-1 - Realiza análise através do Antifraude Gateway Braspag
-2 - Realiza a autorização através do Pagador
+  &lt;p&gt;O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo: &lt;br /&gt;
+1 - Realiza análise através do Antifraude Gateway Braspag &lt;br /&gt;
+2 - Realiza a autorização através do Pagador &lt;br /&gt;
 3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag&lt;/p&gt;
 &lt;/blockquote&gt;
 
