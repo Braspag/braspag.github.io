@@ -168,7 +168,7 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
-      <td style="text-align: left">`https:\\risksandbox.braspag.com.br</td>
+      <td style="text-align: left">https:\\risksandbox.braspag.com.br</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
@@ -2487,7 +2487,7 @@
 
 <h3 id="request-3">Request</h3>
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f8a661c-00e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
@@ -3222,7 +3222,7 @@
 
 <h3 id="request-4">Request</h3>
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -3892,7 +3892,7 @@
 
 <h2 id="consultando-uma-transação-inexistente">Consultando uma transação inexistente</h2>
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 <h3 id="request-5">Request</h3>
 
@@ -3948,56 +3948,92 @@
   </tbody>
 </table>
 
-<h1 id="post-de-notificação-de-mudança-de-status">Post de notificação de Mudança de Status</h1>
+<h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>Esta página descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de Status na Transação de revisão para aceita/rejeita.</p>
-
-<p>Serviço que envia um <strong>post de notificação</strong> ao cliente caso haja alguma alteração de status</p>
+<p>Esta sessão descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de status na transação de revisão para aceita/rejeita.</p>
 
 <ul>
   <li>
-    <p>É necessário solicitar ao Time de Implementação (<a href="mailto:implantacao.operacoes@braspag.com.br">implantacao.operacoes@braspag.com.br</a>) o cadastramento da URL de mudança de status.
-Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada para receber a notificação da mudança de status da transação, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja.</p>
+    <p>No processo de onboarding da sua loja, é necessário solicitar ao Time de Implementação o cadastramento da URL de mudança de status da sua loja.</p>
   </li>
   <li>
-    <p>Se a URL de mudança de status da loja for acessada pelo servidor da Braspag e não retornar o código de confirmação HTTP 200 (OK) ou ocorrer uma falha na conexão, serão realizadas mais 3 tentativas de envio.</p>
+    <p>Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada para receber a notificação da mudança de status, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja. Caso contrário, serão realizadas mais 3 tentativas de envio.</p>
   </li>
   <li>
     <p>A URL de mudança de status somente pode utilizar a porta 80 (padrão para http) ou a porta 443 (padrão para https). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.</p>
   </li>
   <li>
-    <p>Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://riskhomolog.braspag.com.br/analysis/v2/{Id}, enviando Id da transação que foi recebido na notficação da mudança de status.<br />
-Para maior detalhes de como realizar o GET,  <strong>Obtenção dos Detalhes da Análise</strong></p>
+    <p>Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://{antifraude endpoint}/analysis/v2/{Id}, enviando o Id da transação que foi recebido na notficação da mudança de status.</p>
   </li>
 </ul>
 
-<p><img src="https://braspag.github.io//images/braspag/af/postnotification.png" alt="Notificação de Mudança de Status" /></p>
+<h2 id="request-6">Request</h2>
 
-<h2 id="hosts-1">Hosts</h2>
-
-<p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
-<strong>Live</strong> https://risk.braspag.com.br</p>
-
-<h4 id="post-notificação-de-mudança-de-status"><code class="http-post highlighter-rouge">POST</code> Notificação de Mudança de Status</h4>
-
-<p>Abaixo exemplo de mensagem que o servidor da Braspag enviará à URL cadastrada, e como deve ser a resposta enviada em caso de sucesso.</p>
-
-<p><strong>REQUEST:</strong></p>
-
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">https://urlcadastrada.loja.com.br/Notification/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">urlcadastrada.loja.com.br</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-</code></pre></div></div>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{url loja}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-   </span><span class="s2">"Id"</span><span class="p">:</span><span class="s2">"9004ba26-f1f1-e611-9400-005056970d6f"</span><span class="w">
+   </span><span class="s2">"Id"</span><span class="p">:</span><span class="s2">"tttttttt-tttt-tttt-tttt-tttttttttttt"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>RESPONSE:</strong></p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">Ok</span>
-</code></pre></div></div>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
+      <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="response-7">Response</h2>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="configuração-do-fingerprint">Configuração do Fingerprint</h1>
 
@@ -4405,7 +4441,7 @@ ACI / ReD Shield poder recomendar regras para evitar ataques de fraude subsequen
 
 <p>Obs.: O serviço aceita requisição POST com no máximo 100 itens na coleção.</p>
 
-<h2 id="hosts-2">Hosts</h2>
+<h2 id="hosts-1">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
@@ -4558,7 +4594,7 @@ Content-Type: application/json
 2 - Realiza a autorização
 3 - O 3º passo deverá ser a chamada ao a este serviço para associar a transação do Pagador à transação do Antifraude Gateway.</p>
 
-<h2 id="hosts-3">Hosts</h2>
+<h2 id="hosts-2">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
@@ -4626,7 +4662,7 @@ Associa a transação do Pagador à transação do Antifraude Gateway</p>
 
 <p>Serviço para alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject), disponível somente para o provedor Cybersource.</p>
 
-<h2 id="hosts-4">Hosts</h2>
+<h2 id="hosts-3">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
