@@ -1666,9 +1666,9 @@ Esta sessão descreve como associar uma transação do Pagador Braspag à uma tr
 > 2 - Realiza a autorização através do Pagador <br/>
 > 3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag
 
-## Request
-
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
+
+## Request
 
 ``` json
 {
