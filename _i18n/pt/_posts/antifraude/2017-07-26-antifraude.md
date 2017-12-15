@@ -1723,45 +1723,13 @@ Esta sessão descreve como associar uma transação do Pagador Braspag à uma tr
 |`Content-Type`|application/json|
 |`Status`|409 Conflict|
 
-# Update de Status
+# Update de Status Cybersource
 
-Serviço para alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject), disponível somente para o provedor Cybersource.  
+Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject).
 
-## Hosts
+## Request
 
-**Test** https://riskhomolog.braspag.com.br  
-**Live** https://risk.braspag.com.br
-
-## Atributos
-
-**Status**{:.custom-attrib} `required`{:.custom-tag} `Guid`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Novo status da transação.  
-Enum: Accept | Reject  
-
-**Comments**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag}.`string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-Comentário associado a mudança de status.  
-
-## Operação HTTP
-
-`PATCH`{:.http-patch} [https://riskhomolog.braspag.com.br/Analysis/{Id}]
-Altera o status da transação
-
-#### `PATCH`{:.http-patch} Altera o status da transação
-
-**PARÂMETROS:**  
-
-``` http
-Id: Guid  // Id da Transação no Antifraude Gateway
-```
-
-**REQUEST:**  
-
-``` http
-GET https://riskhomolog.braspag.com.br/Transaction/{Id} HTTP/1.1
-Host: riskhomolog.braspag.com.br
-Authorization: Bearer {access_token}
-Content-Type: application/json
-```
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
 ``` json
 {
@@ -1769,14 +1737,25 @@ Content-Type: application/json
     "Comments":"Transação aceita após contato com o cliente."
 }
 ```
+**Parâmetros no cabeçalho (Header)**
 
-**RESPONSE:**  
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-Quando a transação for recebida para processamento.
+**Parâmetros no corpo (Body)**
 
-``` http
-HTTP/1.1 200 OK
-```
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|:-|:-|:-:|:-:|-:|
+|`Status`|Novo status da transação - Tabela 19|enum|sim|-|
+|`Comments`|Comentário associado a mudança de status|string|não|255|
+
+## Response
+
+* Quando a transação for recebida para processamento
 
 ``` json
 {
@@ -1784,11 +1763,20 @@ HTTP/1.1 200 OK
 }
 ```
 
-Quando a transação não for encontrada na base de dados.
+**Parâmetros no cabeçalho (Header)**
 
-``` http
-HTTP/1.1 404 Not found
-```
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|
+|:-|:-|
+|`Message`|Mensagem contendo o motivo da operação|string|
+
+* Quando a transação não for encontrada na base de dados.
 
 ``` json
 {
@@ -1796,11 +1784,20 @@ HTTP/1.1 404 Not found
 }
 ```
 
-Quando a transação não estiver elegivel para alteração de status.
+**Parâmetros no cabeçalho (Header)**
 
-``` http
-HTTP/1.1 400 Bad Request
-```
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|
+|:-|:-|
+|`Message`|Mensagem contendo o motivo da operação|string|
+
+* Quando a transação não estiver elegivel para alteração de status.
 
 ``` json
 {
@@ -1808,11 +1805,20 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-Quando o novo status enviado for diferente de Accept ou Reject.
+**Parâmetros no cabeçalho (Header)**
 
-``` http
-HTTP/1.1 400 Bad Request
-```
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|
+|:-|:-|
+|`Message`|Mensagem contendo o motivo da operação|string|
+
+* Quando o novo status enviado for diferente de Accept ou Reject.
 
 ``` json
 {
@@ -1820,11 +1826,20 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-Quando o tipo ou tamanho de algum campo não for enviado conforme especificado no manual.
+**Parâmetros no cabeçalho (Header)**
 
-``` http
-HTTP/1.1 400 Bad Request
-```
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|
+|:-|:-|
+|`Message`|Mensagem contendo o motivo da operação|string|
+
+* Quando o tipo ou tamanho de algum campo não for enviado conforme especificado no manual.
 
 ``` json
 {
@@ -1839,6 +1854,20 @@ HTTP/1.1 400 Bad Request
     }
 }
 ```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|
+|:-|:-|
+|`Message`|Mensagem informando que o request é inválido|
+|`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo, domínio ou tamanho conforme especificado no manual|
 
 # Configuração do Fingerprint
 
