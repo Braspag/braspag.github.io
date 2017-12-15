@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-14T20:36:40+00:00</updated>
+    <updated>2017-12-15T13:52:04+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -22110,47 +22110,17 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;oauth2/token&lt;/span&gt;&lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/x-www-form-urlencoded|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;application/x-www-form-urlencoded&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scope&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;AntifraudGatewayApp&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grant_type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;client_credentials&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;scope&lt;/code&gt;|AntifraudGatewayApp|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;grant_type&lt;/code&gt;|client_credentials|&lt;/p&gt;
 
 &lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
 
@@ -22304,34 +22274,13 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Bearer {access_token}&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;|Bearer {access_token}|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22970,6 +22919,12 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;|201 Created|&lt;/p&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -23146,34 +23101,13 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Bearer {access_token}&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;|Bearer {access_token}|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -24010,6 +23944,12 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h3 id=&quot;response-2&quot;&gt;Response&lt;/h3&gt;
 
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;|201 Created|&lt;/p&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -24268,26 +24208,11 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h3 id=&quot;response-3&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;400 Bad Request&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;|400 Bad Request|&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
@@ -24449,36 +24374,21 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Bearer {access_token}&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;|Bearer {access_token}|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|&lt;/p&gt;
 
 &lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;|200 OK|&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -24884,10 +24794,6 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h2 id=&quot;consultando-uma-transação-cybersource&quot;&gt;Consultando uma transação Cybersource&lt;/h2&gt;
 
-&lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/{Id}&lt;/span&gt;&lt;/aside&gt;
-
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;3671aafd-09e0-e711-80c2-000d3a70dd7b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProviderAnalysisResult&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -25030,7 +24936,25 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/{Id}&lt;/span&gt;&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;|Bearer {access_token}|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|&lt;/p&gt;
+
 &lt;h3 id=&quot;response-5&quot;&gt;Response&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;|200 OK|&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -25650,57 +25574,21 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h3 id=&quot;request-5&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Bearer {access_token}&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;|Bearer {access_token}|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|&lt;/p&gt;
 
 &lt;h3 id=&quot;response-6&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;404 Not Found&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;
+|Key|Value|
+|-|-|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;|application/json|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;|404 Not Found|&lt;/p&gt;
 
 &lt;h1 id=&quot;post-de-notificação-de-mudança-de-status&quot;&gt;Post de notificação de Mudança de Status&lt;/h1&gt;
 
