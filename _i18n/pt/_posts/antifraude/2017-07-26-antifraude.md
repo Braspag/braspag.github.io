@@ -68,14 +68,12 @@ Exemplo:
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
-
 |Key|Value|
 |-|-|
 |`Content-Type`|application/x-www-form-urlencoded|
 |`Authorization`|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
 
 **Parâmetros no corpo (Body)**
-
 |Key|Value|
 |-|-|
 |`scope`|AntifraudGatewayApp|
@@ -219,7 +217,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Request
 
 **Parâmetros no cabeçalho (Header)**
-
 |Key|Value|
 |-|-|
 |`Content-Type`|application/json|
@@ -434,6 +431,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 }
 ```
 
+**Parâmetros no cabeçalho (Header)**
+|Key|Value|
+|-|-|
+|`Content-Type`|application/json|
+|`Status`|201 Created|
+
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`Id`|Id da transação no Antifraude Gateway Braspag|guid|
@@ -567,7 +570,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Request
 
 **Parâmetros no cabeçalho (Header)**
-
 |Key|Value|
 |-|-|
 |`Content-Type`|application/json|
@@ -798,6 +800,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Response
 
+**Parâmetros no cabeçalho (Header)**
+|Key|Value|
+|-|-|
+|`Content-Type`|application/json|
+|`Status`|201 Created|
+
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`Id`|Id da transação no Antifraude Gateway Braspag|guid|
@@ -869,13 +877,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
-
 |Key|Value|
 |-|-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-|Parâmetro|Descrição
+|Parâmetro|Descrição|
 |`Message`|Mensagem informando que o request é inválido|
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual|
 |`FraudAnalysisRequestError`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tamanho especificado no manual|
@@ -1021,7 +1028,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ```
 
 **Parâmetros no cabeçalho (Header)**
-
 |Key|Value|
 |-|-|
 |`Content-Type`|application/json|
@@ -1030,6 +1036,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
 ### Response
+
+**Parâmetros no cabeçalho (Header)**
+|Key|Value|
+|-|-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
@@ -1113,10 +1125,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|
 
 ## Consultando uma transação Cybersource
-
-### Request
-
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 ``` json
 {
@@ -1261,7 +1269,25 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 }
 ```
 
+### Request
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+
+**Parâmetros no cabeçalho (Header)**
+|Key|Value|
+|-|-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
 ### Response
+
+**Parâmetros no cabeçalho (Header)**
+|Key|Value|
+|-|-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
@@ -1393,7 +1419,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Request
 
 **Parâmetros no cabeçalho (Header)**
-
 |Key|Value|
 |-|-|
 |`Content-Type`|application/json|
@@ -1404,7 +1429,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
-
 |Key|Value|
 |-|-|
 |`Content-Type`|application/json|
