@@ -4888,7 +4888,7 @@
 
 <p><strong>Exemplo</strong></p>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
 
     var io_install_flash = false;
@@ -5061,28 +5061,6 @@ O arquivo <em>device-lib-1.2.0.aar</em> deverá ser empacotado com o aplicativo.
 <p><strong>IMPORTANTE!</strong><br />
 Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Project Structure</em> e abra o painel <em>Modules</em>. A partir disso, defina na lista a versão do Android SDK.</p>
 
-<p>1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar<br />
-2 - No Android Studio, selecione <em>File -&gt; Open</em> ou clique em <em>Open Project</em> através da opção <em>quick-start</em><br />
-3 - No diretório em que você descompactou o <em>deviceprint-lib-1.2.0.aar</em>, abra diretório <em>android-studio-sample-app</em> do aplicativo de exemplo<br />
-4 - Abra o arquivo <em>DevicePrintSampleActivity</em><br />
-5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o <em>Event Log</em> e clique em <em>Configure</em><br />
-6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em <em>OK</em> para corrigir os erros<br />
-7 - No Android Studio, selecione <em>File -&gt; New Module</em>. Expande <em>More Modules</em> e escolha <em>Import existing .jar or .aar package</em><br />
-8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em <em>Finish</em><br />
-9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle<br />
-<img src="https://braspag.github.io//images/braspag/af/fingerprintandroid1.png" alt="Detalhes" class="left" title="Detalhes integração Android" /><br />
-10 - Abra a pasta DevicePrintSampleActivity<br />
-11 - Na opção de navegação do projeto, abra <em>src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java</em><br />
-12 - Clique com o botão direito e selecione <em>Run DevicePrintSampleAct</em><br />
-13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo<br />
-14 - O aplicativo irá compilar e executar</p>
-
-<ul>
-  <li>Exemplo</li>
-</ul>
-
-<p>O exemplo a seguir é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a <em>caixa preta</em>. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.</p>
-
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package com.iovation.mobile.android.sample;
 import android.app.Activity;
 import android.os.Bundle;
@@ -5116,6 +5094,24 @@ public class DevicePrintSampleActivity extends Activity
 }
 </code></pre></div></div>
 
+<p>1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar<br />
+2 - No Android Studio, selecione <em>File -&gt; Open</em> ou clique em <em>Open Project</em> através da opção <em>quick-start</em><br />
+3 - No diretório em que você descompactou o <em>deviceprint-lib-1.2.0.aar</em>, abra diretório <em>android-studio-sample-app</em> do aplicativo de exemplo<br />
+4 - Abra o arquivo <em>DevicePrintSampleActivity</em><br />
+5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o <em>Event Log</em> e clique em <em>Configure</em><br />
+6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em <em>OK</em> para corrigir os erros<br />
+7 - No Android Studio, selecione <em>File -&gt; New Module</em>. Expande <em>More Modules</em> e escolha <em>Import existing .jar or .aar package</em><br />
+8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em <em>Finish</em><br />
+9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle<br />
+<img src="https://braspag.github.io//images/braspag/af/fingerprintandroid1.png" alt="Detalhes" class="left" title="Detalhes integração Android" /><br />
+10 - Abra a pasta DevicePrintSampleActivity<br />
+11 - Na opção de navegação do projeto, abra <em>src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java</em><br />
+12 - Clique com o botão direito e selecione <em>Run DevicePrintSampleAct</em><br />
+13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo<br />
+14 - O aplicativo irá compilar e executar</p>
+
+<p>O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a <em>caixa preta</em>. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.</p>
+
 <h2 id="cybersource">Cybersource</h2>
 
 <p>Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ** da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.</p>
@@ -5139,20 +5135,18 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 <strong>ProviderMerchantId</strong> - Para obter este valor, entre em contato com a Braspag.<br />
 <strong>ProviderSessionId</strong> - Prencha este campo com o mesmo valor do campo <strong>MerchantOrderId</strong> que será enviado na requisição da análise de fraude.</p>
 
-<ul>
-  <li>PNG Image</li>
-</ul>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-
-
-    
-          
-          
-    
-
-
-</code></pre></div></div>
+<blockquote>
+  <p>PNG Image <br />
+ <br />
+ <br />
+ <br />
+     <br />
+        <br />
+        <br />
+    <br />
+<br />
+<br /></p>
+</blockquote>
 
 <ul>
   <li>Flash Code</li>
