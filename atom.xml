@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-15T17:06:18+00:00</updated>
+    <updated>2017-12-15T17:15:54+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -26234,20 +26234,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h1 id=&quot;associar-transação-pagador-e-antifraude&quot;&gt;Associar transação Pagador e Antifraude&lt;/h1&gt;
 
-&lt;p&gt;Esta página descreve como associar transações do Pagador Braspag à transações do Antifraude Gateway Braspag.&lt;/p&gt;
+&lt;p&gt;Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.&lt;/p&gt;
 
-&lt;p&gt;Serviço que associa uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;1 - Realiza a análise de fraude
-2 - Realiza a autorização
-3 - O 3º passo deverá ser a chamada ao a este serviço para associar a transação do Pagador à transação do Antifraude Gateway.&lt;/p&gt;
-
-&lt;h2 id=&quot;hosts-1&quot;&gt;Hosts&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
-&lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo:
+1 - Realiza análise através do Antifraude Gateway Braspag
+2 - Realiza a autorização através do Pagador
+3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;atributos&quot;&gt;Atributos&lt;/h2&gt;
 
@@ -26312,7 +26306,7 @@ Associa a transação do Pagador à transação do Antifraude Gateway&lt;/p&gt;
 
 &lt;p&gt;Serviço para alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject), disponível somente para o provedor Cybersource.&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts-2&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h2 id=&quot;hosts-1&quot;&gt;Hosts&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
