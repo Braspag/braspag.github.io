@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-15T21:13:00+00:00</updated>
+    <updated>2017-12-15T21:18:47+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -26736,9 +26736,9 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h2 id=&quot;redshield-1&quot;&gt;ReDShield&lt;/h2&gt;
 
-&lt;h2 id=&quot;integração-com-sua-página-de-checkoutsite&quot;&gt;Integração com sua página de checkout(site)&lt;/h2&gt;
+&lt;h3 id=&quot;integração-com-sua-página-de-checkoutsite&quot;&gt;Integração com sua página de checkout(site)&lt;/h3&gt;
 
-&lt;h2 id=&quot;como-funciona&quot;&gt;Como funciona?&lt;/h2&gt;
+&lt;h4 id=&quot;como-funciona&quot;&gt;Como funciona?&lt;/h4&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprint.png&quot; alt=&quot;Fluxo&quot; /&gt;&lt;/p&gt;
 
@@ -26749,7 +26749,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 5 - A ReD Shield recebe todos os dados, envia a &lt;em&gt;caixa preta&lt;/em&gt; para a Iovation descriptografar&lt;br /&gt;
 6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador&lt;/p&gt;
 
-&lt;h2 id=&quot;como-configurar&quot;&gt;Como configurar?&lt;/h2&gt;
+&lt;h4 id=&quot;como-configurar&quot;&gt;Como configurar?&lt;/h4&gt;
 
 &lt;p&gt;1 - Inclua o javascript da Iovation em sua página de checkout&lt;br /&gt;
 2 - Adicione parâmetros de configuração no javascript&lt;br /&gt;
@@ -26845,9 +26845,7 @@ Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações s
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintmobile.png&quot; alt=&quot;Fluxo&quot; class=&quot;centerimg&quot; title=&quot;Fluxo da coleta do fingerprint mobile&quot; /&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Integrando com aplicativos iOS&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&quot;integrando-com-aplicativos-ios&quot;&gt;Integrando com aplicativos iOS&lt;/h3&gt;
 
 &lt;p&gt;Arquivos e requisitos de integração do iOS&lt;br /&gt;
 &lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração iOS&quot; /&gt;&lt;/p&gt;
@@ -26922,9 +26920,7 @@ A &lt;em&gt;caixa preta&lt;/em&gt; que retornou de &lt;em&gt;+ioBegin&lt;/em&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Integrando com aplicativos Android&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&quot;integrando-com-aplicativos-android&quot;&gt;Integrando com aplicativos Android&lt;/h3&gt;
 
 &lt;p&gt;Arquivos e requisitos de integração do Android&lt;br /&gt;
 &lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
