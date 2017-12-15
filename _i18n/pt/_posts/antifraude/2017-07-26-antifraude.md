@@ -1521,56 +1521,13 @@ Esta sessão descreve o serviço de POST de Notificação, que envia uma notific
 
 # Retroalimentação de Chargeback
 
-Esta página descreve como enviar para a Braspag as transações que já foram analisadas e sofreram chargeback pelos clientes. Essas informações são usadas para rastrear fraudes e a ACI / ReD Shield poder recomendar regras para evitar ataques de fraude subsequentes.
+Esta sessão descreve como enviar para a Braspag as transações que já foram analisadas e sofreram chargeback pelos clientes. Essas informações são usadas para rastrear fraudes e a ReDShield poder recomendar regras para evitar ataques de fraude subsequentes.
 
-Serviço para enviar as transações para a Braspag que já foram analisadas e sofreram chargeback pelos clientes. Essas informações são usadas para rastrear fraudes e a
-ACI / ReD Shield poder recomendar regras para evitar ataques de fraude subsequentes.
+## ReDShield
 
-Obs.: O serviço aceita requisição POST com no máximo 100 itens na coleção.
+### Request
 
-## Hosts
-
-**Test** https://riskhomolog.braspag.com.br  
-**Live** https://risk.braspag.com.br
-
-## Atributos
-
-**Id**{:.custom-attrib}  `required`{:.custom-tag} `Guid`{:.custom-tag}  
-Identificador da transação no Antifraude Gateway.
-
-**BraspagTransactionId**{:.custom-attrib}  `optional`{:.custom-tag} `Guid`{:.custom-tag}  
-Identificador da transação no Pagador.
-
-**ChargebackAmount**{:.custom-attrib} `required`{:.custom-tag} `long`{:.custom-tag}  
-Valor do chargeback.  
-Ex.: 150000 (Valor equivalente a R$1.500,00)
-
-**ChargebackDate**{:.custom-attrib} `required`{:.custom-tag} `date`{:.custom-tag}  
-Data da confirmação do chargeback.  
-Ex.: 2017-12-02
-
-**ChargebackReasonCode**{:.custom-attrib} `required`{:.custom-tag} `5`{:.custom-tag} `string`{:.custom-tag}  
-Código do motivo do chargeback.
-
-**IsFraud**{:.custom-attrib} `required`{:.custom-tag} `bool`{:.custom-tag}  
-Flag para identificar se o chargeback foi motivado por fraude ou não
-
-## Operações HTTP
-
-`POST`{:.http-post} [https://riskhomolog.braspag.com.br/Chargeback/]
-Retroalimentação de chargeback  
-
-#### `POST`{:.http-post} Retroalimentação de chargeback
-
-**REQUEST:**  
-
-``` html
-POST https://riskhomolog.braspag.com.br/Chargeback/ HTTP/1.1
-Host: {antifraude endpoint}
-Authorization: Bearer {access_token}
-Content-Type: application/json
-
-```
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">chargeback</span></aside>
 
 ``` json
 {
@@ -1609,36 +1566,35 @@ Content-Type: application/json
 }
 ```
 
-**RESPONSE:**  
+**Parâmetros no cabeçalho (Header)**
 
-Quando todas as transações de chargeback enviadas forem processadas com sucesso
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-``` http
+**Parâmetros no corpo (Body)**
 
-HTTP/1.1 200 Ok
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|:-|:-|:-:|:-:|-:|
+|`Chargebacks[n].Id`|Id da transação no Antifraude Gateway Braspag|guid|sim|-|
+|`Chargebacks[n].BraspagTransactionId`|Id da transação no Pagador|guid|não|-|
+|`Chargebacks[n].ChargebackAmount`|Valor do chargeback <br/> Ex: 321654 = r$ 3.216,54|long|sim|-|
+|`Chargebacks[n].ChargebackDate`|Data da confirmação do chargeback <br/> Ex.: 2017-12-02|date|sim|-|
+|`Chargebacks[n].ChargebackReasonCode`|Código do motivo do chargeback|string|sim|5|
+|`Chargebacks[n].IsFraud`|Flag para identificar se o chargeback foi motivado por fraude|bool|sim|-|
 
-```
-
-Quando não ocorrer o processamento de todas as transações de chargeback enviadas, será retornado o identificador das transações com motivo através do campo "ChargebackProcessingStatus".  
-
-    * Motivo igual a "Success", a transação de chargeback foi processada com sucesso.  
-    * Motivo igual a "AlreadyExist", a transação de chargeback já está associada a transação original de análise de fraude.  
-    * Motivo igual a "Remand", a transação de chargeback deverá ser reenviada.  
-    * Motivo igual a "NotFound", a transação de chargeback não deverá ser reenviada, pois a origem desta vinculada a análise de fraude não foi encontrada na base de dados.  
-
-``` http
-
-HTTP/1.1 300 Multiple Choices
-
-```
+### Response
 
 ``` json
 {
     "Chargebacks":
     [
          {
-            "Id" : "fb647240-824f-e711-93ff-000d3ac03bed",
-            "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+            "Id" : "x1x1x1x1-x1x1-x1x1-x1x1-x1x1x1x1x1x1",
+            "BraspagTransactionId": "t1t1t1t1-t1t1-t1t1-t1t1-t1t1t1t1t1t1",
             "ChargebackAmount" : "1000",
             "ChargebackDate" : "2017-12-02",
             "ChargebackReasonCode" : "1",
@@ -1646,7 +1602,7 @@ HTTP/1.1 300 Multiple Choices
             "ChargebackProcessingStatus": "Success"
         },
         {
-            "Id": "9004ba26-f1f1-e611-9400-005056970d6f",
+            "Id": "x2x2x2x2-x2x2-x2x2-x2x2-x2x2x2x2x2x2",
             "ChargebackAmount": "27580",
             "ChargebackDate": "2017-12-02",
             "ChargebackReasonCode": "54",
@@ -1654,7 +1610,7 @@ HTTP/1.1 300 Multiple Choices
             "ChargebackProcessingStatus": "AlreadyExist"
         },
         {
-            "Id": "4493d42c-8732-4b13-aadc-b07e89732c26",
+            "Id": "x3x3x3x3-x3x3-x3x3-x3x3-x3x3x3x3x3x3",
             "ChargebackAmount": "59960",
             "ChargebackDate": "2017-12-02",
             "ChargebackReasonCode": "54",
@@ -1662,7 +1618,7 @@ HTTP/1.1 300 Multiple Choices
             "ChargebackProcessingStatus": "Remand"
         },
         {
-            "Id": "22b5e829-edf1-e611-9414-0050569318a7",
+            "Id": "x4x4x4x4-x4x4-x4x4-x4x4-x4x4x4x4x4x4",
             "ChargebackAmount": "150000",
             "ChargebackDate": "2017-12-02",
             "ChargebackReasonCode": "54",
@@ -1672,6 +1628,34 @@ HTTP/1.1 300 Multiple Choices
     ]
 }
 ```
+
+**Parâmetros no cabeçalho (Header)**
+
+> Quando todas as transações forem processadas com sucesso.
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+> Quando não ocorrer o processamento de todas as transações, será retornado o motivo através do campo “ChargebackProcessingStatus”.
+
+**Parâmetros no corpo (Body)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|300 Multiple Choices|
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Chargebacks[n].Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`Chargebacks[n].BraspagTransactionId`|Id da transação no Pagador|guid|
+|`Chargebacks[n].ChargebackAmount`|Valor do chargeback <br/> Ex: 321654 = r$ 3.216,54|long|
+|`Chargebacks[n].ChargebackDate`|Data da confirmação do chargeback <br/> Ex.: 2017-12-02|date|
+|`Chargebacks[n].ChargebackReasonCode`|Código do motivo do chargeback|string|
+|`Chargebacks[n].IsFraud`|Flag para identificar se o chargeback foi motivado por fraude|bool|
+|`Chargebacks[n].ChargebackProcessingStatus`|Motivo do processamento da transação - Tabela 16|enum|
 
 # Associar transação Pagador e Antifraude
 
