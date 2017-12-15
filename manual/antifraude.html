@@ -55,6 +55,8 @@
                     
                     <li><a data-language-name='json'>JSON</a></li>
                     
+                    <li><a data-language-name='html'>HTML</a></li>
+                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -4889,7 +4891,6 @@
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
 
-
     var io_install_flash = false;
     var io_install_stm = false;
     var io_bbout_element_id = 'gatewayFingerprint';
@@ -4901,7 +4902,6 @@
     
         
     
-
 
 
 </code></pre></div></div>
@@ -4992,7 +4992,6 @@ A <em>caixa preta</em> que retornou de <em>+ioBegin</em> nunca deve estar vazio.
     self.blackbox.text = [iovation ioBegin];
 }
 @end
-
 </code></pre></div></div>
 
 <h3 id="integrando-com-aplicativos-android">Integrando com aplicativos Android</h3>
@@ -5115,7 +5114,6 @@ public class DevicePrintSampleActivity extends Activity
         bbResult.setVisibility(View.VISIBLE);
     }
 }
-
 </code></pre></div></div>
 
 <h2 id="cybersource">Cybersource</h2>
@@ -5148,12 +5146,10 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
 
-
     
           
           
     
-
 
 
 </code></pre></div></div>
@@ -5165,14 +5161,12 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
 
-
     
         
             
             
         
     
-
 
 
 </code></pre></div></div>
@@ -5333,6 +5327,8 @@ Se você não completar essa seção, você não receberá resultados corretos, 
         
         langs += "<a data-language-name='json'>JSON</a>";
         
+        langs += "<a data-language-name='html'>HTML</a>";
+        
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
@@ -5340,7 +5336,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json", ]);
+                setupLanguages([  "json",  "html", ]);
             });
         </script>
         

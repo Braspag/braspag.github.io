@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-15T21:18:47+00:00</updated>
+    <updated>2017-12-15T21:21:14+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -26814,7 +26814,6 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 
 
-
     var io_install_flash = false;
     var io_install_stm = false;
     var io_bbout_element_id = 'gatewayFingerprint';
@@ -26826,7 +26825,6 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     
         
     
-
 
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -26917,7 +26915,6 @@ A &lt;em&gt;caixa preta&lt;/em&gt; que retornou de &lt;em&gt;+ioBegin&lt;/em&gt;
     self.blackbox.text = [iovation ioBegin];
 }
 @end
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;integrando-com-aplicativos-android&quot;&gt;Integrando com aplicativos Android&lt;/h3&gt;
@@ -27040,7 +27037,6 @@ public class DevicePrintSampleActivity extends Activity
         bbResult.setVisibility(View.VISIBLE);
     }
 }
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;cybersource&quot;&gt;Cybersource&lt;/h2&gt;
@@ -27073,12 +27069,10 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 
 
-
     
           
           
     
-
 
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -27090,14 +27084,12 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 
 
-
     
         
             
             
         
     
-
 
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
