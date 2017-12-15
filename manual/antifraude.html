@@ -4312,70 +4312,168 @@
 <p>Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.</p>
 
 <blockquote>
-  <p>O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo: <br />
+  <p>Você deverá realizar esta chamada quando estiver utilizando o fluxo abaixo: <br />
 1 - Realiza análise através do Antifraude Gateway Braspag <br />
 2 - Realiza a autorização através do Pagador <br />
 3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag</p>
 </blockquote>
 
-<h2 id="atributos">Atributos</h2>
+<h2 id="request-8">Request</h2>
 
-<p><strong class="custom-attrib">BraspagTransactionId</strong>  <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">Guid</code><br />
-Id da transação no Pagador da Braspag.<br />
-Ex.: a3e08eb2-2144-4e41-85d4-61f1befc7a3b</p>
-
-<h2 id="operação-http">Operação HTTP</h2>
-
-<p><code class="http-patch highlighter-rouge">PATCH</code> [https://riskhomolog.braspag.com.br/Transaction/{Id}]
-Associa a transação do Pagador à transação do Antifraude Gateway</p>
-
-<h4 id="patch-associa-a-transação-do-pagador-à-transação-do-antifraude-gateway"><code class="http-patch highlighter-rouge">PATCH</code> Associa a transação do Pagador à transação do Antifraude Gateway</h4>
-
-<p><strong>PARÂMETROS:</strong></p>
-
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Id</span><span class="p">:</span> <span class="n">Guid</span>  <span class="c1">// Id da Transação no Antifraude Gateway</span>
-</code></pre></div></div>
-
-<p><strong>REQUEST:</strong></p>
-
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">https://riskhomolog.braspag.com.br/Transaction/{Id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">riskhomolog.braspag.com.br</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-</code></pre></div></div>
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>RESPONSE:</strong></p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
-<p>Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">Ok</span>
+<p><strong>Parâmetros no corpo (Body)</strong></p>
 
-</code></pre></div></div>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Obrigatório</th>
+      <th style="text-align: right">Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Pagador Braspag</td>
+      <td style="text-align: center">guid</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Quando a transação do Pagador não for informada na requisição</p>
+<h2 id="response-9">Response</h2>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
-</code></pre></div></div>
+<ul>
+  <li>Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway</li>
+</ul>
 
-<p>Quando a transação do Antifraude Gateway não for encontrada na base de dados</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not found</span>
+<ul>
+  <li>Quando a transação do Pagador não for informada na requisição</li>
+</ul>
 
-</code></pre></div></div>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway</p>
+<ul>
+  <li>Quando a transação do Antifraude Gateway não for encontrada na base de dados</li>
+</ul>
 
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">409</span> <span class="ne">Conflict</span>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
 
-</code></pre></div></div>
+<ul>
+  <li>Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">409 Conflict</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="update-de-status">Update de Status</h1>
 
@@ -4386,7 +4484,7 @@ Associa a transação do Pagador à transação do Antifraude Gateway</p>
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
 
-<h2 id="atributos-1">Atributos</h2>
+<h2 id="atributos">Atributos</h2>
 
 <p><strong class="custom-attrib">Status</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">Guid</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
 Novo status da transação.<br />
@@ -4395,7 +4493,7 @@ Enum: Accept | Reject</p>
 <p><strong class="custom-attrib">Comments</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">255</code>.<code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
 Comentário associado a mudança de status.</p>
 
-<h2 id="operação-http-1">Operação HTTP</h2>
+<h2 id="operação-http">Operação HTTP</h2>
 
 <p><code class="http-patch highlighter-rouge">PATCH</code> [https://riskhomolog.braspag.com.br/Analysis/{Id}]
 Altera o status da transação</p>

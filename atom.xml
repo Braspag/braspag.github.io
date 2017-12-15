@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-15T20:26:59+00:00</updated>
+    <updated>2017-12-15T20:44:53+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -26237,70 +26237,168 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 &lt;p&gt;Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo: &lt;br /&gt;
+  &lt;p&gt;Você deverá realizar esta chamada quando estiver utilizando o fluxo abaixo: &lt;br /&gt;
 1 - Realiza análise através do Antifraude Gateway Braspag &lt;br /&gt;
 2 - Realiza a autorização através do Pagador &lt;br /&gt;
 3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;atributos&quot;&gt;Atributos&lt;/h2&gt;
+&lt;h2 id=&quot;request-8&quot;&gt;Request&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;BraspagTransactionId&lt;/strong&gt;  &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;Guid&lt;/code&gt;&lt;br /&gt;
-Id da transação no Pagador da Braspag.&lt;br /&gt;
-Ex.: a3e08eb2-2144-4e41-85d4-61f1befc7a3b&lt;/p&gt;
-
-&lt;h2 id=&quot;operação-http&quot;&gt;Operação HTTP&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;http-patch highlighter-rouge&quot;&gt;PATCH&lt;/code&gt; [https://riskhomolog.braspag.com.br/Transaction/{Id}]
-Associa a transação do Pagador à transação do Antifraude Gateway&lt;/p&gt;
-
-&lt;h4 id=&quot;patch-associa-a-transação-do-pagador-à-transação-do-antifraude-gateway&quot;&gt;&lt;code class=&quot;http-patch highlighter-rouge&quot;&gt;PATCH&lt;/code&gt; Associa a transação do Pagador à transação do Antifraude Gateway&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;PARÂMETROS:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Guid&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Id da Transação no Antifraude Gateway&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;REQUEST:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;https://riskhomolog.braspag.com.br/Transaction/{Id}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;riskhomolog.braspag.com.br&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Authorization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Bearer {access_token}&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;Content-Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;application/json&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method patch&quot;&gt;PATCH&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;transaction/{id}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BraspagTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a3e08eb2-2144-4e41-85d4-61f1befc7a3b&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;RESPONSE:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;Ok&lt;/span&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Tamanho&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BraspagTransactionId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id da transação no Pagador Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;guid&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;Quando a transação do Pagador não for informada na requisição&lt;/p&gt;
+&lt;h2 id=&quot;response-9&quot;&gt;Response&lt;/h2&gt;
 
-&lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;Bad Request&lt;/span&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Quando a transação do Antifraude Gateway não for encontrada na base de dados&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200 OK&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;404&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;Not found&lt;/span&gt;
+&lt;ul&gt;
+  &lt;li&gt;Quando a transação do Pagador não for informada na requisição&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;400 Bad Request&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Quando a transação do Antifraude Gateway não for encontrada na base de dados&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;409&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;Conflict&lt;/span&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;404 Not Found&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;409 Conflict&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h1 id=&quot;update-de-status&quot;&gt;Update de Status&lt;/h1&gt;
 
@@ -26311,7 +26409,7 @@ Associa a transação do Pagador à transação do Antifraude Gateway&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
 
-&lt;h2 id=&quot;atributos-1&quot;&gt;Atributos&lt;/h2&gt;
+&lt;h2 id=&quot;atributos&quot;&gt;Atributos&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;Status&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;required&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;Guid&lt;/code&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt;&lt;br /&gt;
 Novo status da transação.&lt;br /&gt;
@@ -26320,7 +26418,7 @@ Enum: Accept | Reject&lt;/p&gt;
 &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;Comments&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;255&lt;/code&gt;.&lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;string&lt;/code&gt; &lt;code class=&quot;custom-provider-cyber highlighter-rouge&quot;&gt;Cybersource&lt;/code&gt;&lt;br /&gt;
 Comentário associado a mudança de status.&lt;/p&gt;
 
-&lt;h2 id=&quot;operação-http-1&quot;&gt;Operação HTTP&lt;/h2&gt;
+&lt;h2 id=&quot;operação-http&quot;&gt;Operação HTTP&lt;/h2&gt;
 
 &lt;p&gt;&lt;code class=&quot;http-patch highlighter-rouge&quot;&gt;PATCH&lt;/code&gt; [https://riskhomolog.braspag.com.br/Analysis/{Id}]
 Altera o status da transação&lt;/p&gt;
