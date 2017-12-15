@@ -1737,6 +1737,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
     "Comments":"Transação aceita após contato com o cliente."
 }
 ```
+
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
