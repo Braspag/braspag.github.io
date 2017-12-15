@@ -39,7 +39,7 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|`https:\\\\risksandbox.braspag.com.br|
+|`Sandbox`|https:\\\\risksandbox.braspag.com.br|
 |`Produção`|https:\\\\risk.braspag.com.br|
 
 # Autenticação
@@ -925,7 +925,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Request
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 ``` json
 {
@@ -1307,7 +1307,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Request
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -1454,7 +1454,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ## Consultando uma transação inexistente 
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 ### Request
 
@@ -1476,52 +1476,48 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Content-Type`|application/json|
 |`Status`|404 Not Found|
 
-# Post de notificação de Mudança de Status
+# Post de Notificação
 
-Esta página descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de Status na Transação de revisão para aceita/rejeita.
+Esta sessão descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de status na transação de revisão para aceita/rejeita.
 
-Serviço que envia um **post de notificação** ao cliente caso haja alguma alteração de status
+* No processo de onboarding da sua loja, é necessário solicitar ao Time de Implementação o cadastramento da URL de mudança de status da sua loja.
 
-* É necessário solicitar ao Time de Implementação ([implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)) o cadastramento da URL de mudança de status.
-Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada para receber a notificação da mudança de status da transação, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja.  
+* Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada para receber a notificação da mudança de status, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja. Caso contrário, serão realizadas mais 3 tentativas de envio.
 
-* Se a URL de mudança de status da loja for acessada pelo servidor da Braspag e não retornar o código de confirmação HTTP 200 (OK) ou ocorrer uma falha na conexão, serão realizadas mais 3 tentativas de envio.  
+* A URL de mudança de status somente pode utilizar a porta 80 (padrão para http) ou a porta 443 (padrão para https). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.
 
-* A URL de mudança de status somente pode utilizar a porta 80 (padrão para http) ou a porta 443 (padrão para https). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.  
+* Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://{antifraude endpoint}/analysis/v2/{Id}, enviando o Id da transação que foi recebido na notficação da mudança de status.
 
-* Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://riskhomolog.braspag.com.br/analysis/v2/{Id}, enviando Id da transação que foi recebido na notficação da mudança de status.  
-Para maior detalhes de como realizar o GET,  **Obtenção dos Detalhes da Análise**
+## Request
 
-![Notificação de Mudança de Status]({{ site.baseurl_root }}/images/braspag/af/postnotification.png)
-
-## Hosts
-
-**Test** https://riskhomolog.braspag.com.br  
-**Live** https://risk.braspag.com.br
-
-#### `POST`{:.http-post} Notificação de Mudança de Status
-
-Abaixo exemplo de mensagem que o servidor da Braspag enviará à URL cadastrada, e como deve ser a resposta enviada em caso de sucesso.
-
-**REQUEST:**  
-
-``` http
-POST https://urlcadastrada.loja.com.br/Notification/ HTTP/1.1
-Host: urlcadastrada.loja.com.br
-Content-Type: application/json
-```
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{url loja}</span></aside>
 
 ``` json
 {  
-   "Id":"9004ba26-f1f1-e611-9400-005056970d6f"
+   "Id":"tttttttt-tttt-tttt-tttt-tttttttttttt"
 }
 ```
 
-**RESPONSE:**  
+**Parâmetros no cabeçalho (Header)**
 
-``` http
-HTTP/1.1 200 Ok
-```
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+
+## Response
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
 
 # Configuração do Fingerprint
 
