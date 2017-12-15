@@ -2161,7 +2161,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 **ProviderMerchantId** - Para obter este valor, entre em contato com a Braspag.  
 **ProviderSessionId** - Prencha este campo com o mesmo valor do campo **MerchantOrderId** que será enviado na requisição da análise de fraude.  
 
-> PNG Image
+> PNG Image <br/>
 
 > <html> <br/>
 > <head></head> <br/>
