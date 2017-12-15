@@ -1631,14 +1631,14 @@ Esta sessão descreve como enviar para a Braspag as transações que já foram a
 
 **Parâmetros no cabeçalho (Header)**
 
-> Quando todas as transações forem processadas com sucesso.
+* Quando todas as transações forem processadas com sucesso.
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-> Quando não ocorrer o processamento de todas as transações, será retornado o motivo através do campo “ChargebackProcessingStatus”.
+* Quando não ocorrer o processamento de todas as transações, será retornado o motivo através do campo “ChargebackProcessingStatus”.
 
 **Parâmetros no corpo (Body)**
 
