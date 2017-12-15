@@ -1638,7 +1638,7 @@ Esta sessão descreve como enviar para a Braspag as transações que já foram a
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-* Quando não ocorrer o processamento de todas as transações, será retornado o motivo através do campo `ChargebackProcessingStatus`.
+* Quando não ocorrer o processamento de todas as transações, será retornado o motivo através do campo `ChargebackProcessingStatus`  
 
 **Parâmetros no corpo (Body)**
 
