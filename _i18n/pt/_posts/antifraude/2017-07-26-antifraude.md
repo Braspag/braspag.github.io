@@ -1876,9 +1876,9 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 ## ReDShield
 
-## Integração com sua página de checkout(site)
+### Integração com sua página de checkout(site)
 
-## Como funciona?
+#### Como funciona?
 
 ![Fluxo]({{ site.baseurl_root }}/images/braspag/af/fingerprint.png)
 
@@ -1889,7 +1889,7 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 5 - A ReD Shield recebe todos os dados, envia a *caixa preta* para a Iovation descriptografar  
 6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador
 
-## Como configurar?
+#### Como configurar?
 
 1 - Inclua o javascript da Iovation em sua página de checkout  
 2 - Adicione parâmetros de configuração no javascript  
@@ -1981,7 +1981,7 @@ Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações s
 
 ![Fluxo]({{ site.baseurl_root }}/images/braspag/af/fingerprintmobile.png){: .centerimg }{:title="Fluxo da coleta do fingerprint mobile"}  
 
-* Integrando com aplicativos iOS  
+### Integrando com aplicativos iOS  
 
 Arquivos e requisitos de integração do iOS  
 ![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintios1.png){: .left }{:title="Detalhes integração iOS"}  
@@ -2042,7 +2042,7 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
 
 ```
 
-* Integrando com aplicativos Android  
+### Integrando com aplicativos Android  
 
 Arquivos e requisitos de integração do Android  
 ![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid.png){: .left }{:title="Detalhes integração Android"}  
