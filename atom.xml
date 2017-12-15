@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-15T14:23:09+00:00</updated>
+    <updated>2017-12-15T15:24:02+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -22058,6 +22058,27 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;p&gt;Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
 
+&lt;h1 id=&quot;hosts&quot;&gt;Hosts&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Ambiente&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;URL&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;`https:\risksandbox.braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\risk.braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h1 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h1&gt;
 
 &lt;h2 id=&quot;tokens-de-acesso&quot;&gt;Tokens de Acesso&lt;/h2&gt;
@@ -25858,7 +25879,7 @@ Para maior detalhes de como realizar o GET,  &lt;strong&gt;Obtenção dos Detalh
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/postnotification.png&quot; alt=&quot;Notificação de Mudança de Status&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h2 id=&quot;hosts-1&quot;&gt;Hosts&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
@@ -26290,7 +26311,7 @@ ACI / ReD Shield poder recomendar regras para evitar ataques de fraude subsequen
 
 &lt;p&gt;Obs.: O serviço aceita requisição POST com no máximo 100 itens na coleção.&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts-1&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h2 id=&quot;hosts-2&quot;&gt;Hosts&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
@@ -26443,7 +26464,7 @@ Content-Type: application/json
 2 - Realiza a autorização
 3 - O 3º passo deverá ser a chamada ao a este serviço para associar a transação do Pagador à transação do Antifraude Gateway.&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts-2&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h2 id=&quot;hosts-3&quot;&gt;Hosts&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;
@@ -26511,7 +26532,7 @@ Associa a transação do Pagador à transação do Antifraude Gateway&lt;/p&gt;
 
 &lt;p&gt;Serviço para alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject), disponível somente para o provedor Cybersource.&lt;/p&gt;
 
-&lt;h2 id=&quot;hosts-3&quot;&gt;Hosts&lt;/h2&gt;
+&lt;h2 id=&quot;hosts-4&quot;&gt;Hosts&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Test&lt;/strong&gt; https://riskhomolog.braspag.com.br&lt;br /&gt;
 &lt;strong&gt;Live&lt;/strong&gt; https://risk.braspag.com.br&lt;/p&gt;

@@ -55,10 +55,6 @@
                     
                     <li><a data-language-name='json'>JSON</a></li>
                     
-                    <li><a data-language-name='curl'>CURL</a></li>
-                    
-                    <li><a data-language-name='html'>HTML</a></li>
-                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -136,6 +132,27 @@
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.</p>
 
 <p>Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.</p>
+
+<h1 id="hosts">Hosts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ambiente</th>
+      <th style="text-align: left">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
+      <td style="text-align: left">`https:\risksandbox.braspag.com.br</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
+      <td style="text-align: left">https:\risk.braspag.com.br</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="autenticação">Autenticação</h1>
 
@@ -3937,7 +3954,7 @@ Para maior detalhes de como realizar o GET,  <strong>Obtenção dos Detalhes da 
 
 <p><img src="https://braspag.github.io//images/braspag/af/postnotification.png" alt="Notificação de Mudança de Status" /></p>
 
-<h2 id="hosts">Hosts</h2>
+<h2 id="hosts-1">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
@@ -4369,7 +4386,7 @@ ACI / ReD Shield poder recomendar regras para evitar ataques de fraude subsequen
 
 <p>Obs.: O serviço aceita requisição POST com no máximo 100 itens na coleção.</p>
 
-<h2 id="hosts-1">Hosts</h2>
+<h2 id="hosts-2">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
@@ -4522,7 +4539,7 @@ Content-Type: application/json
 2 - Realiza a autorização
 3 - O 3º passo deverá ser a chamada ao a este serviço para associar a transação do Pagador à transação do Antifraude Gateway.</p>
 
-<h2 id="hosts-2">Hosts</h2>
+<h2 id="hosts-3">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
@@ -4590,7 +4607,7 @@ Associa a transação do Pagador à transação do Antifraude Gateway</p>
 
 <p>Serviço para alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject), disponível somente para o provedor Cybersource.</p>
 
-<h2 id="hosts-3">Hosts</h2>
+<h2 id="hosts-4">Hosts</h2>
 
 <p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
 <strong>Live</strong> https://risk.braspag.com.br</p>
@@ -4825,10 +4842,6 @@ Altera o status da transação</p>
         
         langs += "<a data-language-name='json'>JSON</a>";
         
-        langs += "<a data-language-name='curl'>CURL</a>";
-        
-        langs += "<a data-language-name='html'>HTML</a>";
-        
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
@@ -4836,7 +4849,7 @@ Altera o status da transação</p>
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json",  "curl",  "html", ]);
+                setupLanguages([  "json", ]);
             });
         </script>
         
