@@ -1947,7 +1947,7 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 **Exemplo**  
 
-``` xml
+``` html
 <html>
 <head>
 <script>
@@ -2088,26 +2088,6 @@ O arquivo *device-lib-1.2.0.aar* deverá ser empacotado com o aplicativo.
 **IMPORTANTE!**  
 Se a opção para executar o módulo não aparecer, selecione *File -> Project Structure* e abra o painel *Modules*. A partir disso, defina na lista a versão do Android SDK.
 
-1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar  
-2 - No Android Studio, selecione *File -> Open* ou clique em *Open Project* através da opção *quick-start*  
-3 - No diretório em que você descompactou o *deviceprint-lib-1.2.0.aar*, abra diretório *android-studio-sample-app* do aplicativo de exemplo  
-4 - Abra o arquivo *DevicePrintSampleActivity*  
-5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o *Event Log* e clique em *Configure*  
-6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em *OK* para corrigir os erros  
-7 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package*  
-8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish*  
-9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle  
-![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png){: .left }{:title="Detalhes integração Android"}  
-10 - Abra a pasta DevicePrintSampleActivity  
-11 - Na opção de navegação do projeto, abra *src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java*  
-12 - Clique com o botão direito e selecione *Run DevicePrintSampleAct*  
-13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo  
-14 - O aplicativo irá compilar e executar  
-
-* Exemplo  
-
-O exemplo a seguir é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a *caixa preta*. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.  
-
 ``` html
 package com.iovation.mobile.android.sample;
 import android.app.Activity;
@@ -2142,6 +2122,24 @@ public class DevicePrintSampleActivity extends Activity
 }
 ```
 
+1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar  
+2 - No Android Studio, selecione *File -> Open* ou clique em *Open Project* através da opção *quick-start*  
+3 - No diretório em que você descompactou o *deviceprint-lib-1.2.0.aar*, abra diretório *android-studio-sample-app* do aplicativo de exemplo  
+4 - Abra o arquivo *DevicePrintSampleActivity*  
+5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o *Event Log* e clique em *Configure*  
+6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em *OK* para corrigir os erros  
+7 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package*  
+8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish*  
+9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle  
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png){: .left }{:title="Detalhes integração Android"}  
+10 - Abra a pasta DevicePrintSampleActivity  
+11 - Na opção de navegação do projeto, abra *src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java*  
+12 - Clique com o botão direito e selecione *Run DevicePrintSampleAct*  
+13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo  
+14 - O aplicativo irá compilar e executar  
+
+O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a *caixa preta*. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.  
+
 ## Cybersource
 
 Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag *<body>* da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.  
@@ -2163,19 +2161,17 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 **ProviderMerchantId** - Para obter este valor, entre em contato com a Braspag.  
 **ProviderSessionId** - Prencha este campo com o mesmo valor do campo **MerchantOrderId** que será enviado na requisição da análise de fraude.  
 
-* PNG Image  
+> PNG Image
 
-``` html
-<html>
-<head></head>
-<body>
-    <form>
-        <p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=1)"></p>  
-        <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt="">  
-    </form>
-</body>
-</html>
-```
+> <html> <br/>
+> <head></head> <br/>
+> <body> <br/>
+>     <form> <br/>
+>        <p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=1)"></p> <br/>
+>        <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt=""> <br/>
+>    </form> <br/>
+></body> <br/>
+></html> <br/>
 
 * Flash Code  
 
