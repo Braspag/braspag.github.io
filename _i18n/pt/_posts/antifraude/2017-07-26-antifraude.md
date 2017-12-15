@@ -68,14 +68,16 @@ Exemplo:
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/x-www-form-urlencoded|
 |`Authorization`|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
 
 **Parâmetros no corpo (Body)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`scope`|AntifraudGatewayApp|
 |`grant_type`|client_credentials|
 
@@ -90,7 +92,7 @@ Exemplo:
 ```
 
 |Parâmetro|Descrição|
-|-|-|
+|:-|:-|
 |`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway|
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
@@ -217,8 +219,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Request
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -432,8 +435,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ```
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Status`|201 Created|
 
@@ -570,8 +574,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Request
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -801,8 +806,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Status`|201 Created|
 
@@ -877,12 +883,14 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
 |Parâmetro|Descrição|
+|:-|:-|
 |`Message`|Mensagem informando que o request é inválido|
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual|
 |`FraudAnalysisRequestError`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tamanho especificado no manual|
@@ -1028,8 +1036,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ```
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -1038,8 +1047,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
@@ -1274,8 +1284,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -1284,8 +1295,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
@@ -1419,8 +1431,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Request
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Authorization`|Bearer {access_token}|
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -1429,8 +1442,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
-|-|-|
+|:-|:-|
 |`Content-Type`|application/json|
 |`Status`|404 Not Found|
 
