@@ -1433,7 +1433,7 @@ Em breve estarão disponíveis:</li>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
 </code></pre>
@@ -1494,14 +1494,14 @@ Em breve estarão disponíveis:</li>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
 </code></pre>
 
 <p>No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.</p>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount=2500</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1761,7 +1761,7 @@ Em breve estarão disponíveis:</li>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate=2017-12-01&amp;finalDate=2017-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialDate=2017-12-01&amp;finalDate=2017-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
 </code></pre>
@@ -1890,7 +1890,7 @@ Em breve estarão disponíveis:</li>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"
 </code></pre>
@@ -1934,7 +1934,7 @@ Em breve estarão disponíveis:</li>
 
 <p>A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.</p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules?initialDate={initialDate}&amp;finalDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;scheduleStatus={scheduleStatus}&amp;merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules?initialDate={initialDate}&amp;finalDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;scheduleStatus={scheduleStatus}&amp;merchantIds={merchantId}</span></aside>
 
 <table>
   <thead>
@@ -2001,7 +2001,7 @@ Em breve estarão disponíveis:</li>
 
 <p><strong>Resquest</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate=2017-12-01&amp;finalDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules/transactions?initialDate=2017-12-01&amp;finalDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"
 </code></pre>
@@ -2136,7 +2136,7 @@ Em breve estarão disponíveis:</li>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/schedules/adjustment/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api//schedules/adjustment/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
