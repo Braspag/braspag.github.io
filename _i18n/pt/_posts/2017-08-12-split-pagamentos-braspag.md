@@ -1424,7 +1424,7 @@ Eventos de Débito:
 
 O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
 
 | Parâmetro        | Descrição                                                                     | Tipo    | Formato    | Obrigatório | Valor Padrão
 |------------------|-------------------------------------------------------------------------------|---------|------------|-------------|
