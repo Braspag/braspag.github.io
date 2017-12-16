@@ -1230,7 +1230,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -1293,7 +1293,7 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -1301,7 +1301,7 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount=2500</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -1446,7 +1446,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&finalDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialDate=2017-12-01&finalDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -1522,7 +1522,7 @@ Para consultar a agenda de uma transação específica basta informar o identifi
 
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"
@@ -1568,7 +1568,7 @@ Para consultar a agenda de uma transação específica basta informar o identifi
 
 A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
 
 | Parâmetro        | Descrição                                                                            | Tipo    | Formato    | Obrigatório | Valor Padrão
 |------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
@@ -1581,7 +1581,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 **Resquest**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate=2017-12-01&finalDate=2018-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules/transactions?initialDate=2017-12-01&finalDate=2018-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"
@@ -1668,7 +1668,7 @@ Quando lançado um ajuste à Crédito para um Subordinado, automaticamente é la
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/schedules/adjustment/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api//schedules/adjustment/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
