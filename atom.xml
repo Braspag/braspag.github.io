@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-16T22:51:36+00:00</updated>
+    <updated>2017-12-16T22:56:21+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -1596,7 +1596,7 @@ Em breve estarão disponíveis:&lt;/li&gt;
 
 &lt;p&gt;O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.&lt;/p&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/schedules/transactions?initialDate={initialDate}&amp;amp;finalDate={finalDate}&amp;amp;pageIndex={pageIndex}&amp;amp;pageSize={pageSize}&amp;amp;scheduleStatus={scheduleStatus}&amp;amp;merchantIds={merchantId}&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-split}/api/schedules/transactions?initialDate={initialDate}&amp;amp;finalDate={finalDate}&amp;amp;pageIndex={pageIndex}&amp;amp;pageSize={pageSize}&amp;amp;scheduleStatus={scheduleStatus}&amp;amp;merchantIds={merchantId}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
