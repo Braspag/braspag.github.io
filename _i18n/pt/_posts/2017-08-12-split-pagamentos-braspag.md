@@ -1668,7 +1668,7 @@ Quando lançado um ajuste à Crédito para um Subordinado, automaticamente é la
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api//schedules/adjustment/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/schedules/adjustment/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
