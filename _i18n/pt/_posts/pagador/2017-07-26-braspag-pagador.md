@@ -118,7 +118,6 @@ Abaixo segue a lista de adquirentes com as quais temos integração para solicit
 |Banorte|30 dias|
 |First Data|90 dias|
 
-
 <aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
 * **Autenticação**: O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.
