@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-22T12:35:30+00:00</updated>
+    <updated>2017-12-22T13:06:29+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -4162,18 +4162,15 @@ diferentes.&lt;/p&gt;
 &lt;p&gt;Este é um exemplo de uma transação realizada com a Carteira Digital Stelo. Esta modalidade de pagamento permite o processamento de transação garantida, mediante ao envio dos dados obrigatórios, conforme descrição a seguir.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Para que seja possível o processamento de transações garantidas, é origatório o envio dos seguintes dados na requisição: 
-
-  Envio das informações nos nós &quot;Customer&quot;, &quot;Address&quot;, &quot;DeliveryAddress&quot; e &quot;Payment&quot;. 
-  No nó &quot;ExtraDataCollection&quot; enviar:
-  
-  o &quot;SteloGuaranteed&quot; como &quot;true&quot;;
-  o &quot;DeviceFingerPrint&quot; no value;
-  o &quot;ShippingBehavior&quot; como &quot;DELIVERY&quot;;
-  o &quot;Cart_1_Name&quot;, &quot;Cart_1_Quantity&quot; e &quot;Cart_1_Price&quot; enviados com os respectivos values.
-  
-  
-
 &lt;/aside&gt;
+
+&lt;p&gt;Envio das informações nos nós “Customer”, “Address”, “DeliveryAddress” e “Payment”. 
+  No nó “ExtraDataCollection” enviar:&lt;/p&gt;
+
+&lt;p&gt;o “SteloGuaranteed” como “true”;
+  o “DeviceFingerPrint” no value;
+  o “ShippingBehavior” como “DELIVERY”;
+  o “Cart_1_Name”, “Cart_1_Quantity” e “Cart_1_Price” enviados com os respectivos values.&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-2&quot;&gt;Requisição&lt;/h3&gt;
 
