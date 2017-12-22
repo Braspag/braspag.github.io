@@ -714,17 +714,22 @@ curl
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 
-## Criando uma Transação Garantida
+## Criando uma Transação Garantida com a *Stelo*
 
 Este é um exemplo de uma transação realizada com a Carteira Digital Stelo. Esta modalidade de pagamento permite o processamento de transação garantida, mediante ao envio dos dados obrigatórios, conforme descrição a seguir.
 
 <aside class="notice">Para que seja possível o processamento de transações garantidas, é origatório o envio dos seguintes dados na requisição: 
-* Envio das informações nos nós "Customer", "Address", "DeliveryAddress" e "Payment". 
-* No nó "ExtraDataCollection" enviar:
-  - o "SteloGuaranteed" como "true"; 
-  - o "DeviceFingerPrint" no value; 
-  - o "ShippingBehavior" como "DELIVERY";
-  - o "Cart_1_Name", "Cart_1_Quantity" e "Cart_1_Price" enviados com os respectivos values; 
+<ul>
+  <li>Envio das informações nos nós "Customer", "Address", "DeliveryAddress" e "Payment". </li>
+  <li>No nó "ExtraDataCollection" enviar:
+  <ol>
+  <li>o "SteloGuaranteed" como "true";</li>
+  <li>o "DeviceFingerPrint" no value;</li>
+  <li>o "ShippingBehavior" como "DELIVERY";</li>
+  <li>o "Cart_1_Name", "Cart_1_Quantity" e "Cart_1_Price" enviados com os respectivos values.</li>
+  </ol>
+  </li>
+</ul>
 </aside>
 
 ### Requisição
