@@ -719,6 +719,7 @@ curl
 Este é um exemplo de uma transação realizada com a Carteira Digital Stelo. Esta modalidade de pagamento permite o processamento de transação garantida, mediante ao envio dos dados obrigatórios, conforme descrição a seguir.
 
 <aside class="notice">Para que seja possível o processamento de transações garantidas, é origatório o envio dos seguintes dados na requisição: 
+</aside>
 <ul>
   <li>Envio das informações nos nós "Customer", "Address", "DeliveryAddress" e "Payment". </li>
   <li>No nó "ExtraDataCollection" enviar:
@@ -730,7 +731,6 @@ Este é um exemplo de uma transação realizada com a Carteira Digital Stelo. Es
   </ol>
   </li>
 </ul>
-</aside>
 
 ### Requisição
 
