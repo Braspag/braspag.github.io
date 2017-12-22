@@ -740,7 +740,7 @@ Este é um exemplo de uma transação realizada com a Carteira Digital Stelo. Es
         "Identity": "12345678909",
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
-		"Birthdate": "1991-01-02",
+        "Birthdate": "1991-01-02",
         "Address": {
             "Street": "Alameda Xingu",
             "Number": "512",
@@ -823,7 +823,7 @@ curl
         "Identity": "12345678909",
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
-		"Birthdate": "1991-01-02",
+        "Birthdate": "1991-01-02",
         "Address": {
             "Street": "Alameda Xingu",
             "Number": "512",
