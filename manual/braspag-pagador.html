@@ -327,20 +327,12 @@
       <td>90 dias</td>
     </tr>
     <tr>
-      <td>Global Payments</td>
-      <td>–</td>
+      <td>Banorte</td>
+      <td>30 dias</td>
     </tr>
     <tr>
       <td>First Data</td>
-      <td>–</td>
-    </tr>
-    <tr>
-      <td>Banorte</td>
-      <td>–</td>
-    </tr>
-    <tr>
-      <td>Credibanco</td>
-      <td>–</td>
+      <td>90 dias</td>
     </tr>
   </tbody>
 </table>
@@ -1471,11 +1463,864 @@
   </tbody>
 </table>
 
+<h2 id="criando-uma-transação-garantida">Criando uma Transação Garantida</h2>
+
+<p>Este é um exemplo de uma transação realizada com a Carteira Digital Stelo. Esta modalidade de pagamento permite o processamento de transação garantida, mediante ao envio dos dados obrigatórios, conforme descrição a seguir.</p>
+
+<aside class="notice">Para que seja possível o processamento de transações garantidas, é origatório o envio dos seguintes dados na requisição: 
+* Envio das informações nos nós "Customer", "Address", "DeliveryAddress" e "Payment". 
+* No nó "ExtraDataCollection" enviar:
+  - o "SteloGuaranteed" como "true"; 
+  - o "DeviceFingerPrint" no value; 
+  - o "ShippingBehavior" como "DELIVERY";
+  - o "Cart_1_Name", "Cart_1_Quantity" e "Cart_1_Price" enviados com os respectivos values; 
+</aside>
+
+<h3 id="requisição-2">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1412171635"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521979001105"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stelo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****8242"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SteloGuaranteed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DeviceFingerPrint"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e72f6e86-0a35-41e4-ba2b-827a49730c90"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShippingBehavior"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERY"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_1_Name"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caneta Bic"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_1_Quantity"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_1_Price"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_2_Name"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blusa branca"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_2_Quantity"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_2_Price"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1900</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"1412171635"</span>,
+    <span class="s2">"Customer"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Comprador Teste"</span>,
+        <span class="s2">"Phone"</span>: <span class="s2">"5521979001105"</span>,
+        <span class="s2">"Identity"</span>: <span class="s2">"12345678909"</span>,
+        <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>,
+        <span class="s2">"Email"</span>: <span class="s2">"comprador@braspag.com.br"</span>,
+        <span class="s2">"Birthdate"</span>: <span class="s2">"1991-01-02"</span>,
+        <span class="s2">"Address"</span>: <span class="o">{</span>
+            <span class="s2">"Street"</span>: <span class="s2">"Alameda Xingu"</span>,
+            <span class="s2">"Number"</span>: <span class="s2">"512"</span>,
+            <span class="s2">"Complement"</span>: <span class="s2">"27 andar"</span>,
+            <span class="s2">"ZipCode"</span>: <span class="s2">"12345987"</span>,
+            <span class="s2">"City"</span>: <span class="s2">"São Paulo"</span>,
+            <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
+            <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+            <span class="s2">"District"</span>: <span class="s2">"Alphaville"</span>
+        <span class="o">}</span>,
+        <span class="s2">"DeliveryAddress"</span>: <span class="o">{</span>
+            <span class="s2">"Street"</span>: <span class="s2">"Alameda Xingu"</span>,
+            <span class="s2">"Number"</span>: <span class="s2">"512"</span>,
+            <span class="s2">"Complement"</span>: <span class="s2">"27 andar"</span>,
+            <span class="s2">"ZipCode"</span>: <span class="s2">"12345987"</span>,
+            <span class="s2">"City"</span>: <span class="s2">"São Paulo"</span>,
+            <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
+            <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+            <span class="s2">"District"</span>: <span class="s2">"Alphaville"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+        <span class="s2">"Amount"</span>: 100,
+        <span class="s2">"Provider"</span>: <span class="s2">"Stelo"</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+        <span class="s2">"Installments"</span>: 1,
+        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+            <span class="s2">"CardNumber"</span>: <span class="s2">"****8242"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
+            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2022"</span>,
+            <span class="s2">"SecurityCode"</span>: <span class="s2">"***"</span>,
+            <span class="s2">"Brand"</span>: <span class="s2">"visa"</span>
+        <span class="o">}</span>,
+        <span class="s2">"ExtraDataCollection"</span>: <span class="o">[{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"SteloGuaranteed"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"true"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"DeviceFingerPrint"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"e72f6e86-0a35-41e4-ba2b-827a49730c90"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"ShippingBehavior"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"DELIVERY"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_1_Name"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"Caneta Bic"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_1_Quantity"</span>,
+            <span class="s2">"Value"</span>: 10
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_1_Price"</span>,
+            <span class="s2">"Value"</span>: 150
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_2_Name"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"Blusa branca"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_2_Quantity"</span>,
+            <span class="s2">"Value"</span>: 5
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_2_Price"</span>,
+            <span class="s2">"Value"</span>: 1900
+        <span class="o">}]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificador da loja na Braspag</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+      <td>Chave Publica para Autenticação Dupla na Braspag</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Não</td>
+      <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Numero de identificação do Pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Nome do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>Número do RG, CPF ou CNPJ do Cliente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Email do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Birthdate</code></td>
+      <td>Date</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Data de nascimento do Comprador no formato AAAA-MM-DD</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço de contato do Comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Cidade do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Estado do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Sim</td>
+      <td>Pais do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Bairro do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Endereço do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Cidade do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Estado do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Sim</td>
+      <td>Pais do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Bairro do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Nome da provedora de Meio de Pagamento, padrão: Stelo</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do Meio de Pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do Pedido (ser enviado em centavos)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de Parcelas</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não (Default false)</td>
+      <td>Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td>Número do Cartão do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Sim</td>
+      <td>Nome do portador impresso no cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Data de validade impresso no cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Código de segurança impresso no verso do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>enviar: SteloGuaranteed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>enviar: True</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>enviar: DeviceFingerPrint</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>é necessária a inclusão de um bloco HTML na tela de checkout. Clique aqui e baixe o arquivo com as instruções.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>enviar: ShippingBehavior</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>enviar: DELIVERY</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>enviar: Cart_1_Name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>nome do produto</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>enviar: Cart_1_Quantity</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Number</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>quantidade de unidades do produto</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>enviar: Cart_1_Price</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Numero</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>enviar o valor do item do carrinho</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>enviar: Cart_2_Name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>nome do produto</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>enviar: Cart_2_Quantity</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Number</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>quantidade de unidades do produto</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>enviar: Cart_2_Price</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Numero</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>enviar o valor do item do carrinho</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-2">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1412171635"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521979001105"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"492917******8242"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"506405"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1412171635"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"424533"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c49780e1-45f0-46fa-b9f7-4b96794ad405"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-14 16:35:03"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stelo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SteloGuaranteed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DeviceFingerPrint"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e72f6e86-0a35-41e4-ba2b-827a49730c90"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShippingBehavior"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERY"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_1_Name"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caneta Bic"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_1_Quantity"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_1_Price"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_2_Name"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blusa branca"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_2_Quantity"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cart_2_Price"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1900"</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transação Aprovada"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiqueryhomolog.braspag.com.br/v2/sales/c49780e1-45f0-46fa-b9f7-4b96794ad405"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"1412171635"</span>,
+    <span class="s2">"Customer"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Comprador Teste"</span>,
+        <span class="s2">"Identity"</span>: <span class="s2">"12345678909"</span>,
+        <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>,
+        <span class="s2">"Email"</span>: <span class="s2">"comprador@braspag.com.br"</span>,
+        <span class="s2">"Phone"</span>: <span class="s2">"5521979001105"</span>,
+        <span class="s2">"Address"</span>: <span class="o">{</span>
+            <span class="s2">"Street"</span>: <span class="s2">"Alameda Xingu"</span>,
+            <span class="s2">"Number"</span>: <span class="s2">"512"</span>,
+            <span class="s2">"Complement"</span>: <span class="s2">"27 andar"</span>,
+            <span class="s2">"ZipCode"</span>: <span class="s2">"12345987"</span>,
+            <span class="s2">"City"</span>: <span class="s2">"São Paulo"</span>,
+            <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
+            <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+            <span class="s2">"District"</span>: <span class="s2">"Alphaville"</span>
+        <span class="o">}</span>,
+        <span class="s2">"DeliveryAddress"</span>: <span class="o">{</span>
+            <span class="s2">"Street"</span>: <span class="s2">"Alameda Xingu"</span>,
+            <span class="s2">"Number"</span>: <span class="s2">"512"</span>,
+            <span class="s2">"Complement"</span>: <span class="s2">"27 andar"</span>,
+            <span class="s2">"ZipCode"</span>: <span class="s2">"12345987"</span>,
+            <span class="s2">"City"</span>: <span class="s2">"São Paulo"</span>,
+            <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
+            <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+            <span class="s2">"District"</span>: <span class="s2">"Alphaville"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"ServiceTaxAmount"</span>: 0,
+        <span class="s2">"Installments"</span>: 1,
+        <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
+        <span class="s2">"Capture"</span>: <span class="nb">false</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+        <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+            <span class="s2">"CardNumber"</span>: <span class="s2">"492917******8242"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
+            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2022"</span>,
+            <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+        <span class="o">}</span>,
+        <span class="s2">"ProofOfSale"</span>: <span class="s2">"506405"</span>,
+        <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"1412171635"</span>,
+        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"424533"</span>,
+        <span class="s2">"PaymentId"</span>: <span class="s2">"c49780e1-45f0-46fa-b9f7-4b96794ad405"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+        <span class="s2">"Amount"</span>: 100,
+        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-12-14 16:35:03"</span>,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"Provider"</span>: <span class="s2">"Stelo"</span>,
+        <span class="s2">"ExtraDataCollection"</span>: <span class="o">[{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"SteloGuaranteed"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"true"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"DeviceFingerPrint"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"e72f6e86-0a35-41e4-ba2b-827a49730c90"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"ShippingBehavior"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"DELIVERY"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_1_Name"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"Caneta Bic"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_1_Quantity"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"10"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_1_Price"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"150"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_2_Name"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"Blusa branca"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_2_Quantity"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"5"</span>
+        <span class="o">}</span>, <span class="o">{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"Cart_2_Price"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"1900"</span>
+        <span class="o">}]</span>,
+        <span class="s2">"ReasonCode"</span>: 0,
+        <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+        <span class="s2">"Status"</span>: 0,
+        <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"00"</span>,
+        <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Transação Aprovada"</span>,
+        <span class="s2">"Links"</span>: <span class="o">[{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+            <span class="s2">"Href"</span>: <span class="s2">"https://apiqueryhomolog.braspag.com.br/v2/sales/c49780e1-45f0-46fa-b9f7-4b96794ad405"</span>
+        <span class="o">}]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">AcquirerTransactionId</code></td>
+      <td>Id da transação no provedor de meio de pagamento</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td>Número do Comprovante de Venda</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Campo Identificador do Pedido</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReceivedDate</code></td>
+      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CapturedDate</code></td>
+      <td>Data em que a transação foi capturada a transação</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CapturedAmount</code></td>
+      <td>Valor capturado (sem pontuação)</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>100 equivale a R$ 1,00</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReasonCode</code></td>
+      <td>Código de retorno da Operação</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReasonMessage</code></td>
+      <td>Mensagem de retorno da Operação</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Status da Transação</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Transação Aprovada</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="criando-uma-transação-com-autenticação-externa">Criando uma transação com autenticação externa</h2>
 
 <p>Este é um exemplo de uma transação com dados de autenticação externa. Este fluxo é suportado pelas adquirentes Cielo, Global Payments e Banorte.</p>
 
-<h3 id="requisição-2">Requisição</h3>
+<h3 id="requisição-3">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1963,7 +2808,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-2">Resposta</h3>
+<h3 id="resposta-3">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -2265,7 +3110,7 @@
 
 <aside class="notice">Autenticação:Nesta modalidade o portador do cartão é direcionado para o ambiente de autenticação do banco emissor do cartão onde será solicitada a inclusão da senha do cartão. Aplicável somente para Cielo.</aside>
 
-<h3 id="requisição-3">Requisição</h3>
+<h3 id="requisição-4">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2451,7 +3296,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-3">Resposta</h3>
+<h3 id="resposta-4">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051101"</span><span class="p">,</span><span class="w">
@@ -2639,7 +3484,7 @@
 
 <p>Para que a análise de fraude seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.</p>
 
-<h3 id="requisição-4">Requisição</h3>
+<h3 id="requisição-5">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3495,7 +4340,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-4">Resposta</h3>
+<h3 id="resposta-5">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051102"</span><span class="p">,</span><span class="w">
@@ -3983,7 +4828,7 @@
 
 <p>Para que a análise de fraude seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.</p>
 
-<h3 id="requisição-5">Requisição</h3>
+<h3 id="requisição-6">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5804,7 +6649,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-5">Resposta</h3>
+<h3 id="resposta-6">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201411170314344356"</span><span class="p">,</span><span class="w">
@@ -6325,7 +7170,7 @@
 
 <p>Caso você tenha contratado o Cartão Protegido, é possível salvar um cartão no formato de um Token, para substituir os dados do cartão numa próxima transação do mesmo comprador. É importante ressaltar que por questões de segurança, o CVV (Código de Segurança) não é tokenizado.</p>
 
-<h3 id="requisição-6">Requisição</h3>
+<h3 id="requisição-7">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -6511,7 +7356,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-6">Resposta</h3>
+<h3 id="resposta-7">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051104"</span><span class="p">,</span><span class="w">
@@ -6730,7 +7575,7 @@
 
 <p>Este é um exemplo de como utilizar o Card Token, previamente salvo, para criar uma transação. Por questão de segurança, um Card Token não tem guardado o Código de Segurança. Desta forma, é preciso solicitar esta informação ao portador para cada nova transação (exceto em casos de transações recorrentes).</p>
 
-<h3 id="requisição-7">Requisição</h3>
+<h3 id="requisição-8">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -6880,7 +7725,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-7">Resposta</h3>
+<h3 id="resposta-8">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051105"</span><span class="p">,</span><span class="w">
@@ -7079,7 +7924,7 @@
 
 <p>Este é um exemplo de como utilizar o Alias, previamente salvo, para criar uma transação. Por questão de segurança, um Alias não tem guardado o Código de Segurança. Desta forma, é preciso solicitar esta informação ao portador para cada nova transação (exceto em casos de transações recorrentes).</p>
 
-<h3 id="requisição-8">Requisição</h3>
+<h3 id="requisição-9">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7236,7 +8081,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-8">Resposta</h3>
+<h3 id="resposta-9">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051105"</span><span class="p">,</span><span class="w">
@@ -7435,7 +8280,7 @@
 
 <p>Uma transação pré-autorizada necessita de uma operação de “Captura” para confirmar a transação. Segue o exemplo.</p>
 
-<h3 id="requisição-9">Requisição</h3>
+<h3 id="requisição-10">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
@@ -7506,7 +8351,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-9">Resposta</h3>
+<h3 id="resposta-10">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -7592,7 +8437,7 @@
 
 <p>Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-10">Requisição</h3>
+<h3 id="requisição-11">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -7656,7 +8501,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-10">Resposta</h3>
+<h3 id="resposta-11">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -7731,7 +8576,7 @@
 
 <p>No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP171 - Rejected by fraud risk (velocity, com ReasonCode 16 - AbortedByFraud</p>
 
-<h3 id="requisição-11">Requisição</h3>
+<h3 id="requisição-12">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8082,7 +8927,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-11">Resposta</h3>
+<h3 id="resposta-12">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051202"</span><span class="p">,</span><span class="w">
@@ -8284,7 +9129,7 @@
 <p>O Renova fácil é um mecanismo desenvolvido pela CIELO junto com os bancos, com o objetivo de aumentar a taxa de conversão de autorização, através da identificação de cartões vencidos e o retorno do novo cartão que
 substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank</p>
 
-<h3 id="requisição-12">Requisição</h3>
+<h3 id="requisição-13">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8451,7 +9296,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-12">Resposta</h3>
+<h3 id="resposta-13">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051201"</span><span class="p">,</span><span class="w">
@@ -8608,7 +9453,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação. <br />Atualmente, somente o Provider “Cielo” ou “Cielo30” suportam processamento desta modalidade.</p>
 
-<h3 id="requisição-13">Requisição</h3>
+<h3 id="requisição-14">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8783,7 +9628,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-13">Resposta</h3>
+<h3 id="resposta-14">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051107"</span><span class="p">,</span><span class="w">
@@ -8971,7 +9816,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para criar uma venda de transferência eletrônica (conhecido como Débito Online), é necessário fazer um POST para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-14">Requisição</h3>
+<h3 id="requisição-15">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9190,7 +10035,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-14">Resposta</h3>
+<h3 id="resposta-15">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
@@ -9307,7 +10152,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para criar uma transação de Boleto sem Registro, basta fazer um POST conforme o exemplo.</p>
 
-<h3 id="requisição-15">Requisição</h3>
+<h3 id="requisição-16">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9471,7 +10316,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-15">Resposta</h3>
+<h3 id="resposta-16">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051110"</span><span class="p">,</span><span class="w">
@@ -9624,7 +10469,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço.</p>
 
-<h3 id="requisição-16">Requisição</h3>
+<h3 id="requisição-17">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10028,7 +10873,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-16">Resposta</h3>
+<h3 id="resposta-17">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
@@ -10211,7 +11056,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Neste exemplo, uma transação é submetida para autorização, e quando aprovada, a recorrência é agendada conforme as regras especificadas na transação. Uma transação recorrente não poderá ser parcelada.</p>
 
-<h3 id="requisição-17">Requisição</h3>
+<h3 id="requisição-18">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10408,7 +11253,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-17">Resposta</h3>
+<h3 id="resposta-18">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051113"</span><span class="p">,</span><span class="w">
@@ -10604,7 +11449,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Diferentementemente da recorrência anterior, este exemplo não autoriza imediatamente, mas apenas agenda uma autorização futura. Quando esta autorização tiver sucesso, então o agendamento das próximas recorrências será efetivada.</p>
 
-<h3 id="requisição-18">Requisição</h3>
+<h3 id="requisição-19">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10810,7 +11655,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-18">Resposta</h3>
+<h3 id="resposta-19">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051114"</span><span class="p">,</span><span class="w">
@@ -10963,7 +11808,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para alterar os dados do comprador em uma recorrência, basta fazer um PUT conforme o exemplo.</p>
 
-<h3 id="requisição-19">Requisição</h3>
+<h3 id="requisição-20">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -11223,7 +12068,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-19">Resposta</h3>
+<h3 id="resposta-20">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11234,7 +12079,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para alterar a data final da Recorrência, basta fazer um PUT conforme o exemplo.</p>
 
-<h3 id="requisição-20">Requisição</h3>
+<h3 id="requisição-21">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -11301,7 +12146,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-20">Resposta</h3>
+<h3 id="resposta-21">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11312,7 +12157,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para alterar o Intervalo da Recorrência, basta fazer um PUT conforme o exemplo.</p>
 
-<h3 id="requisição-21">Requisição</h3>
+<h3 id="requisição-22">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -11379,7 +12224,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-21">Resposta</h3>
+<h3 id="resposta-22">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11392,7 +12237,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <aside class="notice">Regra: Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
 
-<h3 id="requisição-22">Requisição</h3>
+<h3 id="requisição-23">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -11459,7 +12304,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-22">Resposta</h3>
+<h3 id="resposta-23">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11539,7 +12384,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <aside class="warning">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
 
-<h3 id="resposta-23">Resposta</h3>
+<h3 id="resposta-24">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11550,7 +12395,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para alterar a data do próximo Pagamento, basta fazer um PUT conforme o exemplo. Esta operação modifica somente a data do próximo pagamento, ou seja, a recorrências futuras a esta permanecerão com as carcaterísticas originais.</p>
 
-<h3 id="requisição-23">Requisição</h3>
+<h3 id="requisição-24">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -11617,7 +12462,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-24">Resposta</h3>
+<h3 id="resposta-25">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11630,7 +12475,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <aside class="notice">Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
 
-<h3 id="requisição-24">Requisição</h3>
+<h3 id="requisição-25">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -11788,7 +12633,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-25">Resposta</h3>
+<h3 id="resposta-26">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11799,79 +12644,12 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo.</p>
 
-<h3 id="requisição-25">Requisição</h3>
+<h3 id="requisição-26">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API</td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Numero de identificação da Recorrência.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="resposta-26">Resposta</h3>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
-</code></pre></div></div>
-
-<p>Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
-
-<h2 id="reabilitando-um-pedido-recorrente">Reabilitando um Pedido Recorrente</h2>
-
-<p>Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
-
-<h3 id="requisição-26">Requisição</h3>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -11929,13 +12707,80 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 <p>Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
+<h2 id="reabilitando-um-pedido-recorrente">Reabilitando um Pedido Recorrente</h2>
+
+<p>Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
+
+<h3 id="requisição-27">Requisição</h3>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Chave Publica para Autenticação Dupla na API</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Numero de identificação da Recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-28">Resposta</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
 <h1 id="consultas">Consultas</h1>
 
 <h2 id="consultando-uma-transação-via-paymentid">Consultando uma transação via PaymentID</h2>
 
 <p>Para consultar uma transação de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-27">Requisição</h3>
+<h3 id="requisição-28">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -11991,7 +12836,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   </tbody>
 </table>
 
-<h3 id="resposta-28">Resposta</h3>
+<h3 id="resposta-29">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -12495,7 +13340,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.</p>
 
-<h3 id="requisição-28">Requisição</h3>
+<h3 id="requisição-29">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -12551,7 +13396,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   </tbody>
 </table>
 
-<h3 id="resposta-29">Resposta</h3>
+<h3 id="resposta-30">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -12619,7 +13464,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar um pedido de Recorrência, é necessário fazer um GET conforme o exemplo.</p>
 
-<h3 id="requisição-29">Requisição</h3>
+<h3 id="requisição-30">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -12675,7 +13520,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   </tbody>
 </table>
 
-<h3 id="resposta-30">Resposta</h3>
+<h3 id="resposta-31">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
