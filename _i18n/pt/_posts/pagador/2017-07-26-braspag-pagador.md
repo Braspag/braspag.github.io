@@ -718,13 +718,7 @@ curl
 
 Este é um exemplo de uma transação realizada com a Carteira Digital Stelo. Esta modalidade de pagamento permite o processamento de transação garantida, mediante ao envio dos dados obrigatórios, conforme descrição a seguir.
 
-<aside class="notice">Para que seja possível o processamento de transações garantidas, é origatório o envio dos seguintes dados na requisição:</aside>
-<BR>1.Envio das informações nos nós "Customer", "Address", "DeliveryAddress" e "Payment".
-<BR>2.No nó "ExtraDataCollection" enviar:
-<BR> - o "SteloGuaranteed" como "true";
-<BR> - o "DeviceFingerPrint" no value;
-<BR> - o "ShippingBehavior" como "DELIVERY";
-<BR> - o "Cart_1_Name", "Cart_1_Quantity" e "Cart_1_Price" enviados com os respectivos "values".
+<aside class="notice">Para que seja possível o processamento de transações garantidas, é origatório o envio dos seguintes dados na requisição: informações nos nós "Customer", "DeliveryAddress" e "Payment". No nó "ExtraDataCollection" deve-se enviar o "SteloGuaranteed" como "true"; "DeviceFingerPrint" deve ser enviado no value; o "ShippingBehavior" deve conter o valor "DELIVERY"; e o "Cart_1_Name", "Cart_1_Quantity" e "Cart_1_Price" devem receber os respectivos "values".
 
 ### Requisição
 
