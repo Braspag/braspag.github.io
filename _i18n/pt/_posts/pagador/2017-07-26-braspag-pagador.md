@@ -117,8 +117,6 @@ Abaixo segue a lista de adquirentes com as quais temos integração para solicit
 |Transbank|90 dias| 
 |Banorte|30 dias|
 |First Data|90 dias|
-|Global Payments|NA|
-|Credibanco|NA|
 
 <aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
