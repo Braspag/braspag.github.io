@@ -139,9 +139,7 @@
             </div>
 
             <div class="post">
-  <p>s</p>
-
-<h1 id="introdução-ao-pagador-api">Introdução ao Pagador API</h1>
+  <h1 id="introdução-ao-pagador-api">Introdução ao Pagador API</h1>
 
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.</p>
 
@@ -10045,34 +10043,34 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
         </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-        </span><span class="err">City</span><span class="s2">":"</span><span class="err">São</span><span class="w"> </span><span class="err">Paulo</span><span class="s2">",
-        "</span><span class="err">State</span><span class="s2">":"</span><span class="err">SP</span><span class="s2">",
-             "</span><span class="err">Country</span><span class="s2">":"</span><span class="err">BRA</span><span class="s2">",
-             "</span><span class="err">District</span><span class="s2">":"</span><span class="err">Alphaville</span><span class="s2">"
-            }
-    },
-    "</span><span class="err">Payment</span><span class="s2">": {
-        "</span><span class="err">Url</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/</span><span class="p">{</span><span class="err">PaymentId</span><span class="p">}</span><span class="s2">",
-        "</span><span class="err">PaymentId</span><span class="s2">": "</span><span class="mi">765548</span><span class="err">b</span><span class="mi">6</span><span class="err">-c</span><span class="mi">4</span><span class="err">b</span><span class="mi">8-4e2</span><span class="err">c-b</span><span class="mi">9</span><span class="err">b</span><span class="mi">9-6458</span><span class="err">dbd</span><span class="mi">5</span><span class="err">da</span><span class="mi">0</span><span class="err">a</span><span class="s2">",
-        "</span><span class="err">Type</span><span class="s2">": "</span><span class="err">EletronicTransfer</span><span class="s2">",
-        "</span><span class="err">Amount</span><span class="s2">": 10000,
-        "</span><span class="err">ReceivedDate</span><span class="s2">": "</span><span class="mi">2015-06-25</span><span class="w"> </span><span class="mi">09</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mi">55</span><span class="s2">",
-        "</span><span class="err">Currency</span><span class="s2">": "</span><span class="err">BRL</span><span class="s2">",
-        "</span><span class="err">Country</span><span class="s2">": "</span><span class="err">BRA</span><span class="s2">",
-        "</span><span class="err">Provider</span><span class="s2">": "</span><span class="err">Bradesco</span><span class="s2">",
-        "</span><span class="err">ReturnUrl</span><span class="s2">": "</span><span class="err">http</span><span class="p">:</span><span class="err">//www.braspag.com.br</span><span class="s2">",
-        "</span><span class="err">ReasonCode</span><span class="s2">": 0,
-        "</span><span class="err">ReasonMessage</span><span class="s2">": "</span><span class="err">Successful</span><span class="s2">",
-        "</span><span class="err">Status</span><span class="s2">": 0,
-        "</span><span class="err">Links</span><span class="s2">": [
-            {
-                "</span><span class="err">Method</span><span class="s2">": "</span><span class="err">GET</span><span class="s2">",
-                "</span><span class="err">Rel</span><span class="s2">": "</span><span class="err">self</span><span class="s2">",
-                "</span><span class="err">Href</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//apiquerysandbox.braspag.com.br/v</span><span class="mi">2</span><span class="err">/sales/</span><span class="p">{</span><span class="err">PaymentId</span><span class="p">}</span><span class="s2">"
-            }
-        ]
-    }
-}
+        </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"765548b6-c4b8-4e2c-b9b9-6458dbd5da0a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EletronicTransfer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-25 09:37:55"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.braspag.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>

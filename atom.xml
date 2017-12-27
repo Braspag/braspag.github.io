@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-27T18:50:25+00:00</updated>
+    <updated>2017-12-27T19:07:44+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -2833,9 +2833,7 @@ diferentes.&lt;/p&gt;
         <link href="https://braspag.github.io//manual/braspag-pagador"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
         <id>https://braspag.github.io//manual/braspag-pagador</id>
-        <content type="html">&lt;p&gt;s&lt;/p&gt;
-
-&lt;h1 id=&quot;introdução-ao-pagador-api&quot;&gt;Introdução ao Pagador API&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;introdução-ao-pagador-api&quot;&gt;Introdução ao Pagador API&lt;/h1&gt;
 
 &lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.&lt;/p&gt;
 
@@ -12739,34 +12737,34 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;512&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;27 andar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345987&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;City&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;:&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;São&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Paulo&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;:&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;SP&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-             &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Country&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;:&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;BRA&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-             &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;District&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;:&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Alphaville&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;
-            }
-    },
-    &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Payment&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: {
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Url&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;PaymentId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;PaymentId&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;765548&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-c&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8-4e2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c-b&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9-6458&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;dbd&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;da&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;EletronicTransfer&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Amount&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: 10000,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ReceivedDate&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2015-06-25&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;09&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;37&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Currency&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;BRL&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Country&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;BRA&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Provider&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Bradesco&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ReturnUrl&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//www.braspag.com.br&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ReasonCode&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: 0,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ReasonMessage&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Successful&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Status&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: 0,
-        &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Links&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: [
-            {
-                &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Method&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-                &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Rel&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
-                &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Href&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//apiquerysandbox.braspag.com.br/v&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/sales/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;PaymentId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;
-            }
-        ]
-    }
-}
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;São Paulo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Alphaville&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;765548b6-c4b8-4e2c-b9b9-6458dbd5da0a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EletronicTransfer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2015-06-25 09:37:55&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bradesco&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://www.braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReasonCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReasonMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Successful&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Links&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;self&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
