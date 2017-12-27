@@ -12,7 +12,6 @@ language_tabs:
   shell: cURL
   html: HTML
 ---
-s
 
 # Introdução ao Pagador API
 
@@ -4822,7 +4821,7 @@ curl
         "Number":"512",
         "Complement":"27 andar",
         "ZipCode":"12345987",
-        City":"São Paulo",
+        "City":"São Paulo",
         "State":"SP",
              "Country":"BRA",
              "District":"Alphaville"
