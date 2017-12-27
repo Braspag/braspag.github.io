@@ -12,7 +12,7 @@ language_tabs:
   shell: cURL
   html: HTML
 ---
-
+s
 # Introdução ao Pagador API
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.
@@ -719,6 +719,7 @@ curl
 Este é um exemplo de uma transação realizada com a Carteira Digital Stelo. Esta modalidade de pagamento permite o processamento de transação garantida, mediante ao envio dos dados obrigatórios, conforme descrição a seguir.
 
 <aside class="notice">Para que seja possível o processamento de transações garantidas, é origatório o envio dos seguintes dados na requisição: informações nos nós "Customer", "DeliveryAddress" e "Payment". No nó "ExtraDataCollection" deve-se enviar o "SteloGuaranteed" como "true"; "DeviceFingerPrint" deve ser enviado no value; o "ShippingBehavior" deve conter o valor "DELIVERY"; e o "Cart_1_Name", "Cart_1_Quantity" e "Cart_1_Price" devem receber os respectivos "values".
+</aside>
 
 ### Requisição
 
