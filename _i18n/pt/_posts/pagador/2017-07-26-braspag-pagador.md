@@ -13,7 +13,7 @@ language_tabs:
   html: HTML
 ---
 s
-# Introdução ao Pagador API
+## Introdução ao Pagador API
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.
 
