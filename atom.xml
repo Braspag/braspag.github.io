@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2017-12-27T19:44:10+00:00</updated>
+    <updated>2018-01-05T16:24:32+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -2844,7 +2844,8 @@ diferentes.&lt;/p&gt;
 &lt;p&gt;Para integrações com utilizando &lt;code class=&quot;highlighter-rouge&quot;&gt;.NET&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;SOAP-XML&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP-POST&lt;/code&gt;, veja nossos documentos a esse modelo de integração em:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Autorizacao_Captura_Cancelamento_e_Estorno_v1.15.5.pdf&quot;&gt;&lt;strong&gt;Integração SOAP&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Autorizacao_Captura_Cancelamento_e_Estorno_v1.15.5.pdf&quot;&gt;&lt;strong&gt;Manual Português - Integração SOAP&lt;/strong&gt;&lt;/a&gt;
+&lt;a href=&quot;http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Authorization_Capture_Cancellation_and_Refund_v1.15.5_eng.pdf&quot;&gt;&lt;strong&gt;Manual Inglês -Integração SOAP&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;ou&lt;/p&gt;
@@ -28591,8 +28592,8 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tutorials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;basics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
 
-&lt;span class=&quot;c1&quot;&gt;## Montando um Cluster em Kubernetes
-&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;## Montando um Cluster em Kubernetes&lt;/span&gt;
+
 &lt;span class=&quot;nx&quot;&gt;Estou&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;levando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;em&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;consideração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;já&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`Azure CLI`&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configurado&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sua&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;máquina&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;não&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tutorial&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configuração&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
 
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;microsoft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;us&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;
