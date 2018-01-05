@@ -23,7 +23,7 @@ Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key)
 
 Para integrações com utilizando `.NET` / `SOAP-XML` / `HTTP-POST`, veja nossos documentos a esse modelo de integração em:
 
-> [**Manual Português - Integração SOAP**](http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Autorizacao_Captura_Cancelamento_e_Estorno_v1.15.5.pdf)
+> [**Manual Português - Integração SOAP**](http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Autorizacao_Captura_Cancelamento_e_Estorno_v1.15.5.pdf)<BR>
 > [**Manual Inglês -Integração SOAP**](http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Authorization_Capture_Cancellation_and_Refund_v1.15.5_eng.pdf)
 
 ou
