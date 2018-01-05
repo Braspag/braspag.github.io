@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-01-05T16:24:32+00:00</updated>
+    <updated>2018-01-05T16:29:05+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -2844,7 +2844,7 @@ diferentes.&lt;/p&gt;
 &lt;p&gt;Para integrações com utilizando &lt;code class=&quot;highlighter-rouge&quot;&gt;.NET&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;SOAP-XML&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP-POST&lt;/code&gt;, veja nossos documentos a esse modelo de integração em:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Autorizacao_Captura_Cancelamento_e_Estorno_v1.15.5.pdf&quot;&gt;&lt;strong&gt;Manual Português - Integração SOAP&lt;/strong&gt;&lt;/a&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Autorizacao_Captura_Cancelamento_e_Estorno_v1.15.5.pdf&quot;&gt;&lt;strong&gt;Manual Português - Integração SOAP&lt;/strong&gt;&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;http://www.braspag.com.br/wp-content/uploads/2017/05/Pagador_Transaction-Authorization_Capture_Cancellation_and_Refund_v1.15.5_eng.pdf&quot;&gt;&lt;strong&gt;Manual Inglês -Integração SOAP&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
