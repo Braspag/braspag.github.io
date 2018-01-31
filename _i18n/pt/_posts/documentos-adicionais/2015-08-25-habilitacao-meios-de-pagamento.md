@@ -12,7 +12,7 @@ tags:
 
 ## Sobre este Manual
 
-Este manual tem como objetivo orientar o **LOJISTA** na contratação e configuração do **BOLETOs e DÉBITOs ONLINE** disponíveis no **CHECKOUT CIELO** e na **API Cielo Ecommerce**
+Este manual tem como objetivo orientar o **LOJISTA** na contratação e configuração do BOLETOs e DÉBITOs ONLINE disponíveis no **CHECKOUT CIELO** e na **API Cielo Ecommerce**
 
 ## Sobre Boletos e Cielo
 
