@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-01-31T12:37:09+00:00</updated>
+    <updated>2018-01-31T13:01:41+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -2835,7 +2835,7 @@ diferentes.&lt;/p&gt;
         <id>https://braspag.github.io//manual/braspag-pagador</id>
         <content type="html">&lt;h1 id=&quot;introdução-ao-pagador-api&quot;&gt;Introdução ao Pagador API&lt;/h1&gt;
 
-&lt;p&gt;O &lt;strong&gt;objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador&lt;/strong&gt;, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.&lt;/p&gt;
+&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.&lt;/p&gt;
 
 &lt;p&gt;Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para respectivos ambientes: &lt;strong&gt;Sandbox&lt;/strong&gt;, &lt;strong&gt;Homologação&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
 
