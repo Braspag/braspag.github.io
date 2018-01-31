@@ -34,7 +34,7 @@ Para utilizar o Débito Online, é necessario que o banco do lojista permita tal
 
 ## Bradesco
 
-Os critérios para utilizar o Boleto Bradesco Com. Eletrônico são:
+Os critérios para utilizar o **Boleto Bradesco Com. Eletrônico** são:
 
 * Ser correntista Bradesco Pessoa Jurídica;
 * Contatar o gerente de conta Bradesco para assinar contrato específico do Comércio Eletrônico.
