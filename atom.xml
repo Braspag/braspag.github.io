@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-01-31T12:34:12+00:00</updated>
+    <updated>2018-01-31T12:37:09+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -27972,7 +27972,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;h2 id=&quot;bradesco&quot;&gt;Bradesco&lt;/h2&gt;
 
-&lt;p&gt;Os critérios para utilizar o Boleto Bradesco Com. Eletrônico são:&lt;/p&gt;
+&lt;p&gt;Os critérios para utilizar o &lt;strong&gt;Boleto Bradesco Com. Eletrônico&lt;/strong&gt; são:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Ser correntista Bradesco Pessoa Jurídica;&lt;/li&gt;
