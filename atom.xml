@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-02-22T20:18:06+00:00</updated>
+    <updated>2018-02-22T20:34:47+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -2246,39 +2246,6 @@ Em breve estarão disponíveis:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Para ser notificado com relação ao status de uma transação, utilize o &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação&quot;&gt;serviço de notificação&lt;/a&gt; da API Cielo E-Commerce.&lt;/p&gt;
-</content>
-    </entry>
-    
-    <entry>
-        <title>Contrato Comercial Braspag</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//manual/contrato"/>
-        <updated>2017-08-12T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//manual/contrato</id>
-        <content type="html">&lt;h1 id=&quot;definições&quot;&gt;Definições&lt;/h1&gt;
-
-&lt;h1 id=&quot;objeto&quot;&gt;Objeto&lt;/h1&gt;
-
-&lt;h1 id=&quot;obrigações&quot;&gt;Obrigações&lt;/h1&gt;
-
-&lt;h2 id=&quot;da-contratada&quot;&gt;Da contratada&lt;/h2&gt;
-
-&lt;h2 id=&quot;da-contratante&quot;&gt;Da contratante&lt;/h2&gt;
-
-&lt;h1 id=&quot;valores&quot;&gt;Valores&lt;/h1&gt;
-
-&lt;h2 id=&quot;valorese-da-forma-de-pagamentos&quot;&gt;Valorese da Forma de pagamentos&lt;/h2&gt;
-
-&lt;h2 id=&quot;tributos&quot;&gt;Tributos&lt;/h2&gt;
-
-&lt;h1 id=&quot;propriedade-intelectual&quot;&gt;Propriedade intelectual&lt;/h1&gt;
-
-&lt;h1 id=&quot;downloads-e-anexos&quot;&gt;Downloads e Anexos&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Contrado DOC&lt;/strong&gt;: &lt;a href=&quot;https://consulwp.s3.amazonaws.com/wp-content/uploads/2016/12/COA84BR-Manual-de-Instru%C3%A7%C3%B5es.pdf&quot;&gt;Contrato comercial braspag&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
 </content>
     </entry>
     
