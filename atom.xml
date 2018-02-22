@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-02-22T20:05:31+00:00</updated>
+    <updated>2018-02-22T20:18:06+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -2255,19 +2255,30 @@ Em breve estarão disponíveis:&lt;/li&gt;
         <link href="https://braspag.github.io//manual/contrato"/>
         <updated>2017-08-12T00:00:00+00:00</updated>
         <id>https://braspag.github.io//manual/contrato</id>
-        <content type="html">&lt;h1 id=&quot;termos-e-condições&quot;&gt;Termos e condições&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;definições&quot;&gt;Definições&lt;/h1&gt;
 
-&lt;h1 id=&quot;definições&quot;&gt;Definições&lt;/h1&gt;
+&lt;h1 id=&quot;objeto&quot;&gt;Objeto&lt;/h1&gt;
 
-&lt;h2 id=&quot;sobre-produtos&quot;&gt;Sobre produtos&lt;/h2&gt;
+&lt;h1 id=&quot;obrigações&quot;&gt;Obrigações&lt;/h1&gt;
 
-&lt;h3 id=&quot;pagador&quot;&gt;Pagador&lt;/h3&gt;
+&lt;h2 id=&quot;da-contratada&quot;&gt;Da contratada&lt;/h2&gt;
 
-&lt;h4 id=&quot;pagador-api&quot;&gt;Pagador API&lt;/h4&gt;
+&lt;h2 id=&quot;da-contratante&quot;&gt;Da contratante&lt;/h2&gt;
 
-&lt;h4 id=&quot;pagador-soap&quot;&gt;Pagador SOAP&lt;/h4&gt;
+&lt;h1 id=&quot;valores&quot;&gt;Valores&lt;/h1&gt;
 
-&lt;h1 id=&quot;descrição-de-serviços&quot;&gt;Descrição de serviços&lt;/h1&gt;
+&lt;h2 id=&quot;valorese-da-forma-de-pagamentos&quot;&gt;Valorese da Forma de pagamentos&lt;/h2&gt;
+
+&lt;h2 id=&quot;tributos&quot;&gt;Tributos&lt;/h2&gt;
+
+&lt;h1 id=&quot;propriedade-intelectual&quot;&gt;Propriedade intelectual&lt;/h1&gt;
+
+&lt;h1 id=&quot;downloads-e-anexos&quot;&gt;Downloads e Anexos&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Contrado DOC&lt;/strong&gt;: &lt;a href=&quot;https://consulwp.s3.amazonaws.com/wp-content/uploads/2016/12/COA84BR-Manual-de-Instru%C3%A7%C3%B5es.pdf&quot;&gt;Contrato comercial braspag&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 </content>
     </entry>
     
