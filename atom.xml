@@ -5,12 +5,22 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-02-22T20:34:47+00:00</updated>
+    <updated>2018-02-23T17:00:10+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Retroalimentacaochargeback</title>
+        <category term="" />
+        <link href="https://braspag.github.io//retroalimentacaochargeback"/>
+        <updated>2018-02-23T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//retroalimentacaochargeback</id>
+        <content type="html">
+</content>
+    </entry>
     
     <entry>
         <title>Manual de Integração</title>
