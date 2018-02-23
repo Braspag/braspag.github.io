@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de integração
+title: Antifraude - Manual de integração
 description: Integração técnica API Antifraude Gateway Braspag
 search: true
 categories: manual
