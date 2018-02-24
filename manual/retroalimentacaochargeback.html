@@ -301,6 +301,163 @@
   </tbody>
 </table>
 
+<h1 id="retroalimentando-chargeback-para-cybersource">Retroalimentando chargeback para Cybersource</h1>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint"></span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
+   </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão."</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEB NAO REC DE COMPRA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"NegativeValues"</span><span class="p">:</span><span class="w">
+         </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"CustomerEmail"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"CardNumber"</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345678AB"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-15"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="p">,</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="request-1">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Obrigatório</th>
+      <th style="text-align: right">Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Amount</code></td>
+      <td style="text-align: left">Valor do chargeback <br /> Ex.: 150000 Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Date</code></td>
+      <td style="text-align: left">Data da confirmação do chargeback <br /> Ex.: 1983-10-01</td>
+      <td style="text-align: center">date</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Comment</code></td>
+      <td style="text-align: left">Comentário que deseja associar ao chargeback e que ficará visível no backoffice da Cybersource</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">512</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ReasonCode</code></td>
+      <td style="text-align: left">Código do motivo do chargeback</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">8</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ReasonMessage</code></td>
+      <td style="text-align: left">Mensagem do motivo do chargeback</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">128</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].NegativeValues</code></td>
+      <td style="text-align: left">Parâmetros que deseja incluir na lista negativa <br /> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - Tabela 1</td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Id</code></td>
+      <td style="text-align: left">Id da transação no Antifraude <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">BraspagTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
+      <td style="text-align: center">Guid</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Tid</code></td>
+      <td style="text-align: left">Identificador da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Nsu</code></td>
+      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.AuthorizationCode</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.SaleDate</code></td>
+      <td style="text-align: left">Data da venda da transação <br /> Ex.: 2017-11-07 <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">AuthorizationCode</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: center">date</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+  </tbody>
+</table>
+
+
 </div>
 
 
