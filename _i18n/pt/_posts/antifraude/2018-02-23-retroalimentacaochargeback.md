@@ -172,6 +172,8 @@ Exemplo:
 |`Chargebacks[n].Transaction.AuthorizationCode`|Código de autorização da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
 |`Chargebacks[n].Transaction.SaleDate`|Data da venda da transação <br/> Ex.: 2017-10-15 <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `AuthorizationCode` se os campos `Id` e `BraspagTransactionId` não forem enviados|date|não|-|
 
+### Response
+
 ``` json
 {
    "Chargebacks":
