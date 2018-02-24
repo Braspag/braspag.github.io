@@ -110,7 +110,7 @@ Exemplo:
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
 
-# Retroalimentando chargeback
+# Retroalimentando chargeback para Cybersource
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint"></span></aside>
 
@@ -124,7 +124,6 @@ Exemplo:
 			"Comment": "Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão.",
 			"ReasonCode": "123",
 			"ReasonMessage": "DEB NAO REC DE COMPRA",
-			"IsFraud": "true",
 			"NegativeValues":
 			[
 				"CustomerEmail",
@@ -159,3 +158,11 @@ Exemplo:
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
+|`Chargebacks[n].Amount`|Valor do chargeback <br/> Ex.: 150000 Ex: 123456 = r$ 1.234,56|long|sim|-|
+|`Chargebacks[n].Date`|Data da confirmação do chargeback <br/> Ex.: 1983-10-01|date|sim|-|
+|`Chargebacks[n].Comment`|Comentário que deseja associar ao chargeback e que ficará visível no backoffice da Cybersource|string|não|512|
+|`Chargebacks[n].ReasonCode`|Código do motivo do chargeback|string|sim|8|
+|`Chargebacks[n].ReasonMessage`|Mensagem do motivo do chargeback|string|sim|128|
+|`Chargebacks[n].NegativeValues`|Parâmetros que deseja incluir na lista negativa <br/> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - Tabela 1 |enum|não|-|
+|`Chargebacks[n].Transaction.Id`|Id da transação no Antifraude <br/> Este campo se torna obrigatório se o campo `BraspagTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode`e  `SaleDate` (todos juntos) não forem enviados|Guid|não|-|
+
