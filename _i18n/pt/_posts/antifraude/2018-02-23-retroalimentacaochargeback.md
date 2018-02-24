@@ -196,6 +196,11 @@ Exemplo:
             "AuthorizationCode": "123456",
             "SaleDate": "2017-10-15",
             "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+         },
+         "Result":
+         {
+            "": "",
+            "": ""
          }
       }
    ]
