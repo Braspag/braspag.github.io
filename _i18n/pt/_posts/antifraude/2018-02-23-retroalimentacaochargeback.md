@@ -110,7 +110,7 @@ Exemplo:
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
 
-# Retroalimentando chargeback para Cybersource
+# Retroalimentando chargeback
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint"></span></aside>
 
@@ -199,7 +199,7 @@ Exemplo:
          },
          "Result":
          {
-            "": "",
+            "ProcessingStatus": "Success",
             "": ""
          }
       }
@@ -217,3 +217,5 @@ Exemplo:
 **Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|Tipo|
+|`Result.ProcessingStatus`|Status do processamento do chargeback - Tabela 2|enum|
+|`Result.ErrorMessages`|Mensagens de erro para chargebacks não processados|string|
