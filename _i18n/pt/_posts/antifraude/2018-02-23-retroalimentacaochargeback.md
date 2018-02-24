@@ -226,17 +226,21 @@ Exemplo:
 
 ## Tabela 1
 
+Possíveis valores a serem inseridos na lista negativa na Cybersource.
+
 |Valor|Descrição|
-|CardNumber|Enviando este valor, o número do cartão será inserido na lista negativa na Cybersource|
-|CustomerDocumentNumber|Enviando este valor, o número do documento do comprador (CPF ou CNPJ) será inserido na lista negativa na Cybersource|
-|CustomerEmail|Enviando este valor, o e-mail do comprador será inserido na lista negativa na Cybersource|
-|CustomerIpAddress|Enviando este valor, o endereço de IP do comprador será inserido na lista negativa na Cybersource|
-|CustomerPhone|Enviando este valor, o número de telefone do comprador será inserido na lista negativa na Cybersource|
-|ShippingStreet|Enviando este valor, a rua do endereço de entrega será inserido na lista negativa na Cybersource|
-|DeviceFingerprint|Enviando este valor, fingerprint do dispositivo do comprador será inserido na lista negativa na Cybersource|
-|DeviceFingerprintSmartId|Enviando este valor, fingerprint do dispositivo do comprador será inserido na lista negativa na Cybersource|
+|CardNumber|Número do cartão|
+|CustomerDocumentNumber|Número do documento do comprador, CPF ou CNPJ|
+|CustomerEmail|E-mail do comprador|
+|CustomerIpAddress|Endereço de IP do comprador|
+|CustomerPhone|Número de telefone do comprador|
+|ShippingStreet|Logradouro do endereço de entrega|
+|DeviceFingerprint|Fingerprint do dispositivo do comprador|
+|DeviceFingerprintSmartId|Fingerprint do dispositivo do comprador|
 
 ## Tabela 2
+
+Possíveis retornos do chargeback enviado.
 
 |Valor|Descrição|
 |Success|Chargeback foi processado com sucesso|
