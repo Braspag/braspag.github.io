@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-02-24T06:05:29+00:00</updated>
+    <updated>2018-02-24T06:08:35+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -449,6 +449,8 @@
 
 &lt;h2 id=&quot;tabela-1&quot;&gt;Tabela 1&lt;/h2&gt;
 
+&lt;p&gt;Possíveis valores a serem inseridos na lista negativa na Cybersource.&lt;/p&gt;
+
 &lt;table&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
@@ -457,40 +459,42 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;CardNumber&lt;/td&gt;
-      &lt;td&gt;Enviando este valor, o número do cartão será inserido na lista negativa na Cybersource&lt;/td&gt;
+      &lt;td&gt;Número do cartão&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;CustomerDocumentNumber&lt;/td&gt;
-      &lt;td&gt;Enviando este valor, o número do documento do comprador (CPF ou CNPJ) será inserido na lista negativa na Cybersource&lt;/td&gt;
+      &lt;td&gt;Número do documento do comprador, CPF ou CNPJ&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;CustomerEmail&lt;/td&gt;
-      &lt;td&gt;Enviando este valor, o e-mail do comprador será inserido na lista negativa na Cybersource&lt;/td&gt;
+      &lt;td&gt;E-mail do comprador&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;CustomerIpAddress&lt;/td&gt;
-      &lt;td&gt;Enviando este valor, o endereço de IP do comprador será inserido na lista negativa na Cybersource&lt;/td&gt;
+      &lt;td&gt;Endereço de IP do comprador&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;CustomerPhone&lt;/td&gt;
-      &lt;td&gt;Enviando este valor, o número de telefone do comprador será inserido na lista negativa na Cybersource&lt;/td&gt;
+      &lt;td&gt;Número de telefone do comprador&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ShippingStreet&lt;/td&gt;
-      &lt;td&gt;Enviando este valor, a rua do endereço de entrega será inserido na lista negativa na Cybersource&lt;/td&gt;
+      &lt;td&gt;Logradouro do endereço de entrega&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;DeviceFingerprint&lt;/td&gt;
-      &lt;td&gt;Enviando este valor, fingerprint do dispositivo do comprador será inserido na lista negativa na Cybersource&lt;/td&gt;
+      &lt;td&gt;Fingerprint do dispositivo do comprador&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;DeviceFingerprintSmartId&lt;/td&gt;
-      &lt;td&gt;Enviando este valor, fingerprint do dispositivo do comprador será inserido na lista negativa na Cybersource&lt;/td&gt;
+      &lt;td&gt;Fingerprint do dispositivo do comprador&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h2 id=&quot;tabela-2&quot;&gt;Tabela 2&lt;/h2&gt;
+
+&lt;p&gt;Possíveis retornos do chargeback enviado.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
