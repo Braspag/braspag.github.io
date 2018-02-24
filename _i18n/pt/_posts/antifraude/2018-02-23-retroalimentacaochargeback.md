@@ -112,6 +112,8 @@ Exemplo:
 
 # Retroalimentando chargeback
 
+### Request
+
 <aside class="request"><span class="method post">POST</span> <span class="endpoint"></span></aside>
 
 ``` json
@@ -143,8 +145,6 @@ Exemplo:
    ]
 }
 ```
-
-### Request
 
 **Parâmetros no cabeçalho (Header)**
 
