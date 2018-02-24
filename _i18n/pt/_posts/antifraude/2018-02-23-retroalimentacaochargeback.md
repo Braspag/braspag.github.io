@@ -161,7 +161,7 @@ Exemplo:
 |:-|:-|:-:|:-:|-:|
 |`Chargebacks[n].Amount`|Valor do chargeback <br/> Ex.: 150000 Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`Chargebacks[n].Date`|Data da confirmação do chargeback <br/> Ex.: 2017-12-02|date|sim|-|
-|`Chargebacks[n].Comment`|Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br/> Se chargeback de transação Cybersource, este comentário gicará visível no backoffice da Cybersource|string|não|512|
+|`Chargebacks[n].Comment`|Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|não|512|
 |`Chargebacks[n].ReasonCode`|Código do motivo do chargeback|string|sim|8|
 |`Chargebacks[n].ReasonMessage`|Mensagem do motivo do chargeback|string|sim|128|
 |`Chargebacks[n].IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|não|-|
@@ -221,3 +221,25 @@ Exemplo:
 |Parâmetro|Descrição|Tipo|
 |`Result.ProcessingStatus`|Status do processamento do chargeback - Tabela 2|enum|
 |`Result.ErrorMessages`|Mensagens de erro para chargebacks não processados|string|
+
+# Tabelas
+
+## Tabela 1
+|Valor|Descrição|
+|CardNumber|Enviando este valor, o número do cartão será inserido na lista negativa na Cybersource|
+|CustomerDocumentNumber|Enviando este valor, o número do documento do comprador (CPF ou CNPJ) será inserido na lista negativa na Cybersource|
+|CustomerEmail|Enviando este valor, o e-mail do comprador será inserido na lista negativa na Cybersource|
+|CustomerIpAddress|Enviando este valor, o endereço de IP do comprador será inserido na lista negativa na Cybersource|
+|CustomerPhone|Enviando este valor, o número de telefone do comprador será inserido na lista negativa na Cybersource|
+|ShippingStreet|Enviando este valor, a rua do endereço de entrega será inserido na lista negativa na Cybersource|
+|DeviceFingerprint|Enviando este valor, fingerprint do dispositivo do comprador será inserido na lista negativa na Cybersource|
+|DeviceFingerprintSmartId|Enviando este valor, fingerprint do dispositivo do comprador será inserido na lista negativa na Cybersource|
+
+
+## Tabela 2
+|Valor|Descrição|
+|Success|Chargeback foi processado com sucesso|
+|AlreadyExist|Transação já marcada com chargeback anteriormente|
+|Remand|Chargeback deverá ser reenviado|
+|NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction|
+
