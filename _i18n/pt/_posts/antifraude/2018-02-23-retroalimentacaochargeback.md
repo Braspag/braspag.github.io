@@ -116,30 +116,30 @@ Exemplo:
 
 ``` json
 {
-    "Chargebacks":
-    [
-        {
-			"Amount": "1000",
-			"Date": "2017-12-02",
-			"Comment": "Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão.",
-			"ReasonCode": "123",
-			"ReasonMessage": "DEB NAO REC DE COMPRA",
-			"NegativeValues":
-			[
-				"CustomerEmail",
-				"CardNumber"
-			],
-			"Transaction":
-			{
-				"Id" : "fb647240-824f-e711-93ff-000d3ac03bed",
-				"Tid": "123456789012345678AB",
-				"Nsu": "12345678",
-				"AuthorizationCode": "123456",
-				"SaleDate": "2017-10-15",
-				"BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
-			}
-		}
-	]
+   "Chargebacks":
+   [
+      {
+         "Amount": "1000",
+         "Date": "2017-12-02",
+         "Comment": "Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão.",
+         "ReasonCode": "123",
+         "ReasonMessage": "DEB NAO REC DE COMPRA",
+         "NegativeValues":
+         [
+            "CustomerEmail",
+            "CardNumber"
+         ],
+         "Transaction":
+         {
+            "Id" : "fb647240-824f-e711-93ff-000d3ac03bed",
+            "Tid": "123456789012345678AB",
+            "Nsu": "12345678",
+            "AuthorizationCode": "123456",
+            "SaleDate": "2017-10-15",
+            "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+         }
+      }
+   ]
 }
 ```
 
