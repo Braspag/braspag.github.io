@@ -301,7 +301,7 @@
   </tbody>
 </table>
 
-<h1 id="retroalimentando-chargeback-para-cybersource">Retroalimentando chargeback para Cybersource</h1>
+<h1 id="retroalimentando-chargeback">Retroalimentando chargeback</h1>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint"></span></aside>
 
@@ -491,7 +491,7 @@
          </span><span class="p">},</span><span class="w">
          </span><span class="s2">"Result"</span><span class="p">:</span><span class="w">
          </span><span class="p">{</span><span class="w">
-            </span><span class="s2">""</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ProcessingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
             </span><span class="s2">""</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -528,6 +528,16 @@
       <td>Parâmetro</td>
       <td>Descrição</td>
       <td>Tipo</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Result.ProcessingStatus</code></td>
+      <td>Status do processamento do chargeback - Tabela 2</td>
+      <td>enum</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Result.ErrorMessages</code></td>
+      <td>Mensagens de erro para chargebacks não processados</td>
+      <td>string</td>
     </tr>
   </tbody>
 </table>
