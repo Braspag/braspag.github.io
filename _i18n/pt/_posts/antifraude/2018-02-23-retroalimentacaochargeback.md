@@ -124,6 +124,7 @@ Exemplo:
          "Comment": "Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão.",
          "ReasonCode": "123",
          "ReasonMessage": "DEB NAO REC DE COMPRA",
+         "IsFraud": "true"
          "NegativeValues":
          [
             "CustomerEmail",
@@ -160,9 +161,10 @@ Exemplo:
 |:-|:-|:-:|:-:|-:|
 |`Chargebacks[n].Amount`|Valor do chargeback <br/> Ex.: 150000 Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`Chargebacks[n].Date`|Data da confirmação do chargeback <br/> Ex.: 2017-12-02|date|sim|-|
-|`Chargebacks[n].Comment`|Comentário que deseja associar ao chargeback e que ficará visível no backoffice da Cybersource|string|não|512|
+|`Chargebacks[n].Comment`|Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br/> Se chargeback de transação Cybersource, este comentário gicará visível no backoffice da Cybersource|string|não|512|
 |`Chargebacks[n].ReasonCode`|Código do motivo do chargeback|string|sim|8|
 |`Chargebacks[n].ReasonMessage`|Mensagem do motivo do chargeback|string|sim|128|
+|`Chargebacks[n].IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|não|-|
 |`Chargebacks[n].NegativeValues`|Parâmetros que deseja incluir na lista negativa <br/> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - Tabela 1 |enum|não|-|
 |`Chargebacks[n].Transaction.Id`|Id da transação no Antifraude <br/> Este campo se torna obrigatório se o campo `BraspagTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados|Guid|não|-|
 |`Chargebacks[n].Transaction.Tid`|Identificador da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Nsu`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|20|
@@ -170,3 +172,43 @@ Exemplo:
 |`Chargebacks[n].Transaction.AuthorizationCode`|Código de autorização da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
 |`Chargebacks[n].Transaction.SaleDate`|Data da venda da transação <br/> Ex.: 2017-10-15 <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `AuthorizationCode` se os campos `Id` e `BraspagTransactionId` não forem enviados|date|não|-|
 
+``` json
+{
+   "Chargebacks":
+   [
+      {
+         "Amount": "1000",
+         "Date": "2017-12-02",
+         "Comment": "Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão.",
+         "ReasonCode": "123",
+         "ReasonMessage": "DEB NAO REC DE COMPRA",
+         "IsFraud": "true"
+         "NegativeValues":
+         [
+            "CustomerEmail",
+            "CardNumber"
+         ],
+         "Transaction":
+         {
+            "Id" : "fb647240-824f-e711-93ff-000d3ac03bed",
+            "Tid": "123456789012345678AB",
+            "Nsu": "12345678",
+            "AuthorizationCode": "123456",
+            "SaleDate": "2017-10-15",
+            "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+         }
+      }
+   ]
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|300 Multiple Choices|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|Tipo|
