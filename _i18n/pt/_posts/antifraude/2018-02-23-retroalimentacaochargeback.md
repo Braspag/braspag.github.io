@@ -225,6 +225,7 @@ Exemplo:
 # Tabelas
 
 ## Tabela 1
+
 |Valor|Descrição|
 |CardNumber|Enviando este valor, o número do cartão será inserido na lista negativa na Cybersource|
 |CustomerDocumentNumber|Enviando este valor, o número do documento do comprador (CPF ou CNPJ) será inserido na lista negativa na Cybersource|
@@ -235,11 +236,10 @@ Exemplo:
 |DeviceFingerprint|Enviando este valor, fingerprint do dispositivo do comprador será inserido na lista negativa na Cybersource|
 |DeviceFingerprintSmartId|Enviando este valor, fingerprint do dispositivo do comprador será inserido na lista negativa na Cybersource|
 
-
 ## Tabela 2
+
 |Valor|Descrição|
 |Success|Chargeback foi processado com sucesso|
 |AlreadyExist|Transação já marcada com chargeback anteriormente|
 |Remand|Chargeback deverá ser reenviado|
 |NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction|
-
