@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-02-25T23:20:23+00:00</updated>
+    <updated>2018-02-25T23:22:58+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -477,7 +477,7 @@
 
 &lt;h2 id=&quot;passo-2---acessando-a-tela-de-upload-de-arquivo-de-chargeback&quot;&gt;Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback&lt;/h2&gt;
 
-&lt;p&gt;Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: ``&lt;/p&gt;
+&lt;p&gt;Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: &lt;code class=&quot;highlighter-rouge&quot;&gt;Configurações -&amp;gt; Upload de Arquivo de Chargeback&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/acesso.png&quot; alt=&quot;Upload de Arquivo de Chargeback&quot; class=&quot;centerimg&quot; title=&quot;Acessando a tela de Upload de Arquivo de Chargeback&quot; /&gt;&lt;/p&gt;
 
