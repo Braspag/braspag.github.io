@@ -224,7 +224,17 @@ Exemplo:
 
 # Retroalimentando chargeback via Admin Braspag
 
+Nesta seção será explicado passo a passo como realizar o upload do arquivo de chargeback via Admin Braspag.
 
+## Passo 1 - Acessando o Admin Braspag
+
+## Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback
+
+## Passo 3 - Contruindo o arquivo de chargeback no formato CSV
+
+## Passo 4 - Enviando o arquivo de chargeback
+
+## Passo 5 - Verificando o resultado do envio do arquivo de chargeback
 
 # Tabelas
 
