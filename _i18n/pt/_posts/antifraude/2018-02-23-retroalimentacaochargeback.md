@@ -114,7 +114,7 @@ Exemplo:
 
 ### Request
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint"></span></aside>
+<aside class="request"><span class="method post">POST</span>chargeback<span class="endpoint"></span></aside>
 
 ``` json
 {
