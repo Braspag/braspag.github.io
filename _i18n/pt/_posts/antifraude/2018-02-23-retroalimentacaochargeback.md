@@ -239,7 +239,7 @@ Para acessar o Admin Braspag, digitar no browser de sua preferência a URL de ac
 
 ## Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback
 
-Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: ``
+Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: `Configurações -> Upload de Arquivo de Chargeback`
 
 ![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/acesso.png){: .centerimg }{:title="Acessando a tela de Upload de Arquivo de Chargeback"}  
 
