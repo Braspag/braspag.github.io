@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-02-25T23:16:42+00:00</updated>
+    <updated>2018-02-25T23:20:23+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -451,7 +451,35 @@
 
 &lt;h2 id=&quot;passo-1---acessando-o-admin-braspag&quot;&gt;Passo 1 - Acessando o Admin Braspag&lt;/h2&gt;
 
+&lt;p&gt;Para acessar o Admin Braspag, digitar no browser de sua preferência a URL de acordo com o ambiente desejado, conforme abaixo:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ambiente&lt;/td&gt;
+      &lt;td&gt;URL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sandbox&lt;/td&gt;
+      &lt;td&gt;https://adminsandbox.braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Produção&lt;/td&gt;
+      &lt;td&gt;https://admin.braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Caso não possua um usuário para o ambiente desejado, solicite a criação do mesmo através da nossa ferramenta de suporte.
+&lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h2 id=&quot;passo-2---acessando-a-tela-de-upload-de-arquivo-de-chargeback&quot;&gt;Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback&lt;/h2&gt;
+
+&lt;p&gt;Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: ``&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/acesso.png&quot; alt=&quot;Upload de Arquivo de Chargeback&quot; class=&quot;centerimg&quot; title=&quot;Acessando a tela de Upload de Arquivo de Chargeback&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;passo-3---contruindo-o-arquivo-de-chargeback-no-formato-csv&quot;&gt;Passo 3 - Contruindo o arquivo de chargeback no formato CSV&lt;/h2&gt;
 
