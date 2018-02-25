@@ -260,9 +260,6 @@ O CSV que será construído com dos dados de chargeback deverá ter o layout aba
 
 > Amount;Date;Comment;ReasonCode;ReasonMessage;IsFraud;AntifraudTransactionId;AntifraudMerchantOrderId;Tid;Nsu;AuthorizationCode;SaleDate;BraspagTransactionId;BraspagMerchantOrderId;NegativeValues
 
-
-
-
 ## Passo 4 - Enviando o arquivo de chargeback
 
 ## Passo 5 - Verificando o resultado do envio do arquivo de chargeback
