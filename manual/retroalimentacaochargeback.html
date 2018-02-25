@@ -617,6 +617,125 @@
   <p>Amount;Date;Comment;ReasonCode;ReasonMessage;IsFraud;AntifraudTransactionId;AntifraudMerchantOrderId;Tid;Nsu;AuthorizationCode;SaleDate;BraspagTransactionId;BraspagMerchantOrderId;NegativeValues</p>
 </blockquote>
 
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Obrigatório</th>
+      <th style="text-align: right">Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Amount</code></td>
+      <td style="text-align: left">Valor do chargeback <br /> Ex.: 150000 Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Date</code></td>
+      <td style="text-align: left">Data da confirmação do chargeback <br /> Ex.: 2017-12-02</td>
+      <td style="text-align: center">date</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Comment</code></td>
+      <td style="text-align: left">Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br /> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">512</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ReasonCode</code></td>
+      <td style="text-align: left">Código do motivo do chargeback</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">8</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ReasonMessage</code></td>
+      <td style="text-align: left">Mensagem do motivo do chargeback</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">128</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">IsFraud</code></td>
+      <td style="text-align: left">Identifica se o chargeback foi por motivo de fraude</td>
+      <td style="text-align: center">bool</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">NegativeValues</code></td>
+      <td style="text-align: left">Parâmetros que deseja incluir na lista negativa <br /> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - <a href="https://braspag.github.io//manual/retroalimentacaochargeback#tabela-1">Tabela 1</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AntifraudTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Antifraude <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">BraspagTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
+      <td style="text-align: center">Guid</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AntifraudMerchantOrderId</code></td>
+      <td style="text-align: left">Número do pedido no Antifraude</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">100</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Tid</code></td>
+      <td style="text-align: left">Identificador da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Nsu</code></td>
+      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">SaleDate</code></td>
+      <td style="text-align: left">Data da venda da transação <br /> Ex.: 2017-10-15 <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">AuthorizationCode</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: center">date</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Pagador Braspag <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">AntifraudTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
+      <td style="text-align: center">Guid</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">BraspagMerchantOrderId</code></td>
+      <td style="text-align: left">Número do pedido no Pagador Braspag</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">100</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="passo-4---enviando-o-arquivo-de-chargeback">Passo 4 - Enviando o arquivo de chargeback</h2>
 
 <h2 id="passo-5---verificando-o-resultado-do-envio-do-arquivo-de-chargeback">Passo 5 - Verificando o resultado do envio do arquivo de chargeback</h2>
