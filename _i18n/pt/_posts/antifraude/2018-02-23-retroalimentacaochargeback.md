@@ -110,7 +110,7 @@ Exemplo:
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
 
-# Retroalimentando chargeback
+# Retroalimentando chargeback via API
 
 ### Request
 
@@ -221,6 +221,10 @@ Exemplo:
 |Parâmetro|Descrição|Tipo|
 |`Result.ProcessingStatus`|Status do processamento do chargeback - [Tabela 2](https://braspag.github.io//manual/retroalimentacaochargeback#tabela-2)|enum|
 |`Result.ErrorMessages`|Mensagens de erro para chargebacks não processados|string|
+
+# Retroalimentando chargeback via Admin Braspag
+
+
 
 # Tabelas
 
