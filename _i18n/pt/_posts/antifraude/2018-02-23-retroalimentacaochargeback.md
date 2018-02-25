@@ -134,12 +134,14 @@ Exemplo:
          ],
          "Transaction":
          {
-            "Id" : "fb647240-824f-e711-93ff-000d3ac03bed",
+            "AntifraudTransactionId": "fb647240-824f-e711-93ff-000d3ac03bed",
+            "AntifraudMerchantOrderId": "123456",
             "Tid": "123456789012345678AB",
             "Nsu": "12345678",
             "AuthorizationCode": "123456",
             "SaleDate": "2017-10-15",
             "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+            "BraspagMerchantOrderId": "123456"
          }
       }
    ]
@@ -166,11 +168,14 @@ Exemplo:
 |`Chargebacks[n].ReasonMessage`|Mensagem do motivo do chargeback|string|sim|128|
 |`Chargebacks[n].IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|não|-|
 |`Chargebacks[n].NegativeValues`|Parâmetros que deseja incluir na lista negativa <br/> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - [Tabela 1](https://braspag.github.io//manual/retroalimentacaochargeback#tabela-1)|enum|não|-|
-|`Chargebacks[n].Transaction.Id`|Id da transação no Antifraude <br/> Este campo se torna obrigatório se o campo `BraspagTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados|Guid|não|-|
+|`Chargebacks[n].Transaction.AntifraudTransactionId`|Id da transação no Antifraude <br/> Este campo se torna obrigatório se o campo `BraspagTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados|Guid|não|-|
+|`Chargebacks[n].Transaction.AntifraudMerchantOrderId`|Número do pedido no Antifraude|string|não|100|
 |`Chargebacks[n].Transaction.Tid`|Identificador da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Nsu`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|20|
 |`Chargebacks[n].Transaction.Nsu`|Número sequencial único da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
 |`Chargebacks[n].Transaction.AuthorizationCode`|Código de autorização da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
 |`Chargebacks[n].Transaction.SaleDate`|Data da venda da transação <br/> Ex.: 2017-10-15 <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `AuthorizationCode` se os campos `Id` e `BraspagTransactionId` não forem enviados|date|não|-|
+|`Chargebacks[n].Transaction.BraspagTransactionId`|Id da transação no Pagador Braspag <br/> Este campo se torna obrigatório se o campo `AntifraudTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados|Guid|não|-|
+|`Chargebacks[n].Transaction.BraspagMerchantOrderId`|Número do pedido no Pagador Braspag|string|não|100|
 
 ### Response
 
@@ -192,12 +197,14 @@ Exemplo:
          ],
          "Transaction":
          {
-            "Id" : "fb647240-824f-e711-93ff-000d3ac03bed",
+            "AntifraudTransactionId": "fb647240-824f-e711-93ff-000d3ac03bed",
+            "AntifraudMerchantOrderId": "123456",
             "Tid": "123456789012345678AB",
             "Nsu": "12345678",
             "AuthorizationCode": "123456",
             "SaleDate": "2017-10-15",
             "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+            "BraspagMerchantOrderId": "123456"
          },
          "Result":
          {
@@ -243,7 +250,18 @@ Para realizar o upload do arquivo de chargeback, você deverá acessar a tela at
 
 ![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/acesso.png){: .centerimg }{:title="Acessando a tela de Upload de Arquivo de Chargeback"}  
 
-## Passo 3 - Contruindo o arquivo de chargeback no formato CSV
+## Passo 3 - Construindo o arquivo de chargeback no formato CSV
+
+Neste passo será explicado como construir um arquivo no formato CSV (Semicolon-separated values - Valores separados por ponto-e-vírgula) com os dados do chargeback.
+
+CSV é um formato de arquivo que contém valores separados por algum delimitador, ponto-e-vígula (;) por exemplo. Pode ser criado em qualquer editor de texto e lido em uma planilha de textos, como por exemplo, o excel. A planilha eletrônica irá dividir em linha/coluna cada item do arquivo separados por ponto-e-vírgula (;).
+
+O CSV que será construído com dos dados de chargeback deverá ter o layout abaixo, seguindo o tipo e obrigatoriedade de cada campo.
+
+> Amount;Date;Comment;ReasonCode;ReasonMessage;IsFraud;AntifraudTransactionId;AntifraudMerchantOrderId;Tid;Nsu;AuthorizationCode;SaleDate;BraspagTransactionId;BraspagMerchantOrderId;NegativeValues
+
+
+
 
 ## Passo 4 - Enviando o arquivo de chargeback
 
