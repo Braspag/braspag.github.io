@@ -228,7 +228,20 @@ Nesta seção será explicado passo a passo como realizar o upload do arquivo de
 
 ## Passo 1 - Acessando o Admin Braspag
 
+Para acessar o Admin Braspag, digitar no browser de sua preferência a URL de acordo com o ambiente desejado, conforme abaixo:
+
+|Ambiente|URL|
+|Sandbox|https://adminsandbox.braspag.com.br|
+|Produção|https://admin.braspag.com.br|
+
+> Caso não possua um usuário para o ambiente desejado, solicite a criação do mesmo através da nossa ferramenta de suporte.
+[Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
+
 ## Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback
+
+Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: ``
+
+![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/acesso.png){: .centerimg }{:title="Acessando a tela de Upload de Arquivo de Chargeback"}  
 
 ## Passo 3 - Contruindo o arquivo de chargeback no formato CSV
 
