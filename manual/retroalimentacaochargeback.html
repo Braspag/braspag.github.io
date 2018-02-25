@@ -324,12 +324,14 @@
          </span><span class="p">],</span><span class="w">
          </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w">
          </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AntifraudTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AntifraudMerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345678AB"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-15"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"BraspagMerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">]</span><span class="w">
@@ -428,11 +430,18 @@
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Id</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.AntifraudTransactionId</code></td>
       <td style="text-align: left">Id da transação no Antifraude <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">BraspagTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
       <td style="text-align: center">Guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.AntifraudMerchantOrderId</code></td>
+      <td style="text-align: left">Número do pedido no Antifraude</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Tid</code></td>
@@ -462,6 +471,20 @@
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Pagador Braspag <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">AntifraudTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
+      <td style="text-align: center">Guid</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.BraspagMerchantOrderId</code></td>
+      <td style="text-align: left">Número do pedido no Pagador Braspag</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">100</td>
+    </tr>
   </tbody>
 </table>
 
@@ -484,12 +507,14 @@
          </span><span class="p">],</span><span class="w">
          </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w">
          </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AntifraudTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AntifraudMerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345678AB"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-15"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"BraspagMerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
          </span><span class="p">},</span><span class="w">
          </span><span class="s2">"Result"</span><span class="p">:</span><span class="w">
          </span><span class="p">{</span><span class="w">
@@ -580,7 +605,17 @@
 
 <p><img src="https://braspag.github.io//images/braspag/af/acesso.png" alt="Upload de Arquivo de Chargeback" class="centerimg" title="Acessando a tela de Upload de Arquivo de Chargeback" /></p>
 
-<h2 id="passo-3---contruindo-o-arquivo-de-chargeback-no-formato-csv">Passo 3 - Contruindo o arquivo de chargeback no formato CSV</h2>
+<h2 id="passo-3---construindo-o-arquivo-de-chargeback-no-formato-csv">Passo 3 - Construindo o arquivo de chargeback no formato CSV</h2>
+
+<p>Neste passo será explicado como construir um arquivo no formato CSV (Semicolon-separated values - Valores separados por ponto-e-vírgula) com os dados do chargeback.</p>
+
+<p>CSV é um formato de arquivo que contém valores separados por algum delimitador, ponto-e-vígula (;) por exemplo. Pode ser criado em qualquer editor de texto e lido em uma planilha de textos, como por exemplo, o excel. A planilha eletrônica irá dividir em linha/coluna cada item do arquivo separados por ponto-e-vírgula (;).</p>
+
+<p>O CSV que será construído com dos dados de chargeback deverá ter o layout abaixo, seguindo o tipo e obrigatoriedade de cada campo.</p>
+
+<blockquote>
+  <p>Amount;Date;Comment;ReasonCode;ReasonMessage;IsFraud;AntifraudTransactionId;AntifraudMerchantOrderId;Tid;Nsu;AuthorizationCode;SaleDate;BraspagTransactionId;BraspagMerchantOrderId;NegativeValues</p>
+</blockquote>
 
 <h2 id="passo-4---enviando-o-arquivo-de-chargeback">Passo 4 - Enviando o arquivo de chargeback</h2>
 
