@@ -284,7 +284,7 @@ Com o arquivo já construído, e realizando os passos 1 e 2, agora é selecionar
 
 ![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/tela.png){: .centerimg }{:title="Tela de Upload de Arquivo de Chargeback"}  
 
-1 - Clique no botão `Choose File` para selecionar o arquivo na máquina local.
+1 - Clique no botão `Choose File` para selecionar o arquivo na máquina local.  
 2 - Com o arquivo selecionado, clique no botão `Enviar` para realizar o upload do arquivo.
 
 ## Passo 5 - Verificando o resultado do envio do arquivo de chargeback
