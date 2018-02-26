@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-02-26T00:03:13+00:00</updated>
+    <updated>2018-02-26T01:22:49+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -643,7 +643,7 @@
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/tela.png&quot; alt=&quot;Upload de Arquivo de Chargeback&quot; class=&quot;centerimg&quot; title=&quot;Tela de Upload de Arquivo de Chargeback&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;1 - Clique no botão &lt;code class=&quot;highlighter-rouge&quot;&gt;Choose File&lt;/code&gt; para selecionar o arquivo na máquina local.
+&lt;p&gt;1 - Clique no botão &lt;code class=&quot;highlighter-rouge&quot;&gt;Choose File&lt;/code&gt; para selecionar o arquivo na máquina local.&lt;br /&gt;
 2 - Com o arquivo selecionado, clique no botão &lt;code class=&quot;highlighter-rouge&quot;&gt;Enviar&lt;/code&gt; para realizar o upload do arquivo.&lt;/p&gt;
 
 &lt;h2 id=&quot;passo-5---verificando-o-resultado-do-envio-do-arquivo-de-chargeback&quot;&gt;Passo 5 - Verificando o resultado do envio do arquivo de chargeback&lt;/h2&gt;
