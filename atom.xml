@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-02-26T01:59:38+00:00</updated>
+    <updated>2018-02-26T02:00:20+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -647,6 +647,16 @@
 2 - Com o arquivo selecionado, clique no botão &lt;code class=&quot;highlighter-rouge&quot;&gt;Enviar&lt;/code&gt; para realizar o upload do arquivo.&lt;/p&gt;
 
 &lt;h2 id=&quot;passo-5---verificando-o-resultado-do-envio-do-arquivo-de-chargeback&quot;&gt;Passo 5 - Verificando o resultado do envio do arquivo de chargeback&lt;/h2&gt;
+
+&lt;p&gt;Após realizar todos os passos acima, o arquivo será processado e através da seção Resultado será possível verificar o resultado do processamento.&lt;/p&gt;
+
+&lt;p&gt;Em caso de sucesso, será apresentada a mensagem de &lt;strong&gt;Operação realizada com sucesso&lt;/strong&gt; e um ID que é o comprovante do upload do arquivo.&lt;/p&gt;
+
+&lt;p&gt;Em caso de alguma falha, será apresentada a mensagem de &lt;strong&gt;Operação parciamente concluída. Favor verificar a seção Resultado&lt;/strong&gt; e também um ID que é o comprovante do upload do arquivo, conforme print abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/uploadparcial.png&quot; alt=&quot;Upload de Arquivo de Chargeback&quot; class=&quot;centerimg&quot; title=&quot;Upload parcialmente processado&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Neste caso, é possível verificar os erros encontrados em cada linha, tratar e reenviar o arquivo.&lt;/p&gt;
 
 &lt;h1 id=&quot;tabelas&quot;&gt;Tabelas&lt;/h1&gt;
 
