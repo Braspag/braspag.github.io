@@ -289,6 +289,16 @@ Com o arquivo já construído, e realizando os passos 1 e 2, agora é selecionar
 
 ## Passo 5 - Verificando o resultado do envio do arquivo de chargeback
 
+Após realizar todos os passos acima, o arquivo será processado e através da seção Resultado será possível verificar o resultado do processamento.  
+
+Em caso de sucesso, será apresentada a mensagem de **Operação realizada com sucesso** e um ID que é o comprovante do upload do arquivo.  
+
+Em caso de alguma falha, será apresentada a mensagem de **Operação parciamente concluída. Favor verificar a seção Resultado** e também um ID que é o comprovante do upload do arquivo, conforme print abaixo:
+
+![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/uploadparcial.png){: .centerimg }{:title="Upload parcialmente processado"}  
+
+Neste caso, é possível verificar os erros encontrados em cada linha, tratar e reenviar o arquivo.
+
 # Tabelas
 
 ## Tabela 1
