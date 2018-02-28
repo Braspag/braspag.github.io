@@ -709,67 +709,67 @@ Este é um exemplo de uma transação com as credenciais geradas pelas adquirent
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-{  
-   "MerchantOrderId":"2017051002",
-   "Customer":{  
-      "Name":"Nome do Comprador",
-      "Identity":"12345678909",
-      "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BRA",
-        "District":"Alphaville"
+{
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
     },
-      "DeliveryAddress": {
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BRA",
-        "District":"Alphaville"
-    }
-   },
-   "Payment":{  
-     "Provider":"Simulado",
-     "Type":"CreditCard",
-     "Amount":10000,
-     "ServiceTaxAmount":0,
-     "Currency":"BRL",
-     "Country":"BRA",
-     "Installments":1,
-     "Interest":"ByMerchant",
-     "Capture":true,
-     "Authenticate":false,    
-     "Recurrent": false,
-     "SoftDescriptor":"Mensagem",
-     "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "SaveCard":"false"
-     },
-	 "credentials": {
+    "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ServiceTaxAmount": 0,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Mensagem",
+        "CreditCard": {
+            "CardNumber": "4551870000000181",
+            "Holder": "Nome do Portador",
+            "ExpirationDate": "12/2021",
+            "SecurityCode": "123",
+            "Brand": "Visa",
+            "SaveCard": "false"
+        },
+        "credentials": {
             "code": "9999999",
             "key": "D8888888",
             "password": "LOJA9999999",
             "username": "#Braspag2018@NOMEDALOJA#"
-     },
-     "ExtraDataCollection":[{
-         "Name":"NomeDoCampo",
-         "Value":"ValorDoCampo"
-     }]
-   }
+        },
+        "ExtraDataCollection": [{
+            "Name": "NomeDoCampo",
+            "Value": "ValorDoCampo"
+        }]
+    }
 }
 ```
 
@@ -781,67 +781,67 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{  
-   "MerchantOrderId":"2017051002",
-   "Customer":{  
-      "Name":"Nome do Comprador",
-      "Identity":"12345678909",
-      "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BRA",
-        "District":"Alphaville"
+{
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
     },
-      "DeliveryAddress": {
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BRA",
-        "District":"Alphaville"
-    }
-   },
-   "Payment":{  
-     "Provider":"Simulado",
-     "Type":"CreditCard",
-     "Amount":10000,
-     "ServiceTaxAmount":0,
-     "Currency":"BRL",
-     "Country":"BRA",
-     "Installments":1,
-     "Interest":"ByMerchant",
-     "Capture":true,
-     "Authenticate":false,    
-     "Recurrent": false,
-     "SoftDescriptor":"Mensagem",
-     "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "SaveCard":"false"
-     },
-	 "credentials": {
+    "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ServiceTaxAmount": 0,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Mensagem",
+        "CreditCard": {
+            "CardNumber": "4551870000000181",
+            "Holder": "Nome do Portador",
+            "ExpirationDate": "12/2021",
+            "SecurityCode": "123",
+            "Brand": "Visa",
+            "SaveCard": "false"
+        },
+        "credentials": {
             "code": "9999999",
             "key": "D8888888",
             "password": "LOJA9999999",
             "username": "#Braspag2018@NOMEDALOJA#"
-     },
-     "ExtraDataCollection":[{
-         "Name":"NomeDoCampo",
-         "Value":"ValorDoCampo"
-     }]
-   }
+        },
+        "ExtraDataCollection": [{
+            "Name": "NomeDoCampo",
+            "Value": "ValorDoCampo"
+        }]
+    }
 }
 --verbose
 ```
@@ -887,10 +887,10 @@ curl
 |`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador|
 |`Payment.ExtraDataCollection.Name`|Texto|50|Não|Nome do campo que será gravado o Dado Extra|
 |`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo que será gravado o Dado Extra|
-|`Payment.Credentials.Code`|Texto|100|Sim|Afiliação gerada pela adquirente|
-|`Payment.Credentials.Key`|Texto|100|Sim|Chave de afiliação/token gerado pela adquirente|
-|`Payment.Credentials.Username`|Texto|50|Não|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
-|`Payment.Credentials.Password`|Texto|50|Não|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
+|`Payment.Credentials.Code`|Texto|100|Sim|afiliação gerada pela adquirente|
+|`Payment.Credentials.Key`|Texto|100|Sim|chave de afiliação/token gerado pela adquirente|
+|`Payment.Credentials.Username`|Texto|50|Não|usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
+|`Payment.Credentials.Password`|Texto|50|Não|senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
 |`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
@@ -902,96 +902,93 @@ curl
 
 ```json
 {
-  "MerchantOrderId": "2017051002",
-  "Customer": {
-    "Name": "Nome do Comprador",
-    "Identity": "12345678909",
-    "IdentityType": "CPF",
-    "Email": "comprador@braspag.com.br",
-    "Birthdate": "1991-01-02",
-    "Address": {
-      "Street": "Alameda Xingu",
-      "Number": "512",
-      "Complement": "27 andar",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA",
-     "District":"Alphaville"
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
     },
-    "DeliveryAddress": {
-      "Street": "Alameda Xingu",
-      "Number": "512",
-      "Complement": "27 andar",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA",
-      "District":"Alphaville"
-    }
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "CardNumber": "455187******0181",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "12/2021",
-      "SaveCard": false,
-      "Brand": "Visa"
-    },
-	"credentials": {
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Nome do Portador",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "credentials": {
             "code": "9999999",
             "key": "D8888888",
             "password": "LOJA9999999",
             "username": "#Braspag2018@NOMEDALOJA#"
-     },
-    "ProofOfSale": "20170510053219433",
-    "AcquirerTransactionId": "0510053219433",
-    "AuthorizationCode": "936403",
-    "SoftDescriptor": "Mensagem",
-    "VelocityAnalysis": {
-      "Id": "c374099e-c474-4916-9f5c-f2598fec2925",
-      "ResultMessage": "Accept",
-      "Score": 0
-    },
-    "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "ReceivedDate": "2017-05-10 17:32:19",
-    "CapturedAmount": 10000,
-    "CapturedDate": "2017-05-10 17:32:19",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ExtraDataCollection": [
-      {
-        "Name": "NomeDoCampo",
-        "Value": "ValorDoCampo"
-      }
-    ],
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "Status": 2,
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "void",
-        "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
-      }
-    ]
-  }
+        },
+        "ProofOfSale": "20170510053219433",
+        "AcquirerTransactionId": "0510053219433",
+        "AuthorizationCode": "936403",
+        "SoftDescriptor": "Mensagem",
+        "VelocityAnalysis": {
+            "Id": "c374099e-c474-4916-9f5c-f2598fec2925",
+            "ResultMessage": "Accept",
+            "Score": 0
+        },
+        "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2017-05-10 17:32:19",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-05-10 17:32:19",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ExtraDataCollection": [{
+            "Name": "NomeDoCampo",
+            "Value": "ValorDoCampo"
+        }],
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [{
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
+            }
+        ]
+    }
 }
 ```
 
@@ -1000,96 +997,93 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-  "MerchantOrderId": "2017051002",
-  "Customer": {
-    "Name": "Nome do Comprador",
-    "Identity": "12345678909",
-    "IdentityType": "CPF",
-    "Email": "comprador@braspag.com.br",
-    "Birthdate": "1991-01-02",
-    "Address": {
-      "Street": "Alameda Xingu",
-      "Number": "512",
-      "Complement": "27 andar",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA",
-     "District":"Alphaville"
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
     },
-    "DeliveryAddress": {
-      "Street": "Alameda Xingu",
-      "Number": "512",
-      "Complement": "27 andar",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA",
-      "District":"Alphaville"
-    }
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "CardNumber": "455187******0181",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "12/2021",
-      "SaveCard": false,
-      "Brand": "Visa"
-    },
-	"credentials": {
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Nome do Portador",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "credentials": {
             "code": "9999999",
             "key": "D8888888",
             "password": "LOJA9999999",
             "username": "#Braspag2018@NOMEDALOJA#"
-     },
-    "ProofOfSale": "20170510053219433",
-    "AcquirerTransactionId": "0510053219433",
-    "AuthorizationCode": "936403",
-    "SoftDescriptor": "Mensagem",
-    "VelocityAnalysis": {
-      "Id": "c374099e-c474-4916-9f5c-f2598fec2925",
-      "ResultMessage": "Accept",
-      "Score": 0
-    },
-    "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "ReceivedDate": "2017-05-10 17:32:19",
-    "CapturedAmount": 10000,
-    "CapturedDate": "2017-05-10 17:32:19",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ExtraDataCollection": [
-      {
-        "Name": "NomeDoCampo",
-        "Value": "ValorDoCampo"
-      }
-    ],
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "Status": 2,
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "void",
-        "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
-      }
-    ]
-  }
+        },
+        "ProofOfSale": "20170510053219433",
+        "AcquirerTransactionId": "0510053219433",
+        "AuthorizationCode": "936403",
+        "SoftDescriptor": "Mensagem",
+        "VelocityAnalysis": {
+            "Id": "c374099e-c474-4916-9f5c-f2598fec2925",
+            "ResultMessage": "Accept",
+            "Score": 0
+        },
+        "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2017-05-10 17:32:19",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-05-10 17:32:19",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ExtraDataCollection": [{
+            "Name": "NomeDoCampo",
+            "Value": "ValorDoCampo"
+        }],
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [{
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
+            }
+        ]
+    }
 }
 ```
 
