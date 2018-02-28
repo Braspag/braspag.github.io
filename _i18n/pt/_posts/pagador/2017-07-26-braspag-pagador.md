@@ -4878,173 +4878,6 @@ curl
 
 # Pagamentos com Boleto
 
-## Criando uma transação de Boleto sem Registro
-
-Para criar uma transação de Boleto sem Registro, basta fazer um POST conforme o exemplo.
-
-### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-```json
-{  
-    "MerchantOrderId":"2017051110",
-    "Customer":
-    {  
-        "Name":"Nome do Comprador"     
-    },
-    "Payment":
-    {  
-        "Provider":"Simulado",
-    "Type":"Boleto",
-    "Amount":10000,
-    "Assignor": "Braspag Tecnologia de Pagamento Ltda",
-    "Demonstrative": "Texto para Demonstrativo",
-        "ExpirationDate": "2017-12-31",
-        "Identification": "01234567000189",
-        "Instructions": "Aceitar somente até a data de vencimento"
-        }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.braspag.com.br/v2/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-    "MerchantOrderId":"2017051110",
-    "Customer":
-    {  
-        "Name":"Nome do Comprador"     
-    },
-    "Payment":
-    {  
-        "Provider":"Simulado",
-    "Type":"Boleto",
-    "Amount":10000,
-    "Assignor": "Braspag Tecnologia de Pagamento Ltda",
-    "Demonstrative": "Texto para Demonstrativo",
-        "ExpirationDate": "2017-12-31",
-        "Identification": "01234567000189",
-        "Instructions": "Aceitar somente até a data de vencimento"
-    }
-}
---verbose
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
-|`Customer.Name`|Texto|255|Sim|Nome do comprador|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso "Boleto"|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.BoletoNumber`|Texto |50 |Não| Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento |
-|`Payment.Assignor`|Texto |200|Não|Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Demonstrative`|Texto |450|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.ExpirationDate`|Date |10 |Não|Dias para vencer o boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Instructions`|Texto |450|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-
-### Resposta
-
-```json
-{
-  "MerchantOrderId": "2017051110",
-  "Customer": {
-    "Name": "Nome do Comprador"
-  },
-  "Payment": {
-    "Instructions": "Aceitar somente até a data de vencimento.",
-    "ExpirationDate": "2017-12-31",
-    "Demonstrative": "Desmonstrative Teste",
-    "Url": "https://homologacao.pagador.com.br/post/pagador/reenvia.asp/f892e7bb-e27f-4e81-b23d-036f8ee272a9",
-    "BoletoNumber": "2633-2",
-    "BarCodeNumber": "00092739000000100000494250000000263300656560",
-    "DigitableLine": "00090.49420 50000.000260 33006.565601 2 73900000010000",
-    "Assignor": "Empresa Teste",
-    "Address": "Av. Brigadeiro Faria Lima, 160, Av. Brigadeiro Faria Lima",
-    "Identification": "12346578909",
-    "PaymentId": "f892e7bb-e27f-4e81-b23d-036f8ee272a9",
-    "Type": "Boleto",
-    "Amount": 10000,
-    "ReceivedDate": "2017-05-11 16:25:36",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "Status": 1,
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f892e7bb-e27f-4e81-b23d-036f8ee272a9"
-      }
-    ]
-  }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-  "MerchantOrderId": "2017051110",
-  "Customer": {
-    "Name": "Nome do Comprador"
-  },
-  "Payment": {
-    "Instructions": "Aceitar somente até a data de vencimento.",
-    "ExpirationDate": "2017-12-31",
-    "Demonstrative": "Desmonstrative Teste",
-    "Url": "https://homologacao.pagador.com.br/post/pagador/reenvia.asp/f892e7bb-e27f-4e81-b23d-036f8ee272a9",
-    "BoletoNumber": "2633-2",
-    "BarCodeNumber": "00092739000000100000494250000000263300656560",
-    "DigitableLine": "00090.49420 50000.000260 33006.565601 2 73900000010000",
-    "Assignor": "Empresa Teste",
-    "Address": "Av. Brigadeiro Faria Lima, 160, Av. Brigadeiro Faria Lima",
-    "Identification": "12346578909",
-    "PaymentId": "f892e7bb-e27f-4e81-b23d-036f8ee272a9",
-    "Type": "Boleto",
-    "Amount": 10000,
-    "ReceivedDate": "2017-05-11 16:25:36",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "Status": 1,
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f892e7bb-e27f-4e81-b23d-036f8ee272a9"
-      }
-    ]
-  }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
-|`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`Number`|"NossoNumero" gerado. |Texto|50 |1000000012-8 |
-|`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
-|`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte |--- |1|
-
 ## Criando uma transação de Boleto com Registro
 
 Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço.
@@ -5152,7 +4985,7 @@ curl
 |`Payment.BoletoNumber`|Texto |vide tabela abaixo|Não|Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo|
 |`Payment.Assignor`|Texto |200|Não|Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 |`Payment.Demonstrative`|Texto |vide tabela abaixo|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.ExpirationDate`|Date |10 |Não|Dias para vencer o boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
+|`Payment.ExpirationDate`|Date |10 |Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
 |`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 |`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 
@@ -6686,12 +6519,6 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Getnet|Visa, Master|
 |FirstData|Visa, Master|
 |GlobalPayments|Visa, Master|
-
-### Providers para Boleto sem Registro
-
-|Provider|
-|--------|
-|Simulado, Bradesco, BancoDoBrasil, CitiBank, Itau, Caixa, Santander|
 
 ### Providers para Boleto com Registro
 
