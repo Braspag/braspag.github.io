@@ -10329,6 +10329,13 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Não</td>
       <td>Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.NullifyDays</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Prazo para baixa automática do boleto. Após o vencimento, pode-se limitar com este campo um período máximo para pagamento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -13480,6 +13487,10 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td>DMCard</td>
       <td>—</td>
+    </tr>
+    <tr>
+      <td>Sub1</td>
+      <td>Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada</td>
     </tr>
   </tbody>
 </table>
