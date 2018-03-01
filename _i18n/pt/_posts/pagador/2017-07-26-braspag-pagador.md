@@ -4952,6 +4952,7 @@ curl
 |`Payment.ExpirationDate`|Date |10 |Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
 |`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 |`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
+|`Payment.NullifyDays`|Número |2 |Não|Prazo para baixa automática do boleto. Após o vencimento, pode-se limitar com este campo um período máximo para pagamento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander. |
 
 ### Tabela de Especificação de quantidade de caracteres do campo por Provider
 
@@ -6473,6 +6474,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |FirstData|Visa, Master, Cabal|
 |GlobalPayments|Visa, Master|
 |DMCard|---|
+|Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|
 
 ### Providers pra Débito
 
