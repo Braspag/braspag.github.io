@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-02T13:51:39+00:00</updated>
+    <updated>2018-03-02T14:23:46+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -13752,7 +13752,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Prazo para baixa automática do boleto. Após o vencimento, pode-se limitar com este campo um período máximo para pagamento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander.&lt;/td&gt;
+      &lt;td&gt;Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo contado a partir da data do vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -16909,6 +16909,10 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     &lt;tr&gt;
       &lt;td&gt;Sub1&lt;/td&gt;
       &lt;td&gt;Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Credibanco&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Diners, Amex, Credential&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
