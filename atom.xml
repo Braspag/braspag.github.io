@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-06T17:48:54+00:00</updated>
+    <updated>2018-03-06T18:01:53+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -14353,35 +14353,35 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Número da agência bancária.&lt;/td&gt;
+      &lt;td&gt;O número da agência bancária deve conter 4 posições; o dígito verificador não deve ser enviado. Caso necessário, completar com zeros à esquerda. Ex.: 0123.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Account&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Número da conta bancária.&lt;/td&gt;
+      &lt;td&gt;O número da conta bancária deve ser enviado com 7 posições, considerando o dígito verificador. Caso necessário, completar com zeros à esquerda. Ex.: 001234-5.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Wallet&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Número da carteira registrada gerada pelo Banco.&lt;/td&gt;
+      &lt;td&gt;Número da carteira registrada gerada pelo Banco. Ex.: 26&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Code&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Código do cliente gerado pelo Bradesco. Informação disponível em &lt;a href=&quot;https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&quot;&gt;Portal Bradesco&lt;/a&gt;.&lt;/td&gt;
+      &lt;td&gt;Código do cliente gerado pelo Bradesco. Informação disponível em &lt;a href=&quot;https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&quot;&gt;Portal Bradesco&lt;/a&gt;. Ex.: 100012345&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Signature&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Chave de Segurança gerada no &lt;a href=&quot;https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&quot;&gt;Portal Bradesco&lt;/a&gt;.&lt;/td&gt;
+      &lt;td&gt;Chave de Segurança gerada no &lt;a href=&quot;https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&quot;&gt;Portal Bradesco&lt;/a&gt;. Ex.: asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Username&lt;/code&gt;&lt;/td&gt;
@@ -14418,11 +14418,11 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
     &lt;tr&gt;
       &lt;td&gt;Provider&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Bradesco2&lt;/td&gt;
-      &lt;td&gt;BancoDoBrasil2&lt;/td&gt;
-      &lt;td&gt;ItauShopline&lt;/td&gt;
-      &lt;td&gt;Santander2&lt;/td&gt;
-      &lt;td&gt;Caixa2&lt;/td&gt;
-      &lt;td&gt;Citibank2&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
