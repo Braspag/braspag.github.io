@@ -5484,8 +5484,8 @@ curl
 |`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Payment.Credentials.Agency`|Número |10 |Sim|Número da agência bancária. O dígito verificadro da agência deve ser enviado. Ex.: 0123-1.|
 |`Payment.Credentials.Account`|Número |10 |Sim|Número da conta bancária. O dígito verificador da conta deve ser enviado. Ex.: 123456-2.|
-|`Payment.Credentials.Code`|Número |7 |Sim|Número do Convênio de Cobrança fornecido pelo Banco do Brasil no momento da liberação do produto. Ex.: 1234567|
-|`Payment.Credentials.Agreement`|Número |6 |Sim |Convênio de Comércio Eletrônico fornecido pelo Banco do Brasil no momento da liberação do produto. |
+|`Payment.Credentials.Code`|Número |7 |Sim|Número do Convênio de Cobrança fornecido pelo Banco do Brasil no momento da contratação do produto. É composto por 7 posições. Ex.: 1234567|
+|`Payment.Credentials.Agreement`|Número |6 |Sim |Convênio de Comércio Eletrônico fornecido pelo Banco do Brasil no momento da contratação do produto. É composto por 6 posições. Ex.: 123456 |
 
 [Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado](https://braspag.github.io//manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider).
 
