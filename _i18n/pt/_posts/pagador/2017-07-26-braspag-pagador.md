@@ -5220,23 +5220,7 @@ curl
 |`Payment.Credentials.Username`|Texto |100 |Sim|Usuário gerado no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
 |`Payment.Credentials.Password`|Texto |50 |Sim|Chave de Segurança gerada no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
 
-### Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado Bradesco
-
-| Propriedade | Bradesco |
-|------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------:|
-| Provider | Bradesco2 |
-| `MerchantOrderId` | 27 (OBS 1) |
-| `Payment.BoletoNumber` | 11 (OBS 2) |
-| `Customer.Name` | 34 (OBS 3) |
-| `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` | Street: 70 (OBS 4); Number: 10 (OBS 4); Complement: 20 (OBS 4); District: 50 (OBS 4) |
-| `Customer.Address.City` | 50 (OBS 4) |
-| `Payment.Instructions` | 450 | 
-| `Payment.Demonstrative` | 255 |
-| >>>>>>>>>>>>>>>>>>>>>> |  |  |  |  |  |  |
-| Particularidades e Observações: | OBS 1: letras, números e caracteres como "_" e "$" | 
-|  | OBS 2: o valor é presistido no banco |
-|  | OBS 3: o Pagador trunca automaticamente |
-|  | OBS 4: o valor é persistido no Pagador | 
+### [Clique aqui](https://braspag.github.io/manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider) para acessar a Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado
 
 ### Resposta
 
