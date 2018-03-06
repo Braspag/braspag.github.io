@@ -5219,7 +5219,8 @@ curl
 |`Payment.Credentials.Signature`|Texto |50 |Sim|Chave de Segurança gerada no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp). Ex.: asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M|
 |`Payment.Credentials.Username`|Texto |100 |Sim|Usuário gerado no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
 |`Payment.Credentials.Password`|Texto |50 |Sim|Chave de Segurança gerada no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
-|**[Clique aqui](https://braspag.github.io/manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider) para acessar a Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado**|
+
+<aside class="notice">[Clique aqui](https://braspag.github.io/manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider) para acessar a Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado</aside>
 
 ### Resposta
 
