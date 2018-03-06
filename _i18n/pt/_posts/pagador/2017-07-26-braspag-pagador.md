@@ -5212,11 +5212,11 @@ curl
 |`Payment.ExpirationDate`|Date |10 |Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
 |`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 |`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.Credentials.Agency`|Número |4 |Sim|Número da agência bancária.|
-|`Payment.Credentials.Account`|Número |7 |Sim|Número da conta bancária.|
-|`Payment.Credentials.Wallet`|Número |3 |Sim|Número da carteira registrada gerada pelo Banco.|
-|`Payment.Credentials.Code`|Número |9 |Sim|Código do cliente gerado pelo Bradesco. Informação disponível em [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
-|`Payment.Credentials.Signature`|Texto |50 |Sim|Chave de Segurança gerada no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
+|`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária deve conter 4 posições; o dígito verificador não deve ser enviado. Caso necessário, completar com zeros à esquerda. Ex.: 0123.|
+|`Payment.Credentials.Account`|Número |7 |Sim|O número da conta bancária deve ser enviado com 7 posições, considerando o dígito verificador. Caso necessário, completar com zeros à esquerda. Ex.: 001234-5.|
+|`Payment.Credentials.Wallet`|Número |3 |Sim|Número da carteira registrada gerada pelo Banco. Ex.: 26|
+|`Payment.Credentials.Code`|Número |9 |Sim|Código do cliente gerado pelo Bradesco. Informação disponível em [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp). Ex.: 100012345|
+|`Payment.Credentials.Signature`|Texto |50 |Sim|Chave de Segurança gerada no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp). Ex.: asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M|
 |`Payment.Credentials.Username`|Texto |100 |Sim|Usuário gerado no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
 |`Payment.Credentials.Password`|Texto |50 |Sim|Chave de Segurança gerada no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
 
@@ -5224,7 +5224,7 @@ curl
 
 | Propriedade | Bradesco |
 |------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------:|
-| Provider | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
+| Provider | Bradesco2 |
 | `MerchantOrderId` | 27 (OBS 1) |
 | `Payment.BoletoNumber` | 11 (OBS 2) |
 | `Customer.Name` | 34 (OBS 3) |
