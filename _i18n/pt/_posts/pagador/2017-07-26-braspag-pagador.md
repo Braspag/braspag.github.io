@@ -1334,7 +1334,7 @@ curl
         "Avs": {
             "Cpf": "12345678912",
             "ZipCode": "04604007",
-            "Street": "Av Vereador JosE Diniz SL205 2",
+            "Street": "Av Marechal Camara",
             "Number": "3720",
             "Complement": "Bl 2 Apto 53",
             "District": "Centro",
@@ -1426,7 +1426,7 @@ curl
         "Avs": {
             "Cpf": "12345678912",
             "ZipCode": "04604007",
-            "Street": "Av Vereador JosE Diniz SL205 2",
+            "Street": "Av Marechal Camara",
             "Number": "3720",
             "Complement": "Bl 2 Apto 53",
             "District": "Centro",
