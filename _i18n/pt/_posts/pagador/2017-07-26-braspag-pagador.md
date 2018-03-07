@@ -1161,7 +1161,7 @@ As adquirentes que suportam o AVS são Cielo e Rede.
             "Street": "Av Vereador JosE Diniz SL205 2",
             "Number": "3720",
             "Complement": "Bl 2 Apto 53",
-			"District":"Centro"
+            "District": "Centro"
         },
         "ExtraDataCollection": [{
             "Name": "NomeDoCampo",
@@ -1227,7 +1227,7 @@ curl
             "Street": "Av Vereador JosE Diniz SL205 2",
             "Number": "3720",
             "Complement": "Bl 2 Apto 53",
-			"District":"Centro"
+            "District": "Centro"
         },
         "ExtraDataCollection": [{
             "Name": "NomeDoCampo",
