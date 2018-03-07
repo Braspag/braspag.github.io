@@ -4842,9 +4842,23 @@ curl
 
 # Pagamentos com Boleto
 
+## Boleto Registrado
+
+Com o objetivo de promover maior controle e segurança ao transaiconal de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança. 
+
+A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, terão de ser registrados. [Clique aqui](https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos) para acessar o comunicado completo.   
+
+Abaixo seguem os procedimentos de migração/filiação de cada banco: 
+
+[Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)
+[Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)
+[Itaú](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf)
+[Santander](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf)
+[Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf)
+
 ## Criando uma transação de Boleto com Registro
 
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço.
+Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto. Neste fluxo, é necessário solicitar ao [time de suporte da Braspag](https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br) a ativação do meio de pagamento. 
 
 ### Requisição
 
@@ -4943,7 +4957,7 @@ curl
 |`Customer.Address.City`|Texto|vide tabela abaixo|Sim|Cidade do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Customer.Address.State`|Texto|2|Sim|Estado do endereço de contato do comprador|
 |`Customer.Address.Country`|Texto|35|Sim|Pais do endereço de contato do comprador|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-boleto-com-registro) para acessar a lista de provedoras. |
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso "Boleto"|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (deve ser enviado em centavos)|
 |`Payment.BoletoNumber`|Texto |vide tabela abaixo|Não|Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo|
@@ -5090,7 +5104,7 @@ curl
 
 ## Criando uma transação de Boleto Registrado Bradesco com dados de afiliação 
 
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Bradesco. 
+Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Bradesco. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrano, basta enviar as credenciais via requisição. 
 
 ### Requisição
 
@@ -5364,7 +5378,7 @@ curl
 
 ## Criando uma transação de Boleto Registrado Banco do Brasil com dados de afiliação 
 
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco do Brasil. 
+Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco do Brasil. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrano, basta enviar as credenciais via requisição. 
 
 ### Requisição
 
