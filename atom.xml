@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-07T17:25:10+00:00</updated>
+    <updated>2018-03-07T18:10:50+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -13494,11 +13494,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Abaixo seguem os procedimentos de migração/filiação de cada banco:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf&quot;&gt;Bradesco&lt;/a&gt;
-&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf&quot;&gt;Banco do Brasil&lt;/a&gt;
-&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf&quot;&gt;Itaú&lt;/a&gt;
-&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf&quot;&gt;Santander&lt;/a&gt;
-&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf&quot;&gt;Caixa Econômica&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf&quot;&gt;Bradesco&lt;/a&gt;&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf&quot;&gt;Banco do Brasil&lt;/a&gt;&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf&quot;&gt;Itaú&lt;/a&gt;&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf&quot;&gt;Santander&lt;/a&gt;&lt;a href=&quot;https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf&quot;&gt;Caixa Econômica&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;criando-uma-transação-de-boleto-com-registro&quot;&gt;Criando uma transação de Boleto com Registro&lt;/h2&gt;
 
