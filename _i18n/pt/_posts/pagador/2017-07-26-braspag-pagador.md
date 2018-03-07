@@ -5817,22 +5817,22 @@ Este é um exemplo de como utilizar o Card Token, previamente salvo, para criar 
 
 ```json
 {
-   "MerchantOrderId":"2017051105",
-   "Customer":{
-      "Name":"Nome do Cliente"
-   },
-   "Payment":{
-     "Provider":"Simulado",
-     "Type":"CreditCard",
-     "Amount":10000,
-     "Capture":true,
-     "Installments":1,
-	 "Recurrent": true,
-     "CreditCard":{
-         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-         "Brand":"Visa"
-     }
-   }
+    "MerchantOrderId": "2017051105",
+    "Customer": {
+        "Name": "Nome do Cliente"
+    },
+    "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "Capture": true,
+        "Installments": 1,
+        "Recurrent": true,
+        "CreditCard": {
+            "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "Brand": "Visa"
+        }
+    }
 }
 ```
 
@@ -5845,22 +5845,22 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-   "MerchantOrderId":"2017051105",
-   "Customer":{
-      "Name":"Nome do Cliente"
-   },
-   "Payment":{
-     "Provider":"Simulado",
-     "Type":"CreditCard",
-     "Amount":10000,
-     "Capture":true,
-     "Installments":1,
-	 "Recurrent": true,
-     "CreditCard":{
-         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-         "Brand":"Visa"
-     }
-   }
+    "MerchantOrderId": "2017051105",
+    "Customer": {
+        "Name": "Nome do Cliente"
+    },
+    "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "Capture": true,
+        "Installments": 1,
+        "Recurrent": true,
+        "CreditCard": {
+            "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "Brand": "Visa"
+        }
+    }
 }
 --verbose
 ```
