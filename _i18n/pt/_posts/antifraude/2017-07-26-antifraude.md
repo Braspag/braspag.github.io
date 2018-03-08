@@ -2311,7 +2311,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 ## Tabela 5 - Customer.MerchantCustomerId
 
-|Valor|Descrição|Provider|
+|Valor|Provider|
 |:-|:-|
 |CPF|ReDShield, Cybersource|
 |CNPJ|ReDShield, Cybersource|
