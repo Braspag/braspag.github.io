@@ -276,8 +276,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`MerchantOrderId`|Número do pedido da loja|string|sim|100|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
-|`Currency`|Moeda - Tabela 1|enum|-|-|
-|`Provider`|Provedor da solução de antifraude - Tabela 2|enum|-|-|
+|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|-|-|
+|`Provider`|Provedor da solução de antifraude - Tabela 1 - Provider|enum|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|não|-|
 |`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - Tabela 3|enum|-|-|
@@ -1718,144 +1718,6 @@ Esta sessão descreve o serviço de POST de Notificação, que envia uma notific
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-# Retroalimentação de Chargeback
-
-Esta sessão descreve como enviar para a Braspag as transações que já foram analisadas e sofreram chargeback pelos clientes. Essas informações são usadas para rastrear fraudes e a ReDShield poder recomendar regras para evitar ataques de fraude subsequentes.
-
-## ReDShield
-
-### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">chargeback</span></aside>
-
-``` json
-{
-    "Chargebacks":
-    [
-        {
-            "Id" : "fb647240-824f-e711-93ff-000d3ac03bed",
-            "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
-            "ChargebackAmount" : "1000",
-            "ChargebackDate" : "2017-12-02",
-            "ChargebackReasonCode" : "1",
-            "IsFraud" : "false"
-        },
-        {
-            "Id": "9004ba26-f1f1-e611-9400-005056970d6f",
-            "ChargebackAmount": "27580",
-            "ChargebackDate": "2017-12-02",
-            "ChargebackReasonCode": "54",
-            "IsFraud": "true"
-        },
-        {
-            "Id": "4493d42c-8732-4b13-aadc-b07e89732c26",
-            "ChargebackAmount": "59960",
-            "ChargebackDate": "2017-12-02",
-            "ChargebackReasonCode": "54",
-            "IsFraud": "true"
-        },
-        {
-            "Id": "22b5e829-edf1-e611-9414-0050569318a7",
-            "ChargebackAmount": "150000",
-            "ChargebackDate": "2017-12-02",
-            "ChargebackReasonCode": "54",
-            "IsFraud": "true"
-        }
-    ]
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
-
-**Parâmetros no corpo (Body)**
-
-|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
-|:-|:-|:-:|:-:|-:|
-|`Chargebacks[n].Id`|Id da transação no Antifraude Gateway Braspag|guid|sim|-|
-|`Chargebacks[n].BraspagTransactionId`|Id da transação no Pagador|guid|não|-|
-|`Chargebacks[n].ChargebackAmount`|Valor do chargeback <br/> Ex: 321654 = r$ 3.216,54|long|sim|-|
-|`Chargebacks[n].ChargebackDate`|Data da confirmação do chargeback <br/> Ex.: 2017-12-02|date|sim|-|
-|`Chargebacks[n].ChargebackReasonCode`|Código do motivo do chargeback|string|sim|5|
-|`Chargebacks[n].IsFraud`|Flag para identificar se o chargeback foi motivado por fraude|bool|sim|-|
-
-### Response
-
-``` json
-{
-    "Chargebacks":
-    [
-         {
-            "Id" : "x1x1x1x1-x1x1-x1x1-x1x1-x1x1x1x1x1x1",
-            "BraspagTransactionId": "t1t1t1t1-t1t1-t1t1-t1t1-t1t1t1t1t1t1",
-            "ChargebackAmount" : "1000",
-            "ChargebackDate" : "2017-12-02",
-            "ChargebackReasonCode" : "1",
-            "IsFraud" : "false",
-            "ChargebackProcessingStatus": "Success"
-        },
-        {
-            "Id": "x2x2x2x2-x2x2-x2x2-x2x2-x2x2x2x2x2x2",
-            "ChargebackAmount": "27580",
-            "ChargebackDate": "2017-12-02",
-            "ChargebackReasonCode": "54",
-            "IsFraud": "true",
-            "ChargebackProcessingStatus": "AlreadyExist"
-        },
-        {
-            "Id": "x3x3x3x3-x3x3-x3x3-x3x3-x3x3x3x3x3x3",
-            "ChargebackAmount": "59960",
-            "ChargebackDate": "2017-12-02",
-            "ChargebackReasonCode": "54",
-            "IsFraud": "true",
-            "ChargebackProcessingStatus": "Remand"
-        },
-        {
-            "Id": "x4x4x4x4-x4x4-x4x4-x4x4-x4x4x4x4x4x4",
-            "ChargebackAmount": "150000",
-            "ChargebackDate": "2017-12-02",
-            "ChargebackReasonCode": "54",
-            "IsFraud": "true",
-            "ChargebackProcessingStatus": "NotFound"
-        }
-    ]
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-* Quando todas as transações forem processadas com sucesso.
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
-
-* Quando não ocorrer o processamento de todas as transações, será retornado o motivo através do campo `ChargebackProcessingStatus`  
-
-**Parâmetros no corpo (Body)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|300 Multiple Choices|
-
-|Parâmetro|Descrição|Tipo|
-|:-|:-|:-:|
-|`Chargebacks[n].Id`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Chargebacks[n].BraspagTransactionId`|Id da transação no Pagador|guid|
-|`Chargebacks[n].ChargebackAmount`|Valor do chargeback <br/> Ex: 321654 = r$ 3.216,54|long|
-|`Chargebacks[n].ChargebackDate`|Data da confirmação do chargeback <br/> Ex.: 2017-12-02|date|
-|`Chargebacks[n].ChargebackReasonCode`|Código do motivo do chargeback|string|
-|`Chargebacks[n].IsFraud`|Flag para identificar se o chargeback foi motivado por fraude|bool|
-|`Chargebacks[n].ChargebackProcessingStatus`|Motivo do processamento da transação - Tabela 16|enum|
-
 # Associar transação Pagador e Antifraude
 
 Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.
@@ -2397,3 +2259,101 @@ Na seção *Colocando os segmentos de código e substituindo os valores das vari
 
 **IMPORTANTE!**  
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.
+
+# Tabelas
+
+## Tabela 1 - Provider
+
+|Valor|
+|:-|
+|ReDShield|
+|Cybersource|
+
+## Tabela 2 - SplitingPaymentMethod
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|None|Pagamento com um cartão apenas|ReDShield|
+|CardSplit|Pagamento com mais de um cartão|ReDShield|
+|MixedPaymentMethodSplit|Pagamento com mais de um meio de pagamento|ReDShield|
+
+## Tabela 3 - Card.Brand
+
+|Valor|
+|:-|
+|Amex|
+|Diners|
+|Discover|
+|JCB|
+|Master|
+|Dankort|
+|Cartebleue|
+|Maestro|
+|Visa|
+|Elo|
+|Hipercard|
+
+## Tabela 4 - Shipping.ShippingMethod
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|SameDay|Meio de entrega no mesmo dia|ReDShield, Cybersource|
+|NextDay|Meio de entrega no próximo dia|ReDShield, Cybersource|
+|TwoDay|Meio de entrega em dois dias|ReDShield, Cybersource|
+|ThreeDay|Meio de entrega em três dias|ReDShield, Cybersource|
+|LowCost|Meio de entrega de baixo custo|ReDShield, Cybersource|
+|Pickup|Retirada na loja|ReDShield, Cybersource|
+|CarrierDesignatedByCustomer|Meio de entrega designada pelo comprador|ReDShield|
+|International|Meio de entrega internacional|ReDShield|
+|Military|Meio de entrega militar|ReDShield|
+|Other|Outro meio de entrega|ReDShield, Cybersource|
+|None|Sem meio de entrega, pois é um serviço ou assinatura|ReDShield, Cybersource|
+
+## Tabela 5 - Customer.MerchantCustomerId
+
+|Valor|Descrição|Provider|
+|:-|:-|
+|CPF|ReDShield, Cybersource|
+|CNPJ|ReDShield, Cybersource|
+
+## Tabela 6 - Customer.Gender
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|Male|Masculino|ReDShield|
+|Female|Feminino|ReDShield|
+
+## Tabela 7 - Customer.Status
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|New|Identifica quando o comprador é novo na loja, nunca fez uma compra|ReDShield|
+|Existing|Identifica quando o comprador é existente na loja, já realizou uma compra|ReDShield|
+
+## Tabela 8 - CartItem[n].ShippingMethod
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|SameDay|Meio de entrega no mesmo dia|ReDShield|
+|NextDay|Meio de entrega no próximo dia|ReDShield|
+|TwoDay|Meio de entrega em dois dias|ReDShield|
+|ThreeDay|Meio de entrega em três dias|ReDShield|
+|LowCost|Meio de entrega de baixo custo|ReDShield|
+|Pickup|Retirada na loja|ReDShield|
+|CarrierDesignatedByCustomer|Meio de entrega designada pelo comprador|ReDShield|
+|International|Meio de entrega internacional|ReDShield|
+|Military|Meio de entrega militar|ReDShield|
+|Other|Outro meio de entrega|ReDShield|
+|None|Sem meio de entrega, pois é um serviço ou assinatura|ReDShield|
+
+## Tabela 9 - Airline.Passengers[n].PassengerType
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|Adult|Adulto|ReDShield, Cybersource|
+|Child|Criança|ReDShield, Cybersource|
+|Infant|Infantil|ReDShield, Cybersource|
+|Youth|Adolescente|ReDShield|
+|Student|Estudante|ReDShield|
+|SeniorCitizen|Idoso|ReDShield|
+|Military|Militar|ReDShield|
