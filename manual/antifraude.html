@@ -515,14 +515,14 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Currency</code></td>
-      <td style="text-align: left">Moeda - Tabela 1</td>
+      <td style="text-align: left">Moeda. Maiores informações em <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 Currency Codes</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Provider</code></td>
-      <td style="text-align: left">Provedor da solução de antifraude - Tabela 2</td>
+      <td style="text-align: left">Provedor da solução de antifraude - Tabela 1 - Provider</td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -5281,278 +5281,6 @@
   </tbody>
 </table>
 
-<h1 id="retroalimentação-de-chargeback">Retroalimentação de Chargeback</h1>
-
-<p>Esta sessão descreve como enviar para a Braspag as transações que já foram analisadas e sofreram chargeback pelos clientes. Essas informações são usadas para rastrear fraudes e a ReDShield poder recomendar regras para evitar ataques de fraude subsequentes.</p>
-
-<h2 id="redshield">ReDShield</h2>
-
-<h3 id="request-7">Request</h3>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">chargeback</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
-    </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackAmount"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackDate"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackReasonCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsFraud"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9004ba26-f1f1-e611-9400-005056970d6f"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27580"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4493d42c-8732-4b13-aadc-b07e89732c26"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59960"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22b5e829-edf1-e611-9414-0050569318a7"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
-      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no corpo (Body)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Tipo</th>
-      <th style="text-align: center">Obrigatório</th>
-      <th style="text-align: right">Tamanho</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Id</code></td>
-      <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
-      <td style="text-align: center">guid</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].BraspagTransactionId</code></td>
-      <td style="text-align: left">Id da transação no Pagador</td>
-      <td style="text-align: center">guid</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ChargebackAmount</code></td>
-      <td style="text-align: left">Valor do chargeback <br /> Ex: 321654 = r$ 3.216,54</td>
-      <td style="text-align: center">long</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ChargebackDate</code></td>
-      <td style="text-align: left">Data da confirmação do chargeback <br /> Ex.: 2017-12-02</td>
-      <td style="text-align: center">date</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ChargebackReasonCode</code></td>
-      <td style="text-align: left">Código do motivo do chargeback</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">5</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].IsFraud</code></td>
-      <td style="text-align: left">Flag para identificar se o chargeback foi motivado por fraude</td>
-      <td style="text-align: center">bool</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-8">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
-    </span><span class="p">[</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"x1x1x1x1-x1x1-x1x1-x1x1-x1x1x1x1x1x1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t1t1t1t1-t1t1-t1t1-t1t1-t1t1t1t1t1t1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackAmount"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackDate"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackReasonCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsFraud"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackProcessingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x2x2x2x2-x2x2-x2x2-x2x2-x2x2x2x2x2x2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27580"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackProcessingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AlreadyExist"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x3x3x3x3-x3x3-x3x3-x3x3-x3x3x3x3x3x3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59960"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackProcessingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Remand"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x4x4x4x4-x4x4-x4x4-x4x4-x4x4x4x4x4x4"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ChargebackProcessingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NotFound"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<ul>
-  <li>Quando todas as transações forem processadas com sucesso.</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">200 OK</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Quando não ocorrer o processamento de todas as transações, será retornado o motivo através do campo <code class="highlighter-rouge">ChargebackProcessingStatus</code></li>
-</ul>
-
-<p><strong>Parâmetros no corpo (Body)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">300 Multiple Choices</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Tipo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Id</code></td>
-      <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
-      <td style="text-align: center">guid</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].BraspagTransactionId</code></td>
-      <td style="text-align: left">Id da transação no Pagador</td>
-      <td style="text-align: center">guid</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ChargebackAmount</code></td>
-      <td style="text-align: left">Valor do chargeback <br /> Ex: 321654 = r$ 3.216,54</td>
-      <td style="text-align: center">long</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ChargebackDate</code></td>
-      <td style="text-align: left">Data da confirmação do chargeback <br /> Ex.: 2017-12-02</td>
-      <td style="text-align: center">date</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ChargebackReasonCode</code></td>
-      <td style="text-align: left">Código do motivo do chargeback</td>
-      <td style="text-align: center">string</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].IsFraud</code></td>
-      <td style="text-align: left">Flag para identificar se o chargeback foi motivado por fraude</td>
-      <td style="text-align: center">bool</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ChargebackProcessingStatus</code></td>
-      <td style="text-align: left">Motivo do processamento da transação - Tabela 16</td>
-      <td style="text-align: center">enum</td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="associar-transação-pagador-e-antifraude">Associar transação Pagador e Antifraude</h1>
 
 <p>Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.</p>
@@ -5566,7 +5294,7 @@
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
-<h2 id="request-8">Request</h2>
+<h2 id="request-7">Request</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
@@ -5625,7 +5353,7 @@
   </tbody>
 </table>
 
-<h2 id="response-9">Response</h2>
+<h2 id="response-8">Response</h2>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -5725,7 +5453,7 @@
 
 <p>Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject).</p>
 
-<h2 id="request-9">Request</h2>
+<h2 id="request-8">Request</h2>
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
@@ -5794,7 +5522,7 @@
   </tbody>
 </table>
 
-<h2 id="response-10">Response</h2>
+<h2 id="response-9">Response</h2>
 
 <ul>
   <li>Quando a transação for recebida para processamento</li>
@@ -6055,7 +5783,7 @@
 
 <p>Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.</p>
 
-<h2 id="redshield-1">ReDShield</h2>
+<h2 id="redshield">ReDShield</h2>
 
 <h3 id="integração-com-sua-página-de-checkoutsite">Integração com sua página de checkout(site)</h3>
 
@@ -6419,6 +6147,359 @@ Certifique-se de copiar todos os dados corretamente e de ter substituído as var
 
 <p><strong>IMPORTANTE!</strong><br />
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</p>
+
+<h1 id="tabelas">Tabelas</h1>
+
+<h2 id="tabela-1---provider">Tabela 1 - Provider</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-2---splitingpaymentmethod">Tabela 2 - SplitingPaymentMethod</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">Pagamento com um cartão apenas</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CardSplit</td>
+      <td style="text-align: left">Pagamento com mais de um cartão</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MixedPaymentMethodSplit</td>
+      <td style="text-align: left">Pagamento com mais de um meio de pagamento</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-3---cardbrand">Tabela 3 - Card.Brand</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Amex</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Diners</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Discover</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">JCB</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Master</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dankort</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Cartebleue</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Maestro</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Visa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elo</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hipercard</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-4---shippingshippingmethod">Tabela 4 - Shipping.ShippingMethod</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SameDay</td>
+      <td style="text-align: left">Meio de entrega no mesmo dia</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NextDay</td>
+      <td style="text-align: left">Meio de entrega no próximo dia</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TwoDay</td>
+      <td style="text-align: left">Meio de entrega em dois dias</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ThreeDay</td>
+      <td style="text-align: left">Meio de entrega em três dias</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LowCost</td>
+      <td style="text-align: left">Meio de entrega de baixo custo</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pickup</td>
+      <td style="text-align: left">Retirada na loja</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CarrierDesignatedByCustomer</td>
+      <td style="text-align: left">Meio de entrega designada pelo comprador</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">International</td>
+      <td style="text-align: left">Meio de entrega internacional</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Military</td>
+      <td style="text-align: left">Meio de entrega militar</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Other</td>
+      <td style="text-align: left">Outro meio de entrega</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">Sem meio de entrega, pois é um serviço ou assinatura</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-5---customermerchantcustomerid">Tabela 5 - Customer.MerchantCustomerId</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th>Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CPF</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CNPJ</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-6---customergender">Tabela 6 - Customer.Gender</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Male</td>
+      <td style="text-align: left">Masculino</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Female</td>
+      <td style="text-align: left">Feminino</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-7---customerstatus">Tabela 7 - Customer.Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">New</td>
+      <td style="text-align: left">Identifica quando o comprador é novo na loja, nunca fez uma compra</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Existing</td>
+      <td style="text-align: left">Identifica quando o comprador é existente na loja, já realizou uma compra</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-8---cartitemnshippingmethod">Tabela 8 - CartItem[n].ShippingMethod</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SameDay</td>
+      <td style="text-align: left">Meio de entrega no mesmo dia</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NextDay</td>
+      <td style="text-align: left">Meio de entrega no próximo dia</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TwoDay</td>
+      <td style="text-align: left">Meio de entrega em dois dias</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ThreeDay</td>
+      <td style="text-align: left">Meio de entrega em três dias</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LowCost</td>
+      <td style="text-align: left">Meio de entrega de baixo custo</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pickup</td>
+      <td style="text-align: left">Retirada na loja</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CarrierDesignatedByCustomer</td>
+      <td style="text-align: left">Meio de entrega designada pelo comprador</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">International</td>
+      <td style="text-align: left">Meio de entrega internacional</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Military</td>
+      <td style="text-align: left">Meio de entrega militar</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Other</td>
+      <td style="text-align: left">Outro meio de entrega</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">Sem meio de entrega, pois é um serviço ou assinatura</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-9---airlinepassengersnpassengertype">Tabela 9 - Airline.Passengers[n].PassengerType</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Adult</td>
+      <td style="text-align: left">Adulto</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Child</td>
+      <td style="text-align: left">Criança</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Infant</td>
+      <td style="text-align: left">Infantil</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Youth</td>
+      <td style="text-align: left">Adolescente</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Student</td>
+      <td style="text-align: left">Estudante</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SeniorCitizen</td>
+      <td style="text-align: left">Idoso</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Military</td>
+      <td style="text-align: left">Militar</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
