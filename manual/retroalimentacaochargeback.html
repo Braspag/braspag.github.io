@@ -764,42 +764,44 @@
 <p>Possíveis valores a serem inseridos na lista negativa na Cybersource.</p>
 
 <table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Valor</td>
-      <td>Descrição</td>
+      <td style="text-align: left">CardNumber</td>
+      <td style="text-align: left">Número do cartão</td>
     </tr>
     <tr>
-      <td>CardNumber</td>
-      <td>Número do cartão</td>
+      <td style="text-align: left">CustomerDocumentNumber</td>
+      <td style="text-align: left">Número do documento do comprador, CPF ou CNPJ</td>
     </tr>
     <tr>
-      <td>CustomerDocumentNumber</td>
-      <td>Número do documento do comprador, CPF ou CNPJ</td>
+      <td style="text-align: left">CustomerEmail</td>
+      <td style="text-align: left">E-mail do comprador</td>
     </tr>
     <tr>
-      <td>CustomerEmail</td>
-      <td>E-mail do comprador</td>
+      <td style="text-align: left">CustomerIpAddress</td>
+      <td style="text-align: left">Endereço de IP do comprador</td>
     </tr>
     <tr>
-      <td>CustomerIpAddress</td>
-      <td>Endereço de IP do comprador</td>
+      <td style="text-align: left">CustomerPhone</td>
+      <td style="text-align: left">Número de telefone do comprador</td>
     </tr>
     <tr>
-      <td>CustomerPhone</td>
-      <td>Número de telefone do comprador</td>
+      <td style="text-align: left">ShippingStreet</td>
+      <td style="text-align: left">Logradouro do endereço de entrega</td>
     </tr>
     <tr>
-      <td>ShippingStreet</td>
-      <td>Logradouro do endereço de entrega</td>
+      <td style="text-align: left">DeviceFingerprint</td>
+      <td style="text-align: left">Fingerprint do dispositivo do comprador</td>
     </tr>
     <tr>
-      <td>DeviceFingerprint</td>
-      <td>Fingerprint do dispositivo do comprador</td>
-    </tr>
-    <tr>
-      <td>DeviceFingerprintSmartId</td>
-      <td>Fingerprint do dispositivo do comprador</td>
+      <td style="text-align: left">DeviceFingerprintSmartId</td>
+      <td style="text-align: left">Fingerprint do dispositivo do comprador</td>
     </tr>
   </tbody>
 </table>
@@ -809,26 +811,28 @@
 <p>Possíveis retornos do chargeback enviado.</p>
 
 <table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Valor</td>
-      <td>Descrição</td>
+      <td style="text-align: left">Success</td>
+      <td style="text-align: left">Chargeback foi processado com sucesso</td>
     </tr>
     <tr>
-      <td>Success</td>
-      <td>Chargeback foi processado com sucesso</td>
+      <td style="text-align: left">AlreadyExist</td>
+      <td style="text-align: left">Transação já marcada com chargeback anteriormente</td>
     </tr>
     <tr>
-      <td>AlreadyExist</td>
-      <td>Transação já marcada com chargeback anteriormente</td>
+      <td style="text-align: left">Remand</td>
+      <td style="text-align: left">Chargeback deverá ser reenviado</td>
     </tr>
     <tr>
-      <td>Remand</td>
-      <td>Chargeback deverá ser reenviado</td>
-    </tr>
-    <tr>
-      <td>NotFound</td>
-      <td>Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction</td>
+      <td style="text-align: left">NotFound</td>
+      <td style="text-align: left">Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction</td>
     </tr>
   </tbody>
 </table>

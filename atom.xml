@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-08T19:00:35+00:00</updated>
+    <updated>2018-03-08T19:34:20+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -665,42 +665,44 @@
 &lt;p&gt;Possíveis valores a serem inseridos na lista negativa na Cybersource.&lt;/p&gt;
 
 &lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Valor&lt;/td&gt;
-      &lt;td&gt;Descrição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CardNumber&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do cartão&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;CardNumber&lt;/td&gt;
-      &lt;td&gt;Número do cartão&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CustomerDocumentNumber&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento do comprador, CPF ou CNPJ&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;CustomerDocumentNumber&lt;/td&gt;
-      &lt;td&gt;Número do documento do comprador, CPF ou CNPJ&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CustomerEmail&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;E-mail do comprador&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;CustomerEmail&lt;/td&gt;
-      &lt;td&gt;E-mail do comprador&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CustomerIpAddress&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Endereço de IP do comprador&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;CustomerIpAddress&lt;/td&gt;
-      &lt;td&gt;Endereço de IP do comprador&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CustomerPhone&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número de telefone do comprador&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;CustomerPhone&lt;/td&gt;
-      &lt;td&gt;Número de telefone do comprador&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ShippingStreet&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Logradouro do endereço de entrega&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;ShippingStreet&lt;/td&gt;
-      &lt;td&gt;Logradouro do endereço de entrega&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;DeviceFingerprint&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Fingerprint do dispositivo do comprador&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;DeviceFingerprint&lt;/td&gt;
-      &lt;td&gt;Fingerprint do dispositivo do comprador&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;DeviceFingerprintSmartId&lt;/td&gt;
-      &lt;td&gt;Fingerprint do dispositivo do comprador&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;DeviceFingerprintSmartId&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Fingerprint do dispositivo do comprador&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -710,26 +712,28 @@
 &lt;p&gt;Possíveis retornos do chargeback enviado.&lt;/p&gt;
 
 &lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Valor&lt;/td&gt;
-      &lt;td&gt;Descrição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Success&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback foi processado com sucesso&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Success&lt;/td&gt;
-      &lt;td&gt;Chargeback foi processado com sucesso&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;AlreadyExist&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transação já marcada com chargeback anteriormente&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;AlreadyExist&lt;/td&gt;
-      &lt;td&gt;Transação já marcada com chargeback anteriormente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Remand&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback deverá ser reenviado&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Remand&lt;/td&gt;
-      &lt;td&gt;Chargeback deverá ser reenviado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;NotFound&lt;/td&gt;
-      &lt;td&gt;Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;NotFound&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
