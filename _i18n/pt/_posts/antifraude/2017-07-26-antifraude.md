@@ -345,7 +345,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
 |`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações||
 |`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações||
-
+|`Airline.ThirdPartyBooking`|Indica se a passagem foi agendada por terceiros|string||1|
 
 ### Response
 
