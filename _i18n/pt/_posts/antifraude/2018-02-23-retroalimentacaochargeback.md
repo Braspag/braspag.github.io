@@ -226,7 +226,7 @@ Exemplo:
 **Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|Tipo|
-|`Result.ProcessingStatus`|Status do processamento do chargeback - [Tabela 2](https://braspag.github.io//manual/retroalimentacaochargeback#tabela-2-result.errormessages)|enum|
+|`Result.ProcessingStatus`|Status do processamento do chargeback - [Tabela 2](https://braspag.github.io//manual/retroalimentacaochargeback#tabela-2-result.processingstatus)|enum|
 |`Result.ErrorMessages`|Mensagens de erro para chargebacks não processados|string|
 
 # Retroalimentando chargeback via Admin Braspag
