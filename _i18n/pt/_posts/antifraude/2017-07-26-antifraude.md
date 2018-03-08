@@ -227,7 +227,36 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
       "Key": "MerchantId",
       "Value": "Seller123456"
     }
-  ]
+  ],
+  "Airline": {
+    "ThirdPartyBooking" : "Y",
+    "Bookingtype": "corporate",
+    "TicketDeliveryMethod":"UmMetodo",
+    "BookingReferenceNumber":"L5W4NW",
+    "Passengers": [
+    {
+        "FirstName": "Fulano",
+        "MiddleName" : "Da Silva",
+        "LastName": "De Tal",
+        "DateOfBirth": "1961-12-27",
+        "Status": "Standard",
+        "PassengerType": "Adult",
+        "Email": "email@mail.com",
+        "Phone": "1234567890",
+        "TicketNumber": "123541",
+        "FrequentFlyerNumber" : "Um FrequentelyFlyerNumber",
+        "Legs" : [
+        {
+            "ArrivalAirport": "AMS",
+            "DepartureAirport" : "GIG",
+            "ArrivalCountry" : "NLD",
+            "DepartureCountry" : "BRA",
+            "AirlineCode" : "KLM",
+            "DepartureDateTime" : "2018-01-09 18:00",
+            "ClassOfService" : "Standard"
+        }]
+    }]
+  }
 }
 ```
 
@@ -301,7 +330,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|não|19|
 |`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|não|19|
 |`Customer.Status`|Status do comprador na loja - Tabela 8|string|não|8|
-|`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - LINK PARA CONFIG FINGERPRINT|string|sim|6005|
+|`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#redshield44)|string|sim|6005|
 |`CartItem[n].ProductName`|Nome do produto|string|não|50|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|não|-|
 |`CartItem[n].OriginalPrice`|Preço original do produto <br/> Ex: 11490 = r$ 114,90|long|não|-|
@@ -316,6 +345,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
 |`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações||
 |`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações||
+
 
 ### Response
 
