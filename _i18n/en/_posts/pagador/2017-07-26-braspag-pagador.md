@@ -1090,8 +1090,6 @@ curl
 |`Payment.AVS.Status`|Status returned by AVS.|Número|2|0 - Combinação exata<BR>1 - CEP e CPF combinam<BR>2 - Endereço e CPF combinam<BR>3 - Endereço e CEP combinam<BR>4 - CPF exato<BR>5 - Endereço exato<BR>6 - CEP exato<BR>7 - Não suportado ou não verificado para esta bandeira<BR>9 - Banco emissor com sistema indisponível<BR>11 - Nada combina<BR>12 - Nenhum dado fornecido<BR>14 - Resposta inválida|
 |`Payment.AVS.ReturnCode`|Information returned by AVS.|Texto|1|W - Todos os dados coincidem<BR>X - O CEP e CPF coincidem, endereço não coincide<BR>Z - Endereço e CPF coincidem, CEP não coincide<BR>S - O CEP e endereço coincidem, CPF não coincide<BR>A - CPF coincide, CEP e endereço não coincidem<BR>U - O CEP e CPF não coincidem, endereço coincide<BR>Y - O CEP coincide, CPF e endereço não coincidem<BR>P - Não suportado ou não verificado<BR>I - Banco emissor com sistema indisponível<BR>N - Nada coincide<BR>E - Dado(s) com formato(s) não suportado(s)<BR>R - Resposta inválida|
 
-
-
 ## Card Payment with Authentication
 
 When a transaction is submitted to an authentication process, the customer is redirected to the issuer's environment, where it must perform a confirmation of its data. When the validation is successfully validated, the "liability" of the transaction is transfered to the bank. In case of dispute, the bank will be responsible for chageback.
