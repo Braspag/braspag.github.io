@@ -7625,7 +7625,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 
 |Provider|
 |--------|
-|Bradesco2, BancoDoBrasil2, ItauShopline, Santander2, Caixa2, CitiBank2|
+|Bradesco2, BancoDoBrasil2, ItauShopline, Santander2, Caixa2, CitiBank2, BankOfAmerica|
 
 ### Providers para Transferência Eletronica (Débito Online)
 
