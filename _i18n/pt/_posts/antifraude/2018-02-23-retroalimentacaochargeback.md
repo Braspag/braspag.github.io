@@ -301,7 +301,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 # Tabelas
 
-## Tabela 1
+## Tabela 1 - Chargebacks[n].NegativeValues
 
 Possíveis valores a serem inseridos na lista negativa na Cybersource.
 
@@ -315,7 +315,7 @@ Possíveis valores a serem inseridos na lista negativa na Cybersource.
 |DeviceFingerprint|Fingerprint do dispositivo do comprador|
 |DeviceFingerprintSmartId|Fingerprint do dispositivo do comprador|
 
-## Tabela 2
+## Tabela 2 - Result.ErrorMessages
 
 Possíveis retornos do chargeback enviado.
 
