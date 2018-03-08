@@ -315,7 +315,7 @@ Possíveis valores a serem inseridos na lista negativa na Cybersource.
 |DeviceFingerprint|Fingerprint do dispositivo do comprador|
 |DeviceFingerprintSmartId|Fingerprint do dispositivo do comprador|
 
-## Tabela 2 - Result.ErrorMessages
+## Tabela 2 - Result.ProcessingStatus
 
 Possíveis retornos do chargeback enviado.
 
