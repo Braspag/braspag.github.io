@@ -229,31 +229,29 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
     }
   ],
   "Airline": {
-    "ThirdPartyBooking" : "Y",
-    "Bookingtype": "corporate",
-    "TicketDeliveryMethod":"UmMetodo",
-    "BookingReferenceNumber":"L5W4NW",
+    "ThirdPartyBooking": "Y",
+    "Bookingtype": "Corporate",
+    "TicketDeliveryMethod": "Delivery",
+    "BookingReferenceNumber": "L5W4NW",
     "Passengers": [
     {
         "FirstName": "Fulano",
-        "MiddleName" : "Da Silva",
-        "LastName": "De Tal",
-        "DateOfBirth": "1961-12-27",
-        "Status": "Standard",
+        "MiddleName": "D",
+        "LastName": "Tal",
         "PassengerType": "Adult",
         "Email": "email@mail.com",
         "Phone": "1234567890",
         "TicketNumber": "123541",
-        "FrequentFlyerNumber" : "Um FrequentelyFlyerNumber",
+        "LoyaltyMemberNumber": "159753852",
         "Legs" : [
         {
             "ArrivalAirport": "AMS",
-            "DepartureAirport" : "GIG",
-            "ArrivalCountry" : "NLD",
-            "DepartureCountry" : "BRA",
-            "AirlineCode" : "KLM",
-            "DepartureDateTime" : "2018-01-09 18:00",
-            "ClassOfService" : "Standard"
+            "DepartureAirport": "GIG",
+            "ArrivalCountry": "NLD",
+            "DepartureCountry": "BRA",
+            "AirlineCode": "KLM",
+            "DepartureDateTime": "2018-01-09 18:00",
+            "ClassOfService": "Standard"
         }]
     }]
   }
@@ -342,10 +340,28 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|
 |`CartItem[n].ShippingMethod`|Meio de entrega do produto - Tabela 10|enum|-|-|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
+|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo - Tabela 11|string|não|1|
+|`Airline.BookingType`|Tipo de agendamento da reserva|string|não|255|
+|`Airline.TicketDeliveryMethod`|Tipo de entrega da passagem|string|não|127|
+|`Airline.BookingReferenceNumber`|Número de referêcia da reserva|string|não|9|
+|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|29|
+|`Airline.Passengers[n].MiddleName`|Nome do meio do passageiro|string|não|1|
+|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|28|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro - Tabela 12|enum|não|-|
+|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|19|
+|`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|60|
+|`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|não|255|
+|`Airline.Passengers[n].TicketNumber`|Número da passagem|string|não|20|
+|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de saída. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
+|`Airline.Passengers[n].Legs[n].AirlineCode`|Código da companhia aérea|string|não|3|
+|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|não|-|
+|`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|enum|não|-|
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações||
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações||
-|`Airline.ThirdPartyBooking`|Indica se a passagem foi agendada por terceiros|string||1|
+|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações|-|
+|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações|-|
 
 ### Response
 
@@ -477,7 +493,34 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
       "Key": "MerchantId",
       "Value": "Seller123456"
     }
-  ]
+  ],
+  "Airline": {
+    "ThirdPartyBooking": "Y",
+    "Bookingtype": "Corporate",
+    "TicketDeliveryMethod": "Delivery",
+    "BookingReferenceNumber": "L5W4NW",
+    "Passengers": [
+    {
+        "FirstName": "Fulano",
+        "MiddleName": "D",
+        "LastName": "Tal",
+        "PassengerType": "Adult",
+        "Email": "email@mail.com",
+        "Phone": "1234567890",
+        "TicketNumber": "123541",
+        "LoyaltyMemberNumber": "159753852",
+        "Legs" : [
+        {
+            "ArrivalAirport": "AMS",
+            "DepartureAirport": "GIG",
+            "ArrivalCountry": "NLD",
+            "DepartureCountry": "BRA",
+            "AirlineCode": "KLM",
+            "DepartureDateTime": "2018-01-09 18:00",
+            "ClassOfService": "Standard"
+        }]
+    }]
+  }
 }
 ```
 
@@ -616,6 +659,25 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
     "IsGift": false,
     "ReturnsAccept": true,
     "Tender": "Consumer"
+  },
+  "Airline": {
+    "JourneyType": "OneWayTrip",
+    "DepartureDateTime": "2018-01-09 18:00",
+    "Passengers": [
+    {
+        "FirstName": "Fulano",
+        "LastName": "Tal",
+        "PassangerId": "",
+        "PassengerType": "Adult",
+        "Email": "email@mail.com",
+        "Phone": "1234567890",
+        "Status": "Gold",
+        "Legs" : [
+        {
+            "ArrivalAirport": "AMS",
+            "DepartureAirport": "GIG"
+        }]
+    }]
   }
 }
 ```
@@ -692,10 +754,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - Tabela 15|enum|-|-|
 |`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - Tabela 16|enum|-|-|
 |`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - Tabela 17|enum|-|-|
-|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
-|`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
 |`Bank.Name`|Nome do banco do comprador|string|não|40|
 |`Bank.Code`|Código do banco do comprador|string|não|15|
 |`Bank.Agency`|Agência do banco do comprador|string|não|15|
@@ -710,6 +768,21 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|não|-|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|não|-|
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|não|-|
+|`Airline.JourneyType`|Tipo de viagem - Tabela 19|enun|não|-|
+|`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
+|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|60|
+|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|60|
+|`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|não|32|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro - Tabela 20|enum|não|-|
+|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|15|
+|`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|255|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea - Tabela 21|enum|não|60|
+|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
+|`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
+|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
+|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
 
 ``` json
 {
@@ -850,6 +923,25 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
     "IsGift": false,
     "ReturnsAccept": true,
     "Tender": "Consumer"
+  },
+  "Airline": {
+    "JourneyType": "OneWayTrip",
+    "DepartureDateTime": "2018-01-09 18:00",
+    "Passengers": [
+    {
+        "FirstName": "Fulano",
+        "LastName": "Tal",
+        "PassangerId": "",
+        "PassengerType": "Adult",
+        "Email": "email@mail.com",
+        "Phone": "1234567890",
+        "Status": "Gold",
+        "Legs" : [
+        {
+            "ArrivalAirport": "AMS",
+            "DepartureAirport": "GIG"
+        }]
+    }]
   }
 }
 ```
@@ -1086,7 +1178,34 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
       "Key": "MerchantId",
       "Value": "Seller123456"
     }
-  ]
+  ],
+  "Airline": {
+    "ThirdPartyBooking": "Y",
+    "Bookingtype": "Corporate",
+    "TicketDeliveryMethod": "Delivery",
+    "BookingReferenceNumber": "L5W4NW",
+    "Passengers": [
+    {
+        "FirstName": "Fulano",
+        "MiddleName": "D",
+        "LastName": "Tal",
+        "PassengerType": "Adult",
+        "Email": "email@mail.com",
+        "Phone": "1234567890",
+        "TicketNumber": "123541",
+        "LoyaltyMemberNumber": "159753852",
+        "Legs" : [
+        {
+            "ArrivalAirport": "AMS",
+            "DepartureAirport": "GIG",
+            "ArrivalCountry": "NLD",
+            "DepartureCountry": "BRA",
+            "AirlineCode": "KLM",
+            "DepartureDateTime": "2018-01-09 18:00",
+            "ClassOfService": "Standard"
+        }]
+    }]
+  }
 }
 ```
 
@@ -1187,9 +1306,28 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|
 |`CartItem[n].ShippingMethod`|Meio de entrega do produto - Tabela 10|enum|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|
-|`CustomConfiguration.MerchantWebsite`|Website da loja|string|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|
+|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo - Tabela 11|string|
+|`Airline.BookingType`|Tipo de agendamento da reserva|string|
+|`Airline.TicketDeliveryMethod`|Tipo de entrega da passagem|string|
+|`Airline.BookingReferenceNumber`|Número de referêcia da reserva|string|
+|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|
+|`Airline.Passengers[n].MiddleName`|Nome do meio do passageiro|string|
+|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro - Tabela 12|enum|
+|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|
+|`Airline.Passengers[n].Email`|E-mail do passageiro|string|
+|`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|
+|`Airline.Passengers[n].TicketNumber`|Número da passagem|string|
+|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de saída. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Airline.Passengers[n].Legs[n].AirlineCode`|Código da companhia aérea|string|
+|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|
+|`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço - Tabela 13|enum|
+|`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
+|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações|-|
+|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações|-|
 
 ## Consultando uma transação Cybersource
 
@@ -1332,6 +1470,25 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
     "IsGift": false,
     "ReturnsAccept": true,
     "Tender": "Consumer"
+  },
+  "Airline": {
+    "JourneyType": "OneWayTrip",
+    "DepartureDateTime": "2018-01-09 18:00",
+    "Passengers": [
+    {
+        "FirstName": "Fulano",
+        "LastName": "Tal",
+        "PassangerId": "",
+        "PassengerType": "Adult",
+        "Email": "email@mail.com",
+        "Phone": "1234567890",
+        "Status": "Gold",
+        "Legs" : [
+        {
+            "ArrivalAirport": "AMS",
+            "DepartureAirport": "GIG"
+        }]
+    }]
   }
 }
 ```
@@ -1464,10 +1621,6 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - Tabela 15|enum|
 |`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - Tabela 16|enum|
 |`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - Tabela 17|enum|
-|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
-|`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|
 |`Bank.Name`|Nome do banco do comprador|string|
 |`Bank.Code`|Código do banco do comprador|string|
 |`Bank.Agency`|Agência do banco do comprador|string|
@@ -1482,6 +1635,21 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|
+|`Airline.JourneyType`|Tipo de viagem - Tabela 19|enun|não|-|
+|`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
+|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|60|
+|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|60|
+|`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|não|32|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro - Tabela 20|enum|não|-|
+|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|15|
+|`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|255|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea - Tabela 21|enum|não|60|
+|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
+|`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
+|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
+|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
 
 ## Consultando uma transação inexistente 
 
