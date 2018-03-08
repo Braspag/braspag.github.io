@@ -701,6 +701,397 @@ curl
 |`ProviderReturnCode`|Acquirer or Bank’s return code.|Text|32|57|
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 
+## Credit Card Payments with AVS
+
+This is an example with AVS data. The Address Verification System (AVS) compares the billing address informed by customer with the billing address registered in bank's data base. The acquirers that supports this feature are Cielo and Rede. 
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ServiceTaxAmount": 0,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Mensagem",
+        "Avs": {
+            "Cpf": "12345678912",
+            "ZipCode": "04604007",
+            "Street": "Av Marechal Camara",
+            "Number": "3720",
+            "Complement": "Bl 2 Apto 53",
+            "District": "Centro"
+        },
+        "ExtraDataCollection": [{
+            "Name": "NomeDoCampo",
+            "Value": "ValorDoCampo"
+        }]
+    }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ServiceTaxAmount": 0,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Mensagem",
+        "Avs": {
+            "Cpf": "12345678912",
+            "ZipCode": "04604007",
+            "Street": "Av Marechal Camara",
+            "Number": "3720",
+            "Complement": "Bl 2 Apto 53",
+            "District": "Centro"
+        },
+        "ExtraDataCollection": [{
+            "Name": "NomeDoCampo",
+            "Value": "ValorDoCampo"
+        }]
+    }
+}
+--verbose
+```
+
+|Property|Type|Size|Mandatory|Description|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Yes|Merchant Identifier|
+|`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
+|`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
+|`MerchantOrderId`|Text|50|Yes|Merchant Order ID|
+|`Customer.Name`|Text|255|Yes|Customer's Name|
+|`Customer.Identity`|Text|14 |No|Customer's RG, CPF or CNPJ| 
+|`Customer.IdentityType`|Text|255|No|Customer Identification Type  (CPF or CNPJ)|
+|`Customer.Email`|Text|255|No|Customer's e-mail address|
+|`Customer.Birthdate`|Date|10|No|Customer's birth date YYYY-MM-DD|
+|`Customer.Address.Street`|Text|255|No|Customer's main contact address|
+|`Customer.Address.Number`|Text|15|No|Customer's main contact address building number|
+|`Customer.Address.Complement`|Text|50|No|Customer's main contact address additional data|
+|`Customer.Address.ZipCode`|Text|9|No|Customer's main contact address ZIP code|
+|`Customer.Address.City`|Text|50|No|Customer's main contact address' City|
+|`Customer.Address.State`|Text|2|No|Customer's main contact address' State|
+|`Customer.Address.Country`|Text|35|No|Customer's main contact address' Country|
+|`Customer.Address.District`|Text|50 |No|Customer's main contact address' district name |
+|`Customer.DeliveryAddress.Street`|Text|255|No|Customer's delivery address|
+|`Customer.DeliveryAddress.Number`|Text|15|No|Customer's delivery address building number|
+|`Customer.DeliveryAddress.Complement`|Text|50|No|Customer's delivery address additional data|
+|`Customer.DeliveryAddress.ZipCode`|Text|9|No|Customer's delivery address ZIP code|
+|`Customer.DeliveryAddress.City`|Text|50|No|Customer's delivery address' City|
+|`Customer.DeliveryAddress.State`|Text|2|No|Customer's delivery address' State|
+|`Customer.DeliveryAddress.Country`|Text|35|No|Customer's delivery address' Country|
+|`Customer.DeliveryAddress.District`|Text|50 |No|Customer's delivery address' district name |
+|`Payment.Provider`|Text|15|Yes|Payment Method Provider's name|
+|`Payment.Type`|Text|100|Yes|Payment Method's Type|
+|`Payment.Amount`|Number|15|Yes|Transaction Amount (must be sent in cents)|
+|`Payment.ServiceTaxAmount`|Number|15|Yes|Service Tax Amount to be added to the total amount of transaction|
+|`Payment.Currency`|Text|3|No|Currency Code (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP)|
+|`Payment.Country`|Text|3|No|Country Code|
+|`Payment.Installments`|Number|2|Yes|Number of Installments|
+|`Payment.Interest`|Text|10|No|Installment Type - if by merchant (ByMerchant) and if by Issuer (ByIssuer)|
+|`Payment.Capture`|Boolean|---|No (Default false)|If automatic capture behavior is required, send true. Else, false. Check with the Acquirer if this feature is supported|
+|`Payment.Authenticate`|Boolean|---|No (Default false)|If authentication behavior is required, send true. Else, false. Check with the Acquirer if this feature is supported|
+|`Payment.Recurrent`|Boolean|---|No (Default false)|If recurrent behavior is required, send true. Else, false. Check with the Acquirer if this feature is supported|
+|`Payment.SoftDescriptor`|Text|13|No|Message that will be presented into cardholder's billing|
+|`Payment.ExtraDataCollection.Name`|Text|50|No|Extra Data field's name|
+|`Payment.ExtraDataCollection.Value`|Text|1024|No|Extra Data field's value|
+|`Payment.AVS.CPF`|Text|14 |Yes|Customer's CPF.| 
+|`Payment.AVS.ZipCode`|Text|9|No|Customer's billing address ZIP code|
+|`Payment.AVS.Street`|Text|255|No|Customer's billing address|
+|`Payment.AVS.Number`|Text|15|No|Customer's billing address building number|
+|`Payment.AVS.Complement`|Text|50|No|Customer's billing address additional data|
+|`Payment.AVS.District`|Text|50 |No|Customer's billing address' district name |
+|`CreditCard.CardNumber`|Text|16|Yes|Credit Card number|
+|`CreditCard.Holder`|Text|25|Yes|Cardholder's name|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Card's Expiration Date|
+|`CreditCard.SecurityCode`|Text|4|Yes|Security Code (CVV2)|
+|`CreditCard.Brand`|Text|10|Yes|Card's Brand|
+|`CreditCard.SaveCard`|Boolean|---|No (Default false)|If the card must be saved, then true. Else false.|
+
+### Response
+
+```json
+{
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "Avs": {
+            "Cpf": "12345678912",
+            "ZipCode": "04604007",
+            "Street": "Av Marechal Camara",
+            "Number": "3720",
+            "Complement": "Bl 2 Apto 53",
+            "District": "Centro",
+            "Status": 0,
+            "ReturnCode": "W"
+        }
+        "ProofOfSale": "20170510053219433",
+        "AcquirerTransactionId": "0510053219433",
+        "AuthorizationCode": "936403",
+        "SoftDescriptor": "Mensagem",
+        "VelocityAnalysis": {
+            "Id": "c374099e-c474-4916-9f5c-f2598fec2925",
+            "ResultMessage": "Accept",
+            "Score": 0
+        },
+        "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2017-05-10 17:32:19",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-05-10 17:32:19",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ExtraDataCollection": [{
+            "Name": "NomeDoCampo",
+            "Value": "ValorDoCampo"
+        }],
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [{
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "Avs": {
+            "Cpf": "12345678912",
+            "ZipCode": "04604007",
+            "Street": "Av Marechal Camara",
+            "Number": "3720",
+            "Complement": "Bl 2 Apto 53",
+            "District": "Centro",
+            "Status": 0,
+            "ReturnCode": "W"
+        }
+        "ProofOfSale": "20170510053219433",
+        "AcquirerTransactionId": "0510053219433",
+        "AuthorizationCode": "936403",
+        "SoftDescriptor": "Mensagem",
+        "VelocityAnalysis": {
+            "Id": "c374099e-c474-4916-9f5c-f2598fec2925",
+            "ResultMessage": "Accept",
+            "Score": 0
+        },
+        "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2017-05-10 17:32:19",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-05-10 17:32:19",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ExtraDataCollection": [{
+            "Name": "NomeDoCampo",
+            "Value": "ValorDoCampo"
+        }],
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [{
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
+            }
+        ]
+    }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
+|`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
+|`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
+|`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Transaction's received date|Text|19|YYYY-MM-DD HH:mm:SS|
+|`CapturedDate`|Data em que a transação foi capturada a transação|Text|19|YYYY-MM-DD HH:mm:SS|
+|`CapturedAmount`|Valor capturado (sem pontuação)|Number|15|100 equivale a R$ 1,00|
+|`ECI`|Eletronic Commerce Indicator. Representa o resultado da autenticação|Text|2|Exemplos: 5|
+|`ReasonCode`|Operation's Reason Code|Text|32|Alphanumeric Text|
+|`ReasonMessage`|Operation's Reason Message|Text|512|Alphanumeric Text|
+|`Status`|Transaction's Status|Byte|2|1|
+|`ProviderReturnCode`|Acquirer or Bank’s return code.|Text|32|57|
+|`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
+|`Payment.AVS.Status`|Status returned by AVS.|Número|2|0 - Combinação exata<BR>1 - CEP e CPF combinam<BR>2 - Endereço e CPF combinam<BR>3 - Endereço e CEP combinam<BR>4 - CPF exato<BR>5 - Endereço exato<BR>6 - CEP exato<BR>7 - Não suportado ou não verificado para esta bandeira<BR>9 - Banco emissor com sistema indisponível<BR>11 - Nada combina<BR>12 - Nenhum dado fornecido<BR>14 - Resposta inválida|
+|`Payment.AVS.ReturnCode`|Information returned by AVS.|Texto|1|W - Todos os dados coincidem<BR>X - O CEP e CPF coincidem, endereço não coincide<BR>Z - Endereço e CPF coincidem, CEP não coincide<BR>S - O CEP e endereço coincidem, CPF não coincide<BR>A - CPF coincide, CEP e endereço não coincidem<BR>U - O CEP e CPF não coincidem, endereço coincide<BR>Y - O CEP coincide, CPF e endereço não coincidem<BR>P - Não suportado ou não verificado<BR>I - Banco emissor com sistema indisponível<BR>N - Nada coincide<BR>E - Dado(s) com formato(s) não suportado(s)<BR>R - Resposta inválida|
+
+
+
 ## Card Payment with Authentication
 
 When a transaction is submitted to an authentication process, the customer is redirected to the issuer's environment, where it must perform a confirmation of its data. When the validation is successfully validated, the "liability" of the transaction is transfered to the bank. In case of dispute, the bank will be responsible for chageback.
