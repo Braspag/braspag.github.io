@@ -306,6 +306,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 Possíveis valores a serem inseridos na lista negativa na Cybersource.
 
 |Valor|Descrição|
+|:-|:-|
 |CardNumber|Número do cartão|
 |CustomerDocumentNumber|Número do documento do comprador, CPF ou CNPJ|
 |CustomerEmail|E-mail do comprador|
@@ -320,6 +321,7 @@ Possíveis valores a serem inseridos na lista negativa na Cybersource.
 Possíveis retornos do chargeback enviado.
 
 |Valor|Descrição|
+|:-|:-|
 |Success|Chargeback foi processado com sucesso|
 |AlreadyExist|Transação já marcada com chargeback anteriormente|
 |Remand|Chargeback deverá ser reenviado|
