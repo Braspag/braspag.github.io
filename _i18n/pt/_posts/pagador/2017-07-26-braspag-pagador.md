@@ -5044,6 +5044,199 @@ curl
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
+# Pagamentos com Voucher
+
+## Criando uma transação com voucher Alelo
+
+Uma transação com um Cartão Alelo se efetua de uma forma semelhante a um Cartão de Débito, porém, sem o processo de autenticação. <BR><BR>Atualmente, somente o Provider "Alelo" suporta processamento desta modalidade.
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    "MerchantOrderId": "2017051001",
+    "Customer": {
+        "Name": "TesteBraspag"
+    },
+    "Payment": {
+        "Provider": "Alelo",
+        "Type": "DebitCard",
+        "Amount": 10,
+        "Installments": 1,
+        "DebitCard": {
+            "CardNumber": "****4903",
+            "Holder": "TesteBraspag",
+            "ExpirationDate": "02/2019",
+            "SecurityCode": "***",
+            "Brand": "Elo"
+        },
+        "ReturnUrl": "http://www.braspag.com.br"
+    }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2017051001",
+    "Customer": {
+        "Name": "TesteBraspag"
+    },
+    "Payment": {
+        "Provider": "Alelo",
+        "Type": "DebitCard",
+        "Amount": 10,
+        "Installments": 1,
+        "DebitCard": {
+            "CardNumber": "****4903",
+            "Holder": "TesteBraspag",
+            "ExpirationDate": "02/2019",
+            "SecurityCode": "***",
+            "Brand": "Elo"
+        },
+        "ReturnUrl": "http://www.braspag.com.br"
+    }
+}
+--verbose
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
+|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
+|`Customer.Name`|Texto|255|Sim|Nome do comprador|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento. Atualmente somente a "Cielo" suporta esta forma de pagamento via Pagador|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
+|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento|Texto |1024 |Sim|
+|`DebitCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
+|`DebitCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
+|`DebitCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
+|`DebitCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
+|`DebitCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+
+### Resposta
+
+```json
+{
+    "MerchantOrderId": "2017051001",
+    "Customer": {
+        "Name": "TesteBraspag"
+    },
+    "Payment": {
+        "DebitCard": {
+            "CardNumber": "527637******4903",
+            "Holder": "TesteBraspag",
+            "ExpirationDate": "02/2019",
+            "SaveCard": false,
+            "Brand": "Elo"
+        },
+        "ProofOfSale": "004045",
+        "AcquirerTransactionId": "c63fb9f7-02ad-42b3-a182-c56e26238a00",
+        "AuthorizationCode": "128752",
+        "Eci": "0",
+        "PaymentId": "562a8563-9181-4f12-bee8-0ccc89c8f931",
+        "Type": "DebitCard",
+        "Amount": 10,
+        "ReceivedDate": "2018-02-21 10:59:57",
+        "CapturedAmount": 10,
+        "CapturedDate": "2018-02-21 11:00:48",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Alelo",
+        "ReturnUrl": "http://www.braspag.com.br",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "00",
+        "ProviderReturnMessage": "Transacao capturada com sucesso",
+        "Links": [{
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerydev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931"
+        }, {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apidev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931/void"
+        }]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2017051001",
+    "Customer": {
+        "Name": "TesteBraspag"
+    },
+    "Payment": {
+        "DebitCard": {
+            "CardNumber": "527637******4903",
+            "Holder": "TesteBraspag",
+            "ExpirationDate": "02/2019",
+            "SaveCard": false,
+            "Brand": "Elo"
+        },
+        "ProofOfSale": "004045",
+        "AcquirerTransactionId": "c63fb9f7-02ad-42b3-a182-c56e26238a00",
+        "AuthorizationCode": "128752",
+        "Eci": "0",
+        "PaymentId": "562a8563-9181-4f12-bee8-0ccc89c8f931",
+        "Type": "DebitCard",
+        "Amount": 10,
+        "ReceivedDate": "2018-02-21 10:59:57",
+        "CapturedAmount": 10,
+        "CapturedDate": "2018-02-21 11:00:48",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Alelo",
+        "ReturnUrl": "http://www.braspag.com.br",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "00",
+        "ProviderReturnMessage": "Transacao capturada com sucesso",
+        "Links": [{
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerydev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931"
+        }, {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apidev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931/void"
+        }]
+    }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
+|`Status`|Status da Transação|Byte|2|1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
+|`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
+
 # Pagamentos com Transferência Eletrônica
 
 ## Criando uma transação
@@ -7620,6 +7813,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Getnet|Visa, Master|
 |FirstData|Visa, Master|
 |GlobalPayments|Visa, Master|
+|Alelo|Elo|
 
 ### Providers para Boleto com Registro
 
