@@ -1016,10 +1016,10 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Provider`|Provedor da solução de antifraude - [Tabela 1 - Provider](https://braspag.github.io//manual/antifraude#tabela-1-provider)|enum|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|
-|`Tid`|Id da transação na adquirente|string|não|20|
-|`Nsu`|Número sequencial único da transação na adquirente|string|não|10|
-|`AuthorizationCode`|Código de autorização da transação na adquirente|string|não|10|
-|`SaleDate`|Data da autorização da transação na adquirente|datetime|não|-|
+|`Tid`|Id da transação na adquirente|string|
+|`Nsu`|Número sequencial único da transação na adquirente|string|
+|`AuthorizationCode`|Código de autorização da transação na adquirente|string|
+|`SaleDate`|Data da autorização da transação na adquirente|datetime|
 |`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - [Tabela 2 - SplitingPaymentMethod](https://braspag.github.io/manual/antifraude#tabela-2-splitingpaymentmethod)|enum|
 |`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|bool|
 |`Card.Number`|Número do cartão de crédito|string|
@@ -1392,7 +1392,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|
-|`CartItem[n].ProductName`|Nome do produto|string|sim|255|
+|`CartItem[n].ProductName`|Nome do produto|string|
 |`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks - [Tabela 12 - CartItem{n}.Risk](https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].risk)|enum|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
 |`CartItem[n].Sku`|Sku do produto|string|
@@ -1429,7 +1429,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Status`|Classificação da empresa aérea - [Tabela 11 - Airline.Passengers{n}.Status](https://braspag.github.io/manual/antifraude#tabela-11-airline.passengers[n].status)|enum|
 |`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
+|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|
 |`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||
 |`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||
