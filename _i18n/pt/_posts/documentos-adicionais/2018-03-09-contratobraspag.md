@@ -277,7 +277,6 @@ c)     O ajuizamento de qualquer ação contra a outra parte que afete sua credi
 
 São Paulo,  2017.
 
-
 BRASPAG TECNOLOGIA EM PAGAMENTO LTDA. 
 
 # ANEXO I – Pagamentos
@@ -302,8 +301,7 @@ BRASPAG TECNOLOGIA EM PAGAMENTO LTDA.
 
 3.1 – A **CONTRATADA** se compromete a manter o SLA de 99,9% do tempo de processamento das transações sob pena de multa de acordo com a tabela abaixo:
 
-
-| % de tempo mensal com interrupção do processamento das transações,Penalidade a ser observada | Penalidade a ser observada                                                                  |   
+| % de tempo mensal com interrupção do processamento das transações,Penalidade a ser observada | Penalidade a ser observada                                                                    |   
 |----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | Acima de 1,5% a 1,9% das horas mensais com serviço indisponível                              | Desconto de valor equivalente a 25% da “Tarifa mínima mensal” prevista na Proposta Comercial  |
 | 1,91% a 2,7% das horas mensais com serviço indisponível                                      | Desconto de valor equivalente a 50% da “Tarifa mínima mensal” prevista na Proposta Comercial  |
@@ -362,33 +360,27 @@ c) Atualizações e correções do sistema quando necessário, a critério exclu
 
 2.4 – A **CONTRATANTE** poderá requisitar a inclusão dos serviços sob demanda abaixo discriminados, conforme constante na Proposta Comercial:
 
-- 2.4.1 – Gerenciamento de Revisão Manual
+2.4.1 – Gerenciamento de Revisão Manual
 
- * Análise dos pedidos sinalizados pelo **ANTIFRAUDE** com a necessidade de nova revisão para aprovação e processamento posterior ou rejeição de tais pedidos;
+<br>
 
- * A **CONTRATANTE** está ciente e concorda que o serviço de Gerenciamento de Revisão Manual será executado pela equipe da empresa terceira designada em contrato;
+* Análise dos pedidos sinalizados pelo **ANTIFRAUDE** com a necessidade de nova revisão para aprovação e processamento posterior ou rejeição de tais pedidos;
+* A **CONTRATANTE** está ciente e concorda que o serviço de Gerenciamento de Revisão Manual será executado pela equipe da empresa terceira designada em contrato;
+* A **CONTRATANTE** autoriza a equipe de revisão manual a entrar em contato direto, caso seja necessário, com o usuário final, para fins de validação da identidade ou qualquer informação necessária e garante que tal contato não irá violar os termos de uso, políticas de privacidade ou outras políticas do cliente; 
+* Caso um pedido seja sinalizado para Revisão Manual pelo **ANTIFRAUDE**, será determinado se o pedido deverá ser liberado para processamento ou rejeitado em até 02 (dois) dias do recebimento do pedido pelo **ANTIFRAUDE**. Em complemento ao acima disposto, caso o pedido envolva entrega expressa, serão empreendidos esforços razoáveis para determinar no mesmo dia se um pedido deve ser liberado para processamento ou rejeitado através do **ANTIFRAUDE**, mas não haverá qualquer obrigação da **CONTRATADA** quanto a tal prazo; 
+* A **CONTRATANTE** concorda que é inteiramente responsável por auxiliar todos os usuários que tiverem seus pedidos rejeitados e também pelo tratamento dos **CHARGEBACKS**; 
 
- * A **CONTRATANTE** autoriza a equipe de revisão manual a entrar em contato direto, caso seja necessário, com o usuário final, para fins de validação da identidade ou qualquer informação necessária e garante que tal contato não irá violar os termos de uso, políticas de privacidade ou outras políticas do cliente; 
+2.4.2 – Consultoria de Risco
 
- * Caso um pedido seja sinalizado para Revisão Manual pelo **ANTIFRAUDE**, será determinado se o pedido deverá ser liberado para processamento ou rejeitado em até 02 (dois) dias do recebimento do pedido pelo **ANTIFRAUDE**. Em complemento ao acima disposto, caso o pedido envolva entrega expressa, serão empreendidos esforços razoáveis para determinar no mesmo dia se um pedido deve ser liberado para processamento ou rejeitado através do **ANTIFRAUDE**, mas não haverá qualquer obrigação da **CONTRATADA** quanto a tal prazo; 
+<br>
 
- * A **CONTRATANTE** concorda que é inteiramente responsável por auxiliar todos os usuários que tiverem seus pedidos rejeitados e também pelo tratamento dos **CHARGEBACKS**; 
-
-- 2.4.2 – Consultoria de Risco
-
- * Treinamento, consultoria e configuração do **ANTIFRAUDE**, incluindo regras customizadas, regras da biblioteca, relatórios, ambientes de testes e implementação;
- 
- * Suporte interfuncional dos especialistas no produto, risco e assuntos técnicos, visando apoiar a integração do **ANTIFRAUDE** ao modo de produção;
-
- * Análises e recomendações relativas à atual estratégia de risco e o processo de negócio relacionado a essa estratégia, incluindo melhores práticas para a revisão manual de pedidos, aceitação, rejeição e gestão de fraude;
-
- * Definição dos perfis de revisão e regras necessários para o  **ANTIFRAUDE**;
-
- * Introdução e avaliação do serviço consultoria de risco para análise de desempenho e relatórios, identificando e comparando as métricas-chave de desempenho associados com a conversão de ordem, a taxa de fraude e da produtividade;
-
- * Atualizações para a configuração da estratégia antifraude, na medida do necessário, para as regras do **ANTIFRAUDE** incluindo ajustes para revisões situacionais, sazonais ou direcionadas a produtos;
-
- * O acesso ao analista de serviços gerenciados para consultas será disponibilizado de segunda a sexta-feira, das 9h00 às 17h00, horário de Brasília, exceto feriados;
+* Treinamento, consultoria e configuração do **ANTIFRAUDE**, incluindo regras customizadas, regras da biblioteca, relatórios, ambientes de testes e implementação;
+* Suporte interfuncional dos especialistas no produto, risco e assuntos técnicos, visando apoiar a integração do **ANTIFRAUDE** ao modo de produção;
+* Análises e recomendações relativas à atual estratégia de risco e o processo de negócio relacionado a essa estratégia, incluindo melhores práticas para a revisão manual de pedidos, aceitação, rejeição e gestão de fraude;
+* Definição dos perfis de revisão e regras necessários para o  **ANTIFRAUDE**;
+* Introdução e avaliação do serviço consultoria de risco para análise de desempenho e relatórios, identificando e comparando as métricas-chave de desempenho associados com a conversão de ordem, a taxa de fraude e da produtividade;
+* Atualizações para a configuração da estratégia antifraude, na medida do necessário, para as regras do **ANTIFRAUDE** incluindo ajustes para revisões situacionais, sazonais ou direcionadas a produtos;
+* O acesso ao analista de serviços gerenciados para consultas será disponibilizado de segunda a sexta-feira, das 9h00 às 17h00, horário de Brasília, exceto feriados;
 
  * A **CONTRATANTE** concorda com a estratégia apresentada pelo consultor de risco contratado, sendo que qualquer modificação nas configurações da **FERRAMENTA ANTIFRAUDE** feitas pela **CONTRATANTE** deverão ser comunicadas e discutidas previamente antes de serem ativadas em produção. A **CONTRATANTE** está ciente que a não comunicação de eventuais mudanças poderá impactar no desempenho da **FERRAMENTA ANTIFRAUDE**;
 
