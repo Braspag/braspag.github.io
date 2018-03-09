@@ -2262,4 +2262,4 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |REJECT|Transação rejeitada no provedor|Cybesource|Reject|
 |ENETLP|Transação com erro no provedor|ReDShield|ProviderError|
 |ENORSP|Transação com erro no provedor|ReDShield|ProviderError|
-|ERROR|Transação com erro no provedor|ReDShield, Cybersource|ProviderError|
+|ERROR|Transação com erro no provedor|ReDShield, Cybersource|ProviderErro|
