@@ -658,163 +658,39 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ``` json
 {
-  "Id": "3671aafd-09e0-e711-80c2-000d3a70dd7b",
-  "ProviderAnalysisResult": {
-    "ProviderTransactionId": "5131719190516173203009",
-    "Status": "ACCEPT",
-    "ProviderCode": "100",
-    "ProviderRequestTransactionId": "AhjzbwSTFjDo9sLLoWZBEAFReTFX1NHtDuphyzhk0kv9Atj2YEFgc0RA",
-    "AfsReply": {
-        "reasonCode": "100",
-        "afsResult": "99",
-        "hostSeverity": "1",
-        "consumerLocalTime": "11:31:59",
-        "afsFactorCode": "F^P^Y^Z",
-        "addressInfoCode": "MM-A^MM-Z^UNV-ADDR",
-        "hotlistInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-SA^REV-IP^REV-SUSP",
-        "suspiciousInfoCode": "RISK-TB^RISK-TS",
-        "velocityInfoCode": "VEL-NAME",
-        "scoreModelUsed": "default_lac"
-    },
-    "DecisionReply": {
-        "casePriority": "3",
-        "activeProfileReply": {},
-        "velocityInfoCode": "GVEL-R2^GVEL-R3^GVEL-R6^GVEL-R7^GVEL-R8"
-    }
-  },
-  "Links": [{
-        "Method": "GET",
-        "Href": "https://{antifraude endpoint}/analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b",
-        "Rel": "Self"
-  }],
-  "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
-  "TotalOrderAmount": 15000,
-  "TransactionAmount": 14000,
-  "Currency": "BRL",
-  "Provider": "Cybersource",
-  "OrderDate": "2016-12-09 12:35:58.852",
-  "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
-  "Card": {
-    "Number" : "4444555566667777",
-    "Holder": "Holder Name",
-    "ExpirationDate": "12/2023",
-    "Cvv": "999",
-    "Brand": "VISA"
-  },
-  "Billing": {
-    "Street": "Rua Saturno",
-    "Number": "12345",
-    "Complement": "Sala 123",
-    "Neighborhood": "Centro",
-    "City": "Rio de Janeiro",
-    "State": "RJ",
-    "Country": "BR",
-    "ZipCode": "20080123"
-  },
-  "Shipping": {
-    "Street": "Rua Neturno",
-    "Number": "30000",
-    "Complement": "sl 123",
-    "Neighborhood": "Centro",
-    "City": "Rio de Janeiro",
-    "State": "RJ",
-    "Country": "BR",
-    "ZipCode": "123456789",
-    "FirstName": "João",
-    "LastName": "Silva",
-    "ShippingMethod": "SameDay",
-    "Phone": "552121114700"
-  },
-  "Customer": {
-    "MerchantCustomerId": "10050665740",
-    "FirstName": "João",
-    "LastName": "Silva",
-    "BirthDate": "2016-12-09",
-    "Email": "emailcomprador@dominio.com.br",
-    "Phone": "552121114700",
-    "Ip": "127.0.0.1",
-    "BrowserHostName":"www.dominiobrowsercomprador.com.br",
-    "BrowserCookiesAccepted":true,
-    "BrowserEmail":"emailbrowsercomprador@dominio.com.br",
-    "BrowserType":"Chrome 58 on Windows 10"
-  },
-  "CartItems": [
-    {
-      "ProductName": "Mouse",
-      "UnitPrice": "12000",
-      "Sku": "abc123",
-      "Quantity": 1,
-      "Risk":"Low",
-      "AddressRiskVerify":"No",
-      "HostHedge":"Low",
-      "NonSensicalHedge":"Normal",
-      "ObscenitiesHedge":"High",
-      "TimeHedge":"Low",
-      "PhoneHedge":"Normal",
-      "VelocityHedge":"High"
-    },
-    {
-      "ProductName": "Teclado",
-      "UnitPrice": "96385",
-      "MerchantItemId": "3",
-      "Sku": "abc456",
-      "Quantity": 1,
-      "Risk": "High"
-    }
-  ],
-  "MerchantDefinedData": [
-    {
-      "Key": "1",
-      "Value": "Valor definido com o Provedor a ser enviado neste campo."
-    },
-    {
-      "Key": "2",
-      "Value": "Valor definido com o Provedor a ser enviado neste campo."
-    },
-    {
-      "Key": "3",
-      "Value": "Valor definido com o Provedor a ser enviado neste campo."
-    }
-  ],
-  "Bank":{
-    "Address": "Rua Marte, 29",
-    "Code": "237",
-    "Agency": "987654",
-    "City": "Rio de Janeiro",
-    "Country": "BR",
-    "Name": "Bradesco",
-    "SwiftCode": "789"
-  },
-  "FundTransfer":{
-    "AccountNumber":"159753",
-    "AccountName":"Conta particular",
-    "BankCheckDigit":"51",
-    "Iban":"123456789"
-  },
-  "Invoice":{
-    "IsGift": false,
-    "ReturnsAccept": true,
-    "Tender": "Consumer"
-  },
-  "Airline": {
-    "JourneyType": "OneWayTrip",
-    "DepartureDateTime": "2018-01-09 18:00",
-    "Passengers": [
-    {
-        "FirstName": "Fulano",
-        "LastName": "Tal",
-        "PassangerId": "",
-        "PassengerType": "Adult",
-        "Email": "email@mail.com",
-        "Phone": "1234567890",
-        "Status": "Gold",
-        "Legs" : [
-        {
-            "ArrivalAirport": "AMS",
-            "DepartureAirport": "GIG"
-        }]
-    }]
-  }
+   "TransactionId": "1eae3d39-a723-e811-80c3-0003ff21d83f",
+   "Status": "Accept",
+   "ProviderAnalysisResult": {
+       "ProviderTransactionId": "5206061832306553904009",
+       "ProviderStatus": "ACCEPT",
+       "ProviderCode": "100",
+       "ProviderRequestTransactionId": "AhjzbwSTGjifFZXHYduJEAFReTUyEoftDpA9+Ehk0kv9Atj2YEBMmAL2",
+       "AfsReply": {
+           "reasonCode": "100",
+           "afsResult": "99",
+           "hostSeverity": "3",
+           "consumerLocalTime": "11:36:23",
+           "afsFactorCode": "D^F^Z",
+           "addressInfoCode": "COR-BA",
+           "hotlistInfoCode": "NEG-AFCB^NEG-BA^NEG-CC^NEG-EM^NEG-PEM^NEG-SA^REV-PPH^REV-SUSP",
+           "internetInfoCode": "FREE-EM^RISK-EM",
+           "suspiciousInfoCode": "RISK-TB",
+           "velocityInfoCode": "VEL-NAME",
+           "scoreModelUsed": "default_lac"
+       },
+       "DecisionReply": {
+           "casePriority": "3",
+           "activeProfileReply": {},
+           "velocityInfoCode": "GVEL-R1^GVEL-R2^GVEL-R4^GVEL-R6^GVEL-R7^GVEL-R9"
+       }
+   },
+   "Links": [
+       {
+           "Method": "GET",
+           "Href": "http://localhost:1316/Analysis/v2/1eae3d39-a723-e811-80c3-0003ff21d83f",
+           "Rel": "Self"
+       }
+   ]
 }
 ```
 
@@ -831,12 +707,13 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
+|`Status`|Status da transação no Antifraude Gateway Braspag|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource|string|
 |`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - Tabela 2|int|
-|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na Cybersource|string|
-|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
+|`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
+|`ProviderAnalysisResult.AfsReply.addressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
 |`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4|string|
 |`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
 |`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
