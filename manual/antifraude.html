@@ -1245,7 +1245,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderStatus</code></td>
-      <td style="text-align: left">Status da transação na ReDShield - <a href="https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.resultdetails.providerstatus">Tabela 22 - ProviderStatus</a></td>
+      <td style="text-align: left">Status da transação na ReDShield - <a href="https://braspag.github.io/manual/antifraude#tabela-22-providerstatus">Tabela 22 - ProviderStatus</a></td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
@@ -2353,17 +2353,27 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code></td>
-      <td style="text-align: left">Status da transação na ReDShield - <a href="https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.resultdetails.providerstatus">Tabela 22 - ProviderStatus</a></td>
+      <td style="text-align: left">Status da transação na ReDShield - <a href="https://braspag.github.io/manual/antifraude#tabela-22-providerstatus">Tabela 22 - ProviderStatus</a></td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderCode</code></td>
-      <td style="text-align: left">Código de retorno da Cybersouce - Tabela 2</td>
-      <td style="text-align: center">int</td>
+      <td style="text-align: left">Código de retorno da Cybersouce - <a href="https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.providercode">Tabela 23 - ProviderAnalysisResult.ProviderCode</a></td>
+      <td style="text-align: center">enum</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderRequestTransactionId</code></td>
       <td style="text-align: left">Id do request da transação na Cybersource</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Missing</code></td>
+      <td style="text-align: left">Campos faltantes na requisição enviada a Cybersource</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Invalid</code></td>
+      <td style="text-align: left">Campos com valores inválidos enviado a Cybersource</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
@@ -3631,7 +3641,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag - <a href="https://braspag.github.io/manual/antifraude#tabela-21-status">Tabela 21 - Status</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
@@ -3645,14 +3655,14 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code></td>
-      <td style="text-align: left">Status da transação na Cybersource</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: left">Status da transação na Cybersource - <a href="https://braspag.github.io/manual/antifraude#tabela-21-providerstatus">Tabela 22 - ProviderStatus</a></td>
+      <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderCode</code></td>
-      <td style="text-align: left">Código de retorno da Cybersouce - Tabela 2</td>
+      <td style="text-align: left">Código de retorno da Cybersouce - <a href="https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.providercode">Tabela 23 - ProviderAnalysisResult.ProviderCode</a></td>
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
@@ -3665,8 +3675,8 @@
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.addressInfoCode</code></td>
-      <td style="text-align: left">Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.AddressInfoCode</code></td>
+      <td style="text-align: left">Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Os códigos são concatenados usando o caractere ^. Ex.: MM-A^MM-Z - <a href="">Tabela 24 - ProviderAnalysisResult.AfsReply.AddressInfoCode</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -6349,7 +6359,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     </tr>
     <tr>
       <td style="text-align: left">Unfinished</td>
-      <td style="text-align: left">Transação não finalizada por algum motivo, de validação de contrato ou erro interno</td>
+      <td style="text-align: left">Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br /> Uma transação analisada na Cybersource e o campo <code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code> for igual a <em>REJECT</em> e o campo <code class="highlighter-rouge">ProviderAnalysisResult.ProviderCode</code> diferente de <em>481</em>, o status da transação será <em>Unfineshed</em></td>
       <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
@@ -6437,6 +6447,80 @@ Se você não completar essa seção, você não receberá resultados corretos, 
       <td style="text-align: left">Transação com erro no provedor</td>
       <td style="text-align: left">ReDShield, Cybersource</td>
       <td style="text-align: left">ProviderError</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-23---provideranalysisresultprovidercode">Tabela 23 - ProviderAnalysisResult.ProviderCode</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">100</td>
+      <td style="text-align: left">Operação realizada com sucesso</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">101</td>
+      <td style="text-align: left">A transação enviada para análise de fraude está faltando um ou mais campos necessários <br /> Verificar no response o campo <code class="highlighter-rouge">ProviderAnalysisResult.Missing</code> <br /> Possível ação: Reenviar a transação com a informação completa</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">102</td>
+      <td style="text-align: left">A transação enviada para análise de fraude possui um ou mais campos com valores inválidos <br /> Verificar no response o campo <code class="highlighter-rouge">ProviderAnalysisResult.Invalid</code> <br /> Possível ação: Reenviar a transação com as informações corretas</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">150</td>
+      <td style="text-align: left">Erro interno <br /> Possível ação: Aguarde alguns minutos e tente reenviar a transação</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">151</td>
+      <td style="text-align: left">A transação foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br /> Possível ação: Aguarde alguns minutos e tente reenviar a transação</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">152</td>
+      <td style="text-align: left">O pedido foi recebido, mas ocorreu time-out <br /> Possível ação: Aguarde alguns minutos e tente reenviar a transação</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">202</td>
+      <td style="text-align: left">Transação recusada pois o cartão expirou ou a data de validade não coincide com a correta <br /> Possível ação: Solicite outro cartão ou outra forma de pagamento</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">231</td>
+      <td style="text-align: left">Transação recusada pois o cartão é inválido <br /> Possível ação: Solicite outro cartão ou outra forma de pagamento</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">234</td>
+      <td style="text-align: left">Problema com a configuração da loja na Cybersource <br /> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">400</td>
+      <td style="text-align: left">A pontuação de fraude ultrapassa o seu limite <br /> Possível ação: Reveja a transação do cliente</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">480</td>
+      <td style="text-align: left">A transação foi marcada como revisão pelo DM (Decision Manager)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">481</td>
+      <td style="text-align: left">A transação foi rejeitada pelo DM (Decision Manager)</td>
+      <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
 </table>
