@@ -336,15 +336,13 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 
 1.1 – Para perfeito entendimento e interpretação deste Anexo, são adotados os termos abaixo, cujas definições serão usadas no singular ou no plural, conforme seja o caso.
 
-**E-COMMERCE** - Qualquer tipo de relação comercial de compra e venda de produtos e/ou serviços realizada por qualquer meio conectado a Internet tal como, mas não limitado a celular, computador, sistema de vendas por telefone.
-
-**FERRAMENTAS DE RISCO** – Conjunto de Ferramentas que possuem como principal característica a sinalização quanto à probabilidade de fraude em transações com cartão de crédito processadas pela **CONTRATANTE** via **E-COMMERCE**.
-
-**ANTIFRAUDE** – Ferramenta sublicenciada pela **CONTRATADA** para análise e atribuição de grau de risco à transações com cartão de crédito processadas pela **CONTRATANTE** via **E-COMMERCE**
-
-**CHARGEBACK** - Retorno de um Pagamento com Cartão baseado na incapacidade de obedecer às regras da Companhia do Cartão ou em uma disputa iniciada pelo Usuário Final ou Titular do Cartão
-
-**VELOCITY** – Ferramenta de validação de transações para bloqueio e/ou alerta de vendas que repitam dados de carrinho em excesso.
+|           Termo          | Definições                                                                                                                                                                                                       |
+|:------------------------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      **E-COMMERCE**      | Qualquer tipo de relação comercial de compra e venda de produtos e/ou serviços realizada por qualquer meio conectado a Internet tal como, mas não limitado a celular, computador, sistema de vendas por telefone |
+| **FERRAMENTAS DE RISCO** | Conjunto de Ferramentas que possuem como principal característica a sinalização quanto à probabilidade de fraude em transações com cartão de crédito processadas pela **CONTRATANTE** via **E-COMMERCE**         |
+|      **ANTIFRAUDE**      | Ferramenta sublicenciada pela **CONTRATADA** para análise e atribuição de grau de risco à transações com cartão de crédito processadas pela **CONTRATANTE** via **E-COMMERCE**                                   |
+|      **CHARGEBACK**      | Retorno de um Pagamento com Cartão baseado na incapacidade de obedecer às regras da Companhia do Cartão ou em uma disputa iniciada pelo Usuário Final ou Titular do Cartão                                       |
+|       **VELOCITY**       | Ferramenta de validação de transações para bloqueio e/ou alerta de vendas que repitam dados de carrinho em excesso                                                                                               |
 
 ## 2ª – Objeto
 
@@ -449,3 +447,8 @@ c) Atualizações e correções do sistema quando necessário, a critério exclu
 2.6 – Mediante expresso desejo da **CONTRATANTE**, conforme consta na Proposta Comercial, poderá ser adquirido o serviço de empresa terceira para o desenvolvimento de personalizações e adaptações do **ARQUIVO DE VENDAS** da **CONTRATANTE** ou modelo de arquivo lido pelo **CONCILIADOR**.
 
 2.7 – A **CONTRATADA** não tem qualquer ingerência e fica isenta de qualquer responsabilidade, seja qual for sua natureza, com relação à segurança e qualidade dos dados enviados, recebidos ou armazenados pela **CONTRATANTE**, sendo responsável apenas pelas situações decorrentes de eventuais falhas de segurança oriundas de seu ambiente tecnológico, desde que comprovada a sua culpa. 
+
+* Item 1
+  * Nested Item 1
+  * Nested Item 2
+  * Nested Item 3
