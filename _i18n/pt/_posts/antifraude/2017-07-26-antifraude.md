@@ -2240,6 +2240,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Other|Pagamentos com outros métodos|Cybersource|
 
 ## Tabela 21 - Status
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |Accept|Transação aceita após análise de fraude|ReDShield, Cybersource|
@@ -2250,8 +2251,9 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |ProviderError|Transação com erro no provedor ao ser enviada para análise|ReDShield, Cybersource|
 
 ## Tabela 22 - ProviderAnalysisResult.ResultDetails.ProviderStatus
+
 |Valor|Descrição|Provider|De-Para com o campo `Status` (Status da transação no Antifraude Gateway Braspag)|
-|:-|:-|:-|
+|:-|:-|:-|:-|
 |APPROVE|Transação aprovada no provedor|ReDShield|Accept|
 |ACCEPT|Transação aceita no provedor|ReDShield, Cybersource|Accept|
 |PEND|Transação em revisão no provedor|ReDShield|Review|
