@@ -31,7 +31,7 @@ Têm entre si, como justa e acordada, a celebração do presente Contrato de Pre
 
 a) **Anexos**: significam anexos específicos que individualmente detalham as condições específicas do(s) serviço(s) oferecido(s) pela **CONTRATADA**. Todas as condições específicas de cada serviço a ser executado constarão no respectivo Anexo do serviço e/ou na Proposta Comercial.
 
-b)	**Contrato**: significa este Contrato de Prestação de Serviços.
+b) **Contrato**: significa este Contrato de Prestação de Serviços.
 
 c)	**Evento de Força Maior**: significam catástrofes da natureza, atos de guerra ou terrorismo e desordem civil, nos termos do Código Civil, ou ainda quaisquer atos ou fatos que venham a causar a paralisação completa do funcionamento do sistema bancário, quer do atendimento presencial e/ou quer do atendimento pelos canais eletrônicos, em todo o território nacional.
 
@@ -53,7 +53,8 @@ h)	**EDI**: troca estruturada de dados através de uma rede de dados.
 
 2.3 – Os termos e condições previstos neste Contrato, nos Anexos e/ou na Proposta Comercial serão alterados mediante a celebração de termo aditivo entre **CONTRATANTE** e **CONTRATADA**. Caso a **CONTRATANTE** opte por contratar novos serviços que não constem originalmente na Proposta Comercial, nova proposta será confeccionada pela **CONTRATADA** para substituir e/ou aumentar o escopo previamente contratado, sem prejuízo das cláusulas acordadas entre as partes neste instrumento.
 
-##3ª – Obrigações da contratada
+## 3ª – Obrigações da contratada
+
 3.1 – Sem prejuízo das demais cláusulas e condições constantes deste Contrato, dos Anexos e da Proposta Comercial, caberá à **CONTRATADA**:
 
 a)	Utilizar as mais atualizadas e adequadas técnicas aplicáveis para o exercício de suas atividades, orientando-se pelo disposto nas especificações e normas técnicas aplicáveis ao(s) serviço(s) contratado(s), de modo a buscar a qualidade e a adequação do(s) serviço(s) contratado(s) em termos de desempenho, operacionalidade e segurança;
@@ -279,7 +280,7 @@ São Paulo,  2017.
 
 BRASPAG TECNOLOGIA EM PAGAMENTO LTDA. 
 
-#ANEXO I – Pagamentos
+# ANEXO I – Pagamentos
  
 ## 1ª – Objeto
 
@@ -327,9 +328,9 @@ BRASPAG TECNOLOGIA EM PAGAMENTO LTDA.
 
 5.1 – Fazem parte complementar ao presente Anexo, como se nele estivessem integralmente transcritos,  o Contrato de Prestação de Serviços e a Proposta Comercial encaminhada pela **CONTRATADA** à **CONTRATANTE**.
 
-#ANEXO II – Gestão de Risco
+# ANEXO II – Gestão de Risco
  
-##1ª – Definições
+## 1ª – Definições
  
 1.1 – Para perfeito entendimento e interpretação deste Anexo, são adotados os termos abaixo, cujas definições serão usadas no singular ou no plural, conforme seja o caso.
 
@@ -343,7 +344,7 @@ BRASPAG TECNOLOGIA EM PAGAMENTO LTDA.
 
 **VELOCITY** – Ferramenta de validação de transações para bloqueio e/ou alerta de vendas que repitam dados de carrinho em excesso.
 
-##2ª – Objeto
+## 2ª – Objeto
 
 2.1 – O presente Anexo tem como objeto a prestação dos serviços pela **CONTRATADA** de Gestão de Risco, que tem como objetivo o controle da quantidade de fraudes com cartão de crédito recebidas pela **CONTRATANTE** por meio do uso de uma ou mais **FERRAMENTAS DE RISCO**.
 
