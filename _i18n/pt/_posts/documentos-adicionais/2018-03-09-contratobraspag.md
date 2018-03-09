@@ -447,8 +447,3 @@ c) Atualizações e correções do sistema quando necessário, a critério exclu
 2.6 – Mediante expresso desejo da **CONTRATANTE**, conforme consta na Proposta Comercial, poderá ser adquirido o serviço de empresa terceira para o desenvolvimento de personalizações e adaptações do **ARQUIVO DE VENDAS** da **CONTRATANTE** ou modelo de arquivo lido pelo **CONCILIADOR**.
 
 2.7 – A **CONTRATADA** não tem qualquer ingerência e fica isenta de qualquer responsabilidade, seja qual for sua natureza, com relação à segurança e qualidade dos dados enviados, recebidos ou armazenados pela **CONTRATANTE**, sendo responsável apenas pelas situações decorrentes de eventuais falhas de segurança oriundas de seu ambiente tecnológico, desde que comprovada a sua culpa. 
-
-* Item 1
-  * Nested Item 1
-  * Nested Item 2
-  * Nested Item 3
