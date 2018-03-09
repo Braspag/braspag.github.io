@@ -1259,7 +1259,7 @@
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderAnalysisResult.Ndc</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Ndc</code></td>
       <td style="text-align: left">Id único e exclusivo da requisição da ReDShield</td>
       <td style="text-align: center">string</td>
     </tr>
@@ -1481,16 +1481,16 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Currency</code></td>
-      <td style="text-align: left">Moeda - Tabela 1</td>
-      <td style="text-align: center">enum</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right">-</td>
+      <td style="text-align: left">Moeda. Maiores informações em <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 Currency Codes</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">3</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Provider</code></td>
-      <td style="text-align: left">Provedor da solução de antifraude - Tabela 2</td>
+      <td style="text-align: left">Provedor da solução de antifraude - <a href="https://braspag.github.io//manual/antifraude#tabela-1-provider">Tabela 1 - Provider</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1501,7 +1501,7 @@
       <td style="text-align: left"><code class="highlighter-rouge">OrderDate</code></td>
       <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag</td>
       <td style="text-align: center">datetime</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
       <td> </td>
       <td> </td>
@@ -1580,7 +1580,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
-      <td style="text-align: left">Bandeira do cartão de crédito - Tabela 4</td>
+      <td style="text-align: left">Bandeira do cartão de crédito - <a href="https://braspag.github.io/manual/antifraude#tabela-3-card.brand">Tabela 3 - Card.Brand</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1787,7 +1787,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do pedido - Tabela 5</td>
+      <td style="text-align: left">Meio de entrega do pedido - <a href="https://braspag.github.io/manual/antifraude#tabela-4-shipping.shippingmethod">Tabela 4 - Shipping.ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1796,7 +1796,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.MerchantCustomerId</code></td>
-      <td style="text-align: left">Número do documento de identificação do comprador - Tabela 6</td>
+      <td style="text-align: left">Número do documento de identificação do comprador - <a href="https://braspag.github.io/manual/antifraude#tabela-5-customer.merchantcustomerid">Tabela 5 - Customer.MerchantCustomerId</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">16</td>
@@ -1886,7 +1886,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserType</code></td>
-      <td style="text-align: left">Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP (<code class="highlighter-rouge">Customer.Email</code>)</td>
+      <td style="text-align: left">Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">40</td>
@@ -1904,7 +1904,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Risk</code></td>
-      <td style="text-align: left">Nível de risco do produto associado a quantidade de chargebacks - Tabela 9</td>
+      <td style="text-align: left">Nível de risco do produto associado a quantidade de chargebacks - <a href="https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].risk">Tabela 12 - CartItem{n}.Risk</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1940,7 +1940,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].AddressRiskVerify</code></td>
-      <td style="text-align: left">Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - Tabela 11</td>
+      <td style="text-align: left">Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - <a href="https://braspag.github.io/manual/antifraude#tabela-13-cartitem[n].addressriskverify">Tabela 13 - CartItem{n}.AddressRiskVerify</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1949,7 +1949,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].HostHedge</code></td>
-      <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - Tabela 12</td>
+      <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - <a href="https://braspag.github.io/manual/antifraude#tabela-14-cartitem[n].hosthedge">Tabela 14 - CartItem{n}.HostHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1958,7 +1958,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].NonSensicalHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - Tabela 13</td>
+      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - <a href="https://braspag.github.io/manual/antifraude#tabela-15-cartitem[n].nonsensicalhedge">Tabela 15 - CartItem{n}.NonSensicalHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1967,7 +1967,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ObscenitiesHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - Tabela 14</td>
+      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - <a href="https://braspag.github.io/manual/antifraude#tabela-16-cartitem[n].obscenitieshedge">Tabela 16 - CartItem{n}.ObscenitiesHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1976,7 +1976,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].TimeHedge</code></td>
-      <td style="text-align: left">Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - Tabela 15</td>
+      <td style="text-align: left">Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - <a href="https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].timehedge">Tabela 17 - CartItem{n}.TimeHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1985,7 +1985,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].PhoneHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - Tabela 16</td>
+      <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - <a href="https://braspag.github.io/manual/antifraude#tabela-18-cartitem[n].phonehedge">Tabela 18 - CartItem{n}.PhoneHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1994,7 +1994,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].VelocityHedge</code></td>
-      <td style="text-align: left">Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - Tabela 17</td>
+      <td style="text-align: left">Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - <a href="https://braspag.github.io/manual/antifraude#tabela-19-cartitem[n].velocityhedge">Tabela 19 - CartItem{n}.VelocityHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -2129,7 +2129,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.JourneyType</code></td>
-      <td style="text-align: left">Tipo de viagem - Tabela 19</td>
+      <td style="text-align: left">Tipo de viagem - <a href="https://braspag.github.io/manual/antifraude#tabela-9-airline.journeytype">Tabela 9 - Airline.JourneyType</a></td>
       <td style="text-align: center">enun</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -2174,7 +2174,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].PassengerType</code></td>
-      <td style="text-align: left">Tipo do passageiro - Tabela 20</td>
+      <td style="text-align: left">Tipo do passageiro - <a href="https://braspag.github.io/manual/antifraude#tabela-10-airline.passengers[n].passengertype">Tabela 10 - Airline.Passengers{n}.PassengerType</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -2201,7 +2201,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Status</code></td>
-      <td style="text-align: left">Classificação da empresa aérea - Tabela 21</td>
+      <td style="text-align: left">Classificação da empresa aérea - <a href="https://braspag.github.io/manual/antifraude#tabela-11-airline.passengers[n].status">Tabela 11 - Airline.Passengers{n}.Status</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
@@ -2645,27 +2645,30 @@
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f8a661c-00e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ProviderRequestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a82944a6045a46f01604fd26814233b"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000.000.000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ProviderDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction succeeded"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"ResultDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"CSITransactionLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{redshield endpoint}/index.red#transactiondetail/000548000001XCJ20171213072118102"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"322066985634"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ProviderResponseCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0150"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ProviderOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000548000001XCJ20171213072118102"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"Ndc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a82941859d5969a0159db3f6ecc1418_5b9d6472570843d6b7e261d92827d361"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{antifraude endpoint}/analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
-  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdf8f357-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"ProviderRequestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a829449620619e801620b31d1c85d5a"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000.000.000"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"ProviderDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction succeeded"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="s2">"ResultDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"CSITransactionLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://csi-stage.redworldwide.com/index.red#transactiondetail/000548000001XAR20180309093717761"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"ProviderStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"381069636258"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"ProviderResponseCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0150"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"ProviderOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000548000001XAR20180309093717761"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="s2">"Ndc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a82941859d5969a0159db3f6ecc1418_60d2e8536e244db2bf04146872b00d38"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:1316/Analysis/v2/fdf8f357-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4493d42c-8732-4b13-aadc-b07e89732c26"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
   </span><span class="s2">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
@@ -2868,9 +2871,16 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">TransactionId</code></td>
       <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
       <td style="text-align: center">guid</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -2903,8 +2913,8 @@
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderStatus</code></td>
+      <td style="text-align: left">Status da transação na ReDShield</td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
@@ -2918,7 +2928,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderOrderId</code></td>
-      <td style="text-align: left">Id do pedido da ReDShield</td>
+      <td style="text-align: left">Id do pedido na ReDShield</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -3552,35 +3562,39 @@
 <h2 id="consultando-uma-transação-cybersource">Consultando uma transação Cybersource</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3671aafd-09e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5131719190516173203009"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ProviderRequestTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AhjzbwSTFjDo9sLLoWZBEAFReTFX1NHtDuphyzhk0kv9Atj2YEFgc0RA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"AfsReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"afsResult"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"hostSeverity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"consumerLocalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:31:59"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"afsFactorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F^P^Y^Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"addressInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MM-A^MM-Z^UNV-ADDR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"hotlistInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEG-AFCB^NEG-CC^NEG-EM^NEG-SA^REV-IP^REV-SUSP"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"suspiciousInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RISK-TB^RISK-TS"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VEL-NAME"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"scoreModelUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default_lac"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"DecisionReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"casePriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"activeProfileReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-        </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GVEL-R2^GVEL-R3^GVEL-R6^GVEL-R7^GVEL-R8"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{antifraude endpoint}/analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
-  </span><span class="p">}],</span><span class="w">
+   </span><span class="s2">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1eae3d39-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5206061832306553904009"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"ProviderStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"ProviderRequestTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AhjzbwSTGjifFZXHYduJEAFReTUyEoftDpA9+Ehk0kv9Atj2YEBMmAL2"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"AfsReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"afsResult"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"hostSeverity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"consumerLocalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:36:23"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"afsFactorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D^F^Z"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"addressInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COR-BA"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"hotlistInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEG-AFCB^NEG-BA^NEG-CC^NEG-EM^NEG-PEM^NEG-SA^REV-PPH^REV-SUSP"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"internetInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FREE-EM^RISK-EM"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"suspiciousInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RISK-TB"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VEL-NAME"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"scoreModelUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default_lac"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="s2">"DecisionReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"casePriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"activeProfileReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+           </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GVEL-R1^GVEL-R2^GVEL-R4^GVEL-R6^GVEL-R7^GVEL-R9"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:1316/Analysis/v2/1eae3d39-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4493d42c-8732-4b13-aadc-b07e89732c26"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
   </span><span class="s2">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
@@ -3784,9 +3798,18 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">TransactionId</code></td>
       <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
       <td style="text-align: center">guid</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -3802,9 +3825,9 @@
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1</td>
-      <td style="text-align: center">enum</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code></td>
+      <td style="text-align: left">Status da transação na Cybersource</td>
+      <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -3820,7 +3843,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderRequestId</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderRequestTransactionId</code></td>
       <td style="text-align: left">Id do request da transação na Cybersource</td>
       <td style="text-align: center">string</td>
       <td> </td>
@@ -3829,7 +3852,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.AddressInfoCode</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.addressInfoCode</code></td>
       <td style="text-align: left">Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3</td>
       <td style="text-align: center">string</td>
       <td> </td>
@@ -6032,53 +6055,41 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Provider</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">Amex</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Diners</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Discover</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">JCB</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Master</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Dankort</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Cartebleue</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Maestro</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Visa</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Elo</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Hipercard</td>
-      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
   </tbody>
 </table>
@@ -6290,31 +6301,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-9---airlinejourneytype">Tabela 9 - Airline.JourneyType</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">OneWayTrip</td>
-      <td style="text-align: left">Viagem somente de ida</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">RoundTrip</td>
-      <td style="text-align: left">Viagem de ida e volta</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-10---airlinepassengersnpassengertype">Tabela 10 - Airline.Passengers[n].PassengerType</h2>
+<h2 id="tabela-9---airlinepassengersnpassengertype">Tabela 9 - Airline.Passengers[n].PassengerType</h2>
 
 <table>
   <thead>
@@ -6359,347 +6346,6 @@ Se você não completar essa seção, você não receberá resultados corretos, 
       <td style="text-align: left">Military</td>
       <td style="text-align: left">Militar</td>
       <td style="text-align: left">ReDShield</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-11---airlinepassengersnstatus">Tabela 11 - Airline.Passengers[n].Status</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Standard</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Gold</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Platinum</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-12---cartitemnrisk">Tabela 12 - CartItem[n].Risk</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Low</td>
-      <td style="text-align: left">Produto associado com pouco chargebacks (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Produto associado com a quantidade normal de chargebacks</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">High</td>
-      <td style="text-align: left">Produto associado com muito chargebacks</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-13---cartitemnaddressriskverify">Tabela 13 - CartItem[n].AddressRiskVerify</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Yes</td>
-      <td style="text-align: left">Em caso de divergência entre endereços de cobrança e entrega, atribui risco baixo ao pedido</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">No</td>
-      <td style="text-align: left">Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Off</td>
-      <td style="text-align: left">Diferenças entre os endereços de cobrança e entrega não afetam a pontuação</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-14---cartitemnhosthedge">Tabela 14 - CartItem[n].HostHedge</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Low</td>
-      <td style="text-align: left">Baixa</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">High</td>
-      <td style="text-align: left">Alta</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-15---cartitemnnonsensicalhedge">Tabela 15 - CartItem[n].NonSensicalHedge</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Low</td>
-      <td style="text-align: left">Baixa</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">High</td>
-      <td style="text-align: left">Alta</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-16---cartitemnobscenitieshedge">Tabela 16 - CartItem[n].ObscenitiesHedge</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Low</td>
-      <td style="text-align: left">Baixa</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">High</td>
-      <td style="text-align: left">Alta</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-17---cartitemntimehedge">Tabela 17 - CartItem[n].TimeHedge</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Low</td>
-      <td style="text-align: left">Baixa</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">High</td>
-      <td style="text-align: left">Alta</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-18---cartitemnphonehedge">Tabela 18 - CartItem[n].PhoneHedge</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Low</td>
-      <td style="text-align: left">Baixa</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">High</td>
-      <td style="text-align: left">Alta</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-19---cartitemnvelocityhedge">Tabela 19 - CartItem[n].VelocityHedge</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Low</td>
-      <td style="text-align: left">Baixa</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">High</td>
-      <td style="text-align: left">Alta</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-20---invoicetender">Tabela 20 - Invoice.Tender</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Consumer</td>
-      <td style="text-align: left">Cartão de crédito pessoal (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">CorporateCartão de crédito corporativo</td>
-      <td style="text-align: left">Cybersource</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Debit</td>
-      <td style="text-align: left">Cartão de débito</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">CollectDelivery</td>
-      <td style="text-align: left">Cobrança na entrega</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">EletronicCheck</td>
-      <td style="text-align: left">Cheque eletrônico</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">PaymentP2P</td>
-      <td style="text-align: left">Pagamento de pessoa para pessoa</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">PrivateLabel</td>
-      <td style="text-align: left">Pagamento com cartão de crédito privado</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Other</td>
-      <td style="text-align: left">Pagamentos com outros métodos</td>
-      <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
 </table>
