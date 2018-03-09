@@ -2300,3 +2300,83 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |MM-ST|Os endereços de cobrança e entrega usam estados diferentes|Cybersource|
 |MM-Z|Os endereços de cobrança e entrega usam códidos postais diferentes|Cybersource|
 |UNV-ADDR|O endereço é inverificável|Cybersource|
+
+## Tabela 25 - ProviderAnalysisResult.AfsReply.AfsFactorCode
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|A|Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses|Cybersource|
+|B|BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão|Cybersource|
+|C|Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses|Cybersource|
+|D|Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado|Cybersource|
+|E|Lista positiva. O cliente está na sua lista positiva|Cybersource|
+|F|Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa|Cybersource|
+|G|Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito|Cybersource|
+|H|Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses|Cybersource|
+|I|Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança|Cybersource|
+|N|Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma|Cybersource|
+|O|Obscenidades. Dados do cliente contém palavras obscenas|Cybersource|
+|P|Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefones estão ligados a um número de conta única|Cybersource|
+|Q|Inconsistências do telefone. O número de telefone do cliente é suspeito|Cybersource|
+|R|Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco|Cybersource|
+|T|Cobertura Time. O cliente está a tentar uma compra fora do horário esperado|Cybersource|
+|U|Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado|Cybersource|
+|V|O cartão foi usado muitas vezes nos últimos 15 minutos|Cybersource|
+|W|Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito|Cybersource|
+|Y|O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam|Cybersource|
+|Z|Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias|Cybersource|
+
+## Tabela 26 - ProviderAnalysisResult.AfsReply.CardAccountType
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|CN|Cartão privado|Cybersource|
+|CP|Cartão corporativo|Cybersource|
+
+## Tabela 27 - ProviderAnalysisResult.AfsReply.HotListInfoCode
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|CON-POSNEG|A ordem disparada bate tanto com a lista positiva e negativa. O resultado da lista positiva sobrescreve a lista negativa|Cybersource|
+|NEG-BA|O endereço de cobrança está na lista negativa|Cybersource|
+|NEG-BCO|O país do endereço de cobrança está na lista negativa|Cybersource|
+|NEG-BIN|O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista negativa|Cybersource|
+|NEG-BINCO|O país em que o cartão de crédito foi emitido está na lista negativa|Cybersource|
+|NEG-BZC|O código postal do endereço de cobrança está na lista negativa|Cybersource|
+|NEG-CC|O número de cartão de crédito está na lista negativa|Cybersource|
+|NEG-EM|O endereço de e-mail está na lista negativa|Cybersource|
+|NEG-EMCO|O país em que o endereço de e-mail está localizado na lista negativa|Cybersource|
+|NEG-EMDOM|O domínio de e-mail (por exemplo, mail.example.com) está na lista negativa|Cybersource|
+|NEG-FP|O device fingerprint está na lista negativa|Cybersource|
+|NEG-HIST|A transação foi encontrada na lista negativa|Cybersource|
+|NEG-ID|Identificador do cliente (CPF ou CNPJ) está na lista negativa|Cybersource|
+|NEG-IP|O endereço IP (por exemplo, 10.1.27.63) está na lista negativa|Cybersource|
+|NEG-IP3|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista negativa. Um endereço de IP da rede inclui até 256 endereços IP|Cybersource|
+|NEG-IPCO|O país em que o endereço IP está localizado está na lista negativa|Cybersource|
+|NEG-PEM|O endereço de e-mail do passageiro está na lista negativa|Cybersource|
+|NEG-PH|O número do telefone está na lista negativa|Cybersource|
+|NEG-PID|Identificador do passageiro está na lista negativa|Cybersource|
+|NEG-PPH|O número do telefone do passageiro está na lista negativa|Cybersource|
+|NEG-SA|O endereço de entrega está na lista negativa|Cybersource|
+|NEG-SCO|O país do endereço de entrega está na lista negativa|Cybersource|
+|NEG-SZC|O código postal do endereço de entrega está na lista negativa|Cybersource|
+|POS-TEMP|O cliente está temporariamente na lista positiva|Cybersource|
+|POS-PERM|O cliente está permanente na lista positiva|Cybersource|
+|REV-BA|O endereço de cobrança esta na lista de revisão|Cybersource|
+|REV-BCO|O país do endereço de cobrança está na lista de revisão|Cybersource|
+|REV-BIN|O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista de revisão|Cybersource|
+|REV-BINCO|O país em que o cartão de crédito foi emitido está na lista de revisão|Cybersource|
+|REV-BZC|O código postal do endereço de cobrança está na lista de revisão|Cybersource|
+|REV-CC|O número do cartão de crédito está na lista de revisão|Cybersource|
+|REV-EM|O endereço de e-mail está na lista de revisão|Cybersource|
+|REV-EMCO|O país em que o endereço de e-mail está localizado está na lista de revisão|Cybersource|
+|REV-EMDOM|O domínio de e-mail (por exemplo, mail.example.com) está na lista de revisão|Cybersource|
+|REV-FP|O device fingerprint está na lista de revisão|Cybersource|
+|REV-ID|Identificador do cliente (CPF ou CNPJ) está na lista de revisão|Cybersource|
+|REV-IP|O endereço IP (por exemplo, 10.1.27.63) está na lista de revisão|Cybersource|
+|REV-IP3|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista de revisão. Um endereço de IP da rede inclui até 256 endereços IP|Cybersource|
+|REV-IPCO|O país em que o endereço IP está localizado está na lista de revisão|Cybersource|
+|REV-PEM|O endereço de e-mail do passageiro está na lista de revisão|Cybersource|
+|REV-PH|O número do telefone está na lista de revisão|Cybersource|
+|REV-PID|Identificador do passageiro está na lista de revisão|Cybersource|
+|REV-PPH|O número do telefone do passageiro está na lista de revisão|Cybersource|
+|REV-SA|O endereço de entrega está na lista de revisão|Cybersource|
+|REV-SCO|O país do endereço de entrega está na lista de revisão|Cybersource|
+|REV-SZC|O código postal do endereço de entrega está na lista de revisão|Cybersource|
