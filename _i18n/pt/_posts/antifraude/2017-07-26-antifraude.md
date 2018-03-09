@@ -2380,3 +2380,110 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |REV-SA|O endereço de entrega está na lista de revisão|Cybersource|
 |REV-SCO|O país do endereço de entrega está na lista de revisão|Cybersource|
 |REV-SZC|O código postal do endereço de entrega está na lista de revisão|Cybersource|
+
+## Tabela 28 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|MORPH-B|O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
+|MORPH-C|O mesmo cartão de crédito tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
+|MORPH-E|O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
+|MORPH-I|O mesmo endereço IP tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
+|MORPH-P|O mesmo número de telefone tem sido usado várias vezes com identidades de múltiplos clientes|Cybersource|
+|MORPH-S|O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
+
+## Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|FREE-EM|O endereço de e-mail do cliente é de um provedor de e-mail gratuito|Cybersource|
+|INTL-IPCO|O país do endereço de e-mail do cliente está fora dos EUA|Cybersource|
+|INV-EM|O endereço de e-mail do cliente é inválido|Cybersource|
+|MM-EMBCO|O domínio do endereço de e-mail do cliente não é consistente com o país do endereço de cobrança|Cybersource|
+|MM-IPBC|O endereço de e-mail do cliente não é consistente com a cidade do endereço de cobrança|Cybersource|
+|MM-IPBCO|O endereço de e-mail do cliente não é consistente com o país do endereço de cobrança|Cybersource|
+|MM-IPBST|O endereço IP do cliente não é consistente com o estado no endereço de cobrança. No entanto, este código de informação não pode ser devolvido quando a inconsistência é entre estados imediatamente  adjacentes|Cybersource|
+|MM-IPEM|O endereço de e-mail do cliente não é consistente com o endereço IP|Cybersource|
+|RISK-EM|O domínio do e-mail do cliente (por exemplo, mail.example.com) está associado com alto risco|Cybersource|
+|UNV-NID|O endereço IP do cliente é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP|Cybersource|
+|UNV-RI400SK|O endereço IP é de origem de risco|Cybersource|
+|UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|Cybersource|
+
+## Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|MM-ACBST|O número de telefone do cliente não é consistente com o estado no endereço de cobrança|Cybersource|
+|RISK-AC|O código de área do cliente está associado com risco alto|Cybersource|
+|RISK-PH|O número de telefone dos EUA. ou do Canadá é incompleto, ou uma ou mais partes do número são arriscadas|Cybersource|
+|TF-AC|O número do telefone utiliza um código de área toll-free (grátis)|Cybersource|
+|UNV-AC|O código de área é inválido|Cybersource|
+|UNV-OC|O código de área e/ou o prefixo de telefone são/é inválido|Cybersource|
+|UNV-PH|O número do telefone é inválido|Cybersource|
+
+## Tabela 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|BAD-FP|O dispositivo é arriscado|Cybersource|
+|INTL-BIN|O cartão de crédito foi emitido fora dos EUA|Cybersource|
+|MM-TZTLO|Fuso horário do dispositivo é incompatível com os fusos horários do país|Cybersource|
+|MUL-EM|O cliente tem usado mais de quatro endereços de e-mail diferentes|Cybersource|
+|NON-BC|A cidade do endereço de cobrança é sem sentido|Cybersource|
+|NON-FN|O primeiro nome do cliente é sem sentido|Cybersource|
+|NON-LN|O último nome do cliente é sem sentido|Cybersource|
+|OBS-BC|A cidade do endereço de cobrança contem obscenidades|Cybersource|
+|OBS-EM|O endereço de e-mail contem obscenidades|Cybersource|
+|RISK-AVS|O resultado do combinado do teste AVS e endereço de cobrança normalizado são arriscados, o resultado AVS indica uma correspondência exata, mas o endereço de cobrança não é entregável|Cybersource|
+|RISK-BC|A cidade do endereço de cobrança possui caracteres repetidos|Cybersource|
+|RISK-BIN|No passado, este BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) mostrou uma elevada incidência de fraude|Cybersource|
+|RISK-DEV|Algumas das características do dispositivo são arriscadas|Cybersource|
+|RISK-FN|Nome e último nome do cliente contêm combinações de letras improváveis|Cybersource|
+|RISK-LN|Nome do meio ou último nome do cliente contêm combinações de letras improváveis|Cybersource|
+|RISK-PIP|O endereço IP do proxy é arriscado|Cybersource|
+|RISK-SD|A inconsistência nos países dos endereços cobrança e entrega é arriscada|Cybersource|
+|RISK-TB|O dia e a hora da ordem associada ao endereço de cobrança é arriscado|Cybersource|
+|RISK-TIP|O verdadeiro endereço IP é arriscado|Cybersource|
+|RISK-TS|O dia e a hora da ordem associada ao endereço de entrega é arriscado|Cybersource|
+
+## Tabela 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|VEL-ADDR|Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email|Cybersource|
+|VEL-CC|Diferentes números de cartões de créditos foram usados várias vezes com o mesmo nome ou endereço de email|Cybersource|
+|VEL-NAME|Diferentes nomes foram usados várias vezes com o mesmo número do cartão de crédito e/ou endereço de email|Cybersource|
+|VELS-CC|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
+|VELI-CC|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
+|VELL-CC|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
+|VELV-CC|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
+|VELS-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
+|VELI-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
+|VELL-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
+|VELV-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
+|VELS-FP|O device fingerprint tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
+|VELI-FP|O device fingerprint tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
+|VELL-FP|O device fingerprint tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
+|VELV-FP|O device fingerprint tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
+|VELS-IP|O endereço IP tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
+|VELI-IP|O endereço IP tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
+|VELL-IP|O endereço IP tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
+|VELV-IP|O endereço IP tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
+|VELS-SA|O endereço de entrega tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
+|VELI-SA|O endereço de entrega tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
+|VELL-SA|O endereço de entrega tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
+|VELV-SA|O endereço de entrega tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
+|VELS-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
+|VELI-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
+|VELL-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
+
+## Tabela 31 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
+|Valor|Provider|
+|:-|:-|
+|ACCEPT|Cybersource|
+|ERROR|Cybersource|
+|REJECT|Cybersource|
+|REVIEW|Cybersource|
+
+## Tabela 32 - |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|T|A regra é verdadeira|Cybersource|
+|F|A regra é falsa|Cybersource|
+|N|A regra não pode ser avaliada porque os dados são insuficientes|Cybersource|
+|E|A regra não pode ser avaliada porque ocorreu um erro|Cybersource|
