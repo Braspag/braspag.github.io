@@ -133,6 +133,8 @@ g)    O consentimento expresso do usuário/cliente para envio à **CONTRATADA** 
 
 - 5.2.1 – A **CONTRATANTE** não poderá realizar pagamentos em contas correntes de terceiros, ainda que pertencentes ao mesmo grupo econômico da **CONTRATADA**, sendo certo que não serão aceitos pela **CONTRATADA** pagamentos mediante cheque, dinheiro ou qualquer outra forma que não expressa e previamente acordada com a **CONTRATADA**.
 
+<br>
+
 5.3 – Os serviços serão faturados pela **CONTRATADA**, com a emissão de nota fiscal por qualquer de suas unidades, no mês subsequente à sua utilização e deverão ser pagos pela **CONTRATANTE** no vencimento previsto na Proposta Comercial.
 
 5.4 – O não atendimento pela **CONTRATADA** de quaisquer condições de emissão da nota fiscal/fatura prevista no item 6.3 acima, no que se refere à emissão correta dos documentos de cobrança, reservará à **CONTRATANTE** o direito de, no prazo de 02 (dois) dias corridos do seu recebimento, devolver os referidos documentos para a **CONTRATADA** para que sejam reemitidos, com a prorrogação do prazo de vencimento.
@@ -169,11 +171,11 @@ g)    O consentimento expresso do usuário/cliente para envio à **CONTRATADA** 
 
 7.5 – Além de outros casos porventura previstos, poderão as partes rescindir o presente Contrato de pleno direito, sem incidência de qualquer penalidade, nas seguintes hipóteses:
 
-a)     Notória insolvência ou decretação de falência ou recuperação judicial da outra parte;
+a) Notória insolvência ou decretação de falência ou recuperação judicial da outra parte;
 
-b)     Ocorrência de força maior ou caso fortuito que impossibilite o cumprimento do objeto do presente Contrato;
+b) Ocorrência de força maior ou caso fortuito que impossibilite o cumprimento do objeto do presente Contrato;
 
-c)     O ajuizamento de qualquer ação contra a outra parte que afete sua credibilidade ou idoneidade.
+c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibilidade ou idoneidade.
 
 7.6 – A Parte inocente poderá também optar pela rescisão deste Contrato por qualquer infração das cláusulas ou condições deste Contrato, dos Anexos e/ou da Proposta Comercial pela outra parte, não sanadas no prazo de 10 (dez) dias contados do recebimento da notificação pela parte prejudicada. Neste caso, a parte faltosa deverá pagar à parte prejudicada multa não compensatória correspondente a 3 (três) vezes a “Tarifa mínima mensal” mínimos mensais de todos os serviços contratados, além de indenização pelas perdas e danos decorrentes de tal rescisão.
 
@@ -184,6 +186,8 @@ c)     O ajuizamento de qualquer ação contra a outra parte que afete sua credi
 8.1 – O presente instrumento oferece somente direito de uso não exclusivo e temporário do(s) serviço(s) contratado(s), não transmitindo à **CONTRATANTE** e/ou aos seus usuários/clientes quaisquer direitos sobre eventuais melhorias e/ou propriedade intelectual.
  
 - 8.1.1 – A **CONTRATANTE** reconhece e concorda que a **CONTRATADA** será a titular legítima e exclusiva de todos e quaisquer produtos e/ou resultados dos serviços prestados para a **CONTRATANTE** sob este Contrato, incluindo, mas não se limitando a processos, desenhos, fórmulas, trabalhos experimentais ou de desenvolvimento, estratégias, programas de computador, métodos, bases de dados, sistemas, equipamentos, estudos, relatórios, produtos, análises, planos publicitários, planejamento de mídia, campanhas e materiais publicitários, ações de marketing e de todos e quaisquer direitos de propriedade intelectual relativos aos frutos, produtos e resultados dos serviços, incluindo, mas sem limitação, patentes, direitos autorais e marcas.
+
+<br>
 
 8.2 – A **CONTRATANTE** compromete-se a não excluir ou de qualquer forma alterar as notas relativas aos direitos de autor, marcas comerciais e outros avisos de direitos de propriedade que aparecem nas plataformas do(s) serviço(s), seja na documentação, dados e/ou qualquer outro tipo de informação disponibilizada à **CONTRATANTE**.
 
@@ -231,6 +235,8 @@ c)     O ajuizamento de qualquer ação contra a outra parte que afete sua credi
 
 - 11.1.1 – O limite total de indenização anual para quaisquer danos advindos de eventual descumprimento de responsabilidade das Partes não poderá ultrapassar o valor equivalente à soma das 3 (três) últimas faturas. O limite indenizatório anual considerará a vigência contratual e não o ano calendário, bem como não se acumula de um ano para o outro e se aplica ao conjunto de todas as reclamações, penalidades, ações e causas de qualquer tipo ou natureza.
 
+<br>
+
 11.2 – Não obstante a cláusula acima, as Partes não serão responsáveis pelos lucros cessantes, perda de receita, perda de produção, perda de contratos e perdas de faturamento ou perdas econômicas da parte prejudicada, bem como por prejuízos sofridos por terceiros.
 
 11.3 – As partes reconhecem e aceitam que os parâmetros de responsabilidade aqui estabelecidos representam o acordo final com relação ao objeto do presente, tendo-se tomado em consideração o nível de risco para cada uma das partes, associado com a execução ou não execução de suas obrigações contratuais e os pagamentos e outros benefícios a serem obtidos por cada uma delas em decorrência deste Contrato, ficando claro que as indenizações referir-se-ão sempre a danos, diretos e materiais, cuja ocorrência tenha nexo causal entre a ação e/ou omissão, por culpa e/ou dolo, da parte causadora e o prejuízo sofrido pela outra parte. 
@@ -238,6 +244,8 @@ c)     O ajuizamento de qualquer ação contra a outra parte que afete sua credi
 11.4 – As Partes declaram ter ciência que os serviços prestados pela **CONTRATADA** sob a égide deste Contrato podem depender de serviços de empresas sub**CONTRATADA**s, bem como de softwares sublicenciados. A prestação de serviços por empresas sub**CONTRATADA**s independe de autorização da **CONTRATANTE** e a responsabilidade da **CONTRATADA** por tais serviços será limitada de acordo com o indicado no item 12.4.1 a seguir. 
 
 - 11.4.1 – O limite total de indenização anual para quaisquer danos advindos de eventual descumprimento de responsabilidade das Partes não poderá ultrapassar: (i) o valor equivalente à soma das 3 (três) últimas faturas; ou (ii) o valor da indenização recebida pela **CONTRATADA** das empresas sub**CONTRATADA**s, para os casos nos quais os serviços sejam prestados parcial ou integralmente por referidas empresas. Dentre os dois limites de indenização acima, a **CONTRATADA** pagará somente o que for menor. O limite indenizatório anual considerará a vigência contratual e não o ano calendário, bem como não se acumula de um ano para o outro e se aplica ao conjunto de todas as reclamações, penalidades, ações e causas de qualquer tipo ou natureza.
+
+<br>
 
 11.5 – A limitação de responsabilidade prevista neste capítulo não será aplicável nas seguintes hipóteses: (i) quando qualquer das partes agir com dolo devidamente comprovado em juízo, (ii) quando qualquer das partes cometer crimes decorrentes de violação de propriedade intelectual, e crimes de corrupção previstos na Lei n.º 12.846/13 mediante ação judicial transitada em julgado, e (iii) quaisquer despesas oriundas de reclamações trabalhistas ou medidas judiciais ou extrajudiciais movidas por funcionários da **CONTRATADA** em face da **CONTRATANTE** e vice-versa.
 
@@ -275,10 +283,6 @@ c)     O ajuizamento de qualquer ação contra a outra parte que afete sua credi
 
 14.1 – As partes elegem o Foro da Comarca da Capital do Estado de São Paulo como único competente para dirimir eventuais questões oriundas deste instrumento, com expressa renúncia a qualquer outro, por mais privilegiado que seja.
 
-São Paulo,  2017.
-
-BRASPAG TECNOLOGIA EM PAGAMENTO LTDA. 
-
 # ANEXO I – Pagamentos
 
 ## 1ª – Objeto
@@ -302,7 +306,7 @@ BRASPAG TECNOLOGIA EM PAGAMENTO LTDA.
 3.1 – A **CONTRATADA** se compromete a manter o SLA de 99,9% do tempo de processamento das transações sob pena de multa de acordo com a tabela abaixo:
 
 | % de tempo mensal com interrupção do processamento das transações,Penalidade a ser observada | Penalidade a ser observada                                                                    |   
-|----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+|:--------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|
 | Acima de 1,5% a 1,9% das horas mensais com serviço indisponível                              | Desconto de valor equivalente a 25% da “Tarifa mínima mensal” prevista na Proposta Comercial  |
 | 1,91% a 2,7% das horas mensais com serviço indisponível                                      | Desconto de valor equivalente a 50% da “Tarifa mínima mensal” prevista na Proposta Comercial  |
 | 2,71% a 4,0% das horas mensais com serviço indisponível                                      | Desconto de valor equivalente a 75% da “Tarifa mínima mensal” prevista na Proposta Comercial  |
@@ -360,31 +364,23 @@ c) Atualizações e correções do sistema quando necessário, a critério exclu
 
 2.4 – A **CONTRATANTE** poderá requisitar a inclusão dos serviços sob demanda abaixo discriminados, conforme constante na Proposta Comercial:
 
-2.4.1 – Gerenciamento de Revisão Manual
+- 2.4.1 – Gerenciamento de Revisão Manual
+ - Análise dos pedidos sinalizados pelo **ANTIFRAUDE** com a necessidade de nova revisão para aprovação e processamento posterior ou rejeição de tais pedidos;
+ - A **CONTRATANTE** está ciente e concorda que o serviço de Gerenciamento de Revisão Manual será executado pela equipe da empresa terceira designada em contrato;
+ - A **CONTRATANTE** autoriza a equipe de revisão manual a entrar em contato direto, caso seja necessário, com o usuário final, para fins de validação da identidade ou qualquer informação necessária e garante que tal contato não irá violar os termos de uso, políticas de privacidade ou outras políticas do cliente; 
+ - Caso um pedido seja sinalizado para Revisão Manual pelo **ANTIFRAUDE**, será determinado se o pedido deverá ser liberado para processamento ou rejeitado em até 02 (dois) dias do recebimento do pedido pelo **ANTIFRAUDE**. Em complemento ao acima disposto, caso o pedido envolva entrega expressa, serão empreendidos esforços razoáveis para determinar no mesmo dia se um pedido deve ser liberado para processamento ou rejeitado através do **ANTIFRAUDE**, mas não haverá qualquer obrigação da **CONTRATADA** quanto a tal prazo; 
+ - A **CONTRATANTE** concorda que é inteiramente responsável por auxiliar todos os usuários que tiverem seus pedidos rejeitados e também pelo tratamento dos **CHARGEBACKS**; 
 
-<br>
-
-- Análise dos pedidos sinalizados pelo **ANTIFRAUDE** com a necessidade de nova revisão para aprovação e processamento posterior ou rejeição de tais pedidos;
-- A **CONTRATANTE** está ciente e concorda que o serviço de Gerenciamento de Revisão Manual será executado pela equipe da empresa terceira designada em contrato;
-- A **CONTRATANTE** autoriza a equipe de revisão manual a entrar em contato direto, caso seja necessário, com o usuário final, para fins de validação da identidade ou qualquer informação necessária e garante que tal contato não irá violar os termos de uso, políticas de privacidade ou outras políticas do cliente; 
-- Caso um pedido seja sinalizado para Revisão Manual pelo **ANTIFRAUDE**, será determinado se o pedido deverá ser liberado para processamento ou rejeitado em até 02 (dois) dias do recebimento do pedido pelo **ANTIFRAUDE**. Em complemento ao acima disposto, caso o pedido envolva entrega expressa, serão empreendidos esforços razoáveis para determinar no mesmo dia se um pedido deve ser liberado para processamento ou rejeitado através do **ANTIFRAUDE**, mas não haverá qualquer obrigação da **CONTRATADA** quanto a tal prazo; 
-- A **CONTRATANTE** concorda que é inteiramente responsável por auxiliar todos os usuários que tiverem seus pedidos rejeitados e também pelo tratamento dos **CHARGEBACKS**; 
-
-2.4.2 – Consultoria de Risco
-
-<br>
-
-- Treinamento, consultoria e configuração do **ANTIFRAUDE**, incluindo regras customizadas, regras da biblioteca, relatórios, ambientes de testes e implementação;
-- Suporte interfuncional dos especialistas no produto, risco e assuntos técnicos, visando apoiar a integração do **ANTIFRAUDE** ao modo de produção;
-- Análises e recomendações relativas à atual estratégia de risco e o processo de negócio relacionado a essa estratégia, incluindo melhores práticas para a revisão manual de pedidos, aceitação, rejeição e gestão de fraude;
-- Definição dos perfis de revisão e regras necessários para o  **ANTIFRAUDE**;
-- Introdução e avaliação do serviço consultoria de risco para análise de desempenho e relatórios, identificando e comparando as métricas-chave de desempenho associados com a conversão de ordem, a taxa de fraude e da produtividade;
-- Atualizações para a configuração da estratégia antifraude, na medida do necessário, para as regras do **ANTIFRAUDE** incluindo ajustes para revisões situacionais, sazonais ou direcionadas a produtos;
-- O acesso ao analista de serviços gerenciados para consultas será disponibilizado de segunda a sexta-feira, das 9h00 às 17h00, horário de Brasília, exceto feriados;
-
-- A **CONTRATANTE** concorda com a estratégia apresentada pelo consultor de risco contratado, sendo que qualquer modificação nas configurações da **FERRAMENTA ANTIFRAUDE** feitas pela **CONTRATANTE** deverão ser comunicadas e discutidas previamente antes de serem ativadas em produção. A **CONTRATANTE** está ciente que a não comunicação de eventuais mudanças poderá impactar no desempenho da **FERRAMENTA ANTIFRAUDE**;
-
-- A **CONTRATANTE** está ciente e concorda que o serviço de consultoria de risco será executado pela empresa terceira designada na Proposta Comercial.
+- 2.4.2 – Consultoria de Risco
+ - Treinamento, consultoria e configuração do **ANTIFRAUDE**, incluindo regras customizadas, regras da biblioteca, relatórios, ambientes de testes e implementação;
+ - Suporte interfuncional dos especialistas no produto, risco e assuntos técnicos, visando apoiar a integração do **ANTIFRAUDE** ao modo de produção;
+ - Análises e recomendações relativas à atual estratégia de risco e o processo de negócio relacionado a essa estratégia, incluindo melhores práticas para a revisão manual de pedidos, aceitação, rejeição e gestão de fraude;
+ - Definição dos perfis de revisão e regras necessários para o  **ANTIFRAUDE**;
+ - Introdução e avaliação do serviço consultoria de risco para análise de desempenho e relatórios, identificando e comparando as métricas-chave de desempenho associados com a conversão de ordem, a taxa de fraude e da produtividade;
+ - Atualizações para a configuração da estratégia antifraude, na medida do necessário, para as regras do **ANTIFRAUDE** incluindo ajustes para revisões situacionais, sazonais ou direcionadas a produtos;
+ - O acesso ao analista de serviços gerenciados para consultas será disponibilizado de segunda a sexta-feira, das 9h00 às 17h00, horário de Brasília, exceto feriados;
+ - A **CONTRATANTE** concorda com a estratégia apresentada pelo consultor de risco contratado, sendo que qualquer modificação nas configurações da **FERRAMENTA ANTIFRAUDE** feitas pela **CONTRATANTE** deverão ser comunicadas e discutidas previamente antes de serem ativadas em produção. A **CONTRATANTE** está ciente que a não comunicação de eventuais mudanças poderá impactar no desempenho da **FERRAMENTA ANTIFRAUDE**;
+ - A **CONTRATANTE** está ciente e concorda que o serviço de consultoria de risco será executado pela empresa terceira designada na Proposta Comercial.
 
 ## 3ª – Disposições específicas do serviço
 
@@ -421,21 +417,16 @@ c) Atualizações e correções do sistema quando necessário, a critério exclu
 
 1.1 – Para perfeito entendimento e interpretação deste Anexo, são adotados os termos abaixo, cujas definições serão usadas no singular ou no plural, conforme seja o caso.
 
-**PROCESSADORAS** – Instituições responsáveis pela autorização e depósito de vendas com cartão de crédito.
-
-**BANCO** – Bancos comerciais brasileiros
-
-**EXTRATO** – Arquivo gerado pelas **PROCESSADORAS** e **BANCOS** para informar aos seus clientes o saldo das vendas realizadas em um período de tempo específico.
-
-**ARQUIVO DE VENDAS** – Registro de vendas compilado pela **CONTRATANTE** para comparação com os **EXTRATOS**.
-
-**CONCILIADOR** – Ferramenta da **CONTRATADA** que fará automaticamente e diariamente a comparação entre os **EXTRATOS** e o **ARQUIVO DE VENDAS** da **CONTRATANTE**
-
-**EVENTOS** – Informações financeiras que constituem os **EXTRATOS**.
-
-**FLUXO DE CAIXA** – Relatório produzido pelo **CONCILIADOR** após comparação entre **EXTRATOS e ARQUIVOS DE VENDAS**.
-
-**PAGADOR** – Gateway de pagamentos do Serviço de Pagamentos fornecido pela **CONTRATADA**.
+|         Termo         | Definições                                                                                                                                           |
+|:---------------------:|------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **PROCESSADORAS**   | Instituições responsáveis pela autorização e depósito de vendas com cartão de crédito                                                                |
+|       **BANCO**       | Bancos comerciais brasileiros                                                                                                                        |
+|      **EXTRATO**      | Arquivo gerado pelas **PROCESSADORAS** e **BANCOS** para informar aos seus clientes o saldo das vendas realizadas em um período de tempo específico  |
+| **ARQUIVO DE VENDAS** | Registro de vendas compilado pela **CONTRATANTE** para comparação com os **EXTRATOS**.                                                               |
+|    **CONCILIADOR**    | Ferramenta da **CONTRATADA** que fará automaticamente e diariamente a comparação entre os **EXTRATOS** e o **ARQUIVO DE VENDAS** da **CONTRATANTE**  |
+|      **EVENTOS**      | Informações financeiras que constituem os **EXTRATOS**                                                                                               |
+|   **FLUXO DE CAIXA**  | Relatório produzido pelo **CONCILIADOR** após comparação entre **EXTRATOS** e **ARQUIVOS DE VENDAS**                                                 |
+|      **PAGADOR**      | Gateway de pagamentos do Serviço de Pagamentos fornecido pela **CONTRATADA**                                                                         |
 
 ## 2ª – Objeto e disposições específicas do serviço
 
