@@ -129,6 +129,10 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
   "Provider": "RedShield",
   "OrderDate": "2016-12-09 12:35:58.852",
   "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+  "Tid": "12345678910111216AB8",
+  "Nsu": "951852",
+  "AuthorizationCode":"T12345",
+  "SaleDate": "2016-12-09 10:01:55.662",
   "SplitingPaymentMethod": "None",
   "IsRetryTransaction": false,
   "Card": {
@@ -279,7 +283,11 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|-|-|
 |`Provider`|Provedor da solução de antifraude - [Tabela 1 - Provider](https://braspag.github.io//manual/antifraude#tabela-1-provider)|enum|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|
-|`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|não|-|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|não|-|
+|`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|20|
+|`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|10|
+|`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `SaleDate`, além deste em questão|string|não|10|
+|`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `AuthorizationCode`, além deste em questão|datetime|não|-|
 |`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento - [Tabela 2 - SplitingPaymentMethod](https://braspag.github.io/manual/antifraude#tabela-2-splitingpaymentmethod)|enum|-|-|
 |`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|bool|não|-|
 |`Card.Number`|Número do cartão de crédito|string|sim|19|
@@ -430,6 +438,10 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
   "Provider": "Cybersource",
   "OrderDate": "2016-12-09 12:35:58.852",
   "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+  "Tid": "12345678910111216AB8",
+  "Nsu": "951852",
+  "AuthorizationCode":"T12345",
+  "SaleDate": "2016-12-09 10:01:55.662",
   "Card": {
     "Number" : "4444555566667777",
     "Holder": "Holder Name",
@@ -575,7 +587,11 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Currency`|Moeda - Tabela 1|enum|-|-|
 |`Provider`|Provedor da solução de antifraude - Tabela 2|enum|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|
-|`BraspagTransactionId`|Id da transação no Pagador da Braspag.|guid|não|-|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|não|-|
+|`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|20|
+|`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|10|
+|`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `SaleDate`, além deste em questão|string|não|10|
+|`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `AuthorizationCode`, além deste em questão|datetime|não|-|
 |`Card.Number`|Número do cartão de crédito|string|sim|20|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|50|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
