@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-09T15:31:38+00:00</updated>
+    <updated>2018-03-09T15:47:10+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -31573,7 +31573,31 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-9---airlinepassengersnpassengertype&quot;&gt;Tabela 9 - Airline.Passengers[n].PassengerType&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-9---airlinejourneytype&quot;&gt;Tabela 9 - Airline.JourneyType&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;OneWayTrip&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Viagem somente de ida&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;RoundTrip&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Viagem de ida e volta&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;tabela-10---airlinepassengersnpassengertype&quot;&gt;Tabela 10 - Airline.Passengers[n].PassengerType&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31622,7 +31646,32 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-10---cartitemnrisk&quot;&gt;Tabela 10 - CartItem[n].Risk&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-11---airlinepassengersnstatus&quot;&gt;Tabela 11 - Airline.Passengers[n].Status&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Standard&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Gold&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Platinum&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;tabela-12---cartitemnrisk&quot;&gt;Tabela 12 - CartItem[n].Risk&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31651,7 +31700,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-11---cartitemnaddressriskverify&quot;&gt;Tabela 11 - CartItem[n].AddressRiskVerify&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-13---cartitemnaddressriskverify&quot;&gt;Tabela 13 - CartItem[n].AddressRiskVerify&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31680,7 +31729,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-12---cartitemnhosthedge&quot;&gt;Tabela 12 - CartItem[n].HostHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-14---cartitemnhosthedge&quot;&gt;Tabela 14 - CartItem[n].HostHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31714,7 +31763,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-13---cartitemnnonsensicalhedge&quot;&gt;Tabela 13 - CartItem[n].NonSensicalHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-15---cartitemnnonsensicalhedge&quot;&gt;Tabela 15 - CartItem[n].NonSensicalHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31748,7 +31797,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-14---cartitemnobscenitieshedge&quot;&gt;Tabela 14 - CartItem[n].ObscenitiesHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-16---cartitemnobscenitieshedge&quot;&gt;Tabela 16 - CartItem[n].ObscenitiesHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31782,7 +31831,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-15---cartitemntimehedge&quot;&gt;Tabela 15 - CartItem[n].TimeHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-17---cartitemntimehedge&quot;&gt;Tabela 17 - CartItem[n].TimeHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31816,7 +31865,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-16---cartitemnphonehedge&quot;&gt;Tabela 16 - CartItem[n].PhoneHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-18---cartitemnphonehedge&quot;&gt;Tabela 18 - CartItem[n].PhoneHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31850,7 +31899,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-17---cartitemnvelocityhedge&quot;&gt;Tabela 17 - CartItem[n].VelocityHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-19---cartitemnvelocityhedge&quot;&gt;Tabela 19 - CartItem[n].VelocityHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31879,6 +31928,60 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Off&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Não irão afetar o score da análise de fraude&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;tabela-20---invoicetender&quot;&gt;Tabela 20 - Invoice.Tender&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Consumer&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cartão de crédito pessoal (default)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CorporateCartão de crédito corporativo&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Debit&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cartão de débito&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CollectDelivery&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cobrança na entrega&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;EletronicCheck&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cheque eletrônico&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;PaymentP2P&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Pagamento de pessoa para pessoa&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;PrivateLabel&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Pagamento com cartão de crédito privado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Other&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Pagamentos com outros métodos&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;

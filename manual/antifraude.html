@@ -6290,7 +6290,31 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-9---airlinepassengersnpassengertype">Tabela 9 - Airline.Passengers[n].PassengerType</h2>
+<h2 id="tabela-9---airlinejourneytype">Tabela 9 - Airline.JourneyType</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">OneWayTrip</td>
+      <td style="text-align: left">Viagem somente de ida</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RoundTrip</td>
+      <td style="text-align: left">Viagem de ida e volta</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-10---airlinepassengersnpassengertype">Tabela 10 - Airline.Passengers[n].PassengerType</h2>
 
 <table>
   <thead>
@@ -6339,7 +6363,32 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-10---cartitemnrisk">Tabela 10 - CartItem[n].Risk</h2>
+<h2 id="tabela-11---airlinepassengersnstatus">Tabela 11 - Airline.Passengers[n].Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Standard</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Gold</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Platinum</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-12---cartitemnrisk">Tabela 12 - CartItem[n].Risk</h2>
 
 <table>
   <thead>
@@ -6368,7 +6417,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-11---cartitemnaddressriskverify">Tabela 11 - CartItem[n].AddressRiskVerify</h2>
+<h2 id="tabela-13---cartitemnaddressriskverify">Tabela 13 - CartItem[n].AddressRiskVerify</h2>
 
 <table>
   <thead>
@@ -6397,7 +6446,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-12---cartitemnhosthedge">Tabela 12 - CartItem[n].HostHedge</h2>
+<h2 id="tabela-14---cartitemnhosthedge">Tabela 14 - CartItem[n].HostHedge</h2>
 
 <table>
   <thead>
@@ -6431,7 +6480,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-13---cartitemnnonsensicalhedge">Tabela 13 - CartItem[n].NonSensicalHedge</h2>
+<h2 id="tabela-15---cartitemnnonsensicalhedge">Tabela 15 - CartItem[n].NonSensicalHedge</h2>
 
 <table>
   <thead>
@@ -6465,7 +6514,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-14---cartitemnobscenitieshedge">Tabela 14 - CartItem[n].ObscenitiesHedge</h2>
+<h2 id="tabela-16---cartitemnobscenitieshedge">Tabela 16 - CartItem[n].ObscenitiesHedge</h2>
 
 <table>
   <thead>
@@ -6499,7 +6548,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-15---cartitemntimehedge">Tabela 15 - CartItem[n].TimeHedge</h2>
+<h2 id="tabela-17---cartitemntimehedge">Tabela 17 - CartItem[n].TimeHedge</h2>
 
 <table>
   <thead>
@@ -6533,7 +6582,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-16---cartitemnphonehedge">Tabela 16 - CartItem[n].PhoneHedge</h2>
+<h2 id="tabela-18---cartitemnphonehedge">Tabela 18 - CartItem[n].PhoneHedge</h2>
 
 <table>
   <thead>
@@ -6567,7 +6616,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-17---cartitemnvelocityhedge">Tabela 17 - CartItem[n].VelocityHedge</h2>
+<h2 id="tabela-19---cartitemnvelocityhedge">Tabela 19 - CartItem[n].VelocityHedge</h2>
 
 <table>
   <thead>
@@ -6596,6 +6645,60 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     <tr>
       <td style="text-align: left">Off</td>
       <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-20---invoicetender">Tabela 20 - Invoice.Tender</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Consumer</td>
+      <td style="text-align: left">Cartão de crédito pessoal (default)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CorporateCartão de crédito corporativo</td>
+      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Debit</td>
+      <td style="text-align: left">Cartão de débito</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CollectDelivery</td>
+      <td style="text-align: left">Cobrança na entrega</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EletronicCheck</td>
+      <td style="text-align: left">Cheque eletrônico</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PaymentP2P</td>
+      <td style="text-align: left">Pagamento de pessoa para pessoa</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PrivateLabel</td>
+      <td style="text-align: left">Pagamento com cartão de crédito privado</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Other</td>
+      <td style="text-align: left">Pagamentos com outros métodos</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
