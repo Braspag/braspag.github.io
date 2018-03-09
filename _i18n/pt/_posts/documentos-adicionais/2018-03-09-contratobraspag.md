@@ -280,7 +280,7 @@ São Paulo,  2017.
 BRASPAG TECNOLOGIA EM PAGAMENTO LTDA. 
 
 # ANEXO I – Pagamentos
- 
+
 ## 1ª – Objeto
 
 1.1 – O presente Anexo tem como objeto a prestação dos serviços, pela **CONTRATADA** à **CONTRATANTE**, do serviço de pagamentos, que tem como finalidade o processamento de transações pontuais por meio de uma única integração a diversos meios de pagamentos eletrônicos, com resposta em tempo real, e armazenagem de dados sensíveis de cartão, conforme descrito na Proposta Comercial.
@@ -327,9 +327,9 @@ BRASPAG TECNOLOGIA EM PAGAMENTO LTDA.
 5.1 – Fazem parte complementar ao presente Anexo, como se nele estivessem integralmente transcritos,  o Contrato de Prestação de Serviços e a Proposta Comercial encaminhada pela **CONTRATADA** à **CONTRATANTE**.
 
 # ANEXO II – Gestão de Risco
- 
+
 ## 1ª – Definições
- 
+
 1.1 – Para perfeito entendimento e interpretação deste Anexo, são adotados os termos abaixo, cujas definições serão usadas no singular ou no plural, conforme seja o caso.
 
 **E-COMMERCE** - Qualquer tipo de relação comercial de compra e venda de produtos e/ou serviços realizada por qualquer meio conectado a Internet tal como, mas não limitado a celular, computador, sistema de vendas por telefone.
@@ -416,7 +416,7 @@ c) Atualizações e correções do sistema quando necessário, a critério exclu
 4.1 – Fazem parte complementar ao presente Anexo, como se nele estivessem integralmente transcritos o Contrato de Prestação de Serviços e a Proposta Comercial encaminhada pela **CONTRATADA** à **CONTRATANTE**.
 
 # ANEXO III – Conciliação
- 
+
 ## 1ª – Definições
 
 1.1 – Para perfeito entendimento e interpretação deste Anexo, são adotados os termos abaixo, cujas definições serão usadas no singular ou no plural, conforme seja o caso.
