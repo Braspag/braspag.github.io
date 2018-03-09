@@ -367,28 +367,32 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ``` json
 {
-  "Id": "5f8a661c-00e0-e711-80c2-000d3a70dd7b",
-  "ProviderAnalysisResult": {
-    "ProviderRequestId": "8a82944a6045a46f01604fd26814233b",
-    "Result": {
-        "ProviderCode": "000.000.000",
-        "ProviderDescription": "Transaction succeeded"
-    },
-    "ResultDetails": {
-        "CSITransactionLink": "https://{redshield endpoint}/index.red#transactiondetail/000548000001XCJ20171213072118102",
-        "Status": "ACCEPT",
-        "ProviderTransactionId": "322066985634",
-        "ProviderResponseCode": "0150",
-        "ProviderOrderId": "000548000001XCJ20171213072118102"
-    },
-    "Ndc": "8a82941859d5969a0159db3f6ecc1418_5b9d6472570843d6b7e261d92827d361"
-  },
-  "Links": [{
-    "Method": "GET",
-    "Href": "https://{antifraude endpoint}/analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b",
-    "Rel": "Self"
-  }]
+   "TransactionId": "fdf8f357-a723-e811-80c3-0003ff21d83f",
+   "Status": "Accept",
+   "ProviderAnalysisResult": {
+       "ProviderRequestId": "8a829449620619e801620b31d1c85d5a",
+       "Result": {
+           "ProviderCode": "000.000.000",
+           "ProviderDescription": "Transaction succeeded"
+       },
+       "ResultDetails": {
+           "CSITransactionLink": "https://csi-stage.redworldwide.com/index.red#transactiondetail/000548000001XAR20180309093717761",
+           "ProviderStatus": "ACCEPT",
+           "ProviderTransactionId": "381069636258",
+           "ProviderResponseCode": "0150",
+           "ProviderOrderId": "000548000001XAR20180309093717761"
+       },
+       "Ndc": "8a82941859d5969a0159db3f6ecc1418_60d2e8536e244db2bf04146872b00d38"
+   },
+   "Links": [
+       {
+           "Method": "GET",
+           "Href": "http://localhost:1316/Analysis/v2/fdf8f357-a723-e811-80c3-0003ff21d83f",
+           "Rel": "Self"
+       }
+   ]
 }
+
 ```
 
 **Parâmetros no cabeçalho (Header)**
@@ -402,15 +406,16 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
+|`Status`|Status da transação no Antifraude Gateway Braspag|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido da ReDShield|string|
-|`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
+|`ProviderAnalysisResult.ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
 
 ## Analisando uma transação na Cybersource
 
