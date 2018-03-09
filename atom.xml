@@ -5,12 +5,507 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-09T18:45:13+00:00</updated>
+    <updated>2018-03-09T19:11:53+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Termos e condições de uso</title>
+        <category term="tutorial" />
+        <link href="https://braspag.github.io//tutorial/contratobraspag"/>
+        <updated>2018-03-09T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//tutorial/contratobraspag</id>
+        <content type="html">&lt;h1 id=&quot;contrato-de-prestação-de-serviços&quot;&gt;Contrato de Prestação de Serviços&lt;/h1&gt;
+
+&lt;p&gt;Pelo presente instrumento, &lt;strong&gt;BRASPAG – TECNOLOGIA EM PAGAMENTO LTDA.&lt;/strong&gt;, pessoa jurídica de direito privado, com sede na Capital do Estado de São Paulo, na Alameda Xingu, nº 512, 27° Andar, Alphaville, CEP: 06.455-911, inscrita no CNPJ/MF sob o nº 07.355.049/0001-06, representada nos termos de seus atos societários, doravante denominada &lt;strong&gt;CONTRATADA&lt;/strong&gt;, e a pessoa jurídica qualificada na Proposta Comercial, doravante denominada &lt;strong&gt;CONTRATANTE&lt;/strong&gt;;&lt;/p&gt;
+
+&lt;h2 id=&quot;considerando-que&quot;&gt;Considerando que&lt;/h2&gt;
+
+&lt;p&gt;I – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; é prestadora dos serviços descritos na Proposta Comercial e nos Anexos, sendo a única proprietária e titular destes serviços;&lt;/p&gt;
+
+&lt;p&gt;II – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; tem interesse na contratação do(s) serviço(s) oferecido(s) pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;;&lt;/p&gt;
+
+&lt;p&gt;III – O presente Contrato é complementado por Anexos, nos quais são definidas as condições específicas de cada um dos serviços oferecidos pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, bem como pela Proposta Comercial;&lt;/p&gt;
+
+&lt;p&gt;IV – A aceitação dos termos e condições do presente Contrato, de seus Anexos e da Proposta Comercial se dará pelo aceite na Proposta Comercial, que poderá ocorrer tanto de forma eletrônica como física.&lt;/p&gt;
+
+&lt;p&gt;Têm entre si, como justa e acordada, a celebração do presente Contrato de Prestação de Serviços (“Contrato”), nos seguintes termos e condições:&lt;/p&gt;
+
+&lt;h2 id=&quot;1ª---definições&quot;&gt;1ª - Definições&lt;/h2&gt;
+
+&lt;p&gt;1.1 – Para os efeitos deste Contrato, as palavras ou expressões abaixo mencionadas, quando utilizadas com as letras iniciais maiúsculas neste instrumento nos Anexos e/ou na Proposta Comercial, terão os significados abaixo.&lt;/p&gt;
+
+&lt;p&gt;a) &lt;strong&gt;Anexos&lt;/strong&gt;: significam anexos específicos que individualmente detalham as condições específicas do(s) serviço(s) oferecido(s) pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;. Todas as condições específicas de cada serviço a ser executado constarão no respectivo Anexo do serviço e/ou na Proposta Comercial.&lt;/p&gt;
+
+&lt;p&gt;b) &lt;strong&gt;Contrato&lt;/strong&gt;: significa este Contrato de Prestação de Serviços.&lt;/p&gt;
+
+&lt;p&gt;c)    &lt;strong&gt;Evento de Força Maior&lt;/strong&gt;: significam catástrofes da natureza, atos de guerra ou terrorismo e desordem civil, nos termos do Código Civil, ou ainda quaisquer atos ou fatos que venham a causar a paralisação completa do funcionamento do sistema bancário, quer do atendimento presencial e/ou quer do atendimento pelos canais eletrônicos, em todo o território nacional.&lt;/p&gt;
+
+&lt;p&gt;d)    &lt;strong&gt;Leis de Privacidade&lt;/strong&gt;: significa a legislação brasileira aplicável relacionada à privacidade de dados, fluxo de dados entre fronteiras, proteção de dados, bancos de dados; cadastros de consumidores e sigilo bancário.&lt;/p&gt;
+
+&lt;p&gt;e)    &lt;strong&gt;Proposta Comercial&lt;/strong&gt;: significa o documento no qual constarão as condições comerciais específicas do(s) serviço(s) contratado(s) pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, bem como condições específicas da contratação.&lt;/p&gt;
+
+&lt;p&gt;f)    &lt;strong&gt;Parceiro Comercial de Integração Técnica&lt;/strong&gt;: significa que o Parceiro Comercial realiza integração de clientes, mútuos, com a Braspag através de sua própria API.&lt;/p&gt;
+
+&lt;p&gt;g)    &lt;strong&gt;API&lt;/strong&gt;: Application Programming Interface, em português, Interface de Programação de Aplicações.&lt;/p&gt;
+
+&lt;p&gt;h)    &lt;strong&gt;EDI&lt;/strong&gt;: troca estruturada de dados através de uma rede de dados.&lt;/p&gt;
+
+&lt;h2 id=&quot;2ª---objeto&quot;&gt;2ª - Objeto&lt;/h2&gt;
+
+&lt;p&gt;2.1 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; prestará à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; o(s) serviço(s) identificado(s) na Proposta Comercial, de acordo com os termos e condições estabelecidos neste Contrato, no(s) respectivo(s) Anexo(s) e na própria Proposta Comercial. Fazem parte complementar ao presente Contrato, como se nele estivessem integralmente transcritos, os Anexos do(s) serviço(s) contratado(s), bem como a Proposta Comercial encaminhada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.2 – Na hipótese de alguma condição prevista nos Anexos e/ou na Proposta Comercial conflitar, direta ou indiretamente, com alguma cláusula deste Contrato, salvo disposição em contrário, prevalecerá entre as partes a condição expressamente estabelecida em primeiro lugar no Contrato, em segundo nos Anexos e em terceiro na Proposta Comercial.&lt;/p&gt;
+
+&lt;p&gt;2.3 – Os termos e condições previstos neste Contrato, nos Anexos e/ou na Proposta Comercial serão alterados mediante a celebração de termo aditivo entre &lt;strong&gt;CONTRATANTE&lt;/strong&gt; e &lt;strong&gt;CONTRATADA&lt;/strong&gt;. Caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; opte por contratar novos serviços que não constem originalmente na Proposta Comercial, nova proposta será confeccionada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; para substituir e/ou aumentar o escopo previamente contratado, sem prejuízo das cláusulas acordadas entre as partes neste instrumento.&lt;/p&gt;
+
+&lt;h2 id=&quot;3ª--obrigações-da-contratada&quot;&gt;3ª – Obrigações da contratada&lt;/h2&gt;
+
+&lt;p&gt;3.1 – Sem prejuízo das demais cláusulas e condições constantes deste Contrato, dos Anexos e da Proposta Comercial, caberá à &lt;strong&gt;CONTRATADA&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;a)    Utilizar as mais atualizadas e adequadas técnicas aplicáveis para o exercício de suas atividades, orientando-se pelo disposto nas especificações e normas técnicas aplicáveis ao(s) serviço(s) contratado(s), de modo a buscar a qualidade e a adequação do(s) serviço(s) contratado(s) em termos de desempenho, operacionalidade e segurança;&lt;/p&gt;
+
+&lt;p&gt;b)    Fazer com que todas as pessoas alocadas para a prestação do(s) serviço(s) objeto do presente Contrato sejam devidamente treinadas, tecnicamente qualificadas e habilitadas a desempenhar as tarefas que lhes forem designadas;&lt;/p&gt;
+
+&lt;p&gt;c)    Quando necessário for a instalação de softwares ou hardwares fornecidos pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; nas instalações da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, enviar técnico responsável para a instalação das soluções supracitadas, que se apresentará ao &lt;strong&gt;CONTRATANTE&lt;/strong&gt; devidamente credenciado e autorizado a utilizar a Matriz do Software.&lt;/p&gt;
+
+&lt;p&gt;d)    Responsabilizar-se pelo cumprimento de toda a legislação trabalhista, previdenciária, securitária, fiscal e social incidente sobre os contratos de trabalho que mantém com os profissionais integrantes de sua equipe, procedendo ao recolhimento de todos os encargos inerentes a estas contratações.&lt;/p&gt;
+
+&lt;p&gt;3.2 – Sem prejuízo das demais cláusulas e condições constantes deste Contrato, dos Anexos e da Proposta Comercial, a &lt;strong&gt;CONTRATADA&lt;/strong&gt; não será responsável:&lt;/p&gt;
+
+&lt;p&gt;a)    Por qualquer inexecução do(s) serviço(s), nos termos contratados, caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; tenha inadimplido, total ou parcialmente, uma obrigação de sua responsabilidade;&lt;/p&gt;
+
+&lt;p&gt;b)    Pelos serviços prestados pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; a seus clientes, bem como por quaisquer obrigações daí decorrentes;&lt;/p&gt;
+
+&lt;p&gt;c)    Por falhas e/ou danos decorrentes de interrupções de energia elétrica, problemas no sistema de telefonia, interrupções dos serviços de provedores de acesso e velocidade à internet, problemas gerados via integração com fornecedor ou problemas nos sistemas de proteção contra vírus ou hackers nos equipamentos da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, bem como por eventuais conflitos gerados em decorrência do uso, pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, de equipamentos, hardwares ou softwares não compatíveis;&lt;/p&gt;
+
+&lt;p&gt;d)    Pelo funcionamento e/ou manutenção de quaisquer equipamentos, hardwares, conexões, softwares ou sistemas porventura utilizados pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;3.3. - A &lt;strong&gt;CONTRATADA&lt;/strong&gt; não tem qualquer ingerência e fica isenta de qualquer responsabilidade, seja qual for sua natureza, com relação à segurança dos dados enviados, recebida ou armazenada pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, sendo responsável apenas pelas situações decorrentes de eventuais falhas de segurança oriundas de seu ambiente tecnológico, desde que comprovada a sua culpa.&lt;/p&gt;
+
+&lt;p&gt;3.4 - A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; declara-se ciente de que a &lt;strong&gt;CONTRATADA&lt;/strong&gt; poderá acessar remotamente seus computadores para que sejam efetuadas manutenções e/ou atualizações, sem que isto configura a invasão de que trata a Lei nº12.737/2012. Qualquer acesso remoto que venha ser necessário será sempre precedido por autorização do &lt;strong&gt;CONTRATANTE&lt;/strong&gt; e restringir-se-á a softwares e hardwares fornecidos pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; e seus componentes instalados em seus computadores, não alterando qualquer outro programa existente e preservando o funcionamento normal da solução para o &lt;strong&gt;CONTRATANTE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4ª--obrigações-da-contratante&quot;&gt;4ª – Obrigações da contratante&lt;/h2&gt;
+
+&lt;p&gt;4.1 – Sem prejuízo das demais cláusulas e condições constantes deste Contrato, dos Anexos e da Proposta Comercial, caberá à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;a)    Manter suas informações cadastrais devidamente atualizadas, principalmente as informações relacionadas aos faturamentos e pagamentos;&lt;/p&gt;
+
+&lt;p&gt;b)    A responsabilidade pela destinação e/ou uso do(s) serviço(s) contratado(s), bem como por quaisquer inserções, exclusões ou alterações de informações, dados, etc., realizadas por si ou seus usuários, isentando a &lt;strong&gt;CONTRATADA&lt;/strong&gt; de quaisquer responsabilidades em relação a tais atos;&lt;/p&gt;
+
+&lt;p&gt;c)    Cooperar e atender as solicitações apresentadas pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; com o intuito de facilitar a prestação dos serviços em conformidade com o Nível de Serviços (SLA) eventualmente definido entre as Partes;&lt;/p&gt;
+
+&lt;p&gt;d)    Designar uma pessoa que deverá ter conhecimento técnico, experiência e autonomia necessárias para acompanhar a &lt;strong&gt;CONTRATADA&lt;/strong&gt; por todo o período necessário para a realização do(s) serviço(s) contratado(s), tomando todas as providências que permitam a sua realização;&lt;/p&gt;
+
+&lt;p&gt;e)    Fornecer informações necessárias à execução do(s) serviço(s) contratado(s) com a melhor técnica e de acordo com as normas vigentes;&lt;/p&gt;
+
+&lt;p&gt;f)    Responsabilizar-se totalmente pela guarda de eventuais senhas e códigos de identificação, bem como por sua utilização;&lt;/p&gt;
+
+&lt;p&gt;g)    Responsabilizar-se pelos custos de manutenção e/ou reinstalação,  de Software ou Hardware fornecidos pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, bem como por custos decorrentes de visitas improdutivas de técnicos responsáveis pela manutenção e/ou instalação das soluções supracitadas.&lt;/p&gt;
+
+&lt;p&gt;h)    Efetuar os pagamentos devidos à &lt;strong&gt;CONTRATADA&lt;/strong&gt;, conforme estabelecido neste Contrato, nos Anexos e na Proposta Comercial;&lt;/p&gt;
+
+&lt;p&gt;i)    Não utilizar os serviços para colocar, copiar, transmitir ou retransmitir materiais ilegais, que ofendam o ordenamento legal, a moral e bons costumes ou abusivo de qualquer tipo;&lt;/p&gt;
+
+&lt;p&gt;j)    Responder pela conservação dos equipamentos, materiais de consumo e utensílios eventualmente cedidos pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; para a execução do(s) serviço(s), os quais a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; recebe em regime de comodato, responsabilizando-se por sua guarda e conservação e por eventuais perdas e/ou danos causados;&lt;/p&gt;
+
+&lt;p&gt;k)    Responsabilizar-se pela manutenção das condições necessárias para o perfeito funcionamento dos serviços prestados pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; tal como, mas não limitado a computadores, servidores, links de internet, certificados, redes, atualizações de softwares fornecidos pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, relacionamento com Processadores de Pagamentos.&lt;/p&gt;
+
+&lt;p&gt;l)    Não obter ou tentar obter acesso não autorizado a outra conta, anfitrião ou rede, ou fazer uso de direitos autorais, de imagem ou outros direitos e dados sem que esteja autorizado ou de forma ilegal;&lt;/p&gt;
+
+&lt;p&gt;m)    Cooperar e atender as solicitações apresentadas pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, com o intuito de concluir a integração dos serviços em conformidade com o prazo acordado para a conclusão do Setup constante na Proposta Comercial. Passado dito prazo, sem que a integração tenha sido concluída e, não tendo a &lt;strong&gt;CONTRATADA&lt;/strong&gt; contribuído para tanto, a &lt;strong&gt;CONTRATADA&lt;/strong&gt; poderá disponibilizar as credenciais de produção à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; e consequentemente passará a cobrar por todos os Serviços contratados, independentemente da participação da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;4.2. - Caberá à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; prever, em seus contratos celebrados com seus usuários/clientes, cláusulas que estabeleçam:&lt;/p&gt;
+
+&lt;p&gt;a)    A anuência, pelo usuário/cliente, de que os dados serão armazenados, em ambiente seguro, e autorização, por prazo indeterminado, para que sejam utilizados em futuras compras, caso aplicável;&lt;/p&gt;
+
+&lt;p&gt;b)    Orientações ao usuário/cliente sobre os procedimentos necessários para garantir a segurança das operações (por exemplo: troca periódica de senhas, uso de computadores confiáveis, etc.);&lt;/p&gt;
+
+&lt;p&gt;c)    A responsabilidade do usuário/cliente pela veracidade e exatidão dos dados informados;&lt;/p&gt;
+
+&lt;p&gt;d)    A responsabilidade do usuário/cliente pelo uso e ciência das especificações dos produtos que serão adquiridos;&lt;/p&gt;
+
+&lt;p&gt;e)    A anuência, pelo usuário/cliente, de que os dados poderão ser armazenados por tempo indeterminado, cabendo ao usuário/cliente a obrigação de requerer à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; a eventual inutilização definitiva de tais dados;&lt;/p&gt;
+
+&lt;p&gt;f)    A responsabilidade da &lt;strong&gt;CONTRATANTE&lt;/strong&gt; perante o usuário/cliente pela captação, manutenção e transmissão das informações e/ou dados e sua correta operacionalização;&lt;/p&gt;
+
+&lt;p&gt;g)    O consentimento expresso do usuário/cliente para envio à &lt;strong&gt;CONTRATADA&lt;/strong&gt; das informações e/ou dados relativos ao objeto do presente Contrato e Anexos.&lt;/p&gt;
+
+&lt;h2 id=&quot;5ª--valor-e-da-forma-de-pagamento&quot;&gt;5ª – Valor e da forma de pagamento&lt;/h2&gt;
+
+&lt;p&gt;5.1 – Pelos serviços contratados a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; pagará à &lt;strong&gt;CONTRATADA&lt;/strong&gt; os valores previstos na Proposta Comercial.&lt;/p&gt;
+
+&lt;p&gt;5.2 – O pagamento dos valores descritos no item 6.1 acima será realizado pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; mediante boleto bancário encaminhado pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; por e-mail.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;5.2.1 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; não poderá realizar pagamentos em contas correntes de terceiros, ainda que pertencentes ao mesmo grupo econômico da &lt;strong&gt;CONTRATADA&lt;/strong&gt;, sendo certo que não serão aceitos pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; pagamentos mediante cheque, dinheiro ou qualquer outra forma que não expressa e previamente acordada com a &lt;strong&gt;CONTRATADA&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5.3 – Os serviços serão faturados pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, com a emissão de nota fiscal por qualquer de suas unidades, no mês subsequente à sua utilização e deverão ser pagos pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; no vencimento previsto na Proposta Comercial.&lt;/p&gt;
+
+&lt;p&gt;5.4 – O não atendimento pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; de quaisquer condições de emissão da nota fiscal/fatura prevista no item 6.3 acima, no que se refere à emissão correta dos documentos de cobrança, reservará à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; o direito de, no prazo de 02 (dois) dias corridos do seu recebimento, devolver os referidos documentos para a &lt;strong&gt;CONTRATADA&lt;/strong&gt; para que sejam reemitidos, com a prorrogação do prazo de vencimento.&lt;/p&gt;
+
+&lt;p&gt;5.5 – Eventuais valores pagos pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; à &lt;strong&gt;CONTRATADA&lt;/strong&gt;, a qualquer título, não serão objeto de devolução, ainda que haja rescisão do presente Contrato.&lt;/p&gt;
+
+&lt;p&gt;5.6 – Na hipótese de atraso no pagamento dos valores previstos neste instrumento, será aplicada à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, salvo previsão diversa na Proposta Comercial, multa não compensatória fixada em 2% (dois por cento) do valor inadimplido, além de juros de mora de 1% (um por cento) ao mês e atualização monetária de acordo com a variação do IGP-M (divulgado pela Fundação Getúlio Vargas), ambos calculados, pro rata die, do vencimento até o integral adimplemento.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;5.6.1 – Caso o atraso no pagamento seja superior a 30 (trinta) dias corridos do vencimento, poderá a &lt;strong&gt;CONTRATADA&lt;/strong&gt;, a seu exclusivo critério e independentemente de prévia notificação, suspender a prestação de serviços objeto deste Contrato até o integral adimplemento do débito, sem que tenha a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; direito a indenização por eventuais perdas e danos oriundos de tal suspensão.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;5.6.2 – Caso haja atraso no pagamento de 3 (três) ou mais parcelas mensais isoladas ou consecutivas, poderá a &lt;strong&gt;CONTRATADA&lt;/strong&gt;, a seu exclusivo critério, e independentemente de prévia notificação, rescindir unilateralmente o Contrato e/ou o(s) respectivo(s) Anexo(s), sem prejuízo da cobrança pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; dos valores inadimplidos e respectivos encargos, sem que tenha a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; direito a indenização por eventuais perdas e danos oriundos de tal rescisão.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5.7 – Os valores previstos neste instrumento e em todos os documentos que o acompanham serão reajustados anualmente de forma automática, com base na data de assinatura da Proposta Comercial, de acordo com a variação positiva do IGP-M (divulgado pela Fundação Getúlio Vargas), ou na menor periodicidade permitida em lei, salvo previsão diversa contida na Proposta Comercial.&lt;/p&gt;
+
+&lt;p&gt;5.8 – Acordam as partes que o(s) serviços(s) contratado(s) na Proposta Comercial poderão ser prestados às filiais e também às demais empresas integrantes do grupo econômico da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, ficando a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; integralmente responsável pelo adimplemento de todas as obrigações de tais empresas, arcando com todos os valores e penalidades a elas aplicáveis. Para tanto, a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; declara que tem poderes para assumir obrigações em nome de empresas integrantes do grupo econômico, isentando a &lt;strong&gt;CONTRATADA&lt;/strong&gt; de qualquer responsabilidade em razão de eventuais alegações de desconhecimento do presente Contrato.&lt;/p&gt;
+
+&lt;h2 id=&quot;6ª--tributos&quot;&gt;6ª – Tributos&lt;/h2&gt;
+
+&lt;p&gt;6.1 – Todos e quaisquer tributos devidos em virtude do presente instrumento são de exclusiva responsabilidade da parte a quem o fato gerador do tributo estiver vinculado, nos termos da legislação tributária em vigor.&lt;/p&gt;
+
+&lt;p&gt;6.2 – Se, após a data de assinatura deste Contrato, forem criados, alterados ou extintos tributos, taxas, encargos e contribuições fiscais ou para fiscais, previdenciárias e trabalhistas, se forem alteradas as alíquotas dos impostos atuais, se dada nova interpretação pelo fisco quanto à arrecadação dos tributos ou, de qualquer forma, forem eles majorados, os preços previstos na Proposta Comercial serão automaticamente majorados, de modo a refletir tais alterações.&lt;/p&gt;
+
+&lt;p&gt;6.3 – Os preços do(s) serviço(s) ora contratados sujeitar-se-ão às retenções previstas na legislação vigente, pelo responsável nela definido, inclusive para fins de contribuição previdenciária.&lt;/p&gt;
+
+&lt;h2 id=&quot;7ª--vigência-e-hipótese-de-rescisão&quot;&gt;7ª – Vigência e hipótese de rescisão&lt;/h2&gt;
+
+&lt;p&gt;7.1 – O presente Contrato vigorará pelo prazo indeterminado, contado a partir do termo inicial previsto na Proposta Comercial..&lt;/p&gt;
+
+&lt;p&gt;7.2 – Ainda que o Contrato seja firmado por prazo indeterminado, em razão dos investimentos realizados pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, nenhum dos serviços contratados, conforme definido na Proposta Comercial, poderão ser rescindidos pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; sem justa causa antes de decorridos 12 (doze) meses da prestação de cada um dos serviços contratados (“Vigência Mínima”).&lt;/p&gt;
+
+&lt;p&gt;7.3 – Caso a &lt;strong&gt;CONTRATADA&lt;/strong&gt; queira rescindir o Contrato ou qualquer um dos serviços descritos na Proposta Comercial antes do término da Vigência Mínima, será devido à &lt;strong&gt;CONTRATADA&lt;/strong&gt;, a título de multa não compensatória, o valor correspondente a 3 (três) vezes a “Tarifa mínima mensal” descrita na Proposta Comercial referente ao respectivo serviço contratado. Assim, caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; queira rescindir, antes do término da Vigência Mínima, apenas um dos serviços contratados, pagará o total de 3 (três) vezes a “Tarifa mínima mensal” referente àquele serviço. Caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; queira rescindir o Contrato integralmente, antes do término da Vigência Mínima, deverá pagar o total de 3 (três) vezes a “Tarifa mínima mensal” referente a cada um dos serviços contratados.&lt;/p&gt;
+
+&lt;p&gt;7.4 – O presente Contrato poderá ser denunciado por qualquer uma das partes, a qualquer tempo, sem a incidência de ônus ou penalidades, mediante aviso prévio encaminhado por escrito à outra parte com antecedência mínima de 90 (noventa) dias, respeitado o disposto nas Cláusulas acima no que tange ao prazo de Vigência Mínima aceito pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;7.5 – Além de outros casos porventura previstos, poderão as partes rescindir o presente Contrato de pleno direito, sem incidência de qualquer penalidade, nas seguintes hipóteses:&lt;/p&gt;
+
+&lt;p&gt;a)     Notória insolvência ou decretação de falência ou recuperação judicial da outra parte;&lt;/p&gt;
+
+&lt;p&gt;b)     Ocorrência de força maior ou caso fortuito que impossibilite o cumprimento do objeto do presente Contrato;&lt;/p&gt;
+
+&lt;p&gt;c)     O ajuizamento de qualquer ação contra a outra parte que afete sua credibilidade ou idoneidade.&lt;/p&gt;
+
+&lt;p&gt;7.6 – A Parte inocente poderá também optar pela rescisão deste Contrato por qualquer infração das cláusulas ou condições deste Contrato, dos Anexos e/ou da Proposta Comercial pela outra parte, não sanadas no prazo de 10 (dez) dias contados do recebimento da notificação pela parte prejudicada. Neste caso, a parte faltosa deverá pagar à parte prejudicada multa não compensatória correspondente a 3 (três) vezes a “Tarifa mínima mensal” mínimos mensais de todos os serviços contratados, além de indenização pelas perdas e danos decorrentes de tal rescisão.&lt;/p&gt;
+
+&lt;p&gt;7.7 – Os serviços prestados pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; são independentes, sendo que, a eventual rescisão de um serviço não influenciará os demais, salvo expressa previsão diversa no respectivo Anexo, podendo cada serviço ser individualmente terminado mediante aditivo à Proposta Comercial, permanecendo em vigor os demais serviços eventualmente contratados, bem como o presente Contrato e seus complementos, respeitadas as multas rescisórias individuais dispostas nesta cláusula.&lt;/p&gt;
+
+&lt;h2 id=&quot;8ª--propriedade-intelectual&quot;&gt;8ª – Propriedade intelectual&lt;/h2&gt;
+
+&lt;p&gt;8.1 – O presente instrumento oferece somente direito de uso não exclusivo e temporário do(s) serviço(s) contratado(s), não transmitindo à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; e/ou aos seus usuários/clientes quaisquer direitos sobre eventuais melhorias e/ou propriedade intelectual.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;8.1.1 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; reconhece e concorda que a &lt;strong&gt;CONTRATADA&lt;/strong&gt; será a titular legítima e exclusiva de todos e quaisquer produtos e/ou resultados dos serviços prestados para a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; sob este Contrato, incluindo, mas não se limitando a processos, desenhos, fórmulas, trabalhos experimentais ou de desenvolvimento, estratégias, programas de computador, métodos, bases de dados, sistemas, equipamentos, estudos, relatórios, produtos, análises, planos publicitários, planejamento de mídia, campanhas e materiais publicitários, ações de marketing e de todos e quaisquer direitos de propriedade intelectual relativos aos frutos, produtos e resultados dos serviços, incluindo, mas sem limitação, patentes, direitos autorais e marcas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;8.2 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; compromete-se a não excluir ou de qualquer forma alterar as notas relativas aos direitos de autor, marcas comerciais e outros avisos de direitos de propriedade que aparecem nas plataformas do(s) serviço(s), seja na documentação, dados e/ou qualquer outro tipo de informação disponibilizada à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;8.3 – A titularidade da &lt;strong&gt;CONTRATADA&lt;/strong&gt; da propriedade intelectual prevista neste Contrato é, pelo prazo legal, integral, irrevogável e válida em todo o mundo, para um número ilimitado de cópias, em qualquer idioma, para todas as formas de utilização e em todo e qualquer meio físico, incluindo, mas não se limitando a jornais, revistas, folhetos, televisão, rádio, internet, e quaisquer outros existentes ou que possam ser criados no futuro.&lt;/p&gt;
+
+&lt;p&gt;8.4 – A titularidade acima mencionada confere à &lt;strong&gt;CONTRATADA&lt;/strong&gt; o direito de editar, publicar, exibir, reproduzir, adaptar, distribuir, transmitir e/ou divulgar dentro e fora do território nacional, todas as obras publicitárias e/ou os frutos, produtos e/ou resultados dos serviços realizados pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, seus empregados e subcontratados. A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; compromete-se a não interferir na execução de quaisquer desses direitos pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, qualquer que seja a maneira de divulgação pretendida ou realizada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, bem como a não aproveitar qualquer material similar ao fruto, produto e/ou resultado dos serviços, que possa ser suscetível de confusão com quaisquer daqueles realizados para a &lt;strong&gt;CONTRATADA&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;8.5 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; garante que o método, técnicas, softwares e todo e qualquer material utilizados para o desenvolvimento e conclusão do(s) serviço(s) não infringem qualquer marca, patente, direito autoral, segredo comercial, ou quaisquer outros direitos de propriedade de terceiros.&lt;/p&gt;
+
+&lt;h2 id=&quot;9ª--ausência-de-vínculo-e-responsabilidade-trabalhista&quot;&gt;9ª – Ausência de vínculo e responsabilidade trabalhista&lt;/h2&gt;
+
+&lt;p&gt;9.1 – O presente Contrato não gera qualquer vínculo ou obrigação trabalhista entre as partes, ou qualquer de seus prepostos, vez que não estão presentes os requisitos da relação trabalhista.&lt;/p&gt;
+
+&lt;p&gt;9.2 – As partes são independentes e nada previsto neste Contrato deve ser interpretado de forma a criar uma relação de “joint venture”, sociedade, franquia, consórcio, associação, responsabilidade solidária ou subsidiária, agência ou representação entre as partes, ou qualquer outro tipo de relação que não a prestação de serviços.&lt;/p&gt;
+
+&lt;p&gt;9.3 – Na qualidade de únicas e exclusivas empregadoras de seus respectivos profissionais, cada parte será integralmente responsável por quaisquer reclamações trabalhistas ou medidas judiciais ou extrajudiciais movidas por eles contra a outra parte, assumindo todos e quaisquer ônus delas decorrentes, inclusive pelos acréscimos legais, bem como pelo pagamento integral de custas judiciais e extrajudiciais e honorários advocatícios porventura incidentes e exigidos.&lt;/p&gt;
+
+&lt;p&gt;9.4 – Em caso de reclamação trabalhista ou qualquer outra medida judicial ou extrajudicial movida contra uma parte por pessoas &lt;strong&gt;CONTRATADA&lt;/strong&gt;s pela outra, a parte &lt;strong&gt;CONTRATANTE&lt;/strong&gt; requererá a exclusão da parte inocente em juízo, obrigando-se a reembolsar todas as importâncias que a parte inocente venha a ser eventualmente obrigada a pagar em condenações e custas judiciais O reembolso dar-se-á no prazo máximo de 30 (trinta) dias contados a partir do recebimento da respectiva solicitação, por escrito, enviada pela parte inocente à outra. Independente do aqui disposto, parte inocente poderá, a seu critério, notificar a outra para que esta apresente garantia em caso de reclamatória trabalhista de sua responsabilidade, garantia essa com base no valor apurado pelos advogados da parte inocente. A garantia poderá ser aval, fiança bancária ou qualquer outra que, por sua natureza, assegure a satisfação do débito em questão.&lt;/p&gt;
+
+&lt;p&gt;9.5 – Por ser a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; responsável pela qualidade dos seus próprios serviços, em caso de qualquer medida judicial ou extrajudicial movida contra a &lt;strong&gt;CONTRATADA&lt;/strong&gt; pelos clientes da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, em decorrência de eventuais danos oriundos da contratação e/ou aquisição de serviços e/ou produtos pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, as partes declaram que &lt;strong&gt;CONTRATADA&lt;/strong&gt; está isenta de qualquer responsabilidade, devendo a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; requerer a exclusão da &lt;strong&gt;CONTRATADA&lt;/strong&gt; em juízo, obrigando-se a reembolsar todas as importâncias que a &lt;strong&gt;CONTRATADA&lt;/strong&gt; venha a ser eventualmente obrigada a pagar em condenações e custas judiciais, bem como os honorários advocatícios despendidos, sem prejuízo do direito de regresso da &lt;strong&gt;CONTRATADA&lt;/strong&gt; contra a &lt;strong&gt;CONTRATANTE&lt;/strong&gt;. O reembolso dar-se-á no prazo máximo de 30 (trinta) dias contadas a partir do recebimento da respectiva solicitação, por escrito, enviada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;. Independentemente do aqui disposto, a &lt;strong&gt;CONTRATADA&lt;/strong&gt; poderá, a seu critério, notificar a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; para que esta apresente garantia em caso de medida judicial de sua responsabilidade, garantia esta com base no valor apurado pelos advogados da &lt;strong&gt;CONTRATADA&lt;/strong&gt;. A garantia poderá ser aval, fiança bancária ou qualquer outra que, por sua natureza, assegure a satisfação do débito em questão.&lt;/p&gt;
+
+&lt;h2 id=&quot;10ª--confidencialidade&quot;&gt;10ª – Confidencialidade&lt;/h2&gt;
+
+&lt;p&gt;10.1 – As partes obrigam-se a manter sigilo sobre quaisquer dados, documentos, informações técnicas, comerciais ou pessoais que venham a ter conhecimento, acesso, ou que lhes venham a ser confiados, tais como, mas não se limitando a técnicas, planos de ação, relatórios de vendas, desempenho de publicidade, “knowhow”, especificações e projetos (“Informações Confidenciais”), inclusive em relação aos clientes, fornecedores, associados, distribuidores ou quaisquer outras pessoas, físicas ou jurídicas, com que as partes mantenham relações jurídicas, não podendo as partes, salvo disposição em contrário, diretamente ou indiretamente, divulgar, revelar, reproduzir, utilizar ou dar conhecimento de tais informações a terceiros, ressalvados os casos definidos em lei, por expressa determinação judicial ou disposição diversa neste Contrato.&lt;/p&gt;
+
+&lt;p&gt;10.2 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; poderá divulgar, revelar, reproduzir, utilizar, comercializar ou dar conhecimento de informações da CONTRANTATE que tiver acesso em razão da prestação dos serviços a terceiros, desde que tais informações sejam utilizadas sem revelação ou divulgação da identidade da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, permitindo-se estudos, por exemplo, sobre o ramo de atividade da &lt;strong&gt;CONTRATANTE&lt;/strong&gt; e comercialização destes estudos sem individualização das informações coletadas.&lt;/p&gt;
+
+&lt;p&gt;10.3 – As partes se responsabilizam, por si e por seus prepostos, sob as penas da lei, pela utilização das Informações Confidenciais por parte de seus empregados e/ou subcontratados, obrigando-se à manutenção de sigilo das referidas informações e respondendo civil e criminalmente pelo descumprimento das disposições aqui contidas, ressalvada exceção disposta na Cláusula 10.2 acima.&lt;/p&gt;
+
+&lt;p&gt;10.4 – As partes concordam em utilizar todos os esforços para proteger as Informações Confidenciais da outra parte e tomar as precauções necessárias e idênticas às que tomaria para proteger as suas próprias informações confidenciais da mesma natureza, ressalvada exceção disposta na Cláusula 10.2 acima.&lt;/p&gt;
+
+&lt;p&gt;10.5 – Não será considerada Informação Confidencial qualquer informação/dado que: (i) seja comprovadamente conhecida pela parte receptora anteriormente à sua divulgação pela outra parte; (ii) seja ou se torne de domínio público, sem qualquer intervenção, dolo ou culpa da parte receptora; (iii) seja divulgada à parte receptora por qualquer terceiro, desde que legalmente autorizado a efetuar tal divulgação, sem que isto constitua violação de qualquer obrigação de caráter confidencial; ou (iv) venha a ser exigida a sua divulgação ordem judicial ou administrativa ou por legislação aplicável (em tal caso, somente na extensão requerida para a sua divulgação); (v) seja divulgada de forma genérica, sem revelação ou divulgação da identidade da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;10.6 – Na hipótese de término ou rescisão deste Contrato, por qualquer motivo, ou mediante simples solicitação da outra parte, a parte receptora concorda em lhe devolver, no prazo máximo de 72 (setenta e duas) horas, todos os documentos que estiverem em seu poder, ou, se tais documentos tenham sido enviados em formato digital, enviar declaração de que nada mais há em seu poder, sob pena de ficar caracterizado o esbulho possessório, independentemente de notificação.&lt;/p&gt;
+
+&lt;p&gt;10.7 – A obrigação de sigilo e confidencialidade prevista neste Contrato vigorará durante sua vigência até o prazo de 5 (cinco) anos após seu término ou rescisão.&lt;/p&gt;
+
+&lt;p&gt;10.8 – Na hipótese de violação de qualquer disposição ou condição desta cláusula, será aplicada à parte infratora multa não compensatória no valor correspondente a 3 (três) vezes a “Tarifa mínima mensal” descrita na Proposta Comercial, incluindo todos os serviços contratados, além de indenização pelas perdas e danos causados à parte prejudicada.&lt;/p&gt;
+
+&lt;p&gt;10.9 – Independentemente das demais disposições desta Cláusula 10ª, as partes se comprometem a manter sigilo e confidencialidade sobre os dados de transações e dados bancários de usuários/clientes da &lt;strong&gt;CONTRATANTE&lt;/strong&gt; aos quais tenham acesso em razão dos serviços, conforme disposto nas Leis de Privacidade aplicáveis.&lt;/p&gt;
+
+&lt;h2 id=&quot;11ª--limitação-de-responsabilidade&quot;&gt;11ª – Limitação de responsabilidade&lt;/h2&gt;
+
+&lt;p&gt;11.1 – As partes se comprometem a indenizar, defender e manter imune a outra parte, seus acionistas, conselheiros, diretores, empregados, controladas, coligadas, bem como os sucessores e cessionários de cada um deles, em relação a todas e quaisquer reivindicações, responsabilidades, obrigações, demandas, perdas e danos, prejuízos, custos, despesas (inclusive honorários advocatícios), multas, penalidades e condenações opostos à outra parte, ou por elas incorridos, em razão de: (i) qualquer ação ou omissão sua, seja dolosa ou culposa; e (ii) quaisquer ações, processos, demandas, pendências ou contingências judiciais ou extrajudiciais que, por sua culpa e/ou dolo, sejam de sua responsabilidade, conforme previsto neste Contrato.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;11.1.1 – O limite total de indenização anual para quaisquer danos advindos de eventual descumprimento de responsabilidade das Partes não poderá ultrapassar o valor equivalente à soma das 3 (três) últimas faturas. O limite indenizatório anual considerará a vigência contratual e não o ano calendário, bem como não se acumula de um ano para o outro e se aplica ao conjunto de todas as reclamações, penalidades, ações e causas de qualquer tipo ou natureza.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;11.2 – Não obstante a cláusula acima, as Partes não serão responsáveis pelos lucros cessantes, perda de receita, perda de produção, perda de contratos e perdas de faturamento ou perdas econômicas da parte prejudicada, bem como por prejuízos sofridos por terceiros.&lt;/p&gt;
+
+&lt;p&gt;11.3 – As partes reconhecem e aceitam que os parâmetros de responsabilidade aqui estabelecidos representam o acordo final com relação ao objeto do presente, tendo-se tomado em consideração o nível de risco para cada uma das partes, associado com a execução ou não execução de suas obrigações contratuais e os pagamentos e outros benefícios a serem obtidos por cada uma delas em decorrência deste Contrato, ficando claro que as indenizações referir-se-ão sempre a danos, diretos e materiais, cuja ocorrência tenha nexo causal entre a ação e/ou omissão, por culpa e/ou dolo, da parte causadora e o prejuízo sofrido pela outra parte.&lt;/p&gt;
+
+&lt;p&gt;11.4 – As Partes declaram ter ciência que os serviços prestados pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; sob a égide deste Contrato podem depender de serviços de empresas sub&lt;strong&gt;CONTRATADA&lt;/strong&gt;s, bem como de softwares sublicenciados. A prestação de serviços por empresas sub&lt;strong&gt;CONTRATADA&lt;/strong&gt;s independe de autorização da &lt;strong&gt;CONTRATANTE&lt;/strong&gt; e a responsabilidade da &lt;strong&gt;CONTRATADA&lt;/strong&gt; por tais serviços será limitada de acordo com o indicado no item 12.4.1 a seguir.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;11.4.1 – O limite total de indenização anual para quaisquer danos advindos de eventual descumprimento de responsabilidade das Partes não poderá ultrapassar: (i) o valor equivalente à soma das 3 (três) últimas faturas; ou (ii) o valor da indenização recebida pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; das empresas sub&lt;strong&gt;CONTRATADA&lt;/strong&gt;s, para os casos nos quais os serviços sejam prestados parcial ou integralmente por referidas empresas. Dentre os dois limites de indenização acima, a &lt;strong&gt;CONTRATADA&lt;/strong&gt; pagará somente o que for menor. O limite indenizatório anual considerará a vigência contratual e não o ano calendário, bem como não se acumula de um ano para o outro e se aplica ao conjunto de todas as reclamações, penalidades, ações e causas de qualquer tipo ou natureza.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;11.5 – A limitação de responsabilidade prevista neste capítulo não será aplicável nas seguintes hipóteses: (i) quando qualquer das partes agir com dolo devidamente comprovado em juízo, (ii) quando qualquer das partes cometer crimes decorrentes de violação de propriedade intelectual, e crimes de corrupção previstos na Lei n.º 12.846/13 mediante ação judicial transitada em julgado, e (iii) quaisquer despesas oriundas de reclamações trabalhistas ou medidas judiciais ou extrajudiciais movidas por funcionários da &lt;strong&gt;CONTRATADA&lt;/strong&gt; em face da &lt;strong&gt;CONTRATANTE&lt;/strong&gt; e vice-versa.&lt;/p&gt;
+
+&lt;h2 id=&quot;12ª--lei-anticorrupção&quot;&gt;12ª – Lei Anticorrupção&lt;/h2&gt;
+
+&lt;p&gt;12.1 - As Partes declaram neste ato que estão cientes, conhecem e entendem os termos da Lei nº 12.846/13 (“Lei Anticorrupção”), declarando, ainda, que não praticam e se abstém de praticar qualquer atividade que constitua uma violação das disposições de referida Lei, comprometendo-se, também, por si e por seus sócios, administradores, diretores, funcionários, prepostos e/ou agentes (“Representantes”), a não praticar e a coibir a prática, por ação ou por omissão, de qualquer transgressão à Lei durante todo o prazo de validade deste Contrato.&lt;/p&gt;
+
+&lt;p&gt;12.2 - As Partes, por si e por seus Representantes que venham a agir em seus respectivos nomes, se obrigam a conduzir suas práticas comerciais, durante a consecução do presente Contrato, de forma ética e em conformidade com os preceitos legais aplicáveis. Na execução deste Contrato, nenhuma das Partes nem qualquer de seus Representantes, devem prometer, oferecer ou dar, direta ou indiretamente, vantagem indevida a agente público, ou a terceira pessoa a ele relacionada, com a finalidade de influenciar qualquer ato ou decisão do agente, do governo ou de entidades públicas, ou para assegurar qualquer vantagem indevida, ou direcionar negócios para, qualquer pessoa, e que violem a lei da Anticorrupção.&lt;/p&gt;
+
+&lt;p&gt;12.3 - Qualquer descumprimento pelas Partes, dos termos da lei da Anticorrupção e/ou desta Cláusula, em qualquer um dos seus aspectos, ensejará a rescisão motivada imediata do presente instrumento, independentemente de qualquer notificação, sem prejuízo da aplicação das penalidades previstas neste Contrato e da apuração de eventuais perdas e danos.&lt;/p&gt;
+
+&lt;h2 id=&quot;13ª--disposições-gerais&quot;&gt;13ª – Disposições Gerais&lt;/h2&gt;
+
+&lt;p&gt;13.1 – A tolerância de uma parte em relação à outra não será considerada moratória, novação ou renúncia a qualquer direito, constituindo mera liberalidade, que não impedirá a parte tolerante de exigir da outra o fiel cumprimento deste Contrato, a qualquer tempo.&lt;/p&gt;
+
+&lt;p&gt;13.2 – O presente Contrato vincula as partes e seus sucessores, não podendo ser objeto de cessão, seja ela total ou parcial, a qualquer título, salvo com mútua e expressa anuência.&lt;/p&gt;
+
+&lt;p&gt;13.3 – Qualquer uma das partes está dispensada do cumprimento e não será responsável por qualquer atraso ou inexecução na prestação dos serviços, no todo ou em parte, causado(a) pela ocorrência de qualquer contingência fora do controle das partes nos termos do artigo 393 do Código Civil.&lt;/p&gt;
+
+&lt;p&gt;13.4 – Todas e quaisquer comunicações de uma parte à outra, exigidas por este Contrato, devem ser efetuadas por escrito aos endereços das partes definidos neste Contrato e na Proposta Comercial e consideradas como efetivadas no momento da sua recepção pela parte destinatária da comunicação.&lt;/p&gt;
+
+&lt;p&gt;13.5 – Este Contrato e seus complementos contêm o entendimento total entre as partes, com respeito aos assuntos ora contemplados, substituindo todos os acordos ou negociações, verbais ou escritos, anteriores realizados entre as partes, concernentes às mesmas matérias aqui previstas.&lt;/p&gt;
+
+&lt;p&gt;13.6 – As partes declaram que obtiveram todas as autorizações necessárias para a assinatura e execução deste Contrato e que os signatários deste e da Proposta Comercial têm poderes para assumir obrigações em nome das respectivas partes, sob pena de responderem civil e criminalmente.&lt;/p&gt;
+
+&lt;p&gt;13.7 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; poderá incluir o objeto deste Contrato e serviços previstos, bem como o nome e marca da &lt;strong&gt;CONTRATANTE&lt;/strong&gt; em ações de marketing, catálogos e outros materiais promocionais, classificando-a como sua cliente.&lt;/p&gt;
+
+&lt;p&gt;13.8 – As partes se comprometem a manter atualizados seus dados cadastrais, informando a outra sobre qualquer alteração.&lt;/p&gt;
+
+&lt;p&gt;13.9 – O presente Contrato não estabelece exclusividade às partes na execução dos serviços, podendo livremente contratar/prestar serviços que sejam, total ou parcialmente, semelhantes e/ou idênticos aos do presente Contrato.&lt;/p&gt;
+
+&lt;p&gt;13.10 – O presente Contrato e o cumprimento das obrigações nele previstas serão regidos pelas leis da República Federativa do Brasil e interpretados de acordo suas disposições.&lt;/p&gt;
+
+&lt;h2 id=&quot;14ª--foro&quot;&gt;14ª – Foro&lt;/h2&gt;
+
+&lt;p&gt;14.1 – As partes elegem o Foro da Comarca da Capital do Estado de São Paulo como único competente para dirimir eventuais questões oriundas deste instrumento, com expressa renúncia a qualquer outro, por mais privilegiado que seja.&lt;/p&gt;
+
+&lt;p&gt;São Paulo,  2017.&lt;/p&gt;
+
+&lt;p&gt;BRASPAG TECNOLOGIA EM PAGAMENTO LTDA.&lt;/p&gt;
+
+&lt;h1 id=&quot;anexo-i--pagamentos&quot;&gt;ANEXO I – Pagamentos&lt;/h1&gt;
+
+&lt;h2 id=&quot;1ª--objeto&quot;&gt;1ª – Objeto&lt;/h2&gt;
+
+&lt;p&gt;1.1 – O presente Anexo tem como objeto a prestação dos serviços, pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, do serviço de pagamentos, que tem como finalidade o processamento de transações pontuais por meio de uma única integração a diversos meios de pagamentos eletrônicos, com resposta em tempo real, e armazenagem de dados sensíveis de cartão, conforme descrito na Proposta Comercial.&lt;/p&gt;
+
+&lt;p&gt;1.2 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; poderá fazer cópias da documentação de integração apenas para seu próprio uso interno.&lt;/p&gt;
+
+&lt;p&gt;1.3 – Os demais termos e condições técnicas específicas do serviço objeto do presente Anexo serão especificados na Proposta Comercial.&lt;/p&gt;
+
+&lt;h2 id=&quot;2ª--disposições-específicas-do-serviço&quot;&gt;2ª – Disposições específicas do serviço&lt;/h2&gt;
+
+&lt;p&gt;2.1 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; não se responsabiliza por eventuais indisponibilidades nos serviços prestados pelos Parceiros Comerciais de Integração Técnica, Parceiros sublicenciados de solução em pagamentos e fornecedores de meios de pagamento, como, por exemplo, operadoras de cartão de crédito e bancos. Por outro lado, a &lt;strong&gt;CONTRATADA&lt;/strong&gt; é responsável pelo bom funcionamento e disponibilidades dos seus prestadores de serviços.&lt;/p&gt;
+
+&lt;p&gt;2.2 – A responsabilidade da &lt;strong&gt;CONTRATADA&lt;/strong&gt; fica também limitada ao previsto no SLA, definido na &lt;strong&gt;CLÁUSULA 3ª&lt;/strong&gt; deste Anexo, não sendo devido à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; qualquer valor e/ou indenização além do ali disposto, sendo esta Cláusula específica hierarquicamente superior ao disposto no Contrato em relação à limitação de responsabilidade.&lt;/p&gt;
+
+&lt;p&gt;2.3 – O serviço de pagamentos poderá apresentar diferentes funcionalidades opcionais, que serão adquiridas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; de acordo com sua necessidade. A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; terá à disposição, todos os serviços apresentados na Proposta Comercial, e será cobrada apenas por aqueles disponíveis em ambiente de produção.&lt;/p&gt;
+
+&lt;h2 id=&quot;3ª--nível-de-serviço-sla&quot;&gt;3ª – Nível de serviço (SLA)&lt;/h2&gt;
+
+&lt;p&gt;3.1 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; se compromete a manter o SLA de 99,9% do tempo de processamento das transações sob pena de multa de acordo com a tabela abaixo:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;% de tempo mensal com interrupção do processamento das transações,Penalidade a ser observada&lt;/th&gt;
+      &lt;th&gt;Penalidade a ser observada&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Acima de 1,5% a 1,9% das horas mensais com serviço indisponível&lt;/td&gt;
+      &lt;td&gt;Desconto de valor equivalente a 25% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1,91% a 2,7% das horas mensais com serviço indisponível&lt;/td&gt;
+      &lt;td&gt;Desconto de valor equivalente a 50% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2,71% a 4,0% das horas mensais com serviço indisponível&lt;/td&gt;
+      &lt;td&gt;Desconto de valor equivalente a 75% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Mais de 4,01% das horas mensais com serviço indisponível&lt;/td&gt;
+      &lt;td&gt;Desconto de valor equivalente a 100% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;4ª--armazenagem-de-dados-sensíveis-de-cartão&quot;&gt;4ª – Armazenagem de dados sensíveis de cartão&lt;/h2&gt;
+
+&lt;p&gt;4.1 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; é responsável pela segurança das informações armazenadas exclusivamente em seu ambiente tecnológico, a partir do momento em que os dados do cartão de crédito do cliente forem recebidos em seu sistema.&lt;/p&gt;
+
+&lt;p&gt;4.2 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; não tem qualquer ingerência na convalidação ou averiguação da procedência dos dados enviados, recebidos ou armazenados pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, sendo responsável apenas pelas situações decorrentes de eventuais falhas de segurança oriundas de seu ambiente tecnológico, desde que comprovada sua culpa.&lt;/p&gt;
+
+&lt;p&gt;4.3 – Caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; opte por não processar a autorização da transação de dados sensíveis de cartão salvos na plataforma da &lt;strong&gt;CONTRATADA&lt;/strong&gt; por meio dos sistemas da &lt;strong&gt;CONTRATADA&lt;/strong&gt;, caberá a ela, sob sua exclusiva conta e risco, assegurar a segurança da captação, manutenção e transmissão dos dados de seus usuários/clientes.&lt;/p&gt;
+
+&lt;p&gt;4.4 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; reconhece e concorda que no evento do processamento de autorização da transação de dados sensíveis de cartão salvos na plataforma da &lt;strong&gt;CONTRATADA&lt;/strong&gt; será devido o valor acordado na Proposta Comercial como Tarifa Padrão de Pagamentos pelo resgate de cada um dos dados supracitados, ainda que o processamento da transação não ocorra nos sistemas da &lt;strong&gt;CONTRATADA&lt;/strong&gt;. O valor será sempre devido à &lt;strong&gt;CONTRATADA&lt;/strong&gt; em razão da armazenagem e resgate dos dados.&lt;/p&gt;
+
+&lt;p&gt;4.5 – Tendo a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; optado que a captação dos dados seja realizada diretamente no ambiente da &lt;strong&gt;CONTRATADA&lt;/strong&gt; e na hipótese de rescisão ou término da contratação do serviço de armazenagem de dados sensíveis de cartão por qualquer motivo, a &lt;strong&gt;CONTRATADA&lt;/strong&gt; poderá transmitir à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; os dados armazenados, se assim solicitado por esta, no prazo de 05 (cinco) dias da data da rescisão ou término da contratação deste serviço.&lt;/p&gt;
+
+&lt;p&gt;4.6 – Na hipótese prevista na cláusula 4.5 acima, caberá exclusivamente à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, no prazo de 15 (quinze) dias da solicitação de transmissão dos dados, providenciar, sob sua exclusiva conta e risco, meios, em formato que atenda as normas PCI, que serão avaliados pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, para assegurar a segurança da manutenção e transmissão dos dados de seus usuários/clientes, sob pena de ficar impossibilitada referida transmissão.&lt;/p&gt;
+
+&lt;h2 id=&quot;5ª--documentos-vinculados&quot;&gt;5ª – Documentos Vinculados&lt;/h2&gt;
+
+&lt;p&gt;5.1 – Fazem parte complementar ao presente Anexo, como se nele estivessem integralmente transcritos,  o Contrato de Prestação de Serviços e a Proposta Comercial encaminhada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;anexo-ii--gestão-de-risco&quot;&gt;ANEXO II – Gestão de Risco&lt;/h1&gt;
+
+&lt;h2 id=&quot;1ª--definições&quot;&gt;1ª – Definições&lt;/h2&gt;
+
+&lt;p&gt;1.1 – Para perfeito entendimento e interpretação deste Anexo, são adotados os termos abaixo, cujas definições serão usadas no singular ou no plural, conforme seja o caso.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;E-COMMERCE&lt;/strong&gt; - Qualquer tipo de relação comercial de compra e venda de produtos e/ou serviços realizada por qualquer meio conectado a Internet tal como, mas não limitado a celular, computador, sistema de vendas por telefone.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FERRAMENTAS DE RISCO&lt;/strong&gt; – Conjunto de Ferramentas que possuem como principal característica a sinalização quanto à probabilidade de fraude em transações com cartão de crédito processadas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; via &lt;strong&gt;E-COMMERCE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; – Ferramenta sublicenciada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; para análise e atribuição de grau de risco à transações com cartão de crédito processadas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; via &lt;strong&gt;E-COMMERCE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CHARGEBACK&lt;/strong&gt; - Retorno de um Pagamento com Cartão baseado na incapacidade de obedecer às regras da Companhia do Cartão ou em uma disputa iniciada pelo Usuário Final ou Titular do Cartão&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;VELOCITY&lt;/strong&gt; – Ferramenta de validação de transações para bloqueio e/ou alerta de vendas que repitam dados de carrinho em excesso.&lt;/p&gt;
+
+&lt;h2 id=&quot;2ª--objeto&quot;&gt;2ª – Objeto&lt;/h2&gt;
+
+&lt;p&gt;2.1 – O presente Anexo tem como objeto a prestação dos serviços pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; de Gestão de Risco, que tem como objetivo o controle da quantidade de fraudes com cartão de crédito recebidas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; por meio do uso de uma ou mais &lt;strong&gt;FERRAMENTAS DE RISCO&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.1.1 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; poderá fazer cópias da documentação de integração apenas para seu próprio uso interno.&lt;/p&gt;
+
+&lt;p&gt;2.2 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; declara ter ciência e estar de acordo de que a &lt;strong&gt;CONTRATADA&lt;/strong&gt; não assume os riscos da realização das vendas com cartão de crédito via &lt;strong&gt;E-COMMERCE&lt;/strong&gt;, sendo estes riscos de integral e exclusiva responsabilidade da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.3 – Os serviços de customização, suporte técnico e manutenção consistirão na tomada de todas as providências de natureza técnica que tenham por finalidade customizar e manter o Serviço de Gestão de Risco em perfeitas condições de funcionamento, bem como na atualização e correção de erros ou imperfeições do serviço de Gestão de Risco, incluindo, mas não se limitando aos a seguir discriminados:&lt;/p&gt;
+
+&lt;p&gt;a) Suporte para esclarecimentos de dúvidas técnicas (nos dias úteis, das 09h00min às 18h00min), ou via ferramenta de abertura de ticket (suporte.braspag.com.br);&lt;/p&gt;
+
+&lt;p&gt;b) Informação de status automático de risco para as transações com cartão de crédito via &lt;strong&gt;E-COMMERCE&lt;/strong&gt; que forem direcionadas para as &lt;strong&gt;FERRAMENTAS DE RISCO&lt;/strong&gt;; e&lt;/p&gt;
+
+&lt;p&gt;c) Atualizações e correções do sistema quando necessário, a critério exclusivo da &lt;strong&gt;CONTRATADA&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.4 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; poderá requisitar a inclusão dos serviços sob demanda abaixo discriminados, conforme constante na Proposta Comercial:&lt;/p&gt;
+
+&lt;p&gt;2.4.1 – Gerenciamento de Revisão Manual&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Análise dos pedidos sinalizados pelo &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; com a necessidade de nova revisão para aprovação e processamento posterior ou rejeição de tais pedidos;&lt;/li&gt;
+  &lt;li&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; está ciente e concorda que o serviço de Gerenciamento de Revisão Manual será executado pela equipe da empresa terceira designada em contrato;&lt;/li&gt;
+  &lt;li&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; autoriza a equipe de revisão manual a entrar em contato direto, caso seja necessário, com o usuário final, para fins de validação da identidade ou qualquer informação necessária e garante que tal contato não irá violar os termos de uso, políticas de privacidade ou outras políticas do cliente;&lt;/li&gt;
+  &lt;li&gt;Caso um pedido seja sinalizado para Revisão Manual pelo &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;, será determinado se o pedido deverá ser liberado para processamento ou rejeitado em até 02 (dois) dias do recebimento do pedido pelo &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;. Em complemento ao acima disposto, caso o pedido envolva entrega expressa, serão empreendidos esforços razoáveis para determinar no mesmo dia se um pedido deve ser liberado para processamento ou rejeitado através do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;, mas não haverá qualquer obrigação da &lt;strong&gt;CONTRATADA&lt;/strong&gt; quanto a tal prazo;&lt;/li&gt;
+  &lt;li&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; concorda que é inteiramente responsável por auxiliar todos os usuários que tiverem seus pedidos rejeitados e também pelo tratamento dos &lt;strong&gt;CHARGEBACKS&lt;/strong&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2.4.2 – Consultoria de Risco&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Treinamento, consultoria e configuração do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;, incluindo regras customizadas, regras da biblioteca, relatórios, ambientes de testes e implementação;&lt;/li&gt;
+  &lt;li&gt;Suporte interfuncional dos especialistas no produto, risco e assuntos técnicos, visando apoiar a integração do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; ao modo de produção;&lt;/li&gt;
+  &lt;li&gt;Análises e recomendações relativas à atual estratégia de risco e o processo de negócio relacionado a essa estratégia, incluindo melhores práticas para a revisão manual de pedidos, aceitação, rejeição e gestão de fraude;&lt;/li&gt;
+  &lt;li&gt;Definição dos perfis de revisão e regras necessários para o  &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;Introdução e avaliação do serviço consultoria de risco para análise de desempenho e relatórios, identificando e comparando as métricas-chave de desempenho associados com a conversão de ordem, a taxa de fraude e da produtividade;&lt;/li&gt;
+  &lt;li&gt;Atualizações para a configuração da estratégia antifraude, na medida do necessário, para as regras do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; incluindo ajustes para revisões situacionais, sazonais ou direcionadas a produtos;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;O acesso ao analista de serviços gerenciados para consultas será disponibilizado de segunda a sexta-feira, das 9h00 às 17h00, horário de Brasília, exceto feriados;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; concorda com a estratégia apresentada pelo consultor de risco contratado, sendo que qualquer modificação nas configurações da &lt;strong&gt;FERRAMENTA ANTIFRAUDE&lt;/strong&gt; feitas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; deverão ser comunicadas e discutidas previamente antes de serem ativadas em produção. A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; está ciente que a não comunicação de eventuais mudanças poderá impactar no desempenho da &lt;strong&gt;FERRAMENTA ANTIFRAUDE&lt;/strong&gt;;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; está ciente e concorda que o serviço de consultoria de risco será executado pela empresa terceira designada na Proposta Comercial.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3ª--disposições-específicas-do-serviço&quot;&gt;3ª – Disposições específicas do serviço&lt;/h2&gt;
+
+&lt;p&gt;3.1 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; reconhece e concorda que as vendas impedidas pelo &lt;strong&gt;VELOCITY&lt;/strong&gt; não serão objeto de contestação, visto que a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; é corresponsável pelas regras aplicadas pelo &lt;strong&gt;VELOCITY&lt;/strong&gt; para a detecção de transações E-COMMERCE em repetição.&lt;/p&gt;
+
+&lt;p&gt;3.2 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; concorda em disponibilizar sua base mensal de &lt;strong&gt;CHARGEBACKS&lt;/strong&gt; referentes à fraude para aprimoramento dos resultados do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; das seguintes formas: (i) Identificando cada transação como suspeita por meio do seu acesso direto ao &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;; e (ii) por meio de um arquivo gerado pelo adquirente e acrescido da identificação da requisição (Braspag Request ID) de cada transação;&lt;/p&gt;
+
+&lt;p&gt;3.3 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; deve implementar tecnologia de identificação da impressão digital do dispositivo em seu website para coletar a identificação de um dispositivo para uso do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; ou outras ferramentas que a &lt;strong&gt;CONTRATADA&lt;/strong&gt; considerar necessárias.&lt;/p&gt;
+
+&lt;p&gt;3.4 – Para cada pedido enviado pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; para o serviço de Gestão de Risco, deverão ser fornecidas todas as informações necessárias para processamento e análise como os campos listados na documentação de integração fornecida pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, assim como os campos customizados definidos pelo especialista de risco, conforme estratégia informada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;3.5 – Em caso de eventos promocionais patrocinados pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; que afetem o número de transações, aumentando de forma que ultrapasse 20% (vinte por cento) da média dos últimos 2 (dois) meses de seu faturamento, a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; fará esforços para informar à &lt;strong&gt;CONTRATADA&lt;/strong&gt;, com pelo menos 02 (duas) semanas de antecedência, as previsões de transações e as informações relacionadas dos próximos eventos promocionais, como pré-requisito para planejar os recursos necessários ao aumento esperado. A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; está ciente que a não comunicação de eventuais mudanças poderá impactar no prazo (de resposta do serviço e negócios).&lt;/p&gt;
+
+&lt;p&gt;3.6 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; deverá comunicar quaisquer modificações que tenham impacto na estratégia de antifraude com antecedência mínima de 30 (trinta) dias. Exemplos de situações que podem causar impacto:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mudança de fluxo de checkout (Guest checkout por exemplo);&lt;/li&gt;
+  &lt;li&gt;Nova linha de produto;&lt;/li&gt;
+  &lt;li&gt;Nova forma de entrega;&lt;/li&gt;
+  &lt;li&gt;Campanha de marketing;&lt;/li&gt;
+  &lt;li&gt;Promoções;&lt;/li&gt;
+  &lt;li&gt;Novas formas de pagamento.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3.7 – Considerando que a &lt;strong&gt;CONTRATADA&lt;/strong&gt; possui a licença e o direito de sublicenciar o &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;, as partes expressamente acordam que a licença de uso ora outorgada não permite e/ou não permitirá (i) a modificação, cópia, descompilação, publicação ou engenharia reversa do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;, o desmonte ou, de qualquer outra forma, a redução do mesmo à forma legível por pessoas; (ii) a remoção de quaisquer legendas de propriedade exclusiva ou de direitos autorais constantes do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;, de seus programas e/ou aplicativos, fornecidos pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;3.8 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; declara e garante que tem o direito de sublicenciar o &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; sem violar qualquer direito de propriedade intelectual de terceiros, bem assim que a &lt;strong&gt;FERRAMENTA ANTIFRAUDE&lt;/strong&gt; estará, durante todo o prazo de vigência do Contrato, isento de vícios ou defeitos e operará de acordo com as especificações constantes da respectiva documentação técnica.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-ª--documentos-vinculados&quot;&gt;4 ª – Documentos Vinculados&lt;/h2&gt;
+
+&lt;p&gt;4.1 – Fazem parte complementar ao presente Anexo, como se nele estivessem integralmente transcritos o Contrato de Prestação de Serviços e a Proposta Comercial encaminhada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;anexo-iii--conciliação&quot;&gt;ANEXO III – Conciliação&lt;/h1&gt;
+
+&lt;h2 id=&quot;1ª--definições-1&quot;&gt;1ª – Definições&lt;/h2&gt;
+
+&lt;p&gt;1.1 – Para perfeito entendimento e interpretação deste Anexo, são adotados os termos abaixo, cujas definições serão usadas no singular ou no plural, conforme seja o caso.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PROCESSADORAS&lt;/strong&gt; – Instituições responsáveis pela autorização e depósito de vendas com cartão de crédito.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BANCO&lt;/strong&gt; – Bancos comerciais brasileiros&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EXTRATO&lt;/strong&gt; – Arquivo gerado pelas &lt;strong&gt;PROCESSADORAS&lt;/strong&gt; e &lt;strong&gt;BANCOS&lt;/strong&gt; para informar aos seus clientes o saldo das vendas realizadas em um período de tempo específico.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ARQUIVO DE VENDAS&lt;/strong&gt; – Registro de vendas compilado pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; para comparação com os &lt;strong&gt;EXTRATOS&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CONCILIADOR&lt;/strong&gt; – Ferramenta da &lt;strong&gt;CONTRATADA&lt;/strong&gt; que fará automaticamente e diariamente a comparação entre os &lt;strong&gt;EXTRATOS&lt;/strong&gt; e o &lt;strong&gt;ARQUIVO DE VENDAS&lt;/strong&gt; da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EVENTOS&lt;/strong&gt; – Informações financeiras que constituem os &lt;strong&gt;EXTRATOS&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FLUXO DE CAIXA&lt;/strong&gt; – Relatório produzido pelo &lt;strong&gt;CONCILIADOR&lt;/strong&gt; após comparação entre &lt;strong&gt;EXTRATOS e ARQUIVOS DE VENDAS&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PAGADOR&lt;/strong&gt; – Gateway de pagamentos do Serviço de Pagamentos fornecido pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;2ª--objeto-e-disposições-específicas-do-serviço&quot;&gt;2ª – Objeto e disposições específicas do serviço&lt;/h2&gt;
+
+&lt;p&gt;2.1 – O presente Anexo tem como objeto a prestação do serviço de Conciliação pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; à &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, que tem como finalidade proporcionar à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; uma visão integrada de fluxo de caixa, previsto e realizado, de todas as vendas realizadas com cartão de crédito em um dado período.&lt;/p&gt;
+
+&lt;p&gt;2.1.1 – O sistema &lt;strong&gt;CONCILIADOR&lt;/strong&gt; em conjunto com o &lt;strong&gt;PAGADOR&lt;/strong&gt;, ou diretamente da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, recebe os dados do &lt;strong&gt;ARQUIVO DE VENDAS&lt;/strong&gt; em um único padrão indicado pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; e os compara com os &lt;strong&gt;EXTRATOS&lt;/strong&gt; das &lt;strong&gt;PROCESSADORAS&lt;/strong&gt; e &lt;strong&gt;BANCOS&lt;/strong&gt;. Por meio de uma interface web ou via requisição direta aos serviços técnicos da &lt;strong&gt;CONTRATADA&lt;/strong&gt;, a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; receberá diariamente os &lt;strong&gt;FLUXOS DE CAIXA&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.1.2 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; poderá fazer cópias dos &lt;strong&gt;FLUXOS DE CAIXA&lt;/strong&gt; apresentados para seu próprio uso interno.&lt;/p&gt;
+
+&lt;p&gt;2.1.3 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; poderá fazer cópias da documentação de integração apenas para seu próprio uso interno.&lt;/p&gt;
+
+&lt;p&gt;2.2 – O presente Anexo oferece somente direito de uso não exclusivo do serviço de Conciliação, não transmitindo à &lt;strong&gt;CONTRATANTE&lt;/strong&gt; quaisquer direitos sobre eventuais melhorias e propriedade intelectual, que pertencem à &lt;strong&gt;CONTRATADA&lt;/strong&gt; como única titular legal de todos os direitos sobre o sistema.&lt;/p&gt;
+
+&lt;p&gt;2.3 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; concorda e reconhece que as informações presentes nos &lt;strong&gt;FLUXOS DE CAIXA&lt;/strong&gt; são meramente demonstradas pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, não havendo qualquer gerência da mesma sobre a forma, qualidade ou veracidade dos &lt;strong&gt;EVENTOS&lt;/strong&gt; presentes nos &lt;strong&gt;EXTRATOS&lt;/strong&gt; ou no &lt;strong&gt;ARQUIVO DE VENDAS&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.4 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; não se responsabiliza por qualquer interpretação, ação, intenção ou omissão por parte da &lt;strong&gt;CONTRATANTE&lt;/strong&gt; derivada da leitura dos &lt;strong&gt;FLUXOS DE CAIXA&lt;/strong&gt; ou de qualquer outra informação presente no &lt;strong&gt;CONCILIADOR&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.5 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; não se responsabiliza por eventuais atrasos no envio dos &lt;strong&gt;EXTRATOS&lt;/strong&gt; fornecidos pelos &lt;strong&gt;BANCOS&lt;/strong&gt; e &lt;strong&gt;PROCESSADORAS&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.6 – Mediante expresso desejo da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, conforme consta na Proposta Comercial, poderá ser adquirido o serviço de empresa terceira para o desenvolvimento de personalizações e adaptações do &lt;strong&gt;ARQUIVO DE VENDAS&lt;/strong&gt; da &lt;strong&gt;CONTRATANTE&lt;/strong&gt; ou modelo de arquivo lido pelo &lt;strong&gt;CONCILIADOR&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.7 – A &lt;strong&gt;CONTRATADA&lt;/strong&gt; não tem qualquer ingerência e fica isenta de qualquer responsabilidade, seja qual for sua natureza, com relação à segurança e qualidade dos dados enviados, recebidos ou armazenados pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, sendo responsável apenas pelas situações decorrentes de eventuais falhas de segurança oriundas de seu ambiente tecnológico, desde que comprovada a sua culpa.&lt;/p&gt;
+</content>
+    </entry>
     
     <entry>
         <title>Retroalimentação de Chargeback - Manual de integração</title>
@@ -13956,13 +14451,380 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;h1 id=&quot;pagamentos-com-voucher&quot;&gt;Pagamentos com Voucher&lt;/h1&gt;
+
+&lt;h2 id=&quot;criando-uma-transação-com-voucher-alelo&quot;&gt;Criando uma transação com voucher Alelo&lt;/h2&gt;
+
+&lt;p&gt;Uma transação com um Cartão Alelo se efetua de uma forma semelhante a um Cartão de Débito, porém, sem o processo de autenticação. &lt;br /&gt;Atualmente, somente o Provider “Alelo” suporta processamento desta modalidade.&lt;/p&gt;
+
+&lt;h3 id=&quot;requisição-16&quot;&gt;Requisição&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TesteBraspag&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Alelo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;****4903&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TesteBraspag&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;02/2019&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;***&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Elo&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://www.braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/sales/&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;TesteBraspag&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Alelo&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 10,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;: 1,
+        &lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;****4903&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;TesteBraspag&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;02/2019&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;***&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Elo&quot;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;http://www.braspag.com.br&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Identificador da loja na Braspag&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Chave Publica para Autenticação Dupla na Braspag&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Numero de identificação do Pedido&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Nome do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Nome da provedora de Meio de Pagamento. Atualmente somente a “Cielo” suporta esta forma de pagamento via Pagador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Valor do Pedido (ser enviado em centavos)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Número de Parcelas&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReturnUrl&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;URL para onde o usuário será redirecionado após o fim do pagamento&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;1024&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.CardNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;16&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Número do Cartão do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.Holder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Nome do Comprador impresso no cartão&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Data de validade impresso no cartão, no formato MM/AAAA&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Código de segurança impresso no verso do cartão&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.Brand&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;resposta-16&quot;&gt;Resposta&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TesteBraspag&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;527637******4903&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TesteBraspag&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;02/2019&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Elo&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;004045&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AcquirerTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c63fb9f7-02ad-42b3-a182-c56e26238a00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;128752&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;562a8563-9181-4f12-bee8-0ccc89c8f931&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-02-21 10:59:57&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CapturedAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CapturedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-02-21 11:00:48&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Alelo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://www.braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReasonCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReasonMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Successful&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Transacao capturada com sucesso&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Links&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;self&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://apiquerydev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PUT&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;void&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://apidev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931/void&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;TesteBraspag&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;527637******4903&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;TesteBraspag&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;02/2019&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Elo&quot;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;004045&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;AcquirerTransactionId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;c63fb9f7-02ad-42b3-a182-c56e26238a00&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;128752&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;562a8563-9181-4f12-bee8-0ccc89c8f931&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 10,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-02-21 10:59:57&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;CapturedAmount&quot;&lt;/span&gt;: 10,
+        &lt;span class=&quot;s2&quot;&gt;&quot;CapturedDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-02-21 11:00:48&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Alelo&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;http://www.braspag.com.br&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ReasonCode&quot;&lt;/span&gt;: 0,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ReasonMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Successful&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;: 2,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Transacao capturada com sucesso&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Links&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;self&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;https://apiquerydev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931&quot;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;PUT&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;void&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;https://apidev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931/void&quot;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}]&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Formato&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AcquirerTransactionId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Id da transação no provedor de meio de pagamento&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProofOfSale&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número do Comprovante de Venda&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizationCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Código de autorização&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;300&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Campo Identificador do Pedido&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReceivedDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data em que a transação foi recebida pela Brapag&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DD HH:mm:SS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Código de retorno da Operação&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonMessage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Mensagem de retorno da Operação&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;512&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Status da Transação&lt;/td&gt;
+      &lt;td&gt;Byte&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Código retornado pelo provedor do meio de pagamento (adquirente e bancos)&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;57&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnMessage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;512&lt;/td&gt;
+      &lt;td&gt;Transação Aprovada&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthenticationUrl&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;URL para o qual o portador será redirecionado para autenticação&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;56&lt;/td&gt;
+      &lt;td&gt;https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h1 id=&quot;pagamentos-com-transferência-eletrônica&quot;&gt;Pagamentos com Transferência Eletrônica&lt;/h1&gt;
 
 &lt;h2 id=&quot;criando-uma-transação-1&quot;&gt;Criando uma transação&lt;/h2&gt;
 
 &lt;p&gt;Para criar uma venda de transferência eletrônica (conhecido como Débito Online), é necessário fazer um POST para o recurso Payment conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-16&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-17&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -14181,7 +15043,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-16&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-17&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051109&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -14308,7 +15170,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto. Neste fluxo, é necessário solicitar ao &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br&quot;&gt;time de suporte da Braspag&lt;/a&gt; a ativação do meio de pagamento.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-17&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-18&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -14719,7 +15581,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-17&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-18&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017091101&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -14895,7 +15757,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Bradesco. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrano, basta enviar as credenciais via requisição.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-18&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-19&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -15220,7 +16082,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;&lt;a href=&quot;https://braspag.github.io//manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider&quot;&gt;Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;resposta-18&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-19&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;201803061142&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -15421,7 +16283,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco do Brasil. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrano, basta enviar as credenciais via requisição.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-19&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-20&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -15721,7 +16583,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;&lt;a href=&quot;https://braspag.github.io//manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider&quot;&gt;Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;resposta-19&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-20&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;201803061615&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -15923,7 +16785,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Neste exemplo, uma transação é submetida para autorização, e quando aprovada, a recorrência é agendada conforme as regras especificadas na transação. Uma transação recorrente não poderá ser parcelada.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-20&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-21&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -16120,7 +16982,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-20&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-21&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051113&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -16316,7 +17178,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Diferentementemente da recorrência anterior, este exemplo não autoriza imediatamente, mas apenas agenda uma autorização futura. Quando esta autorização tiver sucesso, então o agendamento das próximas recorrências será efetivada.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-21&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-22&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -16522,7 +17384,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-21&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-22&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051114&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -16675,7 +17537,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Este é um exemplo de como utilizar o Card Token, previamente salvo, para criar uma transação. Por questão de segurança, um Card Token não tem guardado o Código de Segurança. Desta forma, é necessário solicitar à adquirente a ativação do recurso de recorrência em seu estabelecimento e a liberação para transacionar sem o envio do Código de Segurança.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-22&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-23&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -16825,7 +17687,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-22&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-23&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051105&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17024,7 +17886,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para alterar os dados do comprador em uma recorrência, basta fazer um PUT conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-23&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-24&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Customer&lt;/span&gt;&lt;/aside&gt;
 
@@ -17284,7 +18146,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-23&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-24&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -17295,7 +18157,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para alterar a data final da Recorrência, basta fazer um PUT conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-24&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-25&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate&lt;/span&gt;&lt;/aside&gt;
 
@@ -17362,7 +18224,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-24&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-25&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -17373,7 +18235,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para alterar o Intervalo da Recorrência, basta fazer um PUT conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-25&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-26&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Interval&lt;/span&gt;&lt;/aside&gt;
 
@@ -17440,7 +18302,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-25&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-26&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -17453,7 +18315,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;aside class=&quot;notice&quot;&gt;Regra: Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09&lt;/aside&gt;
 
-&lt;h3 id=&quot;requisição-26&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-27&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay&lt;/span&gt;&lt;/aside&gt;
 
@@ -17520,7 +18382,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-26&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-27&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -17600,7 +18462,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;aside class=&quot;warning&quot;&gt;Essa alteração só afeta a data de pagamento da próxima recorrência.&lt;/aside&gt;
 
-&lt;h3 id=&quot;resposta-27&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-28&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -17611,7 +18473,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para alterar a data do próximo Pagamento, basta fazer um PUT conforme o exemplo. Esta operação modifica somente a data do próximo pagamento, ou seja, a recorrências futuras a esta permanecerão com as carcaterísticas originais.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-27&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-28&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate&lt;/span&gt;&lt;/aside&gt;
 
@@ -17678,7 +18540,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-28&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-29&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -17691,7 +18553,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.&lt;/aside&gt;
 
-&lt;h3 id=&quot;requisição-28&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-29&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Payment&lt;/span&gt;&lt;/aside&gt;
 
@@ -17849,7 +18711,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-29&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-30&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -17860,79 +18722,12 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-29&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-30&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
 &lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; PUT &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Propriedade&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Tipo&lt;/th&gt;
-      &lt;th&gt;Tamanho&lt;/th&gt;
-      &lt;th&gt;Obrigatório&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Identificador da loja na API&lt;/td&gt;
-      &lt;td&gt;Guid&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Chave Publica para Autenticação Dupla na API&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;40&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT&lt;/td&gt;
-      &lt;td&gt;Guid&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Numero de identificação da Recorrência.&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;50&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;resposta-30&quot;&gt;Resposta&lt;/h3&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
-
-&lt;h2 id=&quot;reabilitando-um-pedido-recorrente&quot;&gt;Reabilitando um Pedido Recorrente&lt;/h2&gt;
-
-&lt;p&gt;Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.&lt;/p&gt;
-
-&lt;h3 id=&quot;requisição-30&quot;&gt;Requisição&lt;/h3&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate&lt;/span&gt;&lt;/aside&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
-&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; PUT &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
@@ -17990,13 +18785,80 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;p&gt;Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
 
+&lt;h2 id=&quot;reabilitando-um-pedido-recorrente&quot;&gt;Reabilitando um Pedido Recorrente&lt;/h2&gt;
+
+&lt;p&gt;Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.&lt;/p&gt;
+
+&lt;h3 id=&quot;requisição-31&quot;&gt;Requisição&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; PUT &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador da loja na API&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Chave Publica para Autenticação Dupla na API&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Numero de identificação da Recorrência.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;resposta-32&quot;&gt;Resposta&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
+
 &lt;h1 id=&quot;consultas&quot;&gt;Consultas&lt;/h1&gt;
 
 &lt;h2 id=&quot;consultando-uma-transação-via-paymentid&quot;&gt;Consultando uma transação via PaymentID&lt;/h2&gt;
 
 &lt;p&gt;Para consultar uma transação de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-31&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-32&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -18052,7 +18914,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-32&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-33&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -18556,7 +19418,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 &lt;p&gt;Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-32&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-33&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales?merchantOrderId={merchantOrderId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -18612,7 +19474,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-33&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-34&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -18680,7 +19542,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 &lt;p&gt;Para consultar um pedido de Recorrência, é necessário fazer um GET conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-33&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-34&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -18736,7 +19598,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-34&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-35&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19134,6 +19996,10 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     &lt;tr&gt;
       &lt;td&gt;GlobalPayments&lt;/td&gt;
       &lt;td&gt;Visa, Master&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alelo&lt;/td&gt;
+      &lt;td&gt;Elo&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
