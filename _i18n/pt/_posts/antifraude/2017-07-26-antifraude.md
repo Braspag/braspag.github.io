@@ -415,12 +415,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 21 - Status]()|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 21 - Status](https://braspag.github.io/manual/antifraude#tabela-21-status)|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield - [Tabela ]|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.resultdetails.providerstatus)|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
@@ -724,9 +724,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 21 - Status](https://braspag.github.io/manual/antifraude#tabela-21-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource|string|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.resultdetails.providerstatus)|enum|
 |`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - Tabela 2|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
 |`ProviderAnalysisResult.AfsReply.addressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
@@ -2250,7 +2250,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno|ReDShield, Cybersource|
 |ProviderError|Transação com erro no provedor ao ser enviada para análise|ReDShield, Cybersource|
 
-## Tabela 22 - ProviderAnalysisResult.ResultDetails.ProviderStatus
+## Tabela 22 - ProviderStatus
 
 |Valor|Descrição|Provider|De-Para com o campo `Status` (Status da transação no Antifraude Gateway Braspag)|
 |:-|:-|:-|:-|
@@ -2264,4 +2264,4 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |REJECT|Transação rejeitada no provedor|Cybesource|Reject|
 |ENETLP|Transação com erro no provedor|ReDShield|ProviderError|
 |ENORSP|Transação com erro no provedor|ReDShield|ProviderError|
-|ERROR|Transação com erro no provedor|ReDShield, Cybersource|ProviderErro|
+|ERROR|Transação com erro no provedor|ReDShield, Cybersource|ProviderError|
