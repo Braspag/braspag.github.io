@@ -29,21 +29,16 @@ Têm entre si, como justa e acordada, a celebração do presente Contrato de Pre
 
 1.1 – Para os efeitos deste Contrato, as palavras ou expressões abaixo mencionadas, quando utilizadas com as letras iniciais maiúsculas neste instrumento nos Anexos e/ou na Proposta Comercial, terão os significados abaixo.
 
-a) **Anexos**: significam anexos específicos que individualmente detalham as condições específicas do(s) serviço(s) oferecido(s) pela **CONTRATADA**. Todas as condições específicas de cada serviço a ser executado constarão no respectivo Anexo do serviço e/ou na Proposta Comercial.
-
-b) **Contrato**: significa este Contrato de Prestação de Serviços.
-
-c)    **Evento de Força Maior**: significam catástrofes da natureza, atos de guerra ou terrorismo e desordem civil, nos termos do Código Civil, ou ainda quaisquer atos ou fatos que venham a causar a paralisação completa do funcionamento do sistema bancário, quer do atendimento presencial e/ou quer do atendimento pelos canais eletrônicos, em todo o território nacional.
-
-d)    **Leis de Privacidade**: significa a legislação brasileira aplicável relacionada à privacidade de dados, fluxo de dados entre fronteiras, proteção de dados, bancos de dados; cadastros de consumidores e sigilo bancário.
-
-e)    **Proposta Comercial**: significa o documento no qual constarão as condições comerciais específicas do(s) serviço(s) contratado(s) pela **CONTRATANTE**, bem como condições específicas da contratação.
-
-f)    **Parceiro Comercial de Integração Técnica**: significa que o Parceiro Comercial realiza integração de clientes, mútuos, com a Braspag através de sua própria API.
-
-g)    **API**: Application Programming Interface, em português, Interface de Programação de Aplicações.
-
-h)    **EDI**: troca estruturada de dados através de uma rede de dados.
+| Termos | Definições |
+|:--------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| **Anexos** | Significam anexos específicos que individualmente detalham as condições específicas do(s) serviço(s) oferecido(s) pela **CONTRATADA**. Todas as condições específicas de cada serviço a ser executado constarão no respectivo Anexo do serviço e/ou na Proposta Comercial |
+| **Contrato** | significa este Contrato de Prestação de Serviços |
+| **Evento de Força Maior** | significam catástrofes da natureza, atos de guerra ou terrorismo e desordem civil, nos termos do Código Civil, ou ainda quaisquer atos ou fatos que venham a causar a paralisação completa do funcionamento do sistema bancário, quer do atendimento presencial e/ou quer do atendimento pelos canais eletrônicos, em todo o território nacional |
+| **Leis de Privacidade** | significa a legislação brasileira aplicável relacionada à privacidade de dados, fluxo de dados entre fronteiras, proteção de dados, bancos de dados; cadastros de consumidores e sigilo bancário |
+| **Proposta Comercial** | significa o documento no qual constarão as condições comerciais específicas do(s) serviço(s) contratado(s) pela **CONTRATANTE**, bem como condições específicas da contratação |
+| **Parceiro Comercial de Integração Técnica** | significa que o Parceiro Comercial realiza integração de clientes, mútuos, com a Braspag através de sua própria API |
+| **API** | Application Programming Interface, em português, Interface de Programação de Aplicações |
+| **EDI** | troca estruturada de dados através de uma rede de dados |
 
 ## 2ª - Objeto
 
