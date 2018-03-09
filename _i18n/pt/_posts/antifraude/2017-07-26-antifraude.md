@@ -423,7 +423,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
-|`ProviderAnalysisResult.ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
+|`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
 
 ## Analisando uma transação na Cybersource
 
@@ -584,9 +584,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`MerchantOrderId` |Número do pedido da loja <br/> Obs.: Este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint|string|sim|100|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
-|`Currency`|Moeda - Tabela 1|enum|-|-|
-|`Provider`|Provedor da solução de antifraude - Tabela 2|enum|-|-|
-|`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|
+|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|sim|3|
+|`Provider`|Provedor da solução de antifraude - [Tabela 1 - Provider](https://braspag.github.io//manual/antifraude#tabela-1-provider)|enum|-|-|
+|`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|não|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|não|-|
 |`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|20|
 |`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|10|
@@ -595,7 +595,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Card.Number`|Número do cartão de crédito|string|sim|20|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|50|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
-|`Card.Brand`|Bandeira do cartão de crédito - Tabela 4|enum|-|-|
+|`Card.Brand`|Bandeira do cartão de crédito - [Tabela 3 - Card.Brand](https://braspag.github.io/manual/antifraude#tabela-3-card.brand)|enum|-|-|
 |`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|
 |`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|
 |`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|não|64|
@@ -618,8 +618,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|não|60|
 |`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|não|60|
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|15|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido - Tabela 5|enum|-|-|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador - Tabela 6|string|sim|16|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido - [Tabela 4 - Shipping.ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-4-shipping.shippingmethod)|enum|-|-|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador - [Tabela 5 - Customer.MerchantCustomerId](https://braspag.github.io/manual/antifraude#tabela-5-customer.merchantcustomerid)|string|sim|16|
 |`Customer.FirstName`|Primeiro nome do comprador|string|sim|60|
 |`Customer.LastName`|Último nome do comprador|string|sim|60|
 |`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
@@ -629,19 +629,19 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|não|60|
 |`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|-|-|
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|não|100|
-|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP (`Customer.Email`)|string|não|40|
+|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|não|40|
 |`CartItem[n].ProductName`|Nome do produto|string|sim|255|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks - Tabela 9|enum|-|-|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks - [Tabela 12 - CartItem{n}.Risk](https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
 |`CartItem[n].Sku`|Sku do produto|string|não|255|
 |`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - Tabela 11|enum|-|-|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - Tabela 12|enum|-|-|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - Tabela 13|enum|-|-|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - Tabela 14|enum|-|-|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - Tabela 15|enum|-|-|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - Tabela 16|enum|-|-|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - Tabela 17|enum|-|-|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - [Tabela 13 - CartItem{n}.AddressRiskVerify](https://braspag.github.io/manual/antifraude#tabela-13-cartitem[n].addressriskverify)|enum|-|-|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - [Tabela 14 - CartItem{n}.HostHedge](https://braspag.github.io/manual/antifraude#tabela-14-cartitem[n].hosthedge)|enum|-|-|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - [Tabela 15 - CartItem{n}.NonSensicalHedge](https://braspag.github.io/manual/antifraude#tabela-15-cartitem[n].nonsensicalhedge)|enum|-|-|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - [Tabela 16 - CartItem{n}.ObscenitiesHedge](https://braspag.github.io/manual/antifraude#tabela-16-cartitem[n].obscenitieshedge)|enum|-|-|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - [Tabela 17 - CartItem{n}.TimeHedge](https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].timehedge)|enum|-|-|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - [Tabela 18 - CartItem{n}.PhoneHedge](https://braspag.github.io/manual/antifraude#tabela-18-cartitem[n].phonehedge)|enum|-|-|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - [Tabela 19 - CartItem{n}.VelocityHedge](https://braspag.github.io/manual/antifraude#tabela-19-cartitem[n].velocityhedge)|enum|-|-|
 |`Bank.Name`|Nome do banco do comprador|string|não|40|
 |`Bank.Code`|Código do banco do comprador|string|não|15|
 |`Bank.Agency`|Agência do banco do comprador|string|não|15|
@@ -656,15 +656,15 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|não|-|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|não|-|
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|não|-|
-|`Airline.JourneyType`|Tipo de viagem - Tabela 19|enun|não|-|
+|`Airline.JourneyType`|Tipo de viagem - [Tabela 9 - Airline.JourneyType](https://braspag.github.io/manual/antifraude#tabela-9-airline.journeytype)|enun|não|-|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|60|
 |`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|60|
 |`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|não|32|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro - Tabela 20|enum|não|-|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro - [Tabela 10 - Airline.Passengers{n}.PassengerType](https://braspag.github.io/manual/antifraude#tabela-10-airline.passengers[n].passengertype)|enum|não|-|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|15|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|255|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea - Tabela 21|enum|não|60|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea - [Tabela 11 - Airline.Passengers{n}.Status](https://braspag.github.io/manual/antifraude#tabela-11-airline.passengers[n].status)|enum|não|60|
 |`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
@@ -817,27 +817,30 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ``` json
 {
-  "Id": "5f8a661c-00e0-e711-80c2-000d3a70dd7b",
-  "ProviderAnalysisResult": {
-    "ProviderRequestId": "8a82944a6045a46f01604fd26814233b",
-    "Result": {
-        "ProviderCode": "000.000.000",
-        "ProviderDescription": "Transaction succeeded"
-    },
-    "ResultDetails": {
-        "CSITransactionLink": "https://{redshield endpoint}/index.red#transactiondetail/000548000001XCJ20171213072118102",
-        "Status": "ACCEPT",
-        "ProviderTransactionId": "322066985634",
-        "ProviderResponseCode": "0150",
-        "ProviderOrderId": "000548000001XCJ20171213072118102"
-    },
-    "Ndc": "8a82941859d5969a0159db3f6ecc1418_5b9d6472570843d6b7e261d92827d361"
-  },
-  "Links": [{
-    "Method": "GET",
-    "Href": "https://{antifraude endpoint}/analysis/v2/5f8a661c-00e0-e711-80c2-000d3a70dd7b",
-    "Rel": "Self"
-  }],
+  "TransactionId": "fdf8f357-a723-e811-80c3-0003ff21d83f",
+   "Status": "Accept",
+   "ProviderAnalysisResult": {
+       "ProviderRequestId": "8a829449620619e801620b31d1c85d5a",
+       "Result": {
+           "ProviderCode": "000.000.000",
+           "ProviderDescription": "Transaction succeeded"
+       },
+       "ResultDetails": {
+           "CSITransactionLink": "https://csi-stage.redworldwide.com/index.red#transactiondetail/000548000001XAR20180309093717761",
+           "ProviderStatus": "ACCEPT",
+           "ProviderTransactionId": "381069636258",
+           "ProviderResponseCode": "0150",
+           "ProviderOrderId": "000548000001XAR20180309093717761"
+       },
+       "Ndc": "8a82941859d5969a0159db3f6ecc1418_60d2e8536e244db2bf04146872b00d38"
+   },
+   "Links": [
+       {
+           "Method": "GET",
+           "Href": "http://localhost:1316/Analysis/v2/fdf8f357-a723-e811-80c3-0003ff21d83f",
+           "Rel": "Self"
+       }
+   ],
   "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
   "TotalOrderAmount": 15000,
   "TransactionAmount": 14000,
@@ -996,14 +999,15 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
+|`Status`|Status da transação no Antifraude Gateway Braspag|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido da ReDShield|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
 |`MerchantOrderId`|Número do pedido da loja|string|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
@@ -1098,35 +1102,39 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ``` json
 {
-  "Id": "3671aafd-09e0-e711-80c2-000d3a70dd7b",
-  "ProviderAnalysisResult": {
-    "ProviderTransactionId": "5131719190516173203009",
-    "Status": "ACCEPT",
-    "ProviderCode": "100",
-    "ProviderRequestTransactionId": "AhjzbwSTFjDo9sLLoWZBEAFReTFX1NHtDuphyzhk0kv9Atj2YEFgc0RA",
-    "AfsReply": {
-        "reasonCode": "100",
-        "afsResult": "99",
-        "hostSeverity": "1",
-        "consumerLocalTime": "11:31:59",
-        "afsFactorCode": "F^P^Y^Z",
-        "addressInfoCode": "MM-A^MM-Z^UNV-ADDR",
-        "hotlistInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-SA^REV-IP^REV-SUSP",
-        "suspiciousInfoCode": "RISK-TB^RISK-TS",
-        "velocityInfoCode": "VEL-NAME",
-        "scoreModelUsed": "default_lac"
-    },
-    "DecisionReply": {
-        "casePriority": "3",
-        "activeProfileReply": {},
-        "velocityInfoCode": "GVEL-R2^GVEL-R3^GVEL-R6^GVEL-R7^GVEL-R8"
-    }
-  },
-  "Links": [{
-        "Method": "GET",
-        "Href": "https://{antifraude endpoint}/analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b",
-        "Rel": "Self"
-  }],
+   "TransactionId": "1eae3d39-a723-e811-80c3-0003ff21d83f",
+   "Status": "Accept",
+   "ProviderAnalysisResult": {
+       "ProviderTransactionId": "5206061832306553904009",
+       "ProviderStatus": "ACCEPT",
+       "ProviderCode": "100",
+       "ProviderRequestTransactionId": "AhjzbwSTGjifFZXHYduJEAFReTUyEoftDpA9+Ehk0kv9Atj2YEBMmAL2",
+       "AfsReply": {
+           "reasonCode": "100",
+           "afsResult": "99",
+           "hostSeverity": "3",
+           "consumerLocalTime": "11:36:23",
+           "afsFactorCode": "D^F^Z",
+           "addressInfoCode": "COR-BA",
+           "hotlistInfoCode": "NEG-AFCB^NEG-BA^NEG-CC^NEG-EM^NEG-PEM^NEG-SA^REV-PPH^REV-SUSP",
+           "internetInfoCode": "FREE-EM^RISK-EM",
+           "suspiciousInfoCode": "RISK-TB",
+           "velocityInfoCode": "VEL-NAME",
+           "scoreModelUsed": "default_lac"
+       },
+       "DecisionReply": {
+           "casePriority": "3",
+           "activeProfileReply": {},
+           "velocityInfoCode": "GVEL-R1^GVEL-R2^GVEL-R4^GVEL-R6^GVEL-R7^GVEL-R9"
+       }
+   },
+   "Links": [
+       {
+           "Method": "GET",
+           "Href": "http://localhost:1316/Analysis/v2/1eae3d39-a723-e811-80c3-0003ff21d83f",
+           "Rel": "Self"
+       }
+   ],
   "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
   "TotalOrderAmount": 15000,
   "TransactionAmount": 14000,
@@ -1284,12 +1292,13 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
+|`Status`|Status da transação no Antifraude Gateway Braspag|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.Status`|Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1|enum|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource|string|
 |`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - Tabela 2|int|
-|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na Cybersource|string|
-|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
+|`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
+|`ProviderAnalysisResult.AfsReply.addressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
 |`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4|string|
 |`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
 |`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
@@ -2044,19 +2053,19 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 ## Tabela 3 - Card.Brand
 
-|Valor|Provider|
-|:-|:-|
-|Amex|ReDShield, Cybersource|
-|Diners|ReDShield, Cybersource|
-|Discover|ReDShield, Cybersource|
-|JCB|ReDShield, Cybersource|
-|Master|ReDShield, Cybersource|
-|Dankort|ReDShield, Cybersource|
-|Cartebleue|ReDShield, Cybersource|
-|Maestro|ReDShield, Cybersource|
-|Visa|ReDShield, Cybersource|
-|Elo|ReDShield, Cybersource|
-|Hipercard|ReDShield, Cybersource|
+|Valor|
+|:-|
+|Amex|
+|Diners|
+|Discover|
+|JCB|
+|Master|
+|Dankort|
+|Cartebleue|
+|Maestro|
+|Visa|
+|Elo|
+|Hipercard|
 
 ## Tabela 4 - Shipping.ShippingMethod
 
@@ -2111,14 +2120,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Other|Outro meio de entrega|ReDShield|
 |None|Sem meio de entrega, pois é um serviço ou assinatura|ReDShield|
 
-## Tabela 9 - Airline.JourneyType
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|OneWayTrip|Viagem somente de ida|Cybersource|
-|RoundTrip|Viagem de ida e volta|Cybersource|
-
-## Tabela 10 - Airline.Passengers[n].PassengerType
+## Tabela 9 - Airline.Passengers[n].PassengerType
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2129,94 +2131,3 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Student|Estudante|ReDShield|
 |SeniorCitizen|Idoso|ReDShield|
 |Military|Militar|ReDShield|
-
-## Tabela 11 - Airline.Passengers[n].Status
-
-|Valor|Provider|
-|:-|:-|
-|Standard|Cybersource|
-|Gold|Cybersource|
-|Platinum|Cybersource|
-
-## Tabela 12 - CartItem[n].Risk
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|Low|Produto associado com pouco chargebacks (default)|Cybersource|
-|Normal|Produto associado com a quantidade normal de chargebacks|Cybersource|
-|High|Produto associado com muito chargebacks|Cybersource|
-
-## Tabela 13 - CartItem[n].AddressRiskVerify
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|Yes|Em caso de divergência entre endereços de cobrança e entrega, atribui risco baixo ao pedido|Cybersource|
-|No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|Cybersource|
-|Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|Cybersource|
-
-## Tabela 14 - CartItem[n].HostHedge
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|Low|Baixa|Cybersource|
-|Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
-
-## Tabela 15 - CartItem[n].NonSensicalHedge
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|Low|Baixa|Cybersource|
-|Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
-
-## Tabela 16 - CartItem[n].ObscenitiesHedge
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|Low|Baixa|Cybersource|
-|Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
-
-## Tabela 17 - CartItem[n].TimeHedge
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|Low|Baixa|Cybersource|
-|Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
-
-## Tabela 18 - CartItem[n].PhoneHedge
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|Low|Baixa|Cybersource|
-|Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
-
-## Tabela 19 - CartItem[n].VelocityHedge
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|Low|Baixa|Cybersource|
-|Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
-
-## Tabela 20 - Invoice.Tender
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|Consumer|Cartão de crédito pessoal (default)|Cybersource|
-|CorporateCartão de crédito corporativo|Cybersource|
-|Debit|Cartão de débito|Cybersource|
-|CollectDelivery|Cobrança na entrega|Cybersource|
-|EletronicCheck|Cheque eletrônico|Cybersource|
-|PaymentP2P|Pagamento de pessoa para pessoa|Cybersource|
-|PrivateLabel|Pagamento com cartão de crédito privado|Cybersource|
-|Other|Pagamentos com outros métodos|Cybersource|
