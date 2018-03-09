@@ -996,9 +996,9 @@
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.ThirdPartyBooking</code></td>
       <td style="text-align: left">Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">bool</td>
       <td style="text-align: center">não</td>
-      <td style="text-align: right">1</td>
+      <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.BookingType</code></td>
@@ -1220,7 +1220,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag - <a href="">Tabela 21 - Status</a></td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
@@ -1245,7 +1245,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderStatus</code></td>
-      <td style="text-align: left">Status da transação na ReDShield</td>
+      <td style="text-align: left">Status da transação na ReDShield - [Tabela ]</td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
@@ -6312,6 +6312,131 @@ Se você não completar essa seção, você não receberá resultados corretos, 
       <td style="text-align: left">Other</td>
       <td style="text-align: left">Pagamentos com outros métodos</td>
       <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-21---status">Tabela 21 - Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Accept</td>
+      <td style="text-align: left">Transação aceita após análise de fraude</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Review</td>
+      <td style="text-align: left">Transação em revisão após análise de fraude</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Reject</td>
+      <td style="text-align: left">Transação rejeitada após análise de fraude</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pendent</td>
+      <td style="text-align: left">Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Unfinished</td>
+      <td style="text-align: left">Transação não finalizada por algum motivo, de validação de contrato ou erro interno</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProviderError</td>
+      <td style="text-align: left">Transação com erro no provedor ao ser enviada para análise</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-22---provideranalysisresultresultdetailsproviderstatus">Tabela 22 - ProviderAnalysisResult.ResultDetails.ProviderStatus</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+      <th style="text-align: left">De-Para com o campo <code class="highlighter-rouge">Status</code> (Status da transação no Antifraude Gateway Braspag)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPROVE</td>
+      <td style="text-align: left">Transação aprovada no provedor</td>
+      <td style="text-align: left">ReDShield</td>
+      <td style="text-align: left">Accept</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ACCEPT</td>
+      <td style="text-align: left">Transação aceita no provedor</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+      <td style="text-align: left">Accept</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PEND</td>
+      <td style="text-align: left">Transação em revisão no provedor</td>
+      <td style="text-align: left">ReDShield</td>
+      <td style="text-align: left">Review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CHALLENGE</td>
+      <td style="text-align: left">Transação em revisão no provedor</td>
+      <td style="text-align: left">ReDShield</td>
+      <td style="text-align: left">Review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REVIEW</td>
+      <td style="text-align: left">Transação em revisão no provedor</td>
+      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CANCEL</td>
+      <td style="text-align: left">Transação rejeitada no provedor</td>
+      <td style="text-align: left">ReDShield</td>
+      <td style="text-align: left">Reject</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DENY</td>
+      <td style="text-align: left">Transação rejeitada no provedor</td>
+      <td style="text-align: left">ReDShield</td>
+      <td style="text-align: left">Reject</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REJECT</td>
+      <td style="text-align: left">Transação rejeitada no provedor</td>
+      <td style="text-align: left">Cybesource</td>
+      <td style="text-align: left">Reject</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ENETLP</td>
+      <td style="text-align: left">Transação com erro no provedor</td>
+      <td style="text-align: left">ReDShield</td>
+      <td style="text-align: left">ProviderError</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ENORSP</td>
+      <td style="text-align: left">Transação com erro no provedor</td>
+      <td style="text-align: left">ReDShield</td>
+      <td style="text-align: left">ProviderError</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ERROR</td>
+      <td style="text-align: left">Transação com erro no provedor</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
+      <td style="text-align: left">ProviderErro</td>
     </tr>
   </tbody>
 </table>
