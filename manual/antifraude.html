@@ -6032,41 +6032,53 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Provider</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">Amex</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Diners</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Discover</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">JCB</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Master</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Dankort</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Cartebleue</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Maestro</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Visa</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Elo</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Hipercard</td>
+      <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
   </tbody>
 </table>
@@ -6323,6 +6335,268 @@ Se você não completar essa seção, você não receberá resultados corretos, 
       <td style="text-align: left">Military</td>
       <td style="text-align: left">Militar</td>
       <td style="text-align: left">ReDShield</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-10---cartitemnrisk">Tabela 10 - CartItem[n].Risk</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Produto associado com pouco chargebacks (default)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Produto associado com a quantidade normal de chargebacks</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Produto associado com muito chargebacks</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-11---cartitemnaddressriskverify">Tabela 11 - CartItem[n].AddressRiskVerify</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Em caso de divergência entre endereços de cobrança e entrega, atribui risco baixo ao pedido</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Diferenças entre os endereços de cobrança e entrega não afetam a pontuação</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-12---cartitemnhosthedge">Tabela 12 - CartItem[n].HostHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-13---cartitemnnonsensicalhedge">Tabela 13 - CartItem[n].NonSensicalHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-14---cartitemnobscenitieshedge">Tabela 14 - CartItem[n].ObscenitiesHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-15---cartitemntimehedge">Tabela 15 - CartItem[n].TimeHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-16---cartitemnphonehedge">Tabela 16 - CartItem[n].PhoneHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-17---cartitemnvelocityhedge">Tabela 17 - CartItem[n].VelocityHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
 </table>
