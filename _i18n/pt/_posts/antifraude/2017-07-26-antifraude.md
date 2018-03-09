@@ -1000,12 +1000,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 21 - Status](https://braspag.github.io/manual/antifraude#tabela-21-status)|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-22-providerstatus)|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
