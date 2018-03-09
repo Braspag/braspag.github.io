@@ -2284,3 +2284,19 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |400|A pontuação de fraude ultrapassa o seu limite <br> Possível ação: Reveja a transação do cliente|Cybersource|
 |480|A transação foi marcada como revisão pelo DM (Decision Manager)|Cybersource|
 |481|A transação foi rejeitada pelo DM (Decision Manager)|Cybersource|
+
+## Tabela 24 - ProviderAnalysisResult.AfsReply.AddressInfoCode
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|COR-BA|O endereço de cobrança pode ser normalizado|Cybersource|
+|COR-SA|O endereço de entrega pode ser normalizado|Cybersource|
+|INTL-BA|O país do endereço de cobrança está fora dos EUA|Cybersource|
+|INTL-SA|O país do endereço de entrega está fora dos EUA|Cybersource|
+|MIL-USA|Endereço militar nos EUA|Cybersource|
+|MM-A|Os endereços de cobrança e entrega usam nomes de ruas diferentes|Cybersource|
+|MM-BIN|O BIN do cartão (os seis primeiros dígitos do número do cartão) não corresponde ao país|Cybersource|
+|MM-C|Os endereços de cobrança e entrega usam cidades diferentes|Cybersource|
+|MM-CO|Os endereços de cobrança e entrega usam países diferentes|Cybersource|
+|MM-ST|Os endereços de cobrança e entrega usam estados diferentes|Cybersource|
+|MM-Z|Os endereços de cobrança e entrega usam códidos postais diferentes|Cybersource|
+|UNV-ADDR|O endereço é inverificável|Cybersource|
