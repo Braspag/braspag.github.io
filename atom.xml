@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-09T19:30:24+00:00</updated>
+    <updated>2018-03-09T19:38:32+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -38,21 +38,48 @@
 
 &lt;p&gt;1.1 – Para os efeitos deste Contrato, as palavras ou expressões abaixo mencionadas, quando utilizadas com as letras iniciais maiúsculas neste instrumento nos Anexos e/ou na Proposta Comercial, terão os significados abaixo.&lt;/p&gt;
 
-&lt;p&gt;a) &lt;strong&gt;Anexos&lt;/strong&gt;: significam anexos específicos que individualmente detalham as condições específicas do(s) serviço(s) oferecido(s) pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;. Todas as condições específicas de cada serviço a ser executado constarão no respectivo Anexo do serviço e/ou na Proposta Comercial.&lt;/p&gt;
-
-&lt;p&gt;b) &lt;strong&gt;Contrato&lt;/strong&gt;: significa este Contrato de Prestação de Serviços.&lt;/p&gt;
-
-&lt;p&gt;c)    &lt;strong&gt;Evento de Força Maior&lt;/strong&gt;: significam catástrofes da natureza, atos de guerra ou terrorismo e desordem civil, nos termos do Código Civil, ou ainda quaisquer atos ou fatos que venham a causar a paralisação completa do funcionamento do sistema bancário, quer do atendimento presencial e/ou quer do atendimento pelos canais eletrônicos, em todo o território nacional.&lt;/p&gt;
-
-&lt;p&gt;d)    &lt;strong&gt;Leis de Privacidade&lt;/strong&gt;: significa a legislação brasileira aplicável relacionada à privacidade de dados, fluxo de dados entre fronteiras, proteção de dados, bancos de dados; cadastros de consumidores e sigilo bancário.&lt;/p&gt;
-
-&lt;p&gt;e)    &lt;strong&gt;Proposta Comercial&lt;/strong&gt;: significa o documento no qual constarão as condições comerciais específicas do(s) serviço(s) contratado(s) pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, bem como condições específicas da contratação.&lt;/p&gt;
-
-&lt;p&gt;f)    &lt;strong&gt;Parceiro Comercial de Integração Técnica&lt;/strong&gt;: significa que o Parceiro Comercial realiza integração de clientes, mútuos, com a Braspag através de sua própria API.&lt;/p&gt;
-
-&lt;p&gt;g)    &lt;strong&gt;API&lt;/strong&gt;: Application Programming Interface, em português, Interface de Programação de Aplicações.&lt;/p&gt;
-
-&lt;p&gt;h)    &lt;strong&gt;EDI&lt;/strong&gt;: troca estruturada de dados através de uma rede de dados.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Termos&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Definições&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Anexos&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Significam anexos específicos que individualmente detalham as condições específicas do(s) serviço(s) oferecido(s) pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;. Todas as condições específicas de cada serviço a ser executado constarão no respectivo Anexo do serviço e/ou na Proposta Comercial&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Contrato&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;significa este Contrato de Prestação de Serviços&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Evento de Força Maior&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;significam catástrofes da natureza, atos de guerra ou terrorismo e desordem civil, nos termos do Código Civil, ou ainda quaisquer atos ou fatos que venham a causar a paralisação completa do funcionamento do sistema bancário, quer do atendimento presencial e/ou quer do atendimento pelos canais eletrônicos, em todo o território nacional&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Leis de Privacidade&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;significa a legislação brasileira aplicável relacionada à privacidade de dados, fluxo de dados entre fronteiras, proteção de dados, bancos de dados; cadastros de consumidores e sigilo bancário&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Proposta Comercial&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;significa o documento no qual constarão as condições comerciais específicas do(s) serviço(s) contratado(s) pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;, bem como condições específicas da contratação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Parceiro Comercial de Integração Técnica&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;significa que o Parceiro Comercial realiza integração de clientes, mútuos, com a Braspag através de sua própria API&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;API&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Application Programming Interface, em português, Interface de Programação de Aplicações&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;EDI&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;troca estruturada de dados através de uma rede de dados&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;2ª---objeto&quot;&gt;2ª - Objeto&lt;/h2&gt;
 
