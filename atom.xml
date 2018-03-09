@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-09T19:11:53+00:00</updated>
+    <updated>2018-03-09T19:24:10+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -185,11 +185,11 @@
 
 &lt;p&gt;7.5 – Além de outros casos porventura previstos, poderão as partes rescindir o presente Contrato de pleno direito, sem incidência de qualquer penalidade, nas seguintes hipóteses:&lt;/p&gt;
 
-&lt;p&gt;a)     Notória insolvência ou decretação de falência ou recuperação judicial da outra parte;&lt;/p&gt;
+&lt;p&gt;a) Notória insolvência ou decretação de falência ou recuperação judicial da outra parte;&lt;/p&gt;
 
-&lt;p&gt;b)     Ocorrência de força maior ou caso fortuito que impossibilite o cumprimento do objeto do presente Contrato;&lt;/p&gt;
+&lt;p&gt;b) Ocorrência de força maior ou caso fortuito que impossibilite o cumprimento do objeto do presente Contrato;&lt;/p&gt;
 
-&lt;p&gt;c)     O ajuizamento de qualquer ação contra a outra parte que afete sua credibilidade ou idoneidade.&lt;/p&gt;
+&lt;p&gt;c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibilidade ou idoneidade.&lt;/p&gt;
 
 &lt;p&gt;7.6 – A Parte inocente poderá também optar pela rescisão deste Contrato por qualquer infração das cláusulas ou condições deste Contrato, dos Anexos e/ou da Proposta Comercial pela outra parte, não sanadas no prazo de 10 (dez) dias contados do recebimento da notificação pela parte prejudicada. Neste caso, a parte faltosa deverá pagar à parte prejudicada multa não compensatória correspondente a 3 (três) vezes a “Tarifa mínima mensal” mínimos mensais de todos os serviços contratados, além de indenização pelas perdas e danos decorrentes de tal rescisão.&lt;/p&gt;
 
@@ -297,10 +297,6 @@
 
 &lt;p&gt;14.1 – As partes elegem o Foro da Comarca da Capital do Estado de São Paulo como único competente para dirimir eventuais questões oriundas deste instrumento, com expressa renúncia a qualquer outro, por mais privilegiado que seja.&lt;/p&gt;
 
-&lt;p&gt;São Paulo,  2017.&lt;/p&gt;
-
-&lt;p&gt;BRASPAG TECNOLOGIA EM PAGAMENTO LTDA.&lt;/p&gt;
-
 &lt;h1 id=&quot;anexo-i--pagamentos&quot;&gt;ANEXO I – Pagamentos&lt;/h1&gt;
 
 &lt;h2 id=&quot;1ª--objeto&quot;&gt;1ª – Objeto&lt;/h2&gt;
@@ -326,26 +322,26 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;% de tempo mensal com interrupção do processamento das transações,Penalidade a ser observada&lt;/th&gt;
-      &lt;th&gt;Penalidade a ser observada&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;% de tempo mensal com interrupção do processamento das transações,Penalidade a ser observada&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Penalidade a ser observada&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Acima de 1,5% a 1,9% das horas mensais com serviço indisponível&lt;/td&gt;
-      &lt;td&gt;Desconto de valor equivalente a 25% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Acima de 1,5% a 1,9% das horas mensais com serviço indisponível&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Desconto de valor equivalente a 25% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1,91% a 2,7% das horas mensais com serviço indisponível&lt;/td&gt;
-      &lt;td&gt;Desconto de valor equivalente a 50% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1,91% a 2,7% das horas mensais com serviço indisponível&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Desconto de valor equivalente a 50% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2,71% a 4,0% das horas mensais com serviço indisponível&lt;/td&gt;
-      &lt;td&gt;Desconto de valor equivalente a 75% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2,71% a 4,0% das horas mensais com serviço indisponível&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Desconto de valor equivalente a 75% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Mais de 4,01% das horas mensais com serviço indisponível&lt;/td&gt;
-      &lt;td&gt;Desconto de valor equivalente a 100% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Mais de 4,01% das horas mensais com serviço indisponível&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Desconto de valor equivalente a 100% da “Tarifa mínima mensal” prevista na Proposta Comercial&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -402,31 +398,24 @@
 
 &lt;p&gt;2.4 – A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; poderá requisitar a inclusão dos serviços sob demanda abaixo discriminados, conforme constante na Proposta Comercial:&lt;/p&gt;
 
-&lt;p&gt;2.4.1 – Gerenciamento de Revisão Manual&lt;/p&gt;
-
 &lt;ul&gt;
+  &lt;li&gt;2.4.1 – Gerenciamento de Revisão Manual&lt;/li&gt;
   &lt;li&gt;Análise dos pedidos sinalizados pelo &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; com a necessidade de nova revisão para aprovação e processamento posterior ou rejeição de tais pedidos;&lt;/li&gt;
   &lt;li&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; está ciente e concorda que o serviço de Gerenciamento de Revisão Manual será executado pela equipe da empresa terceira designada em contrato;&lt;/li&gt;
   &lt;li&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; autoriza a equipe de revisão manual a entrar em contato direto, caso seja necessário, com o usuário final, para fins de validação da identidade ou qualquer informação necessária e garante que tal contato não irá violar os termos de uso, políticas de privacidade ou outras políticas do cliente;&lt;/li&gt;
   &lt;li&gt;Caso um pedido seja sinalizado para Revisão Manual pelo &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;, será determinado se o pedido deverá ser liberado para processamento ou rejeitado em até 02 (dois) dias do recebimento do pedido pelo &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;. Em complemento ao acima disposto, caso o pedido envolva entrega expressa, serão empreendidos esforços razoáveis para determinar no mesmo dia se um pedido deve ser liberado para processamento ou rejeitado através do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;, mas não haverá qualquer obrigação da &lt;strong&gt;CONTRATADA&lt;/strong&gt; quanto a tal prazo;&lt;/li&gt;
-  &lt;li&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; concorda que é inteiramente responsável por auxiliar todos os usuários que tiverem seus pedidos rejeitados e também pelo tratamento dos &lt;strong&gt;CHARGEBACKS&lt;/strong&gt;;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;2.4.2 – Consultoria de Risco&lt;/p&gt;
-
-&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; concorda que é inteiramente responsável por auxiliar todos os usuários que tiverem seus pedidos rejeitados e também pelo tratamento dos &lt;strong&gt;CHARGEBACKS&lt;/strong&gt;;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2.4.2 – Consultoria de Risco&lt;/li&gt;
   &lt;li&gt;Treinamento, consultoria e configuração do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;, incluindo regras customizadas, regras da biblioteca, relatórios, ambientes de testes e implementação;&lt;/li&gt;
   &lt;li&gt;Suporte interfuncional dos especialistas no produto, risco e assuntos técnicos, visando apoiar a integração do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; ao modo de produção;&lt;/li&gt;
   &lt;li&gt;Análises e recomendações relativas à atual estratégia de risco e o processo de negócio relacionado a essa estratégia, incluindo melhores práticas para a revisão manual de pedidos, aceitação, rejeição e gestão de fraude;&lt;/li&gt;
   &lt;li&gt;Definição dos perfis de revisão e regras necessários para o  &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;;&lt;/li&gt;
   &lt;li&gt;Introdução e avaliação do serviço consultoria de risco para análise de desempenho e relatórios, identificando e comparando as métricas-chave de desempenho associados com a conversão de ordem, a taxa de fraude e da produtividade;&lt;/li&gt;
   &lt;li&gt;Atualizações para a configuração da estratégia antifraude, na medida do necessário, para as regras do &lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; incluindo ajustes para revisões situacionais, sazonais ou direcionadas a produtos;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;O acesso ao analista de serviços gerenciados para consultas será disponibilizado de segunda a sexta-feira, das 9h00 às 17h00, horário de Brasília, exceto feriados;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; concorda com a estratégia apresentada pelo consultor de risco contratado, sendo que qualquer modificação nas configurações da &lt;strong&gt;FERRAMENTA ANTIFRAUDE&lt;/strong&gt; feitas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; deverão ser comunicadas e discutidas previamente antes de serem ativadas em produção. A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; está ciente que a não comunicação de eventuais mudanças poderá impactar no desempenho da &lt;strong&gt;FERRAMENTA ANTIFRAUDE&lt;/strong&gt;;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;O acesso ao analista de serviços gerenciados para consultas será disponibilizado de segunda a sexta-feira, das 9h00 às 17h00, horário de Brasília, exceto feriados;&lt;/li&gt;
+  &lt;li&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; concorda com a estratégia apresentada pelo consultor de risco contratado, sendo que qualquer modificação nas configurações da &lt;strong&gt;FERRAMENTA ANTIFRAUDE&lt;/strong&gt; feitas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; deverão ser comunicadas e discutidas previamente antes de serem ativadas em produção. A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; está ciente que a não comunicação de eventuais mudanças poderá impactar no desempenho da &lt;strong&gt;FERRAMENTA ANTIFRAUDE&lt;/strong&gt;;&lt;/li&gt;
   &lt;li&gt;A &lt;strong&gt;CONTRATANTE&lt;/strong&gt; está ciente e concorda que o serviço de consultoria de risco será executado pela empresa terceira designada na Proposta Comercial.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -467,21 +456,48 @@
 
 &lt;p&gt;1.1 – Para perfeito entendimento e interpretação deste Anexo, são adotados os termos abaixo, cujas definições serão usadas no singular ou no plural, conforme seja o caso.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;PROCESSADORAS&lt;/strong&gt; – Instituições responsáveis pela autorização e depósito de vendas com cartão de crédito.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;BANCO&lt;/strong&gt; – Bancos comerciais brasileiros&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;EXTRATO&lt;/strong&gt; – Arquivo gerado pelas &lt;strong&gt;PROCESSADORAS&lt;/strong&gt; e &lt;strong&gt;BANCOS&lt;/strong&gt; para informar aos seus clientes o saldo das vendas realizadas em um período de tempo específico.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ARQUIVO DE VENDAS&lt;/strong&gt; – Registro de vendas compilado pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; para comparação com os &lt;strong&gt;EXTRATOS&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;CONCILIADOR&lt;/strong&gt; – Ferramenta da &lt;strong&gt;CONTRATADA&lt;/strong&gt; que fará automaticamente e diariamente a comparação entre os &lt;strong&gt;EXTRATOS&lt;/strong&gt; e o &lt;strong&gt;ARQUIVO DE VENDAS&lt;/strong&gt; da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;EVENTOS&lt;/strong&gt; – Informações financeiras que constituem os &lt;strong&gt;EXTRATOS&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;FLUXO DE CAIXA&lt;/strong&gt; – Relatório produzido pelo &lt;strong&gt;CONCILIADOR&lt;/strong&gt; após comparação entre &lt;strong&gt;EXTRATOS e ARQUIVOS DE VENDAS&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;PAGADOR&lt;/strong&gt; – Gateway de pagamentos do Serviço de Pagamentos fornecido pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Termo&lt;/th&gt;
+      &lt;th&gt;Definições&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;PROCESSADORAS&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Instituições responsáveis pela autorização e depósito de vendas com cartão de crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;BANCO&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Bancos comerciais brasileiros&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;EXTRATO&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Arquivo gerado pelas &lt;strong&gt;PROCESSADORAS&lt;/strong&gt; e &lt;strong&gt;BANCOS&lt;/strong&gt; para informar aos seus clientes o saldo das vendas realizadas em um período de tempo específico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;ARQUIVO DE VENDAS&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Registro de vendas compilado pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; para comparação com os &lt;strong&gt;EXTRATOS&lt;/strong&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;CONCILIADOR&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Ferramenta da &lt;strong&gt;CONTRATADA&lt;/strong&gt; que fará automaticamente e diariamente a comparação entre os &lt;strong&gt;EXTRATOS&lt;/strong&gt; e o &lt;strong&gt;ARQUIVO DE VENDAS&lt;/strong&gt; da &lt;strong&gt;CONTRATANTE&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;EVENTOS&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Informações financeiras que constituem os &lt;strong&gt;EXTRATOS&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;FLUXO DE CAIXA&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Relatório produzido pelo &lt;strong&gt;CONCILIADOR&lt;/strong&gt; após comparação entre &lt;strong&gt;EXTRATOS&lt;/strong&gt; e &lt;strong&gt;ARQUIVOS DE VENDAS&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;PAGADOR&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Gateway de pagamentos do Serviço de Pagamentos fornecido pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;2ª--objeto-e-disposições-específicas-do-serviço&quot;&gt;2ª – Objeto e disposições específicas do serviço&lt;/h2&gt;
 
