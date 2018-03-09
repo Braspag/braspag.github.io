@@ -348,7 +348,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|
 |`CartItem[n].ShippingMethod`|Meio de entrega do produto - [Tabela 8 - CartItem{n}.ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-8-cartitem[n].shippingmethod)|enum|-|-|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
-|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|string|não|1|
+|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|bool|não|-|
 |`Airline.BookingType`|Tipo de agendamento da reserva|string|não|255|
 |`Airline.TicketDeliveryMethod`|Tipo de entrega da passagem|string|não|127|
 |`Airline.BookingReferenceNumber`|Número de referêcia da reserva|string|não|9|
@@ -415,12 +415,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 21 - Status]()|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield - [Tabela ]|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
@@ -2238,3 +2238,28 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |PaymentP2P|Pagamento de pessoa para pessoa|Cybersource|
 |PrivateLabel|Pagamento com cartão de crédito privado|Cybersource|
 |Other|Pagamentos com outros métodos|Cybersource|
+
+## Tabela 21 - Status
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|Accept|Transação aceita após análise de fraude|ReDShield, Cybersource|
+|Review|Transação em revisão após análise de fraude|ReDShield, Cybersource|
+|Reject|Transação rejeitada após análise de fraude|ReDShield, Cybersource|
+|Pendent|Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource|Cybersource|
+|Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno|ReDShield, Cybersource|
+|ProviderError|Transação com erro no provedor ao ser enviada para análise|ReDShield, Cybersource|
+
+## Tabela 22 - ProviderAnalysisResult.ResultDetails.ProviderStatus
+|Valor|Descrição|Provider|De-Para com o campo `Status` (Status da transação no Antifraude Gateway Braspag)|
+|:-|:-|:-|
+|APPROVE|Transação aprovada no provedor|ReDShield|Accept|
+|ACCEPT|Transação aceita no provedor|ReDShield, Cybersource|Accept|
+|PEND|Transação em revisão no provedor|ReDShield|Review|
+|CHALLENGE|Transação em revisão no provedor|ReDShield|Review|
+|REVIEW|Transação em revisão no provedor|Cybersource|Review|
+|CANCEL|Transação rejeitada no provedor|ReDShield|Reject|
+|DENY|Transação rejeitada no provedor|ReDShield|Reject|
+|REJECT|Transação rejeitada no provedor|Cybesource|Reject|
+|ENETLP|Transação com erro no provedor|ReDShield|ProviderError|
+|ENORSP|Transação com erro no provedor|ReDShield|ProviderError|
+|ERROR|Transação com erro no provedor|ReDShield, Cybersource|ProviderError|
