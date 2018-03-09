@@ -2286,6 +2286,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |481|A transação foi rejeitada pelo DM (Decision Manager)|Cybersource|
 
 ## Tabela 24 - ProviderAnalysisResult.AfsReply.AddressInfoCode
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |COR-BA|O endereço de cobrança pode ser normalizado|Cybersource|
@@ -2302,6 +2303,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |UNV-ADDR|O endereço é inverificável|Cybersource|
 
 ## Tabela 25 - ProviderAnalysisResult.AfsReply.AfsFactorCode
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |A|Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses|Cybersource|
@@ -2326,12 +2328,14 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Z|Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias|Cybersource|
 
 ## Tabela 26 - ProviderAnalysisResult.AfsReply.CardAccountType
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |CN|Cartão privado|Cybersource|
 |CP|Cartão corporativo|Cybersource|
 
 ## Tabela 27 - ProviderAnalysisResult.AfsReply.HotListInfoCode
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |CON-POSNEG|A ordem disparada bate tanto com a lista positiva e negativa. O resultado da lista positiva sobrescreve a lista negativa|Cybersource|
@@ -2382,6 +2386,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |REV-SZC|O código postal do endereço de entrega está na lista de revisão|Cybersource|
 
 ## Tabela 28 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |MORPH-B|O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
@@ -2392,6 +2397,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |MORPH-S|O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
 
 ## Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |FREE-EM|O endereço de e-mail do cliente é de um provedor de e-mail gratuito|Cybersource|
@@ -2408,6 +2414,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|Cybersource|
 
 ## Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |MM-ACBST|O número de telefone do cliente não é consistente com o estado no endereço de cobrança|Cybersource|
@@ -2419,6 +2426,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |UNV-PH|O número do telefone é inválido|Cybersource|
 
 ## Tabela 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |BAD-FP|O dispositivo é arriscado|Cybersource|
@@ -2443,6 +2451,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |RISK-TS|O dia e a hora da ordem associada ao endereço de entrega é arriscado|Cybersource|
 
 ## Tabela 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |VEL-ADDR|Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email|Cybersource|
@@ -2473,6 +2482,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |VELL-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
 
 ## Tabela 31 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
+
 |Valor|Provider|
 |:-|:-|
 |ACCEPT|Cybersource|
@@ -2481,6 +2491,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |REVIEW|Cybersource|
 
 ## Tabela 32 - |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
+
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |T|A regra é verdadeira|Cybersource|
