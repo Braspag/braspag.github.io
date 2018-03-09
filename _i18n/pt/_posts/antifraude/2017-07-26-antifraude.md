@@ -420,7 +420,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.resultdetails.providerstatus)|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-22-providerstatus)|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
@@ -726,9 +726,11 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
 |`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 21 - Status](https://braspag.github.io/manual/antifraude#tabela-21-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.resultdetails.providerstatus)|enum|
-|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - Tabela 2|int|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-22-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - [Tabela 23 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.providercode)|enum|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
+|`ProviderAnalysisResult.Missing`|Campos faltantes na requisição enviada a Cybersource|string|
+|`ProviderAnalysisResult.Invalid`|Campos com valores inválidos enviado a Cybersource|string|
 |`ProviderAnalysisResult.AfsReply.addressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
 |`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4|string|
 |`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
@@ -1298,12 +1300,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 21 - Status](https://braspag.github.io/manual/antifraude#tabela-21-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - Tabela 2|int|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - [Tabela 23 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
-|`ProviderAnalysisResult.AfsReply.addressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Os códigos são concatenados usando o caractere ^. Ex.: MM-A^MM-Z - [Tabela 24 - ProviderAnalysisResult.AfsReply.AddressInfoCode]()|string|
 |`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4|string|
 |`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
 |`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
@@ -2247,7 +2249,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Review|Transação em revisão após análise de fraude|ReDShield, Cybersource|
 |Reject|Transação rejeitada após análise de fraude|ReDShield, Cybersource|
 |Pendent|Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource|Cybersource|
-|Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno|ReDShield, Cybersource|
+|Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource e o campo `ProviderAnalysisResult.ProviderStatus` for igual a *REJECT* e o campo `ProviderAnalysisResult.ProviderCode` diferente de *481*, o status da transação será *Unfineshed*|ReDShield, Cybersource|
 |ProviderError|Transação com erro no provedor ao ser enviada para análise|ReDShield, Cybersource|
 
 ## Tabela 22 - ProviderStatus
@@ -2265,3 +2267,20 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |ENETLP|Transação com erro no provedor|ReDShield|ProviderError|
 |ENORSP|Transação com erro no provedor|ReDShield|ProviderError|
 |ERROR|Transação com erro no provedor|ReDShield, Cybersource|ProviderError|
+
+## Tabela 23 - ProviderAnalysisResult.ProviderCode
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|100|Operação realizada com sucesso|Cybersource|
+|101|A transação enviada para análise de fraude está faltando um ou mais campos necessários <br/> Verificar no response o campo `ProviderAnalysisResult.Missing` <br/> Possível ação: Reenviar a transação com a informação completa|Cybersource|
+|102|A transação enviada para análise de fraude possui um ou mais campos com valores inválidos <br/> Verificar no response o campo `ProviderAnalysisResult.Invalid` <br/> Possível ação: Reenviar a transação com as informações corretas|Cybersource|
+|150|Erro interno <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
+|151|A transação foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
+|152|O pedido foi recebido, mas ocorreu time-out <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
+|202|Transação recusada pois o cartão expirou ou a data de validade não coincide com a correta <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|Cybersource|
+|231|Transação recusada pois o cartão é inválido <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|Cybersource|
+|234|Problema com a configuração da loja na Cybersource <br/> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração|Cybersource|
+|400|A pontuação de fraude ultrapassa o seu limite <br> Possível ação: Reveja a transação do cliente|Cybersource|
+|480|A transação foi marcada como revisão pelo DM (Decision Manager)|Cybersource|
+|481|A transação foi rejeitada pelo DM (Decision Manager)|Cybersource|
