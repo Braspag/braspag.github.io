@@ -33,17 +33,17 @@ a) **Anexos**: significam anexos específicos que individualmente detalham as co
 
 b) **Contrato**: significa este Contrato de Prestação de Serviços.
 
-c)	**Evento de Força Maior**: significam catástrofes da natureza, atos de guerra ou terrorismo e desordem civil, nos termos do Código Civil, ou ainda quaisquer atos ou fatos que venham a causar a paralisação completa do funcionamento do sistema bancário, quer do atendimento presencial e/ou quer do atendimento pelos canais eletrônicos, em todo o território nacional.
+c)    **Evento de Força Maior**: significam catástrofes da natureza, atos de guerra ou terrorismo e desordem civil, nos termos do Código Civil, ou ainda quaisquer atos ou fatos que venham a causar a paralisação completa do funcionamento do sistema bancário, quer do atendimento presencial e/ou quer do atendimento pelos canais eletrônicos, em todo o território nacional.
 
-d)	**Leis de Privacidade**: significa a legislação brasileira aplicável relacionada à privacidade de dados, fluxo de dados entre fronteiras, proteção de dados, bancos de dados; cadastros de consumidores e sigilo bancário.
+d)    **Leis de Privacidade**: significa a legislação brasileira aplicável relacionada à privacidade de dados, fluxo de dados entre fronteiras, proteção de dados, bancos de dados; cadastros de consumidores e sigilo bancário.
 
-e)	**Proposta Comercial**: significa o documento no qual constarão as condições comerciais específicas do(s) serviço(s) contratado(s) pela **CONTRATANTE**, bem como condições específicas da contratação.
+e)    **Proposta Comercial**: significa o documento no qual constarão as condições comerciais específicas do(s) serviço(s) contratado(s) pela **CONTRATANTE**, bem como condições específicas da contratação.
 
-f)	**Parceiro Comercial de Integração Técnica**: significa que o Parceiro Comercial realiza integração de clientes, mútuos, com a Braspag através de sua própria API.
+f)    **Parceiro Comercial de Integração Técnica**: significa que o Parceiro Comercial realiza integração de clientes, mútuos, com a Braspag através de sua própria API.
 
-g)	**API**: Application Programming Interface, em português, Interface de Programação de Aplicações.
+g)    **API**: Application Programming Interface, em português, Interface de Programação de Aplicações.
 
-h)	**EDI**: troca estruturada de dados através de uma rede de dados.
+h)    **EDI**: troca estruturada de dados através de uma rede de dados.
 
 ## 2ª - Objeto
 
@@ -57,23 +57,23 @@ h)	**EDI**: troca estruturada de dados através de uma rede de dados.
 
 3.1 – Sem prejuízo das demais cláusulas e condições constantes deste Contrato, dos Anexos e da Proposta Comercial, caberá à **CONTRATADA**:
 
-a)	Utilizar as mais atualizadas e adequadas técnicas aplicáveis para o exercício de suas atividades, orientando-se pelo disposto nas especificações e normas técnicas aplicáveis ao(s) serviço(s) contratado(s), de modo a buscar a qualidade e a adequação do(s) serviço(s) contratado(s) em termos de desempenho, operacionalidade e segurança;
+a)    Utilizar as mais atualizadas e adequadas técnicas aplicáveis para o exercício de suas atividades, orientando-se pelo disposto nas especificações e normas técnicas aplicáveis ao(s) serviço(s) contratado(s), de modo a buscar a qualidade e a adequação do(s) serviço(s) contratado(s) em termos de desempenho, operacionalidade e segurança;
 
-b)	Fazer com que todas as pessoas alocadas para a prestação do(s) serviço(s) objeto do presente Contrato sejam devidamente treinadas, tecnicamente qualificadas e habilitadas a desempenhar as tarefas que lhes forem designadas;
+b)    Fazer com que todas as pessoas alocadas para a prestação do(s) serviço(s) objeto do presente Contrato sejam devidamente treinadas, tecnicamente qualificadas e habilitadas a desempenhar as tarefas que lhes forem designadas;
 
-c)	Quando necessário for a instalação de softwares ou hardwares fornecidos pela **CONTRATADA** nas instalações da **CONTRATANTE**, enviar técnico responsável para a instalação das soluções supracitadas, que se apresentará ao **CONTRATANTE** devidamente credenciado e autorizado a utilizar a Matriz do Software.
+c)    Quando necessário for a instalação de softwares ou hardwares fornecidos pela **CONTRATADA** nas instalações da **CONTRATANTE**, enviar técnico responsável para a instalação das soluções supracitadas, que se apresentará ao **CONTRATANTE** devidamente credenciado e autorizado a utilizar a Matriz do Software.
 
-d)	Responsabilizar-se pelo cumprimento de toda a legislação trabalhista, previdenciária, securitária, fiscal e social incidente sobre os contratos de trabalho que mantém com os profissionais integrantes de sua equipe, procedendo ao recolhimento de todos os encargos inerentes a estas contratações. 
+d)    Responsabilizar-se pelo cumprimento de toda a legislação trabalhista, previdenciária, securitária, fiscal e social incidente sobre os contratos de trabalho que mantém com os profissionais integrantes de sua equipe, procedendo ao recolhimento de todos os encargos inerentes a estas contratações. 
 
 3.2 – Sem prejuízo das demais cláusulas e condições constantes deste Contrato, dos Anexos e da Proposta Comercial, a **CONTRATADA** não será responsável:
 
-a)	Por qualquer inexecução do(s) serviço(s), nos termos contratados, caso a **CONTRATANTE** tenha inadimplido, total ou parcialmente, uma obrigação de sua responsabilidade;
+a)    Por qualquer inexecução do(s) serviço(s), nos termos contratados, caso a **CONTRATANTE** tenha inadimplido, total ou parcialmente, uma obrigação de sua responsabilidade;
 
-b)	Pelos serviços prestados pela **CONTRATANTE** a seus clientes, bem como por quaisquer obrigações daí decorrentes;
+b)    Pelos serviços prestados pela **CONTRATANTE** a seus clientes, bem como por quaisquer obrigações daí decorrentes;
 
-c)	Por falhas e/ou danos decorrentes de interrupções de energia elétrica, problemas no sistema de telefonia, interrupções dos serviços de provedores de acesso e velocidade à internet, problemas gerados via integração com fornecedor ou problemas nos sistemas de proteção contra vírus ou hackers nos equipamentos da **CONTRATANTE**, bem como por eventuais conflitos gerados em decorrência do uso, pela **CONTRATANTE**, de equipamentos, hardwares ou softwares não compatíveis;
+c)    Por falhas e/ou danos decorrentes de interrupções de energia elétrica, problemas no sistema de telefonia, interrupções dos serviços de provedores de acesso e velocidade à internet, problemas gerados via integração com fornecedor ou problemas nos sistemas de proteção contra vírus ou hackers nos equipamentos da **CONTRATANTE**, bem como por eventuais conflitos gerados em decorrência do uso, pela **CONTRATANTE**, de equipamentos, hardwares ou softwares não compatíveis;
 
-d)	Pelo funcionamento e/ou manutenção de quaisquer equipamentos, hardwares, conexões, softwares ou sistemas porventura utilizados pela **CONTRATANTE**.
+d)    Pelo funcionamento e/ou manutenção de quaisquer equipamentos, hardwares, conexões, softwares ou sistemas porventura utilizados pela **CONTRATANTE**.
 
 3.3. - A **CONTRATADA** não tem qualquer ingerência e fica isenta de qualquer responsabilidade, seja qual for sua natureza, com relação à segurança dos dados enviados, recebida ou armazenada pela **CONTRATANTE**, sendo responsável apenas pelas situações decorrentes de eventuais falhas de segurança oriundas de seu ambiente tecnológico, desde que comprovada a sua culpa.
 
@@ -83,47 +83,47 @@ d)	Pelo funcionamento e/ou manutenção de quaisquer equipamentos, hardwares, co
 
 4.1 – Sem prejuízo das demais cláusulas e condições constantes deste Contrato, dos Anexos e da Proposta Comercial, caberá à **CONTRATANTE**:
 
-a)	Manter suas informações cadastrais devidamente atualizadas, principalmente as informações relacionadas aos faturamentos e pagamentos; 
+a)    Manter suas informações cadastrais devidamente atualizadas, principalmente as informações relacionadas aos faturamentos e pagamentos; 
 
-b)	A responsabilidade pela destinação e/ou uso do(s) serviço(s) contratado(s), bem como por quaisquer inserções, exclusões ou alterações de informações, dados, etc., realizadas por si ou seus usuários, isentando a **CONTRATADA** de quaisquer responsabilidades em relação a tais atos;
+b)    A responsabilidade pela destinação e/ou uso do(s) serviço(s) contratado(s), bem como por quaisquer inserções, exclusões ou alterações de informações, dados, etc., realizadas por si ou seus usuários, isentando a **CONTRATADA** de quaisquer responsabilidades em relação a tais atos;
 
-c)	Cooperar e atender as solicitações apresentadas pela **CONTRATADA** com o intuito de facilitar a prestação dos serviços em conformidade com o Nível de Serviços (SLA) eventualmente definido entre as Partes;
+c)    Cooperar e atender as solicitações apresentadas pela **CONTRATADA** com o intuito de facilitar a prestação dos serviços em conformidade com o Nível de Serviços (SLA) eventualmente definido entre as Partes;
 
-d)	Designar uma pessoa que deverá ter conhecimento técnico, experiência e autonomia necessárias para acompanhar a **CONTRATADA** por todo o período necessário para a realização do(s) serviço(s) contratado(s), tomando todas as providências que permitam a sua realização;
+d)    Designar uma pessoa que deverá ter conhecimento técnico, experiência e autonomia necessárias para acompanhar a **CONTRATADA** por todo o período necessário para a realização do(s) serviço(s) contratado(s), tomando todas as providências que permitam a sua realização;
 
-e)	Fornecer informações necessárias à execução do(s) serviço(s) contratado(s) com a melhor técnica e de acordo com as normas vigentes;
+e)    Fornecer informações necessárias à execução do(s) serviço(s) contratado(s) com a melhor técnica e de acordo com as normas vigentes;
 
-f)	Responsabilizar-se totalmente pela guarda de eventuais senhas e códigos de identificação, bem como por sua utilização;
+f)    Responsabilizar-se totalmente pela guarda de eventuais senhas e códigos de identificação, bem como por sua utilização;
 
-g)	Responsabilizar-se pelos custos de manutenção e/ou reinstalação,  de Software ou Hardware fornecidos pela **CONTRATADA** à **CONTRATANTE**, bem como por custos decorrentes de visitas improdutivas de técnicos responsáveis pela manutenção e/ou instalação das soluções supracitadas.
+g)    Responsabilizar-se pelos custos de manutenção e/ou reinstalação,  de Software ou Hardware fornecidos pela **CONTRATADA** à **CONTRATANTE**, bem como por custos decorrentes de visitas improdutivas de técnicos responsáveis pela manutenção e/ou instalação das soluções supracitadas.
 
-h)	Efetuar os pagamentos devidos à **CONTRATADA**, conforme estabelecido neste Contrato, nos Anexos e na Proposta Comercial;
+h)    Efetuar os pagamentos devidos à **CONTRATADA**, conforme estabelecido neste Contrato, nos Anexos e na Proposta Comercial;
 
-i)	Não utilizar os serviços para colocar, copiar, transmitir ou retransmitir materiais ilegais, que ofendam o ordenamento legal, a moral e bons costumes ou abusivo de qualquer tipo;
+i)    Não utilizar os serviços para colocar, copiar, transmitir ou retransmitir materiais ilegais, que ofendam o ordenamento legal, a moral e bons costumes ou abusivo de qualquer tipo;
 
-j)	Responder pela conservação dos equipamentos, materiais de consumo e utensílios eventualmente cedidos pela **CONTRATADA** para a execução do(s) serviço(s), os quais a **CONTRATANTE** recebe em regime de comodato, responsabilizando-se por sua guarda e conservação e por eventuais perdas e/ou danos causados;
+j)    Responder pela conservação dos equipamentos, materiais de consumo e utensílios eventualmente cedidos pela **CONTRATADA** para a execução do(s) serviço(s), os quais a **CONTRATANTE** recebe em regime de comodato, responsabilizando-se por sua guarda e conservação e por eventuais perdas e/ou danos causados;
 
-k)	Responsabilizar-se pela manutenção das condições necessárias para o perfeito funcionamento dos serviços prestados pela **CONTRATANTE** tal como, mas não limitado a computadores, servidores, links de internet, certificados, redes, atualizações de softwares fornecidos pela **CONTRATADA**, relacionamento com Processadores de Pagamentos.
+k)    Responsabilizar-se pela manutenção das condições necessárias para o perfeito funcionamento dos serviços prestados pela **CONTRATANTE** tal como, mas não limitado a computadores, servidores, links de internet, certificados, redes, atualizações de softwares fornecidos pela **CONTRATADA**, relacionamento com Processadores de Pagamentos.
 
-l)	Não obter ou tentar obter acesso não autorizado a outra conta, anfitrião ou rede, ou fazer uso de direitos autorais, de imagem ou outros direitos e dados sem que esteja autorizado ou de forma ilegal;
+l)    Não obter ou tentar obter acesso não autorizado a outra conta, anfitrião ou rede, ou fazer uso de direitos autorais, de imagem ou outros direitos e dados sem que esteja autorizado ou de forma ilegal;
 
-m)	Cooperar e atender as solicitações apresentadas pela **CONTRATADA**, com o intuito de concluir a integração dos serviços em conformidade com o prazo acordado para a conclusão do Setup constante na Proposta Comercial. Passado dito prazo, sem que a integração tenha sido concluída e, não tendo a **CONTRATADA** contribuído para tanto, a **CONTRATADA** poderá disponibilizar as credenciais de produção à **CONTRATANTE** e consequentemente passará a cobrar por todos os Serviços contratados, independentemente da participação da **CONTRATANTE**.
+m)    Cooperar e atender as solicitações apresentadas pela **CONTRATADA**, com o intuito de concluir a integração dos serviços em conformidade com o prazo acordado para a conclusão do Setup constante na Proposta Comercial. Passado dito prazo, sem que a integração tenha sido concluída e, não tendo a **CONTRATADA** contribuído para tanto, a **CONTRATADA** poderá disponibilizar as credenciais de produção à **CONTRATANTE** e consequentemente passará a cobrar por todos os Serviços contratados, independentemente da participação da **CONTRATANTE**.
 
 4.2. - Caberá à **CONTRATANTE** prever, em seus contratos celebrados com seus usuários/clientes, cláusulas que estabeleçam:
 
-a)	A anuência, pelo usuário/cliente, de que os dados serão armazenados, em ambiente seguro, e autorização, por prazo indeterminado, para que sejam utilizados em futuras compras, caso aplicável;
+a)    A anuência, pelo usuário/cliente, de que os dados serão armazenados, em ambiente seguro, e autorização, por prazo indeterminado, para que sejam utilizados em futuras compras, caso aplicável;
 
-b)	Orientações ao usuário/cliente sobre os procedimentos necessários para garantir a segurança das operações (por exemplo: troca periódica de senhas, uso de computadores confiáveis, etc.);
+b)    Orientações ao usuário/cliente sobre os procedimentos necessários para garantir a segurança das operações (por exemplo: troca periódica de senhas, uso de computadores confiáveis, etc.);
 
-c)	A responsabilidade do usuário/cliente pela veracidade e exatidão dos dados informados;
+c)    A responsabilidade do usuário/cliente pela veracidade e exatidão dos dados informados;
 
-d)	A responsabilidade do usuário/cliente pelo uso e ciência das especificações dos produtos que serão adquiridos;
+d)    A responsabilidade do usuário/cliente pelo uso e ciência das especificações dos produtos que serão adquiridos;
 
-e)	A anuência, pelo usuário/cliente, de que os dados poderão ser armazenados por tempo indeterminado, cabendo ao usuário/cliente a obrigação de requerer à **CONTRATANTE** a eventual inutilização definitiva de tais dados;
+e)    A anuência, pelo usuário/cliente, de que os dados poderão ser armazenados por tempo indeterminado, cabendo ao usuário/cliente a obrigação de requerer à **CONTRATANTE** a eventual inutilização definitiva de tais dados;
 
-f)	A responsabilidade da **CONTRATANTE** perante o usuário/cliente pela captação, manutenção e transmissão das informações e/ou dados e sua correta operacionalização;
+f)    A responsabilidade da **CONTRATANTE** perante o usuário/cliente pela captação, manutenção e transmissão das informações e/ou dados e sua correta operacionalização;
 
-g)	O consentimento expresso do usuário/cliente para envio à **CONTRATADA** das informações e/ou dados relativos ao objeto do presente Contrato e Anexos.
+g)    O consentimento expresso do usuário/cliente para envio à **CONTRATADA** das informações e/ou dados relativos ao objeto do presente Contrato e Anexos.
 
 ## 5ª – Valor e da forma de pagamento
 
@@ -169,11 +169,11 @@ g)	O consentimento expresso do usuário/cliente para envio à **CONTRATADA** das
 
 7.5 – Além de outros casos porventura previstos, poderão as partes rescindir o presente Contrato de pleno direito, sem incidência de qualquer penalidade, nas seguintes hipóteses:
 
-a) 	Notória insolvência ou decretação de falência ou recuperação judicial da outra parte;
+a)     Notória insolvência ou decretação de falência ou recuperação judicial da outra parte;
 
-b) 	Ocorrência de força maior ou caso fortuito que impossibilite o cumprimento do objeto do presente Contrato;
+b)     Ocorrência de força maior ou caso fortuito que impossibilite o cumprimento do objeto do presente Contrato;
 
-c) 	O ajuizamento de qualquer ação contra a outra parte que afete sua credibilidade ou idoneidade.
+c)     O ajuizamento de qualquer ação contra a outra parte que afete sua credibilidade ou idoneidade.
 
 7.6 – A Parte inocente poderá também optar pela rescisão deste Contrato por qualquer infração das cláusulas ou condições deste Contrato, dos Anexos e/ou da Proposta Comercial pela outra parte, não sanadas no prazo de 10 (dez) dias contados do recebimento da notificação pela parte prejudicada. Neste caso, a parte faltosa deverá pagar à parte prejudicada multa não compensatória correspondente a 3 (três) vezes a “Tarifa mínima mensal” mínimos mensais de todos os serviços contratados, além de indenização pelas perdas e danos decorrentes de tal rescisão.
 
