@@ -655,7 +655,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|não|30|
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|não|-|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|não|-|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador. - Tabela 18|enum|não|-|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador - [Tabela 20 - Invoice.Tender](https://braspag.github.io/manual/antifraude#tabela-20-invoice.tender)|enum|não|-|
 |`Airline.JourneyType`|Tipo de viagem - [Tabela 9 - Airline.JourneyType](https://braspag.github.io/manual/antifraude#tabela-9-airline.journeytype)|enun|não|-|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|60|
@@ -2222,7 +2222,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |Consumer|Cartão de crédito pessoal (default)|Cybersource|
-|CorporateCartão de crédito corporativo|Cybersource|
+|Corporate|Cartão de crédito corporativo|Cybersource|
 |Debit|Cartão de débito|Cybersource|
 |CollectDelivery|Cobrança na entrega|Cybersource|
 |EletronicCheck|Cheque eletrônico|Cybersource|
