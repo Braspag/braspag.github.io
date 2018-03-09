@@ -2111,7 +2111,14 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Other|Outro meio de entrega|ReDShield|
 |None|Sem meio de entrega, pois é um serviço ou assinatura|ReDShield|
 
-## Tabela 9 - Airline.Passengers[n].PassengerType
+## Tabela 9 - Airline.JourneyType
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|OneWayTrip|Viagem somente de ida|Cybersource|
+|RoundTrip|Viagem de ida e volta|Cybersource|
+
+## Tabela 10 - Airline.Passengers[n].PassengerType
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2123,7 +2130,15 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |SeniorCitizen|Idoso|ReDShield|
 |Military|Militar|ReDShield|
 
-## Tabela 10 - CartItem[n].Risk
+## Tabela 11 - Airline.Passengers[n].Status
+
+|Valor|Provider|
+|:-|:-|
+|Standard|Cybersource|
+|Gold|Cybersource|
+|Platinum|Cybersource|
+
+## Tabela 12 - CartItem[n].Risk
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2131,7 +2146,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Normal|Produto associado com a quantidade normal de chargebacks|Cybersource|
 |High|Produto associado com muito chargebacks|Cybersource|
 
-## Tabela 11 - CartItem[n].AddressRiskVerify
+## Tabela 13 - CartItem[n].AddressRiskVerify
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2139,7 +2154,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|Cybersource|
 |Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|Cybersource|
 
-## Tabela 12 - CartItem[n].HostHedge
+## Tabela 14 - CartItem[n].HostHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2148,7 +2163,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 13 - CartItem[n].NonSensicalHedge
+## Tabela 15 - CartItem[n].NonSensicalHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2157,7 +2172,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 14 - CartItem[n].ObscenitiesHedge
+## Tabela 16 - CartItem[n].ObscenitiesHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2166,7 +2181,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 15 - CartItem[n].TimeHedge
+## Tabela 17 - CartItem[n].TimeHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2175,7 +2190,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 16 - CartItem[n].PhoneHedge
+## Tabela 18 - CartItem[n].PhoneHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2184,7 +2199,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 17 - CartItem[n].VelocityHedge
+## Tabela 19 - CartItem[n].VelocityHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2192,3 +2207,16 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Normal|Normal (default)|Cybersource|
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
+
+## Tabela 20 - Invoice.Tender
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|Consumer|Cartão de crédito pessoal (default)|Cybersource|
+|CorporateCartão de crédito corporativo|Cybersource|
+|Debit|Cartão de débito|Cybersource|
+|CollectDelivery|Cobrança na entrega|Cybersource|
+|EletronicCheck|Cheque eletrônico|Cybersource|
+|PaymentP2P|Pagamento de pessoa para pessoa|Cybersource|
+|PrivateLabel|Pagamento com cartão de crédito privado|Cybersource|
+|Other|Pagamentos com outros métodos|Cybersource|
