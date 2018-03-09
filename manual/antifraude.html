@@ -2194,163 +2194,39 @@
 </table>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3671aafd-09e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5131719190516173203009"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ProviderRequestTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AhjzbwSTFjDo9sLLoWZBEAFReTFX1NHtDuphyzhk0kv9Atj2YEFgc0RA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"AfsReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"afsResult"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"hostSeverity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"consumerLocalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:31:59"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"afsFactorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F^P^Y^Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"addressInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MM-A^MM-Z^UNV-ADDR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"hotlistInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEG-AFCB^NEG-CC^NEG-EM^NEG-SA^REV-IP^REV-SUSP"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"suspiciousInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RISK-TB^RISK-TS"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VEL-NAME"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"scoreModelUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default_lac"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"DecisionReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"casePriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"activeProfileReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-        </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GVEL-R2^GVEL-R3^GVEL-R6^GVEL-R7^GVEL-R8"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{antifraude endpoint}/analysis/v2/3671aafd-09e0-e711-80c2-000d3a70dd7b"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
-  </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4493d42c-8732-4b13-aadc-b07e89732c26"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cybersource"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"OrderDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 12:35:58.852"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holder Name"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Cvv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Saturno"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sala 123"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20080123"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Neturno"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30000"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sl 123"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ShippingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SameDay"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114700"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"MerchantCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10050665740"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emailcomprador@dominio.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114700"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BrowserHostName"</span><span class="p">:</span><span class="s2">"www.dominiobrowsercomprador.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BrowserCookiesAccepted"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BrowserEmail"</span><span class="p">:</span><span class="s2">"emailbrowsercomprador@dominio.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BrowserType"</span><span class="p">:</span><span class="s2">"Chrome 58 on Windows 10"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"CartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mouse"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12000"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Risk"</span><span class="p">:</span><span class="s2">"Low"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AddressRiskVerify"</span><span class="p">:</span><span class="s2">"No"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"HostHedge"</span><span class="p">:</span><span class="s2">"Low"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"NonSensicalHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ObscenitiesHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"TimeHedge"</span><span class="p">:</span><span class="s2">"Low"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"PhoneHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"VelocityHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teclado"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96385"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"MerchantItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc456"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"MerchantDefinedData"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"Bank"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Marte, 29"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SwiftCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"FundTransfer"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"AccountNumber"</span><span class="p">:</span><span class="s2">"159753"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"AccountName"</span><span class="p">:</span><span class="s2">"Conta particular"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BankCheckDigit"</span><span class="p">:</span><span class="s2">"51"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Iban"</span><span class="p">:</span><span class="s2">"123456789"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Invoice"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"IsGift"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ReturnsAccept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Tender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumer"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Airline"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"JourneyType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OneWayTrip"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"DepartureDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-09 18:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tal"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"PassangerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"PassengerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@mail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gold"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Legs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"ArrivalAirport"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMS"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"DepartureAirport"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GIG"</span><span class="w">
-        </span><span class="p">}]</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="s2">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1eae3d39-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5206061832306553904009"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"ProviderStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"ProviderRequestTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AhjzbwSTGjifFZXHYduJEAFReTUyEoftDpA9+Ehk0kv9Atj2YEBMmAL2"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"AfsReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"afsResult"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"hostSeverity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"consumerLocalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:36:23"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"afsFactorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D^F^Z"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"addressInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COR-BA"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"hotlistInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEG-AFCB^NEG-BA^NEG-CC^NEG-EM^NEG-PEM^NEG-SA^REV-PPH^REV-SUSP"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"internetInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FREE-EM^RISK-EM"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"suspiciousInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RISK-TB"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VEL-NAME"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"scoreModelUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default_lac"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="s2">"DecisionReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"casePriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"activeProfileReply"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+           </span><span class="s2">"velocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GVEL-R1^GVEL-R2^GVEL-R4^GVEL-R6^GVEL-R7^GVEL-R9"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:1316/Analysis/v2/1eae3d39-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -2389,9 +2265,14 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">TransactionId</code></td>
       <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
       <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: center">enum</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderTransactionId</code></td>
@@ -2399,9 +2280,9 @@
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag após a análise - Tabela 1</td>
-      <td style="text-align: center">enum</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code></td>
+      <td style="text-align: left">Status da transação na Cybersource</td>
+      <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderCode</code></td>
@@ -2409,12 +2290,12 @@
       <td style="text-align: center">int</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderRequestId</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderRequestTransactionId</code></td>
       <td style="text-align: left">Id do request da transação na Cybersource</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.AddressInfoCode</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.addressInfoCode</code></td>
       <td style="text-align: left">Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3</td>
       <td style="text-align: center">string</td>
     </tr>
