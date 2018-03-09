@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-09T19:24:10+00:00</updated>
+    <updated>2018-03-09T19:30:24+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -370,15 +370,36 @@
 
 &lt;p&gt;1.1 – Para perfeito entendimento e interpretação deste Anexo, são adotados os termos abaixo, cujas definições serão usadas no singular ou no plural, conforme seja o caso.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;E-COMMERCE&lt;/strong&gt; - Qualquer tipo de relação comercial de compra e venda de produtos e/ou serviços realizada por qualquer meio conectado a Internet tal como, mas não limitado a celular, computador, sistema de vendas por telefone.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;FERRAMENTAS DE RISCO&lt;/strong&gt; – Conjunto de Ferramentas que possuem como principal característica a sinalização quanto à probabilidade de fraude em transações com cartão de crédito processadas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; via &lt;strong&gt;E-COMMERCE&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ANTIFRAUDE&lt;/strong&gt; – Ferramenta sublicenciada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; para análise e atribuição de grau de risco à transações com cartão de crédito processadas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; via &lt;strong&gt;E-COMMERCE&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;CHARGEBACK&lt;/strong&gt; - Retorno de um Pagamento com Cartão baseado na incapacidade de obedecer às regras da Companhia do Cartão ou em uma disputa iniciada pelo Usuário Final ou Titular do Cartão&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;VELOCITY&lt;/strong&gt; – Ferramenta de validação de transações para bloqueio e/ou alerta de vendas que repitam dados de carrinho em excesso.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Termo&lt;/th&gt;
+      &lt;th&gt;Definições&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;E-COMMERCE&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Qualquer tipo de relação comercial de compra e venda de produtos e/ou serviços realizada por qualquer meio conectado a Internet tal como, mas não limitado a celular, computador, sistema de vendas por telefone&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;FERRAMENTAS DE RISCO&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Conjunto de Ferramentas que possuem como principal característica a sinalização quanto à probabilidade de fraude em transações com cartão de crédito processadas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; via &lt;strong&gt;E-COMMERCE&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;ANTIFRAUDE&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Ferramenta sublicenciada pela &lt;strong&gt;CONTRATADA&lt;/strong&gt; para análise e atribuição de grau de risco à transações com cartão de crédito processadas pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; via &lt;strong&gt;E-COMMERCE&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;CHARGEBACK&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Retorno de um Pagamento com Cartão baseado na incapacidade de obedecer às regras da Companhia do Cartão ou em uma disputa iniciada pelo Usuário Final ou Titular do Cartão&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;VELOCITY&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Ferramenta de validação de transações para bloqueio e/ou alerta de vendas que repitam dados de carrinho em excesso&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;2ª--objeto&quot;&gt;2ª – Objeto&lt;/h2&gt;
 
