@@ -813,7 +813,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do pedido - <a href="https://braspag.github.io/manual/antifraude#tabela-4-shipping.shippingmethod">Tabela 4 - Shipping.ShippingMethod</a></td>
+      <td style="text-align: left">Meio de entrega do pedido - <a href="https://braspag.github.io/manual/antifraude#tabela-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -981,7 +981,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do produto - <a href="https://braspag.github.io/manual/antifraude#tabela-8-cartitem[n].shippingmethod">Tabela 8 - CartItem{n}.ShippingMethod</a></td>
+      <td style="text-align: left">Meio de entrega do produto - <a href="https://braspag.github.io/manual/antifraude#tabela-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -5705,7 +5705,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-4---shippingshippingmethod">Tabela 4 - Shipping.ShippingMethod</h2>
+<h2 id="tabela-4---shippingmethod">Tabela 4 - ShippingMethod</h2>
 
 <table>
   <thead>
@@ -5843,76 +5843,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-8---cartitemnshippingmethod">Tabela 8 - CartItem[n].ShippingMethod</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">SameDay</td>
-      <td style="text-align: left">Meio de entrega no mesmo dia</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">NextDay</td>
-      <td style="text-align: left">Meio de entrega no próximo dia</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">TwoDay</td>
-      <td style="text-align: left">Meio de entrega em dois dias</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ThreeDay</td>
-      <td style="text-align: left">Meio de entrega em três dias</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">LowCost</td>
-      <td style="text-align: left">Meio de entrega de baixo custo</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Pickup</td>
-      <td style="text-align: left">Retirada na loja</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">CarrierDesignatedByCustomer</td>
-      <td style="text-align: left">Meio de entrega designada pelo comprador</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">International</td>
-      <td style="text-align: left">Meio de entrega internacional</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Military</td>
-      <td style="text-align: left">Meio de entrega militar</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Other</td>
-      <td style="text-align: left">Outro meio de entrega</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">None</td>
-      <td style="text-align: left">Sem meio de entrega, pois é um serviço ou assinatura</td>
-      <td style="text-align: left">ReDShield</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-9---airlinejourneytype">Tabela 9 - Airline.JourneyType</h2>
+<h2 id="tabela-8---airlinejourneytype">Tabela 8 - Airline.JourneyType</h2>
 
 <table>
   <thead>
@@ -5936,7 +5867,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-10---airlinepassengersnpassengertype">Tabela 10 - Airline.Passengers[n].PassengerType</h2>
+<h2 id="tabela-9---airlinepassengersnpassengertype">Tabela 9 - Airline.Passengers[n].PassengerType</h2>
 
 <table>
   <thead>
@@ -5985,7 +5916,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-11---airlinepassengersnstatus">Tabela 11 - Airline.Passengers[n].Status</h2>
+<h2 id="tabela-10---airlinepassengersnstatus">Tabela 10 - Airline.Passengers[n].Status</h2>
 
 <table>
   <thead>
@@ -6010,7 +5941,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-12---cartitemnrisk">Tabela 12 - CartItem[n].Risk</h2>
+<h2 id="tabela-11---cartitemnrisk">Tabela 11 - CartItem[n].Risk</h2>
 
 <table>
   <thead>
@@ -6039,7 +5970,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-13---cartitemnaddressriskverify">Tabela 13 - CartItem[n].AddressRiskVerify</h2>
+<h2 id="tabela-12---cartitemnaddressriskverify">Tabela 12 - CartItem[n].AddressRiskVerify</h2>
 
 <table>
   <thead>
@@ -6068,7 +5999,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-14---cartitemnhosthedge">Tabela 14 - CartItem[n].HostHedge</h2>
+<h2 id="tabela-13---cartitemnhosthedge">Tabela 13 - CartItem[n].HostHedge</h2>
 
 <table>
   <thead>
@@ -6102,7 +6033,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-15---cartitemnnonsensicalhedge">Tabela 15 - CartItem[n].NonSensicalHedge</h2>
+<h2 id="tabela-14---cartitemnnonsensicalhedge">Tabela 14 - CartItem[n].NonSensicalHedge</h2>
 
 <table>
   <thead>
@@ -6136,7 +6067,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-16---cartitemnobscenitieshedge">Tabela 16 - CartItem[n].ObscenitiesHedge</h2>
+<h2 id="tabela-15---cartitemnobscenitieshedge">Tabela 15 - CartItem[n].ObscenitiesHedge</h2>
 
 <table>
   <thead>
@@ -6170,7 +6101,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-17---cartitemntimehedge">Tabela 17 - CartItem[n].TimeHedge</h2>
+<h2 id="tabela-16---cartitemntimehedge">Tabela 16 - CartItem[n].TimeHedge</h2>
 
 <table>
   <thead>
@@ -6204,7 +6135,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-18---cartitemnphonehedge">Tabela 18 - CartItem[n].PhoneHedge</h2>
+<h2 id="tabela-17---cartitemnphonehedge">Tabela 17 - CartItem[n].PhoneHedge</h2>
 
 <table>
   <thead>
@@ -6238,7 +6169,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-19---cartitemnvelocityhedge">Tabela 19 - CartItem[n].VelocityHedge</h2>
+<h2 id="tabela-18---cartitemnvelocityhedge">Tabela 18 - CartItem[n].VelocityHedge</h2>
 
 <table>
   <thead>
@@ -6272,7 +6203,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-20---invoicetender">Tabela 20 - Invoice.Tender</h2>
+<h2 id="tabela-19---invoicetender">Tabela 19 - Invoice.Tender</h2>
 
 <table>
   <thead>
@@ -6326,7 +6257,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-21---status">Tabela 21 - Status</h2>
+<h2 id="tabela-20---status">Tabela 20 - Status</h2>
 
 <table>
   <thead>
@@ -6370,7 +6301,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-22---providerstatus">Tabela 22 - ProviderStatus</h2>
+<h2 id="tabela-21---providerstatus">Tabela 21 - ProviderStatus</h2>
 
 <table>
   <thead>
@@ -6451,7 +6382,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-23---provideranalysisresultprovidercode">Tabela 23 - ProviderAnalysisResult.ProviderCode</h2>
+<h2 id="tabela-22---provideranalysisresultprovidercode">Tabela 22 - ProviderAnalysisResult.ProviderCode</h2>
 
 <table>
   <thead>
@@ -6525,7 +6456,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-24---provideranalysisresultafsreplyaddressinfocode">Tabela 24 - ProviderAnalysisResult.AfsReply.AddressInfoCode</h2>
+<h2 id="tabela-23---provideranalysisresultafsreplyaddressinfocode">Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode</h2>
 
 <table>
   <thead>
@@ -6599,7 +6530,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-25---provideranalysisresultafsreplyafsfactorcode">Tabela 25 - ProviderAnalysisResult.AfsReply.AfsFactorCode</h2>
+<h2 id="tabela-24---provideranalysisresultafsreplyafsfactorcode">Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode</h2>
 
 <table>
   <thead>
@@ -6713,7 +6644,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-26---provideranalysisresultafsreplycardaccounttype">Tabela 26 - ProviderAnalysisResult.AfsReply.CardAccountType</h2>
+<h2 id="tabela-25---provideranalysisresultafsreplycardaccounttype">Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType</h2>
 
 <table>
   <thead>
@@ -6737,7 +6668,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-27---provideranalysisresultafsreplyhotlistinfocode">Tabela 27 - ProviderAnalysisResult.AfsReply.HotListInfoCode</h2>
+<h2 id="tabela-26---provideranalysisresultafsreplyhotlistinfocode">Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode</h2>
 
 <table>
   <thead>
@@ -6981,7 +6912,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-28---provideranalysisresultafsreplyidentityinfocode">Tabela 28 - ProviderAnalysisResult.AfsReply.IdentityInfoCode</h2>
+<h2 id="tabela-27---provideranalysisresultafsreplyidentityinfocode">Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode</h2>
 
 <table>
   <thead>
@@ -7148,7 +7079,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-29---provideranalysisresultafsreplysuspiciousinfocode">Tabela 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</h2>
+<h2 id="tabela-30---provideranalysisresultafsreplysuspiciousinfocode">Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</h2>
 
 <table>
   <thead>
@@ -7262,7 +7193,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-30---provideranalysisresultafsreplyvelocityinfocode">Tabela 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode</h2>
+<h2 id="tabela-31---provideranalysisresultafsreplyvelocityinfocode">Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode</h2>
 
 <table>
   <thead>
@@ -7406,7 +7337,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-31---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggeredndecision">Tabela 31 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision</h2>
+<h2 id="tabela-32---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggeredndecision">Tabela 32 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision</h2>
 
 <table>
   <thead>
@@ -7435,7 +7366,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
   </tbody>
 </table>
 
-<h2 id="tabela-32---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggerednevaluation">Tabela 32 - |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation</h2>
+<h2 id="tabela-33---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggerednevaluation">Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation</h2>
 
 <table>
   <thead>
