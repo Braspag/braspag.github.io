@@ -2233,7 +2233,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Review|Transação em revisão após análise de fraude|ReDShield, Cybersource|
 |Reject|Transação rejeitada após análise de fraude|ReDShield, Cybersource|
 |Pendent|Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource|Cybersource|
-|Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource e o campo `ProviderAnalysisResult.ProviderStatus` for igual a *REJECT* e o campo `ProviderAnalysisResult.ProviderCode` diferente de *481*, o status da transação será *Unfineshed*|ReDShield, Cybersource|
+|Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource, no response da análise o campo `ProviderAnalysisResult.ProviderStatus` for igual a **REJECT** e o campo `ProviderAnalysisResult.ProviderCode` diferente de **481**, o status da transação será **Unfineshed**|ReDShield, Cybersource|
 |ProviderError|Transação com erro no provedor ao ser enviada para análise|ReDShield, Cybersource|
 
 ## Tabela 21 - ProviderStatus
