@@ -4454,6 +4454,199 @@ curl
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 |`AuthenticationUrl`|Authentication URL to be sent to the customer|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
+# Voucher Payment
+
+## Creating a Alelo card transaction
+
+To create a Alelo card transaction, you must request just like a debit card transaction, however, it is not necessary to submit it to the authentication process. Currently, only "Cielo30" providers support this kind of transaction using Pagador.
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    "MerchantOrderId": "2017051001",
+    "Customer": {
+        "Name": "TesteBraspag"
+    },
+    "Payment": {
+        "Provider": "Alelo",
+        "Type": "DebitCard",
+        "Amount": 10,
+        "Installments": 1,
+        "DebitCard": {
+            "CardNumber": "****4903",
+            "Holder": "TesteBraspag",
+            "ExpirationDate": "02/2019",
+            "SecurityCode": "***",
+            "Brand": "Elo"
+        },
+        "ReturnUrl": "http://www.braspag.com.br"
+    }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2017051001",
+    "Customer": {
+        "Name": "TesteBraspag"
+    },
+    "Payment": {
+        "Provider": "Alelo",
+        "Type": "DebitCard",
+        "Amount": 10,
+        "Installments": 1,
+        "DebitCard": {
+            "CardNumber": "****4903",
+            "Holder": "TesteBraspag",
+            "ExpirationDate": "02/2019",
+            "SecurityCode": "***",
+            "Brand": "Elo"
+        },
+        "ReturnUrl": "http://www.braspag.com.br"
+    }
+}
+--verbose
+```
+
+|Property|Type|Size|Mandatory|Description|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Yes|Merchant Identifier|
+|`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
+|`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
+|`MerchantOrderId`|Text|50|Yes|Merchant Order ID|
+|`Customer.Name`|Text|255|Yes|Customer's Name|
+|`Payment.Provider`|Text|15|Yes|Payment Method Provider's name. Currently, only "Cielo" or "Cielo30" providers support this kind of transaction using Pagador|
+|`Payment.Type`|Text|100|Yes|Payment Method's Type. In this case, DebitCard|
+|`Payment.Amount`|Number|15|Yes|Transaction Amount (must be sent in cents)|
+|`Payment.Installments`|Number|2|Yes|Number of Installments|
+|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento|Text|1024 |Yes|
+|`DebitCard.CardNumber`|Text|16|Yes|Credit Card number|
+|`DebitCard.Holder`|Text|25|Yes|Cardholder name|
+|`DebitCard.ExpirationDate`|Text|7|Yes|Expiration Date (MM/YYYY)|
+|`DebitCard.SecurityCode`|Text|4|Yes|Security Code (CVV2)|
+|`DebitCard.Brand`|Text|10|Yes|Card's Brand|
+
+### Response
+
+```json
+{
+    "MerchantOrderId": "2017051001",
+    "Customer": {
+        "Name": "TesteBraspag"
+    },
+    "Payment": {
+        "DebitCard": {
+            "CardNumber": "527637******4903",
+            "Holder": "TesteBraspag",
+            "ExpirationDate": "02/2019",
+            "SaveCard": false,
+            "Brand": "Elo"
+        },
+        "ProofOfSale": "004045",
+        "AcquirerTransactionId": "c63fb9f7-02ad-42b3-a182-c56e26238a00",
+        "AuthorizationCode": "128752",
+        "Eci": "0",
+        "PaymentId": "562a8563-9181-4f12-bee8-0ccc89c8f931",
+        "Type": "DebitCard",
+        "Amount": 10,
+        "ReceivedDate": "2018-02-21 10:59:57",
+        "CapturedAmount": 10,
+        "CapturedDate": "2018-02-21 11:00:48",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Alelo",
+        "ReturnUrl": "http://www.braspag.com.br",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "00",
+        "ProviderReturnMessage": "Transacao capturada com sucesso",
+        "Links": [{
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerydev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931"
+        }, {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apidev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931/void"
+        }]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2017051001",
+    "Customer": {
+        "Name": "TesteBraspag"
+    },
+    "Payment": {
+        "DebitCard": {
+            "CardNumber": "527637******4903",
+            "Holder": "TesteBraspag",
+            "ExpirationDate": "02/2019",
+            "SaveCard": false,
+            "Brand": "Elo"
+        },
+        "ProofOfSale": "004045",
+        "AcquirerTransactionId": "c63fb9f7-02ad-42b3-a182-c56e26238a00",
+        "AuthorizationCode": "128752",
+        "Eci": "0",
+        "PaymentId": "562a8563-9181-4f12-bee8-0ccc89c8f931",
+        "Type": "DebitCard",
+        "Amount": 10,
+        "ReceivedDate": "2018-02-21 10:59:57",
+        "CapturedAmount": 10,
+        "CapturedDate": "2018-02-21 11:00:48",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Alelo",
+        "ReturnUrl": "http://www.braspag.com.br",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "00",
+        "ProviderReturnMessage": "Transacao capturada com sucesso",
+        "Links": [{
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerydev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931"
+        }, {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apidev.braspag.com.br/v2/sales/562a8563-9181-4f12-bee8-0ccc89c8f931/void"
+        }]
+    }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
+|`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
+|`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
+|`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Transaction's received date|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Operation's Reason Code|Text|32|Alphanumeric Text|
+|`ReasonMessage`|Operation's Reason Message|Text|512|Alphanumeric Text|
+|`Status`|Transaction's Status|Byte|2|1|
+|`ProviderReturnCode`|Acquirer or Bank’s return code.|Text|32|57|
+|`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
+|`AuthenticationUrl`|Authentication URL to be sent to the customer|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
+
 # Electronic Transfer Payments
 
 ## Creating a transaction
