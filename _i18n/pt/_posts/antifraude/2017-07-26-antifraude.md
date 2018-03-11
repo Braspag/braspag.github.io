@@ -294,7 +294,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Card.Holder`|Nome do cartão de crédito|string|sim|50|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
 |`Card.Cvv`|Código de segurança do cartão de crédito|string|sim|4|
-|`Card.Brand`|Bandeira do cartão de crédito - [Tabela 3 - Card.Brand](https://braspag.github.io/manual/antifraude#tabela-3-card.brand) |enum|-|-|
+|`Card.Brand`|Bandeira do cartão de crédito - [Tabela 3 - Card.Brand](https://braspag.github.io/manual/antifraude#tabela-3-card.brand)|enum|-|-|
 |`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|não|1|
 |`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|
 |`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|
@@ -322,7 +322,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|19|
 |`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114701|string|não|19|
 |`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|não|19|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido - [Tabela 4 - Shipping.ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-4-shipping.shippingmethod)|enum|-|-|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido - [Tabela 4 - ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
 |`Shipping.Comment`|Referências do endereço de entrega|string|não|160|
 |`Customer.MerchantCustomerId`|Número do documento de identificação do comprador - [Tabela 5 - Customer.MerchantCustomerId](https://braspag.github.io/manual/antifraude#tabela-5-customer.merchantcustomerid)|string|sim|16|
 |`Customer.FirstName`|Primeiro nome do comprador|string|sim|30|
@@ -346,7 +346,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].GiftMessage`|Mensagem de presente|string|não|160|
 |`CartItem[n].Description`|Descrição do produto|string|não|76|
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|
-|`CartItem[n].ShippingMethod`|Meio de entrega do produto - [Tabela 8 - CartItem{n}.ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-8-cartitem[n].shippingmethod)|enum|-|-|
+|`CartItem[n].ShippingMethod`|Meio de entrega do produto - [Tabela 4 - ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
 |`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|bool|não|-|
 |`Airline.BookingType`|Tipo de agendamento da reserva|string|não|255|
@@ -2078,7 +2078,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Elo|ReDShield, Cybersource|
 |Hipercard|ReDShield, Cybersource|
 
-## Tabela 4 - Shipping.ShippingMethod
+## Tabela 4 - ShippingMethod
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2115,30 +2115,14 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |New|Identifica quando o comprador é novo na loja, nunca fez uma compra|ReDShield|
 |Existing|Identifica quando o comprador é existente na loja, já realizou uma compra|ReDShield|
 
-## Tabela 8 - CartItem[n].ShippingMethod
-
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|SameDay|Meio de entrega no mesmo dia|ReDShield|
-|NextDay|Meio de entrega no próximo dia|ReDShield|
-|TwoDay|Meio de entrega em dois dias|ReDShield|
-|ThreeDay|Meio de entrega em três dias|ReDShield|
-|LowCost|Meio de entrega de baixo custo|ReDShield|
-|Pickup|Retirada na loja|ReDShield|
-|CarrierDesignatedByCustomer|Meio de entrega designada pelo comprador|ReDShield|
-|International|Meio de entrega internacional|ReDShield|
-|Military|Meio de entrega militar|ReDShield|
-|Other|Outro meio de entrega|ReDShield|
-|None|Sem meio de entrega, pois é um serviço ou assinatura|ReDShield|
-
-## Tabela 9 - Airline.JourneyType
+## Tabela 8 - Airline.JourneyType
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |OneWayTrip|Viagem somente de ida|Cybersource|
 |RoundTrip|Viagem de ida e volta|Cybersource|
 
-## Tabela 10 - Airline.Passengers[n].PassengerType
+## Tabela 9 - Airline.Passengers[n].PassengerType
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2150,7 +2134,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |SeniorCitizen|Idoso|ReDShield|
 |Military|Militar|ReDShield|
 
-## Tabela 11 - Airline.Passengers[n].Status
+## Tabela 10 - Airline.Passengers[n].Status
 
 |Valor|Provider|
 |:-|:-|
@@ -2158,7 +2142,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Gold|Cybersource|
 |Platinum|Cybersource|
 
-## Tabela 12 - CartItem[n].Risk
+## Tabela 11 - CartItem[n].Risk
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2166,7 +2150,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Normal|Produto associado com a quantidade normal de chargebacks|Cybersource|
 |High|Produto associado com muito chargebacks|Cybersource|
 
-## Tabela 13 - CartItem[n].AddressRiskVerify
+## Tabela 12 - CartItem[n].AddressRiskVerify
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2174,7 +2158,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|Cybersource|
 |Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|Cybersource|
 
-## Tabela 14 - CartItem[n].HostHedge
+## Tabela 13 - CartItem[n].HostHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2183,7 +2167,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 15 - CartItem[n].NonSensicalHedge
+## Tabela 14 - CartItem[n].NonSensicalHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2192,7 +2176,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 16 - CartItem[n].ObscenitiesHedge
+## Tabela 15 - CartItem[n].ObscenitiesHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2201,7 +2185,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 17 - CartItem[n].TimeHedge
+## Tabela 16 - CartItem[n].TimeHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2210,7 +2194,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 18 - CartItem[n].PhoneHedge
+## Tabela 17 - CartItem[n].PhoneHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2219,7 +2203,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 19 - CartItem[n].VelocityHedge
+## Tabela 18 - CartItem[n].VelocityHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2228,7 +2212,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 20 - Invoice.Tender
+## Tabela 19 - Invoice.Tender
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2241,7 +2225,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |PrivateLabel|Pagamento com cartão de crédito privado|Cybersource|
 |Other|Pagamentos com outros métodos|Cybersource|
 
-## Tabela 21 - Status
+## Tabela 20 - Status
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2252,7 +2236,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource e o campo `ProviderAnalysisResult.ProviderStatus` for igual a *REJECT* e o campo `ProviderAnalysisResult.ProviderCode` diferente de *481*, o status da transação será *Unfineshed*|ReDShield, Cybersource|
 |ProviderError|Transação com erro no provedor ao ser enviada para análise|ReDShield, Cybersource|
 
-## Tabela 22 - ProviderStatus
+## Tabela 21 - ProviderStatus
 
 |Valor|Descrição|Provider|De-Para com o campo `Status` (Status da transação no Antifraude Gateway Braspag)|
 |:-|:-|:-|:-|
@@ -2268,7 +2252,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |ENORSP|Transação com erro no provedor|ReDShield|ProviderError|
 |ERROR|Transação com erro no provedor|ReDShield, Cybersource|ProviderError|
 
-## Tabela 23 - ProviderAnalysisResult.ProviderCode
+## Tabela 22 - ProviderAnalysisResult.ProviderCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2285,7 +2269,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |480|A transação foi marcada como revisão pelo DM (Decision Manager)|Cybersource|
 |481|A transação foi rejeitada pelo DM (Decision Manager)|Cybersource|
 
-## Tabela 24 - ProviderAnalysisResult.AfsReply.AddressInfoCode
+## Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2302,7 +2286,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |MM-Z|Os endereços de cobrança e entrega usam códidos postais diferentes|Cybersource|
 |UNV-ADDR|O endereço é inverificável|Cybersource|
 
-## Tabela 25 - ProviderAnalysisResult.AfsReply.AfsFactorCode
+## Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2327,14 +2311,14 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Y|O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam|Cybersource|
 |Z|Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias|Cybersource|
 
-## Tabela 26 - ProviderAnalysisResult.AfsReply.CardAccountType
+## Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |CN|Cartão privado|Cybersource|
 |CP|Cartão corporativo|Cybersource|
 
-## Tabela 27 - ProviderAnalysisResult.AfsReply.HotListInfoCode
+## Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2385,7 +2369,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |REV-SCO|O país do endereço de entrega está na lista de revisão|Cybersource|
 |REV-SZC|O código postal do endereço de entrega está na lista de revisão|Cybersource|
 
-## Tabela 28 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
+## Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2425,7 +2409,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |UNV-OC|O código de área e/ou o prefixo de telefone são/é inválido|Cybersource|
 |UNV-PH|O número do telefone é inválido|Cybersource|
 
-## Tabela 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
+## Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2450,7 +2434,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |RISK-TIP|O verdadeiro endereço IP é arriscado|Cybersource|
 |RISK-TS|O dia e a hora da ordem associada ao endereço de entrega é arriscado|Cybersource|
 
-## Tabela 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
+## Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2481,7 +2465,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |VELI-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
 |VELL-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
 
-## Tabela 31 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
+## Tabela 32 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
 
 |Valor|Provider|
 |:-|:-|
@@ -2490,7 +2474,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |REJECT|Cybersource|
 |REVIEW|Cybersource|
 
-## Tabela 32 - |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
+## Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
