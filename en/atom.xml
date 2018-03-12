@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-03-12T00:00:11+00:00</updated>
+    <updated>2018-03-12T00:06:44+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14530,7 +14530,7 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Cielo30 (Cielo 3.0)&lt;/td&gt;
-      &lt;td&gt;Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Alelo&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Redecard (Komerci)&lt;/td&gt;
@@ -14604,6 +14604,23 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
     &lt;tr&gt;
       &lt;td&gt;GlobalPayments&lt;/td&gt;
       &lt;td&gt;Visa, Master&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;voucher-payments-provider&quot;&gt;Voucher Payments Provider&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Provider&lt;/th&gt;
+      &lt;th&gt;Brand&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alelo&lt;/td&gt;
+      &lt;td&gt;Elo&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
