@@ -7815,6 +7815,12 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |GlobalPayments|Visa, Master|
 |Alelo|Elo|
 
+### Providers pra Voucher
+
+|Provider|Brand|
+|--------|-----|
+|Alelo|Elo|
+
 ### Providers para Boleto com Registro
 
 |Provider|
