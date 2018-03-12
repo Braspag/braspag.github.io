@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-12T00:11:31+00:00</updated>
+    <updated>2018-03-12T00:13:18+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20061,6 +20061,23 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
       &lt;td&gt;GlobalPayments&lt;/td&gt;
       &lt;td&gt;Visa, Master&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alelo&lt;/td&gt;
+      &lt;td&gt;Elo&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;providers-pra-voucher&quot;&gt;Providers pra Voucher&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Provider&lt;/th&gt;
+      &lt;th&gt;Brand&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Alelo&lt;/td&gt;
       &lt;td&gt;Elo&lt;/td&gt;
