@@ -6623,7 +6623,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 |---|---|
 |Simulado|---|
 |Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
-|Cielo30 (Cielo 3.0)|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
+|Cielo30 (Cielo 3.0)|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Alelo|
 |Redecard (Komerci)|Visa, Master, Hipercard, Hiper, Diners|
 |Rede (e-Rede)|Visa, Master, Hipercard, Hiper, Diners|
 |RedeSitef|Visa, Master, Hipercard, Diners|
@@ -6644,6 +6644,12 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 |Getnet|Visa, Master|
 |FirstData|Visa, Master|
 |GlobalPayments|Visa, Master|
+
+### Voucher Payments Provider
+
+|Provider|Brand|
+|---|---|
+|Alelo|Elo|
 
 ### Boleto without Registration Payments Provider
 
