@@ -415,12 +415,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 21 - Status](https://braspag.github.io/manual/antifraude#tabela-21-status)|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 20 - Status](https://braspag.github.io/manual/antifraude#tabela-20-status)|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-22-providerstatus)|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield - [Tabela 21 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-21-providerstatus)|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
@@ -618,7 +618,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|não|60|
 |`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|não|60|
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|15|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido - [Tabela 4 - Shipping.ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-4-shipping.shippingmethod)|enum|-|-|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido - [Tabela 4 - ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
 |`Customer.MerchantCustomerId`|Número do documento de identificação do comprador - [Tabela 5 - Customer.MerchantCustomerId](https://braspag.github.io/manual/antifraude#tabela-5-customer.merchantcustomerid)|string|sim|16|
 |`Customer.FirstName`|Primeiro nome do comprador|string|sim|60|
 |`Customer.LastName`|Último nome do comprador|string|sim|60|
@@ -631,17 +631,17 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|não|100|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|não|40|
 |`CartItem[n].ProductName`|Nome do produto|string|sim|255|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks - [Tabela 12 - CartItem{n}.Risk](https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].risk)|enum|-|-|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks - [Tabela 11 - CartItem{n}.Risk](https://braspag.github.io/manual/antifraude#tabela-11-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
 |`CartItem[n].Sku`|Sku do produto|string|não|255|
 |`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - [Tabela 13 - CartItem{n}.AddressRiskVerify](https://braspag.github.io/manual/antifraude#tabela-13-cartitem[n].addressriskverify)|enum|-|-|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - [Tabela 14 - CartItem{n}.HostHedge](https://braspag.github.io/manual/antifraude#tabela-14-cartitem[n].hosthedge)|enum|-|-|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - [Tabela 15 - CartItem{n}.NonSensicalHedge](https://braspag.github.io/manual/antifraude#tabela-15-cartitem[n].nonsensicalhedge)|enum|-|-|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - [Tabela 16 - CartItem{n}.ObscenitiesHedge](https://braspag.github.io/manual/antifraude#tabela-16-cartitem[n].obscenitieshedge)|enum|-|-|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - [Tabela 17 - CartItem{n}.TimeHedge](https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].timehedge)|enum|-|-|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - [Tabela 18 - CartItem{n}.PhoneHedge](https://braspag.github.io/manual/antifraude#tabela-18-cartitem[n].phonehedge)|enum|-|-|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - [Tabela 19 - CartItem{n}.VelocityHedge](https://braspag.github.io/manual/antifraude#tabela-19-cartitem[n].velocityhedge)|enum|-|-|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países - [Tabela 12 - CartItem{n}.AddressRiskVerify](https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].addressriskverify)|enum|-|-|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude - [Tabela 13 - CartItem{n}.HostHedge](https://braspag.github.io/manual/antifraude#tabela-13-cartitem[n].hosthedge)|enum|-|-|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude - [Tabela 14 - CartItem{n}.NonSensicalHedge](https://braspag.github.io/manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|-|-|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude - [Tabela 15 - CartItem{n}.ObscenitiesHedge](https://braspag.github.io/manual/antifraude#tabela-15-cartitem[n].obscenitieshedge)|enum|-|-|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido - [Tabela 16 - CartItem{n}.TimeHedge](https://braspag.github.io/manual/antifraude#tabela-16-cartitem[n].timehedge)|enum|-|-|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude - [Tabela 17 - CartItem{n}.PhoneHedge](https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|-|-|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores - [Tabela 18 - CartItem{n}.VelocityHedge](https://braspag.github.io/manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|-|-|
 |`Bank.Name`|Nome do banco do comprador|string|não|40|
 |`Bank.Code`|Código do banco do comprador|string|não|15|
 |`Bank.Agency`|Agência do banco do comprador|string|não|15|
@@ -654,17 +654,17 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`FundTransfer.BankCheckDigit`|Código utilizado para validar a conta bancária do comprador|string|não|2|
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|não|30|
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|não|-|
-|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser desvolvido a loja|bool|não|-|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador - [Tabela 20 - Invoice.Tender](https://braspag.github.io/manual/antifraude#tabela-20-invoice.tender)|enum|não|-|
-|`Airline.JourneyType`|Tipo de viagem - [Tabela 9 - Airline.JourneyType](https://braspag.github.io/manual/antifraude#tabela-9-airline.journeytype)|enun|não|-|
+|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|não|-|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador - [Tabela 19 - Invoice.Tender](https://braspag.github.io/manual/antifraude#tabela-19-invoice.tender)|enum|não|-|
+|`Airline.JourneyType`|Tipo de viagem - [Tabela 8 - Airline.JourneyType](https://braspag.github.io/manual/antifraude#tabela-8-airline.journeytype)|enun|não|-|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|60|
 |`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|60|
 |`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|não|32|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro - [Tabela 10 - Airline.Passengers{n}.PassengerType](https://braspag.github.io/manual/antifraude#tabela-10-airline.passengers[n].passengertype)|enum|não|-|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro - [Tabela 9 - Airline.Passengers{n}.PassengerType](https://braspag.github.io/manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|não|-|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|15|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|255|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea - [Tabela 11 - Airline.Passengers{n}.Status](https://braspag.github.io/manual/antifraude#tabela-11-airline.passengers[n].status)|enum|não|60|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea - [Tabela 10 - Airline.Passengers{n}.Status](https://braspag.github.io/manual/antifraude#tabela-10-airline.passengers[n].status)|enum|não|60|
 |`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
@@ -724,31 +724,31 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag - [Tabela 21 - Status](https://braspag.github.io/manual/antifraude#tabela-21-status)|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status](https://braspag.github.io/manual/antifraude#tabela-20-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield - [Tabela 22 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-22-providerstatus)|enum|
-|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce - [Tabela 23 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.providercode)|enum|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
 |`ProviderAnalysisResult.Missing`|Campos faltantes na requisição enviada a Cybersource|string|
 |`ProviderAnalysisResult.Invalid`|Campos com valores inválidos enviado a Cybersource|string|
-|`ProviderAnalysisResult.AfsReply.addressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. Ex.: MM-A^MM-Z - Tabela 3|string|
-|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise. Os códigos são concatenados usando o caractere ^. Ex.: F^P - Tabela 4|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br/>[Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode](https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.afsreply.addressinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br/>[Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode](https://braspag.github.io/manual/antifraude#tabela-24-provideranalysisresult.afsreply.afsfactorcode)|string|
 |`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
 |`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador - Tabela 5|string|
+|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador <br/>[Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType](https://braspag.github.io/manual/antifraude#tabela-25-provideranalysisresult.afsreply.cardaccounttype)|string|
 |`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
-|`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão - Tabela 6|string|
+|`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão|string|
 |`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
 |`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
-|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas. Ex.: NEG-AFCB^NEG-CC - Tabela 7|string|
-|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas. Ex.: COR-BA^MM-BIN - Tabela 8|string|
-|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança. Ex.: COR-BA^MM-BIN - Tabela 9|string|
+|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode](https://braspag.github.io/manual/antifraude#tabela-26-provideranalysisresult.afsreply.hotlistinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode](https://braspag.github.io/manual/antifraude#tabela-27-provideranalysisresult.afsreply.identityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode](https://braspag.github.io/manual/antifraude#tabela-28-provideranalysisresult.afsreply.internetinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.IpCity`|Nome da cidade do comprador obtido a partir do endereço de IP|string|
 |`ProviderAnalysisResult.AfsReply.IpCountry`|Nome do país do comprador obtido a partir do endereço de IP|string|
 |`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento obtido a partir do endereço de IP para envio da transação - Tabela 10|string|
 |`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador. Ex.: UNV-AC^RISK-AC - Tabela 11|string|
-|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código do motivo retornado pela Cybersource - Tabela 2|int|
+|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador <br> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br/> [Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode](https://braspag.github.io/manual/antifraude#tabela-29-provideranalysisresult.afsreply.phoneinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
 |`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas. Ex.: RISK-TB^RISK-TS - Tabela 12|string|
 |`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras. Ex.: VELV-SA^VELI-CC^VELSIP - Tabela 13|string|
@@ -2265,7 +2265,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |202|Transação recusada pois o cartão expirou ou a data de validade não coincide com a correta <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|Cybersource|
 |231|Transação recusada pois o cartão é inválido <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|Cybersource|
 |234|Problema com a configuração da loja na Cybersource <br/> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração|Cybersource|
-|400|A pontuação de fraude ultrapassa o seu limite <br> Possível ação: Reveja a transação do cliente|Cybersource|
+|400|A pontuação de fraude ultrapassa o seu limite <br> Possível ação: Reveja a transação do comprador|Cybersource|
 |480|A transação foi marcada como revisão pelo DM (Decision Manager)|Cybersource|
 |481|A transação foi rejeitada pelo DM (Decision Manager)|Cybersource|
 
@@ -2290,21 +2290,21 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
-|A|Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses|Cybersource|
+|A|Mudança de endereço excessiva. O comprador mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses|Cybersource|
 |B|BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão|Cybersource|
-|C|Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses|Cybersource|
-|D|Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado|Cybersource|
-|E|Lista positiva. O cliente está na sua lista positiva|Cybersource|
+|C|Elevado números de cartões de créditos. O comprador tem usado mais de seis números de cartões de créditos nos últimos seis meses|Cybersource|
+|D|Impacto do endereço de e-mail. O comprador usa um provedor de e-mail gratuito ou o endereço de email é arriscado|Cybersource|
+|E|Lista positiva. O comprador está na sua lista positiva|Cybersource|
 |F|Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa|Cybersource|
-|G|Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito|Cybersource|
-|H|Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses|Cybersource|
+|G|Inconsistências de geolocalização. O domínio do comprador de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito|Cybersource|
+|H|Excessivas mudanças de nome. O comprador mudou o nome duas ou mais vezes nos últimos seis meses|Cybersource|
 |I|Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança|Cybersource|
-|N|Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma|Cybersource|
-|O|Obscenidades. Dados do cliente contém palavras obscenas|Cybersource|
+|N|Entrada sem sentido. O nome do comprador e os campos de endereço contém palavras sem sentido ou idioma|Cybersource|
+|O|Obscenidades. Dados do comprador contém palavras obscenas|Cybersource|
 |P|Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefones estão ligados a um número de conta única|Cybersource|
-|Q|Inconsistências do telefone. O número de telefone do cliente é suspeito|Cybersource|
-|R|Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco|Cybersource|
-|T|Cobertura Time. O cliente está a tentar uma compra fora do horário esperado|Cybersource|
+|Q|Inconsistências do telefone. O número de telefone do comprador é suspeito|Cybersource|
+|R|Ordem arriscada. A transação, o comprador e o lojista mostram informações correlacionadas de alto risco|Cybersource|
+|T|Cobertura Time. O comprador está a tentar uma compra fora do horário esperado|Cybersource|
 |U|Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado|Cybersource|
 |V|O cartão foi usado muitas vezes nos últimos 15 minutos|Cybersource|
 |W|Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito|Cybersource|
@@ -2334,7 +2334,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |NEG-EMDOM|O domínio de e-mail (por exemplo, mail.example.com) está na lista negativa|Cybersource|
 |NEG-FP|O device fingerprint está na lista negativa|Cybersource|
 |NEG-HIST|A transação foi encontrada na lista negativa|Cybersource|
-|NEG-ID|Identificador do cliente (CPF ou CNPJ) está na lista negativa|Cybersource|
+|NEG-ID|Identificador do comprador (CPF ou CNPJ) está na lista negativa|Cybersource|
 |NEG-IP|O endereço IP (por exemplo, 10.1.27.63) está na lista negativa|Cybersource|
 |NEG-IP3|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista negativa. Um endereço de IP da rede inclui até 256 endereços IP|Cybersource|
 |NEG-IPCO|O país em que o endereço IP está localizado está na lista negativa|Cybersource|
@@ -2345,8 +2345,8 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |NEG-SA|O endereço de entrega está na lista negativa|Cybersource|
 |NEG-SCO|O país do endereço de entrega está na lista negativa|Cybersource|
 |NEG-SZC|O código postal do endereço de entrega está na lista negativa|Cybersource|
-|POS-TEMP|O cliente está temporariamente na lista positiva|Cybersource|
-|POS-PERM|O cliente está permanente na lista positiva|Cybersource|
+|POS-TEMP|O comprador está temporariamente na lista positiva|Cybersource|
+|POS-PERM|O comprador está permanente na lista positiva|Cybersource|
 |REV-BA|O endereço de cobrança esta na lista de revisão|Cybersource|
 |REV-BCO|O país do endereço de cobrança está na lista de revisão|Cybersource|
 |REV-BIN|O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista de revisão|Cybersource|
@@ -2357,7 +2357,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |REV-EMCO|O país em que o endereço de e-mail está localizado está na lista de revisão|Cybersource|
 |REV-EMDOM|O domínio de e-mail (por exemplo, mail.example.com) está na lista de revisão|Cybersource|
 |REV-FP|O device fingerprint está na lista de revisão|Cybersource|
-|REV-ID|Identificador do cliente (CPF ou CNPJ) está na lista de revisão|Cybersource|
+|REV-ID|Identificador do comprador (CPF ou CNPJ) está na lista de revisão|Cybersource|
 |REV-IP|O endereço IP (por exemplo, 10.1.27.63) está na lista de revisão|Cybersource|
 |REV-IP3|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista de revisão. Um endereço de IP da rede inclui até 256 endereços IP|Cybersource|
 |REV-IPCO|O país em que o endereço IP está localizado está na lista de revisão|Cybersource|
@@ -2373,27 +2373,27 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
-|MORPH-B|O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
-|MORPH-C|O mesmo cartão de crédito tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
-|MORPH-E|O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
-|MORPH-I|O mesmo endereço IP tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
-|MORPH-P|O mesmo número de telefone tem sido usado várias vezes com identidades de múltiplos clientes|Cybersource|
-|MORPH-S|O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de múltiplos clientes|Cybersource|
+|MORPH-B|O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
+|MORPH-C|O mesmo cartão de crédito tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
+|MORPH-E|O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
+|MORPH-I|O mesmo endereço IP tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
+|MORPH-P|O mesmo número de telefone tem sido usado várias vezes com identidades de múltiplos compradores|Cybersource|
+|MORPH-S|O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
 
 ## Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
-|FREE-EM|O endereço de e-mail do cliente é de um provedor de e-mail gratuito|Cybersource|
-|INTL-IPCO|O país do endereço de e-mail do cliente está fora dos EUA|Cybersource|
-|INV-EM|O endereço de e-mail do cliente é inválido|Cybersource|
-|MM-EMBCO|O domínio do endereço de e-mail do cliente não é consistente com o país do endereço de cobrança|Cybersource|
-|MM-IPBC|O endereço de e-mail do cliente não é consistente com a cidade do endereço de cobrança|Cybersource|
-|MM-IPBCO|O endereço de e-mail do cliente não é consistente com o país do endereço de cobrança|Cybersource|
-|MM-IPBST|O endereço IP do cliente não é consistente com o estado no endereço de cobrança. No entanto, este código de informação não pode ser devolvido quando a inconsistência é entre estados imediatamente  adjacentes|Cybersource|
-|MM-IPEM|O endereço de e-mail do cliente não é consistente com o endereço IP|Cybersource|
-|RISK-EM|O domínio do e-mail do cliente (por exemplo, mail.example.com) está associado com alto risco|Cybersource|
-|UNV-NID|O endereço IP do cliente é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP|Cybersource|
+|FREE-EM|O endereço de e-mail do comprador é de um provedor de e-mail gratuito|Cybersource|
+|INTL-IPCO|O país do endereço de e-mail do comprador está fora dos EUA|Cybersource|
+|INV-EM|O endereço de e-mail do comprador é inválido|Cybersource|
+|MM-EMBCO|O domínio do endereço de e-mail do comprador não é consistente com o país do endereço de cobrança|Cybersource|
+|MM-IPBC|O endereço de e-mail do comprador não é consistente com a cidade do endereço de cobrança|Cybersource|
+|MM-IPBCO|O endereço de e-mail do comprador não é consistente com o país do endereço de cobrança|Cybersource|
+|MM-IPBST|O endereço IP do comprador não é consistente com o estado no endereço de cobrança. No entanto, este código de informação não pode ser devolvido quando a inconsistência é entre estados imediatamente  adjacentes|Cybersource|
+|MM-IPEM|O endereço de e-mail do comprador não é consistente com o endereço IP|Cybersource|
+|RISK-EM|O domínio do e-mail do comprador (por exemplo, mail.example.com) está associado com alto risco|Cybersource|
+|UNV-NID|O endereço IP do comprador é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP|Cybersource|
 |UNV-RI400SK|O endereço IP é de origem de risco|Cybersource|
 |UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|Cybersource|
 
@@ -2401,8 +2401,8 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
-|MM-ACBST|O número de telefone do cliente não é consistente com o estado no endereço de cobrança|Cybersource|
-|RISK-AC|O código de área do cliente está associado com risco alto|Cybersource|
+|MM-ACBST|O número de telefone do comprador não é consistente com o estado no endereço de cobrança|Cybersource|
+|RISK-AC|O código de área do comprador está associado com risco alto|Cybersource|
 |RISK-PH|O número de telefone dos EUA. ou do Canadá é incompleto, ou uma ou mais partes do número são arriscadas|Cybersource|
 |TF-AC|O número do telefone utiliza um código de área toll-free (grátis)|Cybersource|
 |UNV-AC|O código de área é inválido|Cybersource|
@@ -2416,18 +2416,18 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |BAD-FP|O dispositivo é arriscado|Cybersource|
 |INTL-BIN|O cartão de crédito foi emitido fora dos EUA|Cybersource|
 |MM-TZTLO|Fuso horário do dispositivo é incompatível com os fusos horários do país|Cybersource|
-|MUL-EM|O cliente tem usado mais de quatro endereços de e-mail diferentes|Cybersource|
+|MUL-EM|O comprador tem usado mais de quatro endereços de e-mail diferentes|Cybersource|
 |NON-BC|A cidade do endereço de cobrança é sem sentido|Cybersource|
-|NON-FN|O primeiro nome do cliente é sem sentido|Cybersource|
-|NON-LN|O último nome do cliente é sem sentido|Cybersource|
+|NON-FN|O primeiro nome do comprador é sem sentido|Cybersource|
+|NON-LN|O último nome do comprador é sem sentido|Cybersource|
 |OBS-BC|A cidade do endereço de cobrança contem obscenidades|Cybersource|
 |OBS-EM|O endereço de e-mail contem obscenidades|Cybersource|
 |RISK-AVS|O resultado do combinado do teste AVS e endereço de cobrança normalizado são arriscados, o resultado AVS indica uma correspondência exata, mas o endereço de cobrança não é entregável|Cybersource|
 |RISK-BC|A cidade do endereço de cobrança possui caracteres repetidos|Cybersource|
 |RISK-BIN|No passado, este BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) mostrou uma elevada incidência de fraude|Cybersource|
 |RISK-DEV|Algumas das características do dispositivo são arriscadas|Cybersource|
-|RISK-FN|Nome e último nome do cliente contêm combinações de letras improváveis|Cybersource|
-|RISK-LN|Nome do meio ou último nome do cliente contêm combinações de letras improváveis|Cybersource|
+|RISK-FN|Nome e último nome do comprador contêm combinações de letras improváveis|Cybersource|
+|RISK-LN|Nome do meio ou último nome do comprador contêm combinações de letras improváveis|Cybersource|
 |RISK-PIP|O endereço IP do proxy é arriscado|Cybersource|
 |RISK-SD|A inconsistência nos países dos endereços cobrança e entrega é arriscada|Cybersource|
 |RISK-TB|O dia e a hora da ordem associada ao endereço de cobrança é arriscado|Cybersource|
@@ -2465,7 +2465,23 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |VELI-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
 |VELL-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
 
-## Tabela 32 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
+## Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|Anonymizer|Endereços de IP estão escondidos porque o comprador é extremamente cauteloso, quer privacidade absoluta ou é fraudulento|Cybersource|
+|AOL, AOL dialup, AOL POP and AOL proxy|Membros da AOL. Na maioria dos casos, o país pode ser identificado, mas o estado e cidade não podem|Cybersource|
+|Cache proxy|Proxy usado através de um acelerador da Internet ou de uma distribuição de conteúdo de serviço. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP|Cybersource|
+|Fixed|O endereço de IP está próximo ou no mesmo local que o comprador|Cybersource|
+|International proxy|Proxy que contém tráfego de vários países. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP. Em muitos casos, redes corporativas estão roteando o tráfego de escritórios internacionais através de um ponto central, muitas vezes a sede corporativa|Cybersource|
+|Mobile gateway|Gateway para conectar dispositivos móveis à internet. Muitas operadoras, especialmente na Europa, atendem mais do que um país e tráfego ocorre através de hubs de rede centralizados. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP|Cybersource|
+|POP|Discagem do comprador em um ISP regional provavelmente perto da localização do endereço de IP, mas possivelmente através de limites geográficos|Cybersource|
+|Regional proxy|Proxy que contém tráfego de vários estados dentro de um único país. O comprador pode estar localizado em um estado diferente do indicado pelo endereço de IP. Em muitos casos, redes corporativas estão roteando o tráfego de escritórios internacionais através de um ponto central, muitas vezes a sede corporativa|Cybersource|
+|Satellite|Conexões por satélite. Se o uplink e o downlink estiverem cadastrados, o método roteamento é considerado padrão porque o remetente é conhecido. No entanto, se o downlink não está registrado, o comprador pode estar em qualquer lugar dentro do feixe padrão do satélite, que pode abranger um continente ou mais|Cybersource|
+|SuperPOP|O comprador está discando em um ISP multi-estatal ou multinacional que provavelmente não é provável a localização do endereço de IP. O comprador pode estar discando através de limites geográficos|Cybersource|
+|No value returned|O tipo de roteamento é desconhecido|Cybersource|
+
+## Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
 
 |Valor|Provider|
 |:-|:-|
@@ -2474,7 +2490,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |REJECT|Cybersource|
 |REVIEW|Cybersource|
 
-## Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
+## Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
