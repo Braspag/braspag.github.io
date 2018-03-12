@@ -7813,7 +7813,6 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Getnet|Visa, Master|
 |FirstData|Visa, Master|
 |GlobalPayments|Visa, Master|
-|Alelo|Elo|
 
 ### Providers pra Voucher
 
