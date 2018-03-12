@@ -2448,7 +2448,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.IpRoutingMethod</code></td>
-      <td style="text-align: left">Método de roteamento obtido a partir do endereço de IP para envio da transação - Tabela 10</td>
+      <td style="text-align: left">Método de roteamento do comprador obtido a partir do endereço de IP <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod">Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
@@ -2473,12 +2473,12 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</code></td>
-      <td style="text-align: left">Códigos que indicam que o comprador forneceu potencialmente informações suspeitas. Ex.: RISK-TB^RISK-TS - Tabela 12</td>
+      <td style="text-align: left">Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br /> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-30-provideranalysisresult.afsreply.suspiciousinfocode">Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.VelocityInfoCode</code></td>
-      <td style="text-align: left">Códigos que indicam que o comprador tem uma alta frequência de compras. Ex.: VELV-SA^VELI-CC^VELSIP - Tabela 13</td>
+      <td style="text-align: left">Códigos que indicam que o comprador tem uma alta frequência de compras <br /> Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-31-provideranalysisresult.afsreply.velocityinfocode">Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
@@ -2532,6 +2532,16 @@
       <td style="text-align: center">string</td>
     </tr>
     <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartId</code></td>
+      <td style="text-align: left">Identificador do dispositivo do comprador</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartIdConfidenceLevel</code></td>
+      <td style="text-align: left">Identificador do dispositivo do comprador</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue</code></td>
       <td style="text-align: left">Quando modo verbose ativado, nome da fila para onde as transações não aceitas automaticamente são enviadas</td>
       <td style="text-align: center">string</td>
@@ -2553,12 +2563,12 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision</code></td>
-      <td style="text-align: left">Quando modo verbose ativado, decisão tomada pela regra - Tabela 14</td>
+      <td style="text-align: left">Quando modo verbose ativado, decisão tomada pela regra <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision">Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision</a></td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation</code></td>
-      <td style="text-align: left">Quando modo verbose ativado, avaliação da regra - Tabela 15</td>
+      <td style="text-align: left">Quando modo verbose ativado, avaliação da regra <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation">Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation</a></td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
