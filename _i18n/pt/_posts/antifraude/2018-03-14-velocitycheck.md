@@ -5,7 +5,7 @@ description: Integração técnica API Velocity Check Braspag
 search: true
 categories: manual
 tags:
-  
+  - Gestão de Risco
 language_tabs:
   json: JSON
   html: HTML
@@ -24,7 +24,7 @@ A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo 
 ## Velocity Check
 
 - Auxiliar na detecção de suspeitas de fraude
-- Aliada para bloquear ataques em rajada (testes de cartão, por exemplo), bem como avaliações de comportamentos suspeitos de compra
+- Aliado para bloquear ataques em rajada (testes de cartão, por exemplo), bem como avaliações de comportamentos suspeitos de compra
 - Cálculos baseados em análise de velocidade de variáveis e a incidência das mesmas em determinados intervalos de tempo
 
 ## Documentação
