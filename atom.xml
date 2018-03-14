@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-14T19:53:22+00:00</updated>
+    <updated>2018-03-14T19:58:54+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -13,12 +13,192 @@
     </author>
     
     <entry>
-        <title>Velocitycheck</title>
-        <category term="" />
-        <link href="https://braspag.github.io//velocitycheck"/>
+        <title>Velocity Check - Manual de integração</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//manual/velocitycheck"/>
         <updated>2018-03-14T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//velocitycheck</id>
-        <content type="html">
+        <id>https://braspag.github.io//manual/velocitycheck</id>
+        <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
+
+&lt;p&gt;A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Para saber mais sobre OAuth 2, consulte &lt;a href=&quot;https://oauth.net/2/&quot;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;objetivo&quot;&gt;Objetivo&lt;/h1&gt;
+
+&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Velocity Check Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
+
+&lt;p&gt;Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
+
+&lt;h1 id=&quot;hosts&quot;&gt;Hosts&lt;/h1&gt;
+
+&lt;h2 id=&quot;api-braspagauth&quot;&gt;API BraspagAuth&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Ambiente&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;URL&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\authhomolog.braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\auth.braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;api-velocity-check-braspag&quot;&gt;API Velocity Check Braspag&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Ambiente&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;URL&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\velocitysandbox.braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\velocity.braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h1&gt;
+
+&lt;h2 id=&quot;tokens-de-acesso&quot;&gt;Tokens de Acesso&lt;/h2&gt;
+
+&lt;p&gt;A API Velocity Check Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.&lt;/p&gt;
+
+&lt;h2 id=&quot;obtenção-do-token-de-acesso&quot;&gt;Obtenção do token de acesso&lt;/h2&gt;
+
+&lt;p&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;API Velocity Check&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, informa à API &lt;strong&gt;BraspagAuth&lt;/strong&gt; sua credencial.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;O &lt;strong&gt;BraspagAuth&lt;/strong&gt; valida a credencial recebida. Se for válida, retorna o token de acesso para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;API Velocity Check&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Se o token de acesso for válido, a requisição é processada e os dados são retornados para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.&lt;br /&gt;
+&lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;como-obter-o-token&quot;&gt;Como obter o token&lt;/h2&gt;
+
+&lt;p&gt;Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção &lt;strong&gt;client_id:client_secret&lt;/strong&gt;, e enviar o resultado no cabeçalho através do campo &lt;strong&gt;Authorization&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;client_id: &lt;strong&gt;braspagtestes&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;client_secret: &lt;strong&gt;1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;String a ser codificada em Base64: &lt;strong&gt;braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Resultado após a codificação: &lt;strong&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;oauth2/token&lt;/span&gt;&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/x-www-form-urlencoded&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scope&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ChargebackApp&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grant_type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;client_credentials&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;access_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;token_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bearer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;expires_in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;599&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;access_token&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Retroalimentação de Chargeback&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;token_type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Indica o valor do tipo de token&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;expires_in&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Expiração do o token de acesso, em segundos &lt;br /&gt;O token quando expirar, é necessário obter um novo&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     
