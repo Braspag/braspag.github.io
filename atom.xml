@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-14T19:45:44+00:00</updated>
+    <updated>2018-03-14T19:50:23+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -589,7 +589,12 @@
         <id>https://braspag.github.io//manual/retroalimentacaochargeback</id>
         <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
 
-&lt;p&gt;Retroalimentação de Chargeback é uma API desenvolvida pelo time de Risco da Braspag para que os clientes informarem os chargebacks de transações analisadas proporcionando um maior índice de assertividade em análises futuras.&lt;/p&gt;
+&lt;p&gt;Retroalimentação de Chargeback é uma API desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas, proporcionando:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Melhoria na performance das decisões automáticas - Uma vez que dados marcados na transação em que ocorreu o chargeback são adicionados à lista negativa, é possível realizar regras mais rigorosas provendo um ganho na estratégia;&lt;/li&gt;
+  &lt;li&gt;Maior assertividade para equipes de revisão manual - Quando uma transação é marcada como chargeback, ela recebe um rótulo que fica visível para pesquisas posteriores que incluem pesquisas por “transações similares” (recurso bastante utilizado por equipes de revisão manual de transações tanto da Cybersource quanto próprias).&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.&lt;/p&gt;
 
