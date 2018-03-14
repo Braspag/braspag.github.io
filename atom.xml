@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-14T21:15:55+00:00</updated>
+    <updated>2018-03-14T22:14:34+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20,7 +20,7 @@
         <id>https://braspag.github.io//manual/velocitycheck</id>
         <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
 
-&lt;p&gt;Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity Check é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado. Ela é uma aliada na avaliação de comportamentos suspeitos de compra, pois os cálculos serão baseados em elementos de rastreabilidade.&lt;/p&gt;
+&lt;p&gt;Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity Check é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado. Ela é uma aliada na avaliação de comportamentos suspeitos de compra, pois os cálculos serão baseados em variáveis.&lt;/p&gt;
 
 &lt;p&gt;A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.&lt;/p&gt;
 
@@ -35,7 +35,7 @@
 &lt;ul&gt;
   &lt;li&gt;Auxiliar na detecção de suspeitas de fraude&lt;/li&gt;
   &lt;li&gt;Aliada para bloquear ataques em rajada (testes de cartão, por exemplo), bem como avaliações de comportamentos suspeitos de compra&lt;/li&gt;
-  &lt;li&gt;Cálculos baseados em análise de velocidade de elementos rastreáveis e a incidência dos mesmos em determinados intervalos de tempo&lt;/li&gt;
+  &lt;li&gt;Cálculos baseados em análise de velocidade de variáveis e a incidência das mesmas em determinados intervalos de tempo&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;documentação&quot;&gt;Documentação&lt;/h2&gt;
@@ -43,6 +43,85 @@
 &lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Velocity Check Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
 
 &lt;p&gt;Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
+
+&lt;h1 id=&quot;funcionamento&quot;&gt;Funcionamento&lt;/h1&gt;
+
+&lt;h2 id=&quot;análise-de-regras&quot;&gt;Análise de regras&lt;/h2&gt;
+
+&lt;p&gt;O Velocity Check realiza análises em cima de regras habilitadas para os tipos de variáveis abaixo:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Variáveis&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do cartão de crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;12 primeiros dígitos do cartão de crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nome do portador do cartão de crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Documento do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;E-mail do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Endereço de IP do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CEP do endereço de entrega&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CEP do endereço de cobrança&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do pedido&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;A análise ocorre em cima de cada variável (V), contando quantas vezes (H) a mesma passou na Braspag para a sua loja dentro de um determinado período (P).&lt;/p&gt;
+
+&lt;p&gt;V = Variável
+H = Hits (Quantidade)
+P = Período&lt;/p&gt;
+
+&lt;p&gt;Com estes 3 elementos, teríamos a seguinte regra, &lt;strong&gt;Máximo de 5 Hits de Número do Cartão em 12 Hora(s)&lt;/strong&gt;, onde:&lt;/p&gt;
+
+&lt;p&gt;V = Número do cartão de crédito
+H = 5
+P = 12 Horas&lt;/p&gt;
+
+&lt;p&gt;Com isso, o Velocity Check ao receber a 6ª transação com o mesmo número de cartão (V) das outras 5 anteriores, a regra acima ao ser executada e detectar que a quantidade (H) excedeu as 5 permitidas no período (P) entre a data da primeira transação e a data da 6ª recebida, esta terá o status de rejeitada, o número do cartão poderá ir quarentena e a resposta terá o conteúdo de que a transação foi rejeitada devido a regra.&lt;/p&gt;
+
+&lt;h2 id=&quot;análise-de-quarentena&quot;&gt;Análise de Quarentena&lt;/h2&gt;
+
+&lt;p&gt;Ao cadastrar uma regra é possível especificar quanto tempo o valor de uma determinada variável irá ser levado em consideração nas próximas análises, ou seja, se o cliente quiser identificar a quantidade de vezes que o mesmo número de cartão se repetiu para um período de 12 horas dentro de um intervalo de 2 dias, não será necessário o Velocity Check realizar esta contagem retroativa agrupando por período. Neste cenário por exemplo, a aplicação teria que realizar a contagem para os seguintes intervalos:&lt;/p&gt;
+
+&lt;p&gt;D-2 = 0h as 12h
+D-2 = 12h as 0h
+D-1 = 0h as 12h
+D-1 = 12h as 0h&lt;/p&gt;
+
+&lt;p&gt;Com a quarentena configurada, a aplicação não irá realizar essa contagem retroativa por período, pois na análise é verificado se existe o valor da variável número de cartão em quarentena. Por exemplo: para a regra mostrada acima (&lt;strong&gt;Máximo de 5 Hits de Número do Cartão em 12 Hora(s)&lt;/strong&gt;), o tempo de expiração se definido em 2 dias, a regra será analisada apenas para o período configurado, ou seja, 12 horas para traz e irá verificar durante 2 dias para traz se número do cartão se encontra em quarentena.&lt;/p&gt;
+
+&lt;p&gt;Uma transação analisada, não rejeitada pela regra, mas rejeitada pela quarentena, terá o retorno informando que a mesma foi rejeitada pela quarentena.&lt;/p&gt;
+
+&lt;h2 id=&quot;análise-de-blacklist&quot;&gt;Análise de Blacklist&lt;/h2&gt;
+
+&lt;p&gt;Uma transação a ser analisada, e o número do cartão enviado para análise estiver na blacklist, a mesma será rejeitada, independente de existir regra cadastra para este tipo de variável ou não e as demais regras para outrostipos de variáveis serão ignoradas.
+O retorno terá que a mesma foi rejeitada pela blacklist.&lt;/p&gt;
+
+&lt;h2 id=&quot;análise-de-whitelist&quot;&gt;Análise de Whitelist&lt;/h2&gt;
+
+&lt;p&gt;Uma transação a ser analisada, e o número do cartão enviado para análise estiver na whitelist, a mesma será aceita, independente de existir regra cadastra para este tipo de variável ou não e as demais regras para outros tipos de variáveis serão ignoradas.&lt;/p&gt;
 
 &lt;h1 id=&quot;hosts&quot;&gt;Hosts&lt;/h1&gt;
 
