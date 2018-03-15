@@ -1769,25 +1769,8 @@ Ex.: `<script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js">
 **IMPORTANTE!**
 Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.
 
-**Exemplo através da aba HTML**
-
-```html
-<html>
-<head>
-<script>
-    var io_install_flash = false;
-    var io_install_stm = false;
-    var io_bbout_element_id = 'gatewayFingerprint';
-</script>
-</head>
-<script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"></script>
-<body>
-    <form>
-        <input type="hidden" name="gatewayFingerprint" id="gatewayFingerprint"></input>
-    </form>
-</body>
-</html>
-```
+**Exemplo**
+![Exemplo HTML]({{ site.baseurl_root }}/images/braspag/af/exemplohtmlred.png)
 
 ## Integração em aplicativos mobile
 
