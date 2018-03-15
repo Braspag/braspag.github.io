@@ -1798,7 +1798,6 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 **Exemplo**  
 
-``` html
 <html>
 <head>
 <script>
@@ -1815,7 +1814,7 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
     </form>
 </body>
 </html>
-```
+
 
 ## Integração em aplicativos mobile
 
