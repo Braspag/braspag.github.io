@@ -1836,20 +1836,8 @@ A função *+ioBegin* coleta informações sobre o dispositivo e gera uma *caixa
 **IMPORTANTE!**
 A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa preta* vazia indica que a proteção oferecida pelo sistema pode ter sido comprometida.
 
-**Exemplo através da aba HTML**
-
-```java
-#import "sampleViewController.h"
-#import <iovation/iovation.h>
-@implementation SampleViewController
-@property (strong, nonatomic) UILabel *blackbox;
-// Button press updates text field with blackbox value
-(IBAction)changeMessage:(id)sender
-{
-    self.blackbox.text = [iovation ioBegin];
-}
-@end
-```
+**Exemplo**
+![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemplocodigo1.png)
 
 ### Integrando com aplicativos Android
 
@@ -1899,37 +1887,7 @@ O arquivo *device-lib-1.2.0.aar* deverá ser empacotado com o aplicativo.
 **IMPORTANTE!**
 Se a opção para executar o módulo não aparecer, selecione *File -> Project Structure* e abra o painel *Modules*. A partir disso, defina na lista a versão do Android SDK.
 
-```java
-package com.iovation.mobile.android.sample;
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-import com.iovation.mobile.android.DevicePrint;
-public class DevicePrintSampleActivity extends Activity
-{
-    /**
-    * Called when the activity is first created.
-    * @param savedInstanceState If the activity is being re-initialized after
-    * previously being shut down then this Bundle contains the data it most
-    * recently supplied in onSaveInstanceState(Bundle). <b>Note: Otherwise it is null.</b>
-    */
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-    }
-    public void printDevice(View target)
-    {
-        String bb = DevicePrint.ioBegin(getApplicationContext());
-        TextView bbResult = (TextView) findViewById(R.id.bbResult);
-        bbResult.setText(bb);
-        bbResult.setVisibility(View.VISIBLE);
-    }
-}
-```
+![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemplocodigo2.png)
 
 1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar
 2 - No Android Studio, selecione *File -> Open* ou clique em *Open Project* através da opção *quick-start*
@@ -1979,43 +1937,15 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 > PNG Image
 
-```html
-<html>
-<head></head>
-<body>
- <form>
-    <p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=1)"></p>
-    <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt=""></img>
-</form>
-</body>
-</html>
-```
+![Exemplo Image]({{ site.baseurl_root }}/images/braspag/af/exemplocyberimage.png)
 
 > Flash Code
 
-```html
-<html>
-<head></head>
-<body>
-<form>
-    <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" width="1" height="1" id="thm_fp">
-        <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId"></param>
-        <div></div>
-    </object>
-</form>
-</body>
-</html>
-```
+![Exemplo Image]({{ site.baseurl_root }}/images/braspag/af/exemplocyberflash.png)
 
 > Javascript Code
 
-```html
-<html>
-  <head></head>
-  <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script>
-  <body></body>
-</html>
-```
+![Exemplo Image]({{ site.baseurl_root }}/images/braspag/af/exemplocyberjavascript.png)
 
 **IMPORTANTE!**
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.
