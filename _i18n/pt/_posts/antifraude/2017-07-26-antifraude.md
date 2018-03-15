@@ -1846,9 +1846,20 @@ A função *+ioBegin* coleta informações sobre o dispositivo e gera uma *caixa
 **IMPORTANTE!**  
 A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa preta* vazia indica que a proteção oferecida pelo sistema pode ter sido comprometida.  
 
-**Exemplo **
+**Exemplo**
 
-> #import "sampleViewController.h" <br/> #import <iovation/iovation.h> <br/> @implementation SampleViewController <br/> @property (strong, nonatomic) UILabel *blackbox; <br/> // Button press updates text field with blackbox value <br/> (IBAction)changeMessage:(id)sender <br/> { <br/> self.blackbox.text = [iovation ioBegin]; <br/> } <br/> @end
+``` html
+#import "sampleViewController.h" 
+#import <iovation/iovation.h>
+@implementation SampleViewController
+@property (strong, nonatomic) UILabel *blackbox;
+// Button press updates text field with blackbox value
+- (IBAction)changeMessage:(id)sender
+{
+    self.blackbox.text = [iovation ioBegin];
+}
+@end
+```
 
 ### Integrando com aplicativos Android  
 
@@ -1898,7 +1909,8 @@ O arquivo *device-lib-1.2.0.aar* deverá ser empacotado com o aplicativo.
 **IMPORTANTE!**  
 Se a opção para executar o módulo não aparecer, selecione *File -> Project Structure* e abra o painel *Modules*. A partir disso, defina na lista a versão do Android SDK.
 
-> package com.iovation.mobile.android.sample;
+``` html
+package com.iovation.mobile.android.sample;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -1927,6 +1939,7 @@ public class DevicePrintSampleActivity extends Activity
         bbResult.setVisibility(View.VISIBLE);
     }
 }
+```
 
 1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar  
 2 - No Android Studio, selecione *File -> Open* ou clique em *Open Project* através da opção *quick-start*  
@@ -1967,36 +1980,45 @@ Production - Altere o domínio para uma URL local, e configure seu servidor Web 
 **ProviderMerchantId** - Para obter este valor, entre em contato com a Braspag.  
 **ProviderSessionId** - Prencha este campo com o mesmo valor do campo **MerchantOrderId** que será enviado na requisição da análise de fraude.  
 
-> PNG Image <br/>
-<html> <br/>
-<head></head> <br/>
-<body> <br/>
- <form> <br/>
-    <p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=1)"></p> <br/>
-    <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt=""> <br/>
-</form> <br/>
-</body> <br/>
-</html> <br/><br/>
+> PNG Image
 
-> Flash Code  <br/>
-<html> <br/>
-<head></head> <br/>
-<body> <br/>
-<form> <br/>
-    <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" width="1" height="1" id="thm_fp"> <br/>
-        <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" /> <br/>
-        <div></div> <br/>
-    </object> <br/>
-</form> <br/>
-</body> <br/>
-</html><br/><br/>
+``` html
+<html>
+<head></head>
+<body>
+ <form>
+    <p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=1)"></p>
+    <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt="">
+</form>
+</body>
+</html>
+```
 
-> Javascript Code <br/>
-<html> <br/>
-  <head></head> <br/>
-  <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script> <br/>
-  <body></body> <br/>
-</html> <br/>
+> Flash Code
+
+``` html
+<html>
+<head></head>
+<body>
+<form>
+    <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" width="1" height="1" id="thm_fp">
+        <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" />
+        <div></div>
+    </object>
+</form>
+</body>
+</html>
+```
+
+> Javascript Code
+
+``` html
+<html>
+  <head></head>
+  <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script>
+  <body></body>
+</html>
+```
 
 **IMPORTANTE!**  
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.  
