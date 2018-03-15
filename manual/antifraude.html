@@ -5384,7 +5384,7 @@ Os parâmetros de configuração devem ser colocados antes da chamada da tag aci
 
 <p><strong>Exemplo através da aba HTML</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
 
     var io_install_flash = false;
@@ -5482,16 +5482,16 @@ A <em>caixa preta</em> que retornou de <em>+ioBegin</em> nunca deve estar vazio.
 
 <p><strong>Exemplo através da aba HTML</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#import "sampleViewController.h"
-#import 
-@implementation SampleViewController
-@property (strong, nonatomic) UILabel *blackbox;
-// Button press updates text field with blackbox value
-(IBAction)changeMessage:(id)sender
-{
-    self.blackbox.text = [iovation ioBegin];
-}
-@end
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="kn">import</span> <span class="err">"</span><span class="nn">sampleViewController.h</span><span class="err">"</span>
+<span class="err">#</span><span class="kn">import</span> 
+<span class="err">@</span><span class="nn">implementation</span> <span class="n">SampleViewController</span>
+<span class="nd">@property</span> <span class="o">(</span><span class="n">strong</span><span class="o">,</span> <span class="n">nonatomic</span><span class="o">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">blackbox</span><span class="o">;</span>
+<span class="c1">// Button press updates text field with blackbox value</span>
+<span class="o">(</span><span class="n">IBAction</span><span class="o">)</span><span class="nl">changeMessage:</span><span class="o">(</span><span class="n">id</span><span class="o">)</span><span class="n">sender</span>
+<span class="o">{</span>
+    <span class="n">self</span><span class="o">.</span><span class="na">blackbox</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="o">[</span><span class="n">iovation</span> <span class="n">ioBegin</span><span class="o">];</span>
+<span class="o">}</span>
+<span class="nd">@end</span>
 </code></pre></div></div>
 
 <h3 id="integrando-com-aplicativos-android">Integrando com aplicativos Android</h3>
@@ -5633,11 +5633,11 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Testing</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Testing</code></td>
       <td style="text-align: left">Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo</td>
     </tr>
     <tr>
-      <td style="text-align: left">Production</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Production</code></td>
       <td style="text-align: left">Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net</td>
     </tr>
   </tbody>
@@ -5654,15 +5654,15 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">ProviderOrgId</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderOrgId</code></td>
       <td style="text-align: left">Para obter este valor, entre em contato com a Braspag</td>
     </tr>
     <tr>
-      <td style="text-align: left">ProviderMerchantId</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderMerchantId</code></td>
       <td style="text-align: left">Para obter este valor, entre em contato com a Braspag</td>
     </tr>
     <tr>
-      <td style="text-align: left">ProviderSessionId</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderSessionId</code></td>
       <td style="text-align: left">Prencha este campo com o mesmo valor do campo <code class="highlighter-rouge">MerchantOrderId</code> que será enviado na requisição da análise de fraude</td>
     </tr>
   </tbody>
