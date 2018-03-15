@@ -1134,17 +1134,17 @@
       <td style="text-align: right">60</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Key</code></td>
-      <td style="text-align: left">Campo definido junto ao provedor de antifraude</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">Consultar o anexo XPTO para mais informações</td>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
+      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 36 - MerchantDefinedData(ReDShield)</a></td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Value</code></td>
-      <td style="text-align: left">Campo definido junto ao provedor de antifraude</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">Consultar o anexo XPTO para mais informações</td>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Value</code></td>
+      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 36 - MerchantDefinedData(ReDShield)</a></td>
+      <td style="text-align: center">var</td>
+      <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
   </tbody>
@@ -2068,14 +2068,14 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
-      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData</a></td>
+      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">int</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Value</code></td>
-      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData</a></td>
+      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">var</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -3416,17 +3416,17 @@
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Key</code></td>
-      <td style="text-align: left">Campo definido junto ao provedor de antifraude</td>
-      <td style="text-align: center">string</td>
-      <td>Consultar o anexo XPTO para mais informações</td>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
+      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-36-merchantdefineddata-(redshield)">Tabela 36 - MerchantDefinedData(ReDShield)</a></td>
+      <td style="text-align: center">int</td>
+      <td>não</td>
       <td>-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Value</code></td>
-      <td style="text-align: left">Campo definido junto ao provedor de antifraude</td>
-      <td style="text-align: center">string</td>
-      <td>Consultar o anexo XPTO para mais informações</td>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Value</code></td>
+      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-36-merchantdefineddata-(redshield)">Tabela 36 - MerchantDefinedData(ReDShield)</a></td>
+      <td style="text-align: center">var</td>
+      <td>não</td>
       <td>-</td>
     </tr>
   </tbody>
@@ -3665,8 +3665,6 @@
       <th style="text-align: center">Tipo</th>
       <th> </th>
       <th> </th>
-      <th> </th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -3676,15 +3674,11 @@
       <td style="text-align: center">guid</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
       <td style="text-align: left">Status da transação no Antifraude Gateway Braspag <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-20-status">Tabela 20 - Status</a></td>
       <td style="text-align: center">enum</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3694,15 +3688,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code></td>
       <td style="text-align: left">Status da transação na ReDShield <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-21-providerstatus">Tabela 21 - ProviderStatus</a></td>
       <td style="text-align: center">enum</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3712,15 +3702,11 @@
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderRequestTransactionId</code></td>
       <td style="text-align: left">Id do request da transação na Cybersource</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3730,15 +3716,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Invalid</code></td>
       <td style="text-align: left">Campos com valores inválidos enviado a Cybersource</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3748,15 +3730,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.AfsFactorCode</code></td>
       <td style="text-align: left">Códigos que afetaram a pontuação da análise <br /> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br /><a href="https://braspag.github.io//manual/antifraude#tabela-24-provideranalysisresult.afsreply.afsfactorcode">Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode</a></td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3766,15 +3744,11 @@
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.BinCountry</code></td>
       <td style="text-align: left">Código do país do BIN do cartão usado na análise. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3784,15 +3758,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.CardIssuer</code></td>
       <td style="text-align: left">Nome do banco ou entidade emissora do cartão</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3802,15 +3772,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.ConsumerLocalTime</code></td>
       <td style="text-align: left">Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3820,15 +3786,11 @@
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.HotListInfoCode</code></td>
       <td style="text-align: left">Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br /> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br /><a href="https://braspag.github.io//manual/antifraude#tabela-26-provideranalysisresult.afsreply.hotlistinfocode">Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode</a></td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3838,15 +3800,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.InternetInfoCode</code></td>
       <td style="text-align: left">Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br /> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-28-provideranalysisresult.afsreply.internetinfocode">Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode</a></td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3856,15 +3814,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.IpCountry</code></td>
       <td style="text-align: left">Nome do país do comprador obtido a partir do endereço de IP</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3874,15 +3828,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.IpState</code></td>
       <td style="text-align: left">Nome do estado do comprador obtido a partir do endereço de IP</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3892,15 +3842,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.ReasonCode</code></td>
       <td style="text-align: left">Código de retorno da Cybersouce <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-22-provideranalysisresult.providercode">Tabela 22 - ProviderAnalysisResult.ProviderCode</a></td>
       <td style="text-align: center">int</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3910,15 +3856,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</code></td>
       <td style="text-align: left">Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br /> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-30-provideranalysisresult.afsreply.suspiciousinfocode">Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</a></td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3928,15 +3870,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage</code></td>
       <td style="text-align: left">Linguagem do browser utilizado pelo comprador no momento da compra</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3946,15 +3884,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled</code></td>
       <td style="text-align: left">Flag identificando que o browser do comprador estava habilitado para armazenar cookies temporariamente no momento da compra</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3964,15 +3898,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.Hash</code></td>
       <td style="text-align: left">Hash gerado a partir dos dados coletados pelo script de fingerprint</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -3982,15 +3912,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled</code></td>
       <td style="text-align: left">Flag identificando que o browser do comprador estava com a execução de sripts em Javascript habilitada no momento da compra</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4000,15 +3926,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCity</code></td>
       <td style="text-align: left">Flag identificando que o IP do comprador é de fato da cidade que deveria ser mesmo</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4018,15 +3940,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartId</code></td>
       <td style="text-align: left">Identificador do dispositivo do comprador</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4036,15 +3954,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue</code></td>
       <td style="text-align: left">Quando modo verbose ativado, nome da fila para onde as transações não aceitas automaticamente são enviadas</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4054,15 +3968,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy</code></td>
       <td style="text-align: left">Quando modo verbose ativado, nome do seletor de regras que seleciona o perfil de regras</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4072,15 +3982,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision</code></td>
       <td style="text-align: left">Quando modo verbose ativado, decisão tomada pela regra <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision">Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision</a></td>
       <td style="text-align: center">enum</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4090,15 +3996,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name</code></td>
       <td style="text-align: left">Quando modo verbose ativado, nome da regra</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4108,15 +4010,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.DecisionReply.VelocityInfoCode</code></td>
       <td style="text-align: left">Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4126,15 +4024,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">TotalOrderAmount</code></td>
       <td style="text-align: left">Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
       <td style="text-align: center">long</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4144,15 +4038,11 @@
       <td style="text-align: center">long</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Currency</code></td>
       <td style="text-align: left">Moeda. Maiores informações em <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 Currency Codes</a></td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4162,15 +4052,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">OrderDate</code></td>
       <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag</td>
       <td style="text-align: center">datetime</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4180,15 +4066,11 @@
       <td style="text-align: center">guid</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Tid</code></td>
       <td style="text-align: left">Id da transação na adquirente <br /> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo <code class="highlighter-rouge">BraspagTransactionId</code>, com isso é necessário o envio dos campos <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code>, além deste em questão</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4198,15 +4080,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">AuthorizationCode</code></td>
       <td style="text-align: left">Código de autorização da transação na adquirente <br /> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo <code class="highlighter-rouge">BraspagTransactionId</code>, com isso é necessário o envio dos campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">SaleDate</code>, além deste em questão</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4216,15 +4094,11 @@
       <td style="text-align: center">datetime</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
       <td style="text-align: left">Número do cartão de crédito</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4234,15 +4108,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.ExpirationDate</code></td>
       <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4252,15 +4122,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Save</code></td>
       <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
       <td style="text-align: center">bool</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4270,15 +4136,11 @@
       <td style="text-align: center">guid</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Alias</code></td>
       <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4288,15 +4150,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Number</code></td>
       <td style="text-align: left">Número do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4306,15 +4164,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Neighborhood</code></td>
       <td style="text-align: left">Bairro do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4324,15 +4178,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.State</code></td>
       <td style="text-align: left">Estado do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4342,15 +4192,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.ZipCode</code></td>
       <td style="text-align: left">Código postal do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4360,15 +4206,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Number</code></td>
       <td style="text-align: left">Número do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4378,15 +4220,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Neighborhood</code></td>
       <td style="text-align: left">Bairro do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4396,15 +4234,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.State</code></td>
       <td style="text-align: left">Estado do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4414,15 +4248,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ZipCode</code></td>
       <td style="text-align: left">Código postal do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4432,15 +4262,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.LastName</code></td>
       <td style="text-align: left">Último do nome do responsável a receber o produto no endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4450,15 +4276,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
       <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4468,15 +4290,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.FirstName</code></td>
       <td style="text-align: left">Primeiro nome do comprador</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4486,15 +4304,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
       <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
       <td style="text-align: center">date</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4504,15 +4318,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Ip</code></td>
       <td style="text-align: left">Endereço de IP do comprador</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4522,15 +4332,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserHostName</code></td>
       <td style="text-align: left">Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4540,15 +4346,11 @@
       <td style="text-align: center">bool</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserEmail</code></td>
       <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (<code class="highlighter-rouge">Customer.Email</code>)</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4558,15 +4360,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ProductName</code></td>
       <td style="text-align: left">Nome do produto</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4576,15 +4374,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].UnitPrice</code></td>
       <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = r$ 109,50</td>
       <td style="text-align: center">long</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4594,15 +4388,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Quantity</code></td>
       <td style="text-align: left">Quantidade do produto</td>
       <td style="text-align: center">int</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4612,15 +4402,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].HostHedge</code></td>
       <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-13-cartitem[n].hosthedge">Tabela 13 - CartItem{n}.HostHedge</a></td>
       <td style="text-align: center">enum</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4630,15 +4416,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ObscenitiesHedge</code></td>
       <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-15-cartitem[n].obscenitieshedge">Tabela 15 - CartItem{n}.ObscenitiesHedge</a></td>
       <td style="text-align: center">enum</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4648,15 +4430,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].PhoneHedge</code></td>
       <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-17-cartitem[n].phonehedge">Tabela 17 - CartItem{n}.PhoneHedge</a></td>
       <td style="text-align: center">enum</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4666,15 +4444,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Name</code></td>
       <td style="text-align: left">Nome do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4684,15 +4458,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Agency</code></td>
       <td style="text-align: left">Agência do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4702,15 +4472,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.City</code></td>
       <td style="text-align: left">Cidade onde está localizado o banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4720,15 +4486,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.SwiftCode</code></td>
       <td style="text-align: left">Código identificador único do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4738,15 +4500,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.AccountNumber</code></td>
       <td style="text-align: left">Número da conta bancária do comprador</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4756,15 +4514,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.Iban</code></td>
       <td style="text-align: left">Número internacional da conta bancária do comprador (IBAN)</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4774,15 +4528,11 @@
       <td style="text-align: center">bool</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.ReturnsAccepted</code></td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser devolvido a loja</td>
       <td style="text-align: center">bool</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4792,15 +4542,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.JourneyType</code></td>
       <td style="text-align: left">Tipo de viagem <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-8-airline.journeytype">Tabela 8 - Airline.JourneyType</a></td>
       <td style="text-align: center">enun</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4810,15 +4556,11 @@
       <td style="text-align: center">datetime</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].FirstName</code></td>
       <td style="text-align: left">Primeiro nome do passageiro</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4828,15 +4570,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].PassengerId</code></td>
       <td style="text-align: left">Identificador do passageiro a quem a passagem foi emitida</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4846,15 +4584,11 @@
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Phone</code></td>
       <td style="text-align: left">Telefone do passageiro <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4864,15 +4598,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Status</code></td>
       <td style="text-align: left">Classificação da empresa aérea <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-10-airline.passengers[n].status">Tabela 10 - Airline.Passengers{n}.Status</a></td>
       <td style="text-align: center">enum</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4882,15 +4612,11 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalAirport</code></td>
       <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
-      <td> </td>
-      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
@@ -4900,8 +4626,6 @@
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.ScoreThreshold</code></td>
@@ -4909,26 +4633,20 @@
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Key</code></td>
-      <td style="text-align: left">Campo definido junto ao provedor de antifraude</td>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
+      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">int</td>
-      <td>Consultar o anexo XPTO para mais informações</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>não</td>
+      <td>-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData.Value</code></td>
-      <td style="text-align: left">Campo definido junto ao provedor de antifraude</td>
-      <td style="text-align: center">int</td>
-      <td>Consultar o anexo XPTO para mais informações</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Value</code></td>
+      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData(Cybersource)</a></td>
+      <td style="text-align: center">var</td>
+      <td>não</td>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
@@ -7919,7 +7637,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     </tr>
     <tr>
       <td style="text-align: left">18-25</td>
-      <td style="text-align: left">Reservado</td>
+      <td style="text-align: left">Reservado para novo campo de turismo</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
@@ -7929,7 +7647,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     </tr>
     <tr>
       <td style="text-align: left">27-30</td>
-      <td style="text-align: left">Reservado</td>
+      <td style="text-align: left">Reservado para campo interno</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
@@ -7969,7 +7687,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     </tr>
     <tr>
       <td style="text-align: left">38</td>
-      <td style="text-align: left">Número do telefone do cliente identificado através da bina <br /> Formato: DDDNúmero - Ex.: 2121114720</td>
+      <td style="text-align: left">Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br /> Formato: DDDNúmero - Ex.: 2121114720</td>
       <td style="text-align: left">string</td>
     </tr>
     <tr>
