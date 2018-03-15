@@ -1813,23 +1813,23 @@ Esta versão suporta iOS 5.1.1 ou superior nos seguintes dispositivos:
 
 * Instalando o SDK no iOS  
 
-    1 - Baixe e descompacte o SDK  
-    2 - No Xcode, arraste *iovation.framework* na área de navegação do seu projeto  
+1 - Baixe e descompacte o SDK  
+2 - No Xcode, arraste *iovation.framework* na área de navegação do seu projeto  
 ![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintios2.png){: .left }{:title="Detalhes instalação SDK"}  
-    3 - Na caixa de diálogo que aparece:  
-        Selecione *Copy items if needed* para copiar o framework para o diretório do projeto  
-        Marque a caixa de seleção para os destinos nos quais você planeja usar o framework  
+3 - Na caixa de diálogo que aparece: 
+- Selecione *Copy items if needed* para copiar o framework para o diretório do projeto  
+- Marque a caixa de seleção para os destinos nos quais você planeja usar o framework  
 ![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintios3.png){: .left }{:title="Detalhes instalação SDK"}  
-    4 - Clique em Finish  
-    5 - Adicione os frameworks a seguir ao destino da aplicação no XCode:  
-        - *ExternalAccessory.framework*. Se você verificar que o Wireless Accessory Configuration está ativado no Xcode 6 ou superior e não precisa, desativa e adicione novamente o ExternalAccessory.framework  
-        - *CoreTelephony.framework*  
+4 - Clique em Finish  
+5 - Adicione os frameworks a seguir ao destino da aplicação no XCode:  
+- *ExternalAccessory.framework*. Se você verificar que o Wireless Accessory Configuration está ativado no Xcode 6 ou superior e não precisa, desativa e adicione novamente o ExternalAccessory.framework  
+- *CoreTelephony.framework*  
 ![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintios4.png){: .left }{:title="Detalhes instalação SDK"}  
-    6 - Opcionalmente, adicione esses frameworks se o seu aplicativo fizer uso deles:  
-        - *AdSupport.framework*. Se o seu aplicativo exibe anúncios  
-        Obs.: Não incluir se o seu aplicativo não utilizar anúncios, pois a App Store rejeita aplicativos que incluem o framework mas não usam anúncios  
-        - *CoreLocation.framework*. Se o seu aplicativo usa monitoramento local  
-        Obs.: Não incluir, a menos que seu aplicativo solicite permissão de geolocalização do usuário  
+6 - Opcionalmente, adicione esses frameworks se o seu aplicativo fizer uso deles:  
+- *AdSupport.framework*. Se o seu aplicativo exibe anúncios  
+Obs.: Não incluir se o seu aplicativo não utilizar anúncios, pois a App Store rejeita aplicativos que incluem o framework mas não usam anúncios  
+- *CoreLocation.framework*. Se o seu aplicativo usa monitoramento local  
+Obs.: Não incluir, a menos que seu aplicativo solicite permissão de geolocalização do usuário  
 
 * Usando a função +ioBegin  
 
@@ -1848,16 +1848,7 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
 
 **Exemplo **
 
-> #import "sampleViewController.h"
-#import <iovation/iovation.h>
-@implementation SampleViewController
-@property (strong, nonatomic) UILabel *blackbox;
-// Button press updates text field with blackbox value
-- (IBAction)changeMessage:(id)sender
-{
-    self.blackbox.text = [iovation ioBegin];
-}
-@end
+> #import "sampleViewController.h" <br/> #import <iovation/iovation.h> <br/> @implementation SampleViewController <br/> @property (strong, nonatomic) UILabel *blackbox; <br/> // Button press updates text field with blackbox value <br/> (IBAction)changeMessage:(id)sender <br/> { <br/> self.blackbox.text = [iovation ioBegin]; <br/> } <br/> @end
 
 ### Integrando com aplicativos Android  
 
