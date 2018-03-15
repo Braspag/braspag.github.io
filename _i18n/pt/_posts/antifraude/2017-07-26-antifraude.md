@@ -281,20 +281,20 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|-|-|
-|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}/manual/antifraude#tabela-1-provider)|enum|-|-|
+|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}manual/antifraude#tabela-1-provider)|enum|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|sim|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|não|-|
 |`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|20|
 |`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|10|
 |`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `SaleDate`, além deste em questão|string|não|10|
 |`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `AuthorizationCode`, além deste em questão|datetime|não|-|
-|`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento <br/> [Tabela 2 - SplitingPaymentMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-2-splitingpaymentmethod)|enum|-|-|
+|`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento <br/> [Tabela 2 - SplitingPaymentMethod]({{ site.baseurl_root }}manual/antifraude#tabela-2-splitingpaymentmethod)|enum|-|-|
 |`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|bool|não|-|
 |`Card.Number`|Número do cartão de crédito|string|sim|19|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|50|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
 |`Card.Cvv`|Código de segurança do cartão de crédito|string|sim|4|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}/manual/antifraude#tabela-3-card.brand)|enum|-|-|
+|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-3-card.brand)|enum|-|-|
 |`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|não|1|
 |`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|
 |`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|
@@ -322,20 +322,20 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|19|
 |`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114701|string|não|19|
 |`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|não|19|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
 |`Shipping.Comment`|Referências do endereço de entrega|string|não|160|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}/manual/antifraude#tabela-5-customer.merchantcustomerid)|string|sim|16|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}manual/antifraude#tabela-5-customer.merchantcustomerid)|string|sim|16|
 |`Customer.FirstName`|Primeiro nome do comprador|string|sim|30|
 |`Customer.MiddleName`|Primeira letra do nome do comprador|string|não|1|
 |`Customer.LastName`|Último nome do comprador|string|sim|30|
 |`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
-|`Customer.Gender`|Sexo do comprador <br/> [Tabela 6 - Customer.Gender]({{ site.baseurl_root }}/manual/antifraude#tabela-6-customer.gender)|string|não|6|
+|`Customer.Gender`|Sexo do comprador <br/> [Tabela 6 - Customer.Gender]({{ site.baseurl_root }}manual/antifraude#tabela-6-customer.gender)|string|não|6|
 |`Customer.Email`|E-mail do comprador|string|não|60|
 |`Customer.Ip`|Endereço de IP do comprador|string|não|15|
 |`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|não|19|
 |`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|não|19|
 |`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|não|19|
-|`Customer.Status`|Status do comprador na loja <br/> [Tabela 7 - Customer.Status]({{ site.baseurl_root }}/manual/antifraude#tabela-7-customer.status)|string|não|8|
+|`Customer.Status`|Status do comprador na loja <br/> [Tabela 7 - Customer.Status]({{ site.baseurl_root }}manual/antifraude#tabela-7-customer.status)|string|não|8|
 |`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/antifraude#redshield44)|string|sim|6005|
 |`CartItem[n].ProductName`|Nome do produto|string|não|50|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|não|-|
@@ -346,7 +346,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].GiftMessage`|Mensagem de presente|string|não|160|
 |`CartItem[n].Description`|Descrição do produto|string|não|76|
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|
-|`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
+|`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
 |`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|bool|não|-|
 |`Airline.BookingType`|Tipo de agendamento da reserva|string|não|255|
@@ -355,7 +355,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|29|
 |`Airline.Passengers[n].MiddleName`|Nome do meio do passageiro|string|não|1|
 |`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|28|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}/manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|não|-|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|não|-|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|19|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|60|
 |`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|não|255|
@@ -368,8 +368,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|não|-|
 |`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|não|30|
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|var|não|-|
 
 ### Response
 
@@ -415,12 +415,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}/manual/antifraude#tabela-20-status)|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-20-status)|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}/manual/antifraude#tabela-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}manual/antifraude#tabela-21-providerstatus)|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
@@ -585,7 +585,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|sim|3|
-|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}/manual/antifraude#tabela-1-provider)|enum|-|-|
+|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}manual/antifraude#tabela-1-provider)|enum|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|não|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|não|-|
 |`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|20|
@@ -595,7 +595,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Card.Number`|Número do cartão de crédito|string|sim|20|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|50|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}/manual/antifraude#tabela-3-card.brand)|enum|-|-|
+|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-3-card.brand)|enum|-|-|
 |`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|
 |`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|
 |`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|não|64|
@@ -618,8 +618,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|não|60|
 |`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|não|60|
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|15|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}/manual/antifraude#tabela-5-customer.merchantcustomerid)|string|sim|16|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}manual/antifraude#tabela-5-customer.merchantcustomerid)|string|sim|16|
 |`Customer.FirstName`|Primeiro nome do comprador|string|sim|60|
 |`Customer.LastName`|Último nome do comprador|string|sim|60|
 |`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
@@ -631,17 +631,17 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|não|100|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|não|40|
 |`CartItem[n].ProductName`|Nome do produto|string|sim|255|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 11 - CartItem{n}.Risk]({{ site.baseurl_root }}/manual/antifraude#tabela-11-cartitem[n].risk)|enum|-|-|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 11 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
 |`CartItem[n].Sku`|Sku do produto|string|não|255|
 |`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}/manual/antifraude#tabela-12-cartitem[n].addressriskverify)|enum|-|-|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-13-cartitem[n].hosthedge)|enum|-|-|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|-|-|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-15-cartitem[n].obscenitieshedge)|enum|-|-|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-16-cartitem[n].timehedge)|enum|-|-|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|-|-|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|-|-|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}manual/antifraude#tabela-12-cartitem[n].addressriskverify)|enum|-|-|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-13-cartitem[n].hosthedge)|enum|-|-|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|-|-|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/antifraude#tabela-15-cartitem[n].obscenitieshedge)|enum|-|-|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}manual/antifraude#tabela-16-cartitem[n].timehedge)|enum|-|-|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|-|-|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|-|-|
 |`Bank.Name`|Nome do banco do comprador|string|não|40|
 |`Bank.Code`|Código do banco do comprador|string|não|15|
 |`Bank.Agency`|Agência do banco do comprador|string|não|15|
@@ -655,22 +655,22 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|não|30|
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|não|-|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|não|-|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 19 - Invoice.Tender]({{ site.baseurl_root }}/manual/antifraude#tabela-19-invoice.tender)|enum|não|-|
-|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 8 - Airline.JourneyType]({{ site.baseurl_root }}/manual/antifraude#tabela-8-airline.journeytype)|enun|não|-|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 19 - Invoice.Tender]({{ site.baseurl_root }}manual/antifraude#tabela-19-invoice.tender)|enum|não|-|
+|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 8 - Airline.JourneyType]({{ site.baseurl_root }}manual/antifraude#tabela-8-airline.journeytype)|enun|não|-|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|60|
 |`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|60|
 |`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|não|32|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}/manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|não|-|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|não|-|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|15|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|255|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}/manual/antifraude#tabela-10-airline.passengers[n].status)|enum|não|60|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}manual/antifraude#tabela-10-airline.passengers[n].status)|enum|não|60|
 |`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
 
 ``` json
 {
@@ -724,34 +724,34 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}/manual/antifraude#tabela-20-status)|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-20-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}/manual/antifraude#tabela-21-providerstatus)|enum|
-|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}/manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}manual/antifraude#tabela-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
 |`ProviderAnalysisResult.Missing`|Campos faltantes na requisição enviada a Cybersource|string|
 |`ProviderAnalysisResult.Invalid`|Campos com valores inválidos enviado a Cybersource|string|
-|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br/>[Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-23-provideranalysisresult.afsreply.addressinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br/>[Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode]({{ site.baseurl_root }}/manual/antifraude#tabela-24-provideranalysisresult.afsreply.afsfactorcode)|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br/>[Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-23-provideranalysisresult.afsreply.addressinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br/>[Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode]({{ site.baseurl_root }}manual/antifraude#tabela-24-provideranalysisresult.afsreply.afsfactorcode)|string|
 |`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
 |`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador <br/>[Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType]({{ site.baseurl_root }}/manual/antifraude#tabela-25-provideranalysisresult.afsreply.cardaccounttype)|string|
+|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador <br/>[Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType]({{ site.baseurl_root }}manual/antifraude#tabela-25-provideranalysisresult.afsreply.cardaccounttype)|string|
 |`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
 |`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão|string|
 |`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
 |`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
-|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-26-provideranalysisresult.afsreply.hotlistinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-27-provideranalysisresult.afsreply.identityinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-28-provideranalysisresult.afsreply.internetinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-26-provideranalysisresult.afsreply.hotlistinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-27-provideranalysisresult.afsreply.identityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-28-provideranalysisresult.afsreply.internetinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.IpCity`|Nome da cidade do comprador obtido a partir do endereço de IP|string|
 |`ProviderAnalysisResult.AfsReply.IpCountry`|Nome do país do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod)|string|
+|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod)|string|
 |`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador <br/> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br/> [Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-29-provideranalysisresult.afsreply.phoneinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}/manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador <br/> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br/> [Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-29-provideranalysisresult.afsreply.phoneinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
-|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br/> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br/> [Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-30-provideranalysisresult.afsreply.suspiciousinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras <br/> Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP <br/> [Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-31-provideranalysisresult.afsreply.velocityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br/> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br/> [Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-30-provideranalysisresult.afsreply.suspiciousinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras <br/> Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP <br/> [Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-31-provideranalysisresult.afsreply.velocityinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`|Linguagem do browser utilizado pelo comprador no momento da compra|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution`|Resolução da tela do comprador no momento da compra|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`|Flag identificando que o browser do comprador estava habilitado para armazenar cookies temporariamente no momento da compra|string|
@@ -768,8 +768,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|Quando modo verbose ativado, nome do perfil selecionado na análise. Se não tiver nenhum, o perfil padrão foi selecionado|string|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|Quando modo verbose ativado, nome do seletor de regras que seleciona o perfil de regras|string|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|Quando modo verbose ativado, id da regra|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra <br/> [Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision]({{ site.baseurl_root }}/manual/antifraude#tabela-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision)|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra <br/> [Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation]({{ site.baseurl_root }}/manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra <br/> [Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision]({{ site.baseurl_root }}manual/antifraude#tabela-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision)|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra <br/> [Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation]({{ site.baseurl_root }}manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|Quando modo verbose ativado, nome da regra|string|
 |`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
@@ -1004,12 +1004,12 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}/manual/antifraude#tabela-20-status)|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-20-status)|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}/manual/antifraude#tabela-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}manual/antifraude#tabela-21-providerstatus)|enum|
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
@@ -1024,13 +1024,13 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|
 |`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `SaleDate`, além deste em questão|string|
 |`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `AuthorizationCode`, além deste em questão|datetime|
-|`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento <br/> [Tabela 2 - SplitingPaymentMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-2-splitingpaymentmethod)|enum|
+|`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento <br/> [Tabela 2 - SplitingPaymentMethod]({{ site.baseurl_root }}manual/antifraude#tabela-2-splitingpaymentmethod)|enum|
 |`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|bool|
 |`Card.Number`|Número do cartão de crédito|string|
 |`Card.Holder`|Nome do cartão de crédito|string|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|
 |`Card.Cvv`|Código de segurança do cartão de crédito|string|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}/manual/antifraude#tabela-3-card.brand)|enum|
+|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-3-card.brand)|enum|
 |`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|
 |`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|
 |`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|
@@ -1058,9 +1058,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|
 |`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114701|string|
 |`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-4-shippingmethod)|enum|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|
 |`Shipping.Comment`|Referências do endereço de entrega|string|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}/manual/antifraude#tabela-5-customer.merchantcustomerid)|string|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}manual/antifraude#tabela-5-customer.merchantcustomerid)|string|
 |`Customer.FirstName`|Primeiro nome do comprador|string|
 |`Customer.MiddleName`|Primeira letra do nome do comprador|string|
 |`Customer.LastName`|Último nome do comprador|string|
@@ -1071,7 +1071,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|
 |`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|
 |`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|
-|`Customer.Status`|Status do comprador na loja <br/> [Tabela 7 - Customer.Status]({{ site.baseurl_root }}/manual/antifraude#tabela-7-customer.status)|string|
+|`Customer.Status`|Status do comprador na loja <br/> [Tabela 7 - Customer.Status]({{ site.baseurl_root }}manual/antifraude#tabela-7-customer.status)|string|
 |`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador|string|
 |`CartItem[n].ProductName`|Nome do produto|string|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
@@ -1082,7 +1082,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].GiftMessage`|Mensagem de presente|string|
 |`CartItem[n].Description`|Descrição do produto|string|
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|
-|`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-4-shippingmethod)|enum|
+|`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|
 |`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|bool|
 |`Airline.BookingType`|Tipo de agendamento da reserva|string|
@@ -1091,7 +1091,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|
 |`Airline.Passengers[n].MiddleName`|Nome do meio do passageiro|string|
 |`Airline.Passengers[n].LastName`|Último nome do passageiro|string|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}/manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|
 |`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|
@@ -1104,8 +1104,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|
 |`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}/manual/antifraude#tabela-36-merchantdefineddata-(redshield))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}/manual/antifraude#tabela-36-merchantdefineddata-(redshield))|var|não|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|var|não|-|
 
 ## Consultando uma transação Cybersource
 
@@ -1302,34 +1302,34 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}/manual/antifraude#tabela-20-status)|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-20-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}/manual/antifraude#tabela-21-providerstatus)|enum|
-|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}/manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}manual/antifraude#tabela-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
 |`ProviderAnalysisResult.Missing`|Campos faltantes na requisição enviada a Cybersource|string|
 |`ProviderAnalysisResult.Invalid`|Campos com valores inválidos enviado a Cybersource|string|
-|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br/>[Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-23-provideranalysisresult.afsreply.addressinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br/>[Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode]({{ site.baseurl_root }}/manual/antifraude#tabela-24-provideranalysisresult.afsreply.afsfactorcode)|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br/>[Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-23-provideranalysisresult.afsreply.addressinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br/>[Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode]({{ site.baseurl_root }}manual/antifraude#tabela-24-provideranalysisresult.afsreply.afsfactorcode)|string|
 |`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
 |`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador <br/>[Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType]({{ site.baseurl_root }}/manual/antifraude#tabela-25-provideranalysisresult.afsreply.cardaccounttype)|string|
+|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador <br/>[Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType]({{ site.baseurl_root }}manual/antifraude#tabela-25-provideranalysisresult.afsreply.cardaccounttype)|string|
 |`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
 |`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão|string|
 |`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
 |`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
-|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-26-provideranalysisresult.afsreply.hotlistinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-27-provideranalysisresult.afsreply.identityinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-28-provideranalysisresult.afsreply.internetinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-26-provideranalysisresult.afsreply.hotlistinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-27-provideranalysisresult.afsreply.identityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-28-provideranalysisresult.afsreply.internetinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.IpCity`|Nome da cidade do comprador obtido a partir do endereço de IP|string|
 |`ProviderAnalysisResult.AfsReply.IpCountry`|Nome do país do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod)|string|
+|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod)|string|
 |`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador <br/> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br/> [Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-29-provideranalysisresult.afsreply.phoneinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}/manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador <br/> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br/> [Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-29-provideranalysisresult.afsreply.phoneinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}manual/antifraude#tabela-22-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
-|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br/> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br/> [Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-30-provideranalysisresult.afsreply.suspiciousinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras <br/> Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP <br/> [Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode]({{ site.baseurl_root }}/manual/antifraude#tabela-31-provideranalysisresult.afsreply.velocityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br/> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br/> [Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-30-provideranalysisresult.afsreply.suspiciousinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras <br/> Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP <br/> [Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-31-provideranalysisresult.afsreply.velocityinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`|Linguagem do browser utilizado pelo comprador no momento da compra|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution`|Resolução da tela do comprador no momento da compra|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`|Flag identificando que o browser do comprador estava habilitado para armazenar cookies temporariamente no momento da compra|string|
@@ -1346,8 +1346,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|Quando modo verbose ativado, nome do perfil selecionado na análise. Se não tiver nenhum, o perfil padrão foi selecionado|string|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|Quando modo verbose ativado, nome do seletor de regras que seleciona o perfil de regras|string|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|Quando modo verbose ativado, id da regra|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra <br/> [Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision]({{ site.baseurl_root }}/manual/antifraude#tabela-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision)|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra <br/> [Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation]({{ site.baseurl_root }}/manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra <br/> [Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision]({{ site.baseurl_root }}manual/antifraude#tabela-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision)|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra <br/> [Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation]({{ site.baseurl_root }}manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|Quando modo verbose ativado, nome da regra|string|
 |`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
@@ -1365,7 +1365,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Card.Number`|Número do cartão de crédito|string|
 |`Card.Holder`|Nome do cartão de crédito|string|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}/manual/antifraude#tabela-3-card.brand)|enum|
+|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-3-card.brand)|enum|
 |`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|
 |`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|
 |`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|
@@ -1388,8 +1388,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|
 |`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}/manual/antifraude#tabela-4-shippingmethod)|enum|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}/manual/antifraude#tabela-5-customer.merchantcustomerid)|string|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}manual/antifraude#tabela-5-customer.merchantcustomerid)|string|
 |`Customer.FirstName`|Primeiro nome do comprador|string|
 |`Customer.LastName`|Último nome do comprador|string|
 |`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|
@@ -1401,17 +1401,17 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|
 |`CartItem[n].ProductName`|Nome do produto|string|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 11 - CartItem{n}.Risk]({{ site.baseurl_root }}/manual/antifraude#tabela-11-cartitem[n].risk)|enum|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 11 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].risk)|enum|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
 |`CartItem[n].Sku`|Sku do produto|string|
 |`CartItem[n].Quantity`|Quantidade do produto|int|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}/manual/antifraude#tabela-12-cartitem[n].addressriskverify)|enum|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-13-cartitem[n].hosthedge)|enum|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-15-cartitem[n].obscenitieshedge)|enum|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-16-cartitem[n].timehedge)|enum|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}/manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}manual/antifraude#tabela-12-cartitem[n].addressriskverify)|enum|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-13-cartitem[n].hosthedge)|enum|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/antifraude#tabela-15-cartitem[n].obscenitieshedge)|enum|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}manual/antifraude#tabela-16-cartitem[n].timehedge)|enum|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|
 |`Bank.Name`|Nome do banco do comprador|string|
 |`Bank.Code`|Código do banco do comprador|string|
 |`Bank.Agency`|Agência do banco do comprador|string|
@@ -1425,22 +1425,22 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 19 - Invoice.Tender]({{ site.baseurl_root }}/manual/antifraude#tabela-19-invoice.tender)|enum|
-|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 8 - Airline.JourneyType]({{ site.baseurl_root }}/manual/antifraude#tabela-8-airline.journeytype)|enun|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 19 - Invoice.Tender]({{ site.baseurl_root }}manual/antifraude#tabela-19-invoice.tender)|enum|
+|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 8 - Airline.JourneyType]({{ site.baseurl_root }}manual/antifraude#tabela-8-airline.journeytype)|enun|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|
 |`Airline.Passengers[n].LastName`|Último nome do passageiro|string|
 |`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}/manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}/manual/antifraude#tabela-10-airline.passengers[n].status)|enum|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}manual/antifraude#tabela-10-airline.passengers[n].status)|enum|
 |`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
 
 ## Consultando uma transação inexistente 
 
