@@ -200,7 +200,7 @@ P = 12 Horas</p>
 
 <p>Com isso, o Velocity Check ao receber a 6ª transação com o mesmo número de cartão (V) das outras 5 anteriores, a regra acima ao ser executada e detectar que a quantidade (H) excedeu as 5 permitidas no período (P) entre a data da primeira transação e a data da 6ª recebida, esta terá o status de rejeitada, o número do cartão poderá ir quarentena e a resposta terá o conteúdo de que a transação foi rejeitada devido a regra.</p>
 
-<h2 id="análise-de-quarentena">Análise de Quarentena</h2>
+<h2 id="quarentena">Quarentena</h2>
 
 <p>Ao cadastrar uma regra é possível especificar quanto tempo o valor de uma determinada variável irá ser levado em consideração nas próximas análises, ou seja, se o cliente quiser identificar a quantidade de vezes que o mesmo número de cartão se repetiu para um período de 12 horas dentro de um intervalo de 2 dias, não será necessário o Velocity Check realizar esta contagem retroativa agrupando por período. Neste cenário por exemplo, a aplicação teria que realizar a contagem para os seguintes intervalos:</p>
 
@@ -385,7 +385,419 @@ O retorno terá que a mesma foi rejeitada pela blacklist.</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">expires_in</code></td>
-      <td style="text-align: left">Expiração do o token de acesso, em segundos <br />O token quando expirar, é necessário obter um novo</td>
+      <td style="text-align: left">Expiração do o token de acesso, em segundos <br /> O token quando expirar, é necessário obter um novo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="realizando-uma-análise">Realizando uma análise</h1>
+
+<p>A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o descrito no tópico Funcionamento. <br /></p>
+
+<p><strong>Importante</strong></p>
+
+<ul>
+  <li>
+    <p>Os campos são opcionais e as regras serão disparadas somente se o valor no campo correspondente a regra for enviado, ou seja, se existir uma regra relacionada ao campo documento do comprador e o campo <code class="highlighter-rouge">Customer.Identity</code> não for enviado, esta regra não será disparada na análise.</p>
+  </li>
+  <li>
+    <p>Os valores dos campos devem ser enviados sempre no mesmo formato, por exemplo: Número do documento do comprador, optar sempre por enviar uma das opções entre valor com formatação e sem formatação.</p>
+  </li>
+</ul>
+
+<h2 id="analisando-uma-transação-no-velocity-check">Analisando uma transação no Velocity Check</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-18 13:51:56.854"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96385"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao C Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DDI"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"+55"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DDD"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"21114700"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Extension"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"4720"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Workphone"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DDI"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"+55"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DDD"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"25899600"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Extension"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"9612"</span><span class="w"> 
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellphone"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DDI"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"+55"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DDD"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"987654321"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Escorrega"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 71"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piratininga"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Niterói"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-350"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Equilibra"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-351"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="request-1">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Tamanho</th>
+      <th style="text-align: right"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.OrderId</code></td>
+      <td style="text-align: left">Número do pedido da loja</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Date</code></td>
+      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155</td>
+      <td style="text-align: center">date</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Amount</code></td>
+      <td style="text-align: left">Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
+      <td style="text-align: left">Nome do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
+      <td style="text-align: left">Número do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">19</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Expiration</code></td>
+      <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">7</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
+      <td style="text-align: left">Bandeira do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Name</code></td>
+      <td style="text-align: left">Nome do comprador</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: right">100</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td style="text-align: left">Número do documento de identificação do comprador <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-1-customer.identity">Tabela 1 - Customer.Identity</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.IpAddress</code></td>
+      <td style="text-align: left">Endereço de IP do comprador</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">15</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
+      <td style="text-align: left">E-mail do comprador</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Type</code></td>
+      <td style="text-align: left">Tipo do telefone do comprador <br /> <a href="https://braspag.github.io/manual/antifraude#customer.phones[n].type">Tabela 2 - Customer.Phones{n}.Type</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].DDI</code></td>
+      <td style="text-align: left">Código DDI do país. Mais informações em <a href="http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional">Códigos DDI</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">10</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].DDD</code></td>
+      <td style="text-align: left">Código DDD do estado. Mais informações em <a href="http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/">Códigos DDD</a></td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Number</code></td>
+      <td style="text-align: left">Número do telefone</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">19</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Extension</code></td>
+      <td style="text-align: left">Número do ramal</td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Street</code></td>
+      <td style="text-align: left">Logradouro do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Number</code></td>
+      <td style="text-align: left">Número do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">15</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Complement</code></td>
+      <td style="text-align: left">Complemento do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">30</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Neighborhood</code></td>
+      <td style="text-align: left">Bairro do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.City</code></td>
+      <td style="text-align: left">Cidade do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.State</code></td>
+      <td style="text-align: left">Estado do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.ZipCode</code></td>
+      <td style="text-align: left">Código postal do endereço de cobrança</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">9</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Country</code></td>
+      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Street</code></td>
+      <td style="text-align: left">Logradouro do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Number</code></td>
+      <td style="text-align: left">Número do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">15</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Complement</code></td>
+      <td style="text-align: left">Complemento do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">30</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Neighborhood</code></td>
+      <td style="text-align: left">Bairro do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.City</code></td>
+      <td style="text-align: left">Cidade do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.State</code></td>
+      <td style="text-align: left">Estado do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.ZipCode</code></td>
+      <td style="text-align: left">Código postal do endereço de entrega</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">9</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Country</code></td>
+      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: right"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-1">Response</h3>
+
+<h2 id="analisando-uma-transação-no-velocity-check-e-emailage">Analisando uma transação no Velocity Check e Emailage</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+
+<h2 id="analisando-uma-transação-no-velocity-check-e-credilink">Analisando uma transação no Velocity Check e Credilink</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+
+<h2 id="analisando-uma-transação-no-velocity-check-emaiage-e-credilink">Analisando uma transação no Velocity Check, Emaiage e Credilink</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+
+<h1 id="tabelas">Tabelas</h1>
+
+<h2 id="tabela-1---customeridentity">Tabela 1 - Customer.Identity</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CPF</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CNPJ</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-2---customerphonesntype">Tabela 2 - Customer.Phones[n].Type</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Phone</td>
+      <td style="text-align: left">Telefone residencial</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Workphone</td>
+      <td style="text-align: left">Telefonecomercial</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Cellphone</td>
+      <td style="text-align: left">Celular</td>
     </tr>
   </tbody>
 </table>
