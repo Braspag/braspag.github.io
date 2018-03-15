@@ -2068,14 +2068,14 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
-      <td style="text-align: left">Campo definido junto ao provedor de antifraude <br /> <a href="">Tabela 35 - MerchantDefinedData</a></td>
+      <td style="text-align: left">Chave do valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 35 - MerchantDefinedData</a></td>
       <td style="text-align: center">int</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
-      <td style="text-align: left">Campo definido junto ao provedor de antifraude <br /> <a href="">Tabela 35 - MerchantDefinedData</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Value</code></td>
+      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-37-merchantdefineddata-(cybersource)">Tabela 35 - MerchantDefinedData</a></td>
       <td style="text-align: center">var</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -7817,7 +7817,8 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 <h2 id="tabela-36---merchantdefineddata-redshield">Tabela 36 - MerchantDefinedData (ReDShield)</h2>
 
-<p>|Valor|Descrição|Provider|
+<p>|Valor|Descrição|Tipo|
+|Key|Value|Tipo|
 |:-|:-|:-|</p>
 
 <h2 id="tabela-37---merchantdefineddata-cybersource">Tabela 37 - MerchantDefinedData (Cybersource)</h2>
@@ -7825,8 +7826,8 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
       <th style="text-align: left">Tipo</th>
     </tr>
   </thead>
@@ -7873,7 +7874,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     </tr>
     <tr>
       <td style="text-align: left">9</td>
-      <td style="text-align: left">Identifica se cliente irá retirar o produto na loja <br /> Possíveis valores: <br /> SIM ou NAO</td>
+      <td style="text-align: left">Identifica se cliente irá retirar o produto na loja <br /> Possíveis valores: SIM ou NAO</td>
       <td style="text-align: left">string</td>
     </tr>
     <tr>
@@ -7883,7 +7884,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     </tr>
     <tr>
       <td style="text-align: left">11</td>
-      <td style="text-align: left">Categoria do hotel (quantas estrelas) <br /> Possíveis valores: 1 -&gt; Simples <br /> 2 -&gt; Econômico <br /> 3 -&gt; Turismo <br /> 4 -&gt; Superior <br /> 5 -&gt; Luxo</td>
+      <td style="text-align: left">Categoria do hotel (quantas estrelas) <br /> Possíveis valores: <br /> 1 -&gt; Simples <br /> 2 -&gt; Econômico <br /> 3 -&gt; Turismo <br /> 4 -&gt; Superior <br /> 5 -&gt; Luxo</td>
       <td style="text-align: left">int</td>
     </tr>
     <tr>
@@ -7968,7 +7969,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     </tr>
     <tr>
       <td style="text-align: left">38</td>
-      <td style="text-align: left">Número do telefone do cliente identificado através da bina <br /> Formato: DDD Número - Ex.: 2121114720</td>
+      <td style="text-align: left">Número do telefone do cliente identificado através da bina <br /> Formato: DDDNúmero - Ex.: 2121114720</td>
       <td style="text-align: left">string</td>
     </tr>
     <tr>
@@ -7978,7 +7979,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     </tr>
     <tr>
       <td style="text-align: left">41 a 95</td>
-      <td style="text-align: left">Campo definido junto ao provedor de antifraude, conforme a regras de negócio</td>
+      <td style="text-align: left">Campos livres e definido junto ao provedor de antifraude, conforme a regras de negócio</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
