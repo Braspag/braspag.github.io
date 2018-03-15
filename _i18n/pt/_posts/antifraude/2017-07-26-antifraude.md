@@ -2507,9 +2507,18 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 ## Tabela 36 - MerchantDefinedData (ReDShield)
 
-|Valor|Descrição|Tipo|
-|Key|Value|Tipo|
-|:-|:-|:-|
+|Key|Value|Tipo|Tamanho|
+|:-|:-|:-|:-|
+|1 a 3|Reservado|-|-|
+|4 a 8|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|var|256|
+|9 a 13|Reservado|-|-|
+|14|Segment|MCC (Merchant Category Code) da sua loja|int|-|
+|15 a 20|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|var|30|
+|21|Reservado|-|-|
+|22|Campo livre e definido junto ao provedor de antifraude, conforme as regras de negócio|var|30|
+|23|Reservado|-|-|
+|24|Campo livre e definido junto ao provedor de antifraude, conforme a regras de negócio|var|30|
+|25|Reservado|-|-|
 
 ## Tabela 37 - MerchantDefinedData (Cybersource)
 
@@ -2532,9 +2541,9 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |15|Nome da companhia aérea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|
 |16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|
 |17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string
-|18-25|Reservado para novo campo de turismo|-|
+|18-25|Reservados para novos campos de turismo|-|
 |26|Bin (6 primeiros dígitos) do cartão de crédito|string|
-|27-30|Reservado para campo interno|-|
+|27-30|Reservados para campos interno|-|
 |31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|
 |32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
 |33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
@@ -2543,6 +2552,6 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
 |37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
 |38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
-|39 a 40|Reservado|-|
-|41 a 95|Campos livres e definido junto ao provedor de antifraude, conforme a regras de negócio|-|
-|96 a 100|Reservado|-|
+|39 a 40|Reservados|-|
+|41 a 95|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|
+|96 a 100|Reservados|-|
