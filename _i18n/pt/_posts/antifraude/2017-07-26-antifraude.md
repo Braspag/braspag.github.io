@@ -1771,7 +1771,7 @@ Os parâmetros de configuração devem ser colocados antes da chamada da tag aci
 
 **Exemplo através da aba HTML**
 
-```html
+```
 <html>
 <head>
 <script>
@@ -1855,7 +1855,7 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
 
 **Exemplo através da aba HTML**
 
-``` html
+```java
 #import "sampleViewController.h"
 #import <iovation/iovation.h>
 @implementation SampleViewController
@@ -1983,16 +1983,16 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 |Ambiente|Descrição|
 |:-|:-|
-|Testing|Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
-|Production|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|
+|`Testing`|Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
+|`Production`|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|
 
 *Variáveis*
 
 |Variável|Descrição|
 |:-|:-|
-|ProviderOrgId|Para obter este valor, entre em contato com a Braspag|
-|ProviderMerchantId|Para obter este valor, entre em contato com a Braspag|
-|ProviderSessionId|Prencha este campo com o mesmo valor do campo `MerchantOrderId` que será enviado na requisição da análise de fraude|
+|`ProviderOrgId`|Para obter este valor, entre em contato com a Braspag|
+|`ProviderMerchantId`|Para obter este valor, entre em contato com a Braspag|
+|`ProviderSessionId`|Prencha este campo com o mesmo valor do campo `MerchantOrderId` que será enviado na requisição da análise de fraude|
 
 > PNG Image
 
