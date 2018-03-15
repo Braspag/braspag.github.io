@@ -2541,7 +2541,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |35|Identifica o tipo de cliente <br/> Pssíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
 |36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
 |37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
-|38|Número do telefone do cliente identificado através da bina <br/> Formato: DDD Número - Ex.: 2121114720|string|
+|38|Número do telefone do cliente identificado através da bina <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
 |39 a 40|Reservado|-|
 |41 a 95|Campo definido junto ao provedor de antifraude, conforme a regras de negócio|-|
 |96 a 100|Reservado|-|
