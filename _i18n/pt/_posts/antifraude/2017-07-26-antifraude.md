@@ -669,8 +669,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
-|`MerchantDefinedData[n].Key`|Chave do valor do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]({{ site.baseurl_root }/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]({{ site.baseurl_root }/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
+|`MerchantDefinedData[n].Key`|Chave do valor do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
 
 ``` json
 {
