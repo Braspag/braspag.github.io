@@ -669,8 +669,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
-|`MerchantDefinedData[n].Key`|Campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]()|int|não|-|
-|`MerchantDefinedData[n].Key`|Campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]()|var|não|-|
+|`MerchantDefinedData[n].Key`|Campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]({{ site.baseurl_roo }/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]({{ site.baseurl_roo }/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
 
 ``` json
 {
@@ -2507,12 +2507,13 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 ## Tabela 36 - MerchantDefinedData (ReDShield)
 
-|Valor|Descrição|Provider|
+|Valor|Descrição|Tipo|
+|Key|Value|Tipo|
 |:-|:-|:-|
 
 ## Tabela 37 - MerchantDefinedData (Cybersource)
 
-|Valor|Descrição|Tipo|
+|Key|Value|Tipo|
 |:-|:-|:-|
 |1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|
 |2|Quantidade em dias que o cliente é seu cliente|int|
@@ -2522,9 +2523,9 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |6|Data da última compra realizada pelo cliente <br/> Formato: MM-DD-AAAA - Ex.: 12-15-2017|date|
 |7|Código ou nome do seller (vendedor)|string|
 |8|Tentativas realizada pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|
-|9|Identifica se cliente irá retirar o produto na loja <br/> Possíveis valores: <br/> SIM ou NAO|string|
+|9|Identifica se cliente irá retirar o produto na loja <br/> Possíveis valores: SIM ou NAO|string|
 |10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br/> Possíveis valores: SIM ou NAO|string|
-|11|Categoria do hotel (quantas estrelas) <br/> Possíveis valores: 1 -> Simples <br/> 2 -> Econômico <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|
+|11|Categoria do hotel (quantas estrelas) <br/> Possíveis valores: <br/> 1 -> Simples <br/> 2 -> Econômico <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|
 |12|Data de checkin no hotel <br/> Formato: MM-DD-AAAA - Ex.: 12-05-2018|date|
 |12|Data de checkout no hotel <br/> Formato: MM-DD-AAAA - Ex.: 19-05-2018|date|
 |14|Categoria da viagem ou pacote <br> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|
@@ -2543,5 +2544,5 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
 |38|Número do telefone do cliente identificado através da bina <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
 |39 a 40|Reservado|-|
-|41 a 95|Campo definido junto ao provedor de antifraude, conforme a regras de negócio|-|
+|41 a 95|Campos livres e definido junto ao provedor de antifraude, conforme a regras de negócio|-|
 |96 a 100|Reservado|-|
