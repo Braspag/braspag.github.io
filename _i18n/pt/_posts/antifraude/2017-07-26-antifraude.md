@@ -669,8 +669,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
+|`MerchantDefinedData[n].Key`|Campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]()|int|não|-|
+|`MerchantDefinedData[n].Key`|Campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData]()|var|não|-|
 
 ``` json
 {
@@ -2504,3 +2504,44 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |F|A regra é falsa|Cybersource|
 |N|A regra não pode ser avaliada porque os dados são insuficientes|Cybersource|
 |E|A regra não pode ser avaliada porque ocorreu um erro|Cybersource|
+
+## Tabela 36 - MerchantDefinedData (ReDShield)
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+
+## Tabela 37 - MerchantDefinedData (Cybersource)
+
+|Valor|Descrição|Tipo|
+|:-|:-|:-|
+|1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|
+|2|Quantidade em dias que o cliente é seu cliente|int|
+|3|Quantidade de parcelas do pedido|int|
+|4|Canal de Venda <br/> Possíveis valores: <br/> Call Center -> compra pelo telefone <br/> Web -> compra pela web <br/> Portal -> um agente fazendo a compra para o cliente <br/> Quiosque -> compras em quiosques <br/> Movel -> compras feitas em celulares ou tablets|string|
+|5|Enviar o código do cupom/desconto caso o cliente utilize na compra|string|
+|6|Data da última compra realizada pelo cliente <br/> Formato: MM-DD-AAAA - Ex.: 12-15-2017|date|
+|7|Código ou nome do seller (vendedor)|string|
+|8|Tentativas realizada pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|
+|9|Identifica se cliente irá retirar o produto na loja <br/> Possíveis valores: <br/> SIM ou NAO|string|
+|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br/> Possíveis valores: SIM ou NAO|string|
+|11|Categoria do hotel (quantas estrelas) <br/> Possíveis valores: 1 -> Simples <br/> 2 -> Econômico <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|
+|12|Data de checkin no hotel <br/> Formato: MM-DD-AAAA - Ex.: 12-05-2018|date|
+|12|Data de checkout no hotel <br/> Formato: MM-DD-AAAA - Ex.: 19-05-2018|date|
+|14|Categoria da viagem ou pacote <br> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|
+|15|Nome da companhia aérea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|
+|16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|
+|17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string
+|18-25|Reservado|-|
+|26|Bin (6 primeiros dígitos) do cartão de crédito|string|
+|27-30|Reservado|-|
+|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|
+|32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
+|33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
+|34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possível valor: SIM <br/> Caso não tenha sido confirmado ou não exista um processo de ativação de conta com confiração de e-mail, não enviar o campo|string|
+|35|Identifica o tipo de cliente <br/> Pssíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
+|36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
+|37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
+|38|Número do telefone do cliente identificado através da bina <br/> Formato: DDD Número - Ex.: 2121114720|string|
+|39 a 40|Reservado|-|
+|41 a 95|Campo definido junto ao provedor de antifraude, conforme a regras de negócio|-|
+|96 a 100|Reservado|-|
