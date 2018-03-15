@@ -510,235 +510,202 @@ O retorno terá que a mesma foi rejeitada pela blacklist.</p>
     <tr>
       <th style="text-align: left">Parâmetro</th>
       <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Tipo</th>
-      <th style="text-align: center">Tamanho</th>
-      <th style="text-align: right"> </th>
+      <th style="text-align: left">Tipo</th>
+      <th style="text-align: right">Tamanho</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.OrderId</code></td>
       <td style="text-align: left">Número do pedido da loja</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.Date</code></td>
       <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155</td>
-      <td style="text-align: center">date</td>
-      <td style="text-align: center"> </td>
+      <td style="text-align: left">date</td>
       <td style="text-align: right"> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.Amount</code></td>
       <td style="text-align: left">Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
-      <td style="text-align: center">long</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
       <td style="text-align: left">Nome do cartão de crédito</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
       <td style="text-align: left">Número do cartão de crédito</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">19</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Expiration</code></td>
       <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">7</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">7</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
       <td style="text-align: left">Bandeira do cartão de crédito</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Name</code></td>
       <td style="text-align: left">Nome do comprador</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Identity</code></td>
       <td style="text-align: left">Número do documento de identificação do comprador <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-1-customer.identity">Tabela 1 - Customer.Identity</a></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.IpAddress</code></td>
       <td style="text-align: left">Endereço de IP do comprador</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">15</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
       <td style="text-align: left">E-mail do comprador</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Type</code></td>
       <td style="text-align: left">Tipo do telefone do comprador <br /> <a href="https://braspag.github.io/manual/antifraude#customer.phones[n].type">Tabela 2 - Customer.Phones{n}.Type</a></td>
-      <td style="text-align: center">enum</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">enum</td>
+      <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].DDI</code></td>
       <td style="text-align: left">Código DDI do país. Mais informações em <a href="http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional">Códigos DDI</a></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">10</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].DDD</code></td>
       <td style="text-align: left">Código DDD do estado. Mais informações em <a href="http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/">Códigos DDD</a></td>
-      <td style="text-align: center">int</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Number</code></td>
       <td style="text-align: left">Número do telefone</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">19</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Extension</code></td>
       <td style="text-align: left">Número do ramal</td>
-      <td style="text-align: center">int</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Street</code></td>
       <td style="text-align: left">Logradouro do endereço de cobrança</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Number</code></td>
       <td style="text-align: left">Número do endereço de cobrança</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">15</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Complement</code></td>
       <td style="text-align: left">Complemento do endereço de cobrança</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">30</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Neighborhood</code></td>
       <td style="text-align: left">Bairro do endereço de cobrança</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.City</code></td>
       <td style="text-align: left">Cidade do endereço de cobrança</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.State</code></td>
       <td style="text-align: left">Estado do endereço de cobrança</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">2</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.ZipCode</code></td>
       <td style="text-align: left">Código postal do endereço de cobrança</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">9</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Billing.Country</code></td>
       <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">2</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Street</code></td>
       <td style="text-align: left">Logradouro do endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Number</code></td>
       <td style="text-align: left">Número do endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">15</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Complement</code></td>
       <td style="text-align: left">Complemento do endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">30</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Neighborhood</code></td>
       <td style="text-align: left">Bairro do endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.City</code></td>
       <td style="text-align: left">Cidade do endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.State</code></td>
       <td style="text-align: left">Estado do endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">2</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.ZipCode</code></td>
       <td style="text-align: left">Código postal do endereço de entrega</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">9</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Country</code></td>
       <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">2</td>
-      <td style="text-align: right"> </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: right">2</td>
     </tr>
   </tbody>
 </table>
