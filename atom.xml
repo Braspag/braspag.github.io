@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-15T14:54:29+00:00</updated>
+    <updated>2018-03-15T14:55:05+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -34480,7 +34480,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;38&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do telefone do cliente identificado através da bina &lt;br /&gt; Formato: DDDNúmero - Ex.: 2121114720&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do telefone do cliente identificado através da bina &lt;br /&gt; Formato: DDD Número - Ex.: 2121114720&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
