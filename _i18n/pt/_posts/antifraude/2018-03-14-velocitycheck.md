@@ -264,7 +264,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 **Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|Tipo|Tamanho|
-|:-|:-|:-:|:-:|-:|
+|:-|:-|:-|-:|
 |`Transaction.OrderId`|Número do pedido da loja|string|100|
 |`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155|date|
 |`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|100|
@@ -272,7 +272,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |`Card.Number`|Número do cartão de crédito|string|19|
 |`Card.Expiration`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|7|
 |`Card.Brand`|Bandeira do cartão de crédito|string|100|
-|`Customer.Name`|Nome do comprador|string|string|100|
+|`Customer.Name`|Nome do comprador|string|100|
 |`Customer.Identity`|Número do documento de identificação do comprador <br/> [Tabela 1 - Customer.Identity]({{ site.baseurl_root }}manual/antifraude#tabela-1-customer.identity)|string|100|
 |`Customer.IpAddress`|Endereço de IP do comprador|string|15|
 |`Customer.Email`|E-mail do comprador|string|100|
