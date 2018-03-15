@@ -1756,45 +1756,18 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 * Parâmetros de configuração
 
-    **io_install_flash**{:.custom-attrib} `optional`{:.custom-tag} `bool`{:.custom-tag} `DefaultValue=false`{:.custom-tag}  
-    Determina se será solicitado ao usuário a instalação do Flash ou atualização da versão.  
+|Parâmetro|Descrição|Default|
+|:-|:-|
+|`io_install_flash`|Determina se será solicitado ao usuário a instalação do Flash ou atualização da versão|false|
+|`io_flash_needs_handler`|Este parâmetro só terá validade se o parâmetro `io_install_flash` estiver configurado como TRUE, caso contrário não será executado <br/> É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado <br/> Ex.: var `io_flash_needs_handler` = "Alert('Instalar Flash');"|-|
+|`io_install_stm`|Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware <br/> Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito|false|
+|`io_exclude_stm`|Determina se o Active X deverá ser executado quando instalado <br/> É possível optar por desativar o controle para plataformas específicas <br/> Possíveis valores: <br/> 0 - executa em todas as plataformas <br/> 1 - não executa no Windows 9.x (incluindo as versões 3.1, 95, 98 e ME) <br/> 2 - não executa no Windows CE <br/> 4 - não executa no Windows XP (incluindo as versões NT, 2000, 2003 e 8) <br/> 8 - não executa no Windows Vista <br/> Obs.: Os valores são a combinação de somas dos valores acima, por exemplo: 12 - não executa no Windows XP (4) ou no Windows Vista (8)|15|
+|`io_bbout_element_id`|Id do elemento HTML para preencher com a *caixa preta* <br/> Se o parâmetro `io_bb_callback` for definido, este não terá efeito|-|
+|`io_enable_rip`|Determina se tentará coletar informações para obter o IP real do usuário|true|
+|`io_bb_callback`|Parâmetro para customizar a checagem da coleta da *caixa preta* foi concluída <br/> Ao utilizar, escrever a função conforme com a seguinte sintaxe: <br/> *io_callback(bb, complete)*, onde: <br/> bb - valor da caixa preta <br/> complete - valor booleano que indica que a coleta foi concluída|-|
 
-    **io_flash_needs_handler**{:.custom-attrib} `optional`{:.custom-tag}  
-    Este parâmetro só terá validade se o parâmetro *io_install_flash* estiver configurado como TRUE, caso contrário não será executado.  
-    É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado.  
-    Ex.: var io_flash_needs_handler = "Alert('Instalar Flash');"
-
-    **io_install_stm**{:.custom-attrib} `optional`{:.custom-tag} `bool`{:.custom-tag} `DefaultValue=false`{:.custom-tag}  
-    Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware.  
-    Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito.
-
-    **io_exclude_stm**{:.custom-attrib} `optional`{:.custom-tag} `bitmask`{:.custom-tag}  `DefaultValue=15`{:.custom-tag}   
-    Determina se o Active X deverá ser executado quando instalado. É possível optar por desativar o controle para plataformas específicas.  
-    Possíveis valores:  
-        0 - executa em todas as plataformas  
-        1 - não executa no Windows 9.x (incluindo as versões 3.1, 95, 98 e ME)  
-        2 - não executa no Windows CE  
-        4 - não executa no Windows XP (incluindo as versões NT, 2000, 2003 e 8)  
-        8 - não executa no Windows Vista  
-
-    Obs.: Os valores são combinação de somas dos valores acima, por exemplo: 12 - não executa no Windows XP (4) ou no Windows Vista (8).
-
-    **io_bbout_element_id**{:.custom-attrib} `optional`{:.custom-tag}  
-    Id do elemento HTML para preencher com a *caixa preta*. Se o parâmetro *io_bb_callback* for definido, este não terá efeito.  
-
-    **io_enable_rip**{:.custom-attrib} `optional`{:.custom-tag} `bool`{:.custom-tag} `DefaultValue=true`{:.custom-tag}  
-    Determina se tentará coletar informações para obter o IP real do usuário.  
-
-    **io_bb_callback**{:.custom-attrib} `optional`{:.custom-tag}  
-    Parâmetro para customizar a checagem da coleta da *caixa preta* foi concluída.  
-    Ao utilizar, escrever a função conforme com a seguinte sintaxe:  
-    *io_callback(bb, complete)*, onde:  
-        bb - valor da caixa preta  
-        complete - valor booleano que indica que a coleta foi concluída  
-
-    **IMPORTANTE!**  
-    Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros
-    caso os mesmos sejam colocados antes da chamada do javascript.
+**IMPORTANTE!**  
+Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.
 
 **Exemplo**  
 
@@ -1873,7 +1846,7 @@ A função *+ioBegin* coleta informações sobre o dispositivo e gera uma *caixa
 **IMPORTANTE!**  
 A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa preta* vazia indica que a proteção oferecida pelo sistema pode ter sido comprometida.  
 
-** Exemplo  **
+**Exemplo **
 
 > #import "sampleViewController.h"
 #import <iovation/iovation.h>
@@ -1898,13 +1871,13 @@ A versão 1.2.0 do Iovation Mobile SDK para Android suporta versões do Android 
 
 * Instalando o SDK no Android  
 
-    1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar  
-    2 - Inicie o IDE de sua escolha  
-    3 - No Eclipse e Maven, faça o deploy do arquivo de extensão *.aar* no repositório Maven local, usando o maven-deploy.  
-        Mais detalhes em: [Maven Guide](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html)
-    4 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package*
-    5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish*
-    6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle  
+1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar  
+2 - Inicie o IDE de sua escolha  
+3 - No Eclipse e Maven, faça o deploy do arquivo de extensão *.aar* no repositório Maven local, usando o maven-deploy. Mais detalhes em: [Maven Guide](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html)
+4 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package*
+5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish*
+6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle  
+
 ![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png){: .left }{:title="Detalhes integração Android"}  
 
 * Usando a função ioBegin  
@@ -1995,9 +1968,9 @@ Coloque os segmentos de código imediatamente acima da tag *</body>* para garant
 
 Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.  
 
-* Domain:  
-    Testing - Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo.  
-    Production - Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net.  
+*Domain*  
+Testing - Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo.
+Production - Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net.
 
 **ProviderOrgId** - Para obter este valor, entre em contato com a Braspag.  
 **ProviderMerchantId** - Para obter este valor, entre em contato com a Braspag.  
