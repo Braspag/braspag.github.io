@@ -1916,8 +1916,7 @@ O arquivo *device-lib-1.2.0.aar* deverá ser empacotado com o aplicativo.
 **IMPORTANTE!**
 Se a opção para executar o módulo não aparecer, selecione *File -> Project Structure* e abra o painel *Modules*. A partir disso, defina na lista a versão do Android SDK.
 
-
-``` html
+```java
 package com.iovation.mobile.android.sample;
 import android.app.Activity;
 import android.os.Bundle;
@@ -1997,7 +1996,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 > PNG Image
 
-``` html
+```html
 <html>
 <head></head>
 <body>
@@ -2011,7 +2010,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 > Flash Code
 
-``` html
+```html
 <html>
 <head></head>
 <body>
@@ -2027,7 +2026,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 > Javascript Code
 
-``` html
+```html
 <html>
   <head></head>
   <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script>
