@@ -182,7 +182,6 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 - Os valores dos campos devem ser enviados sempre no mesmo formato, por exemplo: Número do documento do comprador, optar sempre por enviar uma das opções entre valor com formatação e sem formatação.
 
-
 ## Analisando uma transação no Velocity Check
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
