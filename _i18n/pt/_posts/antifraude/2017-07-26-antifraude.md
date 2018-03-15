@@ -1771,7 +1771,7 @@ Os parâmetros de configuração devem ser colocados antes da chamada da tag aci
 
 **Exemplo através da aba HTML**
 
-```
+```html
 <html>
 <head>
 <script>
