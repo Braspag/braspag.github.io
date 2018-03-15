@@ -368,8 +368,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|não|-|
 |`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|não|30|
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações|-|
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
 
 ### Response
 
@@ -669,8 +669,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
 
 ``` json
 {
@@ -1104,8 +1104,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|
 |`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações|-|
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|string|Consultar o anexo XPTO para mais informações|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}/manual/antifraude#tabela-36-merchantdefineddata-(redshield))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}/manual/antifraude#tabela-36-merchantdefineddata-(redshield))|var|não|-|
 
 ## Consultando uma transação Cybersource
 
@@ -1439,8 +1439,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|
-|`MerchantDefinedData.Key`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
-|`MerchantDefinedData.Value`|Campo definido junto ao provedor de antifraude|int|Consultar o anexo XPTO para mais informações||||
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}/manual/antifraude#tabela-37-merchantdefineddata-(cybersource))|var|não|-|
 
 ## Consultando uma transação inexistente 
 
@@ -2532,9 +2532,9 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |15|Nome da companhia aérea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|
 |16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|
 |17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string
-|18-25|Reservado|-|
+|18-25|Reservado para novo campo de turismo|-|
 |26|Bin (6 primeiros dígitos) do cartão de crédito|string|
-|27-30|Reservado|-|
+|27-30|Reservado para campo interno|-|
 |31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|
 |32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
 |33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
@@ -2542,7 +2542,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |35|Identifica o tipo de cliente <br/> Pssíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
 |36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
 |37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
-|38|Número do telefone do cliente identificado através da bina <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
+|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
 |39 a 40|Reservado|-|
 |41 a 95|Campos livres e definido junto ao provedor de antifraude, conforme a regras de negócio|-|
 |96 a 100|Reservado|-|
