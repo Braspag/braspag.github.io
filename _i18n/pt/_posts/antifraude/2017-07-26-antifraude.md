@@ -1798,7 +1798,7 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 **Exemplo**  
 
-<html>
+> <html>
 <head>
 <script>
     var io_install_flash = false;
@@ -1807,14 +1807,12 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 </script>
 </head>
 <script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"></script>
-
 <body>
     <form>
         <input type="hidden" name="gatewayFingerprint" id="gatewayFingerprint">
     </form>
 </body>
 </html>
-
 
 ## Integração em aplicativos mobile
 
@@ -1875,10 +1873,9 @@ A função *+ioBegin* coleta informações sobre o dispositivo e gera uma *caixa
 **IMPORTANTE!**  
 A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa preta* vazia indica que a proteção oferecida pelo sistema pode ter sido comprometida.  
 
-* Exemplo  
+** Exemplo  **
 
-``` html
-#import "sampleViewController.h"
+> #import "sampleViewController.h"
 #import <iovation/iovation.h>
 @implementation SampleViewController
 @property (strong, nonatomic) UILabel *blackbox;
@@ -1888,7 +1885,6 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
     self.blackbox.text = [iovation ioBegin];
 }
 @end
-```
 
 ### Integrando com aplicativos Android  
 
@@ -1938,8 +1934,7 @@ O arquivo *device-lib-1.2.0.aar* deverá ser empacotado com o aplicativo.
 **IMPORTANTE!**  
 Se a opção para executar o módulo não aparecer, selecione *File -> Project Structure* e abra o painel *Modules*. A partir disso, defina na lista a versão do Android SDK.
 
-``` html
-package com.iovation.mobile.android.sample;
+> package com.iovation.mobile.android.sample;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -1954,14 +1949,12 @@ public class DevicePrintSampleActivity extends Activity
     * previously being shut down then this Bundle contains the data it most
     * recently supplied in onSaveInstanceState(Bundle). <b>Note: Otherwise it is null.</b>
     */
-
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
-
     public void printDevice(View target)
     {
         String bb = DevicePrint.ioBegin(getApplicationContext());
@@ -1970,7 +1963,6 @@ public class DevicePrintSampleActivity extends Activity
         bbResult.setVisibility(View.VISIBLE);
     }
 }
-```
 
 1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar  
 2 - No Android Studio, selecione *File -> Open* ou clique em *Open Project* através da opção *quick-start*  
@@ -2012,33 +2004,35 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 **ProviderSessionId** - Prencha este campo com o mesmo valor do campo **MerchantOrderId** que será enviado na requisição da análise de fraude.  
 
 > PNG Image <br/>
-> <html> <br/>
-> <head></head> <br/>
-> <body> <br/>
->     <form> <br/>
->        <p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=1)"></p> <br/>
->        <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt=""> <br/>
->    </form> <br/>
-> </body> <br/>
-> </html> <br/><br/>
+<html> <br/>
+<head></head> <br/>
+<body> <br/>
+ <form> <br/>
+    <p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=1)"></p> <br/>
+    <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt=""> <br/>
+</form> <br/>
+</body> <br/>
+</html> <br/><br/>
+
 > Flash Code  <br/>
-> <html> <br/>
-> <head></head> <br/>
-> <body> <br/>
->    <form> <br/>
->        <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" width="1" height="1" id="thm_fp"> <br/>
->            <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" /> <br/>
->            <div></div> <br/>
->        </object> <br/>
->    </form> <br/>
-> </body> <br/>
-> </html><br/><br/>
+<html> <br/>
+<head></head> <br/>
+<body> <br/>
+<form> <br/>
+    <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" width="1" height="1" id="thm_fp"> <br/>
+        <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" /> <br/>
+        <div></div> <br/>
+    </object> <br/>
+</form> <br/>
+</body> <br/>
+</html><br/><br/>
+
 > Javascript Code <br/>
-> <html> <br/>
->   <head></head> <br/>
->   <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script> <br/>
->   <body></body> <br/>
-> </html> <br/>
+<html> <br/>
+  <head></head> <br/>
+  <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script> <br/>
+  <body></body> <br/>
+</html> <br/>
 
 **IMPORTANTE!**  
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.  
