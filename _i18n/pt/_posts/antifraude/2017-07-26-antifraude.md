@@ -1769,7 +1769,7 @@ Ex.: `<script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js">
 **IMPORTANTE!**
 Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.
 
-**Exemplo**
+**Exemplo através da aba HTML**
 
 ``` html
 <html>
@@ -1783,7 +1783,7 @@ Os parâmetros de configuração devem ser colocados antes da chamada da tag aci
 <script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"></script>
 <body>
     <form>
-        <input type="hidden" name="gatewayFingerprint" id="gatewayFingerprint">
+        <input type="hidden" name="gatewayFingerprint" id="gatewayFingerprint"></input>
     </form>
 </body>
 </html>
@@ -1853,7 +1853,7 @@ A função *+ioBegin* coleta informações sobre o dispositivo e gera uma *caixa
 **IMPORTANTE!**
 A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa preta* vazia indica que a proteção oferecida pelo sistema pode ter sido comprometida.
 
-**Exemplo**
+**Exemplo através da aba HTML**
 
 ``` html
 #import "sampleViewController.h"
@@ -1861,7 +1861,7 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
 @implementation SampleViewController
 @property (strong, nonatomic) UILabel *blackbox;
 // Button press updates text field with blackbox value
-- (IBAction)changeMessage:(id)sender
+(IBAction)changeMessage:(id)sender
 {
     self.blackbox.text = [iovation ioBegin];
 }
@@ -1915,6 +1915,7 @@ O arquivo *device-lib-1.2.0.aar* deverá ser empacotado com o aplicativo.
 
 **IMPORTANTE!**
 Se a opção para executar o módulo não aparecer, selecione *File -> Project Structure* e abra o painel *Modules*. A partir disso, defina na lista a versão do Android SDK.
+
 
 ``` html
 package com.iovation.mobile.android.sample;
@@ -1980,13 +1981,15 @@ Coloque os segmentos de código imediatamente acima da tag *</body>* para garant
 Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.
 
 *Domain*
+
 |Ambiente|Descrição|
 |:-|:-|
 |Testing|Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
 |Production|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|
 
 *Variáveis*
-|Ambiente|Descrição|
+
+|Variável|Descrição|
 |:-|:-|
 |ProviderOrgId|Para obter este valor, entre em contato com a Braspag|
 |ProviderMerchantId|Para obter este valor, entre em contato com a Braspag|
@@ -2000,7 +2003,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 <body>
  <form>
     <p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=1)"></p>
-    <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt="">
+    <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt=""></img>
 </form>
 </body>
 </html>
@@ -2014,7 +2017,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 <body>
 <form>
     <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" width="1" height="1" id="thm_fp">
-        <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" />
+        <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId"></param>
         <div></div>
     </object>
 </form>
