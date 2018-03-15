@@ -5464,19 +5464,8 @@ Obs.: Não incluir, a menos que seu aplicativo solicite permissão de geolocaliz
 <p><strong>IMPORTANTE!</strong>
 A <em>caixa preta</em> que retornou de <em>+ioBegin</em> nunca deve estar vazio. Uma <em>caixa preta</em> vazia indica que a proteção oferecida pelo sistema pode ter sido comprometida.</p>
 
-<p><strong>Exemplo através da aba HTML</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="kn">import</span> <span class="err">"</span><span class="nn">sampleViewController.h</span><span class="err">"</span>
-<span class="err">#</span><span class="kn">import</span> 
-<span class="err">@</span><span class="nn">implementation</span> <span class="n">SampleViewController</span>
-<span class="nd">@property</span> <span class="o">(</span><span class="n">strong</span><span class="o">,</span> <span class="n">nonatomic</span><span class="o">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">blackbox</span><span class="o">;</span>
-<span class="c1">// Button press updates text field with blackbox value</span>
-<span class="o">(</span><span class="n">IBAction</span><span class="o">)</span><span class="nl">changeMessage:</span><span class="o">(</span><span class="n">id</span><span class="o">)</span><span class="n">sender</span>
-<span class="o">{</span>
-    <span class="n">self</span><span class="o">.</span><span class="na">blackbox</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="o">[</span><span class="n">iovation</span> <span class="n">ioBegin</span><span class="o">];</span>
-<span class="o">}</span>
-<span class="nd">@end</span>
-</code></pre></div></div>
+<p><strong>Exemplo</strong>
+<img src="https://braspag.github.io//images/braspag/af/exemplocodigo1.png" alt="Exemplo Código" /></p>
 
 <h3 id="integrando-com-aplicativos-android">Integrando com aplicativos Android</h3>
 
@@ -5544,36 +5533,7 @@ O arquivo <em>device-lib-1.2.0.aar</em> deverá ser empacotado com o aplicativo.
 <p><strong>IMPORTANTE!</strong>
 Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Project Structure</em> e abra o painel <em>Modules</em>. A partir disso, defina na lista a versão do Android SDK.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">iovation</span><span class="o">.</span><span class="na">mobile</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">sample</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.iovation.mobile.android.DevicePrint</span><span class="o">;</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DevicePrintSampleActivity</span> <span class="kd">extends</span> <span class="n">Activity</span>
-<span class="o">{</span>
-    <span class="cm">/**
-    * Called when the activity is first created.
-    * @param savedInstanceState If the activity is being re-initialized after
-    * previously being shut down then this Bundle contains the data it most
-    * recently supplied in onSaveInstanceState(Bundle). Note: Otherwise it is null.
-    */</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span>
-    <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printDevice</span><span class="o">(</span><span class="n">View</span> <span class="n">target</span><span class="o">)</span>
-    <span class="o">{</span>
-        <span class="n">String</span> <span class="n">bb</span> <span class="o">=</span> <span class="n">DevicePrint</span><span class="o">.</span><span class="na">ioBegin</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">());</span>
-        <span class="n">TextView</span> <span class="n">bbResult</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bbResult</span><span class="o">);</span>
-        <span class="n">bbResult</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">bb</span><span class="o">);</span>
-        <span class="n">bbResult</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">View</span><span class="o">.</span><span class="na">VISIBLE</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p><img src="https://braspag.github.io//images/braspag/af/exemplocodigo2.png" alt="Exemplo Código" /></p>
 
 <p>1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar
 2 - No Android Studio, selecione <em>File -&gt; Open</em> ou clique em <em>Open Project</em> através da opção <em>quick-start</em>
@@ -5656,44 +5616,19 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
   <p>PNG Image</p>
 </blockquote>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-
-
- 
-    
-    
-
-
-
-</code></pre></div></div>
+<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberimage.png" alt="Exemplo Image" /></p>
 
 <blockquote>
   <p>Flash Code</p>
 </blockquote>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-
-
-
-    
-        
-        
-    
-
-
-
-</code></pre></div></div>
+<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberflash.png" alt="Exemplo Image" /></p>
 
 <blockquote>
   <p>Javascript Code</p>
 </blockquote>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-  
-  
-  
-
-</code></pre></div></div>
+<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberjavascript.png" alt="Exemplo Image" /></p>
 
 <p><strong>IMPORTANTE!</strong>
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</p>
