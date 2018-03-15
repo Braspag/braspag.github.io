@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-15T16:07:17+00:00</updated>
+    <updated>2018-03-15T18:22:52+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -31818,72 +31818,81 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprint.png&quot; alt=&quot;Fluxo&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a &lt;em&gt;caixa preta&lt;/em&gt;&lt;br /&gt;
-2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo &lt;em&gt;hidden&lt;/em&gt;&lt;br /&gt;
-3 - O lojista envia para a Braspag, junto com os demais dados da transação a ser analisada, a &lt;em&gt;caixa preta&lt;/em&gt;&lt;br /&gt;
-4 - A Braspag recebe todos os dados, valida e envia para a ReD Shield&lt;br /&gt;
-5 - A ReD Shield recebe todos os dados, envia a &lt;em&gt;caixa preta&lt;/em&gt; para a Iovation descriptografar&lt;br /&gt;
+&lt;p&gt;1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a &lt;em&gt;caixa preta&lt;/em&gt;
+2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo &lt;em&gt;hidden&lt;/em&gt;
+3 - O lojista envia para a Braspag, junto com os demais dados da transação a ser analisada, a &lt;em&gt;caixa preta&lt;/em&gt;
+4 - A Braspag recebe todos os dados, valida e envia para a ReD Shield
+5 - A ReD Shield recebe todos os dados, envia a &lt;em&gt;caixa preta&lt;/em&gt; para a Iovation descriptografar
 6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador&lt;/p&gt;
 
 &lt;h4 id=&quot;como-configurar&quot;&gt;Como configurar?&lt;/h4&gt;
 
-&lt;p&gt;1 - Inclua o javascript da Iovation em sua página de checkout&lt;br /&gt;
-2 - Adicione parâmetros de configuração no javascript&lt;br /&gt;
+&lt;p&gt;1 - Inclua o javascript da Iovation em sua página de checkout
+2 - Adicione parâmetros de configuração no javascript
 3 - Crie um campo do tipo &lt;em&gt;hidden&lt;/em&gt; em sua página para escrever a &lt;em&gt;caixa preta&lt;/em&gt; nele e enviá-lo junto com os dados da transação a ser analisada&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Obs.:&lt;/strong&gt; Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Incluindo o javascript da Iovation&lt;/p&gt;
-
-    &lt;p&gt;Para incluir o javascript, adicione o seguinte elemento &lt;code class=&quot;highlighter-rouge&quot;&gt;na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.  
-  **Exemplo:**&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Parâmetros de configuração&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_install_flash&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;bool&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;DefaultValue=false&lt;/code&gt;&lt;br /&gt;
-  Determina se será solicitado ao usuário a instalação do Flash ou atualização da versão.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_flash_needs_handler&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt;&lt;br /&gt;
-  Este parâmetro só terá validade se o parâmetro &lt;em&gt;io_install_flash&lt;/em&gt; estiver configurado como TRUE, caso contrário não será executado.&lt;br /&gt;
-  É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado.&lt;br /&gt;
-  Ex.: var io_flash_needs_handler = “Alert(‘Instalar Flash’);”&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_install_stm&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;bool&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;DefaultValue=false&lt;/code&gt;&lt;br /&gt;
-  Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware.&lt;br /&gt;
-  Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_exclude_stm&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;bitmask&lt;/code&gt;  &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;DefaultValue=15&lt;/code&gt; &lt;br /&gt;
-  Determina se o Active X deverá ser executado quando instalado. É possível optar por desativar o controle para plataformas específicas.&lt;br /&gt;
-  Possíveis valores:&lt;br /&gt;
-      0 - executa em todas as plataformas&lt;br /&gt;
-      1 - não executa no Windows 9.x (incluindo as versões 3.1, 95, 98 e ME)&lt;br /&gt;
-      2 - não executa no Windows CE&lt;br /&gt;
-      4 - não executa no Windows XP (incluindo as versões NT, 2000, 2003 e 8)&lt;br /&gt;
-      8 - não executa no Windows Vista&lt;/p&gt;
-
-    &lt;p&gt;Obs.: Os valores são combinação de somas dos valores acima, por exemplo: 12 - não executa no Windows XP (4) ou no Windows Vista (8).&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_bbout_element_id&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt;&lt;br /&gt;
-  Id do elemento HTML para preencher com a &lt;em&gt;caixa preta&lt;/em&gt;. Se o parâmetro &lt;em&gt;io_bb_callback&lt;/em&gt; for definido, este não terá efeito.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_enable_rip&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;bool&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;DefaultValue=true&lt;/code&gt;&lt;br /&gt;
-  Determina se tentará coletar informações para obter o IP real do usuário.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_bb_callback&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt;&lt;br /&gt;
-  Parâmetro para customizar a checagem da coleta da &lt;em&gt;caixa preta&lt;/em&gt; foi concluída.&lt;br /&gt;
-  Ao utilizar, escrever a função conforme com a seguinte sintaxe:&lt;br /&gt;
-  &lt;em&gt;io_callback(bb, complete)&lt;/em&gt;, onde:&lt;br /&gt;
-      bb - valor da caixa preta&lt;br /&gt;
-      complete - valor booleano que indica que a coleta foi concluída&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
-  Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros
-  caso os mesmos sejam colocados antes da chamada do javascript.&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Incluindo o javascript da Iovation&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Para incluir o javascript, adicione o seguinte elemento &lt;code class=&quot;highlighter-rouge&quot;&gt;na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.
+Ex.:&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Parâmetros de configuração&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Default&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_install_flash&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Determina se será solicitado ao usuário a instalação do Flash ou atualização da versão&lt;/td&gt;
+      &lt;td&gt;false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_flash_needs_handler&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Este parâmetro só terá validade se o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;io_install_flash&lt;/code&gt; estiver configurado como TRUE, caso contrário não será executado &lt;br /&gt; É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado &lt;br /&gt; Ex.: var &lt;code class=&quot;highlighter-rouge&quot;&gt;io_flash_needs_handler&lt;/code&gt; = “Alert(‘Instalar Flash’);”&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_install_stm&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware &lt;br /&gt; Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito&lt;/td&gt;
+      &lt;td&gt;false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_exclude_stm&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Determina se o Active X deverá ser executado quando instalado &lt;br /&gt; É possível optar por desativar o controle para plataformas específicas &lt;br /&gt; Possíveis valores: &lt;br /&gt; 0 - executa em todas as plataformas &lt;br /&gt; 1 - não executa no Windows 9.x (incluindo as versões 3.1, 95, 98 e ME) &lt;br /&gt; 2 - não executa no Windows CE &lt;br /&gt; 4 - não executa no Windows XP (incluindo as versões NT, 2000, 2003 e 8) &lt;br /&gt; 8 - não executa no Windows Vista &lt;br /&gt; Obs.: Os valores são a combinação de somas dos valores acima, por exemplo: 12 - não executa no Windows XP (4) ou no Windows Vista (8)&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_bbout_element_id&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id do elemento HTML para preencher com a &lt;em&gt;caixa preta&lt;/em&gt; &lt;br /&gt; Se o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;io_bb_callback&lt;/code&gt; for definido, este não terá efeito&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_enable_rip&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Determina se tentará coletar informações para obter o IP real do usuário&lt;/td&gt;
+      &lt;td&gt;true&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_bb_callback&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Parâmetro para customizar a checagem da coleta da &lt;em&gt;caixa preta&lt;/em&gt; foi concluída &lt;br /&gt; Ao utilizar, escrever a função conforme com a seguinte sintaxe: &lt;br /&gt; &lt;em&gt;io_callback(bb, complete)&lt;/em&gt;, onde: &lt;br /&gt; bb - valor da caixa preta &lt;br /&gt; complete - valor booleano que indica que a coleta foi concluída&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;
+Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;&lt;/p&gt;
 
@@ -31897,7 +31906,6 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 
 
-
     
         
     
@@ -31907,53 +31915,60 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
 
 &lt;h2 id=&quot;integração-em-aplicativos-mobile&quot;&gt;Integração em aplicativos mobile&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Visão Geral&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Visão Geral&lt;/strong&gt;
 Este tópico explica como integrar o mobile SDK da Iovation em seus aplicativos para iOS e Android.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Baixando o SDK&lt;/strong&gt;&lt;br /&gt;
-Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar através do centro de ajuda da Iovation.&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Baixando o SDK&lt;/strong&gt;
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar através do centro de ajuda da Iovation.
 &lt;a href=&quot;http://help.iovation.com/Downloads&quot;&gt;Download Mobile SDK&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sobre a integração&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Sobre a integração&lt;/strong&gt;
 Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma &lt;em&gt;caixa preta&lt;/em&gt; que contém todas as informações do dispositivo disponíveis.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintmobile.png&quot; alt=&quot;Fluxo&quot; class=&quot;centerimg&quot; title=&quot;Fluxo da coleta do fingerprint mobile&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintmobile.png&quot; alt=&quot;Fluxo da coleta do fingerprint mobile&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;integrando-com-aplicativos-ios&quot;&gt;Integrando com aplicativos iOS&lt;/h3&gt;
 
-&lt;p&gt;Arquivos e requisitos de integração do iOS&lt;br /&gt;
-&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração iOS&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Arquivos e requisitos de integração do iOS
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios1.png&quot; alt=&quot;Detalhes integração iOS&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Esta versão suporta iOS 5.1.1 ou superior nos seguintes dispositivos:&lt;br /&gt;
-        iPhone 3GS e posterior&lt;br /&gt;
-        iPod Touch 3ª geração ou posterior&lt;br /&gt;
-        Todos os iPads&lt;/p&gt;
+&lt;p&gt;Esta versão suporta iOS 5.1.1 ou superior nos seguintes dispositivos:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;iPhone 3GS e posterior&lt;/li&gt;
+  &lt;li&gt;iPod Touch 3ª geração ou posterior&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Todos os iPads&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Instalando o SDK no iOS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1 - Baixe e descompacte o SDK&lt;/p&gt;
+
+&lt;p&gt;2 - No Xcode, arraste &lt;em&gt;iovation.framework&lt;/em&gt; na área de navegação do seu projeto
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios2.png&quot; alt=&quot;Detalhes instalação SDK&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3 - Na caixa de diálogo que aparece:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Selecione &lt;em&gt;Copy items if needed&lt;/em&gt; para copiar o framework para o diretório do projeto&lt;/li&gt;
+  &lt;li&gt;Marque a caixa de seleção para os destinos nos quais você planeja usar o framework
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios3.png&quot; alt=&quot;Detalhes instalação SDK&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;4 - Clique em Finish&lt;/p&gt;
+
+&lt;p&gt;5 - Adicione os frameworks a seguir ao destino da aplicação no XCode:
+&lt;em&gt;ExternalAccessory.framework&lt;/em&gt;. Se você verificar que o Wireless Accessory Configuration está ativado no Xcode 6 ou superior e não precisa, desativa e adicione novamente o ExternalAccessory.framework
+&lt;em&gt;CoreTelephony.framework&lt;/em&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios4.png&quot; alt=&quot;Detalhes instalação SDK&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;6 - Opcionalmente, adicione esses frameworks se o seu aplicativo fizer uso deles:
+&lt;em&gt;AdSupport.framework&lt;/em&gt;. Se o seu aplicativo exibe anúncios
+Obs.: Não incluir se o seu aplicativo não utilizar anúncios, pois a App Store rejeita aplicativos que incluem o framework mas não usam anúncios
+&lt;em&gt;CoreLocation.framework&lt;/em&gt;. Se o seu aplicativo usa monitoramento local
+Obs.: Não incluir, a menos que seu aplicativo solicite permissão de geolocalização do usuário&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Instalando o SDK no iOS&lt;/p&gt;
-
-    &lt;p&gt;1 - Baixe e descompacte o SDK&lt;br /&gt;
-  2 - No Xcode, arraste &lt;em&gt;iovation.framework&lt;/em&gt; na área de navegação do seu projeto&lt;br /&gt;
-&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios2.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
-  3 - Na caixa de diálogo que aparece:&lt;br /&gt;
-      Selecione &lt;em&gt;Copy items if needed&lt;/em&gt; para copiar o framework para o diretório do projeto&lt;br /&gt;
-      Marque a caixa de seleção para os destinos nos quais você planeja usar o framework&lt;br /&gt;
-&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios3.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
-  4 - Clique em Finish&lt;br /&gt;
-  5 - Adicione os frameworks a seguir ao destino da aplicação no XCode:&lt;br /&gt;
-      - &lt;em&gt;ExternalAccessory.framework&lt;/em&gt;. Se você verificar que o Wireless Accessory Configuration está ativado no Xcode 6 ou superior e não precisa, desativa e adicione novamente o ExternalAccessory.framework&lt;br /&gt;
-      - &lt;em&gt;CoreTelephony.framework&lt;/em&gt;&lt;br /&gt;
-&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios4.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
-  6 - Opcionalmente, adicione esses frameworks se o seu aplicativo fizer uso deles:&lt;br /&gt;
-      - &lt;em&gt;AdSupport.framework&lt;/em&gt;. Se o seu aplicativo exibe anúncios&lt;br /&gt;
-      Obs.: Não incluir se o seu aplicativo não utilizar anúncios, pois a App Store rejeita aplicativos que incluem o framework mas não usam anúncios&lt;br /&gt;
-      - &lt;em&gt;CoreLocation.framework&lt;/em&gt;. Se o seu aplicativo usa monitoramento local&lt;br /&gt;
-      Obs.: Não incluir, a menos que seu aplicativo solicite permissão de geolocalização do usuário&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Usando a função +ioBegin&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Usando a função +ioBegin&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;A função &lt;em&gt;+ioBegin&lt;/em&gt; coleta informações sobre o dispositivo e gera uma &lt;em&gt;caixa preta&lt;/em&gt;. Esta &lt;em&gt;caixa preta&lt;/em&gt; deverá ser enviada através do campo &lt;em&gt;CustomerData.BrowserFingerPrint&lt;/em&gt; em conjunto com os outros dados para análise.&lt;/p&gt;
@@ -31974,12 +31989,10 @@ Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações s
   &lt;p&gt;bbox - string que contem a &lt;em&gt;caixa preta&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;
 A &lt;em&gt;caixa preta&lt;/em&gt; que retornou de &lt;em&gt;+ioBegin&lt;/em&gt; nunca deve estar vazio. Uma &lt;em&gt;caixa preta&lt;/em&gt; vazia indica que a proteção oferecida pelo sistema pode ter sido comprometida.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Exemplo&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#import &quot;sampleViewController.h&quot;
 #import 
@@ -31995,30 +32008,29 @@ A &lt;em&gt;caixa preta&lt;/em&gt; que retornou de &lt;em&gt;+ioBegin&lt;/em&gt;
 
 &lt;h3 id=&quot;integrando-com-aplicativos-android&quot;&gt;Integrando com aplicativos Android&lt;/h3&gt;
 
-&lt;p&gt;Arquivos e requisitos de integração do Android&lt;br /&gt;
+&lt;p&gt;Arquivos e requisitos de integração do Android
 &lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;NOTA&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;NOTA&lt;/strong&gt;
 Se as permissões listadas não são necessárias pelo aplicativo, os valores obtidos obtidos utilizando essas permissões serão ignorados. As permissões não são necessárias para obter uma &lt;em&gt;caixa preta&lt;/em&gt;, mas ajudam a obter mais informações do dispositivo.&lt;/p&gt;
 
 &lt;p&gt;A versão 1.2.0 do Iovation Mobile SDK para Android suporta versões do Android 2.1 ou superior.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Instalando o SDK no Android&lt;/p&gt;
+  &lt;li&gt;Instalando o SDK no Android&lt;/li&gt;
+&lt;/ul&gt;
 
-    &lt;p&gt;1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar&lt;br /&gt;
-  2 - Inicie o IDE de sua escolha&lt;br /&gt;
-  3 - No Eclipse e Maven, faça o deploy do arquivo de extensão &lt;em&gt;.aar&lt;/em&gt; no repositório Maven local, usando o maven-deploy.&lt;br /&gt;
-      Mais detalhes em: &lt;a href=&quot;http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html&quot;&gt;Maven Guide&lt;/a&gt;
-  4 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; New Module&lt;/em&gt;. Expande &lt;em&gt;More Modules&lt;/em&gt; e escolha &lt;em&gt;Import existing .jar or .aar package&lt;/em&gt;
-  5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em &lt;em&gt;Finish&lt;/em&gt;
-  6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle&lt;br /&gt;
-&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Usando a função ioBegin&lt;/p&gt;
-  &lt;/li&gt;
+&lt;p&gt;1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar
+2 - Inicie o IDE de sua escolha
+3 - No Eclipse e Maven, faça o deploy do arquivo de extensão &lt;em&gt;.aar&lt;/em&gt; no repositório Maven local, usando o maven-deploy. Mais detalhes em: &lt;a href=&quot;http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html&quot;&gt;Maven Guide&lt;/a&gt;
+4 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; New Module&lt;/em&gt;. Expande &lt;em&gt;More Modules&lt;/em&gt; e escolha &lt;em&gt;Import existing .jar or .aar package&lt;/em&gt;
+5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em &lt;em&gt;Finish&lt;/em&gt;
+6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Usando a função ioBegin&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;A função &lt;em&gt;ioBegin&lt;/em&gt; coleta informações sobre o dispositivo e gera uma &lt;em&gt;caixa preta&lt;/em&gt;. Esta &lt;em&gt;caixa preta&lt;/em&gt; deverá ser enviada através do campo &lt;em&gt;CustomerData.BrowserFingerPrint&lt;/em&gt; em conjunto com os outros dados para análise.&lt;/p&gt;
@@ -32047,17 +32059,17 @@ Se as permissões listadas não são necessárias pelo aplicativo, os valores ob
   &lt;p&gt;string que contem a &lt;em&gt;caixa preta&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;
 A &lt;em&gt;caixa preta&lt;/em&gt; que retornou de &lt;em&gt;ioBegin&lt;/em&gt; nunca deve estar vazio. Uma &lt;em&gt;caixa preta&lt;/em&gt; vazia indica que contem apenas &lt;em&gt;0500&lt;/em&gt; indica que a proteção oferecida pelo sistema pode ter sido comprometida.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;
 O arquivo &lt;em&gt;device-lib-1.2.0.aar&lt;/em&gt; deverá ser empacotado com o aplicativo.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Compilando o aplicativo de exemplo no Android Studio&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;
 Se a opção para executar o módulo não aparecer, selecione &lt;em&gt;File -&amp;gt; Project Structure&lt;/em&gt; e abra o painel &lt;em&gt;Modules&lt;/em&gt;. A partir disso, defina na lista a versão do Android SDK.&lt;/p&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.iovation.mobile.android.sample;
@@ -32075,14 +32087,12 @@ public class DevicePrintSampleActivity extends Activity
     * previously being shut down then this Bundle contains the data it most
     * recently supplied in onSaveInstanceState(Bundle). Note: Otherwise it is null.
     */
-
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
-
     public void printDevice(View target)
     {
         String bb = DevicePrint.ioBegin(getApplicationContext());
@@ -32093,20 +32103,20 @@ public class DevicePrintSampleActivity extends Activity
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar&lt;br /&gt;
-2 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; Open&lt;/em&gt; ou clique em &lt;em&gt;Open Project&lt;/em&gt; através da opção &lt;em&gt;quick-start&lt;/em&gt;&lt;br /&gt;
-3 - No diretório em que você descompactou o &lt;em&gt;deviceprint-lib-1.2.0.aar&lt;/em&gt;, abra diretório &lt;em&gt;android-studio-sample-app&lt;/em&gt; do aplicativo de exemplo&lt;br /&gt;
-4 - Abra o arquivo &lt;em&gt;DevicePrintSampleActivity&lt;/em&gt;&lt;br /&gt;
-5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o &lt;em&gt;Event Log&lt;/em&gt; e clique em &lt;em&gt;Configure&lt;/em&gt;&lt;br /&gt;
-6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em &lt;em&gt;OK&lt;/em&gt; para corrigir os erros&lt;br /&gt;
-7 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; New Module&lt;/em&gt;. Expande &lt;em&gt;More Modules&lt;/em&gt; e escolha &lt;em&gt;Import existing .jar or .aar package&lt;/em&gt;&lt;br /&gt;
-8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em &lt;em&gt;Finish&lt;/em&gt;&lt;br /&gt;
-9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle&lt;br /&gt;
-&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;br /&gt;
-10 - Abra a pasta DevicePrintSampleActivity&lt;br /&gt;
-11 - Na opção de navegação do projeto, abra &lt;em&gt;src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java&lt;/em&gt;&lt;br /&gt;
-12 - Clique com o botão direito e selecione &lt;em&gt;Run DevicePrintSampleAct&lt;/em&gt;&lt;br /&gt;
-13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo&lt;br /&gt;
+&lt;p&gt;1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar
+2 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; Open&lt;/em&gt; ou clique em &lt;em&gt;Open Project&lt;/em&gt; através da opção &lt;em&gt;quick-start&lt;/em&gt;
+3 - No diretório em que você descompactou o &lt;em&gt;deviceprint-lib-1.2.0.aar&lt;/em&gt;, abra diretório &lt;em&gt;android-studio-sample-app&lt;/em&gt; do aplicativo de exemplo
+4 - Abra o arquivo &lt;em&gt;DevicePrintSampleActivity&lt;/em&gt;
+5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o &lt;em&gt;Event Log&lt;/em&gt; e clique em &lt;em&gt;Configure&lt;/em&gt;
+6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em &lt;em&gt;OK&lt;/em&gt; para corrigir os erros
+7 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; New Module&lt;/em&gt;. Expande &lt;em&gt;More Modules&lt;/em&gt; e escolha &lt;em&gt;Import existing .jar or .aar package&lt;/em&gt;
+8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em &lt;em&gt;Finish&lt;/em&gt;
+9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes integração Android&quot; /&gt;
+10 - Abra a pasta DevicePrintSampleActivity
+11 - Na opção de navegação do projeto, abra &lt;em&gt;src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java&lt;/em&gt;
+12 - Clique com o botão direito e selecione &lt;em&gt;Run DevicePrintSampleAct&lt;/em&gt;
+13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo
 14 - O aplicativo irá compilar e executar&lt;/p&gt;
 
 &lt;p&gt;O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a &lt;em&gt;caixa preta&lt;/em&gt;. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.&lt;/p&gt;
@@ -32115,7 +32125,7 @@ public class DevicePrintSampleActivity extends Activity
 
 &lt;p&gt;Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ** da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;
 Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Colocando os segmentos de código e substituindo os valores das variáveis&lt;/strong&gt;&lt;/p&gt;
@@ -32124,55 +32134,70 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 
 &lt;p&gt;Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Domain:&lt;br /&gt;
-  Testing - Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo.&lt;br /&gt;
-  Production - Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Domain&lt;/em&gt;
+|Ambiente|Descrição|
+|:-|:-|
+|Testing|Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
+|Production|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;ProviderOrgId&lt;/strong&gt; - Para obter este valor, entre em contato com a Braspag.&lt;br /&gt;
-&lt;strong&gt;ProviderMerchantId&lt;/strong&gt; - Para obter este valor, entre em contato com a Braspag.&lt;br /&gt;
-&lt;strong&gt;ProviderSessionId&lt;/strong&gt; - Prencha este campo com o mesmo valor do campo &lt;strong&gt;MerchantOrderId&lt;/strong&gt; que será enviado na requisição da análise de fraude.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Variáveis&lt;/em&gt;
+|Ambiente|Descrição|
+|:-|:-|
+|ProviderOrgId|Para obter este valor, entre em contato com a Braspag|
+|ProviderMerchantId|Para obter este valor, entre em contato com a Braspag|
+|ProviderSessionId|Prencha este campo com o mesmo valor do campo &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt; que será enviado na requisição da análise de fraude|&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;PNG Image &lt;br /&gt;
- &lt;br /&gt;
- &lt;br /&gt;
- &lt;br /&gt;
-     &lt;br /&gt;
-        &lt;br /&gt;
-        &lt;br /&gt;
-    &lt;br /&gt;
- &lt;br /&gt;
- &lt;br /&gt;&lt;br /&gt;
-Flash Code  &lt;br /&gt;
- &lt;br /&gt;
- &lt;br /&gt;
- &lt;br /&gt;
-    &lt;br /&gt;
-        &lt;br /&gt;
-            &lt;br /&gt;
-            &lt;br /&gt;
-        &lt;br /&gt;
-    &lt;br /&gt;
- &lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;
-Javascript Code &lt;br /&gt;
- &lt;br /&gt;
-   &lt;br /&gt;
-   &lt;br /&gt;
-   &lt;br /&gt;
- &lt;br /&gt;&lt;/p&gt;
+  &lt;p&gt;PNG Image&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+
+ 
+    
+    
+
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Flash Code&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+
+
+    
+        
+        
+    
+
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Javascript Code&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  
+  
+  
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Configurando seu Servidor Web&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Na seção &lt;em&gt;Colocando os segmentos de código e substituindo os valores das variáveis (Domain)&lt;/em&gt;, todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.&lt;/p&gt;
 
 &lt;h1 id=&quot;tabelas&quot;&gt;Tabelas&lt;/h1&gt;
