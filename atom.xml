@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-15T15:45:11+00:00</updated>
+    <updated>2018-03-15T15:58:08+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -34047,9 +34047,89 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 &lt;h2 id=&quot;tabela-36---merchantdefineddata-redshield&quot;&gt;Tabela 36 - MerchantDefinedData (ReDShield)&lt;/h2&gt;
 
-&lt;p&gt;|Valor|Descrição|Tipo|
-|Key|Value|Tipo|
-|:-|:-|:-|&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Tipo&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1 a 3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reservado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;4 a 8&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;var&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;256&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;9 a 13&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reservado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;14&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Segment&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MCC (Merchant Category Code) da sua loja&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;int&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15 a 20&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;var&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;30&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;21&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reservado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;22&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Campo livre e definido junto ao provedor de antifraude, conforme as regras de negócio&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;var&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;30&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;23&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reservado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;24&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Campo livre e definido junto ao provedor de antifraude, conforme a regras de negócio&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;var&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;30&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;25&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reservado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;tabela-37---merchantdefineddata-cybersource&quot;&gt;Tabela 37 - MerchantDefinedData (Cybersource)&lt;/h2&gt;
 
@@ -34149,7 +34229,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;18-25&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Reservado para novo campo de turismo&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reservados para novos campos de turismo&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -34159,7 +34239,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;27-30&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Reservado para campo interno&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reservados para campos interno&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -34204,17 +34284,17 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;39 a 40&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Reservado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reservados&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;41 a 95&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Campos livres e definido junto ao provedor de antifraude, conforme a regras de negócio&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;96 a 100&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Reservado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reservados&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
