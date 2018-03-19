@@ -113,7 +113,6 @@ Formato de `EphemeralPublicKey` utilizados pelas Wallets na API Cielo
 | *Apple Pay*    | `MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==`   |
 | *Android Pay*  | `BG9mGFe2/kSo6PJDEoO5bRXRS4RKQ4b3jikXio0FUhZPqQe5f6SMlZQI3sfyiKteM0PRSeNDnQQ10XYeobN9avM=`                                       |
 
-
 ### Respostas
 
 ``` Json
