@@ -556,7 +556,9 @@
   </tbody>
 </table>
 
-<h2 id="apple-pay">Apple Pay</h2>
+<h2 id="exemplos">Exemplos</h2>
+
+<h3 id="apple-pay">Apple Pay</h3>
 
 <p>Exemplo de Requisição padrão <em>Apple Pay</em></p>
 
@@ -566,7 +568,7 @@
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-<h3 id="requisição">Requisição</h3>
+<h4 id="requisição">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
@@ -592,7 +594,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="resposta">Resposta</h3>
+<h4 id="resposta">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -656,7 +658,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="samsung-pay">Samsung Pay</h2>
+<h3 id="samsung-pay">Samsung Pay</h3>
 
 <p>Exemplo de Requisição padrão <em>Samsung Pay</em></p>
 
@@ -666,7 +668,7 @@
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-<h3 id="requisição-1">Requisição</h3>
+<h4 id="requisição-1">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
@@ -690,7 +692,7 @@
 
 </span></code></pre></div></div>
 
-<h3 id="resposta-1">Resposta</h3>
+<h4 id="resposta-1">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -751,7 +753,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="android-pay">Android Pay</h2>
+<h3 id="android-pay">Android Pay</h3>
 
 <p>Exemplo de Requisição padrão <em>Android Pay</em></p>
 
@@ -761,7 +763,7 @@
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-<h3 id="requisição-2">Requisição</h3>
+<h4 id="requisição-2">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -789,7 +791,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="resposta-2">Resposta</h3>
+<h4 id="resposta-2">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -852,7 +854,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="visacheckout">VisaCheckout</h2>
+<h3 id="visacheckout">VisaCheckout</h3>
 
 <p>É possivel realizar uma transação com VisaCheckout de duas maneiras:</p>
 
@@ -863,7 +865,7 @@
 
 <aside class="notice">Atenção:  Para VisaCheckout, o nó Wallet pode ser enviado apenas com o "Type", assim marcado a transação com sendo da carteira. Nesse contexto, o cartão de crédito deve ser enviado. </aside>
 
-<h3 id="requisição---sem-dados-do-cartão">Requisição - Sem dados do Cartão</h3>
+<h4 id="requisição---sem-dados-do-cartão">Requisição - Sem dados do Cartão</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -994,7 +996,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-3">Resposta</h3>
+<h4 id="resposta-3">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -1039,7 +1041,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="requisição---com-dados-do-cartão">Requisição - Com dados do Cartão</h3>
+<h4 id="requisição---com-dados-do-cartão">Requisição - Com dados do Cartão</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1230,7 +1232,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-4">Resposta</h3>
+<h4 id="resposta-4">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -1421,12 +1423,12 @@
   </tbody>
 </table>
 
-<h2 id="masterpass">MasterPass</h2>
+<h3 id="masterpass">MasterPass</h3>
 
 <p>Para utilizar o Masterpass é necessário entrar em contato diretamente com a Mastercard pelo site: https://masterpass.com/pt-br/ e solicitar as credenciais.
 Mais informações e integração completa, você encontra no link: https://developer.mastercard.com/product/masterpass “</p>
 
-<h3 id="requisição-3">Requisição</h3>
+<h4 id="requisição-3">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1600,7 +1602,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   </tbody>
 </table>
 
-<h3 id="resposta-5">Resposta</h3>
+<h4 id="resposta-5">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
