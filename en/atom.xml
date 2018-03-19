@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-03-19T20:02:18+00:00</updated>
+    <updated>2018-03-19T20:08:38+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16978,6 +16978,8 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;apple-pay&quot;&gt;Apple Pay&lt;/h3&gt;
 
+&lt;h4 id=&quot;requisição&quot;&gt;Requisição&lt;/h4&gt;
+
 &lt;p&gt;Exemplo de Requisição padrão &lt;em&gt;Apple Pay&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -16985,8 +16987,6 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
-
-&lt;h4 id=&quot;requisição&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6242-642-723&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17078,6 +17078,8 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;samsung-pay&quot;&gt;Samsung Pay&lt;/h3&gt;
 
+&lt;h4 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h4&gt;
+
 &lt;p&gt;Exemplo de Requisição padrão &lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -17085,8 +17087,6 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
-
-&lt;h4 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6242-642-723&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17173,15 +17173,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;android-pay&quot;&gt;Android Pay&lt;/h3&gt;
 
+&lt;h4 id=&quot;requisição-2&quot;&gt;Requisição&lt;/h4&gt;
+
 &lt;p&gt;Exemplo de Requisição padrão &lt;em&gt;Android Pay&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;É necessário que a loja ja possua cadastro e uma integração Android Pay, caso contrario não será possivel a integração com a API&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
-
-&lt;h4 id=&quot;requisição-2&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
