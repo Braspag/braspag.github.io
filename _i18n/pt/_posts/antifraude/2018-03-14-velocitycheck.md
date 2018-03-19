@@ -91,7 +91,7 @@ Uma transação a ser analisada, e o número do cartão enviado para análise es
 
 O e-mail é o identificador chave para todos os seus perfir online, como conta de lojas ecommerce, redes sociais, procedores de e-mails, etc. Com isso a Emailage usa o histórico de um endereço de e-mail e comportamentos para avaliar o risco de transação. Com um hub global de inteligência de e-mail, conectam em todo o mundo na luta contra a fraude. Por meio de uma pontuação preditiva, é possível realizar a automação e o dimensionamento de esforços para a prevenção de fraude.
 
-Uma transação a ser analisada e ter passado nas análises de regras, quarentena e blacklist, o e-mail do comprador será enviado para a Emailage. Este sendo de alto risco, terá no retorno que a transação foi rejeitada pela análise de e-mail.
+Uma transação a ser analisada e ter passado nas análises de regras, quarentena e blacklist, o e-mail do comprador será enviado para a Emailage. Este sendo de alto risco, no retorno terá que a transação foi rejeitada pela análise de e-mail.
 
 # Hosts
 
