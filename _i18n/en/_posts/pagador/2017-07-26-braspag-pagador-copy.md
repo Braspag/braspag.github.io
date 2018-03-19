@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: .
+title: 1
 description: Integração técnica Gateway Braspag
 search: true
 categories: manual
