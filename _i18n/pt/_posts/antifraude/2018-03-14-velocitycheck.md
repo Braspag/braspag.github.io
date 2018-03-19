@@ -5,7 +5,7 @@ description: Integração técnica API Velocity Check Braspag
 search: true
 categories: manual
 tags:
-  - Gestão de Risco
+  
 language_tabs:
   json: JSON
   html: HTML
@@ -86,6 +86,10 @@ O retorno terá que a mesma foi rejeitada pela blacklist.
 ## Análise de Whitelist
 
 Uma transação a ser analisada, e o número do cartão enviado para análise estiver na whitelist, a mesma será aceita, independente de existir regra cadastra para este tipo de variável ou não e as demais regras para outros tipos de variáveis serão ignoradas.
+
+## Análise com Emailge
+
+Uma transação a ser analisa, além das regras do Velocity Check, terá a análise de e-mail através do parceiro Emailage. O serviço da Emailage realiza uma análise completa do e-mail do comprador, verificando se o mesmo existe, se quantos anos tem de criação, 
 
 # Hosts
 
