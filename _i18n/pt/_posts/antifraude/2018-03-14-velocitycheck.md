@@ -5,7 +5,7 @@ description: Integração técnica API Velocity Check Braspag
 search: true
 categories: manual
 tags:
-  
+  - Gestão de Risco
 language_tabs:
   json: JSON
   html: HTML
@@ -180,7 +180,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 - Os campos são opcionais e as regras serão disparadas somente se o valor no campo correspondente a regra for enviado, ou seja, se existir uma regra relacionada ao campo documento do comprador e o campo `Customer.Identity` não for enviado, esta regra não será disparada na análise.
 
-- Os valores dos campos devem ser enviados sempre no mesmo formato, por exemplo: Número do documento do comprador, optar sempre por enviar uma das opções entre valor com formatação e sem formatação.
+- Os valores dos campos devem ser enviados sempre no mesmo formato, por exemplo: Número do documento do comprador, enviar **SEMPRE** uma das opções entre valor com formatação e sem formatação.
 
 ## Analisando uma transação no Velocity Check
 
@@ -263,46 +263,160 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 **Parâmetros no corpo (Body)**
 
-|Parâmetro|Descrição|Tipo|Tamanho|
-|:-|:-|:-|-:|
-|`Transaction.OrderId`|Número do pedido da loja|string|100|
-|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155|date|
-|`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|100|
-|`Card.Holder`|Nome do cartão de crédito|string|100|
-|`Card.Number`|Número do cartão de crédito|string|19|
-|`Card.Expiration`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|7|
-|`Card.Brand`|Bandeira do cartão de crédito|string|100|
-|`Customer.Name`|Nome do comprador|string|100|
-|`Customer.Identity`|Número do documento de identificação do comprador <br/> [Tabela 1 - Customer.Identity]({{ site.baseurl_root }}manual/antifraude#tabela-1-customer.identity)|string|100|
-|`Customer.IpAddress`|Endereço de IP do comprador|string|15|
-|`Customer.Email`|E-mail do comprador|string|100|
-|`Customer.Phones[n].Type`|Tipo do telefone do comprador <br/> [Tabela 2 - Customer.Phones{n}.Type]({{ site.baseurl_root }}manual/antifraude#customer.phones[n].type)|enum|-|
-|`Customer.Phones[n].DDI`|Código DDI do país. Mais informações em [Códigos DDI](http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional)|string|10|
-|`Customer.Phones[n].DDD`|Código DDD do estado. Mais informações em [Códigos DDD](http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/)|int|-|
-|`Customer.Phones[n].Number`|Número do telefone|string|19|
-|`Customer.Phones[n].Extension`|Número do ramal|int|-|
-|`Customer.Billing.Street`|Logradouro do endereço de cobrança|string|100|
-|`Customer.Billing.Number`|Número do endereço de cobrança|string|15|
-|`Customer.Billing.Complement`|Complemento do endereço de cobrança|string|30|
-|`Customer.Billing.Neighborhood`|Bairro do endereço de cobrança|string|100|
-|`Customer.Billing.City`|Cidade do endereço de cobrança|string|100|
-|`Customer.Billing.State`|Estado do endereço de cobrança|string|2|
-|`Customer.Billing.ZipCode`|Código postal do endereço de cobrança|string|9|
-|`Customer.Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|2|
-|`Customer.Shipping.Street`|Logradouro do endereço de entrega|string|100|
-|`Customer.Shipping.Number`|Número do endereço de entrega|string|15|
-|`Customer.Shipping.Complement`|Complemento do endereço de entrega|string|30|
-|`Customer.Shipping.Neighborhood`|Bairro do endereço de entrega|string|100|
-|`Customer.Shipping.City`|Cidade do endereço de entrega|string|100|
-|`Customer.Shipping.State`|Estado do endereço de entrega|string|2|
-|`Customer.Shipping.ZipCode`|Código postal do endereço de entrega|string|9|
-|`Customer.Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|2|
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|:-|:-|:-|:-|-:|
+|`Transaction.OrderId`|Número do pedido da loja|string|sim|100|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|não|-|
+|`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|100|
+|`Card.Holder`|Nome do cartão de crédito|string|sim|100|
+|`Card.Number`|Número do cartão de crédito|string|sim|19|
+|`Card.Expiration`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
+|`Card.Brand`|Bandeira do cartão de crédito|string|sim|100|
+|`Customer.Name`|Nome do comprador|string|não|100|
+|`Customer.Identity`|Número do documento de identificação do comprador <br/> [Tabela 1 - Customer.Identity]({{ site.baseurl_root }}manual/antifraude#tabela-1-customer.identity)|string|sim|100|
+|`Customer.IpAddress`|Endereço de IP do comprador|string|sim|15|
+|`Customer.Email`|E-mail do comprador|string|sim|100|
+|`Customer.Phones[n].Type`|Tipo do telefone do comprador <br/> [Tabela 2 - Customer.Phones{n}.Type]({{ site.baseurl_root }}manual/antifraude#customer.phones[n].type)|enum|não|-|
+|`Customer.Phones[n].DDI`|Código DDI do país. Mais informações em [Códigos DDI](http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional)|string|não|10|
+|`Customer.Phones[n].DDD`|Código DDD do estado. Mais informações em [Códigos DDD](http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/)|int|não|-|
+|`Customer.Phones[n].Number`|Número do telefone|string|não|19|
+|`Customer.Phones[n].Extension`|Número do ramal|int|não|-|
+|`Customer.Billing.Street`|Logradouro do endereço de cobrança|string|não|100|
+|`Customer.Billing.Number`|Número do endereço de cobrança|string|não|15|
+|`Customer.Billing.Complement`|Complemento do endereço de cobrança|string|não|30|
+|`Customer.Billing.Neighborhood`|Bairro do endereço de cobrança|string|não|100|
+|`Customer.Billing.City`|Cidade do endereço de cobrança|string|não|100|
+|`Customer.Billing.State`|Estado do endereço de cobrança|string|não|2|
+|`Customer.Billing.ZipCode`|Código postal do endereço de cobrança|string|não|9|
+|`Customer.Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
+|`Customer.Shipping.Street`|Logradouro do endereço de entrega|string|não|100|
+|`Customer.Shipping.Number`|Número do endereço de entrega|string|não|15|
+|`Customer.Shipping.Complement`|Complemento do endereço de entrega|string|não|30|
+|`Customer.Shipping.Neighborhood`|Bairro do endereço de entrega|string|não|100|
+|`Customer.Shipping.City`|Cidade do endereço de entrega|string|não|100|
+|`Customer.Shipping.State`|Estado do endereço de entrega|string|não|2|
+|`Customer.Shipping.ZipCode`|Código postal do endereço de entrega|string|não|9|
+|`Customer.Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
 
 ### Response
 
-## Analisando uma transação no Velocity Check e Emailage
+## Analisando uma transação no Velocity Check com Emailage
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+
+``` json
+{
+  "Transaction": {
+    "OrderId": "123456789AB",
+    "Date": "2018-02-18 13:51:56.854",
+    "Amount": "96385"
+  },
+  "Card": {
+    "Holder": "Joao C Silva",
+    "Number": "4444555566667777",
+    "Expiration": "12/2023",
+    "Brand": "visa"
+  },
+  "Customer": {
+    "Name": "Joao Couves da Silva",
+    "Identity": "12345678910",
+    "IpAddress": "127.0.0.1",
+    "Email": "joaocouvessilva@email.com",
+    "Phones": [ 
+    {
+      "Type" : "Phone",
+      "DDI" : "+55",
+      "DDD" : "21",
+      "Number" : "21114700",
+      "Extension" : "4720"
+    },
+    {
+      "Type" : "Workphone",
+      "DDI" : "+55",
+      "DDD" : "21",
+      "Number" : "25899600",
+      "Extension" : "9612" 
+    },
+    {
+      "Type" : "Cellphone",
+      "DDI" : "+55",
+      "DDD" : "21",
+      "Number" : "987654321"
+    }
+    ],
+    "Billing": {
+      "Street": "Rua do Escorrega",
+      "Number": "171",
+      "Complement": "Casa 71",
+      "Neighborhood": "Piratininga",
+      "City": "Niterói",
+      "State": "RJ",
+      "ZipCode": "24355-350",
+      "Country": "BR"
+    },
+    "Shipping": {
+      "Street": "Rua do Equilibra",
+      "Number": "171",
+      "Complement": "Casa 2",
+      "Neighborhood": "Centro",
+      "City": "Rio de Janeiro",
+      "State": "RJ",
+      "ZipCode": "24355-351",
+      "Country": "BR"
+    }
+  }
+}
+```
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|:-|:-|:-|:-|-:|
+|`Transaction.OrderId`|Número do pedido da loja|string|sim|100|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|não|-|
+|`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|100|
+|`Card.Holder`|Nome do cartão de crédito|string|sim|100|
+|`Card.Number`|Número do cartão de crédito|string|sim|19|
+|`Card.Expiration`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
+|`Card.Brand`|Bandeira do cartão de crédito|string|sim|100|
+|`Customer.Name`|Nome do comprador|string|sim|100|
+|`Customer.Identity`|Número do documento de identificação do comprador <br/> [Tabela 1 - Customer.Identity]({{ site.baseurl_root }}manual/antifraude#tabela-1-customer.identity)|string|sim|100|
+|`Customer.IpAddress`|Endereço de IP do comprador|string|sim|15|
+|`Customer.Email`|E-mail do comprador|string|sim|100|
+|`Customer.Phones[n].Type`|Tipo do telefone do comprador <br/> [Tabela 2 - Customer.Phones{n}.Type]({{ site.baseurl_root }}manual/antifraude#customer.phones[n].type)|enum|não|-|
+|`Customer.Phones[n].DDI`|Código DDI do país. Mais informações em [Códigos DDI](http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional)|string|não|10|
+|`Customer.Phones[n].DDD`|Código DDD do estado. Mais informações em [Códigos DDD](http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/)|int|não|-|
+|`Customer.Phones[n].Number`|Número do telefone|string|não|19|
+|`Customer.Phones[n].Extension`|Número do ramal|int|não|-|
+|`Customer.Billing.Street`|Logradouro do endereço de cobrança|string|sim|100|
+|`Customer.Billing.Number`|Número do endereço de cobrança|string|sim|15|
+|`Customer.Billing.Complement`|Complemento do endereço de cobrança|string|não|30|
+|`Customer.Billing.Neighborhood`|Bairro do endereço de cobrança|string|sim|100|
+|`Customer.Billing.City`|Cidade do endereço de cobrança|string|sim|100|
+|`Customer.Billing.State`|Estado do endereço de cobrança|string|sim|2|
+|`Customer.Billing.ZipCode`|Código postal do endereço de cobrança|string|sim|9|
+|`Customer.Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|sim|2|
+|`Customer.Shipping.Street`|Logradouro do endereço de entrega|string|não|100|
+|`Customer.Shipping.Number`|Número do endereço de entrega|string|não|15|
+|`Customer.Shipping.Complement`|Complemento do endereço de entrega|string|não|30|
+|`Customer.Shipping.Neighborhood`|Bairro do endereço de entrega|string|não|100|
+|`Customer.Shipping.City`|Cidade do endereço de entrega|string|não|100|
+|`Customer.Shipping.State`|Estado do endereço de entrega|string|não|2|
+|`Customer.Shipping.ZipCode`|Código postal do endereço de entrega|string|não|9|
+|`Customer.Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
+
+### Response
 
 ## Analisando uma transação no Velocity Check e Credilink
 
