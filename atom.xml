@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-19T20:35:32+00:00</updated>
+    <updated>2018-03-19T20:39:57+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -127,7 +127,7 @@ O retorno terá que a mesma foi rejeitada pela blacklist.&lt;/p&gt;
 
 &lt;p&gt;O e-mail é o identificador chave para todos os seus perfir online, como conta de lojas ecommerce, redes sociais, procedores de e-mails, etc. Com isso a Emailage usa o histórico de um endereço de e-mail e comportamentos para avaliar o risco de transação. Com um hub global de inteligência de e-mail, conectam em todo o mundo na luta contra a fraude. Por meio de uma pontuação preditiva, é possível realizar a automação e o dimensionamento de esforços para a prevenção de fraude.&lt;/p&gt;
 
-&lt;p&gt;Uma transação a ser analisada e ter passado nas análises de regras, quarentena e blacklist, o e-mail do comprador será enviado para a Emailage. Este sendo de alto risco, terá no retorno que a transação foi rejeitada pela análise de e-mail.&lt;/p&gt;
+&lt;p&gt;Uma transação a ser analisada e ter passado nas análises de regras, quarentena e blacklist, o e-mail do comprador será enviado para a Emailage. Este sendo de alto risco, no retorno terá que a transação foi rejeitada pela análise de e-mail.&lt;/p&gt;
 
 &lt;h1 id=&quot;hosts&quot;&gt;Hosts&lt;/h1&gt;
 
