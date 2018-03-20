@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-03-20T20:55:32+00:00</updated>
+    <updated>2018-03-20T20:58:20+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -598,24 +598,36 @@ All the orders just authorized must be captured here. When the capture process i
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Carteira&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Carteira&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot;&gt;&lt;em&gt;Apple Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot;&gt;&lt;em&gt;Apple Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.samsung.com.br/samsungpay/&quot;&gt;&lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://www.samsung.com.br/samsungpay/&quot;&gt;&lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.android.com/intl/pt-BR_br/pay/&quot;&gt;&lt;em&gt;Android Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://www.android.com/intl/pt-BR_br/pay/&quot;&gt;&lt;em&gt;Android Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://vaidevisa.visa.com.br/site/visa-checkout&quot;&gt;&lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://vaidevisa.visa.com.br/site/visa-checkout&quot;&gt;&lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://masterpass.com/pt-br/&quot;&gt;&lt;em&gt;MasterPass&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://masterpass.com/pt-br/&quot;&gt;&lt;em&gt;MasterPass&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
