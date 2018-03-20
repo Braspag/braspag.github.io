@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-03-20T20:46:01+00:00</updated>
+    <updated>2018-03-20T20:46:28+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -574,7 +574,7 @@ All the orders just authorized must be captured here. When the capture process i
     </entry>
     
     <entry>
-        <title>Integration Manual</title>
+        <title>Pagador and Wallets</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/wallets"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
