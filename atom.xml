@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-20T18:02:43+00:00</updated>
+    <updated>2018-03-20T18:03:48+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -1983,7 +1983,7 @@ O retorno terá que a mesma foi rejeitada pela blacklist.&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\authhomolog.braspag.com.br&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\authsandbox.braspag.com.br&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
