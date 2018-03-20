@@ -103,7 +103,7 @@ Uma transação a ser analisada e ter passado nas análises de regras e análise
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\authhomolog.braspag.com.br|
+|`Sandbox`|https:\\\\authsandbox.braspag.com.br|
 |`Produção`|https:\\\\auth.braspag.com.br|
 
 ## API Velocity Check Braspag
