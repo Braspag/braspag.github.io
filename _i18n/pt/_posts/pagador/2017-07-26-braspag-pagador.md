@@ -5102,8 +5102,8 @@ O Pagador possui suporte para:
 
 | Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Cielo.                                                                         |
-| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                         |
+| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
+| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
 | `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
 | `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
 | `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
@@ -5112,8 +5112,6 @@ O Pagador possui suporte para:
 | `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
 | `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
-| `CreditCard.CardNumber.`   | Texto  | 19      | Sim         | Número do Cartão do Comprador                                                                           |
-| `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                                            |
 | `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
 | `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
@@ -5260,8 +5258,8 @@ Exemplo de Requisição padrão *Apple Pay*
 
 | Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Cielo.                                                                         |
-| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                         |
+| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
+| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
 | `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
 | `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
 | `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
@@ -5270,12 +5268,9 @@ Exemplo de Requisição padrão *Apple Pay*
 | `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
 | `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
-| `CreditCard.CardNumber.`   | Texto  | 19      | Sim         | Número do Cartão do Comprador                                                                           |
-| `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                                            |
 | `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
 | `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
-| `Wallet.AdditionalData.capturecode`       | Texto  | 255    | Sim  | Código informado pela `MasterPass` ao lojista                                                    | 
 
 #### Resposta
 
@@ -5355,8 +5350,7 @@ Exemplo de Requisição padrão *Apple Pay*
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
 | `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
-| `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`                         | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |  
-| `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | 255     | 3                                    | 
+| `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`                         | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |
 
 ### Samsung Pay
 
@@ -5393,8 +5387,8 @@ Exemplo de Requisição padrão *Samsung Pay*
 
 | Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Cielo.                                                                         |
-| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                         |
+| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
+| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
 | `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
 | `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
 | `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
@@ -5403,12 +5397,8 @@ Exemplo de Requisição padrão *Samsung Pay*
 | `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
 | `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
-| `CreditCard.CardNumber.`   | Texto  | 19      | Sim         | Número do Cartão do Comprador                                                                           |
-| `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                                            |
 | `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
 | `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
-| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
-| `Wallet.AdditionalData.capturecode`       | Texto  | 255    | Sim  | Código informado pela `MasterPass` ao lojista                                                    | 
 
 #### Resposta
 
@@ -5484,9 +5474,7 @@ Exemplo de Requisição padrão *Samsung Pay*
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
-| `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`                         | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |  
-| `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | 255     | 3                                    | 
+| `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |
 
 ### Android Pay
 
@@ -5525,8 +5513,8 @@ Exemplo de Requisição padrão *Android Pay*
 
 | Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Cielo.                                                                         |
-| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                         |
+| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
+| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
 | `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
 | `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
 | `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
@@ -5535,12 +5523,9 @@ Exemplo de Requisição padrão *Android Pay*
 | `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
 | `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
-| `CreditCard.CardNumber.`   | Texto  | 19      | Sim         | Número do Cartão do Comprador                                                                           |
-| `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                                            |
 | `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
 | `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
-| `Wallet.AdditionalData.capturecode`       | Texto  | 255    | Sim  | Código informado pela `MasterPass` ao lojista                                                    | 
 
 #### Resposta
 
@@ -5640,13 +5625,9 @@ Para utilizar o MasterPass é necessário a contratação do serviço através d
      "Type":"CreditCard",
      "Amount":15700,
      "Installments":1,
-     "CreditCard":{
-               "CardNumber": "4532117080573703",
-               "Brand": "Visa",
-         "SecurityCode":"023"
-     },
      "Wallet":{
          "Type":"MasterPass",
+		 "WalletKey":"a561da1c18a89cfdafas875f9d43fc46cd9bf3e1",
          "AdditionalData":{
                "CaptureCode": "103"
          }
@@ -5658,8 +5639,8 @@ Para utilizar o MasterPass é necessário a contratação do serviço através d
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
@@ -5668,9 +5649,8 @@ Para utilizar o MasterPass é necessário a contratação do serviço através d
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
 |`Payment.Provider`|Texto|15|Sim|Somente providers Cielo (`Cielo` / `Cielo30`)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`CreditCard.CardNumber.`|Texto|19|Sim|Número do Cartão do Comprador|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`Wallet.Type`|Texto|255|Sim|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|
+|`Wallet.Type`|Texto|255|Sim|indica qual o tipo de carteira: "Masterpass"|
+|`Wallet.Walletkey`|Texto|255|Sim|Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações|
 |`Wallet.AdditionalData`|---|---|---|Instancia para dados extras informados pela MasterPass. Obrigatório apenas se TYPE = "MasterPass"|
 |`Wallet.capturecode`|Texto|255|Sim|Código informado pela MasterPass ao lojista|
 
@@ -5772,8 +5752,8 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
@@ -5784,7 +5764,7 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.ReturnUrl`|Texto|1024|---|Obrigatório para cartão de débito|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`Wallet.Type`|Texto|255|Sim|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|
+|`Wallet.Type`|Texto|255|Sim|indica qual o tipo de carteira: "VisaCheckout"|
 |`Wallet.Walletkey`|Texto|255|---|Chave criptografica enviada pelo VisaCheckout. Obrigatoria se TYPE =  "Visa Checkout"|
 
 #### Resposta
