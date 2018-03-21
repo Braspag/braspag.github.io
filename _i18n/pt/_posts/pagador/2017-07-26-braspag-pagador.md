@@ -8581,7 +8581,8 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
 |Cielo30 (Cielo 3.0)|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|
 |Redecard (Komerci)|Visa, Master, Hipercard, Hiper, Diners|
-|Rede (e-Rede)|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|
+|Rede (e-Rede SOAP)|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|
+|Rede2 (e-Rede REST)|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|
 |RedeSitef|Visa, Master, Hipercard, Diners|
 |CieloSitef|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
 |SantanderSitef|Visa, Master|
