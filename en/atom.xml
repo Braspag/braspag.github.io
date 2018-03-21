@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-03-21T12:57:35+00:00</updated>
+    <updated>2018-03-21T13:19:59+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14530,7 +14530,7 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Cielo30 (Cielo 3.0)&lt;/td&gt;
-      &lt;td&gt;Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Alelo&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Redecard (Komerci)&lt;/td&gt;
@@ -14538,7 +14538,7 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Rede (e-Rede)&lt;/td&gt;
-      &lt;td&gt;Visa, Master, Hipercard, Hiper, Diners&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Hipercard, Hiper, Diners, Elo, Amex&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;RedeSitef&lt;/td&gt;
@@ -14558,7 +14558,7 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Getnet&lt;/td&gt;
-      &lt;td&gt;Visa, Master&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Elo, Amex&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;FirstData&lt;/td&gt;
@@ -14571,6 +14571,14 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
     &lt;tr&gt;
       &lt;td&gt;DMCard&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sub1&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Credibanco&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Diners, Amex, Credential&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
