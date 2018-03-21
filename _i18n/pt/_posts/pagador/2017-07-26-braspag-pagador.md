@@ -5085,7 +5085,7 @@ O Pagador possui suporte para:
   "Payment": {
     "Type": "CreditCard",
     "Amount": 100,
-	"Provider": "Cielo",
+    "Provider": "Cielo",
     "Installments": 1,
     "Currency": "BRL",
     "Wallet": {
@@ -5130,7 +5130,6 @@ Formato de `WalletKeys` que devem ser repassados ao Pagador API
 | *Android Pay*  | En6NrAzy/V9l7U9FukJTlOkXLx8lsHJ9Lp3aO16WbZuXX+dHI6fy3G8PES5Leu63x+ZSAKQTQxJC/+hFCU3N3Vzl2Eo0bhQDv9pZwU9oghS1rx0QlqNPslspQ8ufTqfDDg2IlsVh7ANh8BXC1pi4YzhUXhAB5J2xSu7ivJwWL4/9FVJ2u0mZIK6QHtuGJXdvol54HtNn9Cik9IA7xeh/gutJ/z9K8rVk1KrCBSSTE1cgxbUbpBp535IXsP//okqXIf7qlTi/sUkfIjXVWLPVP/JPcm+MHE0s/37aVyprz0xfkJjHkUExsJ2h1v7LU5nnK7uYmyUdEI42wUuzfGkwvjvfS3xllxGwqy3Of4ts5mkPLNXdLnPNGvP8RE4uYyrQM4hXdie3tTPgW6FK5ExDsKyw8Qm0ikvbb4Clo9JvALTjqJkr1VkT20UITdetra/8JUWOX/PbcxDYv2oOPLG9hDumRExuifi04cNtwzFvyFVBnV1SO3GKp+k/fdfdfdfdafda=   |.|
 | *VisaCheckout* | 1140812334225873901   |.|
 | *Masterpass* | a561da1c18a89cfdafas875f9d43fc46cd9bf3e1   |.|
-
 
 #### EphemeralPublicKey
 
