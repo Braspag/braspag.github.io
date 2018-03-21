@@ -6620,20 +6620,22 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 ### Credit Card Payments Provider
 
 |Provider|Brand|
-|---|---|
+|--------|-----|
 |Simulado|---|
 |Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
-|Cielo30 (Cielo 3.0)|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Alelo|
+|Cielo30 (Cielo 3.0)|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|
 |Redecard (Komerci)|Visa, Master, Hipercard, Hiper, Diners|
-|Rede (e-Rede)|Visa, Master, Hipercard, Hiper, Diners|
+|Rede (e-Rede)|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|
 |RedeSitef|Visa, Master, Hipercard, Diners|
 |CieloSitef|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
 |SantanderSitef|Visa, Master|
 |Banorte|Visa, Master, Carnet|
-|Getnet|Visa, Master|
+|Getnet|Visa, Master, Elo, Amex|
 |FirstData|Visa, Master, Cabal|
 |GlobalPayments|Visa, Master|
 |DMCard|---|
+|Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|
+|Credibanco|Visa, Master, Diners, Amex, Credential|
 
 ### Debit Card Payments Provider
 
