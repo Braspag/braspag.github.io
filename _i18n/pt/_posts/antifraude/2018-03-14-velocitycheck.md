@@ -109,7 +109,15 @@ Caracteriza-se alto risco quando o score retornado pela Emailage for acima de 90
 
 ## Análise com Credilink
 
-Uma transação a ser analisada e ter passado nas análises de regras e análise da Emailage, este se estiver habilitado, o documento do comprador será enviado para a Credilink. Se este não existir, no retorno terá que a transação foi rejeitada pela análise do documento do comprador na Credilink.
+Uma transação a ser analisada e ter passado nas análises de regras, quarentena, blacklist e Emailage, este se estiver habilitado, os dados do comprador serão enviados para a Credilink. Após a análise na Credilink, não for encontrado nenhuma ocorrência, no retorno terá que a transação foi rejeitada pela na Credilink.
+
+Os dados abaixo são obrigatórios para análise na Credilink:
+
+- Nome do comprador
+- Documento do comprador (CPF ou CNPJ)
+- Data de nascimento do comprador
+- Telefone do comprador
+- Endereço de cobrança do comprador
 
 # Hosts
 
@@ -227,6 +235,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
     "Name": "Joao Couves da Silva",
     "Identity": "12345678910",
     "IpAddress": "127.0.0.1",
+    "BirthDate":"1983-10-01",
     "Email": "joaocouvessilva@email.com",
     "Phones": [ 
     {
@@ -296,9 +305,10 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |`Card.Number`|Número do cartão de crédito|string|sim|19|
 |`Card.Expiration`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
 |`Card.Brand`|Bandeira do cartão de crédito|string|sim|100|
-|`Customer.Name`|Nome do comprador|string|não|100|
+|`Customer.Name`|Nome do comprador|string|sim|100|
 |`Customer.Identity`|Número do documento de identificação do comprador <br/> [Tabela 1 - Customer.Identity]({{ site.baseurl_root }}manual/antifraude#tabela-1-customer.identity)|string|sim|100|
 |`Customer.IpAddress`|Endereço de IP do comprador|string|sim|15|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|string|não|10|
 |`Customer.Email`|E-mail do comprador|string|sim|100|
 |`Customer.Phones[n].Type`|Tipo do telefone do comprador <br/> [Tabela 2 - Customer.Phones{n}.Type]({{ site.baseurl_root }}manual/antifraude#customer.phones[n].type)|enum|não|-|
 |`Customer.Phones[n].DDI`|Código DDI do país. Mais informações em [Códigos DDI](http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional)|string|não|10|
@@ -345,6 +355,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
     "Name": "Joao Couves da Silva",
     "Identity": "12345678910",
     "IpAddress": "127.0.0.1",
+    "BirthDate":"1983-10-01",
     "Email": "joaocouvessilva@email.com",
     "Phones": [ 
     {
@@ -417,11 +428,12 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |`Customer.Name`|Nome do comprador|string|sim|100|
 |`Customer.Identity`|Número do documento de identificação do comprador <br/> [Tabela 1 - Customer.Identity]({{ site.baseurl_root }}manual/antifraude#tabela-1-customer.identity)|string|sim|100|
 |`Customer.IpAddress`|Endereço de IP do comprador|string|sim|15|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|string|não|10|
 |`Customer.Email`|E-mail do comprador|string|sim|100|
-|`Customer.Phones[n].Type`|Tipo do telefone do comprador <br/> [Tabela 2 - Customer.Phones{n}.Type]({{ site.baseurl_root }}manual/antifraude#customer.phones[n].type)|enum|não|-|
-|`Customer.Phones[n].DDI`|Código DDI do país. Mais informações em [Códigos DDI](http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional)|string|não|10|
-|`Customer.Phones[n].DDD`|Código DDD do estado. Mais informações em [Códigos DDD](http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/)|int|não|-|
-|`Customer.Phones[n].Number`|Número do telefone|string|não|19|
+|`Customer.Phones[n].Type`|Tipo do telefone do comprador <br/> [Tabela 2 - Customer.Phones{n}.Type]({{ site.baseurl_root }}manual/antifraude#customer.phones[n].type)|enum|sim|-|
+|`Customer.Phones[n].DDI`|Código DDI do país. Mais informações em [Códigos DDI](http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional)|string|sim|10|
+|`Customer.Phones[n].DDD`|Código DDD do estado. Mais informações em [Códigos DDD](http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/)|int|sim|-|
+|`Customer.Phones[n].Number`|Número do telefone|string|sim|19|
 |`Customer.Phones[n].Extension`|Número do ramal|int|não|-|
 |`Customer.Billing.Street`|Logradouro do endereço de cobrança|string|sim|100|
 |`Customer.Billing.Number`|Número do endereço de cobrança|string|sim|15|
@@ -463,6 +475,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
     "Name": "Joao Couves da Silva",
     "Identity": "12345678910",
     "IpAddress": "127.0.0.1",
+    "BirthDate":"1983-10-01",
     "Email": "joaocouvessilva@email.com",
     "Phones": [ 
     {
@@ -535,11 +548,12 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |`Customer.Name`|Nome do comprador|string|sim|100|
 |`Customer.Identity`|Número do documento de identificação do comprador <br/> [Tabela 1 - Customer.Identity]({{ site.baseurl_root }}manual/antifraude#tabela-1-customer.identity)|string|sim|100|
 |`Customer.IpAddress`|Endereço de IP do comprador|string|sim|15|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|string|sim|10|
 |`Customer.Email`|E-mail do comprador|string|sim|100|
-|`Customer.Phones[n].Type`|Tipo do telefone do comprador <br/> [Tabela 2 - Customer.Phones{n}.Type]({{ site.baseurl_root }}manual/antifraude#customer.phones[n].type)|enum|não|-|
-|`Customer.Phones[n].DDI`|Código DDI do país. Mais informações em [Códigos DDI](http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional)|string|não|10|
-|`Customer.Phones[n].DDD`|Código DDD do estado. Mais informações em [Códigos DDD](http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/)|int|não|-|
-|`Customer.Phones[n].Number`|Número do telefone|string|não|19|
+|`Customer.Phones[n].Type`|Tipo do telefone do comprador <br/> [Tabela 2 - Customer.Phones{n}.Type]({{ site.baseurl_root }}manual/antifraude#customer.phones[n].type)|enum|sim|-|
+|`Customer.Phones[n].DDI`|Código DDI do país. Mais informações em [Códigos DDI](http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional)|string|sim|10|
+|`Customer.Phones[n].DDD`|Código DDD do estado. Mais informações em [Códigos DDD](http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/)|int|sim|-|
+|`Customer.Phones[n].Number`|Número do telefone|string|sim|19|
 |`Customer.Phones[n].Extension`|Número do ramal|int|não|-|
 |`Customer.Billing.Street`|Logradouro do endereço de cobrança|string|sim|100|
 |`Customer.Billing.Number`|Número do endereço de cobrança|string|sim|15|
