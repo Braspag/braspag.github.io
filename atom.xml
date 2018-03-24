@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-03-24T22:42:30+00:00</updated>
+    <updated>2018-03-24T22:56:50+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -153,7 +153,17 @@
 
 &lt;h2 id=&quot;análise-com-credilink&quot;&gt;Análise com Credilink&lt;/h2&gt;
 
-&lt;p&gt;Uma transação a ser analisada e ter passado nas análises de regras e análise da Emailage, este se estiver habilitado, o documento do comprador será enviado para a Credilink. Se este não existir, no retorno terá que a transação foi rejeitada pela análise do documento do comprador na Credilink.&lt;/p&gt;
+&lt;p&gt;Uma transação a ser analisada e ter passado nas análises de regras, quarentena, blacklist e Emailage, este se estiver habilitado, os dados do comprador serão enviados para a Credilink. Após a análise na Credilink, não for encontrado nenhuma ocorrência, no retorno terá que a transação foi rejeitada pela na Credilink.&lt;/p&gt;
+
+&lt;p&gt;Os dados abaixo são obrigatórios para análise na Credilink:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nome do comprador&lt;/li&gt;
+  &lt;li&gt;Documento do comprador (CPF ou CNPJ)&lt;/li&gt;
+  &lt;li&gt;Data de nascimento do comprador&lt;/li&gt;
+  &lt;li&gt;Telefone do comprador&lt;/li&gt;
+  &lt;li&gt;Endereço de cobrança do comprador&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;hosts&quot;&gt;Hosts&lt;/h1&gt;
 
@@ -358,6 +368,7 @@
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Joao Couves da Silva&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345678910&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IpAddress&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;127.0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BirthDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1983-10-01&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;joaocouvessilva@email.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Phones&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -502,7 +513,7 @@
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Nome do comprador&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;100&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -518,6 +529,13 @@
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BirthDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data de nascimento do comprador &lt;br /&gt; Ex.: 1983-10-01&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Email&lt;/code&gt;&lt;/td&gt;
@@ -698,6 +716,7 @@
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Joao Couves da Silva&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345678910&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IpAddress&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;127.0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BirthDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1983-10-01&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;joaocouvessilva@email.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Phones&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -860,6 +879,13 @@
       &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BirthDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data de nascimento do comprador &lt;br /&gt; Ex.: 1983-10-01&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Email&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;E-mail do comprador&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
@@ -870,28 +896,28 @@
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phones[n].Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Tipo do telefone do comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#customer.phones[n].type&quot;&gt;Tabela 2 - Customer.Phones{n}.Type&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;enum&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phones[n].DDI&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Código DDI do país. Mais informações em &lt;a href=&quot;http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional&quot;&gt;Códigos DDI&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phones[n].DDD&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Código DDD do estado. Mais informações em &lt;a href=&quot;http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/&quot;&gt;Códigos DDD&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;int&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phones[n].Number&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Número do telefone&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;19&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -1038,6 +1064,7 @@
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Joao Couves da Silva&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345678910&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IpAddress&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;127.0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BirthDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1983-10-01&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;joaocouvessilva@email.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Phones&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -1200,6 +1227,13 @@
       &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BirthDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data de nascimento do comprador &lt;br /&gt; Ex.: 1983-10-01&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Email&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;E-mail do comprador&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
@@ -1210,28 +1244,28 @@
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phones[n].Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Tipo do telefone do comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#customer.phones[n].type&quot;&gt;Tabela 2 - Customer.Phones{n}.Type&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;enum&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phones[n].DDI&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Código DDI do país. Mais informações em &lt;a href=&quot;http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional&quot;&gt;Códigos DDI&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phones[n].DDD&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Código DDD do estado. Mais informações em &lt;a href=&quot;http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/&quot;&gt;Códigos DDD&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;int&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phones[n].Number&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Número do telefone&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;19&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;

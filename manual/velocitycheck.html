@@ -252,7 +252,17 @@
 
 <h2 id="análise-com-credilink">Análise com Credilink</h2>
 
-<p>Uma transação a ser analisada e ter passado nas análises de regras e análise da Emailage, este se estiver habilitado, o documento do comprador será enviado para a Credilink. Se este não existir, no retorno terá que a transação foi rejeitada pela análise do documento do comprador na Credilink.</p>
+<p>Uma transação a ser analisada e ter passado nas análises de regras, quarentena, blacklist e Emailage, este se estiver habilitado, os dados do comprador serão enviados para a Credilink. Após a análise na Credilink, não for encontrado nenhuma ocorrência, no retorno terá que a transação foi rejeitada pela na Credilink.</p>
+
+<p>Os dados abaixo são obrigatórios para análise na Credilink:</p>
+
+<ul>
+  <li>Nome do comprador</li>
+  <li>Documento do comprador (CPF ou CNPJ)</li>
+  <li>Data de nascimento do comprador</li>
+  <li>Telefone do comprador</li>
+  <li>Endereço de cobrança do comprador</li>
+</ul>
 
 <h1 id="hosts">Hosts</h1>
 
@@ -457,6 +467,7 @@
     </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BirthDate"</span><span class="p">:</span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
     </span><span class="p">{</span><span class="w">
@@ -601,7 +612,7 @@
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Name</code></td>
       <td style="text-align: left">Nome do comprador</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
@@ -617,6 +628,13 @@
       <td style="text-align: left">string</td>
       <td style="text-align: left">sim</td>
       <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
+      <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">não</td>
+      <td style="text-align: right">10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
@@ -797,6 +815,7 @@
     </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BirthDate"</span><span class="p">:</span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
     </span><span class="p">{</span><span class="w">
@@ -959,6 +978,13 @@
       <td style="text-align: right">15</td>
     </tr>
     <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
+      <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">não</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
       <td style="text-align: left">E-mail do comprador</td>
       <td style="text-align: left">string</td>
@@ -969,28 +995,28 @@
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Type</code></td>
       <td style="text-align: left">Tipo do telefone do comprador <br /> <a href="https://braspag.github.io/manual/antifraude#customer.phones[n].type">Tabela 2 - Customer.Phones{n}.Type</a></td>
       <td style="text-align: left">enum</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].DDI</code></td>
       <td style="text-align: left">Código DDI do país. Mais informações em <a href="http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional">Códigos DDI</a></td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].DDD</code></td>
       <td style="text-align: left">Código DDD do estado. Mais informações em <a href="http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/">Códigos DDD</a></td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Number</code></td>
       <td style="text-align: left">Número do telefone</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
@@ -1137,6 +1163,7 @@
     </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BirthDate"</span><span class="p">:</span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
     </span><span class="p">{</span><span class="w">
@@ -1299,6 +1326,13 @@
       <td style="text-align: right">15</td>
     </tr>
     <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
+      <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">sim</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
       <td style="text-align: left">E-mail do comprador</td>
       <td style="text-align: left">string</td>
@@ -1309,28 +1343,28 @@
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Type</code></td>
       <td style="text-align: left">Tipo do telefone do comprador <br /> <a href="https://braspag.github.io/manual/antifraude#customer.phones[n].type">Tabela 2 - Customer.Phones{n}.Type</a></td>
       <td style="text-align: left">enum</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].DDI</code></td>
       <td style="text-align: left">Código DDI do país. Mais informações em <a href="http://www.ddi-ddd.com.br/Codigos-Telefone-Internacional">Códigos DDI</a></td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].DDD</code></td>
       <td style="text-align: left">Código DDD do estado. Mais informações em <a href="http://www.ddi-ddd.com.br/Codigos-Telefone-Brasil/">Códigos DDD</a></td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phones[n].Number</code></td>
       <td style="text-align: left">Número do telefone</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
