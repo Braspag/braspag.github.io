@@ -53,15 +53,15 @@ O Velocity Check realiza análises em cima de regras habilitadas para os tipos d
 
 A análise ocorre em cima de cada variável (V), contando quantas vezes (H) a mesma passou na Braspag para a sua loja dentro de um determinado período (P).
 
-V = Variável
-H = Hits (Quantidade)
-P = Período
+- V = Variável
+- H = Hits (Quantidade)
+- P = Período
 
 Com estes 3 elementos, teríamos a seguinte regra, **Máximo de 5 Hits de Número do Cartão em 12 Hora(s)**, onde:
 
-V = Número do cartão de crédito
-H = 5
-P = 12 Horas
+- V = Número do cartão de crédito
+- H = 5
+- P = 12 Horas
 
 Com isso, o Velocity Check ao receber a 6ª transação com o mesmo número de cartão (V) das outras 5 anteriores, a regra acima ao ser executada e detectar que a quantidade (H) excedeu as 5 permitidas no período (P) entre a data da primeira transação e a data da 6ª recebida, esta terá o status de rejeitada, o número do cartão poderá ir quarentena e a resposta terá o conteúdo de que a transação foi rejeitada devido a regra.
 
@@ -69,29 +69,43 @@ Com isso, o Velocity Check ao receber a 6ª transação com o mesmo número de c
 
 Ao cadastrar uma regra é possível especificar quanto tempo o valor de uma determinada variável irá ser levado em consideração nas próximas análises, ou seja, se o cliente quiser identificar a quantidade de vezes que o mesmo número de cartão se repetiu para um período de 12 horas dentro de um intervalo de 2 dias, não será necessário o Velocity Check realizar esta contagem retroativa agrupando por período. Neste cenário por exemplo, a aplicação teria que realizar a contagem para os seguintes intervalos:
 
-D-2 = 0h as 12h
-D-2 = 12h as 0h
-D-1 = 0h as 12h
-D-1 = 12h as 0h
+- D-2 = 0h as 12h
+- D-2 = 12h as 0h
+- D-1 = 0h as 12h
+- D-1 = 12h as 0h
 
 Com a quarentena configurada, a aplicação não irá realizar essa contagem retroativa por período, pois na análise é verificado se existe o valor da variável número de cartão em quarentena. Por exemplo: para a regra mostrada acima (**Máximo de 5 Hits de Número do Cartão em 12 Hora(s)**), o tempo de expiração se definido em 2 dias, a regra será analisada apenas para o período configurado, ou seja, 12 horas para traz e irá verificar durante 2 dias para traz se número do cartão se encontra em quarentena.
 
 Uma transação analisada, não rejeitada pela regra, mas rejeitada pela quarentena, terá o retorno informando que a mesma foi rejeitada pela quarentena.
 
-## Análise de Blacklist
+## Blacklist
 
 Uma transação a ser analisada, e o número do cartão enviado para análise estiver na blacklist, a mesma será rejeitada, independente de existir regra cadastra para este tipo de variável ou não e as demais regras para outrostipos de variáveis serão ignoradas.
-O retorno terá que a mesma foi rejeitada pela blacklist.
 
-## Análise de Whitelist
+Uma transação analisada e rejeitada pela blacklist, terá o retorno informando que a mesma foi rejeitada pela blacklist.
+
+## Whitelist
 
 Uma transação a ser analisada, e o número do cartão enviado para análise estiver na whitelist, a mesma será aceita, independente de existir regra cadastra para este tipo de variável ou não e as demais regras para outros tipos de variáveis serão ignoradas.
 
-## Análise com Emailage
+Uma transação analisada e aceita pela whitelist, terá o retorno informando que a mesma foi aceita pela whitelist.
 
-O e-mail é o identificador chave para todos os seus perfir online, como conta de lojas ecommerce, redes sociais, procedores de e-mails, etc. Com isso a Emailage usa o histórico de um endereço de e-mail e comportamentos para avaliar o risco de transação. Com um hub global de inteligência de e-mail, conectam em todo o mundo na luta contra a fraude. Por meio de uma pontuação preditiva, é possível realizar a automação e o dimensionamento de esforços para a prevenção de fraude.
+## Emailage
 
-Uma transação a ser analisada e ter passado nas análises de regras, quarentena e blacklist, o e-mail do comprador será enviado para a Emailage. Este sendo de alto risco, no retorno terá que a transação foi rejeitada pela análise de e-mail na Emailage.
+O e-mail é o identificador chave para todos os seus perfir online, como conta de lojas e-commerce, redes sociais, provedores de e-mails, etc. Com isso a Emailage usa o histórico de um endereço de e-mail e comportamentos para avaliar o risco da transação. Com um hub global de inteligência de e-mail, conectam todo o mundo na luta contra a fraude. Por meio de uma pontuação preditiva, é possível realizar a automação e o dimensionamento de esforços para a prevenção de fraude.
+
+Os dados abaixo são obrigatórios para análise na Emailage:
+
+- Nome do comprador
+- IP do comprador
+- E-mail do comprador
+- Documento do comprador (CPF ou CNPJ)
+- Telefone do comprador
+- Endereço de cobrança do comprador
+
+Uma transação a ser analisada e ter passado nas análises de regras, quarentena e blacklist, os dados do comprador serão enviados para a Emailage. Na resposta da Emailage o score for de alto risco, o retorno terá que a transação foi rejeitada pela análise na Emailage.
+
+Caracteriza-se alto risco quando o score retornado pela Emailage for acima de 900 e baixo risco menor que 10.
 
 ## Análise com Credilink
 
