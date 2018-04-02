@@ -299,7 +299,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-|:-|-:|
 |`Transaction.OrderId`|Número do pedido da loja|string|sim|100|
-|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|não|-|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
 |`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|100|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|100|
 |`Card.Number`|Número do cartão de crédito|string|sim|19|
@@ -342,15 +342,15 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
         "RejectReasons": [
             {
                 "RuleId": 408,
-                "Message": "Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em    1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"
+                "Message": "Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"
             },
             {
                 "RuleId": 8,
-                "Message": "Bloqueado pela regra Identification. Name: 2 Hits de Documento em 1 minuto. HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"
+                "Message": "Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"
             }
         ],
         "AcceptByWhiteList": false,
-        "BlockedByBlackList": false
+        "RejectByBlackList": false
     },
     "Links": [
         {
@@ -362,7 +362,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
     "Transaction": {
         "Id": "b88a8b60-9e7d-4064-8413-059e0a896aef",
         "Date": "2018-02-02T13:51:56.854"
-    }
+    },
 }
 ```
 
@@ -377,7 +377,6 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-
 
 ## Analisando uma transação no Velocity Check com Emailage
 
@@ -464,7 +463,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-|:-|-:|
 |`Transaction.OrderId`|Número do pedido da loja|string|sim|100|
-|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|não|-|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
 |`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|100|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|100|
 |`Card.Number`|Número do cartão de crédito|string|sim|19|
@@ -596,7 +595,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-|:-|-:|
 |`Transaction.OrderId`|Número do pedido da loja|string|sim|100|
-|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag|datetime|não|-|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
 |`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|100|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|100|
 |`Card.Number`|Número do cartão de crédito|string|sim|19|
@@ -660,7 +659,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Workphone|Telefone comercial|
 |Cellphone|Celular|
 
-## Tabela 3 - Customer.Phones[n].Type
+## Tabela 3 - AnalysisResult.Status
 
 |Valor|Descrição|
 |:-|:-|
