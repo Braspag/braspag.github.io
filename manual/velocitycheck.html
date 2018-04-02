@@ -894,7 +894,7 @@
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">TRansaction.Date</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Date</code></td>
       <td style="text-align: left">Data do pedido <br /> Ex.: 2018-02-02 13:51:56.854</td>
       <td style="text-align: center">datetime</td>
     </tr>
@@ -1248,6 +1248,152 @@
 </table>
 
 <h3 id="response-2">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"AnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RejectByBlackList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://velocitysandbox.braspag.com.br/Analysis/80832037-97b4-4952-8ae7-c37be13cce7a"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b88a8b60-9e7d-4064-8413-059e0a896aef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">201 Created</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.Score</code></td>
+      <td style="text-align: left">Score calculado para o pedido <br /> Na atual versão será retornado 0 (zero) para status igual a Accept e 100 (cem) para status igual a Reject</td>
+      <td style="text-align: center">int</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.Status</code></td>
+      <td style="text-align: left">Status da transação no Velocity Braspag <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-3-analysisresult.status">Tabela 3 - AnalysisResult.Status</a></td>
+      <td style="text-align: center">int</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.RejectReasons[n].RuleId</code></td>
+      <td style="text-align: left">Id da regra disparada a qual a transação foi rejeitada</td>
+      <td style="text-align: center">int</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.RejectReasons[n].Message</code></td>
+      <td style="text-align: left">Descrição do bloqueio, contendo: <br /> Tipo de bloqueio - Ex.: Bloqueado pela regra Identification <br /> Nome da regra - Ex.: Máximo de 1 Hits de Identificação em 1 Hora(s) <br /> Quantidade de repetições no período analisado - Ex.: HitsQuantity: 1 <br /> Período analisado - HitsTimeRangeInSeconds: 3600 <br /> Tempo de expiração da quarentena - Ex.: ExpirationBlockTimeInSeconds: 0</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.AcceptByWhiteList</code></td>
+      <td style="text-align: left">Indica se a transação foi automaticamente aceita por algum valor de alguma whitelist referente a alguma variável</td>
+      <td style="text-align: center">bool</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.RejectByBlackList</code></td>
+      <td style="text-align: left">Indica se a transação foi automaticamente rejeitada por algum valor de alguma blacklist referente a alguma variável</td>
+      <td style="text-align: center">bool</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Id</code></td>
+      <td style="text-align: left">Id da transação no Velocity Braspag</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Date</code></td>
+      <td style="text-align: left">Data do pedido <br /> Ex.: 2018-02-02 13:51:56.854</td>
+      <td style="text-align: center">datetime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EmailageResult.EmailExist</code></td>
+      <td style="text-align: left">Indica se o e-mail existe <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-4-emailageresult.emailexist">Tabela 4 - EmailageResult.EmailExist</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EmailageResult.FirstVerificationDate</code></td>
+      <td style="text-align: left">Data em que o e-mail foi visto pela primeira vez pela Emailage. Caso esta consulta seja a primeira, será retornada a data corrente</td>
+      <td style="text-align: center">datetime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EmailageResult.Score</code></td>
+      <td style="text-align: left">Score da transação na Emailage, podendo variar de 1 a 1000 de acordo com as bandas de risco</td>
+      <td style="text-align: center">int</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EmailageResult.ScoreDescription</code></td>
+      <td style="text-align: left">Descrição do score da transação na Emailage</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EmailageResult.ReasonId</code></td>
+      <td style="text-align: left">Id do motivo para o cálculo do score <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-5-emailageresult.reason">Tabela 5 - EmailageResult.Reason</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EmailageResult.ReasonDescription</code></td>
+      <td style="text-align: left">Descrição do motivo para o cálculo do score <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-5-emailageresult.reason">Tabela 5 - EmailageResult.Reason</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EmailageResult.RiskBandId</code></td>
+      <td style="text-align: left">Id da banda de risco em relação ao score calculado <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-6-emailageresult.riskband">Tabela 5 - EmailageResult.RiskBand</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EmailageResult.RiskBandDescription</code></td>
+      <td style="text-align: left">Descrição da banda de risco em relação ao score calculado</td>
+      <td style="text-align: center">string</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1696,8 +1842,590 @@
 
 <h2 id="tabela-3---analysisresultstatus">Tabela 3 - AnalysisResult.Status</h2>
 
-<p>|Valor|Descrição|
-|:-|:-|</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Accept</td>
+      <td style="text-align: left">Aceita</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Reject</td>
+      <td style="text-align: left">Rejeitada</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-4---emailageresultemailexist">Tabela 4 - EmailageResult.EmailExist</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">No anymore</td>
+      <td style="text-align: left">Não existe mais</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">No sure</td>
+      <td style="text-align: left">Não tem certeza</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-5---emailageresultreason">Tabela 5 - EmailageResult.Reason</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Fraud Level X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Email does not exist</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Domain does not exist</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Risky Domain</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Risky Country</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Risky Email Name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Numeric Email</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Limited History for Email</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Email Recently Created</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Email linked to High Risk Account</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">Good Level X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">Low Risk Domain</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">Email Created X Years Ago</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Email Created at least X Years Ago</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Email Linked to Low Risk Account</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">16</td>
+      <td style="text-align: left">InvalidEmailSyntax</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">17</td>
+      <td style="text-align: left">Mailbox is Full</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">18</td>
+      <td style="text-align: left">Mailbox is Inactive</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">19</td>
+      <td style="text-align: left">Corporate Link</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">Mailbox is Expired</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">21</td>
+      <td style="text-align: left">User Defined Risk Domain</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">22</td>
+      <td style="text-align: left">User Defined Low Risk Domain</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">23</td>
+      <td style="text-align: left">Velocity Level X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">24</td>
+      <td style="text-align: left">Risk Domain Category</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">Low Risk Domain Category</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">26</td>
+      <td style="text-align: left">High Risk Email Account</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">27</td>
+      <td style="text-align: left">Email Created at least X Months Ago</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">28</td>
+      <td style="text-align: left">Valid Email From X Country Domain</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">29</td>
+      <td style="text-align: left">Valid Domain From X Country</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">30</td>
+      <td style="text-align: left">Potentially Breached Email</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">31</td>
+      <td style="text-align: left">Fraud Emails Linked X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">32</td>
+      <td style="text-align: left">Good Email Linked Level X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">33</td>
+      <td style="text-align: left">Fraud IP Level X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">34</td>
+      <td style="text-align: left">Good IP Level X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">35</td>
+      <td style="text-align: left">Risky Proxy IP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">36</td>
+      <td style="text-align: left">Risk IP Behavior</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">37</td>
+      <td style="text-align: left">Risky IP Country</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">38</td>
+      <td style="text-align: left">IP Not Found</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">39</td>
+      <td style="text-align: left">IP Invalid Syntax Format</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">High Risk IP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">51</td>
+      <td style="text-align: left">Good Popularity</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">52</td>
+      <td style="text-align: left">Risk Domain Category Review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">53</td>
+      <td style="text-align: left">Tumbling Abuse</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">54</td>
+      <td style="text-align: left">Email Enumeration for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">55</td>
+      <td style="text-align: left">Email Enumeration for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">56</td>
+      <td style="text-align: left">Creation Date Velocity</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">61</td>
+      <td style="text-align: left">Customer Email not Provided</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">62</td>
+      <td style="text-align: left">Risk Email Pattern</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">63</td>
+      <td style="text-align: left">Suspected Fraud</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">64</td>
+      <td style="text-align: left">Limited Email Information</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">65</td>
+      <td style="text-align: left">Domain Recently Created</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">66</td>
+      <td style="text-align: left">VelocityOther</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">67</td>
+      <td style="text-align: left">Valid Email From Domain</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">68</td>
+      <td style="text-align: left">Valid Domain</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">101</td>
+      <td style="text-align: left">Low Risk Email Domain for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">102</td>
+      <td style="text-align: left">Low Risk IP for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">103</td>
+      <td style="text-align: left">Low Risk IP Geolocation for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">104</td>
+      <td style="text-align: left">Low Risk Email Domain for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">105</td>
+      <td style="text-align: left">Low Risk IP for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">106</td>
+      <td style="text-align: left">Low Risk IP Geolocation for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">107</td>
+      <td style="text-align: left">Low Risk Email Domain for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">108</td>
+      <td style="text-align: left">Low Risk IP for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">109</td>
+      <td style="text-align: left">Low Risk IP Geolocation for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">110</td>
+      <td style="text-align: left">Very Low Risk Email Domain for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">111</td>
+      <td style="text-align: left">Very Low Risk IP for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">112</td>
+      <td style="text-align: left">Very Low Risk IP Geolocation for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">113</td>
+      <td style="text-align: left">Very Low Risk Email Domain for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">114</td>
+      <td style="text-align: left">Very Low Risk IP for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">115</td>
+      <td style="text-align: left">Very Low Risk IP Geolocation for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">116</td>
+      <td style="text-align: left">Very Low Risk Email Domain for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">117</td>
+      <td style="text-align: left">Very Low Risk IP for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">118</td>
+      <td style="text-align: left">Very Low Risk IP Geolocation for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">121</td>
+      <td style="text-align: left">High Risk Email Domain for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">122</td>
+      <td style="text-align: left">High Risk IP for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">123</td>
+      <td style="text-align: left">High Risk IP Geolocation for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">124</td>
+      <td style="text-align: left">High Risk Email Domain for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">125</td>
+      <td style="text-align: left">High Risk IP for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">126</td>
+      <td style="text-align: left">High Risk IP Geolocation for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">127</td>
+      <td style="text-align: left">High Risk Email Domain for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">128</td>
+      <td style="text-align: left">High Risk IP for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">129</td>
+      <td style="text-align: left">High Risk IP Geolocation for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">130</td>
+      <td style="text-align: left">Very High Risk Email Domain for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">131</td>
+      <td style="text-align: left">Very High Risk IP for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">132</td>
+      <td style="text-align: left">Very High Risk IP Geolocation for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">133</td>
+      <td style="text-align: left">Very High Risk Email Domain for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">134</td>
+      <td style="text-align: left">Very High Risk IP for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">135</td>
+      <td style="text-align: left">Very High Risk IP Geolocation for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">136</td>
+      <td style="text-align: left">Very High Risk Email Domain for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">137</td>
+      <td style="text-align: left">Very High Risk IP for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">138</td>
+      <td style="text-align: left">Very High Risk IP Geolocation for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">139</td>
+      <td style="text-align: left">High Risk Phone for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">140</td>
+      <td style="text-align: left">High Risk Ship Address for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">141</td>
+      <td style="text-align: left">High Risk Phone for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">142</td>
+      <td style="text-align: left">High Risk Ship Address for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">143</td>
+      <td style="text-align: left">High Risk Phone for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">144</td>
+      <td style="text-align: left">High Risk Ship Address for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">145</td>
+      <td style="text-align: left">Very High Risk Phone for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">146</td>
+      <td style="text-align: left">Very High Risk Ship Address for Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">147</td>
+      <td style="text-align: left">Very High Risk Phone for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">148</td>
+      <td style="text-align: left">Very High Risk Ship Address for Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">149</td>
+      <td style="text-align: left">Very High Risk Phone for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">150</td>
+      <td style="text-align: left">Very High Risk Ship Address for Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">151</td>
+      <td style="text-align: left">High Risk Bill Address For Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">152</td>
+      <td style="text-align: left">High Risk Customer ID For Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">153</td>
+      <td style="text-align: left">High Risk Service Location For Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">154</td>
+      <td style="text-align: left">High Risk Bill Address For Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">155</td>
+      <td style="text-align: left">High Risk Customer ID For Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">156</td>
+      <td style="text-align: left">High Risk Service Location For Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">157</td>
+      <td style="text-align: left">High Risk Bill Address For Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">158</td>
+      <td style="text-align: left">High Risk Customer ID For Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">159</td>
+      <td style="text-align: left">High Risk Service Location For Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">160</td>
+      <td style="text-align: left">Very High Risk Bill Address For Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">161</td>
+      <td style="text-align: left">Very High Risk Customer ID For Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">162</td>
+      <td style="text-align: left">Very High Risk Service Location For Company</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">163</td>
+      <td style="text-align: left">Very High Risk Bill Address For Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">164</td>
+      <td style="text-align: left">Very High Risk Customer ID For Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">165</td>
+      <td style="text-align: left">Very High Risk Service Location For Industry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">166</td>
+      <td style="text-align: left">Very High Risk Bill Address For Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">167</td>
+      <td style="text-align: left">Very High Risk Customer ID For Network</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">168</td>
+      <td style="text-align: left">Very High Risk Service Location For Network</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-6---emailageresultriskband">Tabela 6 - EmailageResult.RiskBand</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Score</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1 a 100</td>
+      <td style="text-align: left">Risco muito baixo</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">101 a 300</td>
+      <td style="text-align: left">Risco baixo</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">301 a 600</td>
+      <td style="text-align: left">Risco moderado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">601 a 800</td>
+      <td style="text-align: left">Risco indicado a revisão</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">801 a 900</td>
+      <td style="text-align: left">Risco alto</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">901 a 1000</td>
+      <td style="text-align: left">Risco muito alto</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
