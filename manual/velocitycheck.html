@@ -454,7 +454,7 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-18 13:51:56.854"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96385"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -568,7 +568,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.Date</code></td>
-      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag</td>
+      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não seja informada, uma data será gerada pela Braspag</td>
       <td style="text-align: left">datetime</td>
       <td style="text-align: left">não</td>
       <td style="text-align: right">-</td>
@@ -795,6 +795,37 @@
 
 <h3 id="response-1">Response</h3>
 
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"AnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RejectByBlackList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://velocitysandbox.braspag.com.br/Analysis/80832037-97b4-4952-8ae7-c37be13cce7a"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b88a8b60-9e7d-4064-8413-059e0a896aef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
 <table>
@@ -828,7 +859,7 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-18 13:51:56.854"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96385"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -942,7 +973,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.Date</code></td>
-      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag</td>
+      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não seja informada, uma data será gerada pela Braspag</td>
       <td style="text-align: left">datetime</td>
       <td style="text-align: left">não</td>
       <td style="text-align: right">-</td>
@@ -1202,7 +1233,7 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-18 13:51:56.854"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96385"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1316,7 +1347,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.Date</code></td>
-      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não envie seja enviada, uma data será gerada pela Braspag</td>
+      <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não seja informada, uma data será gerada pela Braspag</td>
       <td style="text-align: left">datetime</td>
       <td style="text-align: left">não</td>
       <td style="text-align: right">-</td>
@@ -1613,6 +1644,11 @@
     </tr>
   </tbody>
 </table>
+
+<h2 id="tabela-3---analysisresultstatus">Tabela 3 - AnalysisResult.Status</h2>
+
+<p>|Valor|Descrição|
+|:-|:-|</p>
 
 </div>
 
