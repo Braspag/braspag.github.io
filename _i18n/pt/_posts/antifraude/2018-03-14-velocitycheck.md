@@ -598,6 +598,18 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 ### Response
 
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|201 Created|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+
 # Tabelas
 
 ## Tabela 1 - Customer.Identity
