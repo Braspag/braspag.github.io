@@ -624,5 +624,5 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Valor|Descrição|
 |:-|:-|
 |Phone|Telefone residencial|
-|Workphone|Telefonecomercial|
+|Workphone|Telefone comercial|
 |Cellphone|Celular|
