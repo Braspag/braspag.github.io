@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-02T17:19:20+00:00</updated>
+    <updated>2018-04-02T18:49:36+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -13,14 +13,14 @@
     </author>
     
     <entry>
-        <title>Velocity Check - Manual de integração</title>
+        <title>Velocity - Manual de integração</title>
         <category term="manual" />
         <link href="https://braspag.github.io//manual/velocitycheck"/>
         <updated>2018-03-14T00:00:00+00:00</updated>
         <id>https://braspag.github.io//manual/velocitycheck</id>
         <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
 
-&lt;p&gt;Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity Check é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado. Ela é uma aliada na avaliação de comportamentos suspeitos de compra, pois os cálculos serão baseados em variáveis.&lt;/p&gt;
+&lt;p&gt;Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado. Ela é uma aliada na avaliação de comportamentos suspeitos de compra, pois os cálculos serão baseados em variáveis.&lt;/p&gt;
 
 &lt;p&gt;A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.&lt;/p&gt;
 
@@ -30,7 +30,7 @@
 
 &lt;h1 id=&quot;objetivo&quot;&gt;Objetivo&lt;/h1&gt;
 
-&lt;h2 id=&quot;velocity-check&quot;&gt;Velocity Check&lt;/h2&gt;
+&lt;h2 id=&quot;velocity&quot;&gt;Velocity&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Auxiliar na detecção de suspeitas de fraude&lt;/li&gt;
@@ -40,7 +40,7 @@
 
 &lt;h2 id=&quot;documentação&quot;&gt;Documentação&lt;/h2&gt;
 
-&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Velocity Check Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
+&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Velocity Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
 
 &lt;p&gt;Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
 
@@ -48,7 +48,7 @@
 
 &lt;h2 id=&quot;análise-de-regras&quot;&gt;Análise de regras&lt;/h2&gt;
 
-&lt;p&gt;O Velocity Check realiza análises em cima de regras habilitadas para os tipos de variáveis abaixo:&lt;/p&gt;
+&lt;p&gt;O Velocity realiza análises em cima de regras habilitadas para os tipos de variáveis abaixo:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -103,11 +103,11 @@
   &lt;li&gt;P = 12 Horas&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Com isso, o Velocity Check ao receber a 6ª transação com o mesmo número de cartão (V) das outras 5 anteriores, a regra acima ao ser executada e detectar que a quantidade (H) excedeu as 5 permitidas no período (P) entre a data da primeira transação e a data da 6ª recebida, esta terá o status de rejeitada, o número do cartão poderá ir quarentena e a resposta terá o conteúdo de que a transação foi rejeitada devido a regra.&lt;/p&gt;
+&lt;p&gt;Com isso, o Velocity ao receber a 6ª transação com o mesmo número de cartão (V) das outras 5 anteriores, a regra acima ao ser executada e detectar que a quantidade (H) excedeu as 5 permitidas no período (P) entre a data da primeira transação e a data da 6ª recebida, esta terá o status de rejeitada, o número do cartão poderá ir quarentena e a resposta terá o conteúdo de que a transação foi rejeitada devido a regra.&lt;/p&gt;
 
 &lt;h2 id=&quot;quarentena&quot;&gt;Quarentena&lt;/h2&gt;
 
-&lt;p&gt;Ao cadastrar uma regra é possível especificar quanto tempo o valor de uma determinada variável irá ser levado em consideração nas próximas análises, ou seja, se o cliente quiser identificar a quantidade de vezes que o mesmo número de cartão se repetiu para um período de 12 horas dentro de um intervalo de 2 dias, não será necessário o Velocity Check realizar esta contagem retroativa agrupando por período. Neste cenário por exemplo, a aplicação teria que realizar a contagem para os seguintes intervalos:&lt;/p&gt;
+&lt;p&gt;Ao cadastrar uma regra é possível especificar quanto tempo o valor de uma determinada variável irá ser levado em consideração nas próximas análises, ou seja, se o cliente quiser identificar a quantidade de vezes que o mesmo número de cartão se repetiu para um período de 12 horas dentro de um intervalo de 2 dias, não será necessário o Velocity realizar esta contagem retroativa agrupando por período. Neste cenário por exemplo, a aplicação teria que realizar a contagem para os seguintes intervalos:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;D-2 = 0h as 12h&lt;/li&gt;
@@ -188,7 +188,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;api-velocity-check-braspag&quot;&gt;API Velocity Check Braspag&lt;/h2&gt;
+&lt;h2 id=&quot;api-velocity-braspag&quot;&gt;API Velocity Braspag&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -213,13 +213,13 @@
 
 &lt;h2 id=&quot;tokens-de-acesso&quot;&gt;Tokens de Acesso&lt;/h2&gt;
 
-&lt;p&gt;A API Velocity Check Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A API Velocity Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.&lt;/p&gt;
 
 &lt;h2 id=&quot;obtenção-do-token-de-acesso&quot;&gt;Obtenção do token de acesso&lt;/h2&gt;
 
-&lt;p&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;API Velocity Check&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;API Velocity Braspag&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -229,7 +229,7 @@
     &lt;p&gt;O &lt;strong&gt;BraspagAuth&lt;/strong&gt; valida a credencial recebida. Se for válida, retorna o token de acesso para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;API Velocity Check&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;API Velocity Braspag&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Se o token de acesso for válido, a requisição é processada e os dados são retornados para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
@@ -320,7 +320,7 @@
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;access_token&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Velocity Check&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Velocity Braspag&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;token_type&lt;/code&gt;&lt;/td&gt;
@@ -348,14 +348,14 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;analisando-uma-transação-no-velocity-check&quot;&gt;Analisando uma transação no Velocity Check&lt;/h2&gt;
+&lt;h2 id=&quot;analisando-uma-transação-no-velocity&quot;&gt;Analisando uma transação no Velocity&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Transaction&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789AB&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-02-02T13:51:56.854&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-02-02 13:51:56.854&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;96385&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Card&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -469,7 +469,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Transaction.Date&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Data do pedido &lt;br /&gt; Ex.: 2016-12-09 19:16:38.155 &lt;br /&gt; Obs.: Caso não seja informada, uma data será gerada pela Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data do pedido &lt;br /&gt; Ex.: 2018-02-02 13:51:56.854 &lt;br /&gt; Obs.: Caso não seja informada, uma data será gerada pela Braspag&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;datetime&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
@@ -750,17 +750,66 @@
 
 &lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;|Parâmetro|Descrição|Tipo|
-|:-|:-|:-:|&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AnalysisResult.Score&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Score calculado para o pedido &lt;br /&gt; Na atual versão será retornado 0 (zero) para status igual a Accept e 100 (cem) para status igual a Reject&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AnalysisResult.Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Status da transação no Velocity Braspag &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-3-analysisresult.status&quot;&gt;Tabela 3 - AnalysisResult.Status&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AnalysisResult.RejectReasons[n].RuleId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id da regra disparada a qual a transação foi rejeitada&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AnalysisResult.RejectReasons[n].Message&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Descrição do bloqueio, contendo: &lt;br /&gt; Tipo de bloqueio - Ex.: Bloqueado pela regra Identification &lt;br /&gt; Nome da regra - Ex.: Máximo de 1 Hits de Identificação em 1 Hora(s) &lt;br /&gt; Quantidade de repetições no período analisado - Ex.: HitsQuantity: 1 &lt;br /&gt; Período analisado - HitsTimeRangeInSeconds: 3600 &lt;br /&gt; Tempo de expiração da quarentena - Ex.: ExpirationBlockTimeInSeconds: 0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AnalysisResult.AcceptByWhiteList&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Indica se a transação foi automaticamente aceita por algum valor de alguma whitelist referente a alguma variável&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;bool&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AnalysisResult.RejectByBlackList&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Indica se a transação foi automaticamente rejeitada por algum valor de alguma blacklist referente a alguma variável&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;bool&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Transaction.Id&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id da transação no Velocity Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;guid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TRansaction.Date&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data do pedido &lt;br /&gt; Ex.: 2018-02-02 13:51:56.854&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;datetime&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;h2 id=&quot;analisando-uma-transação-no-velocity-check-com-emailage&quot;&gt;Analisando uma transação no Velocity Check com Emailage&lt;/h2&gt;
+&lt;h2 id=&quot;analisando-uma-transação-no-velocity-com-emailage&quot;&gt;Analisando uma transação no Velocity com Emailage&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Transaction&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789AB&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-02-02T13:51:56.854&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-02-02 13:51:56.854&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;96385&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Card&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -874,7 +923,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Transaction.Date&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Data do pedido &lt;br /&gt; Ex.: 2016-12-09 19:16:38.155 &lt;br /&gt; Obs.: Caso não seja informada, uma data será gerada pela Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data do pedido &lt;br /&gt; Ex.: 2018-02-02 13:51:56.854 &lt;br /&gt; Obs.: Caso não seja informada, uma data será gerada pela Braspag&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;datetime&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
@@ -1127,14 +1176,14 @@
 &lt;p&gt;|Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|&lt;/p&gt;
 
-&lt;h2 id=&quot;analisando-uma-transação-no-velocity-check-e-credilink&quot;&gt;Analisando uma transação no Velocity Check e Credilink&lt;/h2&gt;
+&lt;h2 id=&quot;analisando-uma-transação-no-velocity-e-credilink&quot;&gt;Analisando uma transação no Velocity e Credilink&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Transaction&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789AB&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-02-02T13:51:56.854&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-02-02 13:51:56.854&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;96385&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Card&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -1248,7 +1297,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Transaction.Date&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Data do pedido &lt;br /&gt; Ex.: 2016-12-09 19:16:38.155 &lt;br /&gt; Obs.: Caso não seja informada, uma data será gerada pela Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data do pedido &lt;br /&gt; Ex.: 2018-02-02 13:51:56.854 &lt;br /&gt; Obs.: Caso não seja informada, uma data será gerada pela Braspag&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;datetime&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;não&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
