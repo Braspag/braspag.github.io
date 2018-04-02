@@ -183,7 +183,7 @@ Exemplo:
 
 |Key|Value|
 |:-|:-|
-|`scope`|ChargebackApp|
+|`scope`|VelocityApp|
 |`grant_type`|client_credentials|
 
 ### Response
@@ -200,7 +200,7 @@ Exemplo:
 
 |Parâmetro|Descrição|
 |:-|:-|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Retroalimentação de Chargeback|
+|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Velocity Check|
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/> O token quando expirar, é necessário obter um novo|
 
@@ -334,6 +334,18 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 ### Response
 
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|201 Created|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+
 ## Analisando uma transação no Velocity Check com Emailage
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
@@ -453,6 +465,18 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |`Customer.Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
 
 ### Response
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|201 Created|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
 
 ## Analisando uma transação no Velocity Check e Credilink
 
