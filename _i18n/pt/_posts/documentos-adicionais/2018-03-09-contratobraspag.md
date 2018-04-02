@@ -11,6 +11,8 @@ tags:
 
 # Contrato de Prestação de Serviços
 
+> Esse contrato está registrado na comarca de Barueri-SP, protocolado sobre o número 1.312.703 em 04/01/2018 e registrado nessa mesma data em microfilme sob número 1.357.080.
+
 Pelo presente instrumento, **BRASPAG – TECNOLOGIA EM PAGAMENTO LTDA.**, pessoa jurídica de direito privado, com sede na Capital do Estado de São Paulo, na Alameda Xingu, nº 512, 27° Andar, Alphaville, CEP: 06.455-911, inscrita no CNPJ/MF sob o nº 07.355.049/0001-06, representada nos termos de seus atos societários, doravante denominada **CONTRATADA**, e a pessoa jurídica qualificada na Proposta Comercial, doravante denominada **CONTRATANTE**; 
 
 ## Considerando que
