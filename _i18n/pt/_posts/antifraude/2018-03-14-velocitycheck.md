@@ -222,7 +222,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 {
   "Transaction": {
     "OrderId": "123456789AB",
-    "Date": "2018-02-18 13:51:56.854",
+    "Date": "2018-02-02T13:51:56.854",
     "Amount": "96385"
   },
   "Card": {
@@ -334,6 +334,38 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 ### Response
 
+```json
+{
+    "AnalysisResult": {
+        "Score": 100,
+        "Status": "Reject",
+        "RejectReasons": [
+            {
+                "RuleId": 408,
+                "Message": "Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em    1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"
+            },
+            {
+                "RuleId": 8,
+                "Message": "Bloqueado pela regra Identification. Name: 2 Hits de Documento em 1 minuto. HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"
+            }
+        ],
+        "AcceptByWhiteList": false,
+        "BlockedByBlackList": false
+    },
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://velocitysandbox.braspag.com.br/Analysis/80832037-97b4-4952-8ae7-c37be13cce7a"
+        }
+    ],
+    "Transaction": {
+        "Id": "b88a8b60-9e7d-4064-8413-059e0a896aef",
+        "Date": "2018-02-02T13:51:56.854"
+    }
+}
+```
+
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
@@ -346,6 +378,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 
+
 ## Analisando uma transação no Velocity Check com Emailage
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
@@ -354,7 +387,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 {
   "Transaction": {
     "OrderId": "123456789AB",
-    "Date": "2018-02-18 13:51:56.854",
+    "Date": "2018-02-02T13:51:56.854",
     "Amount": "96385"
   },
   "Card": {
@@ -486,7 +519,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 {
   "Transaction": {
     "OrderId": "123456789AB",
-    "Date": "2018-02-18 13:51:56.854",
+    "Date": "2018-02-02T13:51:56.854",
     "Amount": "96385"
   },
   "Card": {
@@ -626,3 +659,8 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Phone|Telefone residencial|
 |Workphone|Telefone comercial|
 |Cellphone|Celular|
+
+## Tabela 3 - Customer.Phones[n].Type
+
+|Valor|Descrição|
+|:-|:-|
