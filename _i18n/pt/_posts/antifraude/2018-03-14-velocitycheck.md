@@ -563,8 +563,8 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |`EmailageResult.ScoreDescription`|Descrição do score da transação na Emailage|string|
 |`EmailageResult.ReasonId`|Id do motivo para o cálculo do score <br/> [Tabela 5 - EmailageResult.Reason]({{ site.baseurl_root }}manual/antifraude#tabela-5-emailageresult.reason)|string|
 |`EmailageResult.ReasonDescription`|Descrição do motivo para o cálculo do score <br/> [Tabela 5 - EmailageResult.Reason]({{ site.baseurl_root }}manual/antifraude#tabela-5-emailageresult.reason)|string|
-|`EmailageResult.RiskBandId`|Id da banda de risco em relação ao score calculado <br/> [Tabela 5 - EmailageResult.RiskBand]({{ site.baseurl_root }}manual/antifraude#tabela-6-emailageresult.riskband)|string|
-|`EmailageResult.RiskBandDescription`|Descrição da banda de risco em relação ao score calculado|string|
+|`EmailageResult.RiskBandId`|Id da banda de risco em relação ao score calculado <br/> [Tabela 6 - EmailageResult.RiskBand]({{ site.baseurl_root }}manual/antifraude#tabela-6-emailageresult.riskband)|string|
+|`EmailageResult.RiskBandDescription`|Descrição da banda de risco em relação ao score calculado <br/> [Tabela 6 - EmailageResult.RiskBand]({{ site.baseurl_root }}manual/antifraude#tabela-6-emailageresult.riskband)|string|
 
 **Parâmetros no cabeçalho (Header)**
 
