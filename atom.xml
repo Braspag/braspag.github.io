@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-02T20:09:27+00:00</updated>
+    <updated>2018-04-02T20:11:31+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -15,9 +15,9 @@
     <entry>
         <title>Velocity - Manual de integração</title>
         <category term="manual" />
-        <link href="https://braspag.github.io//manual/velocitycheck"/>
+        <link href="https://braspag.github.io//manual/velocity"/>
         <updated>2018-03-14T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//manual/velocitycheck</id>
+        <id>https://braspag.github.io//manual/velocity</id>
         <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
 
 &lt;p&gt;Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado. Ela é uma aliada na avaliação de comportamentos suspeitos de compra, pois os cálculos serão baseados em variáveis.&lt;/p&gt;
