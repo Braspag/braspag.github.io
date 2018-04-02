@@ -443,7 +443,7 @@
     <p>Os campos são opcionais e as regras serão disparadas somente se o valor no campo correspondente a regra for enviado, ou seja, se existir uma regra relacionada ao campo documento do comprador e o campo <code class="highlighter-rouge">Customer.Identity</code> não for enviado, esta regra não será disparada na análise.</p>
   </li>
   <li>
-    <p>Os valores dos campos devem ser enviados sempre no mesmo formato, por exemplo: Número do documento do comprador, enviar <strong>SEMPRE</strong> uma das opções entre valor com formatação e sem formatação.</p>
+    <p>Os valores dos campos devem ser enviados sempre no mesmo formato, por exemplo: CEP do endereço de cobrança ou entrega, enviar <strong>SEMPRE</strong> uma das opções entre valor com formatação (xxxxx-xxx) e sem formatação (xxxxxxxx).</p>
   </li>
 </ul>
 
@@ -1192,14 +1192,14 @@
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Street</code></td>
       <td style="text-align: left">Logradouro do endereço de entrega</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Number</code></td>
       <td style="text-align: left">Número do endereço de entrega</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
@@ -1213,35 +1213,35 @@
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Neighborhood</code></td>
       <td style="text-align: left">Bairro do endereço de entrega</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.City</code></td>
       <td style="text-align: left">Cidade do endereço de entrega</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.State</code></td>
       <td style="text-align: left">Estado do endereço de entrega</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.ZipCode</code></td>
       <td style="text-align: left">Código postal do endereço de entrega</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Shipping.Country</code></td>
       <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">não</td>
+      <td style="text-align: left">sim</td>
       <td style="text-align: right">2</td>
     </tr>
   </tbody>
@@ -1404,32 +1404,6 @@
     </tr>
   </tbody>
 </table>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">201 Created</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no corpo (Body)</strong></p>
-
-<p>|Parâmetro|Descrição|Tipo|
-|:-|:-|:-:|</p>
 
 <h2 id="analisando-uma-transação-no-velocity-e-credilink">Analisando uma transação no Velocity e Credilink</h2>
 
@@ -1779,6 +1753,41 @@
 
 <h3 id="response-3">Response</h3>
 
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"AnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RejectByBlackList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://velocitysandbox.braspag.com.br/Analysis/80832037-97b4-4952-8ae7-c37be13cce7a"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b88a8b60-9e7d-4064-8413-059e0a896aef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"CredilinkResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"IdentityIsValid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
 <table>
@@ -1802,8 +1811,78 @@
 
 <p><strong>Parâmetros no corpo (Body)</strong></p>
 
-<p>|Parâmetro|Descrição|Tipo|
-|:-|:-|:-:|</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.Score</code></td>
+      <td style="text-align: left">Score calculado para o pedido <br /> Na atual versão será retornado 0 (zero) para status igual a Accept e 100 (cem) para status igual a Reject</td>
+      <td style="text-align: center">int</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.Status</code></td>
+      <td style="text-align: left">Status da transação no Velocity Braspag <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-3-analysisresult.status">Tabela 3 - AnalysisResult.Status</a></td>
+      <td style="text-align: center">int</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.RejectReasons[n].RuleId</code></td>
+      <td style="text-align: left">Id da regra disparada a qual a transação foi rejeitada</td>
+      <td style="text-align: center">int</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.RejectReasons[n].Message</code></td>
+      <td style="text-align: left">Descrição do bloqueio, contendo: <br /> Tipo de bloqueio - Ex.: Bloqueado pela regra Identification <br /> Nome da regra - Ex.: Máximo de 1 Hits de Identificação em 1 Hora(s) <br /> Quantidade de repetições no período analisado - Ex.: HitsQuantity: 1 <br /> Período analisado - HitsTimeRangeInSeconds: 3600 <br /> Tempo de expiração da quarentena - Ex.: ExpirationBlockTimeInSeconds: 0</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.AcceptByWhiteList</code></td>
+      <td style="text-align: left">Indica se a transação foi automaticamente aceita por algum valor de alguma whitelist referente a alguma variável</td>
+      <td style="text-align: center">bool</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AnalysisResult.RejectByBlackList</code></td>
+      <td style="text-align: left">Indica se a transação foi automaticamente rejeitada por algum valor de alguma blacklist referente a alguma variável</td>
+      <td style="text-align: center">bool</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Id</code></td>
+      <td style="text-align: left">Id da transação no Velocity Braspag</td>
+      <td style="text-align: center">guid</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Date</code></td>
+      <td style="text-align: left">Data do pedido <br /> Ex.: 2018-02-02 13:51:56.854</td>
+      <td style="text-align: center">datetime</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CredilinkResult.IdentityIsValid</code></td>
+      <td style="text-align: left">Indica se o CPF ou CNPJ é válido</td>
+      <td style="text-align: center">string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CredilinkResult.Status</code></td>
+      <td style="text-align: left">Status do CPF ou CNPJ informado na Receita Federal <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-7-credilinkresult.status">Tabela 3 - CredilinkResult.Status</a></td>
+      <td style="text-align: center">string</td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="tabelas">Tabelas</h1>
 
@@ -1813,14 +1892,17 @@
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Formato</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">CPF</td>
+      <td style="text-align: left">12345678911</td>
     </tr>
     <tr>
       <td style="text-align: left">CNPJ</td>
+      <td style="text-align: left">12345678000199</td>
     </tr>
   </tbody>
 </table>
@@ -2433,6 +2515,27 @@
       <td style="text-align: left">6</td>
       <td style="text-align: left">901 a 1000</td>
       <td style="text-align: left">Risco muito alto</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-7---credilinkstatus">Tabela 7 - Credilink.Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Active</td>
+      <td style="text-align: left">Ativo</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Inactive</td>
+      <td style="text-align: left">Inativo</td>
     </tr>
   </tbody>
 </table>
