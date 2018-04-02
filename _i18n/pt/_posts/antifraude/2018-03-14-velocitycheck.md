@@ -384,7 +384,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |`AnalysisResult.AcceptByWhiteList`|Indica se a transação foi automaticamente aceita por algum valor de alguma whitelist referente a alguma variável|bool|
 |`AnalysisResult.RejectByBlackList`|Indica se a transação foi automaticamente rejeitada por algum valor de alguma blacklist referente a alguma variável|bool|
 |`Transaction.Id`|Id da transação no Velocity Braspag|guid|
-|`TRansaction.Date`|Data do pedido <br/> Ex.: 2018-02-02 13:51:56.854|datetime|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2018-02-02 13:51:56.854|datetime|
 
 ## Analisando uma transação no Velocity com Emailage
 
@@ -505,6 +505,66 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |`Customer.Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
 
 ### Response
+
+```json
+{
+    "AnalysisResult": {
+        "Score": 100,
+        "Status": "Reject",
+        "RejectReasons": [
+            {
+                "RuleId": 408,
+                "Message": "Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"
+            },
+            {
+                "RuleId": 8,
+                "Message": "Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"
+            }
+        ],
+        "AcceptByWhiteList": false,
+        "RejectByBlackList": false
+    },
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://velocitysandbox.braspag.com.br/Analysis/80832037-97b4-4952-8ae7-c37be13cce7a"
+        }
+    ],
+    "Transaction": {
+        "Id": "b88a8b60-9e7d-4064-8413-059e0a896aef",
+        "Date": "2018-02-02T13:51:56.854"
+    },
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|201 Created|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`AnalysisResult.Score`|Score calculado para o pedido <br/> Na atual versão será retornado 0 (zero) para status igual a Accept e 100 (cem) para status igual a Reject|int|
+|`AnalysisResult.Status`|Status da transação no Velocity Braspag <br/> [Tabela 3 - AnalysisResult.Status]({{ site.baseurl_root }}manual/antifraude#tabela-3-analysisresult.status)|int|
+|`AnalysisResult.RejectReasons[n].RuleId`|Id da regra disparada a qual a transação foi rejeitada|int|
+|`AnalysisResult.RejectReasons[n].Message`|Descrição do bloqueio, contendo: <br/> Tipo de bloqueio - Ex.: Bloqueado pela regra Identification <br/> Nome da regra - Ex.: Máximo de 1 Hits de Identificação em 1 Hora(s) <br/> Quantidade de repetições no período analisado - Ex.: HitsQuantity: 1 <br/> Período analisado - HitsTimeRangeInSeconds: 3600 <br> Tempo de expiração da quarentena - Ex.: ExpirationBlockTimeInSeconds: 0|string|
+|`AnalysisResult.AcceptByWhiteList`|Indica se a transação foi automaticamente aceita por algum valor de alguma whitelist referente a alguma variável|bool|
+|`AnalysisResult.RejectByBlackList`|Indica se a transação foi automaticamente rejeitada por algum valor de alguma blacklist referente a alguma variável|bool|
+|`Transaction.Id`|Id da transação no Velocity Braspag|guid|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2018-02-02 13:51:56.854|datetime|
+|`EmailageResult.EmailExist`|Indica se o e-mail existe <br/> [Tabela 4 - EmailageResult.EmailExist]({{ site.baseurl_root }}manual/antifraude#tabela-4-emailageresult.emailexist)|string|
+|`EmailageResult.FirstVerificationDate`|Data em que o e-mail foi visto pela primeira vez pela Emailage. Caso esta consulta seja a primeira, será retornada a data corrente|datetime|
+|`EmailageResult.Score`|Score da transação na Emailage, podendo variar de 1 a 1000 de acordo com as bandas de risco|int|
+|`EmailageResult.ScoreDescription`|Descrição do score da transação na Emailage|string|
+|`EmailageResult.ReasonId`|Id do motivo para o cálculo do score <br/> [Tabela 5 - EmailageResult.Reason]({{ site.baseurl_root }}manual/antifraude#tabela-5-emailageresult.reason)|string|
+|`EmailageResult.ReasonDescription`|Descrição do motivo para o cálculo do score <br/> [Tabela 5 - EmailageResult.Reason]({{ site.baseurl_root }}manual/antifraude#tabela-5-emailageresult.reason)|string|
+|`EmailageResult.RiskBandId`|Id da banda de risco em relação ao score calculado <br/> [Tabela 5 - EmailageResult.RiskBand]({{ site.baseurl_root }}manual/antifraude#tabela-6-emailageresult.riskband)|string|
+|`EmailageResult.RiskBandDescription`|Descrição da banda de risco em relação ao score calculado|string|
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -671,3 +731,150 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 |Valor|Descrição|
 |:-|:-|
+|Accept|Aceita|
+|Reject|Rejeitada|
+
+## Tabela 4 - EmailageResult.EmailExist
+
+|Valor|Descrição|
+|:-|:-|
+|Yes|Sim|
+|No|Não|
+|No anymore|Não existe mais|
+|No sure|Não tem certeza|
+
+## Tabela 5 - EmailageResult.Reason
+
+|Valor|Descrição|
+|:-|:-|
+|1|Fraud Level X| 
+|2|Email does not exist|
+|3|Domain does not exist|
+|4|Risky Domain|
+|5|Risky Country|
+|6|Risky Email Name|
+|7|Numeric Email|
+|8|Limited History for Email|
+|9|Email Recently Created|
+|10|Email linked to High Risk Account|
+|11|Good Level X|
+|12|Low Risk Domain|
+|13|Email Created X Years Ago|
+|14|Email Created at least X Years Ago|
+|15|Email Linked to Low Risk Account|
+|16|InvalidEmailSyntax|
+|17|Mailbox is Full|
+|18|Mailbox is Inactive|
+|19|Corporate Link|
+|20|Mailbox is Expired|
+|21|User Defined Risk Domain|
+|22|User Defined Low Risk Domain|
+|23|Velocity Level X|
+|24|Risk Domain Category|
+|25|Low Risk Domain Category|
+|26|High Risk Email Account|
+|27|Email Created at least X Months Ago|
+|28|Valid Email From X Country Domain|
+|29|Valid Domain From X Country|
+|30|Potentially Breached Email|
+|31|Fraud Emails Linked X|
+|32|Good Email Linked Level X|
+|33|Fraud IP Level X|
+|34|Good IP Level X|
+|35|Risky Proxy IP|
+|36|Risk IP Behavior|
+|37|Risky IP Country|
+|38|IP Not Found|
+|39|IP Invalid Syntax Format|
+|40|High Risk IP|
+|51|Good Popularity|
+|52|Risk Domain Category Review|
+|53|Tumbling Abuse|
+|54|Email Enumeration for Company|
+|55|Email Enumeration for Industry|
+|56|Creation Date Velocity|
+|61|Customer Email not Provided|
+|62|Risk Email Pattern|
+|63|Suspected Fraud|
+|64|Limited Email Information|
+|65|Domain Recently Created|
+|66|VelocityOther|
+|67|Valid Email From Domain|
+|68|Valid Domain|
+|101|Low Risk Email Domain for Company|
+|102|Low Risk IP for Company|
+|103|Low Risk IP Geolocation for Company|
+|104|Low Risk Email Domain for Industry|
+|105|Low Risk IP for Industry|
+|106|Low Risk IP Geolocation for Industry|
+|107|Low Risk Email Domain for Network|
+|108|Low Risk IP for Network|
+|109|Low Risk IP Geolocation for Network|
+|110|Very Low Risk Email Domain for Company|
+|111|Very Low Risk IP for Company|
+|112|Very Low Risk IP Geolocation for Company|
+|113|Very Low Risk Email Domain for Industry|
+|114|Very Low Risk IP for Industry|
+|115|Very Low Risk IP Geolocation for Industry|
+|116|Very Low Risk Email Domain for Network|
+|117|Very Low Risk IP for Network|
+|118|Very Low Risk IP Geolocation for Network|
+|121|High Risk Email Domain for Company|
+|122|High Risk IP for Company|
+|123|High Risk IP Geolocation for Company|
+|124|High Risk Email Domain for Industry|
+|125|High Risk IP for Industry|
+|126|High Risk IP Geolocation for Industry|
+|127|High Risk Email Domain for Network|
+|128|High Risk IP for Network|
+|129|High Risk IP Geolocation for Network|
+|130|Very High Risk Email Domain for Company|
+|131|Very High Risk IP for Company|
+|132|Very High Risk IP Geolocation for Company|
+|133|Very High Risk Email Domain for Industry|
+|134|Very High Risk IP for Industry|
+|135|Very High Risk IP Geolocation for Industry|
+|136|Very High Risk Email Domain for Network|
+|137|Very High Risk IP for Network|
+|138|Very High Risk IP Geolocation for Network|
+|139|High Risk Phone for Company|
+|140|High Risk Ship Address for Company|
+|141|High Risk Phone for Industry|
+|142|High Risk Ship Address for Industry|
+|143|High Risk Phone for Network|
+|144|High Risk Ship Address for Network|
+|145|Very High Risk Phone for Company|
+|146|Very High Risk Ship Address for Company|
+|147|Very High Risk Phone for Industry|
+|148|Very High Risk Ship Address for Industry|
+|149|Very High Risk Phone for Network|
+|150|Very High Risk Ship Address for Network|
+|151|High Risk Bill Address For Company|
+|152|High Risk Customer ID For Company|
+|153|High Risk Service Location For Company|
+|154|High Risk Bill Address For Industry|
+|155|High Risk Customer ID For Industry|
+|156|High Risk Service Location For Industry|
+|157|High Risk Bill Address For Network|
+|158|High Risk Customer ID For Network|
+|159|High Risk Service Location For Network|
+|160|Very High Risk Bill Address For Company|
+|161|Very High Risk Customer ID For Company|
+|162|Very High Risk Service Location For Company|
+|163|Very High Risk Bill Address For Industry|
+|164|Very High Risk Customer ID For Industry|
+|165|Very High Risk Service Location For Industry|
+|166|Very High Risk Bill Address For Network|
+|167|Very High Risk Customer ID For Network|
+|168|Very High Risk Service Location For Network|
+
+## Tabela 6 - EmailageResult.RiskBand
+
+|Valor|Score|Descrição|
+|:-|:-|:-|
+|1|1 a 100|Risco muito baixo|
+|2|101 a 300|Risco baixo|
+|3|301 a 600|Risco moderado|
+|4|601 a 800|Risco indicado a revisão|
+|5|801 a 900|Risco alto|
+|6|901 a 1000|Risco muito alto|
