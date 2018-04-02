@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Velocity Check - Manual de integração
-description: Integração técnica API Velocity Check Braspag
+title: Velocity - Manual de integração
+description: Integração técnica API Velocity Braspag
 search: true
 categories: manual
 tags:
@@ -13,7 +13,7 @@ language_tabs:
 
 # Visão Geral
 
-Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity Check é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado. Ela é uma aliada na avaliação de comportamentos suspeitos de compra, pois os cálculos serão baseados em variáveis.
+Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado. Ela é uma aliada na avaliação de comportamentos suspeitos de compra, pois os cálculos serão baseados em variáveis.
 
 A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
 
@@ -21,7 +21,7 @@ A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo 
 
 # Objetivo
 
-## Velocity Check
+## Velocity
 
 - Auxiliar na detecção de suspeitas de fraude
 - Aliado para bloquear ataques em rajada (testes de cartão, por exemplo), bem como avaliações de comportamentos suspeitos de compra
@@ -29,7 +29,7 @@ A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo 
 
 ## Documentação
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Velocity Check Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Velocity Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.
 
 Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
 
@@ -37,7 +37,7 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 ## Análise de regras
 
-O Velocity Check realiza análises em cima de regras habilitadas para os tipos de variáveis abaixo:
+O Velocity realiza análises em cima de regras habilitadas para os tipos de variáveis abaixo:
 
 |Variáveis|
 |:-|
@@ -63,11 +63,11 @@ Com estes 3 elementos, teríamos a seguinte regra, **Máximo de 5 Hits de Númer
 - H = 5
 - P = 12 Horas
 
-Com isso, o Velocity Check ao receber a 6ª transação com o mesmo número de cartão (V) das outras 5 anteriores, a regra acima ao ser executada e detectar que a quantidade (H) excedeu as 5 permitidas no período (P) entre a data da primeira transação e a data da 6ª recebida, esta terá o status de rejeitada, o número do cartão poderá ir quarentena e a resposta terá o conteúdo de que a transação foi rejeitada devido a regra.
+Com isso, o Velocity ao receber a 6ª transação com o mesmo número de cartão (V) das outras 5 anteriores, a regra acima ao ser executada e detectar que a quantidade (H) excedeu as 5 permitidas no período (P) entre a data da primeira transação e a data da 6ª recebida, esta terá o status de rejeitada, o número do cartão poderá ir quarentena e a resposta terá o conteúdo de que a transação foi rejeitada devido a regra.
 
 ## Quarentena
 
-Ao cadastrar uma regra é possível especificar quanto tempo o valor de uma determinada variável irá ser levado em consideração nas próximas análises, ou seja, se o cliente quiser identificar a quantidade de vezes que o mesmo número de cartão se repetiu para um período de 12 horas dentro de um intervalo de 2 dias, não será necessário o Velocity Check realizar esta contagem retroativa agrupando por período. Neste cenário por exemplo, a aplicação teria que realizar a contagem para os seguintes intervalos:
+Ao cadastrar uma regra é possível especificar quanto tempo o valor de uma determinada variável irá ser levado em consideração nas próximas análises, ou seja, se o cliente quiser identificar a quantidade de vezes que o mesmo número de cartão se repetiu para um período de 12 horas dentro de um intervalo de 2 dias, não será necessário o Velocity realizar esta contagem retroativa agrupando por período. Neste cenário por exemplo, a aplicação teria que realizar a contagem para os seguintes intervalos:
 
 - D-2 = 0h as 12h
 - D-2 = 12h as 0h
@@ -128,7 +128,7 @@ Os dados abaixo são obrigatórios para análise na Credilink:
 |`Sandbox`|https:\\\\authsandbox.braspag.com.br|
 |`Produção`|https:\\\\auth.braspag.com.br|
 
-## API Velocity Check Braspag
+## API Velocity Braspag
 
 |Ambiente|URL|
 |:-|:-|
@@ -139,19 +139,19 @@ Os dados abaixo são obrigatórios para análise na Credilink:
 
 ## Tokens de Acesso
 
-A API Velocity Check Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
+A API Velocity Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
 
 Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.
 
 ## Obtenção do token de acesso  
 
-O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Velocity Check**.
+O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Velocity Braspag**.
 
 1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
 
 2. O **BraspagAuth** valida a credencial recebida. Se for válida, retorna o token de acesso para a **Aplicação Cliente**.
 
-3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **API Velocity Check**.
+3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **API Velocity Braspag**.
 
 4. Se o token de acesso for válido, a requisição é processada e os dados são retornados para a **Aplicação Cliente**.
 
@@ -200,7 +200,7 @@ Exemplo:
 
 |Parâmetro|Descrição|
 |:-|:-|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Velocity Check|
+|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Velocity Braspag|
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/> O token quando expirar, é necessário obter um novo|
 
@@ -214,7 +214,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 - Os valores dos campos devem ser enviados sempre no mesmo formato, por exemplo: Número do documento do comprador, enviar **SEMPRE** uma das opções entre valor com formatação e sem formatação.
 
-## Analisando uma transação no Velocity Check
+## Analisando uma transação no Velocity
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -222,7 +222,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 {
   "Transaction": {
     "OrderId": "123456789AB",
-    "Date": "2018-02-02T13:51:56.854",
+    "Date": "2018-02-02 13:51:56.854",
     "Amount": "96385"
   },
   "Card": {
@@ -299,7 +299,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-|:-|-:|
 |`Transaction.OrderId`|Número do pedido da loja|string|sim|100|
-|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2018-02-02 13:51:56.854 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
 |`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|100|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|100|
 |`Card.Number`|Número do cartão de crédito|string|sim|19|
@@ -377,8 +377,16 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
+|`AnalysisResult.Score`|Score calculado para o pedido <br/> Na atual versão será retornado 0 (zero) para status igual a Accept e 100 (cem) para status igual a Reject|int|
+|`AnalysisResult.Status`|Status da transação no Velocity Braspag <br/> [Tabela 3 - AnalysisResult.Status]({{ site.baseurl_root }}manual/antifraude#tabela-3-analysisresult.status)|int|
+|`AnalysisResult.RejectReasons[n].RuleId`|Id da regra disparada a qual a transação foi rejeitada|int|
+|`AnalysisResult.RejectReasons[n].Message`|Descrição do bloqueio, contendo: <br/> Tipo de bloqueio - Ex.: Bloqueado pela regra Identification <br/> Nome da regra - Ex.: Máximo de 1 Hits de Identificação em 1 Hora(s) <br/> Quantidade de repetições no período analisado - Ex.: HitsQuantity: 1 <br/> Período analisado - HitsTimeRangeInSeconds: 3600 <br> Tempo de expiração da quarentena - Ex.: ExpirationBlockTimeInSeconds: 0|string|
+|`AnalysisResult.AcceptByWhiteList`|Indica se a transação foi automaticamente aceita por algum valor de alguma whitelist referente a alguma variável|bool|
+|`AnalysisResult.RejectByBlackList`|Indica se a transação foi automaticamente rejeitada por algum valor de alguma blacklist referente a alguma variável|bool|
+|`Transaction.Id`|Id da transação no Velocity Braspag|guid|
+|`TRansaction.Date`|Data do pedido <br/> Ex.: 2018-02-02 13:51:56.854|datetime|
 
-## Analisando uma transação no Velocity Check com Emailage
+## Analisando uma transação no Velocity com Emailage
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -386,7 +394,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 {
   "Transaction": {
     "OrderId": "123456789AB",
-    "Date": "2018-02-02T13:51:56.854",
+    "Date": "2018-02-02 13:51:56.854",
     "Amount": "96385"
   },
   "Card": {
@@ -463,7 +471,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-|:-|-:|
 |`Transaction.OrderId`|Número do pedido da loja|string|sim|100|
-|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2018-02-02 13:51:56.854 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
 |`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|100|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|100|
 |`Card.Number`|Número do cartão de crédito|string|sim|19|
@@ -510,7 +518,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 
-## Analisando uma transação no Velocity Check e Credilink
+## Analisando uma transação no Velocity e Credilink
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -518,7 +526,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 {
   "Transaction": {
     "OrderId": "123456789AB",
-    "Date": "2018-02-02T13:51:56.854",
+    "Date": "2018-02-02 13:51:56.854",
     "Amount": "96385"
   },
   "Card": {
@@ -595,7 +603,7 @@ A Braspag ao receber os dados do pedido, o mesmo será analisado de acordo com o
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-|:-|-:|
 |`Transaction.OrderId`|Número do pedido da loja|string|sim|100|
-|`Transaction.Date`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
+|`Transaction.Date`|Data do pedido <br/> Ex.: 2018-02-02 13:51:56.854 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
 |`Transaction.Amount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|100|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|100|
 |`Card.Number`|Número do cartão de crédito|string|sim|19|
