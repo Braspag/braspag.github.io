@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-02T20:43:21+00:00</updated>
+    <updated>2018-04-02T20:49:14+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -1778,7 +1778,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CredilinkResult.Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Status do CPF ou CNPJ informado na Receita Federal &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-7-credilinkresult.status&quot;&gt;Tabela 3 - CredilinkResult.Status&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Status do CPF ou CNPJ informado na Receita Federal &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-7-credilinkresult.status&quot;&gt;Tabela 7 - CredilinkResult.Status&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
     &lt;/tr&gt;
@@ -2420,7 +2420,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-7---credilinkstatus&quot;&gt;Tabela 7 - Credilink.Status&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-7---credilinkresultstatus&quot;&gt;Tabela 7 - CredilinkResult.Status&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
