@@ -5114,8 +5114,8 @@ O Pagador possui suporte para:
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
 | `Wallet.Type`              | Texto  | --     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
 | `Wallet.Walletkey`         | Texto  | --     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
-| `Wallet.AdditionalData.EphemeralPublicKey`| --  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
-| `Wallet.AdditionalData.capturecode`       | --  | 255    | Sim  | Código informado pela `MasterPass` ao lojista                                                    |                                                      
+| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | --    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
+| `Wallet.AdditionalData.capturecode`       | Texto  | --    | Sim  | Código informado pela `MasterPass` ao lojista                                                    |                                                      
 
 #### Walletkey
 
