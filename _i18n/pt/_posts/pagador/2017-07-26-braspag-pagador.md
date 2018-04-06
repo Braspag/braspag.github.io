@@ -5048,7 +5048,7 @@ curl
 
 ## O que são e-Wallets (Carteiras Digitais)
 
-São repositórios de cartões e dados de pagamentos para consumidores online. As Carteiras digitais permitem que um consumidor realizar o cadastro de seus dados de pagamento, assim agilizando o processo de compra em lojas habilitadas em suas compras por possuir apenas um cadastro.
+São repositórios de cartões e dados de pagamentos para consumidores do e-commerce e mundo físico. As Carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.
 
 > *Para utilizar carteiras no Pagador, o lojista deverá possuir as carteiras integradas em seu checkout*. 
 
@@ -5269,7 +5269,7 @@ Exemplo de Requisição padrão *Apple Pay*
 | `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
 | `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
-| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
+| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações       |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
 
 #### Resposta
@@ -5398,7 +5398,7 @@ Exemplo de Requisição padrão *Samsung Pay*
 | `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
 | `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
-| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
+| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações       |
 
 #### Resposta
 
@@ -5474,7 +5474,7 @@ Exemplo de Requisição padrão *Samsung Pay*
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |
+| `Walletkey`         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |
 
 ### Android Pay
 
@@ -5524,7 +5524,7 @@ Exemplo de Requisição padrão *Android Pay*
 | `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
 | `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
-| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
+| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações       |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
 
 #### Resposta
@@ -5603,7 +5603,7 @@ Exemplo de Requisição padrão *Android Pay*
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
+| `Walletkey`         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`                         | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |  
 | `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | 255     | 3                                    | 
 
@@ -5650,7 +5650,7 @@ Para utilizar o MasterPass é necessário a contratação do serviço através d
 |`Payment.Provider`|Texto|15|Sim|Somente providers Cielo (`Cielo` / `Cielo30`)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Wallet.Type`|Texto|255|Sim|indica qual o tipo de carteira: "Masterpass"|
-|`Wallet.Walletkey`|Texto|255|Sim|Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações|
+|`Wallet.Walletkey`|Texto|255|Sim|Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações|
 |`Wallet.AdditionalData`|---|---|---|Instancia para dados extras informados pela MasterPass. Obrigatório apenas se TYPE = "MasterPass"|
 |`Wallet.capturecode`|Texto|255|Sim|Código informado pela MasterPass ao lojista|
 
