@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-03T18:14:12+00:00</updated>
+    <updated>2018-04-06T14:30:21+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -19277,7 +19277,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;h2 id=&quot;o-que-são-e-wallets-carteiras-digitais&quot;&gt;O que são e-Wallets (Carteiras Digitais)&lt;/h2&gt;
 
-&lt;p&gt;São repositórios de cartões e dados de pagamentos para consumidores online. As Carteiras digitais permitem que um consumidor realizar o cadastro de seus dados de pagamento, assim agilizando o processo de compra em lojas habilitadas em suas compras por possuir apenas um cadastro.&lt;/p&gt;
+&lt;p&gt;São repositórios de cartões e dados de pagamentos para consumidores do e-commerce e mundo físico. As Carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;Para utilizar carteiras no Pagador, o lojista deverá possuir as carteiras integradas em seu checkout&lt;/em&gt;.&lt;/p&gt;
@@ -19835,7 +19835,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações&lt;/td&gt;
+      &lt;td&gt;Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.AdditionalData.EphemeralPublicKey&lt;/code&gt;&lt;/td&gt;
@@ -20136,7 +20136,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações&lt;/td&gt;
+      &lt;td&gt;Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -20285,7 +20285,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações&lt;/td&gt;
+      &lt;td&gt;Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Ver tabela &lt;code class=&quot;highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt;&lt;/td&gt;
@@ -20422,7 +20422,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações&lt;/td&gt;
+      &lt;td&gt;Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.AdditionalData.EphemeralPublicKey&lt;/code&gt;&lt;/td&gt;
@@ -20580,7 +20580,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações&lt;/td&gt;
+      &lt;td&gt;Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Ver tabela &lt;code class=&quot;highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt;&lt;/td&gt;
@@ -20724,7 +20724,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações&lt;/td&gt;
+      &lt;td&gt;Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.AdditionalData&lt;/code&gt;&lt;/td&gt;
