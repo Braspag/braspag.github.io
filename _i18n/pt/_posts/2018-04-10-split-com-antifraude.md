@@ -72,7 +72,7 @@ Para que a *análise de fraude* seja efetuada em tempo de transação, é necess
    },
    "Payment":{
       "Type":"CreditCard",
-      "Amount":100,
+      "Amount":10000,
       "Currency":"BRL",
       "Country":"BRA",
       "Provider":"Simulado",
@@ -92,7 +92,7 @@ Para que a *análise de fraude* seja efetuada em tempo de transação, é necess
       },
       "FraudAnalysis":{
          "Sequence":"AnalyseFirst",
-         "SequenceCriteria":"Always",
+         "SequenceCriteria":"OnSuccess",
          "Provider":"RedShield",
          "CaptureOnLowRisk":true,
          "VoidOnHighRisk":false,
@@ -160,8 +160,7 @@ Para que a *análise de fraude* seja efetuada em tempo de transação, é necess
 
 curl
 --header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "Authorization: Bearer {token}"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
@@ -510,7 +509,7 @@ especiais|
          }
          
          "Sequence":"AnalyseFirst",
-         "SequenceCriteria":"Always",
+         "SequenceCriteria":"OnSuccess",
          "Provider":"RedShield",
          "CaptureOnLowRisk":true,
          "VoidOnHighRisk":false,
