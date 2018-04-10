@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-10T15:28:51+00:00</updated>
+    <updated>2018-04-10T15:34:56+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -112,26 +112,26 @@
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cart&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Items&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Combo de vodka&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Celuclar XYZ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6500&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;abc123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;7000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Combo vodka com energeticos&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mesa 51&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fragil&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Combo de cerveja&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TV XPTO Full HD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;abc456&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;500&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Combo cerveja The Best!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mesa 171&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TV Full HD, 8 Entradas HDMI, Smart TV&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Televissao - Cuidado&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;987654&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -247,28 +247,27 @@ curl
          &lt;span class=&quot;s2&quot;&gt;&quot;Cart&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;Items&quot;&lt;/span&gt;:[
                &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                  &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo de vodka&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Celuclar XYZ&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;6500&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;abc123&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;: 1,
                   &lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;7000&quot;&lt;/span&gt;,
-                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo vodka com energeticos&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;GiftMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Te Amo!&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Mesa 51&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;
                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
                &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                  &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo de cerveja&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;TV XPTO Full HD&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;4000&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;abc456&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;: 1,
                   &lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;500&quot;&lt;/span&gt;,
-                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo cerveja The Best!&quot;&lt;/span&gt;,
-                  &lt;span class=&quot;s2&quot;&gt;&quot;GiftMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Te Odeio!&quot;&lt;/span&gt;,
-                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Mesa 171&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;TV Full HD, 8 Entradas HDMI, Smart TV&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Televisao - Cuidado&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;987654&quot;&lt;/span&gt;
                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -1228,28 +1227,26 @@ curl
          &lt;span class=&quot;s2&quot;&gt;&quot;Cart&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;Items&quot;&lt;/span&gt;:[
                &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                  &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo de vodka&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Celuclar XYZ&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;6500&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;abc123&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;: 1,
                   &lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;7000&quot;&lt;/span&gt;,
-                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo vodka com energeticos&quot;&lt;/span&gt;,
-                  &lt;span class=&quot;s2&quot;&gt;&quot;GiftMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Te Amo!&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Mesa 51&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;
                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
                &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                  &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo de cerveja&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;TV XPTO Full HD&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;4000&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;abc456&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;: 1,
                   &lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;500&quot;&lt;/span&gt;,
-                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo cerveja The Best!&quot;&lt;/span&gt;,
-                  &lt;span class=&quot;s2&quot;&gt;&quot;GiftMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Te Odeio!&quot;&lt;/span&gt;,
-                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Mesa 171&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;TV Full HD, 8 Entradas HDMI, Smart TV&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Televisao - Cuidado&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;,
                   &lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;987654&quot;&lt;/span&gt;
                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
