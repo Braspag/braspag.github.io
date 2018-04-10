@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-10T14:28:42+00:00</updated>
+    <updated>2018-04-10T14:29:40+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -13,12 +13,1342 @@
     </author>
     
     <entry>
-        <title>Split Com Antifraude</title>
-        <category term="" />
-        <link href="https://braspag.github.io//split-com-antifraude"/>
+        <title>Gateway Antifraude 3.0</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//manual/split-com-antifraude"/>
         <updated>2018-04-10T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//split-com-antifraude</id>
-        <content type="html">
+        <id>https://braspag.github.io//manual/split-com-antifraude</id>
+        <content type="html">&lt;h1 id=&quot;gateway-af---red-shield&quot;&gt;Gateway AF - ReD Shield&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Na análise de AF, os padrões de siglas para países utilizados nos campos &lt;code class=&quot;highlighter-rouge&quot;&gt;Country&lt;/code&gt; devem seguir o modelo da ISO 3166-1 ALPHA 2 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;criando-uma-transação-com-análise-de-fraude-red-shield&quot;&gt;Criando uma transação com Análise de Fraude ReD Shield&lt;/h2&gt;
+
+&lt;p&gt;Para que a &lt;em&gt;análise de fraude&lt;/em&gt; seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.&lt;/p&gt;
+
+&lt;h3 id=&quot;requisição&quot;&gt;Requisição&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111457673454307&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Comprador Teste&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;10050665740&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IdentityType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CPF&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantCustomerId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;10050665740&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;compradorteste@live.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Birthdate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1991-01-02&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Phone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;552121114740&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;WorkPhone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;552121114740&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mobile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;552121114740&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rua Neturno&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sala 123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Centro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rio de Janeiro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RJ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;20080123&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DeliveryAddress&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rua Saturno&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;30000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sl 123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Neighborhood&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Centro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rio de Janeiro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RJ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BillingAddress&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rua Neturno&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sala 123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Centro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rio de Janeiro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RJ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;20080123&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;NEW&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Simulado&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ServiceTaxAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Interest&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ByMerchant&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Capture&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6011000000000111&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Teste accept&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2019&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;023&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Discover&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EciThreeDSecure&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;05&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudAnalysis&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sequence&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AnalyseFirst&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SequenceCriteria&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Always&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RedShield&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CaptureOnLowRisk&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;VoidOnHighRisk&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TotalOrderAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;150000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OrderDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2016-12-09&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsRetryTransaction&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SplitingPaymentMethod&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SINGLE-PAY&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Browser&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IpAddress&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;187.32.163.105&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BrowserFingerPrint&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cart&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Items&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Combo de vodka&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6500&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;abc123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;7000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Combo vodka com energeticos&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mesa 51&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProductName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Combo de cerveja&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;abc456&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;500&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Combo cerveja The Best!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mesa 171&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;987654&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantDefinedFields&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Eu defini isso&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Outra informação&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Shipping&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Addressee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sr Comprador Teste&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;rschueler@braspag.com.br&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;LowCost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Phone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;552121114740&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;WorkPhone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;552121114705&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mobile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5521987654321&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Comment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Em frente a mesa 80&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+curl
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2014111457673454307&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Comprador Teste&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;10050665740&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;IdentityType&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CPF&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;MerchantCustomerId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;10050665740&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;compradorteste@live.com&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Birthdate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;1991-01-02&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Phone&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;552121114740&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;WorkPhone&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;552121114740&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Mobile&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;552121114740&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Address&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Rua Neturno&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12345&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Sala 123&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Centro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Rio de Janeiro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;RJ&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;20080123&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;DeliveryAddress&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Rua Saturno&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;30000&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;sl 123&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Neighborhood&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Centro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Rio de Janeiro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;RJ&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123456789&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;BillingAddress&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Rua Neturno&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12345&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Sala 123&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Centro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Rio de Janeiro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;RJ&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;20080123&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;NEW&quot;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:100,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Simulado&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;ServiceTaxAmount&quot;&lt;/span&gt;:0,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;:1,
+      &lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Interest&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;ByMerchant&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Capture&quot;&lt;/span&gt;:false,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;:false,
+      &lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;6011000000000111&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Teste accept&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2019&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;023&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Discover&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;EciThreeDSecure&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;05&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;FraudAnalysis&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Sequence&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;AnalyseFirst&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SequenceCriteria&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Always&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;RedShield&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CaptureOnLowRisk&quot;&lt;/span&gt;:true,
+         &lt;span class=&quot;s2&quot;&gt;&quot;VoidOnHighRisk&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;TotalOrderAmount&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;150000&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;OrderDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2016-12-09&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;IsRetryTransaction&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SplitingPaymentMethod&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;SINGLE-PAY&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Browser&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;IpAddress&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;187.32.163.105&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;BrowserFingerPrint&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==&quot;&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Cart&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Items&quot;&lt;/span&gt;:[
+               &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo de vodka&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;6500&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;abc123&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;: 1,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;7000&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo vodka com energeticos&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;GiftMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Te Amo!&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Mesa 51&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+               &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo de cerveja&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;4000&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;abc456&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;: 1,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;500&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo cerveja The Best!&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;GiftMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Te Odeio!&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Mesa 171&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;987654&quot;&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;MerchantDefinedFields&quot;&lt;/span&gt;:[
+            &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+               &lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;:95,
+               &lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Eu defini isso&quot;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+            &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+               &lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;:96,
+               &lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Outra informação&quot;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Shipping&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Addressee&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Sr Comprador Teste&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;rschueler@braspag.com.br&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;LowCost&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Phone&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;552121114740&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;WorkPhone&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;552121114705&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Mobile&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;5521987654321&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Comment&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Em frente a mesa 80&quot;&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número de identificação do pedido&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo os dados do cliente&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;61&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nome do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;18&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número de documento do comprador. CPF ou CNPJ&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.IdentityType&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo de documento de identificação do comprador. CPF ou CNPJ&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Email&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;60&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;E-mail do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phone&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Telefone do comprador &lt;br /&gt; Ex.: 552121114700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.WorkPhone&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Telefone de trabalho do comprador &lt;br /&gt; Ex.: 552121114700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Mobile&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Telefone celular do comprador &lt;br /&gt; Ex.: 5521987654321&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Birthdate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Date&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;10&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data de nascimento do comprador &lt;br /&gt; Ex.: 1983-10-01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;8&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Status de cadastro do comprador na loja &lt;br /&gt;NEW - Comprador novo efetuando a primeira compra &lt;br /&gt; EXISTING - Comprador existente&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo dados do endereço do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Street&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;24&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Endereço do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Number&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do endereço do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Complement&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;14&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Complemento do endereço do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.District&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Distrito ou Bairro do endereço do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.ZipCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;9&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CEP do endereço do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;20&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cidade do endereço do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.State&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Estado do endereço do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Country&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;País do endereço do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo dados do endereço de entrega do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Street&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;24&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Endereço de entrega do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Number&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do endereço de entrega do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Complement&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;14&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Complemento do endereço de entrega do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.District&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Distrito ou Bairro do endereço de entrega do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.ZipCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;9&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CEP do endereço de entrega do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.City&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;20&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cidade do endereço de entrega do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.State&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Estado do endereço de entrega do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Country&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;País do endereço de entrega do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BillingAddress&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo dados do endereço de cobrança do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BillingAddress.Street&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;24&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Endereço de cobrança do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BillingAddress.Number&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do endereço de cobrança do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BillingAddress.Complement&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;14&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Complemento do endereço de cobrança do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BillingAddress.District&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Distrito ou Bairro do endereço de cobrança do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BillingAddress.ZipCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;9&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CEP do endereço de cobrança do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BillingAddress.City&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;20&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cidade do endereço de cobrança do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BillingAddress.State&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Estado do endereço de cobrança do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BillingAddress.Country&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;País do endereço de cobrança do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo as informações de pagamento&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;100&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do meio de pagamento &lt;br /&gt; Possíveis Valores: CreditCard / DebitCard / EletronicTransfer / Boleto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Valor do pedido em centavos &lt;br /&gt; Ex.: r$ 1.559,85 = 155985&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Currency&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Moeda na qual o pagamento será realizado &lt;br /&gt; Valor default: BRL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Country&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;País no qual o pagamento será realizado &lt;br /&gt; Valor default: BR&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nome do meio de pagamento &lt;br /&gt; Obs.: Não obrigatório para cartão de crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ServiceTaxAmount&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço &lt;br /&gt; Obs.: Esse valor não é adicionado ao valor da autorização&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número de parcelas do pedido&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Interest&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;10&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo de parcelamento &lt;br /&gt; Pela loja = ByMerchant (valor default) &lt;br /&gt; Pelo cartão = ByIssuer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.SoftDescriptor&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;13&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto que será impresso na fatura do cartão de crédito do portador &lt;br /&gt; Disponível apenas para VISA / MASTER &lt;br /&gt; Não permite caracteres&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;especiais&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Booleano&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Define se a autorização deve ser capturada automaticamente &lt;br /&gt; Valor default: false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Booleano&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Define se o comprador será direcionado ao Banco emissor para autenticação do cartão &lt;br /&gt; Valor default: false&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo as informações do cartão&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;16&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do cartão do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.Holder&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nome do comprador impresso no cartão&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;7&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data de validade do cartão&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de segurança impresso no verso do cartão&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.SaveCard&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Booleano&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identifica se o cartão será salvo para gerar o CardToken &lt;br /&gt; Valor default: false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;10&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bandeira do cartão &lt;br /&gt; Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo as informações para Análise de Fraude&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;12&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identifica o provedor da solução de análise de fraude &lt;br /&gt; Possíveis valores: CyberSource (default) / RedShield&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.CaptureOnLowRisk&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Booleano&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Captura a transação se a análise de fraude retornar “Accept” &lt;br /&gt; Valor default: false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.VoidOnHighRisk&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Booleano&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cancela a transação se a análise de fraude retornar “Reject” &lt;br /&gt; Valor default: false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.TotalOrderAmount&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Valor total do pedido em centavos, podendo ser diferente do valor da transação &lt;br /&gt; Ex.: Valor do pedido sem a taxa de entrega&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.OrderDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Date&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data do pedido &lt;br /&gt; Ex.: 2016-12-09 19:16:38.155 &lt;br /&gt; Obs.: Caso não seja informada, uma data será gerada pela Braspag&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.IsRetryTransaction&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Booleano&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Indica se é uma retentativa de análise de fraude&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.SplitingPaymentMethod&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Indica se o pagamento esta sendo dividido. Ex: Pagamento com dois cartões &lt;br /&gt; Possíveis valores: SINGLE-PAY e SPLIT-PAY&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Sequence&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Define a ordem de execução da análise de fraude &lt;br /&gt; Possível valor: AnalyseFirst - efetua a análise de fraude antes de enviar para autorização (default) / AuthorizeFirst - efetua a atutorização antes de realizar a análise de fraude&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.SequenceCriteria&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Define, de acordo com a sequência, se prosseguirá ou não com o fluxo &lt;br /&gt; Possíveis valores: Always - para o fluxo AnalyseFirst, segue com a autorização independente do resultado da análise de fraude. Para o fluxo AuthorizeFirst, segue com a análise de fraude independente do resultado da autorização &lt;br /&gt; OnSuccess - Para o fluxo AnalyseFirst, segue com a autorização somente se a análise de fraude retornar “Accept”. Para o fluxo AuthorizeFirst, segue com a análise de fraude somente se a transação for autorizada&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Browser.BrowserFingerPrint&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;6010&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Impressão digital de dispositivos e geolocalização real do IP do comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#redshield&quot;&gt;Configuração do Fingerprint&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo as informações do carrinho para análise de fraude&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nome do produto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].Sku&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;12&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sku do produto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].MerchantItemId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;30&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ID do produto na loja&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].UnitPrice&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Preço unitário do produto em centavos &lt;br /&gt; Ex.: r$ 1.559,85 = 155985&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].OriginalPrice&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Preço original do produto em centavos &lt;br /&gt; Ex.: r$ 1.559,85 = 155985&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].Quantity&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Quantidade do produto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].GiftMessage&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;160&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem de presente&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].Description&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;76&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Descrição do produto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].ShippingInstructions&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;160&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Instruções para entrega do item do carrinho&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].ShippingMethod&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Método de entrega do item do carrinho &lt;br /&gt; Possíveis valores: &lt;br /&gt; ReDShield: None / SameDay / NextDay / TwoDay / ThreeDay / LowCost / CarrierDesignatedByCustomer / Pickup / International / Military / Other &lt;br /&gt; CyberSource: None / SameDay / OneDay / TwoDay / ThreeDay / LowCost / Pickup / Other&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items[].ShippingTrackingNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;19&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número de rastreamento da entrega do item do carrinho&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.MerchantDefinedFields[]&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo dados adicionais para Análise de Fraude&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.MerchantDefinedFields[].Id&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador de uma informação adicional a ser enviada&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.MerchantDefinedFields[].Value&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;255&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Valor de uma informação adicional a ser enviada&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.CustomConfiguration.MerchantWebsite&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;60&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Endereço website da loja&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TAMANHO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;OBRIGATÓRIO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nó contendo informações adicionais da entrega do pedido para análise de fraude&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping.Addressee&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;61&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nome e sobrenome do destinatário&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping.Email&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;60&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;E-mail do destinatário&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping.Phone&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;19&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Telefone do destinatário&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping.WorkPhone&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;19&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Telefone de trabalho do destinatário&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping.Mobile&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;19&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Celular do destinatário&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping.Comment&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;160&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Referência do endereço de entrega do destinatário&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ShippingMethod&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Método de entrega do pedido &lt;br /&gt; Possíveis valores: RedShield = None / SameDay / NextDay / TwoDay / ThreeDay / LowCost / CarrierDesignatedByCustomer / Pickup / International / Military / Other &lt;br /&gt; CyberSource = None / SameDay / OneDay / TwoDay / ThreeDay / LowCost / Pickup / Other / Opcional&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;resposta&quot;&gt;Resposta&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2014111457673454307&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Comprador Teste&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;13987441747&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;IdentityType&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CPF&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;MerchantCustomerId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;1325374899&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;compradorteste@live.com&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Birthdate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;1991-01-02&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Phone&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;21114740&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;WorkPhone&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;21114740&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Mobile&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;21114740&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Address&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Rua Júpter&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;174&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;AP 201&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Centro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;21241140&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Rio de Janeiro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;RJ&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;BRASIL&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;DeliveryAddress&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Rua Júpter&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;174&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;AP 201&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Centro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;21241140&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Rio de Janeiro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;RJ&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;BillingAddress&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Rua Júpter&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;174&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Complement&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;AP 201&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;21241140&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Rio de Janeiro&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;RJ&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Neighborhood&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Centro&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;NEW&quot;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:100,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Simulado&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;ServiceTaxAmount&quot;&lt;/span&gt;:0,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;:1,
+      &lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Interest&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;ByMerchant&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Capture&quot;&lt;/span&gt;:false,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;:false,
+      &lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;6011000000000111&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Teste accept&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2019&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;023&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Discover&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;EciThreeDSecure&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;05&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;FraudAnalysis&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;236bd8b5-8e15-e711-93fe-000d3ac03bed&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;: 2,
+         &lt;span class=&quot;s2&quot;&gt;&quot;StatusDescription&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Reject&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ReplyData&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+             &lt;span class=&quot;s2&quot;&gt;&quot;FactorCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;100.400.147&quot;&lt;/span&gt;,
+             &lt;span class=&quot;s2&quot;&gt;&quot;ReturnMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Payment void and transaction denied by ReD Shield&quot;&lt;/span&gt;,
+             &lt;span class=&quot;s2&quot;&gt;&quot;ProviderTransactionId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;958567039650&quot;&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+         
+         &lt;span class=&quot;s2&quot;&gt;&quot;Sequence&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;AnalyseFirst&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SequenceCriteria&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Always&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;RedShield&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CaptureOnLowRisk&quot;&lt;/span&gt;:true,
+         &lt;span class=&quot;s2&quot;&gt;&quot;VoidOnHighRisk&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;TotalOrderAmount&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;150000&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;OrderDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2016-12-09&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;IsRetryTransaction&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SplitingPaymentMethod&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;SINGLE-PAY&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Browser&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;IpAddress&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;187.32.163.105&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;BrowserFingerPrint&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==&quot;&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Cart&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Items&quot;&lt;/span&gt;:[
+               &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo de vodka&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;6500&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;abc123&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;: 1,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;7000&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo vodka com energeticos&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;GiftMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Te Amo!&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Mesa 51&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+               &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo de cerveja&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;UnitPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;4000&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;MerchantItemId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Sku&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;abc456&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Quantity&quot;&lt;/span&gt;: 1,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;OriginalPrice&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;500&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;Description&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Combo cerveja The Best!&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;GiftMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Te Odeio!&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingInstructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Mesa 171&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingMethod&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SameDay&quot;&lt;/span&gt;,
+                  &lt;span class=&quot;s2&quot;&gt;&quot;ShippingTrackingNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;987654&quot;&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;MerchantDefinedFields&quot;&lt;/span&gt;:[
+            &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+               &lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;:95,
+               &lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Eu defini isso&quot;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+            &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+               &lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;:96,
+               &lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Outra informação&quot;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Shipping&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Addressee&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Sr Comprador Teste&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;rschueler@braspag.com.br&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;LowCost&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Phone&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;552121114740&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;WorkPhone&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;552121114705&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Mobile&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;5521987654321&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Comment&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Em frente a mesa 80&quot;&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Payment.FraudAnalysis&lt;/strong&gt; - Nó contendo as informações da Análise de Fraude&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Id&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Guid&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
+      &lt;td&gt;Id da Transação no Antifraude&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;“Status da Análise de Fraude. Possíveis valores: &lt;br /&gt; 0 - Unknown &lt;br /&gt; 1 - Accept  &lt;br /&gt; 2 - Reject &lt;br /&gt; 3 - Review&lt;br /&gt; 4 - Aborted &lt;br /&gt; 5 - Error&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.StatusDescription&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Descrição do status da Análise de Fraude. Possíveis valores: &lt;br /&gt; 0 - Unknown &lt;br /&gt; 1 - Accept &lt;br /&gt; 2 - Reject &lt;br /&gt; 3 - Review  &lt;br /&gt; 4 - Aborted &lt;br /&gt; 5 - Error&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Payment.FraudAnalysis.ReplyData&lt;/strong&gt; - Nó contendo as informações detalhadas da Análise de Fraude&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;CAMPOS&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;TIPO&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;DESCRIÇÃO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.FactorCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código retornado do provider indicando o faotres que influenciaram na Análise de Fraude&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.ReturnMessage&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Descrição do código retornado pelo provider&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.ProviderTransactionId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Texto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da transação no provedor Antifraude&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     
