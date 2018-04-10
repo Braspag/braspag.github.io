@@ -410,7 +410,7 @@ especiais|
 
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |:-|:-|:-|:-|:-|
-|`Payment.FraudAnalysis.MerchantDefinedFields[]`|-|-|-|Nó contendo dados adicionais para Análise de Fraude|
+|`Payment.FraudAnalysis.MerchantDefinedFields[]`|-|-|-|Nó contendo dados adicionais para análise de fraude|
 |`Payment.FraudAnalysis.MerchantDefinedFields[].Id`|Número|-|Não|Identificador de uma informação adicional a ser enviada|
 |`Payment.FraudAnalysis.MerchantDefinedFields[].Value`|Texto|255|Não|Valor de uma informação adicional a ser enviada|
 
