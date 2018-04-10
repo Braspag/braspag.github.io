@@ -107,26 +107,26 @@ Para que a *análise de fraude* seja efetuada em tempo de transação, é necess
          "Cart":{
             "Items":[
                {
-                  "ProductName": "Combo de vodka",
+                  "ProductName": "Celuclar XYZ",
                   "UnitPrice": "6500",
                   "MerchantItemId": "4",
                   "Sku": "abc123",
                   "Quantity": 1,
                   "OriginalPrice": "7000",
-                  "Description": "Combo vodka com energeticos",
-                  "ShippingInstructions": "Mesa 51",
+                  "Description": "Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP",
+                  "ShippingInstructions": "Fragil",
                   "ShippingMethod": "SameDay",
                   "ShippingTrackingNumber": "123456"
                },
                {
-                  "ProductName": "Combo de cerveja",
+                  "ProductName": "TV XPTO Full HD",
                   "UnitPrice": "4000",
                   "MerchantItemId": "5",
                   "Sku": "abc456",
                   "Quantity": 1,
                   "OriginalPrice": "500",
-                  "Description": "Combo cerveja The Best!",
-                  "ShippingInstructions": "Mesa 171",
+                  "Description": "TV Full HD, 8 Entradas HDMI, Smart TV",
+                  "ShippingInstructions": "Televissao - Cuidado",
                   "ShippingMethod": "SameDay",
                   "ShippingTrackingNumber": "987654"
                }
@@ -243,28 +243,27 @@ curl
          "Cart":{
             "Items":[
                {
-                  "Name": "Combo de vodka",
+                  "ProductName": "Celuclar XYZ",
                   "UnitPrice": "6500",
                   "MerchantItemId": "4",
                   "Sku": "abc123",
                   "Quantity": 1,
                   "OriginalPrice": "7000",
-                  "Description": "Combo vodka com energeticos",
+                  "Description": "Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP",
                   "GiftMessage": "Te Amo!",
                   "ShippingInstructions": "Mesa 51",
                   "ShippingMethod": "SameDay",
                   "ShippingTrackingNumber": "123456"
                },
                {
-                  "Name": "Combo de cerveja",
+                  "ProductName": "TV XPTO Full HD",
                   "UnitPrice": "4000",
                   "MerchantItemId": "5",
                   "Sku": "abc456",
                   "Quantity": 1,
                   "OriginalPrice": "500",
-                  "Description": "Combo cerveja The Best!",
-                  "GiftMessage": "Te Odeio!",
-                  "ShippingInstructions": "Mesa 171",
+                  "Description": "TV Full HD, 8 Entradas HDMI, Smart TV",
+                  "ShippingInstructions": "Televisao - Cuidado",
                   "ShippingMethod": "SameDay",
                   "ShippingTrackingNumber": "987654"
                }
@@ -524,28 +523,26 @@ especiais|
          "Cart":{
             "Items":[
                {
-                  "Name": "Combo de vodka",
+                  "ProductName": "Celuclar XYZ",
                   "UnitPrice": "6500",
                   "MerchantItemId": "4",
                   "Sku": "abc123",
                   "Quantity": 1,
                   "OriginalPrice": "7000",
-                  "Description": "Combo vodka com energeticos",
-                  "GiftMessage": "Te Amo!",
+                  "Description": "Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP",
                   "ShippingInstructions": "Mesa 51",
                   "ShippingMethod": "SameDay",
                   "ShippingTrackingNumber": "123456"
                },
                {
-                  "Name": "Combo de cerveja",
+                  "ProductName": "TV XPTO Full HD",
                   "UnitPrice": "4000",
                   "MerchantItemId": "5",
                   "Sku": "abc456",
                   "Quantity": 1,
                   "OriginalPrice": "500",
-                  "Description": "Combo cerveja The Best!",
-                  "GiftMessage": "Te Odeio!",
-                  "ShippingInstructions": "Mesa 171",
+                  "Description": "TV Full HD, 8 Entradas HDMI, Smart TV",
+                  "ShippingInstructions": "Televisao - Cuidado",
                   "ShippingMethod": "SameDay",
                   "ShippingTrackingNumber": "987654"
                }
