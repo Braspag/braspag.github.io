@@ -176,7 +176,7 @@
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
@@ -196,7 +196,7 @@
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="s2">"AnalyseFirst"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"Always"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"RedShield"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"CaptureOnLowRisk"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
          </span><span class="s2">"VoidOnHighRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -263,8 +263,7 @@
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {token}"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
@@ -1313,7 +1312,7 @@ curl
          <span class="o">}</span>
          
          <span class="s2">"Sequence"</span>:<span class="s2">"AnalyseFirst"</span>,
-         <span class="s2">"SequenceCriteria"</span>:<span class="s2">"Always"</span>,
+         <span class="s2">"SequenceCriteria"</span>:<span class="s2">"OnSuccess"</span>,
          <span class="s2">"Provider"</span>:<span class="s2">"RedShield"</span>,
          <span class="s2">"CaptureOnLowRisk"</span>:true,
          <span class="s2">"VoidOnHighRisk"</span>:false,
