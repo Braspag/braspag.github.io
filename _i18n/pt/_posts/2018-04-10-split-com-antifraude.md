@@ -301,7 +301,7 @@ curl
 
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |:-|:-|:-|:-|:-|
-|`MerchantOrderId`|Texto|5|Sim|Número de identificação do pedido|
+|`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido|
 
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |:-|:-|:-|:-|:-|
