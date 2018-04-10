@@ -228,7 +228,7 @@ curl
       },
       "FraudAnalysis":{
          "Sequence":"AnalyseFirst",
-         "SequenceCriteria":"Always",
+         "SequenceCriteria":"Onsuccess",
          "Provider":"RedShield",
          "CaptureOnLowRisk":true,
          "VoidOnHighRisk":false,
@@ -384,8 +384,6 @@ especiais|
 |`Payment.OrderDate`|Date|-|Não|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|
 |`Payment.FraudAnalysis.IsRetryTransaction`|Booleano|-|Não|Indica se é uma retentativa de análise de fraude|
 |`Payment.FraudAnalysis.SplitingPaymentMethod`|Texto|-|Não|Indica se o pagamento esta sendo dividido. Ex: Pagamento com dois cartões <br/> Possíveis valores: SINGLE-PAY e SPLIT-PAY|
-|`Payment.FraudAnalysis.Sequence`|Texto|-|Sim|Define a ordem de execução da análise de fraude <br/> Possível valor: AnalyseFirst - efetua a análise de fraude antes de enviar para autorização (default) / AuthorizeFirst - efetua a atutorização antes de realizar a análise de fraude|
-|`Payment.FraudAnalysis.SequenceCriteria`|Texto|-|Sim|Define, de acordo com a sequência, se prosseguirá ou não com o fluxo <br/> Possíveis valores: Always - para o fluxo AnalyseFirst, segue com a autorização independente do resultado da análise de fraude. Para o fluxo AuthorizeFirst, segue com a análise de fraude independente do resultado da autorização <br/> OnSuccess - Para o fluxo AnalyseFirst, segue com a autorização somente se a análise de fraude retornar "Accept". Para o fluxo AuthorizeFirst, segue com a análise de fraude somente se a transação for autorizada|
 
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |:-|:-|:-|:-|:-|
