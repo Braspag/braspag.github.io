@@ -331,7 +331,7 @@ curl
       <span class="o">}</span>,
       <span class="s2">"FraudAnalysis"</span>:<span class="o">{</span>
          <span class="s2">"Sequence"</span>:<span class="s2">"AnalyseFirst"</span>,
-         <span class="s2">"SequenceCriteria"</span>:<span class="s2">"Always"</span>,
+         <span class="s2">"SequenceCriteria"</span>:<span class="s2">"Onsuccess"</span>,
          <span class="s2">"Provider"</span>:<span class="s2">"RedShield"</span>,
          <span class="s2">"CaptureOnLowRisk"</span>:true,
          <span class="s2">"VoidOnHighRisk"</span>:false,
@@ -968,20 +968,6 @@ curl
       <td style="text-align: left">-</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Indica se o pagamento esta sendo dividido. Ex: Pagamento com dois cartões <br /> Possíveis valores: SINGLE-PAY e SPLIT-PAY</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
-      <td style="text-align: left">Texto</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Define a ordem de execução da análise de fraude <br /> Possível valor: AnalyseFirst - efetua a análise de fraude antes de enviar para autorização (default) / AuthorizeFirst - efetua a atutorização antes de realizar a análise de fraude</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
-      <td style="text-align: left">Texto</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Define, de acordo com a sequência, se prosseguirá ou não com o fluxo <br /> Possíveis valores: Always - para o fluxo AnalyseFirst, segue com a autorização independente do resultado da análise de fraude. Para o fluxo AuthorizeFirst, segue com a análise de fraude independente do resultado da autorização <br /> OnSuccess - Para o fluxo AnalyseFirst, segue com a autorização somente se a análise de fraude retornar “Accept”. Para o fluxo AuthorizeFirst, segue com a análise de fraude somente se a transação for autorizada</td>
     </tr>
   </tbody>
 </table>
