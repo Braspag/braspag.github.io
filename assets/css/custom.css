@@ -1739,3 +1739,8 @@ input.hub-search:after {
     left: 0;
 }
 }
+
+#footer-conteudo-texto h2 {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
