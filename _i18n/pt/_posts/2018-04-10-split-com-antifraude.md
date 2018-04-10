@@ -427,7 +427,7 @@ especiais|
 |`Payment.FraudAnalysis.Shipping.WorkPhone`|Texto|19|Não|Telefone de trabalho do destinatário|
 |`Payment.FraudAnalysis.Shipping.Mobile`|Texto|19|Não|Celular do destinatário|
 |`Payment.FraudAnalysis.Shipping.Comment`|Texto|160|Não|Referência do endereço de entrega do destinatário|
-|`Payment.FraudAnalysis.ShippingMethod`|Texto|-|Não|Método de entrega do pedido <br/> Possíveis valores: RedShield = None / SameDay / NextDay / TwoDay / ThreeDay / LowCost / CarrierDesignatedByCustomer / Pickup / International / Military / Other <br/> CyberSource = None / SameDay / OneDay / TwoDay / ThreeDay / LowCost / Pickup / Other / Opcional|
+|`Payment.FraudAnalysis.ShippingMethod`|Texto|-|Não|Método de entrega do pedido <br/> Possíveis valores: <br/> RedShield = None / SameDay / NextDay / TwoDay / ThreeDay / LowCost / CarrierDesignatedByCustomer / Pickup / International / Military / Other <br/> CyberSource = None / SameDay / OneDay / TwoDay / ThreeDay / LowCost / Pickup / Other / Opcional|
 
 ### Resposta
 
