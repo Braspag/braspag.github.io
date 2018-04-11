@@ -474,13 +474,6 @@
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.BraspagMerchantOrderId</code></td>
-      <td style="text-align: left">Número do pedido no Pagador Braspag</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">100</td>
-    </tr>
   </tbody>
 </table>
 
@@ -613,7 +606,7 @@
 
 <p>O CSV que será construído com dos dados de chargeback deverá ter o layout abaixo, seguindo o tipo e obrigatoriedade de cada campo.</p>
 <blockquote>
-  <p>Amount;Date;Comment;ReasonCode;ReasonMessage;IsFraud;AntifraudTransactionId;AntifraudMerchantOrderId;Tid;Nsu;AuthorizationCode;SaleDate;BraspagTransactionId;BraspagMerchantOrderId;NegativeValues</p>
+  <p>Amount;Date;Comment;ReasonCode;ReasonMessage;IsFraud;Id;Tid;Nsu;AuthorizationCode;SaleDate;BraspagTransactionId;NegativeValues</p>
 </blockquote>
 
 <table>
