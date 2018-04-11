@@ -257,11 +257,10 @@ Neste passo será explicado como construir um arquivo no formato CSV (Semicolon-
 
 CSV é um formato de arquivo que contém valores separados por algum delimitador, ponto-e-vígula (;) por exemplo. Pode ser criado em qualquer editor de texto e lido em uma planilha de textos, como por exemplo, o excel. A planilha eletrônica irá dividir em linha/coluna cada item do arquivo separados por ponto-e-vírgula (;).
 
-O CSV que será construído com dos dados de chargeback deverá ter o layout abaixo, seguindo o tipo e obrigatoriedade de cada campo.
-
 Você poderá realizar o download de um arquivo de template através da opção disponibilizada na tela de Upload de Arquivo de Chargeback, conforme print abaixo:
 ![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/teladownloadtemplatecbk.png){: .centerimg }{:title="Download template arquivo CSV"}
 
+O CSV que será construído com dos dados de chargeback deverá ter o layout abaixo, seguindo o tipo e obrigatoriedade de cada campo.
 > Amount;Date;Comment;ReasonCode;ReasonMessage;IsFraud;AntifraudTransactionId;AntifraudMerchantOrderId;Tid;Nsu;AuthorizationCode;SaleDate;BraspagTransactionId;BraspagMerchantOrderId;NegativeValues
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
