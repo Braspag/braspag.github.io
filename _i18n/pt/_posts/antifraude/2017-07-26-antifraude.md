@@ -323,7 +323,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|não|19|
 |`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
 |`Shipping.Comment`|Referências do endereço de entrega|string|não|160|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}manual/antifraude#tabela-5-customer.merchantcustomerid)|string|sim|16|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|sim|16|
 |`Customer.FirstName`|Primeiro nome do comprador|string|sim|30|
 |`Customer.MiddleName`|Primeira letra do nome do comprador|string|não|1|
 |`Customer.LastName`|Último nome do comprador|string|sim|30|
@@ -618,7 +618,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|não|60|
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|15|
 |`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}manual/antifraude#tabela-5-customer.merchantcustomerid)|string|sim|16|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|sim|16|
 |`Customer.FirstName`|Primeiro nome do comprador|string|sim|60|
 |`Customer.LastName`|Último nome do comprador|string|sim|60|
 |`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
@@ -1059,7 +1059,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|
 |`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|
 |`Shipping.Comment`|Referências do endereço de entrega|string|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}manual/antifraude#tabela-5-customer.merchantcustomerid)|string|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|
 |`Customer.FirstName`|Primeiro nome do comprador|string|
 |`Customer.MiddleName`|Primeira letra do nome do comprador|string|
 |`Customer.LastName`|Último nome do comprador|string|
@@ -1388,7 +1388,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|
 |`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador <br/> [Tabela 5 - Customer.MerchantCustomerId]({{ site.baseurl_root }}manual/antifraude#tabela-5-customer.merchantcustomerid)|string|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|
 |`Customer.FirstName`|Primeiro nome do comprador|string|
 |`Customer.LastName`|Último nome do comprador|string|
 |`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|
@@ -2004,13 +2004,6 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 |Military|Meio de entrega militar|ReDShield|
 |Other|Outro meio de entrega|ReDShield, Cybersource|
 |None|Sem meio de entrega, pois é um serviço ou assinatura|ReDShield, Cybersource|
-
-## Tabela 5 - Customer.MerchantCustomerId
-
-|Valor|Provider|
-|:-|:-|
-|CPF|ReDShield, Cybersource|
-|CNPJ|ReDShield, Cybersource|
 
 ## Tabela 6 - Customer.Gender
 
