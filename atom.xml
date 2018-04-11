@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-11T21:00:06+00:00</updated>
+    <updated>2018-04-11T22:39:46+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -34901,7 +34901,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.MerchantCustomerId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento de identificação do comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-5-customer.merchantcustomerid&quot;&gt;Tabela 5 - Customer.MerchantCustomerId&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento de identificação do comprador, CPF ou CNPJ&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;16&lt;/td&gt;
@@ -35792,7 +35792,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.MerchantCustomerId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento de identificação do comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-5-customer.merchantcustomerid&quot;&gt;Tabela 5 - Customer.MerchantCustomerId&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento de identificação do comprador, CPF ou CNPJ&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;16&lt;/td&gt;
@@ -37183,7 +37183,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.MerchantCustomerId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento de identificação do comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-5-customer.merchantcustomerid&quot;&gt;Tabela 5 - Customer.MerchantCustomerId&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento de identificação do comprador, CPF ou CNPJ&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -38360,7 +38360,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.MerchantCustomerId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento de identificação do comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-5-customer.merchantcustomerid&quot;&gt;Tabela 5 - Customer.MerchantCustomerId&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento de identificação do comprador, CPF ou CNPJ&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -39884,27 +39884,6 @@ Se você não completar essa seção, você não receberá resultados corretos, 
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;None&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Sem meio de entrega, pois é um serviço ou assinatura&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ReDShield, Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;tabela-5---customermerchantcustomerid&quot;&gt;Tabela 5 - Customer.MerchantCustomerId&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;CPF&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ReDShield, Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;CNPJ&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;ReDShield, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
