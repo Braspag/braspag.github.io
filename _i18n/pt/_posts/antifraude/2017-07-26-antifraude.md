@@ -1733,18 +1733,11 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 ![Fluxo]({{ site.baseurl_root }}/images/braspag/af/fingerprint.png)
 
-1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a *caixa preta*
-2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo *hidden*
-3 - O lojista envia para a Braspag, junto com os demais dados da transação a ser analisada, a *caixa preta*
-4 - A Braspag recebe todos os dados, valida e envia para a ReD Shield
-5 - A ReD Shield recebe todos os dados, envia a *caixa preta* para a Iovation descriptografar
-6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador
+1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a *caixa preta* <br/> 2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo *hidden* <br/> 3 - O lojista envia para a Braspag, junto com os demais dados da transação a ser analisada, a *caixa preta* <br/> 4 - A Braspag recebe todos os dados, valida e envia para a ReD Shield <br/> 5 - A ReD Shield recebe todos os dados, envia a *caixa preta* para a Iovation descriptografar <br/> 6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador
 
 #### Como configurar?
 
-1 - Inclua o javascript da Iovation em sua página de checkout
-2 - Adicione parâmetros de configuração no javascript
-3 - Crie um campo do tipo *hidden* em sua página para escrever a *caixa preta* nele e enviá-lo junto com os dados da transação a ser analisada
+1 - Inclua o javascript da Iovation em sua página de checkout <br/> 2 - Adicione parâmetros de configuração no javascript <br/> 3 - Crie um campo do tipo *hidden* em sua página para escrever a *caixa preta* nele e enviá-lo junto com os dados da transação a ser analisada
 
 **Obs.:** Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.
 
@@ -1756,7 +1749,7 @@ Ex.: `<script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js">
 * Parâmetros de configuração
 
 |Parâmetro|Descrição|Default|
-|:-|:-|
+|:-|:-|:-|
 |`io_install_flash`|Determina se será solicitado ao usuário a instalação do Flash ou atualização da versão|false|
 |`io_flash_needs_handler`|Este parâmetro só terá validade se o parâmetro `io_install_flash` estiver configurado como TRUE, caso contrário não será executado <br/> É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado <br/> Ex.: var `io_flash_needs_handler` = "Alert('Instalar Flash');"|-|
 |`io_install_stm`|Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware <br/> Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito|false|
@@ -1777,8 +1770,9 @@ Os parâmetros de configuração devem ser colocados antes da chamada da tag aci
 Este tópico explica como integrar o mobile SDK da Iovation em seus aplicativos para iOS e Android.
 
 **Baixando o SDK**
-Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar através do centro de ajuda da Iovation.
-[Download Mobile SDK](http://help.iovation.com/Downloads)
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.
+[Download Deviceprint SDK iOS](https://github.com/iovation/deviceprint-SDK-iOS)
+[Download Deviceprint SDK Android](https://github.com/iovation/deviceprint-SDK-Android)
 
 **Sobre a integração**
 Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma *caixa preta* que contém todas as informações do dispositivo disponíveis.
@@ -1850,12 +1844,7 @@ A versão 1.2.0 do Iovation Mobile SDK para Android suporta versões do Android 
 
 * Instalando o SDK no Android
 
-1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar
-2 - Inicie o IDE de sua escolha
-3 - No Eclipse e Maven, faça o deploy do arquivo de extensão *.aar* no repositório Maven local, usando o maven-deploy. Mais detalhes em: [Maven Guide](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html)
-4 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package*
-5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish*
-6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle
+1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar <br/> 2 - Inicie o IDE de sua escolha <br/> 3 - No Eclipse e Maven, faça o deploy do arquivo de extensão *.aar* no repositório Maven local, usando o maven-deploy. Mais detalhes em: [Maven Guide](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html) <br/> 4 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package* <br/> 5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish* <br/> 6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle
 
 ![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png){: .left }{:title="Detalhes integração Android"}
 
@@ -1888,21 +1877,8 @@ Se a opção para executar o módulo não aparecer, selecione *File -> Project S
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemplocodigo2.png)
 
-1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar
-2 - No Android Studio, selecione *File -> Open* ou clique em *Open Project* através da opção *quick-start*
-3 - No diretório em que você descompactou o *deviceprint-lib-1.2.0.aar*, abra diretório *android-studio-sample-app* do aplicativo de exemplo
-4 - Abra o arquivo *DevicePrintSampleActivity*
-5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o *Event Log* e clique em *Configure*
-6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em *OK* para corrigir os erros
-7 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package*
-8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish*
-9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle
-![Detalhes integração Android]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png)
-10 - Abra a pasta DevicePrintSampleActivity
-11 - Na opção de navegação do projeto, abra *src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java*
-12 - Clique com o botão direito e selecione *Run DevicePrintSampleAct*
-13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo
-14 - O aplicativo irá compilar e executar
+1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar <br/> 2 - No Android Studio, selecione *File -> Open* ou clique em *Open Project* através da opção *quick-start* <br/> 3 - No diretório em que você descompactou o *deviceprint-lib-1.2.0.aar*, abra diretório *android-studio-sample-app* do aplicativo de exemplo <br/> 4 - Abra o arquivo *DevicePrintSampleActivity* <br/> 5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o *Event Log* e clique em *Configure* <br/> 6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em *OK* para corrigir os erros <br/> 7 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package* <br/> 8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish* <br/> 9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle <br/> ![Detalhes integração Android]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png) <br/> 10 - Abra a pasta DevicePrintSampleActivity
+11 - Na opção de navegação do projeto, abra *src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java* <br/> 12 - Clique com o botão direito e selecione *Run DevicePrintSampleAct* <br/> 13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo <br/> 14 - O aplicativo irá compilar e executar
 
 O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a *caixa preta*. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.
 
