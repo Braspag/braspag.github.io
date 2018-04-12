@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-12T16:24:29+00:00</updated>
+    <updated>2018-04-12T17:51:56+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -39458,9 +39458,7 @@ Os parâmetros de configuração devem ser colocados antes da chamada da tag aci
 Este tópico explica como integrar o mobile SDK da Iovation em seus aplicativos para iOS e Android.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Baixando o SDK&lt;/strong&gt;
-Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.
-&lt;a href=&quot;https://github.com/iovation/deviceprint-SDK-iOS&quot;&gt;Download Deviceprint SDK iOS&lt;/a&gt;
-&lt;a href=&quot;https://github.com/iovation/deviceprint-SDK-Android&quot;&gt;Download Deviceprint SDK Android&lt;/a&gt;&lt;/p&gt;
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.&lt;br /&gt; &lt;a href=&quot;https://github.com/iovation/deviceprint-SDK-iOS&quot;&gt;Download Deviceprint SDK iOS&lt;/a&gt; &lt;br /&gt; &lt;a href=&quot;https://github.com/iovation/deviceprint-SDK-Android&quot;&gt;Download Deviceprint SDK Android&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Sobre a integração&lt;/strong&gt;
 Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma &lt;em&gt;caixa preta&lt;/em&gt; que contém todas as informações do dispositivo disponíveis.&lt;/p&gt;
