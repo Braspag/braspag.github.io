@@ -1770,9 +1770,7 @@ Os parâmetros de configuração devem ser colocados antes da chamada da tag aci
 Este tópico explica como integrar o mobile SDK da Iovation em seus aplicativos para iOS e Android.
 
 **Baixando o SDK**
-Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.
-[Download Deviceprint SDK iOS](https://github.com/iovation/deviceprint-SDK-iOS)
-[Download Deviceprint SDK Android](https://github.com/iovation/deviceprint-SDK-Android)
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br/> [Download Deviceprint SDK iOS](https://github.com/iovation/deviceprint-SDK-iOS) <br/> [Download Deviceprint SDK Android](https://github.com/iovation/deviceprint-SDK-Android)
 
 **Sobre a integração**
 Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma *caixa preta* que contém todas as informações do dispositivo disponíveis.
