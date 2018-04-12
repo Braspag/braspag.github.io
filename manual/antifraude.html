@@ -5304,18 +5304,11 @@
 
 <p><img src="https://braspag.github.io//images/braspag/af/fingerprint.png" alt="Fluxo" /></p>
 
-<p>1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a <em>caixa preta</em>
-2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo <em>hidden</em>
-3 - O lojista envia para a Braspag, junto com os demais dados da transação a ser analisada, a <em>caixa preta</em>
-4 - A Braspag recebe todos os dados, valida e envia para a ReD Shield
-5 - A ReD Shield recebe todos os dados, envia a <em>caixa preta</em> para a Iovation descriptografar
-6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador</p>
+<p>1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a <em>caixa preta</em> <br /> 2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo <em>hidden</em> <br /> 3 - O lojista envia para a Braspag, junto com os demais dados da transação a ser analisada, a <em>caixa preta</em> <br /> 4 - A Braspag recebe todos os dados, valida e envia para a ReD Shield <br /> 5 - A ReD Shield recebe todos os dados, envia a <em>caixa preta</em> para a Iovation descriptografar <br /> 6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador</p>
 
 <h4 id="como-configurar">Como configurar?</h4>
 
-<p>1 - Inclua o javascript da Iovation em sua página de checkout
-2 - Adicione parâmetros de configuração no javascript
-3 - Crie um campo do tipo <em>hidden</em> em sua página para escrever a <em>caixa preta</em> nele e enviá-lo junto com os dados da transação a ser analisada</p>
+<p>1 - Inclua o javascript da Iovation em sua página de checkout <br /> 2 - Adicione parâmetros de configuração no javascript <br /> 3 - Crie um campo do tipo <em>hidden</em> em sua página para escrever a <em>caixa preta</em> nele e enviá-lo junto com os dados da transação a ser analisada</p>
 
 <p><strong>Obs.:</strong> Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.</p>
 
@@ -5335,44 +5328,44 @@ Ex.:</code></p>
     <tr>
       <th style="text-align: left">Parâmetro</th>
       <th style="text-align: left">Descrição</th>
-      <th>Default</th>
+      <th style="text-align: left">Default</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_install_flash</code></td>
       <td style="text-align: left">Determina se será solicitado ao usuário a instalação do Flash ou atualização da versão</td>
-      <td>false</td>
+      <td style="text-align: left">false</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_flash_needs_handler</code></td>
       <td style="text-align: left">Este parâmetro só terá validade se o parâmetro <code class="highlighter-rouge">io_install_flash</code> estiver configurado como TRUE, caso contrário não será executado <br /> É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado <br /> Ex.: var <code class="highlighter-rouge">io_flash_needs_handler</code> = “Alert(‘Instalar Flash’);”</td>
-      <td>-</td>
+      <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_install_stm</code></td>
       <td style="text-align: left">Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware <br /> Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito</td>
-      <td>false</td>
+      <td style="text-align: left">false</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_exclude_stm</code></td>
       <td style="text-align: left">Determina se o Active X deverá ser executado quando instalado <br /> É possível optar por desativar o controle para plataformas específicas <br /> Possíveis valores: <br /> 0 - executa em todas as plataformas <br /> 1 - não executa no Windows 9.x (incluindo as versões 3.1, 95, 98 e ME) <br /> 2 - não executa no Windows CE <br /> 4 - não executa no Windows XP (incluindo as versões NT, 2000, 2003 e 8) <br /> 8 - não executa no Windows Vista <br /> Obs.: Os valores são a combinação de somas dos valores acima, por exemplo: 12 - não executa no Windows XP (4) ou no Windows Vista (8)</td>
-      <td>15</td>
+      <td style="text-align: left">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_bbout_element_id</code></td>
       <td style="text-align: left">Id do elemento HTML para preencher com a <em>caixa preta</em> <br /> Se o parâmetro <code class="highlighter-rouge">io_bb_callback</code> for definido, este não terá efeito</td>
-      <td>-</td>
+      <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_enable_rip</code></td>
       <td style="text-align: left">Determina se tentará coletar informações para obter o IP real do usuário</td>
-      <td>true</td>
+      <td style="text-align: left">true</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_bb_callback</code></td>
       <td style="text-align: left">Parâmetro para customizar a checagem da coleta da <em>caixa preta</em> foi concluída <br /> Ao utilizar, escrever a função conforme com a seguinte sintaxe: <br /> <em>io_callback(bb, complete)</em>, onde: <br /> bb - valor da caixa preta <br /> complete - valor booleano que indica que a coleta foi concluída</td>
-      <td>-</td>
+      <td style="text-align: left">-</td>
     </tr>
   </tbody>
 </table>
@@ -5389,8 +5382,9 @@ Os parâmetros de configuração devem ser colocados antes da chamada da tag aci
 Este tópico explica como integrar o mobile SDK da Iovation em seus aplicativos para iOS e Android.</p>
 
 <p><strong>Baixando o SDK</strong>
-Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar através do centro de ajuda da Iovation.
-<a href="http://help.iovation.com/Downloads">Download Mobile SDK</a></p>
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.
+<a href="https://github.com/iovation/deviceprint-SDK-iOS">Download Deviceprint SDK iOS</a>
+<a href="https://github.com/iovation/deviceprint-SDK-Android">Download Deviceprint SDK Android</a></p>
 
 <p><strong>Sobre a integração</strong>
 Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma <em>caixa preta</em> que contém todas as informações do dispositivo disponíveis.</p>
@@ -5479,12 +5473,7 @@ Se as permissões listadas não são necessárias pelo aplicativo, os valores ob
   <li>Instalando o SDK no Android</li>
 </ul>
 
-<p>1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar
-2 - Inicie o IDE de sua escolha
-3 - No Eclipse e Maven, faça o deploy do arquivo de extensão <em>.aar</em> no repositório Maven local, usando o maven-deploy. Mais detalhes em: <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Maven Guide</a>
-4 - No Android Studio, selecione <em>File -&gt; New Module</em>. Expande <em>More Modules</em> e escolha <em>Import existing .jar or .aar package</em>
-5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em <em>Finish</em>
-6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle</p>
+<p>1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar <br /> 2 - Inicie o IDE de sua escolha <br /> 3 - No Eclipse e Maven, faça o deploy do arquivo de extensão <em>.aar</em> no repositório Maven local, usando o maven-deploy. Mais detalhes em: <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Maven Guide</a> <br /> 4 - No Android Studio, selecione <em>File -&gt; New Module</em>. Expande <em>More Modules</em> e escolha <em>Import existing .jar or .aar package</em> <br /> 5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em <em>Finish</em> <br /> 6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle</p>
 
 <p><img src="https://braspag.github.io//images/braspag/af/fingerprintandroid1.png" alt="Detalhes" class="left" title="Detalhes integração Android" /></p>
 
@@ -5533,21 +5522,8 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 
 <p><img src="https://braspag.github.io//images/braspag/af/exemplocodigo2.png" alt="Exemplo Código" /></p>
 
-<p>1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar
-2 - No Android Studio, selecione <em>File -&gt; Open</em> ou clique em <em>Open Project</em> através da opção <em>quick-start</em>
-3 - No diretório em que você descompactou o <em>deviceprint-lib-1.2.0.aar</em>, abra diretório <em>android-studio-sample-app</em> do aplicativo de exemplo
-4 - Abra o arquivo <em>DevicePrintSampleActivity</em>
-5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o <em>Event Log</em> e clique em <em>Configure</em>
-6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em <em>OK</em> para corrigir os erros
-7 - No Android Studio, selecione <em>File -&gt; New Module</em>. Expande <em>More Modules</em> e escolha <em>Import existing .jar or .aar package</em>
-8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em <em>Finish</em>
-9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle
-<img src="https://braspag.github.io//images/braspag/af/fingerprintandroid1.png" alt="Detalhes integração Android" />
-10 - Abra a pasta DevicePrintSampleActivity
-11 - Na opção de navegação do projeto, abra <em>src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java</em>
-12 - Clique com o botão direito e selecione <em>Run DevicePrintSampleAct</em>
-13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo
-14 - O aplicativo irá compilar e executar</p>
+<p>1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar <br /> 2 - No Android Studio, selecione <em>File -&gt; Open</em> ou clique em <em>Open Project</em> através da opção <em>quick-start</em> <br /> 3 - No diretório em que você descompactou o <em>deviceprint-lib-1.2.0.aar</em>, abra diretório <em>android-studio-sample-app</em> do aplicativo de exemplo <br /> 4 - Abra o arquivo <em>DevicePrintSampleActivity</em> <br /> 5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o <em>Event Log</em> e clique em <em>Configure</em> <br /> 6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em <em>OK</em> para corrigir os erros <br /> 7 - No Android Studio, selecione <em>File -&gt; New Module</em>. Expande <em>More Modules</em> e escolha <em>Import existing .jar or .aar package</em> <br /> 8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em <em>Finish</em> <br /> 9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle <br /> <img src="https://braspag.github.io//images/braspag/af/fingerprintandroid1.png" alt="Detalhes integração Android" /> <br /> 10 - Abra a pasta DevicePrintSampleActivity
+11 - Na opção de navegação do projeto, abra <em>src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java</em> <br /> 12 - Clique com o botão direito e selecione <em>Run DevicePrintSampleAct</em> <br /> 13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo <br /> 14 - O aplicativo irá compilar e executar</p>
 
 <p>O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a <em>caixa preta</em>. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.</p>
 
