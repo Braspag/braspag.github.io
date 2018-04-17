@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-12T17:51:56+00:00</updated>
+    <updated>2018-04-17T17:18:57+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -32225,6 +32225,12 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
       &lt;td&gt;Data&lt;/td&gt;
       &lt;td&gt;ddMMyyyy&lt;/td&gt;
       &lt;td&gt;A data original para a qual o evento de pagamento estava previsto (apenas para eventos de antecipações)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Número do Lote&lt;/td&gt;
+      &lt;td&gt;Numérico&lt;/td&gt;
+      &lt;td&gt;N&lt;/td&gt;
+      &lt;td&gt;O número do Lote (Resumo de Vendas) ao qual o evento pertence (Somente disponível no CSV a partir do dia 16/04/2018)&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
