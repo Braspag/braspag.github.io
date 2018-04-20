@@ -1588,6 +1588,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 * **Settled**: Liquidado.
 * **Error**: Erro de liquidação na instituição financeira.
 
+
 **Resquest**
 
 **Por Data Prevista de Pagamento**
@@ -1676,7 +1677,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 | `Schedules[].PaymentDate`         | Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)                | Data    | -       |
 | `Schedules[].ForecastedDate`      | Data de liquidação prevista.                                                                            | Data    | -       |
 | `Schedules[].Installments`        | Número de parcelas da transação.                                                                        | Inteiro | -       |
-| `Schedules[].InstallmentsAmount`  | Valor da parcela a liquidar.                                                                            | Inteiro | -       |
+| `Schedules[].InstallmentAmount`   | Valor da parcela a liquidar.                                                                            | Inteiro | -       |
 | `Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
 | `Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
 | `Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
