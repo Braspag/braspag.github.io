@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-20T18:41:27+00:00</updated>
+    <updated>2018-04-20T18:45:48+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9145,6 +9145,8 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 &lt;/table&gt;
 
 &lt;p&gt;Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.&lt;/p&gt;
+
+&lt;p&gt;Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
