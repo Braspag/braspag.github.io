@@ -1420,16 +1420,16 @@ Eventos de Débito:
 | `ChargebackDebit` | Lançamento de débito de um chargeback.                                                                  |
 | `AdjustmentDebit` | Lançamento de um débito como ajuste.                                                                    |
 
-### Consultar Transações
-
-O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
-
 Um evento poderá estar em um dos seguintes status na agenda financeira:
 
 * **Scheduled**: Agendado
 * **Pending**: Aguardando confirmação de liquidação
 * **Settled**: Liquidado
 * **Error**: Erro de liquidação na instituição financeira.
+
+### Consultar Transações
+
+O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialCaptureDate={initialDate}&finalCaptureDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
 
@@ -1440,7 +1440,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 | `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1
 | `PageSize`              | Tamanho da página.  Valores possíveis: 25, 50, 100.                           | Inteiro | -          | Não         | 25
 | `EventStatus`           | Status do evento [Scheduled - Pending - Settled - Error].                     | String  | -          | Não         | Todos
-| `MerchantIds`           | Lojas a seren consideradas na consulta.                                       | Guid    | -          | Não         | -
+| `MerchantIds`           | Lojas a serem consideradas na consulta.                                       | Guid    | -          | Não         | -
 
 Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds". Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
 
@@ -1592,7 +1592,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 | `PageIndex`                | Página a ser consultada.                                                             | Inteiro | -          | Não         | 1
 | `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.                                   | Inteiro | -          | Não         | 25
 | `EventStatus`              | Status do evento [Scheduled - Pending - Settled - Error].                            | String  | -          | Não         | Todos
-| `MerchantIds`              | Lojas a seren consideradas na consulta.                                              | Guid    | -          | Não         | -
+| `MerchantIds`              | Lojas a serem consideradas na consulta.                                              | Guid    | -          | Não         | -
 
 **Resquest**
 
