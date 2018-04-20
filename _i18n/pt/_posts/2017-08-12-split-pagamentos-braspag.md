@@ -1431,13 +1431,6 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 
 A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.
 
-Um evento poderá estar em um dos seguintes status na agenda financeira:
-
-* **Scheduled**: Agendado.
-* **Pending**: Aguardando confirmação de liquidação.
-* **Settled**: Liquidado.
-* **Error**: Erro de liquidação na instituição financeira.
-
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules?initialForecastedDate={initialDate}&finalForecastedDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
 
 | Parâmetro                  | Descrição                                                                            | Tipo    | Formato    | Obrigatório | Valor Padrão
