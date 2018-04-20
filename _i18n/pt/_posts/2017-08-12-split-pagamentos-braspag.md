@@ -1522,6 +1522,8 @@ Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds
 
 Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.
 
+Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.
+
 **Request**
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
