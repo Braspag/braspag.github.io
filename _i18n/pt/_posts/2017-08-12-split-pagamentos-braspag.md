@@ -1409,15 +1409,18 @@ Eventos de Crédito:
 |--------------------|---------------------------------------------------------------------------------------------------------|
 | `Credit`           | Lançamento de crédito das parcelas de uma transação.                                                    |
 | `FeeCredit`        | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
+| `RefundCredit`     | Lançamento de crédito devido a um cancelamento.                                                         |
+| `ChargebackCredit` | Lançamento de crédito devido a um chargeback.                                                           |
 | `AdjustmentCredit` | Lançamento de um crédito como ajuste.                                                                   |
 
 Eventos de Débito:
 
 | Evento            | Descrição                                                                                               |
 |-------------------|---------------------------------------------------------------------------------------------------------|
+| `Debit`           | Lançamento de débito das parcelas de uma transação.                                                     |
 | `FeeDebit`        | Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).             |
-| `RefundDebit`     | Lançamento de débito de um cancelamento.                                                                |
-| `ChargebackDebit` | Lançamento de débito de um chargeback.                                                                  |
+| `RefundDebit`     | Lançamento de débito devido a um cancelamento.                                                          |
+| `ChargebackDebit` | Lançamento de débito devido a um chargeback.                                                            |
 | `AdjustmentDebit` | Lançamento de um débito como ajuste.                                                                    |
 
 Um evento poderá estar em um dos seguintes status na agenda financeira:
