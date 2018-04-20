@@ -1572,13 +1572,13 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 | Parâmetro                  | Descrição                                                                            | Tipo    | Formato    | Obrigatório | Valor Padrão
 |----------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
-| `InitialForecastedDate`    | Data inicial a ser consultada, considerando a data prevista de liquidação do evento. | Data    | YYYY-MM-DD | Não         | CurrentDate
-| `FinalForecastedDate`      | Data final a ser consultada, considerando a data prevista de liquidação do evento.   | Data    | YYYY-MM-DD | Não         | InitialForecastedDate
-| `InitialPaymentDate`       | Data final a ser consultada, considerando a data prevista de liquidação do evento.   | Data    | YYYY-MM-DD | Não         | -
-| `FinalPaymentDate`         | Data final a ser consultada, considerando a data prevista de liquidação do evento.   | Data    | YYYY-MM-DD | Não         | InitialPaymentDate
-| `PageIndex`                | Página a ser consultada. Valores possíveis: 25, 50, 100.                             | Inteiro | -          | Não         | 1
-| `PageSize`                 | Tamanho da página.                                                                   | Inteiro | -          | Não         | 25
-| `ScheduleStatus`           | Status do evento [Scheduled | Pending | Settled | Error].                            | String  | -          | Não         | Todos
+| `InitialForecastedDate`    | Data de pagamento prevista inicial a ser consultada.                                 | Data    | YYYY-MM-DD | Não         | CurrentDate
+| `FinalForecastedDate`      | Data de pagamento prevista final a ser consultada.                                   | Data    | YYYY-MM-DD | Não         | InitialForecastedDate
+| `InitialPaymentDate`       | Data de pagamento inicial a ser consultada.                                          | Data    | YYYY-MM-DD | Não         | -
+| `FinalPaymentDate`         | Data de pagamento final a ser consultada.                                            | Data    | YYYY-MM-DD | Não         | InitialPaymentDate
+| `PageIndex`                | Página a ser consultada.                                                             | Inteiro | -          | Não         | 1
+| `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.                                   | Inteiro | -          | Não         | 25
+| `ScheduleStatus`           | Status do evento [Scheduled - Pending - Settled - Error].                            | String  | -          | Não         | Todos
 | `MerchantIds`              | Lojas a seren consideradas na consulta.                                              | Guid    | -          | Não         | -
 
 Um evento poderá estar em um dos seguintes status na agenda financeira:
@@ -1675,12 +1675,12 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 | `Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
 | `Schedules[].PaymentDate`         | Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)                | Data    | -       |
 | `Schedules[].ForecastedDate`      | Data de liquidação prevista.                                                                            | Data    | -       |
-| `Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | -       |
+| `Schedules[].Installments`        | Número de parcelas da transação.                                                                        | Inteiro | -       |
 | `Schedules[].InstallmentsAmount`  | Valor da parcela a liquidar.                                                                            | Inteiro | -       |
 | `Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
 | `Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
 | `Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
-| `Schedules[].EventStatus`         | Status do evento. [Scheduled | Pending | Settled | Error]                                               | String  | -       |
+| `Schedules[].EventStatus`         | Status do evento. [Scheduled - Pending - Settled - Error]                                               | String  | -       |
 
 ### Ajustes
 
