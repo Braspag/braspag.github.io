@@ -1424,19 +1424,6 @@ Eventos de Débito:
 
 O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialCaptureDate={initialDate}&finalCaptureDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
-
-| Parâmetro               | Descrição                                                                     | Tipo    | Formato    | Obrigatório | Valor Padrão
-|-------------------------|-------------------------------------------------------------------------------|---------|------------|-------------|
-| `InitialCaptureDate`    | Data inicial a ser consultada, considerando a data de captura das transações. | Data    | YYYY-MM-DD | Não         | CurrentDate
-| `FinalCaptureDate`      | Data final a ser consultada, considerando a data de captura das transações.   | Data    | YYYY-MM-DD | Não         | CurrentDate
-| `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1
-| `PageSize`              | Tamanho da página.                                                            | Inteiro | -          | Não         | 25
-| `EventStatus`           | Status do evento [Scheduled | Pending | Settled | Error].                     | String  | -          | Não         | Scheduled
-| `MerchantIds`           | Lojas a seren consideradas na consulta.                                       | Guid    | -          | Não         | -
-
-Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds". Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
-
 Um evento poderá estar em um dos seguintes status na agenda financeira:
 
 * **Scheduled**: Agendado
@@ -1444,9 +1431,22 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 * **Settled**: Liquidado
 * **Error**: Erro de liquidação na instituição financeira.
 
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialCaptureDate={initialDate}&finalCaptureDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
+
+| Parâmetro               | Descrição                                                                     | Tipo    | Formato    | Obrigatório | Valor Padrão
+|-------------------------|-------------------------------------------------------------------------------|---------|------------|-------------|
+| `InitialCaptureDate`    | Data inicial a ser consultada, considerando a data de captura das transações. | Data    | YYYY-MM-DD | Não         | CurrentDate
+| `FinalCaptureDate`      | Data final a ser consultada, considerando a data de captura das transações.   | Data    | YYYY-MM-DD | Não         | InitialCaptureDate
+| `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1
+| `PageSize`              | Tamanho da página.  Valores possíveis: 25, 50, 100.                           | Inteiro | -          | Não         | 25
+| `EventStatus`           | Status do evento [Scheduled - Pending - Settled - Error].                     | String  | -          | Não         | Todos
+| `MerchantIds`           | Lojas a seren consideradas na consulta.                                       | Guid    | -          | Não         | -
+
+Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds". Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
+
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialDate=2017-12-01&finalDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialCaptureDate=2017-12-01&finalCaptureDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -1511,12 +1511,14 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 | `Transactions[].PaymentId`                       | Identificador da transação.                                                                             | Guid    | 36      |
 | `Transactions[].CaptureDate`                     | Data de captura da transação.                                                                           | Data    | -       |
 | `Transactions[].Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
-| `Transactions[].Schedules[].Date`                | Data de liquidação prevista.                                                                            | Data    | -       |
+| `Transactions[].Schedules[].PaymentDate`         | Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)                | Data    | -       |
+| `Transactions[].Schedules[].ForecastedDate`      | Data de liquidação prevista.                                                                            | Data    | -       |
 | `Transactions[].Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | -       |
 | `Transactions[].Schedules[].InstallmentsAmount`  | Valor da parcela a liquidar.                                                                            | Inteiro | -       |
 | `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
 | `Transactions[].Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
 | `Transactions[].Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
+| `Transactions[].Schedules[].EventStatus`         | Status do evento. [Scheduled - Pending - Settled - Error]                                               | String  | -       |
 
 Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.
 
@@ -1542,21 +1544,23 @@ Para consultar a agenda de uma transação específica basta informar o identifi
             "Schedules": [
                 {
                     "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "Date": "2018-01-11",
+                    "ForecastedDate": "2018-01-11",
                     "Installments": 1,
                     "InstallmentAmount": 5790,
                     "InstallmentNumber": 1,
                     "Event": 1,
-                    "EventDescription": "Credit"
+                    "EventDescription": "Credit",
+                    "EventStatus": "Scheduled"
                 },
                 {
                     "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "Date": "2018-01-11",
+                    "ForecastedDate": "2018-01-11",
                     "Installments": 1,
                     "InstallmentAmount": 3790,
                     "InstallmentNumber": 1,
                     "Event": 1,
-                    "EventDescription": "Credit"
+                    "EventDescription": "Credit",
+                    "EventStatus": "Scheduled"
                 }
             ]
         }
@@ -1568,7 +1572,14 @@ Para consultar a agenda de uma transação específica basta informar o identifi
 
 A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
+Um evento poderá estar em um dos seguintes status na agenda financeira:
+
+* **Scheduled**: Agendado.
+* **Pending**: Aguardando confirmação de liquidação.
+* **Settled**: Liquidado.
+* **Error**: Erro de liquidação na instituição financeira.
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules?initialForecastedDate={initialDate}&finalForecastedDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
 
 | Parâmetro                  | Descrição                                                                            | Tipo    | Formato    | Obrigatório | Valor Padrão
 |----------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
@@ -1578,16 +1589,8 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 | `FinalPaymentDate`         | Data de pagamento final a ser consultada.                                            | Data    | YYYY-MM-DD | Não         | InitialPaymentDate
 | `PageIndex`                | Página a ser consultada.                                                             | Inteiro | -          | Não         | 1
 | `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.                                   | Inteiro | -          | Não         | 25
-| `ScheduleStatus`           | Status do evento [Scheduled - Pending - Settled - Error].                            | String  | -          | Não         | Todos
+| `EventStatus`              | Status do evento [Scheduled - Pending - Settled - Error].                            | String  | -          | Não         | Todos
 | `MerchantIds`              | Lojas a seren consideradas na consulta.                                              | Guid    | -          | Não         | -
-
-Um evento poderá estar em um dos seguintes status na agenda financeira:
-
-* **Scheduled**: Agendado.
-* **Pending**: Aguardando confirmação de liquidação.
-* **Settled**: Liquidado.
-* **Error**: Erro de liquidação na instituição financeira.
-
 
 **Resquest**
 
@@ -1625,7 +1628,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
         {
             "PaymentId": "1129bb06-38d6-4978-93a0-fff4659032f4",
             "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
-            "Date": "2018-01-01",
+            "ForecastedDate": "2018-01-01",
             "Installments": 1,
             "InstallmentAmount": 10,
             "InstallmentNumber": 1,
@@ -1636,7 +1639,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
         {
             "PaymentId": "41606b10-9698-4cd3-b0bd-ffa94d385acf",
             "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
-            "Date": "2018-01-01",
+            "ForecastedDate": "2018-01-01",
             "Installments": 10,
             "InstallmentAmount": 20,
             "InstallmentNumber": 4,
@@ -1647,7 +1650,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
         {
             "PaymentId": "1129bb06-38d6-4978-93a0-fff4659032f4",
             "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
-            "Date": "2018-01-01",
+            "ForecastedDate": "2018-01-01",
             "Installments": 1,
             "InstallmentAmount": 1548,
             "InstallmentNumber": 1,
@@ -1658,7 +1661,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
         {
             "PaymentId": "24afaaaf-f2a1-40a5-bb25-f914fa623c4c",
             "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
-            "Date": "2018-01-01",
+            "ForecastedDate": "2018-01-01",
             "Installments": 2,
             "InstallmentAmount": 5,
             "InstallmentNumber": 2,
