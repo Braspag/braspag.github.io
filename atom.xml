@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-20T18:49:34+00:00</updated>
+    <updated>2018-04-20T18:50:28+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -8937,15 +8937,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 &lt;h3 id=&quot;consultar-eventos&quot;&gt;Consultar Eventos&lt;/h3&gt;
 
 &lt;p&gt;A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.&lt;/p&gt;
-
-&lt;p&gt;Um evento poderá estar em um dos seguintes status na agenda financeira:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Scheduled&lt;/strong&gt;: Agendado.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Pending&lt;/strong&gt;: Aguardando confirmação de liquidação.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Settled&lt;/strong&gt;: Liquidado.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Error&lt;/strong&gt;: Erro de liquidação na instituição financeira.&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-split}/api/schedules?initialForecastedDate={initialDate}&amp;amp;finalForecastedDate={finalDate}&amp;amp;pageIndex={pageIndex}&amp;amp;pageSize={pageSize}&amp;amp;eventStatus={eventStatus}&amp;amp;merchantIds={merchantId}&lt;/span&gt;&lt;/aside&gt;
 
