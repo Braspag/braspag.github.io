@@ -1432,7 +1432,7 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 | `FinalCaptureDate`      | Data final a ser consultada, considerando a data de captura das transações.   | Data    | YYYY-MM-DD | Não         | CurrentDate
 | `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1
 | `PageSize`              | Tamanho da página.                                                            | Inteiro | -          | Não         | 25
-| `ScheduleStatus`        | Status do evento. Vide status possíveis abaixo.                               | String  | -          | Não         | Scheduled
+| `ScheduleStatus`        | Status do evento. Status do evento [Scheduled | Pending | Settled | Error].   | String  | -          | Não         | Scheduled
 | `MerchantIds`           | Lojas a seren consideradas na consulta.                                       | Guid    | -          | Não         | -
 
 Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds". Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
