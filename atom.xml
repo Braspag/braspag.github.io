@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-20T18:06:40+00:00</updated>
+    <updated>2018-04-20T18:08:21+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -8940,6 +8940,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
       &lt;th&gt;Formato&lt;/th&gt;
       &lt;th&gt;Obrigatório&lt;/th&gt;
       &lt;th&gt;Valor Padrão&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -8950,6 +8953,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
       &lt;td&gt;YYYY-MM-DD&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;CurrentDate&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FinalCaptureDate&lt;/code&gt;&lt;/td&gt;
@@ -8958,6 +8964,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
       &lt;td&gt;YYYY-MM-DD&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;CurrentDate&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PageIndex&lt;/code&gt;&lt;/td&gt;
@@ -8966,6 +8975,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PageSize&lt;/code&gt;&lt;/td&gt;
@@ -8974,10 +8986,16 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ScheduleStatus&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Status do evento. Vide status possíveis abaixo.&lt;/td&gt;
+      &lt;td&gt;Status do evento. Status do evento [Scheduled&lt;/td&gt;
+      &lt;td&gt;Pending&lt;/td&gt;
+      &lt;td&gt;Settled&lt;/td&gt;
+      &lt;td&gt;Error].&lt;/td&gt;
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -8990,6 +9008,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
