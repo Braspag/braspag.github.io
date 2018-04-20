@@ -1582,34 +1582,38 @@ Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds
                     "InstallmentAmount": 24357,
                     "InstallmentNumber": 1,
                     "Event": "Credit",
-                    "EventDescription": "Credit"
+                    "EventDescription": "Credit",
+                    "EventStatus": "Scheduled"
                 },
                 {
                     "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "Date": "2017-12-21",
+                    "ForecastedDate": "2017-12-21",
                     "Installments": 2,
                     "InstallmentAmount": 1450,
                     "InstallmentNumber": 1,
                     "Event": "Credit",
-                    "EventDescription": "Credit"
+                    "EventDescription": "Credit",
+                    "EventStatus": "Scheduled"
                 },
                 {
                     "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "Date": "2017-12-21",
+                    "ForecastedDate": "2017-12-21",
                     "Installments": 2,
                     "InstallmentAmount": 38480,
                     "InstallmentNumber": 1,
                     "Event": "Credit",
-                    "EventDescription": "Credit"
+                    "EventDescription": "Credit",
+                    "EventStatus": "Scheduled"
                 },
                 {
                     "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "Date": "2017-12-21",
+                    "ForecastedDate": "2017-12-21",
                     "Installments": 2,
                     "InstallmentAmount": 5,
                     "InstallmentNumber": 1,
                     "Event": "FeeDebit",
-                    "EventDescription": "FeeDebit"
+                    "EventDescription": "FeeDebit",
+                    "EventStatus": "Scheduled"
                 },
             ]
         }
