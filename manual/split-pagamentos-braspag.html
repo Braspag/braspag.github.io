@@ -1966,84 +1966,60 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <th>Formato</th>
       <th>Obrigatório</th>
       <th>Valor Padrão</th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">InitialForecastedDate</code></td>
-      <td>Data inicial a ser consultada, considerando a data prevista de liquidação do evento.</td>
+      <td>Data de pagamento prevista inicial a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
       <td>Não</td>
       <td>CurrentDate</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FinalForecastedDate</code></td>
-      <td>Data final a ser consultada, considerando a data prevista de liquidação do evento.</td>
+      <td>Data de pagamento prevista final a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
       <td>Não</td>
       <td>InitialForecastedDate</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">InitialPaymentDate</code></td>
-      <td>Data final a ser consultada, considerando a data prevista de liquidação do evento.</td>
+      <td>Data de pagamento inicial a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
       <td>Não</td>
       <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FinalPaymentDate</code></td>
-      <td>Data final a ser consultada, considerando a data prevista de liquidação do evento.</td>
+      <td>Data de pagamento final a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
       <td>Não</td>
       <td>InitialPaymentDate</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PageIndex</code></td>
-      <td>Página a ser consultada. Valores possíveis: 25, 50, 100.</td>
+      <td>Página a ser consultada.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Não</td>
       <td>1</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PageSize</code></td>
-      <td>Tamanho da página.</td>
+      <td>Tamanho da página. Valores possíveis: 25, 50, 100.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Não</td>
       <td>25</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ScheduleStatus</code></td>
-      <td>Status do evento [Scheduled</td>
-      <td>Pending</td>
-      <td>Settled</td>
-      <td>Error].</td>
+      <td>Status do evento [Scheduled - Pending - Settled - Error].</td>
       <td>String</td>
       <td>-</td>
       <td>Não</td>
@@ -2056,9 +2032,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td>-</td>
       <td>Não</td>
       <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -2158,9 +2131,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -2169,88 +2139,58 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td>Identificador da transação.</td>
       <td>Guid</td>
       <td>36</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].MerchantId</code></td>
       <td>Identificador da loja.</td>
       <td>Guid</td>
       <td>36</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].PaymentDate</code></td>
       <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)</td>
       <td>Data</td>
       <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].ForecastedDate</code></td>
       <td>Data de liquidação prevista.</td>
       <td>Data</td>
       <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].Installments</code></td>
-      <td>Número de parcelas a liquidar.</td>
+      <td>Número de parcelas da transação.</td>
       <td>Inteiro</td>
       <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].InstallmentsAmount</code></td>
       <td>Valor da parcela a liquidar.</td>
       <td>Inteiro</td>
       <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].InstallmentNumber</code></td>
       <td>Número da parcela a liquidar.</td>
       <td>Inteiro</td>
       <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].Event</code></td>
       <td>Identificador do evento.</td>
       <td>Inteiro</td>
       <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].EventDescription</code></td>
       <td>Descrição do evento.</td>
       <td>String</td>
       <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].EventStatus</code></td>
-      <td>Status do evento. [Scheduled</td>
-      <td>Pending</td>
-      <td>Settled</td>
-      <td>Error]</td>
+      <td>Status do evento. [Scheduled - Pending - Settled - Error]</td>
       <td>String</td>
       <td>-</td>
     </tr>
