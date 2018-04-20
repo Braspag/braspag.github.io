@@ -1683,7 +1683,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <p>O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.</p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialDate={initialDate}&amp;finalDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;scheduleStatus={scheduleStatus}&amp;merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions?initialCaptureDate={initialDate}&amp;finalCaptureDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
 
 <table>
   <thead>
@@ -1745,8 +1745,8 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ScheduleStatus</code></td>
-      <td>Status do evento. Status do evento [Scheduled</td>
+      <td><code class="highlighter-rouge">EventStatus</code></td>
+      <td>Status do evento [Scheduled</td>
       <td>Pending</td>
       <td>Settled</td>
       <td>Error].</td>
@@ -1800,7 +1800,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
             </span><span class="s2">"Schedules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-21"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-21"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">24357</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1989,7 +1989,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
       <td>Não</td>
-      <td>CurrentDate</td>
+      <td>InitialForecastedDate</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -2000,7 +2000,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
       <td>Não</td>
-      <td>CurrentDate</td>
+      <td>-</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -2011,7 +2011,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
       <td>Não</td>
-      <td>CurrentDate</td>
+      <td>InitialPaymentDate</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -2066,9 +2066,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <p>Um evento poderá estar em um dos seguintes status na agenda financeira:</p>
 
 <ul>
-  <li><strong>Scheduled</strong>: Agendado</li>
-  <li><strong>Pending</strong>: Aguardando confirmação de liquidação</li>
-  <li><strong>Settled</strong>: Liquidado</li>
+  <li><strong>Scheduled</strong>: Agendado.</li>
+  <li><strong>Pending</strong>: Aguardando confirmação de liquidação.</li>
+  <li><strong>Settled</strong>: Liquidado.</li>
   <li><strong>Error</strong>: Erro de liquidação na instituição financeira.</li>
 </ul>
 
@@ -2076,7 +2076,11 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <p><strong>Por Data Prevista de Pagamento</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules/transactions?initialForecastedDate=2017-12-01&amp;finalForecastedDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules?initialForecastedDate=2017-12-01&amp;finalForecastedDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+
+<p><strong>Por Data de Pagamento</strong></p>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules?initialPaymentDate=2017-12-01&amp;finalPaymentDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"
 </code></pre>
