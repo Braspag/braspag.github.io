@@ -4647,6 +4647,78 @@ curl
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 |`AuthenticationUrl`|Authentication URL to be sent to the customer|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
+## Void/Refund Operation for Alelo transactions
+
+To void or refund a transaction, follow the example bellow
+
+### Request
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+```
+
+```
+
+```shell
+curl
+--request PUT "https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/void?amount=xxx"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Property|Description|Type|Size|Mandatory|
+|---|---|---|---|---|
+|`MerchantId`|Merchant Identifier|Guid|3|Yes|
+|`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
+|`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Braspag's Transaction ID. |Guid |36 |Yes|
+|`Amount`|Amount to be voided or refunded (in cents)|Number|15 |No|
+
+### Response
+
+```json
+{
+    "Status": 10,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReasonCode": "9",
+    "ProviderReasonMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
+        }
+    ]
+}
+```
+
+```shell
+{
+    "Status": 10,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReasonCode": "9",
+    "ProviderReasonMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
+        }
+    ]
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`Status`|Transaction's Status|Byte|---|10|
+|`ReasonCode`|Operation's return code|Text|32|Alphanumeric Text|
+|`ReasonMessage`|Operation's return Message|Text|512|Alphanumeric Text|
+
 # Electronic Transfer Payments
 
 ## Creating a transaction
