@@ -100,10 +100,10 @@ Below we have the list of acquirers that support refund transaction:
 |Rede|Komerci tecnology: 90 days; eRede tecnology: 60 days|
 |Getnet|90 days|
 |Transbank|90 days|
-|Global Payments|--|
-|First Data|--|
-|Banorte|--|
-|Credibanco|--|
+|Banorte|30 days|
+|Global Payments|300 days|
+|First Data|90 days|
+|Alelo|300 days|
 
 <aside class="warning">Please, check if the acquirer supports Void or Refund operation before development</aside>
 
