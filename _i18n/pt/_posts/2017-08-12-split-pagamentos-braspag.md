@@ -863,7 +863,7 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 
 **Request**
 
-<aside class="request"><span class="method get">POST</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
