@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-04-24T12:18:20+00:00</updated>
+    <updated>2018-04-24T12:38:37+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -747,20 +747,20 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;90 days&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;Banorte&lt;/td&gt;
+      &lt;td&gt;30 days&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;Global Payments&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;300 days&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;First Data&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;90 days&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Banorte&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Credibanco&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;Alelo&lt;/td&gt;
+      &lt;td&gt;300 days&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
