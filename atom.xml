@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-04-20T19:11:47+00:00</updated>
+    <updated>2018-04-24T12:18:15+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10411,6 +10411,10 @@ diferentes.&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;First Data&lt;/td&gt;
       &lt;td&gt;90 dias&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alelo&lt;/td&gt;
+      &lt;td&gt;300 dias&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
