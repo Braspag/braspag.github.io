@@ -103,6 +103,7 @@ Abaixo segue a lista de adquirentes com as quais temos integração para solicit
 |Transbank|90 dias| 
 |Banorte|30 dias|
 |First Data|90 dias|
+|Alelo|300 dias|
 
 <aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
