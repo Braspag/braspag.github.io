@@ -12,7 +12,7 @@
 
     <title>
         
-        Gateway Antifraude 3.0 &middot; Documentações e tutoriais
+        Split de Pagamentos - Plataforma Antifraude &middot; Documentações e tutoriais
         
     </title>
 
@@ -107,7 +107,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-com-antifraude">Gateway Antifraude 3.0</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-com-antifraude">Split de Pagamentos - Plataforma Antifraude</a></li>
                                     
                                 
                             
@@ -117,13 +117,30 @@
             </div>
 
             <div class="post">
-  <h1 id="gateway-af---red-shield">Gateway AF - ReD Shield</h1>
+  <h1 id="split-de-pagamentos---plataforma-antifraude">Split de Pagamentos - Plataforma Antifraude</h1>
+
+<p>O Split de Pagamentos é composto por uma plataforma de de análise de fraude cujo objetivo é minimizar as fraudes e as ocorrências de chargebacks nos estabelecimentos que o utilizam.</p>
+
+<p>No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.</p>
+
+<p>A plataforma de antifraude do Split conta com duas ferramentas:</p>
+
+<blockquote>
+  <p>Velocity
+Antifraude</p>
+</blockquote>
+
+<p>A transação é analisada primeiramente por regras de velocidade do Velocity, onde caso uma suspeita seja encontrada, a transação é automaticamente abortada.</p>
+
+<p>Caso as regras de velocidade não identifique nenhuma suspeita, a transação é analisada pela ferramenta de antifraude, utilizando inteligência aritificial. Caso alguma suspeita seja encontrada, a transação também será abortada.</p>
+
+<p>Caso as ferramentas não encontrem nehuma suspeita de fraude, a mesma é enviada para autorização seguindo o fluxo normal.</p>
 
 <blockquote>
   <p>Na análise de AF, os padrões de siglas para países utilizados nos campos <code class="highlighter-rouge">Country</code> devem seguir o modelo da ISO 3166-1 ALPHA 2 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2</p>
 </blockquote>
 
-<h2 id="criando-uma-transação-com-análise-de-fraude-red-shield">Criando uma transação com Análise de Fraude ReD Shield</h2>
+<h2 id="criando-uma-transação-com-análise-de-fraude">Criando uma transação com Análise de Fraude</h2>
 
 <p>Para que a <em>análise de fraude</em> seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.</p>
 
