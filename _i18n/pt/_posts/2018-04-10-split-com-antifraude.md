@@ -22,8 +22,8 @@ No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que
 
 A plataforma de antifraude do Split conta com duas ferramentas:
 
-** Velocity **
-** Antifraude **
+**Velocity**
+**Antifraude**
 
 A transação é analisada primeiramente por regras de velocidade do Velocity, onde caso uma suspeita seja encontrada, a transação é automaticamente abortada.
 
