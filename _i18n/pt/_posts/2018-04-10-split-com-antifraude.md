@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Gateway Antifraude 3.0
-description: Integração técnica API Antifraude Gateway Braspag
+title: Split de Pagamentos - Plataforma Antifraude
+description: Integração técnica Antifraude
 search: true
 toc_footers: false
 categories: manual
@@ -14,11 +14,26 @@ language_tabs:
   shell: cURL
 ---
 
-# Gateway AF - ReD Shield
+# Split de Pagamentos - Plataforma Antifraude
+
+O Split de Pagamentos é composto por uma plataforma de de análise de fraude cujo objetivo é minimizar as fraudes e as ocorrências de chargebacks nos estabelecimentos que o utilizam.
+
+No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
+
+A plataforma de antifraude do Split conta com duas ferramentas:
+
+> Velocity
+> Antifraude
+
+A transação é analisada primeiramente por regras de velocidade do Velocity, onde caso uma suspeita seja encontrada, a transação é automaticamente abortada.
+
+Caso as regras de velocidade não identifique nenhuma suspeita, a transação é analisada pela ferramenta de antifraude, utilizando inteligência aritificial. Caso alguma suspeita seja encontrada, a transação também será abortada.
+
+Caso as ferramentas não encontrem nehuma suspeita de fraude, a mesma é enviada para autorização seguindo o fluxo normal.
 
 > Na análise de AF, os padrões de siglas para países utilizados nos campos `Country` devem seguir o modelo da ISO 3166-1 ALPHA 2 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 
-## Criando uma transação com Análise de Fraude ReD Shield
+## Criando uma transação com Análise de Fraude
 
 Para que a *análise de fraude* seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
 
