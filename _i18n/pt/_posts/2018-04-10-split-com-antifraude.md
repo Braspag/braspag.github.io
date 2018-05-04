@@ -22,23 +22,111 @@ No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que
 
 A plataforma de antifraude do Split conta com duas importantes ferramentas:
 
-**Velocity**
+**Velocity** - Analisa a transação através de regras de velocidade. Ex: 5 Hits de Cartão em 2 horas.
 
-**Antifraude**
+**Antifraude** - Analisa a transação utilizando algoritmos de inteligência artificial.
 
-A transação é analisada primeiramente por regras de velocidade do Velocity, onde caso uma suspeita seja encontrada, a transação é automaticamente abortada.
+## Fluxo transacional
 
-Caso as regras de velocidade não identifique nenhuma suspeita, a transação é analisada pela ferramenta de antifraude, utilizando inteligência aritificial. Caso alguma suspeita seja encontrada, a transação também será abortada.
+A integração com as ferramentas da plataforma de antifraude é através do próprio fluxo transacional no mesmo momento que se realiza uma transação, não sendo necessário realizar um nova requisição a um outro endpoint. 
 
-Caso as ferramentas não encontrem nehuma suspeita de fraude, a mesma é enviada para autorização seguindo o fluxo normal.
 
-> Na análise de AF, os padrões de siglas para países utilizados nos campos `Country` devem seguir o modelo da ISO 3166-1 ALPHA 2 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+## Integrando o Velocity
 
-## Criando uma transação com Análise de Fraude
+```json
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador Teste",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "IpAddress":"222.237.207.155",
+      "Address":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "District":"BairroXYZ",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+      "DeliveryAddress":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "District":"BairroXYZ",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      }
+   },
+   "Payment":{  
+      "Type":"SplittedCreditCard",
+      "Amount":15700,
+      "Provider":"Simulado",
+      "Installments":1,
+      "Capture":false,
+      "SoftDescriptor":"SOFTTESTE",
+      "CreditCard":{  
+         "CardNumber":"4024007197692931",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      }
+   }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
+|`Customer.Name`|Texto|255|Sim|Nome do comprador|
+|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente| 
+|`Customer.IdentityType`|Texto|255|Sim|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
+|`Customer.Email`|Texto|255|Sim|Email do comprador|
+|`Customer.IpAddress`|Texto|255|Sim|Ip do comprador|
+|`Customer.Address.Street`|Texto|255|Não|Endereço de contato do comprador|
+|`Customer.Address.Number`|Texto|15|Não|Número endereço de contato do comprador|
+|`Customer.Address.Complement`|Texto|50|Não|Complemento do endereço de contato do Comprador|
+|`Customer.Address.ZipCode`|Texto|9|Sim|CEP do endereço de contato do comprador|
+|`Customer.Address.City`|Texto|50|Não|Cidade do endereço de contato do comprador|
+|`Customer.Address.State`|Texto|2|Não|Estado do endereço de contato do comprador|
+|`Customer.Address.Country`|Texto|35|Não|Pais do endereço de contato do comprador|
+|`Customer.Address.District`|Texto |50 |Não|Bairro do Comprador. |
+|`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do comprador|
+|`Customer.DeliveryAddress.Number`|Texto|15|Não|Número do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Sim|CEP do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Country`|Texto|35|Não|Pais do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.District`|Texto |50 |Não|Bairro do Comprador. |
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento (Simulado ou Cielo)|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento (SplittedCreditCard)|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (deve ser enviado em centavos)|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
+|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
+|`CreditCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
+|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
+|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+
+
+## Requisição
+
+## Resposta
+
+## Integrando o Antifraude
 
 Para que a *análise de fraude* seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
 
 ### Requisição
+
+> Na análise de AF, os padrões de siglas para países utilizados nos campos `Country` devem seguir o modelo da ISO 3166-1 ALPHA 2 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
