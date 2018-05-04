@@ -125,25 +125,356 @@
 
 <p>A plataforma de antifraude do Split conta com duas importantes ferramentas:</p>
 
-<p><strong>Velocity</strong></p>
+<p><strong>Velocity</strong> - Analisa a transação através de regras de velocidade. Ex: 5 Hits de Cartão em 2 horas.</p>
 
-<p><strong>Antifraude</strong></p>
+<p><strong>Antifraude</strong> - Analisa a transação utilizando algoritmos de inteligência artificial.</p>
 
-<p>A transação é analisada primeiramente por regras de velocidade do Velocity, onde caso uma suspeita seja encontrada, a transação é automaticamente abortada.</p>
+<h2 id="fluxo-transacional">Fluxo transacional</h2>
 
-<p>Caso as regras de velocidade não identifique nenhuma suspeita, a transação é analisada pela ferramenta de antifraude, utilizando inteligência aritificial. Caso alguma suspeita seja encontrada, a transação também será abortada.</p>
+<p>A integração com as ferramentas da plataforma de antifraude é através do próprio fluxo transacional no mesmo momento que se realiza uma transação, não sendo necessário realizar um nova requisição a um outro endpoint.</p>
 
-<p>Caso as ferramentas não encontrem nehuma suspeita de fraude, a mesma é enviada para autorização seguindo o fluxo normal.</p>
+<h2 id="integrando-o-velocity">Integrando o Velocity</h2>
+
+<h2 id="requisição">Requisição</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador Teste"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Identity"</span><span class="p">:</span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@teste.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"IpAddress"</span><span class="p">:</span><span class="s2">"222.237.207.155"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Address"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"BairroXYZ"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"DeliveryAddress"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"BairroXYZ"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"SOFTTESTE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4024007197692931"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Numero de identificação do Pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Nome do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do RG, CPF ou CNPJ do Cliente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Email do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IpAddress</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Ip do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Número endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço de contato do Comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>Pais do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Bairro do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Endereço do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Número do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>Pais do endereço de entrega do pedido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Bairro do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Nome da provedora de Meio de Pagamento (Simulado ou Cielo)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do Meio de Pagamento (SplittedCreditCard)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do Pedido (deve ser enviado em centavos)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de Parcelas</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td>Número do Cartão do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Sim</td>
+      <td>Nome do Comprador impresso no cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Código de segurança impresso no verso do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="resposta">Resposta</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.Id</code></td>
+      <td>Identificador da análise efetuada</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.ResultMessage</code></td>
+      <td>Accept ou Reject</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.Score</code></td>
+      <td>100</td>
+      <td>Número</td>
+      <td>10</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
+      <td>Código da Regra que rejeitou</td>
+      <td>Número</td>
+      <td>10</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
+      <td>Descrição da Regra que rejeitou</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="integrando-o-antifraude">Integrando o Antifraude</h2>
+
+<p>Para que a <em>análise de fraude</em> seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.</p>
+
+<h3 id="requisição-1">Requisição</h3>
 
 <blockquote>
   <p>Na análise de AF, os padrões de siglas para países utilizados nos campos <code class="highlighter-rouge">Country</code> devem seguir o modelo da ISO 3166-1 ALPHA 2 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2</p>
 </blockquote>
-
-<h2 id="criando-uma-transação-com-análise-de-fraude">Criando uma transação com Análise de Fraude</h2>
-
-<p>Para que a <em>análise de fraude</em> seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.</p>
-
-<h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1233,7 +1564,7 @@ curl
   </tbody>
 </table>
 
-<h3 id="resposta">Resposta</h3>
+<h3 id="resposta-1">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
