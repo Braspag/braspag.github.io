@@ -8620,7 +8620,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |3|Mudança de status do Antifraude|
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|Estorno negado (aplicável para Rede)|
-|6|Boleto pago a menor|
+|6|Boleto registrado pago a menor|
 
 # Anexos
 
