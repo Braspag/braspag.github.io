@@ -4858,9 +4858,9 @@ curl
 
 # Pagamentos com Cartão de Débito
 
-## Criando uma transação
+## Criando uma transação com cartão de débito
 
-Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação. <BR><BR>Atualmente, somente o Provider "Cielo" ou "Cielo30" suportam processamento desta modalidade.
+Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação.
 
 ### Requisição
 
@@ -5015,6 +5015,198 @@ curl
     "ReasonMessage": "Waiting",
     "Status": 0,
     "ProviderReturnCode": "0",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/21423fa4-6bcf-448a-97e0-e683fa2581ba"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/21423fa4-6bcf-448a-97e0-e683fa2581ba/void"
+      }
+    ]
+  }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
+|`Status`|Status da Transação|Byte|2|1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
+|`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
+
+## Criando uma transação com cartão de débito sem autenticação
+
+Uma transação com um Cartão de Débito sem Autenticação é processada de forma semehante a transações de Cartão de Crédito, pois não é necessário autenticar-se na tela do banco emissor do cartão para finalizar a compra. <BR><BR>Para esta modalidade é obrigatório o envio do parâmetro Authenticate como "false".
+  
+ <aside class="warning">É necessário verificar com a adquirente a disponibilidade deste serviço.</aside>
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+   "MerchantOrderId":"2017051107",
+   "Customer":{
+      "Name":"Nome do Cliente"
+   },
+   "Payment":{
+     "Provider":"Cielo",
+     "Type":"DebitCard",
+     "Amount":10000,
+     "Installments":1,
+     "Authenticate":false,
+     "ReturnUrl":"http://www.braspag.com.br",
+     "DebitCard":{
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+   "MerchantOrderId":"2017051107",
+   "Customer":{
+      "Name":"Nome do Cliente"
+   },
+   "Payment":{
+     "Provider":"Cielo",
+     "Type":"DebitCard",
+     "Amount":10000,
+     "Installments":1,
+     "Authenticate":false,
+     "ReturnUrl":"http://www.braspag.com.br",
+     "DebitCard":{
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     }
+   }
+}
+--verbose
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
+|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
+|`Customer.Name`|Texto|255|Sim|Nome do comprador|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento. Atualmente somente a "Cielo" suporta esta forma de pagamento via Pagador|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
+|`Payment.Authenticate`|Booleano que indica se a transação deve ser autenticada (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|Booleano |-- |Sim (enviar false)|
+|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento|Texto |1024 |Sim|
+|`DebitCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
+|`DebitCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
+|`DebitCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
+|`DebitCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
+|`DebitCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+
+### Resposta
+
+```json
+{
+  "MerchantOrderId": "2017051107",
+  "Customer": {
+    "Name": "Nome do Cliente"
+  },
+  "Payment": {
+    "DebitCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "AcquirerTransactionId": "10069930690009D366FA",
+    "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
+    "Type": "DebitCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:19:58",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Cielo",
+    "ReturnUrl": "http://www.braspag.com.br",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/21423fa4-6bcf-448a-97e0-e683fa2581ba"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/21423fa4-6bcf-448a-97e0-e683fa2581ba/void"
+      }
+    ]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "MerchantOrderId": "2017051107",
+  "Customer": {
+    "Name": "Nome do Cliente"
+  },
+  "Payment": {
+    "DebitCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "AcquirerTransactionId": "10069930690009D366FA",
+    "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
+    "Type": "DebitCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:19:58",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Cielo",
+    "ReturnUrl": "http://www.braspag.com.br",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
     "Links": [
       {
         "Method": "GET",
