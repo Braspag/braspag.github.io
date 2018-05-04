@@ -6684,6 +6684,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 |3|Fraud Analysis' Status changing|
 |4|Recurring Payment's Status changing (Ex. in case of automatic desactivation)|
 |5|Refund Denied (applicable justo for Rede)|
+|6|Underpaid registered boleto|
 
 # Appends
 
