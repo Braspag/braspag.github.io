@@ -8,11 +8,6 @@ categories: manual
 sort_order: 7
 hub_visible: false
 tags:
-  
-language_tabs:
-  json: JSON
-  shell: cURL
----
 
 # Split de Pagamentos - Análise de Fraude
 
