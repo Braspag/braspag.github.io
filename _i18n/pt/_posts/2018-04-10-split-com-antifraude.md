@@ -27,6 +27,8 @@ A integração com as ferramentas de antifraude se dá através do próprio flux
 
 ## Integrando o Velocity
 
+Para que a análise de velocidade seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.
+
 ## Requisição
 
 ```json
