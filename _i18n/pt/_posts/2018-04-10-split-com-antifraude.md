@@ -30,8 +30,9 @@ A plataforma de antifraude do Split conta com duas importantes ferramentas:
 
 A integração com as ferramentas da plataforma de antifraude é através do próprio fluxo transacional no mesmo momento que se realiza uma transação, não sendo necessário realizar um nova requisição a um outro endpoint. 
 
-
 ## Integrando o Velocity
+
+## Requisição
 
 ```json
 {  
@@ -115,10 +116,15 @@ A integração com as ferramentas da plataforma de antifraude é através do pr�
 |`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 
-
-## Requisição
-
 ## Resposta
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`VelocityAnalysis.Id`|Identificador da análise efetuada|GUID|36|
+|`VelocityAnalysis.ResultMessage`|Accept ou Reject|Texto|25|
+|`VelocityAnalysis.Score`|100|Número|10|
+|`VelocityAnalysis.RejectReasons.RuleId`|Código da Regra que rejeitou|Número|10|
+|`VelocityAnalysis.RejectReasons.Message`|Descrição da Regra que rejeitou|Texto|512|
 
 ## Integrando o Antifraude
 
