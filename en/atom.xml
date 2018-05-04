@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-05-04T17:34:00+00:00</updated>
+    <updated>2018-05-04T17:35:14+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14725,6 +14725,10 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
     &lt;tr&gt;
       &lt;td&gt;Credibanco&lt;/td&gt;
       &lt;td&gt;Visa, Master, Diners, Amex, Credential&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Transbank&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Diners, Amex&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
