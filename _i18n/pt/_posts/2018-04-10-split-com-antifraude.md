@@ -28,7 +28,7 @@ A plataforma de antifraude do Split conta com duas importantes ferramentas:
 
 ## Fluxo transacional
 
-A integração com as ferramentas da plataforma de antifraude é através do próprio fluxo transacional no mesmo momento que se realiza uma transação, não sendo necessário realizar um nova requisição a um outro endpoint. 
+A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a outro serviço. 
 
 ## Integrando o Velocity
 
