@@ -8646,6 +8646,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |DMCard|---|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|
 |Credibanco|Visa, Master, Diners, Amex, Credential|
+|Transbank|Visa, Master, Diners, Amex|
 
 ### Providers pra Débito
 
