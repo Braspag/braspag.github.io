@@ -6710,6 +6710,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 |DMCard|---|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|
 |Credibanco|Visa, Master, Diners, Amex, Credential|
+|Transbank|Visa, Master, Diners, Amex|
 
 ### Debit Card Payments Provider
 
