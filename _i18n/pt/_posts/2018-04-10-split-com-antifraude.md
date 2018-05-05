@@ -29,6 +29,14 @@ A integração com as ferramentas de antifraude se dá através do próprio flux
 
 Para que a análise de velocidade seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.
 
+Se a análise de fraude recomendar **Rejeitar** a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:
+
+**Payment.Status**: 0 - Transação Não Finalizada.
+
+**Payment.ReturnCode**: BP171 - Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
+        
+**Payment.ReturnMessage**: Rejected by fraud risk (velocity) - Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
+
 ## Requisição
 
 ```json
@@ -174,7 +182,7 @@ Para que a análise de velocidade seja efetuada em tempo transacional, é necess
         },
         "Amount": 15700,
         "Status": 0,
-        "IsSplitted": false,
+        "IsSplitted": true,
         "ReturnMessage": "Rejected by fraud risk (velocity)",
         "ReturnCode": "BP171",
         "PaymentId": "b02c8c4a-a32c-4c37-bf6a-10f80d2be5f6",
@@ -197,8 +205,8 @@ Para que a análise de velocidade seja efetuada em tempo transacional, é necess
 |`VelocityAnalysis.Id`|Identificador da análise efetuada|GUID|36|
 |`VelocityAnalysis.ResultMessage`|Accept ou Reject|Texto|25|
 |`VelocityAnalysis.Score`|100|Número|10|
-|`VelocityAnalysis.RejectReasons.RuleId`|Código da Regra que rejeitou|Número|10|
-|`VelocityAnalysis.RejectReasons.Message`|Descrição da Regra que rejeitou|Texto|512|
+|`VelocityAnalysis.RejectReasons[].RuleId`|Código da Regra que rejeitou|Número|10|
+|`VelocityAnalysis.RejectReasons[].Message`|Descrição da Regra que rejeitou|Texto|512|
 
 ## Integrando o Antifraude
 
