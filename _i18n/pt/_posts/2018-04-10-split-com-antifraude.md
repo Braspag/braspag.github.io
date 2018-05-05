@@ -115,6 +115,83 @@ Para que a análise de velocidade seja efetuada em tempo transacional, é necess
 
 ## Resposta
 
+```json
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador Teste",
+        "Identity": "11225468954",
+        "IdentityType": "CPF",
+        "Email": "compradorteste@teste.com",
+        "Address": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA",
+            "District": "BairroXYZ"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA",
+            "District": "BairroXYZ"
+        },
+        "IpAddress": "222.237.207.155"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "402400******2931",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "SoftDescriptor": "SOFTTESTE",
+        "Provider": "Simulado",
+        "VelocityAnalysis": {
+            "Id": "b02c8c4a-a32c-4c37-bf6a-10f80d2be5f6",
+            "ResultMessage": "Reject",
+            "Score": 100,
+            "RejectReasons": [
+                {
+                    "RuleId": 38,
+                    "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 5 Hits de Número do Cartão em 12 hora(s). HitsQuantity: 5. HitsTimeRangeInSeconds: 43200. ExpirationBlockTimeInSeconds: 86400"
+                }
+            ]
+        },
+        "Amount": 15700,
+        "Status": 0,
+        "IsSplitted": false,
+        "ReturnMessage": "Rejected by fraud risk (velocity)",
+        "ReturnCode": "BP171",
+        "PaymentId": "b02c8c4a-a32c-4c37-bf6a-10f80d2be5f6",
+        "Type": "CreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/b02c8c4a-a32c-4c37-bf6a-10f80d2be5f6"
+            }
+        ]
+    }
+}
+```
+
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`VelocityAnalysis.Id`|Identificador da análise efetuada|GUID|36|
