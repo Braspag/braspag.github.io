@@ -29,6 +29,14 @@ tags:</p>
 
 <p>Para que a análise de velocidade seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.</p>
 
+<p>Se a análise de fraude recomendar <strong>Rejeitar</strong> a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:</p>
+
+<p><strong>Payment.Status</strong>: 0 - Transação Não Finalizada.</p>
+
+<p><strong>Payment.ReturnCode</strong>: BP171 - Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.</p>
+
+<p><strong>Payment.ReturnMessage</strong>: Rejected by fraud risk (velocity) - Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.</p>
+
 <h2 id="requisição">Requisição</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
@@ -369,7 +377,7 @@ tags:</p>
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rejected by fraud risk (velocity)"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BP171"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b02c8c4a-a32c-4c37-bf6a-10f80d2be5f6"</span><span class="p">,</span><span class="w">
@@ -420,14 +428,14 @@ tags:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons[].RuleId</code></td>
       <td>Código da Regra que rejeitou</td>
       <td>Número</td>
       <td>10</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons[].Message</code></td>
       <td>Descrição da Regra que rejeitou</td>
       <td>Texto</td>
       <td>512</td>

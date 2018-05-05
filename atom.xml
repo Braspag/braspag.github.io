@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-05T04:07:21+00:00</updated>
+    <updated>2018-05-05T04:15:32+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -48,6 +48,14 @@ tags:&lt;/p&gt;
 &lt;h2 id=&quot;integrando-o-velocity&quot;&gt;Integrando o Velocity&lt;/h2&gt;
 
 &lt;p&gt;Para que a análise de velocidade seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.&lt;/p&gt;
+
+&lt;p&gt;Se a análise de fraude recomendar &lt;strong&gt;Rejeitar&lt;/strong&gt; a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Payment.Status&lt;/strong&gt;: 0 - Transação Não Finalizada.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Payment.ReturnCode&lt;/strong&gt;: BP171 - Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Payment.ReturnMessage&lt;/strong&gt;: Rejected by fraud risk (velocity) - Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.&lt;/p&gt;
 
 &lt;h2 id=&quot;requisição&quot;&gt;Requisição&lt;/h2&gt;
 
@@ -389,7 +397,7 @@ tags:&lt;/p&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsSplitted&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsSplitted&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rejected by fraud risk (velocity)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BP171&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b02c8c4a-a32c-4c37-bf6a-10f80d2be5f6&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -440,14 +448,14 @@ tags:&lt;/p&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VelocityAnalysis.RejectReasons.RuleId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VelocityAnalysis.RejectReasons[].RuleId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Código da Regra que rejeitou&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VelocityAnalysis.RejectReasons.Message&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VelocityAnalysis.RejectReasons[].Message&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Descrição da Regra que rejeitou&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
