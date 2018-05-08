@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-08T02:32:21+00:00</updated>
+    <updated>2018-05-08T02:37:56+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -20,11 +20,11 @@
         <id>https://braspag.github.io//manual/split-com-antifraude</id>
         <content type="html">&lt;h1 id=&quot;split-de-pagamentos---análise-de-fraude&quot;&gt;Split de Pagamentos - Análise de Fraude&lt;/h1&gt;
 
-&lt;p&gt;O Split de Pagamentos é composto por uma plataforma de antifraude cujo objetivo é minimizar as fraudes e as ocorrências de chargebacks nos estabelecimentos que o utilizam.&lt;/p&gt;
+&lt;p&gt;O Split de Pagamentos é composto por uma plataforma antifraude cujo objetivo é minimizar as fraudes e as ocorrências de chargebacks nos estabelecimentos que o utilizam.&lt;/p&gt;
 
 &lt;p&gt;No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.&lt;/p&gt;
 
-&lt;p&gt;A plataforma de antifraude do Split conta com duas importantes ferramentas:&lt;/p&gt;
+&lt;p&gt;A plataforma de antifraude conta com duas importantes ferramentas:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Velocity&lt;/strong&gt; - Analisa a transação através de regras de velocidade. Ex: 5 Hits de Cartão em 2 horas.&lt;/p&gt;
 
@@ -32,7 +32,7 @@
 
 &lt;h2 id=&quot;fluxo-transacional&quot;&gt;Fluxo transacional&lt;/h2&gt;
 
-&lt;p&gt;A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a outro serviço.&lt;/p&gt;
+&lt;p&gt;A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a um outro serviço.&lt;/p&gt;
 
 &lt;h2 id=&quot;integrando-o-velocity&quot;&gt;Integrando o Velocity&lt;/h2&gt;
 
