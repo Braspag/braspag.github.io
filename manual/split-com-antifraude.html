@@ -134,7 +134,7 @@
 <p><strong>Payment.ReturnMessage</strong>: Rejected by fraud risk (velocity) -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.</p>
 
 <blockquote>
-  <p>Para verificar se a transação foi interrompida pela análise de velocidade, deve-se verificar se propriedades <em>Payment.Status</em> e <em>Payment.ReturnCode</em> retornaram os valores apresentados acima.</p>
+  <p>Para verificar se a transação foi interrompida pela análise de velocidade, deve-se verificar se propriedades <strong>Payment.Status</strong> e <strong>Payment.ReturnCode</strong> retornaram os valores apresentados acima.</p>
 </blockquote>
 
 <h3 id="requisição">Requisição</h3>
@@ -554,7 +554,7 @@
 
 <p><strong>Payment.Status</strong>: 13 -&gt; Transação Abortada.</p>
 
-<p><strong>Payment.ReturnCode</strong>: BP171 -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.</p>
+<p><strong>Payment.FraudAnalysis.Status</strong>: BP171 -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.</p>
 
 <p><strong>Payment.ReturnMessage</strong>: Rejected by fraud risk (velocity) -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.</p>
 
@@ -564,7 +564,7 @@
   <p>Na análise de AF, os padrões de siglas para países utilizados nos campos <code class="highlighter-rouge">Country</code> devem seguir o modelo da ISO 3166-1 ALPHA 2 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2</p>
 </blockquote>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111457673454307"</span><span class="p">,</span><span class="w">
@@ -646,7 +646,7 @@
          </span><span class="s2">"Cart"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Items"</span><span class="p">:[</span><span class="w">
                </span><span class="p">{</span><span class="w">
-                  </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celuclar XYZ"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celular XYZ"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6500"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"MerchantItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -694,144 +694,6 @@
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-curl
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {token}"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111457673454307"</span>,
-   <span class="s2">"Customer"</span>:<span class="o">{</span>
-      <span class="s2">"Name"</span>:<span class="s2">"Comprador Teste"</span>,
-      <span class="s2">"Identity"</span>:<span class="s2">"10050665740"</span>,
-      <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
-      <span class="s2">"Email"</span>:<span class="s2">"compradorteste@live.com"</span>,
-      <span class="s2">"Birthdate"</span>:<span class="s2">"1991-01-02"</span>,
-      <span class="s2">"Phone"</span>:<span class="s2">"552121114740"</span>,
-      <span class="s2">"WorkPhone"</span>:<span class="s2">"552121114740"</span>,
-      <span class="s2">"Mobile"</span>:<span class="s2">"552121114740"</span>,
-      <span class="s2">"Address"</span>: <span class="o">{</span>
-         <span class="s2">"Street"</span>: <span class="s2">"Rua Neturno"</span>,
-         <span class="s2">"Number"</span>: <span class="s2">"12345"</span>,
-         <span class="s2">"Complement"</span>: <span class="s2">"Sala 123"</span>,
-         <span class="s2">"District"</span>: <span class="s2">"Centro"</span>,
-         <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
-         <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
-         <span class="s2">"Country"</span>: <span class="s2">"BR"</span>,
-         <span class="s2">"ZipCode"</span>: <span class="s2">"20080123"</span>
-      <span class="o">}</span>,
-      <span class="s2">"DeliveryAddress"</span>:<span class="o">{</span>
-         <span class="s2">"Street"</span>: <span class="s2">"Rua Saturno"</span>,
-         <span class="s2">"Number"</span>: <span class="s2">"30000"</span>,
-         <span class="s2">"Complement"</span>: <span class="s2">"sl 123"</span>,
-         <span class="s2">"Neighborhood"</span>: <span class="s2">"Centro"</span>,
-         <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
-         <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
-         <span class="s2">"Country"</span>: <span class="s2">"BR"</span>,
-         <span class="s2">"ZipCode"</span>: <span class="s2">"123456789"</span>
-      <span class="o">}</span>,
-      <span class="s2">"BillingAddress"</span>: <span class="o">{</span>
-         <span class="s2">"Street"</span>: <span class="s2">"Rua Neturno"</span>,
-         <span class="s2">"Number"</span>: <span class="s2">"12345"</span>,
-         <span class="s2">"Complement"</span>: <span class="s2">"Sala 123"</span>,
-         <span class="s2">"District"</span>: <span class="s2">"Centro"</span>,
-         <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
-         <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
-         <span class="s2">"Country"</span>: <span class="s2">"BR"</span>,
-         <span class="s2">"ZipCode"</span>: <span class="s2">"20080123"</span>
-      <span class="o">}</span>,
-      <span class="s2">"Status"</span>:<span class="s2">"NEW"</span>
-   <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>
-      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-      <span class="s2">"Amount"</span>:100,
-      <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
-      <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-      <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
-      <span class="s2">"ServiceTaxAmount"</span>:0,
-      <span class="s2">"Installments"</span>:1,
-      <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
-      <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
-      <span class="s2">"Capture"</span>:false,
-      <span class="s2">"Authenticate"</span>:false,
-      <span class="s2">"CreditCard"</span>:<span class="o">{</span>
-         <span class="s2">"CardNumber"</span>:<span class="s2">"6011000000000111"</span>,
-         <span class="s2">"Holder"</span>:<span class="s2">"Teste accept"</span>,
-         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2019"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"023"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Discover"</span>,
-         <span class="s2">"EciThreeDSecure"</span>:<span class="s2">"05"</span>
-      <span class="o">}</span>,
-      <span class="s2">"FraudAnalysis"</span>:<span class="o">{</span>
-         <span class="s2">"Sequence"</span>:<span class="s2">"AnalyseFirst"</span>,
-         <span class="s2">"SequenceCriteria"</span>:<span class="s2">"Onsuccess"</span>,
-         <span class="s2">"Provider"</span>:<span class="s2">"RedShield"</span>,
-         <span class="s2">"CaptureOnLowRisk"</span>:true,
-         <span class="s2">"VoidOnHighRisk"</span>:false,
-         <span class="s2">"TotalOrderAmount"</span>:<span class="s2">"150000"</span>,
-         <span class="s2">"OrderDate"</span>:<span class="s2">"2016-12-09"</span>,
-         <span class="s2">"IsRetryTransaction"</span>:false,
-         <span class="s2">"SplitingPaymentMethod"</span>:<span class="s2">"SINGLE-PAY"</span>,
-         <span class="s2">"Browser"</span>:<span class="o">{</span>
-            <span class="s2">"IpAddress"</span>:<span class="s2">"187.32.163.105"</span>,
-            <span class="s2">"BrowserFingerPrint"</span>:<span class="s2">"04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw=="</span>
-         <span class="o">}</span>,
-         <span class="s2">"Cart"</span>:<span class="o">{</span>
-            <span class="s2">"Items"</span>:[
-               <span class="o">{</span>
-                  <span class="s2">"ProductName"</span>: <span class="s2">"Celuclar XYZ"</span>,
-                  <span class="s2">"UnitPrice"</span>: <span class="s2">"6500"</span>,
-                  <span class="s2">"MerchantItemId"</span>: <span class="s2">"4"</span>,
-                  <span class="s2">"Sku"</span>: <span class="s2">"abc123"</span>,
-                  <span class="s2">"Quantity"</span>: 1,
-                  <span class="s2">"OriginalPrice"</span>: <span class="s2">"7000"</span>,
-                  <span class="s2">"Description"</span>: <span class="s2">"Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP"</span>,
-                  <span class="s2">"GiftMessage"</span>: <span class="s2">"Te Amo!"</span>,
-                  <span class="s2">"ShippingInstructions"</span>: <span class="s2">"Mesa 51"</span>,
-                  <span class="s2">"ShippingMethod"</span>: <span class="s2">"SameDay"</span>,
-                  <span class="s2">"ShippingTrackingNumber"</span>: <span class="s2">"123456"</span>
-               <span class="o">}</span>,
-               <span class="o">{</span>
-                  <span class="s2">"ProductName"</span>: <span class="s2">"TV XPTO Full HD"</span>,
-                  <span class="s2">"UnitPrice"</span>: <span class="s2">"4000"</span>,
-                  <span class="s2">"MerchantItemId"</span>: <span class="s2">"5"</span>,
-                  <span class="s2">"Sku"</span>: <span class="s2">"abc456"</span>,
-                  <span class="s2">"Quantity"</span>: 1,
-                  <span class="s2">"OriginalPrice"</span>: <span class="s2">"500"</span>,
-                  <span class="s2">"Description"</span>: <span class="s2">"TV Full HD, 8 Entradas HDMI, Smart TV"</span>,
-                  <span class="s2">"ShippingInstructions"</span>: <span class="s2">"Televisao - Cuidado"</span>,
-                  <span class="s2">"ShippingMethod"</span>: <span class="s2">"SameDay"</span>,
-                  <span class="s2">"ShippingTrackingNumber"</span>: <span class="s2">"987654"</span>
-               <span class="o">}</span>
-            <span class="o">]</span>
-         <span class="o">}</span>,
-         <span class="s2">"MerchantDefinedFields"</span>:[
-            <span class="o">{</span>
-               <span class="s2">"Id"</span>:95,
-               <span class="s2">"Value"</span>:<span class="s2">"Eu defini isso"</span>
-            <span class="o">}</span>,
-            <span class="o">{</span>
-               <span class="s2">"Id"</span>:96,
-               <span class="s2">"Value"</span>:<span class="s2">"Outra informação"</span>
-            <span class="o">}</span>
-         <span class="o">]</span>,
-         <span class="s2">"Shipping"</span>:<span class="o">{</span>
-            <span class="s2">"Addressee"</span>:<span class="s2">"Sr Comprador Teste"</span>,
-            <span class="s2">"Email"</span>:<span class="s2">"rschueler@braspag.com.br"</span>,
-            <span class="s2">"Method"</span>:<span class="s2">"LowCost"</span>,
-            <span class="s2">"Phone"</span>:<span class="s2">"552121114740"</span>,
-            <span class="s2">"WorkPhone"</span>:<span class="s2">"552121114705"</span>,
-            <span class="s2">"Mobile"</span>:<span class="s2">"5521987654321"</span>,
-            <span class="s2">"Comment"</span>:<span class="s2">"Em frente a mesa 80"</span>
-         <span class="o">}</span>
-      <span class="o">}</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-<span class="nt">--verbose</span>
-
-</code></pre></div></div>
 
 <table>
   <thead>
@@ -1363,20 +1225,6 @@ curl
       <td style="text-align: left">Identifica o provedor da solução de análise de fraude <br /> Possíveis valores: CyberSource (default) / RedShield</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
-      <td style="text-align: left">Booleano</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">Captura a transação se a análise de fraude retornar “Accept” <br /> Valor default: false</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
-      <td style="text-align: left">Booleano</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">Cancela a transação se a análise de fraude retornar “Reject” <br /> Valor default: false</td>
-    </tr>
-    <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.TotalOrderAmount</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">15</td>
@@ -1402,7 +1250,7 @@ curl
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">-</td>
       <td style="text-align: left">Não</td>
-      <td style="text-align: left">Indica se o pagamento esta sendo dividido. Ex: Pagamento com dois cartões <br /> Possíveis valores: SINGLE-PAY e SPLIT-PAY</td>
+      <td style="text-align: left">Indica se o pagamento esta sendo dividido. Possíveis valores: None (Pagamento com único cartão) - CardSplit (Pagamento com mais de um cartão)</td>
     </tr>
   </tbody>
 </table>
