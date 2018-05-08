@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Manual de Integração
-description: Manual integração técnica via API Split
+title: Split de Pagamentos
+description: Manual integração do Split de Pagamentos
 search: true
 toc_footers: false
 categories: manual
