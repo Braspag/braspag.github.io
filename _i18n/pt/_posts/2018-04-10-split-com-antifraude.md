@@ -419,7 +419,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |:-|:-|:-|:-|:-|
 |`Payment`|-|-|Sim|Nó contendo as informações de pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento <br/> Possíveis Valores: CreditCard / DebitCard / EletronicTransfer / Boleto|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento <br/> Possíveis Valores: SplittedCreditCard|
 |`Payment.Amount`|Número|15|Sim|Valor do pedido em centavos <br/> Ex.: r$ 1.559,85 = 155985|
 |`Payment.Provider`|Texto|15|Sim|Nome do meio de pagamento <br/> Obs.: Não obrigatório para cartão de crédito|
 |`Payment.ServiceTaxAmount`|Número|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço <br/> Obs.: Esse valor não é adicionado ao valor da autorização|
