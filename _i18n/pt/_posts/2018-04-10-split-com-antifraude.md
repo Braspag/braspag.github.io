@@ -604,12 +604,11 @@ especiais|
             "Phone":"552121114740",
             "WorkPhone":"552121114705",
             "Mobile":"5521987654321",
-            "Comment":"Em frente a mesa 80"
+            "Comment":"Casa 80"
          }
       }
    }
 }
-
 ```
 
 > **Payment.FraudAnalysis** - Nó contendo as informações da Análise de Fraude
