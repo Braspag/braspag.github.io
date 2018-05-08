@@ -274,7 +274,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
       "Status":"NEW"
    },
    "Payment":{
-      "Type":"CreditCard",
+      "Type":"SplittedCreditCard",
       "Amount":10000,
       "Currency":"BRL",
       "Country":"BRA",
