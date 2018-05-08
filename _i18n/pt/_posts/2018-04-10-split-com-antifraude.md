@@ -26,12 +26,17 @@ A plataforma de antifraude conta com duas importantes ferramentas:
 
 A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a outro serviço. 
 
-1. Cliente requisita a criação de uma transação
+1. Cliente requisita a criação de uma transação.
+
 2. A análise de velocidade é realizada.
-2.1 Caso a análise de velocidade recomente rejeitar a transação, a mesma é interrompida.
+
+2.1. Caso a análise de velocidade recomente rejeitar a transação, a mesma é interrompida.
+
 2.2. Caso contrário, a anállise de fraude é realizada.
-2.2.1 Caso a análise de fraude recomente rejeitar a transação, a mesma é interrompida.
-2.2.2 Caso cotrário a transação é executada normalmente.
+
+2.2.1. Caso a análise de fraude recomente rejeitar a transação, a mesma é interrompida.
+
+2.2.2. Caso cotrário a transação é executada normalmente.
 
 ## Integrando o Velocity
 
