@@ -122,21 +122,13 @@
 <p>A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a outro serviço.</p>
 
 <ul>
-  <li>
-    <p>Cliente requisita a criação de uma transação.</p>
-  </li>
-  <li>
-    <p>A análise de velocidade é realizada.</p>
-  </li>
-  <li>
+  <li>Cliente realiza uma transação.</li>
+  <li>A análise de velocidade é realizada.
     <ul>
       <li>Caso a análise de velocidade recomente rejeitar a transação, o fluxo é interrompido.</li>
     </ul>
   </li>
-  <li>
-    <p>A anállise de fraude é realizada.</p>
-  </li>
-  <li>
+  <li>A anállise de fraude é realizada.
     <ul>
       <li>Caso a análise de fraude recomente rejeitar a transação, o fluxo é interrompido.</li>
     </ul>
