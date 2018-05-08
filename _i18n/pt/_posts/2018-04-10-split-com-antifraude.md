@@ -30,13 +30,13 @@ A integração com as ferramentas de antifraude se dá através do próprio flux
 
 2. A análise de velocidade é realizada.
 
-2.1. Caso a análise de velocidade recomente rejeitar a transação, a mesma é interrompida.
+- Caso a análise de velocidade recomente rejeitar a transação, a mesma é interrompida.
 
-2.2. Caso contrário, a anállise de fraude é realizada.
+3. Caso contrário, a anállise de fraude é realizada.
 
-2.2.1. Caso a análise de fraude recomente rejeitar a transação, a mesma é interrompida.
+- Caso a análise de fraude recomente rejeitar a transação, a mesma é interrompida.
 
-2.2.2. Caso cotrário a transação é executada normalmente.
+4. Caso cotrário a transação é executada normalmente.
 
 ## Integrando o Velocity
 
