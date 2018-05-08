@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-08T02:42:10+00:00</updated>
+    <updated>2018-05-08T02:47:04+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -38,7 +38,7 @@
 
 &lt;p&gt;Para que a &lt;em&gt;análise de velocidade&lt;/em&gt; seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.&lt;/p&gt;
 
-&lt;p&gt;Se a análise de fraude recomendar &lt;strong&gt;Rejeitar&lt;/strong&gt; a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:&lt;/p&gt;
+&lt;p&gt;Se a &lt;em&gt;análise de velocidade&lt;/em&gt; recomendar &lt;strong&gt;Rejeitar&lt;/strong&gt; a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Payment.Status&lt;/strong&gt;: 0 -&amp;gt; Transação Não Finalizada.&lt;/p&gt;
 
@@ -47,6 +47,8 @@
 &lt;p&gt;&lt;strong&gt;Payment.ReturnMessage&lt;/strong&gt;: Rejected by fraud risk (velocity) -&amp;gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.&lt;/p&gt;
 
 &lt;h2 id=&quot;requisição&quot;&gt;Requisição&lt;/h2&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111701&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -455,7 +457,15 @@
 
 &lt;h2 id=&quot;integrando-o-antifraude&quot;&gt;Integrando o Antifraude&lt;/h2&gt;
 
-&lt;p&gt;Para que a &lt;em&gt;análise de fraude&lt;/em&gt; seja efetuada em tempo de transação, é necessário complementar a mensagem com novos dados, adicionando o nó &lt;strong&gt;Payment.FraudAnalysis&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Para que a &lt;em&gt;análise de fraude&lt;/em&gt; seja efetuada em tempo transacional, é necessário complementar a mensagem com novos dados, adicionando o nó &lt;strong&gt;Payment.FraudAnalysis&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Se a &lt;em&gt;análise de fraude&lt;/em&gt; recomendar &lt;strong&gt;Rejeitar&lt;/strong&gt; a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Payment.Status&lt;/strong&gt;: 13 -&amp;gt; Transação Abortada.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Payment.ReturnCode&lt;/strong&gt;: BP171 -&amp;gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Payment.ReturnMessage&lt;/strong&gt;: Rejected by fraud risk (velocity) -&amp;gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -509,7 +519,7 @@
       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;NEW&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SplittedCreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;

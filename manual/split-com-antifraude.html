@@ -125,7 +125,7 @@
 
 <p>Para que a <em>análise de velocidade</em> seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.</p>
 
-<p>Se a análise de fraude recomendar <strong>Rejeitar</strong> a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:</p>
+<p>Se a <em>análise de velocidade</em> recomendar <strong>Rejeitar</strong> a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:</p>
 
 <p><strong>Payment.Status</strong>: 0 -&gt; Transação Não Finalizada.</p>
 
@@ -134,6 +134,8 @@
 <p><strong>Payment.ReturnMessage</strong>: Rejected by fraud risk (velocity) -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.</p>
 
 <h2 id="requisição">Requisição</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
@@ -542,7 +544,15 @@
 
 <h2 id="integrando-o-antifraude">Integrando o Antifraude</h2>
 
-<p>Para que a <em>análise de fraude</em> seja efetuada em tempo de transação, é necessário complementar a mensagem com novos dados, adicionando o nó <strong>Payment.FraudAnalysis</strong>.</p>
+<p>Para que a <em>análise de fraude</em> seja efetuada em tempo transacional, é necessário complementar a mensagem com novos dados, adicionando o nó <strong>Payment.FraudAnalysis</strong>.</p>
+
+<p>Se a <em>análise de fraude</em> recomendar <strong>Rejeitar</strong> a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:</p>
+
+<p><strong>Payment.Status</strong>: 13 -&gt; Transação Abortada.</p>
+
+<p><strong>Payment.ReturnCode</strong>: BP171 -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.</p>
+
+<p><strong>Payment.ReturnMessage</strong>: Rejected by fraud risk (velocity) -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.</p>
 
 <h3 id="requisição-1">Requisição</h3>
 
@@ -596,7 +606,7 @@
       </span><span class="s2">"Status"</span><span class="p">:</span><span class="s2">"NEW"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
