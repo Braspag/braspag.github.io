@@ -30,7 +30,7 @@ A integração com as ferramentas de antifraude se dá através do próprio flux
 
 Para que a *análise de velocidade* seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.
 
-Se a análise de fraude recomendar **Rejeitar** a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:
+Se a *análise de velocidade* recomendar **Rejeitar** a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:
 
 **Payment.Status**: 0 -> Transação Não Finalizada.
 
@@ -39,6 +39,8 @@ Se a análise de fraude recomendar **Rejeitar** a transação, o fluxo transacio
 **Payment.ReturnMessage**: Rejected by fraud risk (velocity) -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.
 
 ## Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 ```json
 {  
@@ -211,7 +213,15 @@ Se a análise de fraude recomendar **Rejeitar** a transação, o fluxo transacio
 
 ## Integrando o Antifraude
 
-Para que a *análise de fraude* seja efetuada em tempo de transação, é necessário complementar a mensagem com novos dados, adicionando o nó **Payment.FraudAnalysis**.
+Para que a *análise de fraude* seja efetuada em tempo transacional, é necessário complementar a mensagem com novos dados, adicionando o nó **Payment.FraudAnalysis**.
+
+Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:
+
+**Payment.Status**: 13 -> Transação Abortada.
+
+**Payment.ReturnCode**: BP171 -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
+        
+**Payment.ReturnMessage**: Rejected by fraud risk (velocity) -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.
 
 ### Requisição
 
