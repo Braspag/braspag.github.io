@@ -221,9 +221,9 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
 
 **Payment.Status**: 13 -> Transação Abortada.
 
-**Payment.FraudAnalysis.Status**: BP171 -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
-        
-**Payment.ReturnMessage**: Rejected by fraud risk (velocity) -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.
+**Payment.FraudAnalysis.Status**: Diferente de 2 (Accept)
+
+> Para verificar se a transação foi interrompida pela análise de velocidade, deve-se verificar se propriedades **Payment.Status** e **Payment.FraudAnalysis.Status** retornaram os valores apresentados acima.
 
 ### Requisição
 
