@@ -121,26 +121,26 @@
 
 <p>A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a outro serviço.</p>
 
-<ol>
+<ul>
   <li>
     <p>Cliente requisita a criação de uma transação.</p>
   </li>
   <li>
     <p>A análise de velocidade é realizada.</p>
   </li>
-</ol>
+</ul>
 
-<p>Caso a análise de velocidade recomente rejeitar a transação, fluxo é interrompido.</p>
+<p>– Caso a análise de velocidade recomente rejeitar a transação, o fluxo é interrompido.</p>
 
-<ol>
-  <li>Caso contrário, a anállise de fraude é realizada.</li>
-</ol>
+<ul>
+  <li>A anállise de fraude é realizada.</li>
+</ul>
 
-<p>Caso a análise de fraude recomente rejeitar a transação, a fluxo é interrompido.</p>
+<p>– Caso a análise de fraude recomente rejeitar a transação, o fluxo é interrompido.</p>
 
-<ol>
-  <li>Caso contrário a transação é executada normalmente.</li>
-</ol>
+<ul>
+  <li>A transação é executada normalmente.</li>
+</ul>
 
 <h2 id="integrando-o-velocity">Integrando o Velocity</h2>
 
