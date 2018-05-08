@@ -24,11 +24,11 @@ A plataforma de antifraude conta com duas importantes ferramentas:
 
 ## Fluxo transacional
 
-A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a um outro serviço. 
+A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a outro serviço. 
 
 ## Integrando o Velocity
 
-Para que a análise de velocidade seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.
+Para que a *análise de velocidade* seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.
 
 Se a análise de fraude recomendar **Rejeitar** a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:
 
@@ -36,7 +36,7 @@ Se a análise de fraude recomendar **Rejeitar** a transação, o fluxo transacio
 
 **Payment.ReturnCode**: BP171 -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
         
-**Payment.ReturnMessage**: Rejected by fraud risk (velocity) -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
+**Payment.ReturnMessage**: Rejected by fraud risk (velocity) -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.
 
 ## Requisição
 
@@ -211,7 +211,7 @@ Se a análise de fraude recomendar **Rejeitar** a transação, o fluxo transacio
 
 ## Integrando o Antifraude
 
-Para que a *análise de fraude* seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
+Para que a *análise de fraude* seja efetuada em tempo de transação, é necessário complementar a mensagem com novos dados, adicionando o nó **Payment.FraudAnalysis**.
 
 ### Requisição
 
