@@ -30,11 +30,11 @@ A integração com as ferramentas de antifraude se dá através do próprio flux
 
 2. A análise de velocidade é realizada.
 
-- Caso a análise de velocidade recomente rejeitar a transação, fluxo é interrompido.
+Caso a análise de velocidade recomente rejeitar a transação, fluxo é interrompido.
 
 3. Caso contrário, a anállise de fraude é realizada.
 
-- Caso a análise de fraude recomente rejeitar a transação, a fluxo é interrompido.
+Caso a análise de fraude recomente rejeitar a transação, a fluxo é interrompido.
 
 4. Caso contrário a transação é executada normalmente.
 
