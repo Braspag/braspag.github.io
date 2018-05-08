@@ -38,7 +38,7 @@ Se a *análise de velocidade* recomendar **Rejeitar** a transação, o fluxo tra
         
 **Payment.ReturnMessage**: Rejected by fraud risk (velocity) -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.
 
-## Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -124,7 +124,7 @@ Se a *análise de velocidade* recomendar **Rejeitar** a transação, o fluxo tra
 |`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 
-## Resposta
+### Resposta
 
 ```json
 {
