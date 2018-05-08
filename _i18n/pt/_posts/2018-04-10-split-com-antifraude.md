@@ -38,7 +38,7 @@ Se a *análise de velocidade* recomendar **Rejeitar** a transação, o fluxo tra
         
 **Payment.ReturnMessage**: Rejected by fraud risk (velocity) -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.
 
-> Para verificar se a transação foi interrompida pela análise de velocidade, deve-se verificar se propriedades *Payment.Status* e *Payment.ReturnCode* retornaram os valores apresentados acima.
+> Para verificar se a transação foi interrompida pela análise de velocidade, deve-se verificar se propriedades **Payment.Status** e **Payment.ReturnCode** retornaram os valores apresentados acima.
 
 ### Requisição
 
@@ -221,7 +221,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
 
 **Payment.Status**: 13 -> Transação Abortada.
 
-**Payment.ReturnCode**: BP171 -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
+**Payment.FraudAnalysis.Status**: BP171 -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
         
 **Payment.ReturnMessage**: Rejected by fraud risk (velocity) -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.
 
@@ -229,7 +229,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
 
 > Na análise de AF, os padrões de siglas para países utilizados nos campos `Country` devem seguir o modelo da ISO 3166-1 ALPHA 2 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ``` json
 {
@@ -312,7 +312,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
          "Cart":{
             "Items":[
                {
-                  "ProductName": "Celuclar XYZ",
+                  "ProductName": "Celular XYZ",
                   "UnitPrice": "6500",
                   "MerchantItemId": "4",
                   "Sku": "abc123",
@@ -359,145 +359,6 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
       }
    }
 }
-```
-
-```shell
-
-curl
---header "Content-Type: application/json"
---header "Authorization: Bearer {token}"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-   "MerchantOrderId":"2014111457673454307",
-   "Customer":{
-      "Name":"Comprador Teste",
-      "Identity":"10050665740",
-      "IdentityType":"CPF",
-      "Email":"compradorteste@live.com",
-      "Birthdate":"1991-01-02",
-      "Phone":"552121114740",
-      "WorkPhone":"552121114740",
-      "Mobile":"552121114740",
-      "Address": {
-         "Street": "Rua Neturno",
-         "Number": "12345",
-         "Complement": "Sala 123",
-         "District": "Centro",
-         "City": "Rio de Janeiro",
-         "State": "RJ",
-         "Country": "BR",
-         "ZipCode": "20080123"
-      },
-      "DeliveryAddress":{
-         "Street": "Rua Saturno",
-         "Number": "30000",
-         "Complement": "sl 123",
-         "Neighborhood": "Centro",
-         "City": "Rio de Janeiro",
-         "State": "RJ",
-         "Country": "BR",
-         "ZipCode": "123456789"
-      },
-      "BillingAddress": {
-         "Street": "Rua Neturno",
-         "Number": "12345",
-         "Complement": "Sala 123",
-         "District": "Centro",
-         "City": "Rio de Janeiro",
-         "State": "RJ",
-         "Country": "BR",
-         "ZipCode": "20080123"
-      },
-      "Status":"NEW"
-   },
-   "Payment":{
-      "Type":"CreditCard",
-      "Amount":100,
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Provider":"Simulado",
-      "ServiceTaxAmount":0,
-      "Installments":1,
-      "SoftDescriptor":"123456789ABCD",
-      "Interest":"ByMerchant",
-      "Capture":false,
-      "Authenticate":false,
-      "CreditCard":{
-         "CardNumber":"6011000000000111",
-         "Holder":"Teste accept",
-         "ExpirationDate":"12/2019",
-         "SecurityCode":"023",
-         "Brand":"Discover",
-         "EciThreeDSecure":"05"
-      },
-      "FraudAnalysis":{
-         "Sequence":"AnalyseFirst",
-         "SequenceCriteria":"Onsuccess",
-         "Provider":"RedShield",
-         "CaptureOnLowRisk":true,
-         "VoidOnHighRisk":false,
-         "TotalOrderAmount":"150000",
-         "OrderDate":"2016-12-09",
-         "IsRetryTransaction":false,
-         "SplitingPaymentMethod":"SINGLE-PAY",
-         "Browser":{
-            "IpAddress":"187.32.163.105",
-            "BrowserFingerPrint":"04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw=="
-         },
-         "Cart":{
-            "Items":[
-               {
-                  "ProductName": "Celuclar XYZ",
-                  "UnitPrice": "6500",
-                  "MerchantItemId": "4",
-                  "Sku": "abc123",
-                  "Quantity": 1,
-                  "OriginalPrice": "7000",
-                  "Description": "Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP",
-                  "GiftMessage": "Te Amo!",
-                  "ShippingInstructions": "Mesa 51",
-                  "ShippingMethod": "SameDay",
-                  "ShippingTrackingNumber": "123456"
-               },
-               {
-                  "ProductName": "TV XPTO Full HD",
-                  "UnitPrice": "4000",
-                  "MerchantItemId": "5",
-                  "Sku": "abc456",
-                  "Quantity": 1,
-                  "OriginalPrice": "500",
-                  "Description": "TV Full HD, 8 Entradas HDMI, Smart TV",
-                  "ShippingInstructions": "Televisao - Cuidado",
-                  "ShippingMethod": "SameDay",
-                  "ShippingTrackingNumber": "987654"
-               }
-            ]
-         },
-         "MerchantDefinedFields":[
-            {
-               "Id":95,
-               "Value":"Eu defini isso"
-            },
-            {
-               "Id":96,
-               "Value":"Outra informação"
-            }
-         ],
-         "Shipping":{
-            "Addressee":"Sr Comprador Teste",
-            "Email":"rschueler@braspag.com.br",
-            "Method":"LowCost",
-            "Phone":"552121114740",
-            "WorkPhone":"552121114705",
-            "Mobile":"5521987654321",
-            "Comment":"Em frente a mesa 80"
-         }
-      }
-   }
-}
---verbose
-
 ```
 
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
@@ -583,12 +444,10 @@ especiais|
 |:-|:-|:-|:-|:-|
 |`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
 |`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude <br/> Possíveis valores: CyberSource (default) / RedShield|
-|`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|-|Não|Captura a transação se a análise de fraude retornar "Accept" <br/> Valor default: false|
-|`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|-|Não|Cancela a transação se a análise de fraude retornar "Reject" <br/> Valor default: false|
 |`Payment.TotalOrderAmount`|Número|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação <br/> Ex.: Valor do pedido sem a taxa de entrega|
 |`Payment.OrderDate`|Date|-|Não|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|
 |`Payment.FraudAnalysis.IsRetryTransaction`|Booleano|-|Não|Indica se é uma retentativa de análise de fraude|
-|`Payment.FraudAnalysis.SplitingPaymentMethod`|Texto|-|Não|Indica se o pagamento esta sendo dividido. Ex: Pagamento com dois cartões <br/> Possíveis valores: SINGLE-PAY e SPLIT-PAY|
+|`Payment.FraudAnalysis.SplitingPaymentMethod`|Texto|-|Não|Indica se o pagamento esta sendo dividido. Possíveis valores: None (Pagamento com único cartão) - CardSplit (Pagamento com mais de um cartão)|
 
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |:-|:-|:-|:-|:-|
