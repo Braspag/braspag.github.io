@@ -42,7 +42,7 @@ Se a *análise de velocidade* recomendar **Rejeitar** a transação, o fluxo tra
 
 ### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
 {  
