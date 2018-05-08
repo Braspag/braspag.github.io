@@ -32,11 +32,11 @@ Para que a análise de velocidade seja efetuada em tempo transacional, é necess
 
 Se a análise de fraude recomendar **Rejeitar** a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:
 
-**Payment.Status**: 0 - Transação Não Finalizada.
+**Payment.Status**: 0 -> Transação Não Finalizada.
 
-**Payment.ReturnCode**: BP171 - Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
+**Payment.ReturnCode**: BP171 -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
         
-**Payment.ReturnMessage**: Rejected by fraud risk (velocity) - Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
+**Payment.ReturnMessage**: Rejected by fraud risk (velocity) -> Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.
 
 ## Requisição
 
