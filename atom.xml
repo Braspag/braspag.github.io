@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-08T04:14:42+00:00</updated>
+    <updated>2018-05-08T04:15:17+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -44,7 +44,7 @@
 &lt;/ol&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Caso a análise de velocidade recomente rejeitar a transação, a mesma é interrompida.&lt;/li&gt;
+  &lt;li&gt;Caso a análise de velocidade recomente rejeitar a transação, fluxo é interrompido.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
@@ -52,11 +52,11 @@
 &lt;/ol&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Caso a análise de fraude recomente rejeitar a transação, a mesma é interrompida.&lt;/li&gt;
+  &lt;li&gt;Caso a análise de fraude recomente rejeitar a transação, a fluxo é interrompido.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Caso cotrário a transação é executada normalmente.&lt;/li&gt;
+  &lt;li&gt;Caso contrário a transação é executada normalmente.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;integrando-o-velocity&quot;&gt;Integrando o Velocity&lt;/h2&gt;
