@@ -520,7 +520,7 @@ especiais|
       "Status":"NEW"
    },
    "Payment":{
-      "Type":"CreditCard",
+      "Type":"SplittedCreditCard",
       "Amount":100,
       "Currency":"BRL",
       "Country":"BRA",
@@ -606,7 +606,17 @@ especiais|
             "Mobile":"5521987654321",
             "Comment":"Casa 80"
          }
-      }
+      },
+      "Status": 13,
+      "IsSplitted": true,
+      "PaymentId": "b7ca5ff7-f489-4408-9584-1fa807eac776",
+      "Links": [
+          {
+              "Method": "GET",
+              "Rel": "self",
+              "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/b7ca5ff7-f489-4408-9584-1fa807eac776"
+          }
+      ]
    }
 }
 ```
