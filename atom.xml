@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-08T04:03:26+00:00</updated>
+    <updated>2018-05-08T04:05:37+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -467,9 +467,11 @@
 
 &lt;p&gt;&lt;strong&gt;Payment.Status&lt;/strong&gt;: 13 -&amp;gt; Transação Abortada.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Payment.FraudAnalysis.Status&lt;/strong&gt;: BP171 -&amp;gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Payment.FraudAnalysis.Status&lt;/strong&gt;: Diferente de 2 (Accept)&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Payment.ReturnMessage&lt;/strong&gt;: Rejected by fraud risk (velocity) -&amp;gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Para verificar se a transação foi interrompida pela análise de velocidade, deve-se verificar se propriedades &lt;strong&gt;Payment.Status&lt;/strong&gt; e &lt;strong&gt;Payment.FraudAnalysis.Status&lt;/strong&gt; retornaram os valores apresentados acima.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h3 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h3&gt;
 

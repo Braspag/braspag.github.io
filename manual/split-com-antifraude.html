@@ -554,9 +554,11 @@
 
 <p><strong>Payment.Status</strong>: 13 -&gt; Transação Abortada.</p>
 
-<p><strong>Payment.FraudAnalysis.Status</strong>: BP171 -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.</p>
+<p><strong>Payment.FraudAnalysis.Status</strong>: Diferente de 2 (Accept)</p>
 
-<p><strong>Payment.ReturnMessage</strong>: Rejected by fraud risk (velocity) -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.</p>
+<blockquote>
+  <p>Para verificar se a transação foi interrompida pela análise de velocidade, deve-se verificar se propriedades <strong>Payment.Status</strong> e <strong>Payment.FraudAnalysis.Status</strong> retornaram os valores apresentados acima.</p>
+</blockquote>
 
 <h3 id="requisição-1">Requisição</h3>
 
