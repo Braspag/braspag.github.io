@@ -119,11 +119,11 @@
 
 <h2 id="fluxo-transacional">Fluxo transacional</h2>
 
-<p>A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a um outro serviço.</p>
+<p>A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a outro serviço.</p>
 
 <h2 id="integrando-o-velocity">Integrando o Velocity</h2>
 
-<p>Para que a análise de velocidade seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.</p>
+<p>Para que a <em>análise de velocidade</em> seja efetuada em tempo transacional, é necessário complementar a requisição com novos dados.</p>
 
 <p>Se a análise de fraude recomendar <strong>Rejeitar</strong> a transação, o fluxo transacional é interrompido e na resposta retornarão os seguites campos:</p>
 
@@ -131,7 +131,7 @@
 
 <p><strong>Payment.ReturnCode</strong>: BP171 -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.</p>
 
-<p><strong>Payment.ReturnMessage</strong>: Rejected by fraud risk (velocity) -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity devido a suspeita de fraude.</p>
+<p><strong>Payment.ReturnMessage</strong>: Rejected by fraud risk (velocity) -&gt; Código de retorno identificando que a transação foi interrompida por recomendação do Velocity, devido a suspeita de fraude.</p>
 
 <h2 id="requisição">Requisição</h2>
 
@@ -542,7 +542,7 @@
 
 <h2 id="integrando-o-antifraude">Integrando o Antifraude</h2>
 
-<p>Para que a <em>análise de fraude</em> seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.</p>
+<p>Para que a <em>análise de fraude</em> seja efetuada em tempo de transação, é necessário complementar a mensagem com novos dados, adicionando o nó <strong>Payment.FraudAnalysis</strong>.</p>
 
 <h3 id="requisição-1">Requisição</h3>
 
