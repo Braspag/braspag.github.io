@@ -612,22 +612,16 @@
    </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"6011000000000111"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste accept"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste reject"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2019"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"023"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Discover"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"EciThreeDSecure"</span><span class="p">:</span><span class="s2">"05"</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"RedShield"</span><span class="p">,</span><span class="w">
@@ -648,7 +642,7 @@
                   </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7000"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celular XYZ, Wi-Fi, 4G, Câmera 8MP"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"ShippingInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fragil"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"ShippingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SameDay"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"ShippingTrackingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
@@ -1060,20 +1054,6 @@
       <td style="text-align: left">Valor do pedido em centavos <br /> Ex.: r$ 1.559,85 = 155985</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Currency</code></td>
-      <td style="text-align: left">Texto</td>
-      <td style="text-align: left">3</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">Moeda na qual o pagamento será realizado <br /> Valor default: BRL</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Country</code></td>
-      <td style="text-align: left">Text</td>
-      <td style="text-align: left">3</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">País no qual o pagamento será realizado <br /> Valor default: BR</td>
-    </tr>
-    <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Provider</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">15</td>
@@ -1095,13 +1075,6 @@
       <td style="text-align: left">Número de parcelas do pedido</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Interest</code></td>
-      <td style="text-align: left">Texto</td>
-      <td style="text-align: left">10</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">Tipo de parcelamento <br /> Pela loja = ByMerchant (valor default) <br /> Pelo cartão = ByIssuer</td>
-    </tr>
-    <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">13</td>
@@ -1114,20 +1087,6 @@
       <td style="text-align: left"> </td>
       <td style="text-align: left"> </td>
       <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Capture</code></td>
-      <td style="text-align: left">Booleano</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">Define se a autorização deve ser capturada automaticamente <br /> Valor default: false</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Authenticate</code></td>
-      <td style="text-align: left">Booleano</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">Define se o comprador será direcionado ao Banco emissor para autenticação do cartão <br /> Valor default: false</td>
     </tr>
   </tbody>
 </table>
@@ -1177,13 +1136,6 @@
       <td style="text-align: left">4</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Código de segurança impresso no verso do cartão</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
-      <td style="text-align: left">Booleano</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">Identifica se o cartão será salvo para gerar o CardToken <br /> Valor default: false</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Brand</code></td>
@@ -1550,16 +1502,14 @@
       </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"6011000000000111"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste accept"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste reject"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2019"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"023"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Discover"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"EciThreeDSecure"</span><span class="p">:</span><span class="s2">"05"</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"236bd8b5-8e15-e711-93fe-000d3ac03bed"</span><span class="p">,</span><span class="w">
@@ -1570,16 +1520,15 @@
              </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment void and transaction denied by ReD Shield"</span><span class="p">,</span><span class="w">
              </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"958567039650"</span><span class="w">
          </span><span class="p">}</span><span class="w">
-         
          </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="s2">"AnalyseFirst"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"RedShield"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CaptureOnLowRisk"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CaptureOnLowRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="s2">"VoidOnHighRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="s2">"150000"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"OrderDate"</span><span class="p">:</span><span class="s2">"2016-12-09"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"IsRetryTransaction"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SplitingPaymentMethod"</span><span class="p">:</span><span class="s2">"SINGLE-PAY"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SplitingPaymentMethod"</span><span class="p">:</span><span class="s2">"None"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Browser"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"IpAddress"</span><span class="p">:</span><span class="s2">"187.32.163.105"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"BrowserFingerPrint"</span><span class="p">:</span><span class="s2">"04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw=="</span><span class="w">
@@ -1587,13 +1536,13 @@
          </span><span class="s2">"Cart"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Items"</span><span class="p">:[</span><span class="w">
                </span><span class="p">{</span><span class="w">
-                  </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celuclar XYZ"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celular XYZ"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6500"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"MerchantItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7000"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celuclar XYZ, Wi-Fi, 4G, Câmera 8MP"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celular XYZ, Wi-Fi, 4G, Câmera 8MP"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"ShippingInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesa 51"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"ShippingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SameDay"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"ShippingTrackingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
