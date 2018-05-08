@@ -12,11 +12,11 @@ tags:
 
 # Split de Pagamentos - Análise de Fraude
 
-O Split de Pagamentos é composto por uma plataforma de antifraude cujo objetivo é minimizar as fraudes e as ocorrências de chargebacks nos estabelecimentos que o utilizam.
+O Split de Pagamentos é composto por uma plataforma antifraude cujo objetivo é minimizar as fraudes e as ocorrências de chargebacks nos estabelecimentos que o utilizam.
 
 No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
 
-A plataforma de antifraude do Split conta com duas importantes ferramentas:
+A plataforma de antifraude conta com duas importantes ferramentas:
 
 **Velocity** - Analisa a transação através de regras de velocidade. Ex: 5 Hits de Cartão em 2 horas.
 
@@ -24,7 +24,7 @@ A plataforma de antifraude do Split conta com duas importantes ferramentas:
 
 ## Fluxo transacional
 
-A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a outro serviço. 
+A integração com as ferramentas de antifraude se dá através do próprio fluxo transacional, na mesma requisição para criar uma transação, não sendo necessário realizar um nova requisição a um outro serviço. 
 
 ## Integrando o Velocity
 
