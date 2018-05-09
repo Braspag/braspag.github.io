@@ -1743,8 +1743,9 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 * Incluindo o javascript da Iovation
 
-Para incluir o javascript, adicione o seguinte elemento `<script>` na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.
-Ex.: `<script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"></script>`
+Para incluir o javascript, adicione o seguinte elemento **<script>** na sua página de checkout.
+
+Esta é a URL da versão do snare.js do ambiente de produção da Iovation: <script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"></script>
 
 * Parâmetros de configuração
 
