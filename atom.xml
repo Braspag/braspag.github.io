@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-09T15:01:13+00:00</updated>
+    <updated>2018-05-09T15:09:20+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -40254,9 +40254,9 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
   &lt;li&gt;Incluindo o javascript da Iovation&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Para incluir o javascript, adicione o seguinte elemento &lt;strong&gt;&amp;lt;script&amp;lt;&lt;/strong&gt; na sua página de checkout.&lt;/p&gt;
+&lt;p&gt;Para incluir o javascript, adicione o seguinte elemento &lt;strong&gt;&amp;lt;script&amp;gt;&lt;/strong&gt; na sua página de checkout.&lt;/p&gt;
 
-&lt;p&gt;Esta é a URL da versão do snare.js da Iovation: &amp;lt;script type=”text/javascript” src=”https://mpsnare.iesnare.com/snare.js”&amp;amp;gt&amp;lt;/script&amp;amp;gt&lt;/p&gt;
+&lt;p&gt;Esta é a URL da versão do snare.js da Iovation: &amp;lt;script type=”text/javascript” src=”https://mpsnare.iesnare.com/snare.js”&amp;gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Parâmetros de configuração&lt;/li&gt;
