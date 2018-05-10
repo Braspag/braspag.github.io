@@ -96,7 +96,7 @@ Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
 
-## Bandeiras
+### Bandeiras
 
 As bandeiras suportadas pelo Split são:
 
