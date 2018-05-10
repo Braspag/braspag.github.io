@@ -100,13 +100,13 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
 
 As bandeiras suportadas pelo Split são:
 
-- Visa
-- Mastercard 
-- Elo
-- Amex
-- Hipercard
-- Diners
-- Discover
+* Visa
+* Mastercard 
+* Elo
+* Amex
+* Hipercard
+* Diners
+* Discover
 
 ## Ambientes
 
