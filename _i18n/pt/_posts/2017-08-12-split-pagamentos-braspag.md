@@ -72,7 +72,7 @@ O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Sub
 
 > **Custo Subordinado:** MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).
 
-### Exemplo
+#### Exemplo
 
 Uma transação de **R$100,00**, realizada por um **Marketplace** com participação do **Subordinado 01**.
 
@@ -95,6 +95,18 @@ Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 **Braspag (Facilitador)**:  
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
+
+## Bandeiras
+
+As bandeiras suportadas pelo Split são:
+
+- Visa
+- Mastercard 
+- Elo
+- Amex
+- Hipercard
+- Diners
+- Discover
 
 ## Ambientes
 
