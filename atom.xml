@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-09T15:09:20+00:00</updated>
+    <updated>2018-05-10T22:15:43+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -7703,7 +7703,7 @@
   &lt;p&gt;&lt;strong&gt;Custo Subordinado:&lt;/strong&gt; MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;exemplo&quot;&gt;Exemplo&lt;/h3&gt;
+&lt;h4 id=&quot;exemplo&quot;&gt;Exemplo&lt;/h4&gt;
 
 &lt;p&gt;Uma transação de &lt;strong&gt;R$100,00&lt;/strong&gt;, realizada por um &lt;strong&gt;Marketplace&lt;/strong&gt; com participação do &lt;strong&gt;Subordinado 01&lt;/strong&gt;.&lt;/p&gt;
 
@@ -7726,6 +7726,20 @@ Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;:&lt;br /&gt;
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
+
+&lt;h3 id=&quot;bandeiras&quot;&gt;Bandeiras&lt;/h3&gt;
+
+&lt;p&gt;As bandeiras suportadas pelo Split são:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Visa&lt;/li&gt;
+  &lt;li&gt;Mastercard&lt;/li&gt;
+  &lt;li&gt;Elo&lt;/li&gt;
+  &lt;li&gt;Amex&lt;/li&gt;
+  &lt;li&gt;Hipercard&lt;/li&gt;
+  &lt;li&gt;Diners&lt;/li&gt;
+  &lt;li&gt;Discover&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h2&gt;
 
