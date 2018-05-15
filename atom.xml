@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-15T19:19:08+00:00</updated>
+    <updated>2018-05-15T19:44:22+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -21722,7 +21722,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;h3 id=&quot;apple-pay&quot;&gt;Apple Pay&lt;/h3&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um `MerchantIdentifier`. Também é necessário o upload de um **certificado CSR no formato PEM** fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um MerchantIdentifier. Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.&lt;/aside&gt;
 
 &lt;h4 id=&quot;passo-1-contratação-na-apple&quot;&gt;Passo 1. Contratação na Apple&lt;/h4&gt;
 
@@ -21755,11 +21755,15 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   &lt;li&gt;Finalize o processo&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;O Certificado PEM contém o código CSR solicitado pela Apple. 
-Formato de um PEM:
-—–BEGIN CERTIFICATE REQUEST—–
-MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=
-—–END CERTIFICATE REQUEST—&lt;/p&gt;
+&lt;p&gt;O Certificado PEM contém o código CSR solicitado pela Apple.&lt;/p&gt;
+
+&lt;p&gt;Formato de um PEM:&lt;/p&gt;
+
+&lt;p&gt;—–BEGIN CERTIFICATE REQUEST—–&lt;/p&gt;
+
+&lt;p&gt;MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=&lt;/p&gt;
+
+&lt;p&gt;—–END CERTIFICATE REQUEST—&lt;/p&gt;
 
 &lt;h4 id=&quot;passo-4-integração-com-apple-pay&quot;&gt;Passo 4. Integração com Apple Pay&lt;/h4&gt;
 
