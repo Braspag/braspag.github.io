@@ -5417,7 +5417,7 @@ Formato de `EphemeralPublicKey` que devem ser repassados ao Pagador API
 
 ### Apple Pay
 
-<aside class="notice"><strong>Pré-requisitos:</strong> Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um `MerchantIdentifier`. Também é necessário o upload de um **certificado CSR no formato PEM** fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.</aside>
+<aside class="notice"><strong>Pré-requisitos:</strong> Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um MerchantIdentifier. Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.</aside>
 
 #### Passo 1. Contratação na Apple
 
@@ -5447,9 +5447,13 @@ Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o
 4. Finalize o processo 
 
 <P>O Certificado PEM contém o código CSR solicitado pela Apple. 
+
 <P>Formato de um PEM:
+
 <P>-----BEGIN CERTIFICATE REQUEST-----
+
 <P>MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=
+
 <P>-----END CERTIFICATE REQUEST---
 
 #### Passo 4. Integração com Apple Pay
