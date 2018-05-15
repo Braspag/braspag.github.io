@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-11T18:37:20+00:00</updated>
+    <updated>2018-05-15T17:27:55+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -11864,7 +11864,8 @@ diferentes.&lt;/p&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Simulado&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ServiceTaxAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;te&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Holder&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;,
+            &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Expira&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -21720,6 +21721,31 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 &lt;h2 id=&quot;exemplos&quot;&gt;Exemplos&lt;/h2&gt;
 
 &lt;h3 id=&quot;apple-pay&quot;&gt;Apple Pay&lt;/h3&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um `MerchantIdentifier`. Também é necessário o upload de um **certificado CSR no formato PEM** fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.&lt;/aside&gt;
+&lt;p&gt;&lt;strong&gt;Passo 1. Contratação na Apple&lt;/strong&gt;É necessário que a Apple Pay seja contratada na Apple através do contato comercial abaixo (o contato deve ser feito em inglês):&lt;em&gt;Shawn Munyon (smunyon@apple.com)&lt;/em&gt;
+&lt;strong&gt;Passo 2. Obtenção do MerchantIdentifier&lt;/strong&gt;Uma vez que a contratação estiver efetivada, receberá acesso ao painel “Apple Developer”, e será necessária a criação do &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantIdentifier&lt;/code&gt;. Para tanto, realize os passos abaixo:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Faça login em &lt;a href=&quot;https://developer.apple.com/&quot;&gt;Apple Developer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Selecione &lt;strong&gt;Certificate, IDs &amp;amp; Profile&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Dentro da área “Identifiers” clique em “Merchant IDs”&lt;/li&gt;
+  &lt;li&gt;Clique no &lt;strong&gt;+&lt;/strong&gt; no canto direito, abaixo do “Registering a Merchant ID”&lt;/li&gt;
+  &lt;li&gt;Defina a descrição do MerchantID e o identificador. Exemplo.: “merchant.com.BRASPAG.merchantAccount”&lt;/li&gt;
+  &lt;li&gt;Clique em “continuar” e verifique se as informações inseridas estão corretas&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Finalize o processo. 
+O &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantIdentifier&lt;/code&gt; deve ser enviado à Braspag por meio do &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br&quot;&gt;canal de suporte&lt;/a&gt; para criação de um &lt;strong&gt;Certificado CSR no formato PEM&lt;/strong&gt;. 
+&lt;strong&gt;Passo 3. Upload do Certificado CSR&lt;/strong&gt;Após enviar o &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantIdentifier&lt;/code&gt; para a equipe da Braspag, a loja receberá o certificado de extensão &lt;code class=&quot;highlighter-rouge&quot;&gt;PEM&lt;/code&gt; e deverá seguir os seguintes passos:&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faça login em &lt;a href=&quot;https://developer.apple.com/&quot;&gt;Apple Developer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Selecione &lt;strong&gt;Certificate, IDs &amp;amp; Profile&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Realize o upload do certificado&lt;/li&gt;
+  &lt;li&gt;Finalize o processo 
+O Certificado PEM contém o código CSR solicitado pela Apple. Formato de um PEM:—–BEGIN CERTIFICATE REQUEST—–MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=—–END CERTIFICATE REQUEST—
+&lt;strong&gt;Passo 4. Integração com Apple Pay&lt;/strong&gt;A integração requer dois passos: o primeiro é a integração direta com a solução da Apple, para disponibilizar o botão “Pagar com Apple Pay” em seu site ou aplicativo. Para tanto, a equipe da Apple fará um acompanhamento de perto. &lt;a href=&quot;https://developer.apple.com/apple-pay/&quot;&gt;Clique aqui&lt;/a&gt; para acessar a documentação técnica da Apple.&lt;br /&gt;
+Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa.&lt;br /&gt;
+&lt;strong&gt;Passo 5. Integração com Pagador (decriptografia e autorização)&lt;/strong&gt;O segundo passo de integração é efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para tanto, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive WalletKey e EphemeralPublicKey.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h4 id=&quot;requisição-17&quot;&gt;Requisição&lt;/h4&gt;
 
