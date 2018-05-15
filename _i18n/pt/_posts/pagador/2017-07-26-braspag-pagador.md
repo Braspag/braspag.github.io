@@ -5422,7 +5422,8 @@ Formato de `EphemeralPublicKey` que devem ser repassados ao Pagador API
 #### Passo 1. Contratação na Apple
 
 É necessário que a Apple Pay seja contratada na Apple através do contato comercial abaixo (o contato deve ser feito em inglês):
-<P>*Shawn Munyon (smunyon@apple.com)*
+
+*Shawn Munyon (smunyon@apple.com)*
 
 #### Passo 2. Obtenção do MerchantIdentifier
 
