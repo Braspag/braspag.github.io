@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-15T19:44:22+00:00</updated>
+    <updated>2018-05-15T20:21:30+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -21726,8 +21726,9 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 
 &lt;h4 id=&quot;passo-1-contratação-na-apple&quot;&gt;Passo 1. Contratação na Apple&lt;/h4&gt;
 
-&lt;p&gt;É necessário que a Apple Pay seja contratada na Apple através do contato comercial abaixo (o contato deve ser feito em inglês):
-&lt;em&gt;Shawn Munyon (smunyon@apple.com)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;É necessário que a Apple Pay seja contratada na Apple através do contato comercial abaixo (o contato deve ser feito em inglês):&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Shawn Munyon (smunyon@apple.com)&lt;/em&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;passo-2-obtenção-do-merchantidentifier&quot;&gt;Passo 2. Obtenção do MerchantIdentifier&lt;/h4&gt;
 
