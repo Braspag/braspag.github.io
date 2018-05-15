@@ -11347,8 +11347,12 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 <h3 id="apple-pay">Apple Pay</h3>
 
 <aside class="notice">Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um `MerchantIdentifier`. Também é necessário o upload de um **certificado CSR no formato PEM** fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.</aside>
-<p><strong>Passo 1. Contratação na Apple</strong>É necessário que a Apple Pay seja contratada na Apple através do contato comercial abaixo (o contato deve ser feito em inglês):<em>Shawn Munyon (smunyon@apple.com)</em>
-<strong>Passo 2. Obtenção do MerchantIdentifier</strong>Uma vez que a contratação estiver efetivada, receberá acesso ao painel “Apple Developer”, e será necessária a criação do <code class="highlighter-rouge">MerchantIdentifier</code>. Para tanto, realize os passos abaixo:</p>
+
+<h4 id="passo-1-contratação-na-apple">Passo 1. Contratação na Apple</h4>
+<p><br />É necessário que a Apple Pay seja contratada na Apple através do contato comercial abaixo (o contato deve ser feito em inglês):<em>Shawn Munyon (smunyon@apple.com)</em></p>
+
+<h4 id="passo-2-obtenção-do-merchantidentifier">Passo 2. Obtenção do MerchantIdentifier</h4>
+<p>Uma vez que a contratação estiver efetivada, receberá acesso ao painel “Apple Developer”, e será necessária a criação do <code class="highlighter-rouge">MerchantIdentifier</code>. Para tanto, realize os passos abaixo:</p>
 <ol>
   <li>Faça login em <a href="https://developer.apple.com/">Apple Developer</a></li>
   <li>Selecione <strong>Certificate, IDs &amp; Profile</strong></li>
@@ -11356,20 +11360,32 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
   <li>Clique no <strong>+</strong> no canto direito, abaixo do “Registering a Merchant ID”</li>
   <li>Defina a descrição do MerchantID e o identificador. Exemplo.: “merchant.com.BRASPAG.merchantAccount”</li>
   <li>Clique em “continuar” e verifique se as informações inseridas estão corretas</li>
-  <li>
-    <p>Finalize o processo. 
-O <code class="highlighter-rouge">MerchantIdentifier</code> deve ser enviado à Braspag por meio do <a href="https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br">canal de suporte</a> para criação de um <strong>Certificado CSR no formato PEM</strong>. 
-<strong>Passo 3. Upload do Certificado CSR</strong>Após enviar o <code class="highlighter-rouge">MerchantIdentifier</code> para a equipe da Braspag, a loja receberá o certificado de extensão <code class="highlighter-rouge">PEM</code> e deverá seguir os seguintes passos:</p>
-  </li>
+  <li>Finalize o processo.</li>
+</ol>
+
+<p>O <code class="highlighter-rouge">MerchantIdentifier</code> deve ser enviado à Braspag por meio do <a href="https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br">canal de suporte</a> para criação de um <strong>Certificado CSR no formato PEM</strong>.</p>
+
+<h4 id="passo-3-upload-do-certificado-csr">Passo 3. Upload do Certificado CSR</h4>
+<p>Após enviar o <code class="highlighter-rouge">MerchantIdentifier</code> para a equipe da Braspag, a loja receberá o certificado de extensão <code class="highlighter-rouge">PEM</code> e deverá seguir os seguintes passos:</p>
+
+<ol>
   <li>Faça login em <a href="https://developer.apple.com/">Apple Developer</a></li>
   <li>Selecione <strong>Certificate, IDs &amp; Profile</strong></li>
   <li>Realize o upload do certificado</li>
-  <li>Finalize o processo 
-O Certificado PEM contém o código CSR solicitado pela Apple. Formato de um PEM:—–BEGIN CERTIFICATE REQUEST—–MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=—–END CERTIFICATE REQUEST—
-<strong>Passo 4. Integração com Apple Pay</strong>A integração requer dois passos: o primeiro é a integração direta com a solução da Apple, para disponibilizar o botão “Pagar com Apple Pay” em seu site ou aplicativo. Para tanto, a equipe da Apple fará um acompanhamento de perto. <a href="https://developer.apple.com/apple-pay/">Clique aqui</a> para acessar a documentação técnica da Apple.<br />
-Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa.<br />
-<strong>Passo 5. Integração com Pagador (decriptografia e autorização)</strong>O segundo passo de integração é efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para tanto, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive WalletKey e EphemeralPublicKey.</li>
+  <li>Finalize o processo</li>
 </ol>
+
+<p>O Certificado PEM contém o código CSR solicitado pela Apple. Formato de um PEM:
+—–BEGIN CERTIFICATE REQUEST—–MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=
+—–END CERTIFICATE REQUEST—</p>
+
+<h4 id="passo-4-integração-com-apple-pay">Passo 4. Integração com Apple Pay</h4>
+<p>A integração requer dois passos: o primeiro é a integração direta com a solução da Apple, para disponibilizar o botão “Pagar com Apple Pay” em seu site ou aplicativo. Para tanto, a equipe da Apple fará um acompanhamento de perto. <a href="https://developer.apple.com/apple-pay/">Clique aqui</a> para acessar a documentação técnica da Apple.</p>
+
+<p>Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa.</p>
+
+<h4 id="passo-5-integração-com-pagador-decriptografia-e-autorização">Passo 5. Integração com Pagador (decriptografia e autorização)</h4>
+<p>O segundo passo de integração é efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para tanto, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive WalletKey e EphemeralPublicKey.</p>
 
 <h4 id="requisição-17">Requisição</h4>
 
