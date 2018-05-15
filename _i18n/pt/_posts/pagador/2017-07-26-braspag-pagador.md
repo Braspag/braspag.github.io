@@ -5421,12 +5421,12 @@ Formato de `EphemeralPublicKey` que devem ser repassados ao Pagador API
 
 #### Passo 1. Contratação na Apple
 
-<BR> <BR>É necessário que a Apple Pay seja contratada na Apple através do contato comercial abaixo (o contato deve ser feito em inglês):
-<BR>*Shawn Munyon (smunyon@apple.com)*
+É necessário que a Apple Pay seja contratada na Apple através do contato comercial abaixo (o contato deve ser feito em inglês):
+<P>*Shawn Munyon (smunyon@apple.com)*
 
 #### Passo 2. Obtenção do MerchantIdentifier
 
-<BR>Uma vez que a contratação estiver efetivada, receberá acesso ao painel "Apple Developer", e será necessária a criação do `MerchantIdentifier`. Para tanto, realize os passos abaixo: 
+Uma vez que a contratação estiver efetivada, receberá acesso ao painel "Apple Developer", e será necessária a criação do `MerchantIdentifier`. Para tanto, realize os passos abaixo: 
 1. Faça login em [Apple Developer](https://developer.apple.com/)
 2. Selecione **Certificate, IDs & Profile**
 3. Dentro da área "Identifiers" clique em "Merchant IDs"
@@ -5439,7 +5439,7 @@ Formato de `EphemeralPublicKey` que devem ser repassados ao Pagador API
 
 #### Passo 3. Upload do Certificado CSR
 
-<BR>Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o certificado de extensão `PEM` e deverá seguir os seguintes passos: 
+Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o certificado de extensão `PEM` e deverá seguir os seguintes passos: 
 
 1. Faça login em [Apple Developer](https://developer.apple.com/)
 2. Selecione **Certificate, IDs & Profile**
@@ -5447,20 +5447,20 @@ Formato de `EphemeralPublicKey` que devem ser repassados ao Pagador API
 4. Finalize o processo 
 
 <P>O Certificado PEM contém o código CSR solicitado pela Apple. 
-<BR>Formato de um PEM:
+<P>Formato de um PEM:
 <P>-----BEGIN CERTIFICATE REQUEST-----
-<BR>MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=
+<P>MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=
 <P>-----END CERTIFICATE REQUEST---
 
 #### Passo 4. Integração com Apple Pay
 
-<BR>A integração requer dois passos: o primeiro é a integração direta com a solução da Apple, para disponibilizar o botão "Pagar com Apple Pay" em seu site ou aplicativo. Para tanto, a equipe da Apple fará um acompanhamento de perto. [Clique aqui](https://developer.apple.com/apple-pay/) para acessar a documentação técnica da Apple.  
+A integração requer dois passos: o primeiro é a integração direta com a solução da Apple, para disponibilizar o botão "Pagar com Apple Pay" em seu site ou aplicativo. Para tanto, a equipe da Apple fará um acompanhamento de perto. [Clique aqui](https://developer.apple.com/apple-pay/) para acessar a documentação técnica da Apple.  
 
 <P>Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa.  
 
 #### Passo 5. Integração com Pagador (decriptografia e autorização)
 
-<BR>O segundo passo de integração é efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para tanto, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive WalletKey e EphemeralPublicKey.
+O segundo passo de integração é efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para tanto, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive WalletKey e EphemeralPublicKey.
 
 #### Requisição
 
