@@ -5444,9 +5444,9 @@ Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o
 
 1. Faça login em [Apple Developer](https://developer.apple.com/)
 2. Selecione **Certificate, IDs & Profiles**
-![Apple Developer](https://app.cloudcannon.com/sites/40925/site_files/raw/?path=images/braspag/pagador/applepay.png&timestamp=fddec11f2cc950487864647b2b50bc10)
+![Apple Developer](https://braspagtecnologia.sharepoint.com/:f:/s/BibliotecadeProdutos/EhAQZE9D6dJIpwvw1rtksz4BD5mE7I9emUb71lO8yT1isw?e=S8yt6L)
 3. Realize o upload do certificado
-![Upload Certificado](https://app.cloudcannon.com/sites/40925/site_files/raw/?path=images/braspag/pagador/applepay1.png&timestamp=3e42cf8b8d85498d09453e75488c018f)
+![Upload Certificado](https://braspagtecnologia.sharepoint.com/:f:/s/BibliotecadeProdutos/EhAQZE9D6dJIpwvw1rtksz4BD5mE7I9emUb71lO8yT1isw?e=1epuql)
 4. Finalize o processo 
 
 <P>O Certificado PEM contém o código CSR solicitado pela Apple. 
