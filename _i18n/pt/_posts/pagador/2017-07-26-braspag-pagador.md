@@ -5444,9 +5444,9 @@ Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o
 
 1. Faça login em [Apple Developer](https://developer.apple.com/)
 2. Selecione **Certificate, IDs & Profiles**
-![Apple Developer](https://braspagtecnologia.sharepoint.com/:f:/s/BibliotecadeProdutos/EhAQZE9D6dJIpwvw1rtksz4BD5mE7I9emUb71lO8yT1isw?e=S8yt6L)
+![Apple Developer](https://braspagtecnologia.sharepoint.com/sites/BibliotecadeProdutos/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FBibliotecadeProdutos%2FShared%20Documents%2FPagador%2FImagens%20Manual%20API%20Rest%2Fapplepay%2Epng&parent=%2Fsites%2FBibliotecadeProdutos%2FShared%20Documents%2FPagador%2FImagens%20Manual%20API%20Rest)
 3. Realize o upload do certificado
-![Upload Certificado](https://braspagtecnologia.sharepoint.com/:f:/s/BibliotecadeProdutos/EhAQZE9D6dJIpwvw1rtksz4BD5mE7I9emUb71lO8yT1isw?e=1epuql)
+![Upload Certificado](https://braspagtecnologia.sharepoint.com/sites/BibliotecadeProdutos/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FBibliotecadeProdutos%2FShared%20Documents%2FPagador%2FImagens%20Manual%20API%20Rest%2Fapplepay1%2Epng&parent=%2Fsites%2FBibliotecadeProdutos%2FShared%20Documents%2FPagador%2FImagens%20Manual%20API%20Rest)
 4. Finalize o processo 
 
 <P>O Certificado PEM contém o código CSR solicitado pela Apple. 
