@@ -5444,7 +5444,7 @@ Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o
 
 1. Faça login em [Apple Developer](https://developer.apple.com/)
 2. Selecione **Certificate, IDs & Profile**
-![Apple Developer](http://glad-otter.cloudvent.net/images/braspag/pagador/applepay.png)
+![Apple Developer](https://app.cloudcannon.com/sites/40925/site_files/raw/?path=images/braspag/pagador/applepay.png&timestamp=fddec11f2cc950487864647b2b50bc10)
 3. Realize o upload do certificado
 4. Finalize o processo 
 
