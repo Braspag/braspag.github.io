@@ -133,7 +133,7 @@ Exemplo:
          "NegativeValues":
          [
             "CustomerEmail",
-            "CardNumber"
+            "CustomerDocumentNumber"
          ],
          "Transaction":
          {
@@ -192,7 +192,7 @@ Exemplo:
          "NegativeValues":
          [
             "CustomerEmail",
-            "CardNumber"
+            "CustomerDocumentNumber"
          ],
          "Transaction":
          {
@@ -307,7 +307,6 @@ Possíveis valores a serem inseridos na lista negativa na Cybersource.
 
 |Valor|Descrição|
 |:-|:-|
-|CardNumber|Número do cartão|
 |CustomerDocumentNumber|Número do documento do comprador, CPF ou CNPJ|
 |CustomerEmail|E-mail do comprador|
 |CustomerIpAddress|Endereço de IP do comprador|
