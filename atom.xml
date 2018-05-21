@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-05-18T20:04:23+00:00</updated>
+    <updated>2018-05-21T12:31:34+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -21748,9 +21748,9 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 &lt;ol&gt;
   &lt;li&gt;Faça login em &lt;a href=&quot;https://developer.apple.com/&quot;&gt;Apple Developer&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Selecione &lt;strong&gt;Certificate, IDs &amp;amp; Profiles&lt;/strong&gt;
-&lt;img src=&quot;https://braspagtecnologia.sharepoint.com/sites/BibliotecadeProdutos/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FBibliotecadeProdutos%2FShared%20Documents%2FPagador%2FImagens%20Manual%20API%20Rest%2Fapplepay%2Epng&amp;amp;parent=%2Fsites%2FBibliotecadeProdutos%2FShared%20Documents%2FPagador%2FImagens%20Manual%20API%20Rest&quot; alt=&quot;Apple Developer&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/applepay.png&quot; alt=&quot;Apple Developer&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;Realize o upload do certificado
-&lt;img src=&quot;https://braspagtecnologia.sharepoint.com/sites/BibliotecadeProdutos/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FBibliotecadeProdutos%2FShared%20Documents%2FPagador%2FImagens%20Manual%20API%20Rest%2Fapplepay1%2Epng&amp;amp;parent=%2Fsites%2FBibliotecadeProdutos%2FShared%20Documents%2FPagador%2FImagens%20Manual%20API%20Rest&quot; alt=&quot;Upload Certificado&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/applepay1.png&quot; alt=&quot;Upload Certificado&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;Finalize o processo&lt;/li&gt;
 &lt;/ol&gt;
 
