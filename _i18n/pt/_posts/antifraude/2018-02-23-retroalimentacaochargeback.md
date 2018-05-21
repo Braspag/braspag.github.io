@@ -132,7 +132,7 @@ Exemplo:
          "IsFraud": "true"
          "NegativeValues":
          [
-            "CustomerEmail",
+            "CustomerIpAddress",
             "CustomerDocumentNumber"
          ],
          "Transaction":
@@ -191,7 +191,7 @@ Exemplo:
          "IsFraud": "true"
          "NegativeValues":
          [
-            "CustomerEmail",
+            "CustomerIpAddress",
             "CustomerDocumentNumber"
          ],
          "Transaction":
@@ -308,11 +308,9 @@ Possíveis valores a serem inseridos na lista negativa na Cybersource.
 |Valor|Descrição|
 |:-|:-|
 |CustomerDocumentNumber|Número do documento do comprador, CPF ou CNPJ|
-|CustomerEmail|E-mail do comprador|
 |CustomerIpAddress|Endereço de IP do comprador|
 |CustomerPhone|Número de telefone do comprador|
 |ShippingStreet|Logradouro do endereço de entrega|
-|DeviceFingerprint|Fingerprint do dispositivo do comprador|
 |DeviceFingerprintSmartId|Fingerprint do dispositivo do comprador|
 
 ## Tabela 2 - Result.ProcessingStatus
