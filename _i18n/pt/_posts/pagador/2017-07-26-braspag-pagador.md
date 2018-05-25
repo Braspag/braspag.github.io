@@ -2095,9 +2095,9 @@ curl
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de autenticação|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
-## Criando uma transação com Análise de Fraude
+## Criando uma transação com Análise de Fraude Cybersource
 
-Para que a análise de fraude seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
+Para que a análise de fraude via Cybersource seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
 
 ### Requisição
 
@@ -2352,22 +2352,22 @@ curl
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
 |`Customer.Email`|Texto|255|Não|Email do comprador|
 |`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador no formato AAAA-MM-DD|
-|`Customer.Address.Street`|Texto|255|Não|Endereço de contato do comprador|
-|`Customer.Address.Number`|Texto|15|Não|Número endereço de contato do comprador|
-|`Customer.Address.Complement`|Texto|50|Não|Complemento do endereço de contato do Comprador|
+|`Customer.Address.Street`|Texto|54|Não|Logradouro do endereço de contato do comprador|
+|`Customer.Address.Number`|Texto|5|Não|Número endereço de contato do comprador|
+|`Customer.Address.Complement`|Texto|14|Não|Complemento do endereço de contato do Comprador|
 |`Customer.Address.ZipCode`|Texto|9|Não|CEP do endereço de contato do comprador|
 |`Customer.Address.City`|Texto|50|Não|Cidade do endereço de contato do comprador|
 |`Customer.Address.State`|Texto|2|Não|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Não|Pais do endereço de contato do comprador|
-|`Customer.Address.District`|Texto |50 |Não|Bairro do Comprador. |
-|`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do comprador|
-|`Customer.DeliveryAddress.Number`|Texto|15|Não|Número do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço de entrega do pedido|
+|`Customer.Address.Country`|Texto|2|Não|Pais do endereço de contato do comprador|
+|`Customer.Address.District`|Texto |45|Não|Bairro do Comprador. |
+|`Customer.DeliveryAddress.Street`|Texto|54|Não|Logradouro do endereço de entrega do comprador|
+|`Customer.DeliveryAddress.Number`|Texto|5|Não|Número do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Complement`|Texto|14|Não|Complemento do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|CEP do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Country`|Texto|35|Não|Pais do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.District`|Texto |50 |Não|Bairro do Comprador. |
+|`Customer.DeliveryAddress.Country`|Texto|2|Não|Pais do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.District`|Texto |45|Não|Bairro do Comprador. |
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
