@@ -1505,9 +1505,9 @@ curl
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 |`AuthenticationUrl`|URL to redirect the customer when the authetication process is finalized|Text|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
-## Credit Card Payment with Fraud Prevention
+## Credit Card Payment with Cybersource's Fraud Prevention
 
-The Fraud Prevention requires the "FraudAnalysis" node filled. 
+The Cybersource's Fraud Prevention requires the "FraudAnalysis" node filled. 
 
 ### Request
 
@@ -1760,22 +1760,22 @@ curl
 |`Customer.IdentityType`|Text|255|No|Customer Identification Type  (CPF or CNPJ)|
 |`Customer.Email`|Text|255|No|Customer's e-mail address|
 |`Customer.Birthdate`|Date|10|No|Customer's birth date YYYY-MM-DD|
-|`Customer.Address.Street`|Text|255|No|Customer's main contact address|
-|`Customer.Address.Number`|Text|15|No|Customer's main contact address building number|
-|`Customer.Address.Complement`|Text|50|No|Customer's main contact address' additional data|
+|`Customer.Address.Street`|Text|54|No|Customer's main contact address|
+|`Customer.Address.Number`|Text|5|No|Customer's main contact address building number|
+|`Customer.Address.Complement`|Text|14|No|Customer's main contact address' additional data|
 |`Customer.Address.ZipCode`|Text|9|No|Customer's main contact address ZIP code|
 |`Customer.Address.City`|Text|50|No|Customer's main contact address' City|
 |`Customer.Address.State`|Text|2|No|Customer's main contact address' State|
-|`Customer.Address.Country`|Text|35|No|Customer's main contact address' Country|
-|`Customer.Address.District`|Text|50 |No|Customer's main contact address' district name |
-|`Customer.DeliveryAddress.Street`|Text|255|No|Customer's delivery address|
-|`Customer.DeliveryAddress.Number`|Text|15|No|Customer's delivery address building number|
-|`Customer.DeliveryAddress.Complement`|Text|50|No|Customer's delivery address additional data|
+|`Customer.Address.Country`|Text|2|No|Customer's main contact address' Country|
+|`Customer.Address.District`|Text|45|No|Customer's main contact address' district name |
+|`Customer.DeliveryAddress.Street`|Text|54|No|Customer's delivery address|
+|`Customer.DeliveryAddress.Number`|Text|5|No|Customer's delivery address building number|
+|`Customer.DeliveryAddress.Complement`|Text|14|No|Customer's delivery address additional data|
 |`Customer.DeliveryAddress.ZipCode`|Text|9|No|Customer's delivery address ZIP code|
 |`Customer.DeliveryAddress.City`|Text|50|No|Customer's delivery address' City|
 |`Customer.DeliveryAddress.State`|Text|2|No|Customer's delivery address' State|
-|`Customer.DeliveryAddress.Country`|Text|35|No|Customer's delivery address' Country|
-|`Customer.DeliveryAddress.District`|Text|50 |No|Customer's delivery address' district name |
+|`Customer.DeliveryAddress.Country`|Text|2|No|Customer's delivery address' Country|
+|`Customer.DeliveryAddress.District`|Text|45|No|Customer's delivery address' district name |
 |`Payment.Provider`|Text|15|Yes|Payment Method Provider's name|
 |`Payment.Type`|Text|100|Yes|Payment Method's Type|
 |`Payment.Amount`|Number|15|Yes|Transaction Amount (must be sent in cents)|
