@@ -6565,7 +6565,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 
 |Provider|
 |---|
-|Bradesco2, BancoDoBrasil2, ItauShopline, Santander2, Caixa2, CitiBank2|
+|Bradesco2, BancoDoBrasil2, ItauShopline, Santander2, Caixa2, CitiBank2, BankOfAmerica|
 
 ### Electronic Transfer Payments Provider (Online Debit)
 
