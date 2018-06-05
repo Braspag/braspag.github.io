@@ -1320,7 +1320,7 @@ When a transaction is submitted to an external authentication process, the custo
      "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
-       "Eci":"5",
+       "Eci":"5"
      }
    }
 }
@@ -1357,7 +1357,7 @@ curl
      "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
-       "Eci":"5",
+       "Eci":"5"
      }
    }
 }
