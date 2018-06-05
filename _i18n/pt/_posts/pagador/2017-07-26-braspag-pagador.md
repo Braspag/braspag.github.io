@@ -1557,7 +1557,7 @@ Este é um exemplo de uma transação com dados de autenticação externa. Este 
      "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
-       "Eci":"5",
+       "Eci":"5"
      },
      "ExtraDataCollection":[{
          "Name":"NomeDoCampo",
@@ -1628,7 +1628,7 @@ curl
      "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
-       "Eci":"5",
+       "Eci":"5"
      },
      "ExtraDataCollection":[{
          "Name":"NomeDoCampo",
