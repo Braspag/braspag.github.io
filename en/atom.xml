@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-06-05T14:33:21+00:00</updated>
+    <updated>2018-06-05T14:43:29+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3413,7 +3413,7 @@ All the orders just authorized must be captured here. When the capture process i
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExternalAuthentication&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cavv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AAABB2gHA1B5EFNjWQcDAAAAAAB=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Xid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Uk5ZanBHcWw2RjRCbEN5dGtiMTB=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -3449,7 +3449,7 @@ All the orders just authorized must be captured here. When the capture process i
      &lt;span class=&quot;s2&quot;&gt;&quot;ExternalAuthentication&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
        &lt;span class=&quot;s2&quot;&gt;&quot;Cavv&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;AAABB2gHA1B5EFNjWQcDAAAAAAB=&quot;&lt;/span&gt;,
        &lt;span class=&quot;s2&quot;&gt;&quot;Xid&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Uk5ZanBHcWw2RjRCbEN5dGtiMTB=&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
