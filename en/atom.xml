@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-06-05T14:43:29+00:00</updated>
+    <updated>2018-06-05T14:45:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -583,7 +583,7 @@ All the orders just authorized must be captured here. When the capture process i
 
 &lt;p&gt;The purpose of this documentation is to guide the developer about how to integrate with the Pagador API, the Braspag’s payment gateway, describing the services available with sample requests and responses.&lt;/p&gt;
 
-&lt;p&gt;All operations require specific credentials (Merchant ID and Merchant Key) to access each environment: ** Sandbox &lt;strong&gt;, ** Test&lt;/strong&gt; and ** Production **. To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send the correct HTTP VERB as described in the operation.&lt;/p&gt;
+&lt;p&gt;All operations require specific credentials (Merchant ID and Merchant Key) to access each environment: &lt;strong&gt;Sandbox&lt;/strong&gt;, &lt;strong&gt;Test&lt;/strong&gt; and &lt;strong&gt;Production&lt;/strong&gt;. To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send the correct HTTP VERB as described in the operation.&lt;/p&gt;
 
 &lt;h2 id=&quot;environments&quot;&gt;Environments&lt;/h2&gt;
 
