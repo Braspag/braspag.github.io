@@ -5444,7 +5444,7 @@ Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o
 
 1. Faça login em [Apple Developer](https://developer.apple.com/)
 2. Selecione **Certificate, IDs & Profiles**
-![Apple Developer](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/applepay.png)
+![Certificado EV Internet Explorer]({{ site.baseurl_root }}/images/certificado-ie.jpg)
 3. Realize o upload do certificado
 ![Upload Certificado](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/applepay1.png)
 4. Finalize o processo 
