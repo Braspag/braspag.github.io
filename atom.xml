@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-06T14:52:13+00:00</updated>
+    <updated>2018-06-06T14:58:04+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -21740,7 +21740,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 &lt;ol&gt;
   &lt;li&gt;Faça login em &lt;a href=&quot;https://developer.apple.com/&quot;&gt;Apple Developer&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Selecione &lt;strong&gt;Certificate, IDs &amp;amp; Profiles&lt;/strong&gt;
-&lt;img src=&quot;https://braspag.github.io//images/certificado-ie.jpg&quot; alt=&quot;Certificado EV Internet Explorer&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;https://braspag.github.io//images/apple-pay.jpg&quot; alt=&quot;Aplle Pay&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;Realize o upload do certificado
 &lt;img src=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/applepay1.png&quot; alt=&quot;Upload Certificado&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;Finalize o processo&lt;/li&gt;
