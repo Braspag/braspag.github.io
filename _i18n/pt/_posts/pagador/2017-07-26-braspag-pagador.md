@@ -5444,9 +5444,9 @@ Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o
 
 1. Faça login em [Apple Developer](https://developer.apple.com/)
 2. Selecione **Certificate, IDs & Profiles**
-![Aplle Pay]({{ site.baseurl_root }}/images/apple-pay.jpg)
+![Aplle Pay]({{ site.baseurl_root }}/images/apple-paymid.jpg)
 3. Realize o upload do certificado
-![Upload Certificado](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/applepay1.png)
+![Aplle Pay]({{ site.baseurl_root }}/images/apple-pay.jpg)
 4. Finalize o processo 
 
 <P>O Certificado PEM contém o código CSR solicitado pela Apple. 
