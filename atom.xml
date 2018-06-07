@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-06T17:56:38+00:00</updated>
+    <updated>2018-06-07T14:12:21+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -7743,7 +7743,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
   &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://apisandbox.cieloecommerce.cielo.com.br/&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;API Split&lt;/strong&gt;: https://splitsandbox.braspag.com.br/&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://authhomolog.braspag.com.br/&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://authsandbox.braspag.com.br/&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;produção&quot;&gt;Produção&lt;/h3&gt;
