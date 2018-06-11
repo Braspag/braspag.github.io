@@ -19591,64 +19591,331 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 </table>
 
 <p>As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).</p>
+<h1 id="configuração-do-fingerprint">Configuração do Fingerprint</h1>
 
-<h2 id="device-finger-print">Device Finger Print</h2>
+<p>Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.</p>
 
-<p>Você precisará adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ‹Body› da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.</p>
+<h2 id="redshield">ReDShield</h2>
 
-<p>OBS: Se os 3 segmentos de código não forem colocados na página de checkout, seus resultados podem não serprecisos.</p>
+<h3 id="integração-com-sua-página-de-checkoutsite">Integração com sua página de checkout(site)</h3>
 
-<p>Colocando os Segmentos de Código
-Coloque os segmentos de código imediatamente acima da tag ‹/Body› para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.</p>
+<h4 id="como-funciona">Como funciona?</h4>
 
-<p>Substituindo as variáveis
-Copie os trechos de código abaixo.
-Em cada segmento, substitua as variáveis abaixo com os valores referentes à sua loja/pedido:</p>
+<p><img src="https://braspag.github.io//images/braspag/af/fingerprint.png" alt="Fluxo" /></p>
 
-<p>Domain: Testing - Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo;
-Production - Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net.
-‹org id›: Para obter esse valor entre em contato com a Braspag
-‹merchant ID›: Para obter esse valor entre em contato com a Braspag
-‹session ID›: Use o mesmo valor passado no parametro “DeviceFingerprintID”, do serviço de requisição de análise de fraude.
-Certifique-se de copiar todos os dados corretamente e de remover os sinais de tag () ao substituir as variáveis.</p>
+<p>1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a <em>caixa preta</em> <br /> 2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo <em>hidden</em> <br /> 3 - O lojista envia para a Braspag, junto com os demais dados da transação a ser analisada, a <em>caixa preta</em> <br /> 4 - A Braspag recebe todos os dados, valida e envia para a ReD Shield <br /> 5 - A ReD Shield recebe todos os dados, envia a <em>caixa preta</em> para a Iovation descriptografar <br /> 6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador</p>
 
-<h3 id="png-image">PNG image</h3>
+<h4 id="como-configurar">Como configurar?</h4>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›<span class="err">&amp;</span>session_id=‹merchant id›‹session ID›<span class="err">&amp;</span>m=1)"›‹/p›
-‹img src="https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›<span class="err">&amp;</span>session_id=‹merchant id›‹session ID›<span class="err">&amp;</span>m=2" alt=""›
-</code></pre></div></div>
+<p>1 - Inclua o javascript da Iovation em sua página de checkout <br /> 2 - Adicione parâmetros de configuração no javascript <br /> 3 - Crie um campo do tipo <em>hidden</em> em sua página para escrever a <em>caixa preta</em> nele e enviá-lo junto com os dados da transação a ser analisada</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID<span class="err">&amp;</span>session_id=sample_merchantIDsample_sessionID<span class="err">&amp;</span>m=1)"›‹/p›
-‹img src="https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID<span class="err">&amp;</span>session_\id=sample_merchantIDsample_sessionID<span class="err">&amp;</span>m=2" alt=""›
+<p><strong>Obs.:</strong> Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.</p>
 
-</code></pre></div></div>
+<ul>
+  <li>Incluindo o javascript da Iovation</li>
+</ul>
 
-<h3 id="flash-code">Flash code</h3>
+<p>Para incluir o javascript, adicione o seguinte elemento <strong>&lt;script&gt;</strong> na sua página de checkout.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>‹object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=‹org ID›<span class="err">&amp;</span>session_id=‹merchant id›‹session ID›" width="1" height="1"id="thm_fp"›
-‹param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=‹orgID›<span class="err">&amp;</span>session_id=‹merchant id›‹session ID›" /›
-‹div›‹/div›
-‹/object›
-</code></pre></div></div>
+<p>Esta é a URL da versão do snare.js da Iovation: &lt;script type=”text/javascript” src=”https://mpsnare.iesnare.com/snare.js”&gt;&lt;/script&gt;</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>‹object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID<span class="err">&amp;</span>session_id=sample_merchantIDsample_sessionID"width="1" height="1" id="thm_fp"›
-‹param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID<span class="err">&amp;</span>session_id=sample_merchantIDsample_sessionID" /›
-‹div›‹/div›
-‹/object›
-</code></pre></div></div>
+<ul>
+  <li>Parâmetros de configuração</li>
+</ul>
 
-<h3 id="javascript-code">JavaScript code</h3>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">io_install_flash</code></td>
+      <td style="text-align: left">Determina se será solicitado ao usuário a instalação do Flash ou atualização da versão</td>
+      <td style="text-align: left">false</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">io_flash_needs_handler</code></td>
+      <td style="text-align: left">Este parâmetro só terá validade se o parâmetro <code class="highlighter-rouge">io_install_flash</code> estiver configurado como TRUE, caso contrário não será executado <br /> É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado <br /> Ex.: var <code class="highlighter-rouge">io_flash_needs_handler</code> = “Alert(‘Instalar Flash’);”</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">io_install_stm</code></td>
+      <td style="text-align: left">Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware <br /> Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito</td>
+      <td style="text-align: left">false</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">io_exclude_stm</code></td>
+      <td style="text-align: left">Determina se o Active X deverá ser executado quando instalado <br /> É possível optar por desativar o controle para plataformas específicas <br /> Possíveis valores: <br /> 0 - executa em todas as plataformas <br /> 1 - não executa no Windows 9.x (incluindo as versões 3.1, 95, 98 e ME) <br /> 2 - não executa no Windows CE <br /> 4 - não executa no Windows XP (incluindo as versões NT, 2000, 2003 e 8) <br /> 8 - não executa no Windows Vista <br /> Obs.: Os valores são a combinação de somas dos valores acima, por exemplo: 12 - não executa no Windows XP (4) ou no Windows Vista (8)</td>
+      <td style="text-align: left">15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">io_bbout_element_id</code></td>
+      <td style="text-align: left">Id do elemento HTML para preencher com a <em>caixa preta</em> <br /> Se o parâmetro <code class="highlighter-rouge">io_bb_callback</code> for definido, este não terá efeito</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">io_enable_rip</code></td>
+      <td style="text-align: left">Determina se tentará coletar informações para obter o IP real do usuário</td>
+      <td style="text-align: left">true</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">io_bb_callback</code></td>
+      <td style="text-align: left">Parâmetro para customizar a checagem da coleta da <em>caixa preta</em> foi concluída <br /> Ao utilizar, escrever a função conforme com a seguinte sintaxe: <br /> <em>io_callback(bb, complete)</em>, onde: <br /> bb - valor da caixa preta <br /> complete - valor booleano que indica que a coleta foi concluída</td>
+      <td style="text-align: left">-</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>‹script src="https://h.online-metrix.net/fp/check.js?org_id=‹org ID›<span class="err">&amp;</span>session_
-id=‹merchant id›‹session ID›" type="text/javascript"›
-‹/script›
-</code></pre></div></div>
+<p><strong>IMPORTANTE!</strong>
+Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>‹script src="https://h.online-metrix.net/fp/check.js?org_id=‹org ID›<span class="err">&amp;</span>session_
-id=‹merchant id›‹session ID›" type="text/javascript"›
-‹/script›
-</code></pre></div></div>
+<p><strong>Exemplo</strong>
+<img src="https://braspag.github.io//images/braspag/af/exemplohtmlred.png" alt="Exemplo HTML" /></p>
+
+<h2 id="integração-em-aplicativos-mobile">Integração em aplicativos mobile</h2>
+
+<p><strong>Visão Geral</strong>
+Este tópico explica como integrar o mobile SDK da Iovation em seus aplicativos para iOS e Android.</p>
+
+<p><strong>Baixando o SDK</strong>
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br /> <a href="https://github.com/iovation/deviceprint-SDK-iOS">Download Deviceprint SDK iOS</a> <br /> <a href="https://github.com/iovation/deviceprint-SDK-Android">Download Deviceprint SDK Android</a></p>
+
+<p><strong>Sobre a integração</strong>
+Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma <em>caixa preta</em> que contém todas as informações do dispositivo disponíveis.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/af/fingerprintmobile.png" alt="Fluxo da coleta do fingerprint mobile" /></p>
+
+<h3 id="integrando-com-aplicativos-ios">Integrando com aplicativos iOS</h3>
+
+<p>Arquivos e requisitos de integração do iOS
+<img src="https://braspag.github.io//images/braspag/af/fingerprintios1.png" alt="Detalhes integração iOS" /></p>
+
+<p>Esta versão suporta iOS 5.1.1 ou superior nos seguintes dispositivos:</p>
+<ul>
+  <li>iPhone 3GS e posterior</li>
+  <li>iPod Touch 3ª geração ou posterior</li>
+  <li>
+    <p>Todos os iPads</p>
+  </li>
+  <li>Instalando o SDK no iOS</li>
+</ul>
+
+<p>1 - Baixe e descompacte o SDK</p>
+
+<p>2 - No Xcode, arraste <em>iovation.framework</em> na área de navegação do seu projeto
+<img src="https://braspag.github.io//images/braspag/af/fingerprintios2.png" alt="Detalhes instalação SDK" /></p>
+
+<p>3 - Na caixa de diálogo que aparece:</p>
+<ul>
+  <li>Selecione <em>Copy items if needed</em> para copiar o framework para o diretório do projeto</li>
+  <li>Marque a caixa de seleção para os destinos nos quais você planeja usar o framework
+<img src="https://braspag.github.io//images/braspag/af/fingerprintios3.png" alt="Detalhes instalação SDK" /></li>
+</ul>
+
+<p>4 - Clique em Finish</p>
+
+<p>5 - Adicione os frameworks a seguir ao destino da aplicação no XCode:
+<em>ExternalAccessory.framework</em>. Se você verificar que o Wireless Accessory Configuration está ativado no Xcode 6 ou superior e não precisa, desativa e adicione novamente o ExternalAccessory.framework
+<em>CoreTelephony.framework</em>
+<img src="https://braspag.github.io//images/braspag/af/fingerprintios4.png" alt="Detalhes instalação SDK" /></p>
+
+<p>6 - Opcionalmente, adicione esses frameworks se o seu aplicativo fizer uso deles:
+<em>AdSupport.framework</em>. Se o seu aplicativo exibe anúncios
+Obs.: Não incluir se o seu aplicativo não utilizar anúncios, pois a App Store rejeita aplicativos que incluem o framework mas não usam anúncios
+<em>CoreLocation.framework</em>. Se o seu aplicativo usa monitoramento local
+Obs.: Não incluir, a menos que seu aplicativo solicite permissão de geolocalização do usuário</p>
+
+<ul>
+  <li>Usando a função +ioBegin</li>
+</ul>
+
+<p>A função <em>+ioBegin</em> coleta informações sobre o dispositivo e gera uma <em>caixa preta</em>. Esta <em>caixa preta</em> deverá ser enviada através do campo <em>CustomerData.BrowserFingerPrint</em> em conjunto com os outros dados para análise.</p>
+
+<ul>
+  <li>Sintaxe</li>
+</ul>
+
+<blockquote>
+  <p>NSSstring * bbox = [iovation ioBegin]</p>
+</blockquote>
+
+<ul>
+  <li>Valores de retorno</li>
+</ul>
+
+<blockquote>
+  <p>bbox - string que contem a <em>caixa preta</em></p>
+</blockquote>
+
+<p><strong>IMPORTANTE!</strong>
+A <em>caixa preta</em> que retornou de <em>+ioBegin</em> nunca deve estar vazio. Uma <em>caixa preta</em> vazia indica que a proteção oferecida pelo sistema pode ter sido comprometida.</p>
+
+<p><strong>Exemplo</strong>
+<img src="https://braspag.github.io//images/braspag/af/exemplocodigo1.png" alt="Exemplo Código" /></p>
+
+<h3 id="integrando-com-aplicativos-android">Integrando com aplicativos Android</h3>
+
+<p>Arquivos e requisitos de integração do Android
+<img src="https://braspag.github.io//images/braspag/af/fingerprintandroid.png" alt="Detalhes" class="left" title="Detalhes integração Android" /></p>
+
+<p><strong>NOTA</strong>
+Se as permissões listadas não são necessárias pelo aplicativo, os valores obtidos obtidos utilizando essas permissões serão ignorados. As permissões não são necessárias para obter uma <em>caixa preta</em>, mas ajudam a obter mais informações do dispositivo.</p>
+
+<p>A versão 1.2.0 do Iovation Mobile SDK para Android suporta versões do Android 2.1 ou superior.</p>
+
+<ul>
+  <li>Instalando o SDK no Android</li>
+</ul>
+
+<p>1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar <br /> 2 - Inicie o IDE de sua escolha <br /> 3 - No Eclipse e Maven, faça o deploy do arquivo de extensão <em>.aar</em> no repositório Maven local, usando o maven-deploy. Mais detalhes em: <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Maven Guide</a> <br /> 4 - No Android Studio, selecione <em>File -&gt; New Module</em>. Expande <em>More Modules</em> e escolha <em>Import existing .jar or .aar package</em> <br /> 5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em <em>Finish</em> <br /> 6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle</p>
+
+<p><img src="https://braspag.github.io//images/braspag/af/fingerprintandroid1.png" alt="Detalhes" class="left" title="Detalhes integração Android" /></p>
+
+<ul>
+  <li>Usando a função ioBegin</li>
+</ul>
+
+<p>A função <em>ioBegin</em> coleta informações sobre o dispositivo e gera uma <em>caixa preta</em>. Esta <em>caixa preta</em> deverá ser enviada através do campo <em>CustomerData.BrowserFingerPrint</em> em conjunto com os outros dados para análise.</p>
+
+<ul>
+  <li>Sintaxe</li>
+</ul>
+
+<blockquote>
+  <p>public static String ioBegin(Context context)</p>
+</blockquote>
+
+<ul>
+  <li>Parâmetros</li>
+</ul>
+
+<blockquote>
+  <p>context - uma instância da classe <em>android.content.Context</em> usado para acessar informações sobre o dispositivo</p>
+</blockquote>
+
+<ul>
+  <li>Valores de retorno</li>
+</ul>
+
+<blockquote>
+  <p>string que contem a <em>caixa preta</em></p>
+</blockquote>
+
+<p><strong>IMPORTANTE!</strong>
+A <em>caixa preta</em> que retornou de <em>ioBegin</em> nunca deve estar vazio. Uma <em>caixa preta</em> vazia indica que contem apenas <em>0500</em> indica que a proteção oferecida pelo sistema pode ter sido comprometida.</p>
+
+<p><strong>IMPORTANTE!</strong>
+O arquivo <em>device-lib-1.2.0.aar</em> deverá ser empacotado com o aplicativo.</p>
+
+<ul>
+  <li>Compilando o aplicativo de exemplo no Android Studio</li>
+</ul>
+
+<p><strong>IMPORTANTE!</strong>
+Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Project Structure</em> e abra o painel <em>Modules</em>. A partir disso, defina na lista a versão do Android SDK.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/af/exemplocodigo2.png" alt="Exemplo Código" /></p>
+
+<p>1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar <br /> 2 - No Android Studio, selecione <em>File -&gt; Open</em> ou clique em <em>Open Project</em> através da opção <em>quick-start</em> <br /> 3 - No diretório em que você descompactou o <em>deviceprint-lib-1.2.0.aar</em>, abra diretório <em>android-studio-sample-app</em> do aplicativo de exemplo <br /> 4 - Abra o arquivo <em>DevicePrintSampleActivity</em> <br /> 5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o <em>Event Log</em> e clique em <em>Configure</em> <br /> 6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em <em>OK</em> para corrigir os erros <br /> 7 - No Android Studio, selecione <em>File -&gt; New Module</em>. Expande <em>More Modules</em> e escolha <em>Import existing .jar or .aar package</em> <br /> 8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em <em>Finish</em> <br /> 9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle <br /> <img src="https://braspag.github.io//images/braspag/af/fingerprintandroid1.png" alt="Detalhes integração Android" /> <br /> 10 - Abra a pasta DevicePrintSampleActivity
+11 - Na opção de navegação do projeto, abra <em>src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java</em> <br /> 12 - Clique com o botão direito e selecione <em>Run DevicePrintSampleAct</em> <br /> 13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo <br /> 14 - O aplicativo irá compilar e executar</p>
+
+<p>O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a <em>caixa preta</em>. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.</p>
+
+<h2 id="cybersource">Cybersource</h2>
+
+<p>Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ** da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.</p>
+
+<p><strong>IMPORTANTE!</strong>
+Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.</p>
+
+<p><strong>Colocando os segmentos de código e substituindo os valores das variáveis</strong></p>
+
+<p>Coloque os segmentos de código imediatamente acima da tag ** para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.</p>
+
+<p>Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.</p>
+
+<p><em>Domain</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ambiente</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Testing</code></td>
+      <td style="text-align: left">Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Production</code></td>
+      <td style="text-align: left">Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Variáveis</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Variável</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderOrgId</code></td>
+      <td style="text-align: left">Para obter este valor, entre em contato com a Braspag</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderMerchantId</code></td>
+      <td style="text-align: left">Para obter este valor, entre em contato com a Braspag</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderSessionId</code></td>
+      <td style="text-align: left">Prencha este campo com o mesmo valor do campo <code class="highlighter-rouge">MerchantOrderId</code> que será enviado na requisição da análise de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>PNG Image</p>
+</blockquote>
+
+<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberimage.png" alt="Exemplo Image" /></p>
+
+<blockquote>
+  <p>Flash Code</p>
+</blockquote>
+
+<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberflash.png" alt="Exemplo Image" /></p>
+
+<blockquote>
+  <p>Javascript Code</p>
+</blockquote>
+
+<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberjavascript.png" alt="Exemplo Image" /></p>
+
+<p><strong>IMPORTANTE!</strong>
+Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</p>
+
+<p><strong>Configurando seu Servidor Web</strong></p>
+
+<p>Na seção <em>Colocando os segmentos de código e substituindo os valores das variáveis (Domain)</em>, todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.</p>
+
+<p><strong>IMPORTANTE!</strong>
+Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</p>
+
+<h2 id="integração-em-aplicativos-mobile-1">Integração em aplicativos mobile</h2>
+
+<p><strong>Baixando o SDK</strong>
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip">Download Deviceprint SDK iOS</a> <br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip">Download Deviceprint SDK Android</a></p>
 
 <h1 id="faq">FAQ</h1>
 
