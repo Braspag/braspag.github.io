@@ -3368,7 +3368,6 @@ curl
 |`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão|Texto|4|
 |`NewCard.Brand`|Bandeira do novo cartão|Texto|10 |
 
-
 # Pagamentos com Análise de Fraude
 
 ## Criando uma transação com Análise de Fraude Cybersource
