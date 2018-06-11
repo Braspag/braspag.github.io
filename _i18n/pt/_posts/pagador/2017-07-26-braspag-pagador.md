@@ -2095,6 +2095,8 @@ curl
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de autenticação|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
+# Pagamentos com Análise de Fraude
+
 ## Criando uma transação com Análise de Fraude Cybersource
 
 Para que a análise de fraude via Cybersource seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
