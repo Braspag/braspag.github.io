@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-06-11T19:55:01+00:00</updated>
+    <updated>2018-06-13T19:55:01+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -15454,7 +15454,7 @@ Copy the codes bellow, and replace the variables with correct values.&lt;/p&gt;
 ‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=‹merchant id›‹session ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=2&quot; alt=&quot;&quot;›
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- EXEMPLO --&amp;gt;&lt;/span&gt;
 ‹p style=&quot;background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=1)&quot;›‹/p›
 ‹img src=&quot;https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_\id=sample_merchantIDsample_sessionID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;m=2&quot; alt=&quot;&quot;›
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -15467,7 +15467,7 @@ Copy the codes bellow, and replace the variables with correct values.&lt;/p&gt;
 ‹/object› 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- EXEMPLO --&amp;gt;&lt;/span&gt;
 ‹object type=&quot;application/x-shockwave-flash&quot; data=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&quot;width=&quot;1&quot; height=&quot;1&quot; id=&quot;thm_fp&quot;›
 ‹param name=&quot;movie&quot; value=&quot;https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_id=sample_merchantIDsample_sessionID&quot; /›
 ‹div›‹/div›
@@ -15481,7 +15481,7 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
 ‹/script› 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- EXEMPLO --&amp;gt;&lt;/span&gt;
 ‹script src=&quot;https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;session_
 id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
 ‹/script› 
