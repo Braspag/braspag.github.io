@@ -1,14 +1,7 @@
 language: ruby
-
-cache:
-  yarn: true
-  bundler: true
-  directories:
-    - node_modules
-
+cache: bundler
 rvm:
  - 2.3.3
-
 
 before_script:
  - chmod +x ./script/build
