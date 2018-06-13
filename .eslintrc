@@ -1,0 +1,29 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+        "consistent-return": "off",
+        "func-names": "off",
+        "no-restricted-globals": "off",
+        "no-param-reassign": "off",
+        "no-plusplus": "off",
+        "no-use-before-define": "off",
+        "prefer-arrow-callback": "off",
+        "wrap-iife": "off"
+    },
+    "globals": {
+        "$": false,
+
+        "selectors": false,
+        "prettyPrint": false,
+        "langs": false,
+        "langsArray": false,
+        "setupLanguages": false,
+
+        "CustomEvent": false,
+        "history": false,
+        "localStorage": false,
+        "location": false,
+        "lunr": false,
+        "window": false
+    }
+}
