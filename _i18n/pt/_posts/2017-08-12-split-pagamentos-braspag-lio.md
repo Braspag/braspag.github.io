@@ -81,8 +81,8 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 |-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
 | `Amount`                                | Valor da transação em centavos.                                                                         | Inteiro | -       | Sim         | 
 | `Installments`                          | Número de Parcelas da transação.                                                                        | Inteiro | -       | Sim         |
-| `Product`                               | Tipo da transação [CreditCard | DebitCard].                                                             | String  | -       | Sim         |
-| `Brand`                                 | Bandeira do cartão utilizado na transação [Visa | Master | Elo | Amex | Diners | Discover].             | String  | -       | Sim         |
+| `Product`                               | Tipo da transação [CreditCard - DebitCard].                                                             | String  | -       | Sim         |
+| `Brand`                                 | Bandeira do cartão utilizado na transação [Visa - Master - Elo - Amex - Diners - Discover].             | String  | -       | Sim         |
 | `PaymentaDateils.AffiliationCode`       | Código do estabelecimento Cielo configurada na LIO e utilizado na transação.                            | String  | 10      | Sim         |
 | `PaymentaDateils.Nsu`                   | Número Sequencial Único da transação.                                                                   | String  | max(10) | Sim         |
 | `PaymentaDateils.AuthorizationCode`     | Código de Autorização da transação.                                                                     | String  | max(10) | Sim         |
