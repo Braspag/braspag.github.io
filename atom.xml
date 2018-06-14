@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-14T11:32:58+00:00</updated>
+    <updated>2018-06-14T11:37:09+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10398,7 +10398,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-split}/transactions/{Id}/void&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-split}/transactions/{Id}/void&lt;/span&gt;&lt;/aside&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-x-www-form-urlencoded&quot;&gt;--header &quot;Authorization: Bearer {access_token}&quot;  
 &lt;/code&gt;&lt;/pre&gt;
@@ -10445,14 +10445,14 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-split}/transactions/{Id}/void?amount={amount}&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-split}/transactions/{Id}/void?amount={amount}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-x-www-form-urlencoded&quot;&gt;--header &quot;Authorization: Bearer {access_token}&quot;  
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;No exempo abaixo é cancelado o valor de R$25,00 de uma transação no valor de R$100,00.&lt;/p&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-split/transactions/{Id}/void?amount=2500&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;--header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Bearer {access_token}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
