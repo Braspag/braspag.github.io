@@ -1240,7 +1240,7 @@ Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, 
 
 #### Cancelamento Total
 
-No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado.
+No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
 
 **Request**
 
