@@ -252,18 +252,6 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subor
 }
 ```
 
-Caso a transação não pertença ao Marketplace, será retornado um erro (Http Staus Code 400 - Bad Request) informando qua a transação já existe.
-
-**Response**
-
-> HTTP Staus Code: 409 - Conflict
-
-```json
-{
-    "Message": "Transaction does not belong to master."
-}
-```
-
 ### Consulta
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/transactions/{Id}</span></aside>
