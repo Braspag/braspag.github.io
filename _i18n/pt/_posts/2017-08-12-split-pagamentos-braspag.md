@@ -791,7 +791,9 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 A divisão pós-transacional é possível somente para transações com **Cartão de Crédito** e poderá ser realizada dentro de um intervalo de tempo determinado a partir da data de captura da transação.
 
-Para transações com **Cartão de Crédito**, este período é de **25 dias** se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
+Para transações com **Cartão de Crédito**, este período é de **15 dias** se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
+
+> O período para redividir uma transação poderá ser alterado pela Braspag(Facilitador).
 
 **Request**  
 
