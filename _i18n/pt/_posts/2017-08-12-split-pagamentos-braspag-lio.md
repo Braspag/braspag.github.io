@@ -44,159 +44,114 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 
 ```json
 --header "Authorization: Bearer {access_token}"
-{
-  "MerchantOrderId":"2014111701",
-  "Customer":{
-      "Name":"Comprador"
+{  
+   "Amount":15000,
+   "Installments":2,
+   "Product":"CreditCard",
+   "Brand":"Visa",
+   "PaymentDetails":{  
+      "AffiliationCode":"1010101010",
+      "Nsu":123456,
+      "AuthorizationCode":"654321",
+      "TerminalLogicNumber":"12345678",
+      "AuthorizationDate":"2018-05-30"
    },
-  "Payment":{
-      "Type":"SplittedCreditCard",
-      "Amount":10000,
-      "Installments":1,
-      "SoftDescriptor":"Marketplace",
-      "Capture": true,
-      "CreditCard":{
-          "CardNumber":"4551870000000181",
-          "Holder":"Teste Holder",
-          "ExpirationDate":"12/2021",
-          "SecurityCode":"123",
-          "Brand":"Visa"
+   "SplitPayments":[  
+      {  
+         "SubordinateMerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+         "Amount":6000,
+         "Fares":{  
+            "Mdr":5,
+            "Fee":30
+         }
       },
-      "SplitPayments": [
-        {
-            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-            "Amount": 4500,
-            "Fares": {
-              "Mdr": 5,
-              "Fee": 30
-            }
-        },
-        {
-            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-            "Amount": 3000,
-            "Fares": {
-              "Mdr": 4,
-              "Fee": 15
-            }
-        },
-        {
-            "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-            "Amount": 2500
-        }
-    ]
-  }
+      {  
+         "SubordinateMerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+         "Amount":4000,
+         "Fares":{  
+            "Mdr":4,
+            "Fee":15
+         }
+      }
+   ]
 }
 ```
+
+| Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
+|-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
+| `Amount`                                | Valor da transação em centavos.                                                                         | Inteiro | -       | Sim         | 
+| `Installments`                          | Número de Parecelas da transação.                                                                       | Inteiro | -       | Sim         |
+| `Product`                               | Tipo da transação [CreditCard | DebitCard].                                                             | String  | -       | Sim         |
+| `Brand`                                 | Bandeira do cartão utilizado na transação [Visa | Master | Elo | Amex | Diners | Discover].             | String  | -       | Sim         |
+| `PaymentaDateils.AffiliationCode`       | Código do estabelecimento Cielo configurada na LIO e utilizado na transação.                            | String  | 10      | Sim         |
+| `PaymentaDateils.Nsu`                   | Número Sequencial Único da transação.                                                                   | String  | max(10) | Sim         |
+| `PaymentaDateils.AuthorizationCode`     | Código de Autorização da transação.                                                                     | String  | max(10) | Sim         |
+| `PaymentaDateils.TerminalLogicNumber`   | Número lógico do terminal LIO onde ocorreu a transação.                                                 | String  | max(10) | Sim         |
+| `PaymentaDateils.AuthorizationDate`     | Data de autorização da transação [YYYY-MM-DD].                                                          | Date    | -       | Sim         |
+| `SplitPayments`                         | Nó contendo a informação de divisão da transação.                                                       | -       | -       | Não         |
+
+
+| Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
+|-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
+| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
+| `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.             | Inteiro | -       | Sim         |
+| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado**.    | Decimal | -       | Não         |
+| `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
 
 **Response**
 
 ```json
-{
-    "MerchantOrderId": "2014111701",
-    "Customer": {
-        "Name": "Comprador"
-    },
-    "Payment": {
-        "SplitPayments": [
-            {
-                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                "Amount": 4500,
-                "Fares": {
-                    "Mdr": 5,
-                    "Fee": 30
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                        "Amount": 4245
-                    },
-                    {
-                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                        "Amount": 255
-                    }
-                ]
+{  
+   "Id":"e718dc1e-fe8e-497e-9019-6aa48dee6306",
+   "Amount":15000,
+   "Installments":2,
+   "Product":"CreditCard",
+   "Brand":"Visa",
+   "PaymentDetails":{  
+      "AffiliationCode":"1101505998",
+      "Nsu":1234567891,
+      "AuthorizationCode":"123456",
+      "TerminalLogicNumber":"78350767",
+      "AuthorizationDate":"2018-05-30"
+   },
+   "SplitPayments":[  
+      {  
+         "SubordinateMerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+         "Amount":6000,
+         "Fares":{  
+            "Mdr":5,
+            "Fee":30
+         },
+         "Splits":[  
+            {  
+               "MerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+               "Amount":5670
             },
-            {
-                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                "Amount": 3000,
-                "Fares": {
-                    "Mdr": 4,
-                    "Fee": 15
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                        "Amount": 2865
-                    },
-                    {
-                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                        "Amount": 135
-                    }
-                ]
-            },
-            {
-                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                "Amount": 2500,
-                "Fares": {
-                    "Mdr": 2,
-                    "Fee": 0
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                        "Amount": 2500
-                    }
-                ]
+            {  
+               "MerchantId":"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+               "Amount":330
             }
-        ],
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": 0,
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "455187******0181",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2021",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "Tid": "1210035540764",
-        "ProofOfSale": "20171210035540764",
-        "AuthorizationCode": "859182",
-        "SoftDescriptor": "Marketplace",
-        "Provider": "Simulado",
-        "Amount": 10000,
-        "ReceivedDate": "2017-12-10 15:55:38",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2017-12-10 15:55:40",
-        "Status": 2,
-        "IsSplitted": true,
-        "ReturnMessage": "Operation Successful",
-        "ReturnCode": "6",
-        "PaymentId": "34895364-e269-47ad-b779-7e122ed40a9a",
-        "Type": "SplittedCreditCard",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/34895364-e269-47ad-b779-7e122ed40a9a/split"
+         ]
+      },
+      {  
+         "SubordinateMerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+         "Amount":4000,
+         "Fares":{  
+            "Mdr":4,
+            "Fee":15
+         },
+         "Splits":[  
+            {  
+               "MerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+               "Amount":3825
             },
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a/void"
+            {  
+               "MerchantId":"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+               "Amount":175
             }
-        ]
-    }
+         ]
+      }
+   ]
 }
 ```
 
@@ -229,12 +184,7 @@ No Split Transacional é necessário que o Marketplace envie um "nó" adicional 
 ]
 ```
 
-| Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
-|-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
-| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
-| `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.             | Inteiro | -       | Sim         |
-| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
-| `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
+
 
 Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:
 
