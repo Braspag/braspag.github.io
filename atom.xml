@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-14T11:18:19+00:00</updated>
+    <updated>2018-06-14T11:19:13+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10220,9 +10220,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;Durante o processo transacional na LIO, poderá ocorrer alguma falha impedindo que a LIO consiga invocar o Split para criação da transação.&lt;/p&gt;
 
-&lt;p&gt;Caso isso ocorra e a transação não seja criada no Split no dia em que a mesma ocorreu, a plataforma automaticamente cria esta transação e direciona todo o valor da da transação para o Subordinado ao qual está associado o terminal LIO.&lt;/p&gt;
+&lt;p&gt;Caso isso ocorra e a transação não seja criada no Split no dia em que a mesma ocorreu, a plataforma automaticamente criará esta transação e direcionará todo o valor da transação para o Subordinado ao qual está associado o terminal LIO.&lt;/p&gt;
 
-&lt;p&gt;Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro (Http Staus Code 409 - Conflict) juntamente com os dados transacionais, caso o Marketplace seja o dono da transação. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do Split Pós Transacional, &lt;a href=&quot;https://braspag.github.io//manual/split-pagamentos-braspag-lio#p%C3%B3s-transacional&quot; target=&quot;_blank&quot;&gt;Split de Pagamentos - Pós Transacional&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro (Http Staus Code 409 - Conflict) juntamente com os dados transacionais, caso o Marketplace seja o dono da transação. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do &lt;a href=&quot;https://braspag.github.io//manual/split-pagamentos-braspag-lio#p%C3%B3s-transacional&quot; target=&quot;_blank&quot;&gt;Split de Pagamentos - Pós Transacional&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
