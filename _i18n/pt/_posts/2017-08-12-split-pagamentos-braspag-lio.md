@@ -350,51 +350,37 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 **Response**
 
 ```json
-{
-    "Status": 10,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/019efd18-c69a-4107-b5d7-e86564460cc4"
-        }
-    ],
-    "VoidSplitPayments": [
-        {
-            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-            "VoidedAmount": 4000,
-            "VoidedSplits": [
-                {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "VoidedAmount": 3825
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "VoidedAmount": 175
-                }
-            ]
-        },
-        {
-            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-            "VoidedAmount": 6000,
-            "VoidedSplits": [
-                {
-                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "VoidedAmount": 5670
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "VoidedAmount": 330
-                }
-            ]
-        }
-    ]
+{  
+   "VoidSplitPayments":[  
+      {  
+         "SubordinateMerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+         "VoidedAmount":4000,
+         "VoidedSplits":[  
+            {  
+               "MerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+               "VoidedAmount":3825
+            },
+            {  
+               "MerchantId":"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+               "VoidedAmount":175
+            }
+         ]
+      },
+      {  
+         "SubordinateMerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+         "VoidedAmount":6000,
+         "VoidedSplits":[  
+            {  
+               "MerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+               "VoidedAmount":5670
+            },
+            {  
+               "MerchantId":"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+               "VoidedAmount":330
+            }
+         ]
+      }
+   ]
 }
 ```
 
@@ -404,13 +390,13 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-split}/transactions/{Id}/void?amount={amount}</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
-No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.
+No exempo abaixo é cancelado o valor de R$25,00 de uma transação no valor de R$100,00.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
@@ -438,56 +424,37 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 **Response**
 
 ```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3/void"
-        }
-    ],
-    "VoidSplitPayments": [
-        {
-            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-            "VoidedAmount": 1500,
-            "VoidedSplits": [
-                {
-                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "VoidedAmount": 1417
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "VoidedAmount": 83
-                }
-            ]
-        },
-        {
-            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-            "VoidedAmount": 1000,
-            "VoidedSplits": [
-                {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "VoidedAmount": 956
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "VoidedAmount": 44
-                }
-            ]
-        }
-    ]
+{  
+   "VoidSplitPayments":[  
+      {  
+         "SubordinateMerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+         "VoidedAmount":1500,
+         "VoidedSplits":[  
+            {  
+               "MerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+               "VoidedAmount":1417
+            },
+            {  
+               "MerchantId":"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+               "VoidedAmount":83
+            }
+         ]
+      },
+      {  
+         "SubordinateMerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+         "VoidedAmount":1000,
+         "VoidedSplits":[  
+            {  
+               "MerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+               "VoidedAmount":956
+            },
+            {  
+               "MerchantId":"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+               "VoidedAmount":44
+            }
+         ]
+      }
+   ]
 }
 ```
 
