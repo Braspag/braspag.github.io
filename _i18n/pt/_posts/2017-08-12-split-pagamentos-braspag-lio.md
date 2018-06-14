@@ -331,85 +331,17 @@ Caso a transação não pertença ao Marketplace, será retornado um erro (Http 
    ]
 }
 ```
-
 ### Cancelamento
 
 Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
 
 #### Cancelamento Total
 
-No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado.
+No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void</span></aside>
-
-```x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"  
-```
-
-**Response**
-
-```json
-{
-    "Status": 10,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/019efd18-c69a-4107-b5d7-e86564460cc4"
-        }
-    ],
-    "VoidSplitPayments": [
-        {
-            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-            "VoidedAmount": 4000,
-            "VoidedSplits": [
-                {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "VoidedAmount": 3825
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "VoidedAmount": 175
-                }
-            ]
-        },
-        {
-            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-            "VoidedAmount": 6000,
-            "VoidedSplits": [
-                {
-                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "VoidedAmount": 5670
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "VoidedAmount": 330
-                }
-            ]
-        }
-    ]
-}
-```
-
-### Cancelamento
-
-Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
-
-#### Cancelamento Total
-
-No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado.
-
-**Request**
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-split}/transactions/{Id}/void</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
