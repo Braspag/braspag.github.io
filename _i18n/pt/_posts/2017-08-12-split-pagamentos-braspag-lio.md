@@ -509,7 +509,7 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
 
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/transactions/{PaymentId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/transactions/{Id}</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
