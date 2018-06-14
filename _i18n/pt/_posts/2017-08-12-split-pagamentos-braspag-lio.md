@@ -167,11 +167,11 @@ Durante o processo transacional na LIO, poderá ocorrer algum problema, de comun
 
 Caso isso ocorra e a transação não seja criada no Split no dia em que a mesma ocorreu, a plataforma automaticamente cria esta transação e direciona todo o valor da da transação para o Subordinado ao qual está associado o terminal LIO.
 
-Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro (Http Staus Code 409 - Conflict) juntamente com juntamente com os dados transacionais. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do Split Pós Transacional, [Split de Pagamentos - Pós Transacional](https://braspag.github.io//manual/split-pagamentos-braspag-lio#p%C3%B3s-transacional){:target="_blank"}. 
+Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro (Http Staus Code 409 - Conflict) juntamente com os dados transacionais, caso o Marketplace seja o dono da transação. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do Split Pós Transacional, [Split de Pagamentos - Pós Transacional](https://braspag.github.io//manual/split-pagamentos-braspag-lio#p%C3%B3s-transacional){:target="_blank"}. 
 
 **Request**
 
-Para o exemplo abaixo, o terminal LIO está associado ao Subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.
+Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions</span></aside>
 
@@ -248,6 +248,18 @@ Para o exemplo abaixo, o terminal LIO está associado ao Subordinado 7c7e5e7b-8a
          ]
       }
    ]
+}
+```
+
+Caso a transação não pertença ao Marketplace, será retornado um erro (Http Staus Code 400 - Bad Request) informando qua a transação já existe.
+
+**Response**
+
+> HTTP Staus Code: 409 - Conflict
+
+```json
+{
+    "Message": "Transacrion already exists."
 }
 ```
 
@@ -493,91 +505,11 @@ A divisão pós-transacional é possível somente para transações com **Cartã
 
 Para transações com **Cartão de Crédito**, este período é de **25 dias** se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
 
-**Request**  
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
-
-```json
---header "Authorization: Bearer {access_token}"
-[
-    {
-        "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-        "Amount": 6000,
-        "Fares": {
-            "Mdr": 5,
-            "Fee": 30
-        }
-    },
-    {
-        "SubordinateMerchantId" :"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-        "Amount":4000,
-        "Fares":{
-            "Mdr":4,
-            "Fee":15
-        }
-    }
-]
-```
-
-**Response**
-
-> HTTP Status Code: 409 - Conflict
-
-```json
-{
-    "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
-    "SplitPayments": [
-        {
-            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-            "Amount": 6000,
-            "Fares": {
-                "Mdr": 5,
-                "Fee": 30
-            },
-            "Splits": [
-                {
-                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "Amount": 5670
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "Amount": 330
-                }
-            ]
-        },
-        {
-            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-            "Amount": 4000,
-            "Fares": {
-                "Mdr": 4,
-                "Fee": 15
-            },
-            "Splits": [
-                {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "Amount": 3825
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "Amount": 175
-                }
-            ]
-        }
-    ]
-}
-```
-
-O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
-
-> O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **25 dias** para Cartão de Crédito se estiver enquadrado no regime de pagamento padrão. Para transações com Cartão de Débito a divisão poderá ser realizada somente no momento transacional.
-
 ### Consulta
-
-Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
 
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/transactions/{PaymentId}</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
