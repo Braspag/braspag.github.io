@@ -22,7 +22,7 @@ Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pag
 
 ## Configuração
 
-Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma. O mesmo deverá ser associado a um Subordinado, indicando onde o mesmo estará presente fisicamente.
+Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um Subordinado, indicando onde o mesmo estará presente fisicamente.
 
 Com isso, no momento da configuração de um terminal, é necessário informar o seu numero lógico para que seja possível a correta configuração e operação da plataforma.
 
