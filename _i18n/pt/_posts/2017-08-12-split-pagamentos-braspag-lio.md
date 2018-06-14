@@ -32,7 +32,7 @@ Com isso, no momento da configuração de um terminal, é necessário informar o
 
 O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split.
 
-Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manual/split-pagamentos-braspag-lio#autentica%C3%A7%C3%A3o){:target="_blank"} para detalhes técnicos.
+Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manual/split-pagamentos-braspag#autentica%C3%A7%C3%A3o){:target="_blank"} para detalhes técnicos.
 
 ## Integração
 
@@ -107,10 +107,10 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
    "Product":"CreditCard",
    "Brand":"Visa",
    "PaymentDetails":{  
-      "AffiliationCode":"1101505998",
-      "Nsu":1234567891,
-      "AuthorizationCode":"123456",
-      "TerminalLogicNumber":"78350767",
+      "AffiliationCode":"1010101010",
+      "Nsu": "123456",
+      "AuthorizationCode":"654321",
+      "TerminalLogicNumber":"12345678",
       "AuthorizationDate":"2018-05-30"
    },
    "SplitPayments":[  
@@ -183,7 +183,7 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subor
    "Brand":"Visa",
    "PaymentDetails":{  
       "AffiliationCode":"1010101010",
-      "Nsu":123456,
+      "Nsu": "123456",
       "AuthorizationCode":"654321",
       "TerminalLogicNumber":"12345678",
       "AuthorizationDate":"2018-05-30"
@@ -221,10 +221,10 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subor
    "Product":"CreditCard",
    "Brand":"Visa",
    "PaymentDetails":{  
-      "AffiliationCode":"1101505998",
-      "Nsu":1234567891,
-      "AuthorizationCode":"123456",
-      "TerminalLogicNumber":"78350767",
+      "AffiliationCode":"1010101010",
+      "Nsu":123456,
+      "AuthorizationCode":"654321",
+      "TerminalLogicNumber":"12345678",
       "AuthorizationDate":"2018-05-30"
    },
    "SplitPayments":[  
