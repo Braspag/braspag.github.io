@@ -90,7 +90,6 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 | `PaymentaDateils.AuthorizationDate`     | Data de autorização da transação [YYYY-MM-DD].                                                          | Date    | -       | Sim         |
 | `SplitPayments`                         | Nó contendo a informação de divisão da transação.                                                       | -       | -       | Não         |
 
-
 | Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
 |-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
 | `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
