@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-14T18:25:16+00:00</updated>
+    <updated>2018-06-14T20:13:50+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9943,7 +9943,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;h2 id=&quot;configuração&quot;&gt;Configuração&lt;/h2&gt;
 
-&lt;p&gt;Para utilização do Split de Pagamento na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, onde será necessário configurar o estabelecimento comercial da Braspag (Facilitador) pelo qual serão realizadas as transações destinadas ao Split de Pagamentos.&lt;/p&gt;
+&lt;p&gt;Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, onde será necessário configurar o estabelecimento comercial da Braspag, (Facilitador) pelo qual serão realizadas as transações destinadas ao Split de Pagamentos.&lt;/p&gt;
 
 &lt;p&gt;Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um Subordinado, indicando onde o mesmo estará presente fisicamente.&lt;/p&gt;
 
@@ -10377,7 +10377,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;h3 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h3&gt;
 
-&lt;p&gt;Os cancelamentos serão processados automaticamente pelo Split de Pagamentos, podendo ser consultados através da agenda financeira.&lt;/p&gt;
+&lt;p&gt;Os cancelamentos serão processados automaticamente pelo Split de Pagamentos.&lt;/p&gt;
 
 &lt;h2 id=&quot;agenda-financeira&quot;&gt;Agenda Financeira&lt;/h2&gt;
 
