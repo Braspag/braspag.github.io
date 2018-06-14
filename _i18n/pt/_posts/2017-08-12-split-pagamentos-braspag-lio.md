@@ -475,4 +475,4 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 ## Agenda Financeira
 
-Utilize as informações publicadas em [Split de Pagamentos - Agenda Financeira](https://braspag.github.io//manual/split-pagamentos-braspag-lio#p%C3%B3s-transacional){:target="_blank"} para consultar as previsões e realizações de pagamento.
+Utilize as informações publicadas em [Split de Pagamentos - Agenda Financeira](https://braspag.github.io//manual/split-pagamentos-braspag#p%C3%B3s-transacional){:target="_blank"} para consultar as previsões e realizações de pagamento.
