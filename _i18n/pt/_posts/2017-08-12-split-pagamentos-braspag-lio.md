@@ -166,7 +166,7 @@ Durante o processo transacional na LIO, poderá ocorrer alguma falha impedindo q
 
 Caso isso ocorra e a transação não seja criada no Split no dia em que a mesma ocorreu, a plataforma automaticamente criará esta transação e direcionará todo o valor da transação para o Subordinado ao qual está associado o terminal LIO.
 
-Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro (Http Staus Code 409 - Conflict) juntamente com os dados transacionais, caso o Marketplace seja o dono da transação. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do [Split de Pagamentos - Pós Transacional](https://braspag.github.io//manual/split-pagamentos-braspag-lio#p%C3%B3s-transacional){:target="_blank"}. 
+Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro (Http Staus Code 409 - Conflict) juntamente com os dados transacionais, caso o Marketplace seja o dono da transação. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do [Split de Pagamentos - Pós Transacional](https://braspag.github.io//manual/split-pagamentos-braspag#p%C3%B3s-transacional){:target="_blank"}. 
 
 **Request**
 
