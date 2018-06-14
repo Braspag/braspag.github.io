@@ -83,11 +83,11 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 | `Installments`                          | Número de Parcelas da transação.                                                                        | Inteiro | -       | Sim         |
 | `Product`                               | Tipo da transação [CreditCard - DebitCard].                                                             | String  | -       | Sim         |
 | `Brand`                                 | Bandeira do cartão utilizado na transação [Visa - Master - Elo - Amex - Diners - Discover].             | String  | -       | Sim         |
-| `PaymentaDateils.AffiliationCode`       | Código do estabelecimento Cielo configurada na LIO e utilizado na transação.                            | String  | 10      | Sim         |
-| `PaymentaDateils.Nsu`                   | Número Sequencial Único da transação.                                                                   | String  | max(10) | Sim         |
-| `PaymentaDateils.AuthorizationCode`     | Código de Autorização da transação.                                                                     | String  | max(10) | Sim         |
-| `PaymentaDateils.TerminalLogicNumber`   | Número lógico do terminal LIO onde ocorreu a transação.                                                 | String  | max(10) | Sim         |
-| `PaymentaDateils.AuthorizationDate`     | Data de autorização da transação [YYYY-MM-DD].                                                          | Date    | -       | Sim         |
+| `PaymentDetails.AffiliationCode`        | Código do estabelecimento Cielo configurada na LIO e utilizado na transação.                            | String  | 10      | Sim         |
+| `PaymentDetails.Nsu`                    | Número Sequencial Único da transação.                                                                   | String  | max(10) | Sim         |
+| `PaymentDetails.AuthorizationCode`      | Código de Autorização da transação.                                                                     | String  | max(10) | Sim         |
+| `PaymentDetails.TerminalLogicNumber`    | Número lógico do terminal LIO onde ocorreu a transação.                                                 | String  | max(10) | Sim         |
+| `PaymentDetails.AuthorizationDate`      | Data de autorização da transação [YYYY-MM-DD].                                                          | Date    | -       | Sim         |
 | `SplitPayments`                         | Nó contendo a informação de divisão da transação.                                                       | -       | -       | Não         |
 
 | Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
