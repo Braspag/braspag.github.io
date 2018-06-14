@@ -17,9 +17,17 @@ tags:
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
-Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}
+Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}.
 
-Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.
+> Esta documentação é confidencial, Não divulgue-a ou distribua-a sem prévia autorização.
+
+## Configuração
+
+Para que seja possível realizar as liquidações para cada participante de uma venda no terminais LIO, o terminal será cadastrado na plataforma associado ao Subordinado, indicando onde o mesmo estará presente fisicamente.
+
+Com isso no momento da configuração de um terminar, é necessário informar o seu numero lógico para que seja possível a correta configuração na plataforma.
+
+> Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.
 
 Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
