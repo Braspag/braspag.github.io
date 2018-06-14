@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-14T09:16:12+00:00</updated>
+    <updated>2018-06-14T09:20:59+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9920,7 +9920,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
     </entry>
     
     <entry>
-        <title>Split de Pagamentos - LIO</title>
+        <title>Split de Pagamentos - LIO (Piloto)</title>
         <category term="manual" />
         <link href="https://braspag.github.io//manual/split-pagamentos-braspag-lio"/>
         <updated>2017-08-12T00:00:00+00:00</updated>
@@ -9934,205 +9934,28 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 &lt;p&gt;Para maiores detalhes e informações sobre a plataforma, consulte &lt;a href=&quot;https://braspag.github.io//manual/split-pagamentos-braspag&quot; target=&quot;_blank&quot;&gt;Split de Pagamentos&lt;/a&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Esta documentação é confidencial, Não divulgue-a ou distribua-a sem prévia autorização.&lt;/p&gt;
+  &lt;p&gt;Esta documentação é confidencial. Não divulgue-a sem prévia autorização.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;configuração&quot;&gt;Configuração&lt;/h2&gt;
 
-&lt;p&gt;Para que seja possível realizar as liquidações para cada participante de uma venda no terminais LIO, o terminal será cadastrado na plataforma associado ao Subordinado, indicando onde o mesmo estará presente fisicamente.&lt;/p&gt;
+&lt;p&gt;Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser cadastrado na plataforma previamente. O mesmo deverá ser associado a um Subordinado, indicando onde o mesmo estará presente fisicamente.&lt;/p&gt;
 
-&lt;p&gt;Com isso no momento da configuração de um terminal, é necessário informar o seu numero lógico para que seja possível a correta configuração na plataforma.&lt;/p&gt;
+&lt;p&gt;Com isso, no momento da configuração de um terminal, é necessário informar o seu numero lógico para que seja possível a correta configuração e operação da plataforma.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Muito utilizado em Marketplaces, onde &lt;strong&gt;o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;&lt;strong&gt;Participantes&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Responsável pelo carrinho. &lt;br /&gt; Possui acordos com &lt;strong&gt;Subordinados&lt;/strong&gt; que fornecem os produtos presentes no carrinho.&lt;br /&gt; Define as taxas a serem descontadas sobre a venda de cada &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;br /&gt; Pode participar de uma venda fornecendo seus próprios produtos.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Fornecedor dos produtos que compõem o carrinho.&lt;br /&gt;Recebe parte do valor da venda, descontadas as taxas acordadas com o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Responsável pelo fluxo transacional.&lt;br /&gt; Define as taxas a serem descontadas sobre o valor total da venda realizada pelo &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;br /&gt; Responsável pela liquidação dos pagamentos para os &lt;strong&gt;Subordinados&lt;/strong&gt; e &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;No Split de Pagamentos o responsável pelo fluxo transacional é o facilitador.&lt;/p&gt;
-
-&lt;p&gt;O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.&lt;/p&gt;
-
-&lt;p&gt;Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Regime de Pagamento&lt;/strong&gt;: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
-&lt;br /&gt;
-&lt;strong&gt;Crédito&lt;/strong&gt;: Em até 31 dias. &lt;br /&gt;
-&lt;strong&gt;Crédito Parcelado&lt;/strong&gt;: 1º parcela em até 31 dias, demais a cada 30.
-&lt;strong&gt;Débito&lt;/strong&gt;: Em até 1 dia útil.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como &lt;strong&gt;MerchantId (MID)&lt;/strong&gt;, que deverá ser utlizado ao informar as regras de divisão de uma transação.&lt;/p&gt;
-
-&lt;p&gt;Na divisão de uma transação, devem ser informados:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Os &lt;strong&gt;identificadores dos Subordinados&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Os &lt;strong&gt;valores de participação de cada Subordinado&lt;/strong&gt;. O somatório deverá ser igual ao valor total da transação.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Taxas&lt;/strong&gt; a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de &lt;strong&gt;Subordinado&lt;/strong&gt; e ter seus próprios produtos no carrinho.&lt;/p&gt;
-
-&lt;h3 id=&quot;taxas&quot;&gt;Taxas&lt;/h3&gt;
-
-&lt;p&gt;As taxas acordadas entre os participantes, podendo ser um &lt;strong&gt;MDR(%)&lt;/strong&gt; e/ou uma &lt;strong&gt;Taxa Fixa(R$)&lt;/strong&gt;, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto à Braspag (Facilitador).&lt;/p&gt;
-
-&lt;p&gt;As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;MDR (&lt;em&gt;Merchant Discount Rate&lt;/em&gt;):&lt;/strong&gt; Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento. &lt;br /&gt;
-&lt;strong&gt;Tarifa Fixa:&lt;/strong&gt; Valor em centavos a ser cobrado por transação capturada.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;braspag-facilitador&quot;&gt;Braspag (Facilitador)&lt;/h4&gt;
-
-&lt;p&gt;A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.&lt;/p&gt;
-
-&lt;p&gt;O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).&lt;/p&gt;
-
-&lt;p&gt;O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Custo Marketplace:&lt;/strong&gt; MDR Braspag(%) + Tarifa Fixa(R$)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;marketplace&quot;&gt;Marketplace&lt;/h4&gt;
-
-&lt;p&gt;O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Custo Subordinado:&lt;/strong&gt; MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;exemplo&quot;&gt;Exemplo&lt;/h4&gt;
-
-&lt;p&gt;Uma transação de &lt;strong&gt;R$100,00&lt;/strong&gt;, realizada por um &lt;strong&gt;Marketplace&lt;/strong&gt; com participação do &lt;strong&gt;Subordinado 01&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/split/split001.png&quot; alt=&quot;SplitSample001&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Neste exemplo, foram assumidos os seguintes acordos:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,10 Tarifa Fixa.&lt;br /&gt;
-&lt;strong&gt;Taxa Marketplace&lt;/strong&gt;: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.&lt;/p&gt;
-
-&lt;p&gt;Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
-Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
-Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
-
-&lt;h3 id=&quot;bandeiras&quot;&gt;Bandeiras&lt;/h3&gt;
-
-&lt;p&gt;As bandeiras suportadas pelo Split são:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Visa&lt;/li&gt;
-  &lt;li&gt;MasterCard&lt;/li&gt;
-  &lt;li&gt;Elo&lt;/li&gt;
-  &lt;li&gt;Amex&lt;/li&gt;
-  &lt;li&gt;Hipercard&lt;/li&gt;
-  &lt;li&gt;Diners&lt;/li&gt;
-  &lt;li&gt;Discover&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h2&gt;
-
-&lt;p&gt;O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.&lt;/p&gt;
-
-&lt;p&gt;Para mais informações sobre a API Cielo E-Commerce, consulte o &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce&quot; target=&quot;_blank&quot;&gt;Manual de Integração&lt;/a&gt; da Plataforma.&lt;/p&gt;
-
-&lt;p&gt;OBS: Neste manual serão apresentados os contratos de integração da API Cielo E-Commerce, porém o foco da análise será nas operações referentes ao Split de Pagamentos.&lt;/p&gt;
-
-&lt;h3 id=&quot;sandbox&quot;&gt;Sandbox&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://apisandbox.cieloecommerce.cielo.com.br/&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;API Split&lt;/strong&gt;: https://splitsandbox.braspag.com.br/&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://authsandbox.braspag.com.br/&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;produção&quot;&gt;Produção&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;API Split&lt;/strong&gt;: https://split.braspag.com.br/&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://auth.braspag.com.br/&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;h2 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h2&gt;
 
 &lt;p&gt;O Split de Pagamentos utiliza como segurança o protocolo &lt;a href=&quot;https://oauth.net/2/&quot; target=&quot;_blank&quot;&gt;OAUTH2&lt;/a&gt;, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API Cielo e-Commerce e à API do Split.&lt;/p&gt;
 
-&lt;p&gt;Para obter um token de acesso:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Concatene o ClientId e ClientSecret: &lt;code class=&quot;highlighter-rouge&quot;&gt;ClientId:ClientSecret&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Codifique o resultado da concatenação em Base64.&lt;/li&gt;
-  &lt;li&gt;Realize uma requisição ao servidor de autorização:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{braspag-oauth2-server}/oauth2/token&lt;/span&gt;&lt;/aside&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;x-www-form-urlencoded
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Basic {base64}&quot;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/x-www-form-urlencoded&quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;grant_type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;client_credentials
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Response&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;access_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;token_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bearer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;expires_in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1199&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.&lt;/p&gt;
+&lt;p&gt;Consulte &lt;a href=&quot;https://braspag.github.io//manual/split-pagamentos-braspag-lio#autentica%C3%A7%C3%A3o&quot; target=&quot;_blank&quot;&gt;Split de Pagamentos - Autenticação&lt;/a&gt; para detalhes técnicos.&lt;/p&gt;
 
 &lt;h2 id=&quot;integração&quot;&gt;Integração&lt;/h2&gt;
 
-&lt;h3 id=&quot;autorização&quot;&gt;Autorização&lt;/h3&gt;
+&lt;h3 id=&quot;criando-uma-transação&quot;&gt;Criando uma transação&lt;/h3&gt;
 
 &lt;p&gt;A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.&lt;/p&gt;
 
