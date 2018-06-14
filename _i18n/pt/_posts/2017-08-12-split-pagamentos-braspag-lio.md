@@ -256,11 +256,11 @@ Caso a transação não pertença ao Marketplace, será retornado um erro (Http 
 
 **Response**
 
-> HTTP Staus Code: 400 - Conflict
+> HTTP Staus Code: 409 - Conflict
 
 ```json
 {
-    "Message": "Transacrion already exists."
+    "Message": "Transaction does not belong to master."
 }
 ```
 
