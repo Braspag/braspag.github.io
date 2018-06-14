@@ -161,6 +161,13 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
+#### Transação existente
+
+Durante o processo transacional na LIO, poderá ocorrer algum problema, de comunicação, por exemplo, impedindo que a LIO consiga invocar o Split para criação da transação. 
+
+Caso isso ocorra e a transação não seja criada no Split no dia em que a mesma ocorreu, a plataforma automaticamente cria esta transação e direciona todo o valor da da transação para o Subordinado ao qual está associado o terminal LIO.
+
+Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro juntamente com juntamente com os dados transacionais. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do Split Pós Transacional, [Split de Pagamentos - Autenticação]https://braspag.github.io//manual/split-pagamentos-braspag-lio#p%C3%B3s-transacional){:target="_blank"} 
 
 ### Modelos de Split
 
