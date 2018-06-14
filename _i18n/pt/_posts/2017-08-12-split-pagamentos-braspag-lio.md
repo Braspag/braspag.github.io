@@ -1,14 +1,14 @@
 ---
 layout: manual
-title: Split de Pagamentos
-description: Manual integração do Split de Pagamentos
+title: Split de Pagamentos - LIO
+description: Manual integração do Split de Pagamentos na LIO
 search: true
 toc_footers: false
 categories: manual
 sort_order: 3
 hub_visible: false
 tags:
-  - Split de Pagamentos
+  - Split de Pagamentos - LIO
 ---
 
 # Split de Pagamentos
@@ -16,6 +16,8 @@ tags:
 ## Introdução
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
+
+Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}
 
 Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
