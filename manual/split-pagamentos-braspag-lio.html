@@ -484,19 +484,6 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Caso a transação não pertença ao Marketplace, será retornado um erro (Http Staus Code 400 - Bad Request) informando qua a transação já existe.</p>
-
-<p><strong>Response</strong></p>
-
-<blockquote>
-  <p>HTTP Staus Code: 409 - Conflict</p>
-</blockquote>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction does not belong to master."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
 <h3 id="consulta">Consulta</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/transactions/{Id}</span></aside>
