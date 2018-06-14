@@ -343,7 +343,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-split}/transactions/{Id}/void</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions/{Id}/void</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -392,7 +392,7 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-split}/transactions/{Id}/void?amount={amount}</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions/{Id}/void?amount={amount}</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -400,7 +400,7 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 No exempo abaixo é cancelado o valor de R$25,00 de uma transação no valor de R$100,00.
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split/transactions/{Id}/void?amount=2500</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
