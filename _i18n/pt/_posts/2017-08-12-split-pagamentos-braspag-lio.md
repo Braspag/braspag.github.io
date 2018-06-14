@@ -25,7 +25,7 @@ Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pag
 
 Para que seja possível realizar as liquidações para cada participante de uma venda no terminais LIO, o terminal será cadastrado na plataforma associado ao Subordinado, indicando onde o mesmo estará presente fisicamente.
 
-Com isso no momento da configuração de um terminar, é necessário informar o seu numero lógico para que seja possível a correta configuração na plataforma.
+Com isso no momento da configuração de um terminal, é necessário informar o seu numero lógico para que seja possível a correta configuração na plataforma.
 
 > Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.
 
