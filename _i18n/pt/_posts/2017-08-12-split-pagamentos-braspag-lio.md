@@ -45,7 +45,7 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 ```json
 --header "Authorization: Bearer {access_token}"
 {  
-   "Amount":15000,
+   "Amount":10000,
    "Installments":2,
    "Product":"CreditCard",
    "Brand":"Visa",
@@ -103,7 +103,7 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 ```json
 {  
    "Id":"e718dc1e-fe8e-497e-9019-6aa48dee6306",
-   "Amount":15000,
+   "Amount":10000,
    "Installments":2,
    "Product":"CreditCard",
    "Brand":"Visa",
@@ -167,7 +167,89 @@ Durante o processo transacional na LIO, poderá ocorrer algum problema, de comun
 
 Caso isso ocorra e a transação não seja criada no Split no dia em que a mesma ocorreu, a plataforma automaticamente cria esta transação e direciona todo o valor da da transação para o Subordinado ao qual está associado o terminal LIO.
 
-Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro juntamente com juntamente com os dados transacionais. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do Split Pós Transacional, [Split de Pagamentos - Pós Transacional]https://braspag.github.io//manual/split-pagamentos-braspag-lio#p%C3%B3s-transacional){:target="_blank"}. 
+Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro (Http Staus Code 409 - Conflict) juntamente com juntamente com os dados transacionais. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do Split Pós Transacional, [Split de Pagamentos - Pós Transacional](https://braspag.github.io//manual/split-pagamentos-braspag-lio#p%C3%B3s-transacional){:target="_blank"}. 
+
+**Request**
+
+Para o exemplo abaixo, o terminal LIO está associado ao Subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+{  
+   "Amount":10000,
+   "Installments":2,
+   "Product":"CreditCard",
+   "Brand":"Visa",
+   "PaymentDetails":{  
+      "AffiliationCode":"1010101010",
+      "Nsu":123456,
+      "AuthorizationCode":"654321",
+      "TerminalLogicNumber":"12345678",
+      "AuthorizationDate":"2018-05-30"
+   },
+   "SplitPayments":[  
+      {  
+         "SubordinateMerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+         "Amount":6000,
+         "Fares":{  
+            "Mdr":5,
+            "Fee":30
+         }
+      },
+      {  
+         "SubordinateMerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+         "Amount":4000,
+         "Fares":{  
+            "Mdr":4,
+            "Fee":15
+         }
+      }
+   ]
+}
+```
+
+**Response**
+
+> HTTP Staus Code: 409 - Conflict
+
+```json
+{  
+   "Id":"e718dc1e-fe8e-497e-9019-6aa48dee6306",
+   "Amount":10000,
+   "Installments":2,
+   "Product":"CreditCard",
+   "Brand":"Visa",
+   "PaymentDetails":{  
+      "AffiliationCode":"1101505998",
+      "Nsu":1234567891,
+      "AuthorizationCode":"123456",
+      "TerminalLogicNumber":"78350767",
+      "AuthorizationDate":"2018-05-30"
+   },
+   "SplitPayments":[  
+      {  
+         "SubordinateMerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+         "Amount":10000,
+         "Fares":{  
+            "Mdr":5,
+            "Fee":30
+         },
+         "Splits":[  
+            {  
+               "MerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+               "Amount":9470
+            },
+            {  
+               "MerchantId":"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+               "Amount":530
+            }
+         ]
+      }
+   ]
+}
+```
 
 ### Modelos de Split
 
@@ -438,6 +520,8 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
 ```
 
 **Response**
+
+> HTTP Status Code: 409 - Conflict
 
 ```json
 {
