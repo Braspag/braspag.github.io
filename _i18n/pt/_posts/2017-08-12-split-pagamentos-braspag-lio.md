@@ -330,6 +330,7 @@ Caso a transação não pertença ao Marketplace, será retornado um erro (Http 
    ]
 }
 ```
+
 ### Cancelamento
 
 Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
