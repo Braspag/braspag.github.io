@@ -256,7 +256,7 @@ Caso a transação não pertença ao Marketplace, será retornado um erro (Http 
 
 **Response**
 
-> HTTP Staus Code: 409 - Conflict
+> HTTP Staus Code: 400 - Conflict
 
 ```json
 {
@@ -477,4 +477,4 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 ## Agenda Financeira
 
-Utilize as informações publicadas em [Split de Pagamentos - Agenda Financeira](https://braspag.github.io//manual/split-pagamentos-braspag#p%C3%B3s-transacional){:target="_blank"} para consultar as previsões e realizações de pagamento.
+Utilize as informações publicadas em [Split de Pagamentos - Agenda Financeira](https://braspag.github.io//manual/split-pagamentos-braspag#p%C3%B3s-transacional){:target="_blank"} para consultar as previsões e realizações de liquidação das transações.
