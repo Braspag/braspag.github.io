@@ -19,6 +19,8 @@ O **Split de Pagamentos** permite a divisão de uma transação entre diferentes
 
 Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}
 
+Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.
+
 Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
 | **Participantes** | **Descrição** |
