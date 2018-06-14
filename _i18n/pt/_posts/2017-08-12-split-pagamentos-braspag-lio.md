@@ -83,7 +83,7 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 | `Installments`                          | Número de Parcelas da transação.                                                                        | Inteiro | -       | Sim         |
 | `Product`                               | Tipo da transação [CreditCard - DebitCard].                                                             | String  | -       | Sim         |
 | `Brand`                                 | Bandeira do cartão utilizado na transação [Visa - Master - Elo - Amex - Diners - Discover].             | String  | -       | Sim         |
-| `PaymentDetails.AffiliationCode`        | Código do estabelecimento Cielo configurada na LIO e utilizado na transação.                            | String  | 10      | Sim         |
+| `PaymentDetails.AffiliationCode`        | Código do estabelecimento Cielo configurado na LIO e utilizado na transação.                            | String  | 10      | Sim         |
 | `PaymentDetails.Nsu`                    | Número Sequencial Único da transação.                                                                   | String  | max(10) | Sim         |
 | `PaymentDetails.AuthorizationCode`      | Código de Autorização da transação.                                                                     | String  | max(10) | Sim         |
 | `PaymentDetails.TerminalLogicNumber`    | Número lógico do terminal LIO onde ocorreu a transação.                                                 | String  | max(10) | Sim         |
@@ -162,7 +162,7 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 
 #### Transação existente
 
-Durante o processo transacional na LIO, poderá ocorrer algum problema, de comunicação, por exemplo, impedindo que a LIO consiga invocar o Split para criação da transação. 
+Durante o processo transacional na LIO, poderá ocorrer alguma falha impedindo que a LIO consiga invocar o Split para criação da transação. 
 
 Caso isso ocorra e a transação não seja criada no Split no dia em que a mesma ocorreu, a plataforma automaticamente cria esta transação e direciona todo o valor da da transação para o Subordinado ao qual está associado o terminal LIO.
 
