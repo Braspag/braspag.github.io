@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-14T11:16:51+00:00</updated>
+    <updated>2018-06-14T11:18:19+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10040,7 +10040,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentDetails.AffiliationCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Código do estabelecimento Cielo configurada na LIO e utilizado na transação.&lt;/td&gt;
+      &lt;td&gt;Código do estabelecimento Cielo configurado na LIO e utilizado na transação.&lt;/td&gt;
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
@@ -10218,7 +10218,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;h4 id=&quot;transação-existente&quot;&gt;Transação existente&lt;/h4&gt;
 
-&lt;p&gt;Durante o processo transacional na LIO, poderá ocorrer algum problema, de comunicação, por exemplo, impedindo que a LIO consiga invocar o Split para criação da transação.&lt;/p&gt;
+&lt;p&gt;Durante o processo transacional na LIO, poderá ocorrer alguma falha impedindo que a LIO consiga invocar o Split para criação da transação.&lt;/p&gt;
 
 &lt;p&gt;Caso isso ocorra e a transação não seja criada no Split no dia em que a mesma ocorreu, a plataforma automaticamente cria esta transação e direciona todo o valor da da transação para o Subordinado ao qual está associado o terminal LIO.&lt;/p&gt;
 
