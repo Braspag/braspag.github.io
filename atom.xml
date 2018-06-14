@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-14T08:58:36+00:00</updated>
+    <updated>2018-06-14T09:02:46+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9920,16 +9920,18 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
     </entry>
     
     <entry>
-        <title>Split de Pagamentos</title>
+        <title>Split de Pagamentos - LIO</title>
         <category term="manual" />
-        <link href="https://braspag.github.io//manual/split-pagamentos-braspag-copy"/>
+        <link href="https://braspag.github.io//manual/split-pagamentos-braspag-lio"/>
         <updated>2017-08-12T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//manual/split-pagamentos-braspag-copy</id>
+        <id>https://braspag.github.io//manual/split-pagamentos-braspag-lio</id>
         <content type="html">&lt;h1 id=&quot;split-de-pagamentos&quot;&gt;Split de Pagamentos&lt;/h1&gt;
 
 &lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
 
 &lt;p&gt;O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma transação entre diferentes participantes de uma venda.&lt;/p&gt;
+
+&lt;p&gt;Para maiores detalhes e informações sobre a plataforma, consulte &lt;a href=&quot;https://braspag.github.io//manual/split-pagamentos-braspag&quot; target=&quot;_blank&quot;&gt;Split de Pagamentos&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Muito utilizado em Marketplaces, onde &lt;strong&gt;o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes&lt;/strong&gt;.&lt;/p&gt;
 
