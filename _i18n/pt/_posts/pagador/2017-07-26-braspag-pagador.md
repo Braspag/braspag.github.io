@@ -4473,8 +4473,8 @@ curl
 |`FraudAnalysis.Travel.Passengers.Rating`|Texto|15|Sim, caso o nó "Travel" seja enviado. |Classificação do Passageiro. <BR>Valores do Campo:<BR>*"Adult"* (Passageiro adulto)<BR>*"Child"*(Passageiro criança)<BR>"*Infant"*(Passageiro infantil)<BR>"*Youth"*(Passageiro adolescente)<BR>"*Student"*(Passageiro estudante)<BR>"*SeniorCitizen*"(Passageiro idoso)<BR>"*Military*"(Passageiro militar) |
 |`FraudAnalysis.Travel.Passengers.Email`|Texto|60|Sim, caso o nó "Travel" seja enviado. |E-mail do passageiro. |
 |`FraudAnalysis.Travel.Passengers.Phone`|Texto|14|Sim, caso o nó "Travel" seja enviado. |Número de telefone do passageiro. |
-|`FraudAnalysis.Travel.Passengers.TicketNumber`|Texto|20|Sim, caso o nó "Travel" seja enviado. |Número do bilhete. Ex.: "123456".|
-|`FraudAnalysis.Travel.Passengers.FrequentFlyerNumber`|Texto|50|Sim, caso o nó "Travel" seja enviado. |Número de fidelidade do passageiro (ver LoyaltyMemberNumber)	Ex: "159753852". |
+|`FraudAnalysis.Travel.Passengers.TicketNumber`|Texto|20|Sim, caso o nó "Travel" seja enviado. |Número do bilhete. Ex.: "123456". |
+|`FraudAnalysis.Travel.Passengers.FrequentFlyerNumber`|Texto|50|Sim, caso o nó "Travel" seja enviado. |Número de fidelidade do passageiro. Ex: "159753852". | 
 |`FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Sim, caso o nó "Travel" seja enviado. |Código do aeroporto do ponto de origem da viagem. Ex.: "AMS". |
 |`FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Sim, caso o nó "Travel" seja enviado.|Código do aeroporto do ponto de destino da viagem. Ex.: "GIG". |
 |`FraudAnalysis.Travel.Passengers.TravelLegs.DepartureCountry`|Texto|3|Sim, caso o nó "Travel" seja enviado.|País de partida. Ex.: "BRA". |
