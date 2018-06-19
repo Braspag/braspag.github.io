@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-19T21:58:57+00:00</updated>
+    <updated>2018-06-19T22:25:46+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -18004,35 +18004,35 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países&lt;br /&gt;Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)Off (Ignora a análise de risco para endereços divergentes)&lt;/td&gt;
+      &lt;td&gt;Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.&lt;br /&gt;Yes (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)&lt;br /&gt;No (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)&lt;br /&gt;Off (Ignora a análise de risco para endereços divergentes)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.HostHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. &lt;br /&gt;Low (Baixa importância do e-mail e endereço IP na análise de risco)Normal (Média importância do e-mail e endereço IP na análise de risco)High (Alta importância do e-mail e endereço IP na análise de risco)Off (E-mail e endereço IP não afetam a análise de risco)&lt;/td&gt;
+      &lt;td&gt;Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. &lt;br /&gt;Low (Baixa importância do e-mail e endereço IP na análise de risco)&lt;br /&gt;Normal (Média importância do e-mail e endereço IP na análise de risco)&lt;br /&gt;High (Alta importância do e-mail e endereço IP na análise de risco)&lt;br /&gt;Off (E-mail e endereço IP não afetam a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.NonSensicalHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. &lt;br /&gt;Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)Off (Verificação do pedido do comprador não afeta a análise de risco)&lt;/td&gt;
+      &lt;td&gt;Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. &lt;br /&gt;Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)&lt;br /&gt;Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)&lt;br /&gt;High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)&lt;br /&gt;Off (Verificação do pedido do comprador não afeta a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.ObscenitiesHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de obscenidade dos pedidos recebedidos. &lt;br /&gt;Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)&lt;/td&gt;
+      &lt;td&gt;Nível de obscenidade dos pedidos recebedidos. &lt;br /&gt;Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&lt;br /&gt;Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&lt;br /&gt;High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)&lt;br /&gt;Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.PhoneHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível dos testes realizados com os números de telefones. &lt;br /&gt;Low (Baixa importância nos testes realizados com números de telefone)Normal (Média importância nos testes realizados com números de telefone)High (Alta importância nos testes realizados com números de telefone)Off (Testes de números de telefone não afetam a análise de risco)&lt;/td&gt;
+      &lt;td&gt;Nível dos testes realizados com os números de telefones. &lt;br /&gt;Low (Baixa importância nos testes realizados com números de telefone)&lt;br /&gt;Normal (Média importância nos testes realizados com números de telefone)&lt;br /&gt;High (Alta importância nos testes realizados com números de telefone)&lt;br /&gt;Off (Testes de números de telefone não afetam a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Name&lt;/code&gt;&lt;/td&gt;
@@ -18067,28 +18067,28 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível do risco do produto. &lt;br /&gt;Low (O produto tem um histórico de poucos chargebacks)Normal (O produto tem um histórico de chargebacks considerado normal)High (O produto tem um histórico de chargebacks acima da média)&lt;/td&gt;
+      &lt;td&gt;Nível do risco do produto. &lt;br /&gt;Low (O produto tem um histórico de poucos chargebacks)&lt;br /&gt;Normal (O produto tem um histórico de chargebacks considerado normal)&lt;br /&gt;High (O produto tem um histórico de chargebacks acima da média)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.TimeHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância da hora do dia do pedido do cliente. &lt;br /&gt;Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)Off (O horário da compra não afeta a análise de risco)&lt;/td&gt;
+      &lt;td&gt;Nível de importância da hora do dia do pedido do cliente. &lt;br /&gt;Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)&lt;br /&gt;Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)&lt;br /&gt;High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)&lt;br /&gt;Off (O horário da compra não afeta a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Type&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Tipo do produto. &lt;br /&gt;AdultContent(Conteúdo adulto)Coupon(Cupon de desconto)Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)EletronicGood(Produto eletrônico)EletronicSoftware(Softwares distribuídos eletronicamente via download)GiftCertificate(Vale presente)HandlingOnly(Taxa de instalação ou manuseio)Service(Serviço)ShippingAndHandling(Frete e taxa de instalação ou manuseio)ShippingOnly(Frete)Subscription(Assinatura)&lt;/td&gt;
+      &lt;td&gt;Tipo do produto. &lt;br /&gt;AdultContent(Conteúdo adulto)&lt;br /&gt;Coupon(Cupon de desconto)&lt;br /&gt;Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)&lt;br /&gt;EletronicGood(Produto eletrônico)&lt;br /&gt;EletronicSoftware(Softwares distribuídos eletronicamente via download)&lt;br /&gt;GiftCertificate(Vale presente)&lt;br /&gt;HandlingOnly(Taxa de instalação ou manuseio)&lt;br /&gt;Service(Serviço)&lt;br /&gt;ShippingAndHandling(Frete e taxa de instalação ou manuseio)&lt;br /&gt;ShippingOnly(Frete)&lt;br /&gt;Subscription(Assinatura)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.VelocityHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância de frequência de compra do cliente. &lt;br /&gt;Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)&lt;/td&gt;
+      &lt;td&gt;Nível de importância de frequência de compra do cliente. &lt;br /&gt;Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&lt;br /&gt;Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&lt;br /&gt;High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)&lt;br /&gt;Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Email&lt;/code&gt;&lt;/td&gt;
@@ -18116,7 +18116,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Classificação do Passageiro. &lt;br /&gt;Adult (Passageiro adulto)Child(Passageiro criança)Infant(Passageiro infantil)Youth(Passageiro adolescente)Student(Passageiro estudante)SeniorCitizen(Passageiro idoso)Military(Passageiro militar)&lt;/td&gt;
+      &lt;td&gt;Classificação do Passageiro. &lt;br /&gt;Adult (Passageiro adulto)&lt;br /&gt;Child(Passageiro criança)&lt;br /&gt;Infant(Passageiro infantil)&lt;br /&gt;Youth(Passageiro adolescente)&lt;br /&gt;Student(Passageiro estudante)&lt;br /&gt;SeniorCitizen(Passageiro idoso)&lt;br /&gt;Military(Passageiro militar)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Phone&lt;/code&gt;&lt;/td&gt;
@@ -18158,7 +18158,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Tipo de serviço de entrega do produto. &lt;br /&gt;SameDay(Serviço de entrega no mesmo dia)OneDay(Serviço de entrega noturna ou no dia seguint)TwoDay(Serviço de entrega em dois dias)ThreeDay(Serviço de entrega em três dias)LowCost(Serviço de entrega de baixo custo)Pickup(Produto retirado na loja)Other(Outro método de entrega)None(Sem serviço de entrega, pois é um serviço ou assinatura)&lt;/td&gt;
+      &lt;td&gt;Tipo de serviço de entrega do produto. &lt;br /&gt;SameDay(Serviço de entrega no mesmo dia)&lt;br /&gt;OneDay(Serviço de entrega noturna ou no dia seguint)&lt;br /&gt;TwoDay(Serviço de entrega em dois dias)&lt;br /&gt;ThreeDay(Serviço de entrega em três dias)&lt;br /&gt;LowCost(Serviço de entrega de baixo custo)&lt;br /&gt;Pickup(Produto retirado na loja)&lt;br /&gt;Other(Outro método de entrega)&lt;br /&gt;None(Sem serviço de entrega, pois é um serviço ou assinatura)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Shipping.Phone&lt;/code&gt;&lt;/td&gt;
