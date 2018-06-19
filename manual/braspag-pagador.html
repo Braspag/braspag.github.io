@@ -6554,6 +6554,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
         </span><span class="s2">"FraudAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AnalyseFirst"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Always"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cybersource"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"CaptureOnLowRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"VoidOnHighRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"FingerPrintId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="w">
@@ -6682,6 +6683,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
         <span class="s2">"FraudAnalysis"</span>: <span class="o">{</span>
             <span class="s2">"Sequence"</span>: <span class="s2">"AnalyseFirst"</span>,
             <span class="s2">"SequenceCriteria"</span>: <span class="s2">"Always"</span>,
+            <span class="s2">"Provider"</span>: <span class="s2">"Cybersource"</span>,
             <span class="s2">"CaptureOnLowRisk"</span>: <span class="nb">false</span>,
             <span class="s2">"VoidOnHighRisk"</span>: <span class="nb">false</span>,
             <span class="s2">"FingerPrintId"</span>: <span class="s2">"074c1ee676ed4998ab66491013c565e2"</span>
@@ -6787,14 +6789,14 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
-      <td>Numero de identificação do Pedido</td>
+      <td>Número de identificação do Pedido</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Name</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
-      <td>Nome do comprador</td>
+      <td>Nome do comprador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Identity</code></td>
@@ -6941,7 +6943,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome da provedora de Meio de Pagamento</td>
+      <td>Nome do provedor de pagamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
@@ -7082,6 +7084,13 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>14</td>
       <td>Sim</td>
       <td>Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Provider</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Provedor de antifraude. Enviar: “Cybersource”.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code></td>
@@ -8907,7 +8916,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome do provedor de Antofraude (Ex.: RedShield, Cybersource, etc)</td>
+      <td>Nome do provedor de Antifraude. Enviar “RedShield”.</td>
       <td> </td>
       <td> </td>
       <td> </td>
