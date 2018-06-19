@@ -3433,6 +3433,7 @@ Para que a análise de fraude via Cybersource seja efetuada em tempo de transaç
         "FraudAnalysis": {
             "Sequence": "AnalyseFirst",
             "SequenceCriteria": "Always",
+            "Provider": "Cybersource",
             "CaptureOnLowRisk": false,
             "VoidOnHighRisk": false,
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2"
@@ -3562,6 +3563,7 @@ curl
         "FraudAnalysis": {
             "Sequence": "AnalyseFirst",
             "SequenceCriteria": "Always",
+            "Provider": "Cybersource",
             "CaptureOnLowRisk": false,
             "VoidOnHighRisk": false,
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2"
@@ -3632,13 +3634,13 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
-|`Customer.Name`|Texto|255|Sim|Nome do comprador|
-|`Customer.Identity`|Texto |14 |Não|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag |
+|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag |
+|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT |
+|`MerchantOrderId`|Texto|50|Sim|Número de identificação do Pedido |
+|`Customer.Name`|Texto|255|Sim|Nome do comprador. |
+|`Customer.Identity`|Texto |14 |Não|Número do RG, CPF ou CNPJ do Cliente | 
+|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ) |
 |`Customer.Email`|Texto|255|Não|Email do comprador|
 |`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador no formato AAAA-MM-DD|
 |`Customer.Address.Street`|Texto|54|Não|Logradouro do endereço de contato do comprador|
@@ -3657,7 +3659,7 @@ curl
 |`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.Country`|Texto|2|Não|Pais do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.District`|Texto |45|Não|Bairro do Comprador. |
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
+|`Payment.Provider`|Texto|15|Sim|Nome do provedor de pagamento. |
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
 |`Payment.ServiceTaxAmount`|Número|15|Sim|Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização|
@@ -3678,6 +3680,7 @@ curl
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 |`FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst)|
+|`FraudAnalysis.Provider`|Texto|10|Sim|Provedor de antifraude. Enviar: "Cybersource". |
 |`FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo.<BR><UL><LI>OnSuccess - Só realiza a analise se tiver sucesso na transação</LI><LI>Always - Sempre realiza a analise</LI></UL>|
 |`FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado|
 |`FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado. |
@@ -4409,7 +4412,7 @@ curl
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 |`FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst)|
 |`FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo.<BR><UL><LI>OnSuccess - Só realiza a analise se tiver sucesso na transação</LI><LI>Always - Sempre realiza a analise</LI></UL>|
-|`FraudAnalysis.Provider`|Texto|15|Sim|Nome do provedor de Antofraude (Ex.: RedShield, Cybersource, etc)|
+|`FraudAnalysis.Provider`|Texto|15|Sim|Nome do provedor de Antifraude. Enviar "RedShield". |
 |`FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Booleano que identifica se a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado.|
 |`FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Booleano que identifica se o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado.|
 |`FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido|
