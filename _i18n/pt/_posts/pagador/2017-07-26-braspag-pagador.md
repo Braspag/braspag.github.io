@@ -316,7 +316,7 @@ curl
 | `ReceivedDate`          | Data em que a transação foi recebida pela Brapag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
 | `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
 | `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
-| `Status`                | Status da Transação                                                         | Byte  | 2       | 1                                    |
+| `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
 | `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
 | `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
 
@@ -697,7 +697,7 @@ curl
 |`ECI`|Eletronic Commerce Indicator. Representa o resultado da autenticação|Texto|2|Exemplos: 5|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 
@@ -1101,7 +1101,7 @@ curl
 |`ECI`|Eletronic Commerce Indicator. Representa o resultado da autenticação|Texto|2|Exemplos: 5|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 
@@ -1489,7 +1489,7 @@ curl
 |`ECI`|Eletronic Commerce Indicator. Representa o resultado da autenticação|Texto|2|Exemplos: 5|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`Payment.AVS.Status`|Status do resultado do AVS.|Número|2|0 - Combinação exata<BR>1 - CEP e CPF combinam<BR>2 - Endereço e CPF combinam<BR>3 - Endereço e CEP combinam<BR>4 - CPF exato<BR>5 - Endereço exato<BR>6 - CEP exato<BR>7 - Não suportado ou não verificado para esta bandeira<BR>9 - Banco emissor com sistema indisponível<BR>11 - Nada combina<BR>12 - Nenhum dado fornecido<BR>14 - Resposta inválida|
@@ -1895,7 +1895,7 @@ curl
 |`ECI`|Eletronic Commerce Indicator. Representa o resultado da autenticação|Texto|2|Exemplos: 5|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 
@@ -2090,7 +2090,7 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de autenticação|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
@@ -2315,7 +2315,7 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -2515,7 +2515,7 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 
@@ -2715,7 +2715,7 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 
@@ -2800,7 +2800,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da Transação. | Byte | --- | 2|
+|`Status`|Status da Transação. | Byte | 2 | Ex. 1 |
 |`ReasonCode`|Código de retorno da adquirente. | Texto | 32 | Texto alfanumérico |
 |`ReasonMessage`|Mensagem de retorno da adquirente. | Texto | 512 | Texto alfanumérico |
 
@@ -2871,7 +2871,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da Transação. |Byte |--- |10|
+|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
 |`ReasonCode`|Código de retorno da Adquirência. |Texto |32 |Texto alfanumérico 
 |`ReasonMessage`|Mensagem de retorno da Adquirência. |Texto |512 |Texto alfanumérico 
 
@@ -3435,6 +3435,7 @@ Para que a análise de fraude via Cybersource seja efetuada em tempo de transaç
             "Provider": "Cybersource",
             "CaptureOnLowRisk": false,
             "VoidOnHighRisk": false,
+			"TotalOrderAmount": 10000,
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
             "Browser": {
                 "CookiesAccepted": false,
@@ -3564,6 +3565,7 @@ curl
             "Provider": "Cybersource",
             "CaptureOnLowRisk": false,
             "VoidOnHighRisk": false,
+			"TotalOrderAmount": 10000,
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
             "Browser": {
                 "CookiesAccepted": false,
@@ -3682,6 +3684,7 @@ curl
 |`FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo.<BR><UL><LI>OnSuccess - Só realiza a analise se tiver sucesso na transação</LI><LI>Always - Sempre realiza a analise</LI></UL>|
 |`FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado|
 |`FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado. |
+|`FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido|
 |`FraudAnalysis.FingerPrintId`|Texto|50|Sim|Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint|
 |`FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Sim|Booleano para identificar se o browser do cliente aceita cookies|
 |`FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador|
@@ -4018,11 +4021,11 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|3|Ex.: 500|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Texto|300|Texto alfanumérico|
-|`FraudAnalysis.Status`|Status da Transação|Byte|3|Ex.: 500|
+|`FraudAnalysis.Status`|Status da Transação|Byte|1|Ex. 1|
 |`FraudAnalysis.FraudAnalysisReasonCode`|Resultado da análise|Byte|---|<ul><li>100 - Operação bem sucedida.</li><li>101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.</li><li>102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.</li><li>150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.</li><li>202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.</li><li>400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.</li><li>480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.</li><li>481 - O pedido foi rejeitado pelo Gerenciador de Decisão</li></ul>|
 |`FraudAnalysis.ReplyData.AddressInfoCode`|Combinação de códigos que indicam erro no endereço de cobrança e/ou entrega. Os códigos são concatenados usando o caractere ^|Texto|255|Ex: COR-BA^MM-BIN<br /><ul><li>COR-BA - O endereço de cobrança pode ser normalizado.</li><li>COR-SA - O endereço de entrega pode ser normalizado.</li><li>INTL-BA - O país de cobrança é fora dos U.S.</li><li>INTL-SA - O país de entrega é fora dos U.S.</li><li>MIL-USA - Este é um endereço militar nos U.S.</li><li>MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.</li><li>MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.</li><li>MM-C - Os endereços de cobrança e entrega usam cidades diferentes.</li><li>MM-CO - Os endereços de cobrança e entrega usam países diferentes.</li><li>MM-ST - Os endereços de cobrança e entrega usam estados diferentes.</li><li>MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.</li><li>UNV-ADDR - O endereço é inverificável.</li></ul>|
 |`FraudAnalysis.ReplyData.FactorCode`|Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^|Texto|100|Ex: B^D^R^Z<br /><ul><li>A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.</li><li>B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.</li><li>C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.</li><li>D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.</li><li>E - Lista positiva. O cliente está na sua lista positiva.</li><li>F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.</li><li>G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.</li><li>H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.</li><li>I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.</li><li>N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.</li><li>O - Obscenidades. Dados do cliente contém palavras obscenas.</li><li>P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.</li><li>Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.</li><li>R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.</li><li>T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.</li><li>U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.</li><li>V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.</li><li>W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.</li><li>Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.</li><li>Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</li></ul>|
@@ -4907,11 +4910,11 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|3|Ex.: 500|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Texto|300|Texto alfanumérico|
-|`FraudAnalysis.Status`|Status da Transação|Byte|---|2|
+|`FraudAnalysis.Status`|Status da Transação|Byte|1|Ex. 1|
 |`FraudAnalysis.ReplyData.FactorCode`|Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^|Texto|100|Ex: B^D^R^Z<br /><ul><li>A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.</li><li>B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.</li><li>C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.</li><li>D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.</li><li>E - Lista positiva. O cliente está na sua lista positiva.</li><li>F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.</li><li>G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.</li><li>H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.</li><li>I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.</li><li>N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.</li><li>O - Obscenidades. Dados do cliente contém palavras obscenas.</li><li>P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.</li><li>Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.</li><li>R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.</li><li>T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.</li><li>U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.</li><li>V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.</li><li>W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.</li><li>Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.</li><li>Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</li></ul>|
 |`FraudAnalysis.ReplyData.ProviderOrderId`|Indentificação da Transação no provedor de antifraude. |Texto|100|Ex: "000548000001XAT20180618101841546"|
 |`FraudAnalysis.ReplyData.ReturnCode`|Código retornado pelo provedor do antifraude. |Texto|100|Ex: "0100"|
@@ -5315,7 +5318,7 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
@@ -5507,7 +5510,7 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
@@ -5679,7 +5682,7 @@ Formato de `EphemeralPublicKey` que devem ser repassados ao Pagador API
 | `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
 | `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
-| `Status`            | Status da Transação.                                                                                                           | Byte  | ---     | 2                                    |
+| `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | --     | Texto alfanumérico                   |
 | `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | --     | Texto alfanumérico                   |
@@ -5865,7 +5868,7 @@ Exemplo de Requisição padrão *Apple Pay*
 | `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
 | `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
-| `Status`            | Status da Transação.                                                                                                           | Byte  | ---     | 2                                    |
+| `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
@@ -5990,7 +5993,7 @@ Exemplo de Requisição padrão *Samsung Pay*
 | `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
 | `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
-| `Status`            | Status da Transação.                                                                                                           | Byte  | ---     | 2                                    |
+| `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
@@ -6119,7 +6122,7 @@ Exemplo de Requisição padrão *Android Pay*
 | `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
 | `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
-| `Status`            | Status da Transação.                                                                                                           | Byte  | ---     | 2                                    |
+| `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
@@ -6233,7 +6236,7 @@ Para utilizar o MasterPass é necessário a contratação do serviço através d
 |`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
-|`Status`|Status da Transação.|Byte|---|2|
+|`Status`|Status da Transação.|Byte| 2 | Ex. 1 |
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 |`Type`|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|Texto|255|Sim|
@@ -6521,7 +6524,7 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
@@ -6593,7 +6596,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da Transação. |Byte |--- |10|
+|`Status`|Status da Transação. |Byte |2 |Ex. 1|
 |`ReasonCode`|Código de retorno da Adquirência. |Texto |32 |Texto alfanumérico 
 |`ReasonMessage`|Mensagem de retorno da Adquirência. |Texto |512 |Texto alfanumérico
 
@@ -6781,7 +6784,7 @@ curl
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Url`|URL para a qual o comprador deverá ser redirecionado para autenticação da Transferência Eletrônica |Texto |256 |Url de Autenticação|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 
 # Pagamentos com Boleto
 
@@ -7039,7 +7042,7 @@ curl
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte |--- |1|
+|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
 
 ## Criando uma transação de Boleto Registrado Bradesco com dados de afiliação 
 
@@ -7313,7 +7316,7 @@ curl
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte |--- |1|
+|`Status`|Status da Transação. |Byte | 2 | Ex. 1|
 
 ## Criando uma transação de Boleto Registrado Banco do Brasil com dados de afiliação 
 
@@ -7574,7 +7577,7 @@ curl
 |`BarCodeNumber`|Representação numérica do código de barras. O Banco do Brasil não retorna este dado no response da transação.|-- |-- |-- |
 |`DigitableLine`|Linha digitável. O Banco do Brasil não retorna este dado no response da transação.|-- |-- |-- |
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte |--- |1|
+|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
 
 # Pagamentos Recorrentes
 
@@ -8216,7 +8219,7 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 
@@ -8871,7 +8874,7 @@ curl
 |`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
 |`Payment.ReasonMessage`|Mensagem de retorno da Adquirência|Texto|512|Texto alfanumérico|
-|`Payment.Status`|Status da Transação|Byte|2|1|
+|`Payment.Status`|Status da Transação|Byte|2| Ex. 1|
 |`Payment.ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`Payment.ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`CreditCard.CardNumber`|Número do Cartão do comprador|Texto|16|
@@ -9215,13 +9218,12 @@ Status retornados pela API
 
 | Código | Descrição  |
 |--------|------------|
-| 500    | Started    |
-| 501    | Accept     |
-| 502    | Review     |
-| 503    | Reject     |
-| 504    | Pendent    |
-| 505    | Unfinished |
-| 506    | Aborted    |
+| 0      | Unknown    |
+| 1      | Accept     |
+| 2      | Reject     |
+| 3      | Review     |
+| 4      | Aborted    |
+| 5      | Unfinished |
 
 ## Lista de HTTP Status Code
 
