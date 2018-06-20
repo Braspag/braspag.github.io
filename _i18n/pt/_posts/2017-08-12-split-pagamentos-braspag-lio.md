@@ -161,6 +161,7 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 | `Id`                                         | Identificador da transação.                                                                 | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
+
 #### Transação existente
 
 Durante o processo transacional na LIO, poderá ocorrer alguma falha impedindo que a LIO consiga invocar o Split para criação da transação. 
