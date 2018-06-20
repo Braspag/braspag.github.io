@@ -3435,7 +3435,7 @@ Para que a análise de fraude via Cybersource seja efetuada em tempo de transaç
             "Provider": "Cybersource",
             "CaptureOnLowRisk": false,
             "VoidOnHighRisk": false,
-            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2"
+            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
             "Browser": {
                 "CookiesAccepted": false,
                 "Email": "comprador@braspag.com.br",
@@ -3564,7 +3564,7 @@ curl
             "Provider": "Cybersource",
             "CaptureOnLowRisk": false,
             "VoidOnHighRisk": false,
-            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2"
+            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
             "Browser": {
                 "CookiesAccepted": false,
                 "Email": "comprador@braspag.com.br",
