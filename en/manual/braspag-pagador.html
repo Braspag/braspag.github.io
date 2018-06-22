@@ -3464,8 +3464,10 @@
      </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
        </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="s2">"AnalyseFirst"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"Always"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cybersource"</span><span class="p">,</span><span class="w"> 
        </span><span class="s2">"CaptureOnLowRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"VoidOnHighRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">       
+       </span><span class="s2">"VoidOnHighRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">       
        </span><span class="s2">"FingerPrintId"</span><span class="p">:</span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">    
       </span><span class="s2">"Browser"</span><span class="p">:{</span><span class="w">
        </span><span class="s2">"CookiesAccepted"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -3584,8 +3586,10 @@
      <span class="s2">"FraudAnalysis"</span>:<span class="o">{</span>
        <span class="s2">"Sequence"</span>:<span class="s2">"AnalyseFirst"</span>,
        <span class="s2">"SequenceCriteria"</span>:<span class="s2">"Always"</span>,
+       <span class="s2">"Provider"</span>: <span class="s2">"Cybersource"</span>,
        <span class="s2">"CaptureOnLowRisk"</span>:false,
-       <span class="s2">"VoidOnHighRisk"</span>:false,       
+       <span class="s2">"VoidOnHighRisk"</span>:false,
+       <span class="s2">"TotalOrderAmount"</span>: 10000,
        <span class="s2">"FingerPrintId"</span>:<span class="s2">"074c1ee676ed4998ab66491013c565e2"</span>,    
       <span class="s2">"Browser"</span>:<span class="o">{</span>
        <span class="s2">"CookiesAccepted"</span>:false,
@@ -4034,6 +4038,14 @@
       <td> </td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Provider</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Fraud prevention provider’s name: “Cybersource”</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code></td>
       <td>Boolean</td>
       <td>—</td>
@@ -4047,6 +4059,14 @@
       <td>—</td>
       <td>No</td>
       <td>When true, the void process will occur automaticlly when the fraud risk is hiht (Reject). In case of low risk or review state, the flow will be the default. To use this flow, the Sequence must be “AuthorizeFirst</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.TotalOrderAmount</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Total order amount</td>
       <td> </td>
     </tr>
     <tr>
@@ -4397,6 +4417,7 @@
    </span><span class="s2">"FraudAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AnalyseFirst"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Always"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Cybersource"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"FingerPrintId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"MerchantDefinedFields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -4460,6 +4481,7 @@
             </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"CaptureOnLowRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"VoidOnHighRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
             </span><span class="s2">"FraudAnalysisReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ReplyData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"AddressInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COR-BA^MM-BIN"</span><span class="p">,</span><span class="w">
@@ -4545,6 +4567,7 @@
    <span class="s2">"FraudAnalysis"</span>: <span class="o">{</span>
             <span class="s2">"Sequence"</span>: <span class="s2">"AnalyseFirst"</span>,
             <span class="s2">"SequenceCriteria"</span>: <span class="s2">"Always"</span>,
+            <span class="s2">"Provider"</span>:<span class="s2">"Cybersource"</span>
             <span class="s2">"FingerPrintId"</span>: <span class="s2">"074c1ee676ed4998ab66491013c565e2"</span>,
             <span class="s2">"MerchantDefinedFields"</span>: <span class="o">[</span>
                 <span class="o">{</span>
@@ -4608,6 +4631,7 @@
             <span class="s2">"Status"</span>: 1,
             <span class="s2">"CaptureOnLowRisk"</span>: <span class="nb">false</span>,
             <span class="s2">"VoidOnHighRisk"</span>: <span class="nb">false</span>,
+            <span class="s2">"TotalOrderAmount"</span>: 10000,
             <span class="s2">"FraudAnalysisReasonCode"</span>: 100,
             <span class="s2">"ReplyData"</span>: <span class="o">{</span>
                 <span class="s2">"AddressInfoCode"</span>: <span class="s2">"COR-BA^MM-BIN"</span>,
@@ -4693,7 +4717,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text que será impresso na fatura do portador</td>
+      <td>The name that will be printed in the holder’s bill</td>
       <td>Text</td>
       <td>13</td>
       <td>Alphanumeric Text</td>
@@ -4794,8 +4818,8 @@
       <td><code class="highlighter-rouge">FraudAnalysis.Status</code></td>
       <td>Transaction Status</td>
       <td>Byte</td>
-      <td>3</td>
-      <td>Ex.: 500</td>
+      <td>1</td>
+      <td>Ex.: 1</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -6568,7 +6592,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">SoftDescriptor</code></td>
-      <td>Texto que será impresso na fatura do portador</td>
+      <td>The name that will be printed in the holder’s bill</td>
       <td>Text</td>
       <td>13</td>
       <td>Alphanumeric Text</td>
@@ -6669,8 +6693,8 @@
       <td><code class="highlighter-rouge">FraudAnalysis.Status</code></td>
       <td>Transaction Status</td>
       <td>Byte</td>
-      <td>3</td>
-      <td>Ex.: 500</td>
+      <td>1</td>
+      <td>Ex.: 1</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -14134,32 +14158,28 @@ New Next scheduled recurrence date: Oct 2th <br />
   </thead>
   <tbody>
     <tr>
-      <td>500</td>
-      <td>Started</td>
+      <td>0</td>
+      <td>Unknown</td>
     </tr>
     <tr>
-      <td>501</td>
+      <td>1</td>
       <td>Accept</td>
     </tr>
     <tr>
-      <td>502</td>
-      <td>Review</td>
-    </tr>
-    <tr>
-      <td>503</td>
+      <td>2</td>
       <td>Reject</td>
     </tr>
     <tr>
-      <td>504</td>
-      <td>Pendent</td>
+      <td>3</td>
+      <td>Review</td>
     </tr>
     <tr>
-      <td>505</td>
-      <td>Unfinished</td>
-    </tr>
-    <tr>
-      <td>506</td>
+      <td>4</td>
       <td>Aborted</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Unfinished</td>
     </tr>
   </tbody>
 </table>
