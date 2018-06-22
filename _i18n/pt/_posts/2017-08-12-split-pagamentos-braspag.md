@@ -1646,7 +1646,7 @@ Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds
 | `Transactions[].Schedules[].PaymentDate`         | Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)                | Data    | -       |
 | `Transactions[].Schedules[].ForecastedDate`      | Data de liquidação prevista.                                                                            | Data    | -       |
 | `Transactions[].Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | -       |
-| `Transactions[].Schedules[].InstallmentsAmount`  | Valor da parcela a liquidar.                                                                            | Inteiro | -       |
+| `Transactions[].Schedules[].InstallmentsAmount`  | Valor, em centavos, da parcela a liquidar.                                                              | Inteiro | -       |
 | `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
 | `Transactions[].Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
 | `Transactions[].Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
