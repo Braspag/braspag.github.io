@@ -1567,8 +1567,10 @@ The Cybersource's Fraud Prevention requires the "FraudAnalysis" node filled.
      "FraudAnalysis":{
        "Sequence":"AnalyseFirst",
        "SequenceCriteria":"Always",
+       "Provider": "Cybersource",	   
        "CaptureOnLowRisk":false,
-       "VoidOnHighRisk":false,       
+       "VoidOnHighRisk":false,
+       "TotalOrderAmount": 10000,       
        "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",    
       "Browser":{
        "CookiesAccepted":false,
@@ -1688,8 +1690,10 @@ curl
      "FraudAnalysis":{
        "Sequence":"AnalyseFirst",
        "SequenceCriteria":"Always",
+       "Provider": "Cybersource",	   
        "CaptureOnLowRisk":false,
-       "VoidOnHighRisk":false,       
+       "VoidOnHighRisk":false,
+       "TotalOrderAmount": 10000,	   
        "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",    
       "Browser":{
        "CookiesAccepted":false,
@@ -1798,8 +1802,10 @@ curl
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|If the card must be saved, then true. Else false.|
 |`FraudAnalysis.Sequence`|Text|14|Yes|Possible values:<br>AnalyseFirst<br>AuthorizeFirst<br>|
 |`FraudAnalysis.SequenceCriteria`|Text|9|Yes|Flow criteria.<br>OnSuccess - on success of chosen sequence<br>Always - analyse independently the result of chosen sequence<br>|
+|`FraudAnalysis.Provider`|Text|10|Yes|Fraud prevention provider's name: "Cybersource" |
 |`FraudAnalysis.CaptureOnLowRisk`|Boolean|---|No|When true, the capture process will occur automaticlly when the fraud risk is low (Accept). In case of hight risk or review state, the flow will be the default. To use this flow, the Sequence must be "AuthorizeFirst"|
 |`FraudAnalysis.VoidOnHighRisk`|Boolean|---|No|When true, the void process will occur automaticlly when the fraud risk is hiht (Reject). In case of low risk or review state, the flow will be the default. To use this flow, the Sequence must be "AuthorizeFirst|
+|`FraudAnalysis.TotalOrderAmount`|Number|15|Yes|Total order amount|
 |`FraudAnalysis.FingerPrintId`|Text|50|Yes|The id that indentifies the user’s browser. This ID must be used in the SESSIONID field in the script|
 |`FraudAnalysis.Browser.CookiesAccepted`|Boolean|---|Yes|Boolean to determine if the client’s browser accepts cookies|
 |`FraudAnalysis.Browser.Email`|Text|100|No|E-mail address registered in the client’s browser|
@@ -1888,6 +1894,7 @@ curl
    "FraudAnalysis": {
             "Sequence": "AnalyseFirst",
             "SequenceCriteria": "Always",
+            "Provider":"Cybersource",
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
             "MerchantDefinedFields": [
                 {
@@ -1951,6 +1958,7 @@ curl
             "Status": 1,
             "CaptureOnLowRisk": false,
             "VoidOnHighRisk": false,
+            "TotalOrderAmount": 10000,
             "FraudAnalysisReasonCode": 100,
             "ReplyData": {
                 "AddressInfoCode": "COR-BA^MM-BIN",
@@ -2037,6 +2045,7 @@ curl
    "FraudAnalysis": {
             "Sequence": "AnalyseFirst",
             "SequenceCriteria": "Always",
+            "Provider":"Cybersource"
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
             "MerchantDefinedFields": [
                 {
@@ -2100,6 +2109,7 @@ curl
             "Status": 1,
             "CaptureOnLowRisk": false,
             "VoidOnHighRisk": false,
+            "TotalOrderAmount": 10000,
             "FraudAnalysisReasonCode": 100,
             "ReplyData": {
                 "AddressInfoCode": "COR-BA^MM-BIN",
@@ -2140,7 +2150,7 @@ curl
 |`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
-|`SoftDescriptor`|Text que será impresso na fatura do portador|Text|13|Alphanumeric Text|
+|`SoftDescriptor`|The name that will be printed in the holder's bill|Text|13|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Transaction's received date|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation's Reason Code|Text|32|Alphanumeric Text|
@@ -2149,7 +2159,7 @@ curl
 |`ProviderReturnCode`|Acquirer or Bank’s return code.|Text|32|57|
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 |`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Text|300|Alphanumeric Text|
-|`FraudAnalysis.Status`|Transaction Status|Byte|3|Ex.: 500|
+|`FraudAnalysis.Status`|Transaction Status|Byte|1|Ex.: 1|
 |`FraudAnalysis.FraudAnalysisReasonCode`|Analysis Reason Code|Byte|---|<br>100 - Successful operation<br><br>101 - There are one or more missed requests fields. Possible action: See the fields that are missing in AntiFraudResponse list.MissingFieldCollection. Resend the request with complete information<br><br>102 - One or more request fields contain invalid data. Possible action: See the invalid fields in AntiFraudResponse list.InvalidFieldCollection. Resubmit the request with the correct information<br><br>150 - Failure in the general system. Possible action: wait a few minutes and try resending the request<br><br>151 - The request was received, but time-out occurred on the server.This error does not include time-out between the client and the server. Possible action: wait a few minutes and try resending the request<br><br>152 The request was received, but was time-out. Possible action: wait a few minutes and resubmit the request<br><br>202 - Fraud Prevention refused the request because the card has expired. You can also receive this code if the expiration date does not coincide with the date on issuing bank file. If payment processor allows emission credits for expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other method of payment<br><br>231 The account number is invalid. Possible action: Request a card or other method of payment<br><br>234 - There is a problem with the merchant setup. Possible action: Do not click. Please contact customer support to correct the configuration problem<br><br>400 A fraud score exceeds its limit. Possible action: Review the customer’s request<br><br>480 The request was scheduled for review by Decision Manager<br><br>481 - The request was rejected by Manager decision<br>|
 |`FraudAnalysis.ReplyData.AddressInfoCode`|Codes that identifies the error in Addresses|Text|255|Ex: COR-BA^MM-BIN<br /><br>COR-BA - The billing address can be normalized<br><br>COR-SA - The delivery address can be normalized<br><br>INTL-BA - The billing country is outside the US<br>INTL-SA - Delivery country is outside the US<br>MIL-USA - This is a military address in the US<br>MM-A - billing and shipping addresses use different street names<br><br>MM-BIN - The BIN card (the first six digits number) does not match the country<br><br>MM-C - The billing and delivery addresses use different cities<br><br>MM-CO - The billing and delivery addresses use different countries<br><br>MM-ST - The billing and delivery addresses use different states<br><br>MM-Z - The billing and delivery addresses use different zip codes<br><br>UNV-ADDR - The address is unverifiable<br>|
 |`FraudAnalysis.ReplyData.FactorCode`|Codes that identifies the score level of an order|Text|100|Ex: B^D^R^Z<br /><br>A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.<br><br>B - BIN card or risk authorization. Risk factors are related to credit card and BIN / or card authorization checks.<br><br>C - High numbers of credit cards.The customer has used more than six numbers of credit cards in the past six months.<br><br>D - Impact of the e-mail address.The customer uses a free email provider or e-mail address is risky.<br><br>E - Positive list. The customer is in its positive list.<br><br>F - Negative list. The account number, address, email address or IP address for this purpose appears in its negative list.<br><br>G - geolocation inconsistencies.The email client domain, phone number, billing address, shipping address or IP address is suspect.<br><br>H - excessive name changes.The customer changed its name twice or more in the past six months.<br><br>I - Internet inconsistencies.The IP address and e-mail domain are not consistent with the billing address.<br><br>N - Entrance meaningless.The customer name and address fields contain meaningless words or language.<br><br>The - obscenities.Customer data contains obscene words.<br><br>P - morphing identity. Various amounts of an identity element are attached to a different value of an identity element. For example, various telephone numbers are connected to a single account number.<br><br>Q - Inconsistencies phone. The customer’s phone number is suspect.<br><br>R - risky Order.The transaction, the customer and the merchant show information correlated high risk.<br><br>T - Time Coverage. The client is attempting a purchase outside the expected time.<br><br>U - unverifiable address. The billing address or delivery can not be verified.<br><br>V - Velocity.The account number was used many times in the last 15 minutes.<br><br>W - marked as suspect. The billing address and delivery is similar to an address previously marked suspect.<br><br>Y - The address, city, state or country of billing and shipping addresses do not correlate.<br><br>Z - Invalid value. As the request it contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the application carefully to detect abnormalities.<br>|
@@ -2979,7 +2989,7 @@ in risk assessment. High - High significance of the purchaser's order obscenitie
 |`AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
-|`SoftDescriptor`|Texto que será impresso na fatura do portador|Text|13|Alphanumeric Text|
+|`SoftDescriptor`|The name that will be printed in the holder's bill|Text|13|Alphanumeric Text|
 |`PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Transaction's received date|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation's Reason Code|Text|32|Alphanumeric Text|
@@ -2988,7 +2998,7 @@ in risk assessment. High - High significance of the purchaser's order obscenitie
 |`ProviderReturnCode`|Acquirer or Bank’s return code.|Text|32|57|
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 |`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Text|300|Alphanumeric Text|
-|`FraudAnalysis.Status`|Transaction Status|Byte|3|Ex.: 500|
+|`FraudAnalysis.Status`|Transaction Status|Byte|1|Ex.: 1|
 |`FraudAnalysis.ReplyData.FactorCode`|Codes that identifies the score level of an order|Text|100|Ex: B^D^R^Z<br /><UL><LI>A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.</LI>
 
 ## Saving a Credit Card
@@ -6590,14 +6600,13 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 ## Fraud Analysis' Status
 
 |Code|Description|
-|---|---|
-|500|Started|
-|501|Accept|
-|502|Review|
-|503|Reject|
-|504|Pendent|
-|505|Unfinished|
-|506|Aborted|
+|--------|------------|
+| 0      | Unknown    |
+| 1      | Accept     |
+| 2      | Reject     |
+| 3      | Review     |
+| 4      | Aborted    |
+| 5      | Unfinished |
 
 ## HTTP Status Code List
 
