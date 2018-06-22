@@ -1549,7 +1549,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 | `Schedules[].PaymentDate`         | Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)                | Data    | -       |
 | `Schedules[].ForecastedDate`      | Data de liquidação prevista.                                                                            | Data    | -       |
 | `Schedules[].Installments`        | Número de parcelas da transação.                                                                        | Inteiro | -       |
-| `Schedules[].InstallmentAmount`   | Valor da parcela a liquidar.                                                                            | Inteiro | -       |
+| `Schedules[].InstallmentAmount`   | Valor, em centavos, da parcela a liquidar.                                                              | Inteiro | -       |
 | `Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
 | `Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
 | `Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
