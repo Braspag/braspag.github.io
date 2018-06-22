@@ -3387,6 +3387,8 @@ Para que a análise de fraude via Cybersource seja efetuada em tempo de transaç
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
         "Birthdate": "1991-01-02",
+        "Mobile": "5521995760078",
+        "Phone": "552125553669",
         "Address": {
             "Street": "Alameda Xingu",
             "Number": "512",
@@ -3517,6 +3519,8 @@ curl
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
         "Birthdate": "1991-01-02",
+        "Mobile": "5521995760078",
+        "Phone": "552125553669",
         "Address": {
             "Street": "Alameda Xingu",
             "Number": "512",
@@ -3643,6 +3647,8 @@ curl
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ) |
 |`Customer.Email`|Texto|255|Não|Email do comprador|
 |`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador no formato AAAA-MM-DD|
+|`Customer.Mobile`|Número|19|Não|Número do celular do comprador|
+|`Customer.Phone`|Número|19|Não|Número do telefone do comprador|
 |`Customer.Address.Street`|Texto|54|Não|Logradouro do endereço de contato do comprador|
 |`Customer.Address.Number`|Texto|5|Não|Número endereço de contato do comprador|
 |`Customer.Address.Complement`|Texto|14|Não|Complemento do endereço de contato do Comprador|
@@ -3739,6 +3745,8 @@ curl
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
         "Birthdate": "1991-01-02",
+        "Mobile": "5521995760078",
+        "Phone": "552125553669",
         "Address": {
             "Street": "Alameda Xingu",
             "Number": "512",
@@ -3881,6 +3889,8 @@ curl
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
         "Birthdate": "1991-01-02",
+        "Mobile": "5521995760078",
+        "Phone": "552125553669",
         "Address": {
             "Street": "Alameda Xingu",
             "Number": "512",
