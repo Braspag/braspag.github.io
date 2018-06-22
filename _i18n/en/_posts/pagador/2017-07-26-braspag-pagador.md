@@ -1567,7 +1567,7 @@ The Cybersource's Fraud Prevention requires the "FraudAnalysis" node filled.
      "FraudAnalysis":{
        "Sequence":"AnalyseFirst",
        "SequenceCriteria":"Always",
-       "Provider": "Cybersource",	   
+       "Provider": "Cybersource", 
        "CaptureOnLowRisk":false,
        "VoidOnHighRisk":false,
        "TotalOrderAmount": 10000,       
@@ -1690,10 +1690,10 @@ curl
      "FraudAnalysis":{
        "Sequence":"AnalyseFirst",
        "SequenceCriteria":"Always",
-       "Provider": "Cybersource",	   
+       "Provider": "Cybersource",
        "CaptureOnLowRisk":false,
        "VoidOnHighRisk":false,
-       "TotalOrderAmount": 10000,	   
+       "TotalOrderAmount": 10000,
        "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",    
       "Browser":{
        "CookiesAccepted":false,
