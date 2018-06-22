@@ -1522,6 +1522,8 @@ The Cybersource's Fraud Prevention requires the "FraudAnalysis" node filled.
       "IdentityType":"CPF",
       "Email":"comprador@braspag.com.br",
       "Birthdate":"1991-01-02",
+      "Mobile": "5521995760078",
+      "Phone": "552125553669",
       "Address":{  
          "Street":"Alameda Xingu",
          "Number":"512",
@@ -1645,6 +1647,8 @@ curl
       "IdentityType":"CPF",
       "Email":"comprador@braspag.com.br",
       "Birthdate":"1991-01-02",
+      "Mobile": "5521995760078",
+      "Phone": "552125553669",
       "Address":{  
          "Street":"Alameda Xingu",
          "Number":"512",
@@ -1764,6 +1768,8 @@ curl
 |`Customer.IdentityType`|Text|255|No|Customer Identification Type  (CPF or CNPJ)|
 |`Customer.Email`|Text|255|No|Customer's e-mail address|
 |`Customer.Birthdate`|Date|10|No|Customer's birth date YYYY-MM-DD|
+|`Customer.Mobile`|Number|19|Não|Customer's mobile phone number|
+|`Customer.Phone`|Number|19|Não|Customer's phone number|
 |`Customer.Address.Street`|Text|54|No|Customer's main contact address|
 |`Customer.Address.Number`|Text|5|No|Customer's main contact address building number|
 |`Customer.Address.Complement`|Text|14|No|Customer's main contact address' additional data|
@@ -1833,8 +1839,8 @@ curl
 |`FraudAnalysis.Items.Passenger.Rating`|Text||No|Passenger classification<br>Adult<br>Child<br>Infant<br>Youth<br>Student)<br>SeniorCitizen<br>Military<br>|
 |`FraudAnalysis.Items.Passenger.Phone`|Text|15|No|Passenger phone number. For applications outside the US, CyberSource recommends to include the country code 552133665599 (Country Code 55, City Code 21, phone number 33665599)|
 |`FraudAnalysis.Items.Passenger.Status`|Text|32|No|CAirline ranking. One can use values such as Gold or Platinum|
-|`FraudAnalysis.MerchantDefinedFields.Id`|Text|---|Sim (se aplicável)|Id of the additional information|
-|`FraudAnalysis.MerchantDefinedFields.Value`|Text|255|Sim (se aplicável)|Value of the additional information|
+|`FraudAnalysis.MerchantDefinedFields.Id`|Text|---|Yes (if necessary)|Id of the additional information|
+|`FraudAnalysis.MerchantDefinedFields.Value`|Text|255|Yes (if necessary)|Value of the additional information|
 |`FraudAnalysis.Shipping.Addressee`|Text|255|No|Delivery recipient’s name|
 |`FraudAnalysis.Shipping.Method`|Text||No|Shippint type<br>SameDay<br>OneDay<br>TwoDay<br>ThreeDay<br>LowCost(<br>Pickup<br>Other<br>None<br>|
 |`FraudAnalysis.Shipping.Phone`|Text|15|No|Delivery recipient’s phone. Ex. 552133665599 (Country Code 55, City Code 21, phone number 33665599)|
@@ -1855,6 +1861,8 @@ curl
     "IdentityType": "CPF",
     "Email": "comprador@braspag.com.br",
     "Birthdate": "1991-01-02",
+    "Mobile": "5521995760078",
+    "Phone": "552125553669",
     "Address": {
       "Street": "Alameda Xingu",
       "Number": "512",
@@ -2006,6 +2014,8 @@ curl
     "IdentityType": "CPF",
     "Email": "comprador@braspag.com.br",
     "Birthdate": "1991-01-02",
+    "Mobile": "5521995760078",
+    "Phone": "552125553669",
     "Address": {
       "Street": "Alameda Xingu",
       "Number": "512",
