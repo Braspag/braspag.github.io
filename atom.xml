@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-22T20:39:45+00:00</updated>
+    <updated>2018-06-29T13:04:53+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -28853,7 +28853,16 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Cliente&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345678909&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GONCALO DA CUNHA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;111&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;04140040&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SAO PAULO&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CHACARA INGLESA&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ServiceTaxAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -29345,13 +29354,551 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 &lt;/aside&gt;
 
+&lt;h2 id=&quot;consultando-uma-transação-de-boleto-via-paymentid&quot;&gt;Consultando uma transação de Boleto via PaymentID&lt;/h2&gt;
+
+&lt;p&gt;Para consultar uma transação de boleto registrado, é necessário fazer um GET para o recurso Payment conforme o exemplo.&lt;/p&gt;
+
+&lt;h3 id=&quot;requisição-40&quot;&gt;Requisição&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador da loja na API&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Chave Publica para Autenticação Dupla na API&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Numero de identificação do Pagamento.&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;resposta-41&quot;&gt;Resposta&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Cliente&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345678909&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GONCALO DA CUNHA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;111&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;04140040&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SAO PAULO&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CHACARA INGLESA&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Instructions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-06-27&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Demonstrative&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BoletoNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123464&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BarCodeNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;9999990276000001234864001834099999999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DigitableLine&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;99999.39027 60000.012348 64001.834007 7 75680999999999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Assignor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RAZAO SOCIAL DA LOJA LTDA.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Identification&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;01234567000189&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-06-28&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;99992279-1c45-4271-9656-ccbde4ea9999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Boleto&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;182000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-06-26 23:33:07&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CapturedAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;182000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CapturedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-06-27 01:45:57&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bradesco2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://www.loja.com.br/notificacao&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExtraDataCollection&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReasonCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Links&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;self&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PUT&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;capture&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PUT&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;void&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;,
+  &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Nome do Cliente&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12345678909&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Address&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Street&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;GONCALO DA CUNHA&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Number&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;111&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;04140040&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SAO PAULO&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;CHACARA INGLESA&quot;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+  &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;s2&quot;&gt;&quot;Instructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-06-27&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Demonstrative&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Url&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;BoletoNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123464&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;BarCodeNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;9999990276000001234864001834099999999&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;DigitableLine&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;99999.39027 60000.012348 64001.834007 7 75680999999999&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Assignor&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;RAZAO SOCIAL DA LOJA LTDA.&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Address&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Identification&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;01234567000189&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;CreditDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-06-28&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;99992279-1c45-4271-9656-ccbde4ea9999&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Boleto&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 182000,
+     &lt;span class=&quot;s2&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-06-26 23:33:07&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;CapturedAmount&quot;&lt;/span&gt;: 182000,
+     &lt;span class=&quot;s2&quot;&gt;&quot;CapturedDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-06-27 01:45:57&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Bradesco2&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;https://www.loja.com.br/notificacao&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;ExtraDataCollection&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;ReasonCode&quot;&lt;/span&gt;: 0,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;: 2,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Links&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;self&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;PUT&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;capture&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;PUT&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;void&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Formato&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Numero de identificação do Pedido&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Nome do comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número do RG, CPF ou CNPJ do Cliente&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.IdentityType&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Tipo de documento de identificação do comprador (CPF ou CNPJ)&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;CPF ou CNPJ&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Email&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Email do comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Birthdate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data de nascimento do Comprador&lt;/td&gt;
+      &lt;td&gt;Date&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;formato AAAA-MM-DD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Street&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Endereço de contato do comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Number&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número endereço de contato do comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Complement&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Complemento do endereço de contato do Comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.ZipCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CEP do endereço de contato do comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Cidade do endereço de contato do comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.State&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Estado do endereço de contato do comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Country&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Pais do endereço de contato do comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;35&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.District&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Bairro do Comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Street&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Endereço do comprador&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Number&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número do endereço de entrega do pedido&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Complement&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Complemento do endereço de entrega do pedido&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.ZipCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CEP do endereço de entrega do pedido&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.City&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Cidade do endereço de entrega do pedido&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.State&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Estado do endereço de entrega do pedido&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Country&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Pais do endereço de entrega do pedido&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;35&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.District&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Bairro do Comprador.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Nome da provedora de Meio de Pagamento&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Consulta os provedores disponíveis nos anexos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Tipo do Meio de Pagamento&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;Ex. Boleto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Valor do Pedido (em centavos)&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;10000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CapturedAmount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Valor pago do boleto (em centavos)&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;10000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Instructions&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto sobre alguma instrução específica para o boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Vide Tabela dos bancos&lt;/td&gt;
+      &lt;td&gt;Ex. “Não pagar após o vencimento”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Demonstrative&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto sobre alguma informação específica para o boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Vide Tabela dos bancos&lt;/td&gt;
+      &lt;td&gt;Ex. “Boleto referente ao pedido número 99999”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Url&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;URL para apresentação do boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Ex. “https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.BoletoNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Nosso Número&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Vide Tabela dos bancos&lt;/td&gt;
+      &lt;td&gt;Ex. “12345678”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.BarCodeNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Código de Barras do boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;44&lt;/td&gt;
+      &lt;td&gt;Ex. “99999390276000001234864001834007775680099999”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.DigitableLine&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Linha digitável do boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;54&lt;/td&gt;
+      &lt;td&gt;Ex. “99999.39027 60000.012348 64001.834007 7 75680000199999”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Assignor&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Nome do cedente do boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;200&lt;/td&gt;
+      &lt;td&gt;Ex. “RAZAO SOCIAL DA LOJA LTDA”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Address&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Endereço do cedente do boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;160&lt;/td&gt;
+      &lt;td&gt;Ex. “Alameda Xingu 512”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Identification&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CNPJ do cedente&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt;
+      &lt;td&gt;Ex. “11.355.111/0001-11”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExpirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data de vencimento do boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DD&lt;/td&gt;
+      &lt;td&gt;Ex. “2018-06-21”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data de crédito do valor pago do boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DD&lt;/td&gt;
+      &lt;td&gt;Ex. “2018-06-19”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CapturedDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data de pagamento do boleto&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DD HH:mm:SS&lt;/td&gt;
+      &lt;td&gt;Ex. “2018-06-19 01:45:57”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReceivedDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data em que a transação foi recebida pela Brapag&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DD HH:mm:SS&lt;/td&gt;
+      &lt;td&gt;Ex. “2018-06-19 01:45:57”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReturnUrl&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;URL da loja para onde redireciona o cliente&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Ex. “https://www.loja.com.br”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Currency&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Moeda na qual o pagamento será feito&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Country&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;País na qual o pagamento será feito&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;BRA&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExtraDataCollection.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Nome do campo que será gravado o Dado Extra&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExtraDataCollection.Value&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Valor do campo que será gravado o Dado Extra&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;1024&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.PaymentId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Campo Identificador do Pedido&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReasonCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Código de retorno da Adquirência&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Status da Transação&lt;/td&gt;
+      &lt;td&gt;Byte&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Ex. 1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Regra:
+
+Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag
+Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag com a opção “Histórico” selecionada
+Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag
+
+&lt;/aside&gt;
+
 &lt;h2 id=&quot;consultando-uma-venda-pelo-identificador-da-loja&quot;&gt;Consultando uma venda pelo identificador da loja&lt;/h2&gt;
 
 &lt;p&gt;Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.&lt;/p&gt;
 
 &lt;p&gt;Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-40&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-41&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales?merchantOrderId={merchantOrderId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -29407,7 +29954,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-41&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-42&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -29475,7 +30022,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 &lt;p&gt;Para consultar um pedido de Recorrência, é necessário fazer um GET conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-41&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-42&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -29531,7 +30078,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-42&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h3 id=&quot;resposta-43&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
