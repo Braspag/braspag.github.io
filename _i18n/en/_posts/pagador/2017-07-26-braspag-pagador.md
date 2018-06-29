@@ -6297,6 +6297,211 @@ curl
 |`CreditCard.Brand`|Card's Brand|Text|10|
 |`CreditCard.SaveCard`|If the card must be saved, then true. Else false.|Boolean|--- (Default false)|
 
+## Query a boleto transaction using PaymentID
+
+To query a boleto transaction, follow the example bellow
+
+### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
+
+```shell
+curl
+--request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Property|Description|Type|Size|Mandatory|
+|---|---|---|---|---|
+|`MerchantId`|Merchant Identifier|Guid|3|Yes|
+|`MerchantKey`|Merchant Key need to access the API|Text|40|Yes|
+|`RequestId`|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Transaction's Payment ID|Text|50 |Yes|
+
+### Response
+
+```json
+{
+  "MerchantOrderId": "2017051001",
+  "Customer": {
+    "Name": "Nome do Cliente",
+    "Identity": "12345678909",
+    "Address": {
+        "Street": "GONCALO DA CUNHA",
+        "Number": "111",
+        "ZipCode": "04140040",
+        "City": "SAO PAULO",
+        "State": "SP",
+        "Country": "BRA",
+        "District": "CHACARA INGLESA"
+     }
+  },
+  "Payment": {
+     "Instructions": "",
+     "ExpirationDate": "2018-06-27",
+     "Demonstrative": "",
+     "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX",
+     "BoletoNumber": "123464",
+     "BarCodeNumber": "9999990276000001234864001834099999999",
+     "DigitableLine": "99999.39027 60000.012348 64001.834007 7 75680999999999",
+     "Assignor": "RAZAO SOCIAL DA LOJA LTDA.",
+     "Address": "",
+     "Identification": "01234567000189",
+     "CreditDate": "2018-06-28",
+     "PaymentId": "99992279-1c45-4271-9656-ccbde4ea9999",
+     "Type": "Boleto",
+     "Amount": 182000,
+     "ReceivedDate": "2018-06-26 23:33:07",
+     "CapturedAmount": 182000,
+     "CapturedDate": "2018-06-27 01:45:57",
+     "Currency": "BRL",
+     "Country": "BRA",
+     "Provider": "Bradesco2",
+     "ReturnUrl": "https://www.loja.com.br/notificacao",
+     "ExtraDataCollection": [],
+     "ReasonCode": 0,
+     "Status": 2,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "capture",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"
+      }
+    ]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "MerchantOrderId": "2017051001",
+  "Customer": {
+    "Name": "Nome do Cliente",
+    "Identity": "12345678909",
+    "Address": {
+        "Street": "GONCALO DA CUNHA",
+        "Number": "111",
+        "ZipCode": "04140040",
+        "City": "SAO PAULO",
+        "State": "SP",
+        "Country": "BRA",
+        "District": "CHACARA INGLESA"
+     }
+  },
+  "Payment": {
+     "Instructions": "",
+     "ExpirationDate": "2018-06-27",
+     "Demonstrative": "",
+     "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX",
+     "BoletoNumber": "123464",
+     "BarCodeNumber": "9999990276000001234864001834099999999",
+     "DigitableLine": "99999.39027 60000.012348 64001.834007 7 75680999999999",
+     "Assignor": "RAZAO SOCIAL DA LOJA LTDA.",
+     "Address": "",
+     "Identification": "01234567000189",
+     "CreditDate": "2018-06-28",
+     "PaymentId": "99992279-1c45-4271-9656-ccbde4ea9999",
+     "Type": "Boleto",
+     "Amount": 182000,
+     "ReceivedDate": "2018-06-26 23:33:07",
+     "CapturedAmount": 182000,
+     "CapturedDate": "2018-06-27 01:45:57",
+     "Currency": "BRL",
+     "Country": "BRA",
+     "Provider": "Bradesco2",
+     "ReturnUrl": "https://www.loja.com.br/notificacao",
+     "ExtraDataCollection": [],
+     "ReasonCode": 0,
+     "Status": 2,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "capture",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"
+      }
+    ]
+  }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`MerchantOrderId`|Merchant Order ID|Text|50|Alphanumeric Text|
+|`Customer.Name`|Customer's Name|Text|255|Alphanumeric Text|
+|`Customer.Identity`|Customer's RG, CPF or CNPJ|Text|14 |Alphanumeric Text|
+|`Customer.IdentityType`|Customer Identification Type  (CPF or CNPJ)|Text|255|CPF ou CNPJ|
+|`Customer.Email`|Customer's e-mail address|Text|255|Alphanumeric Text|
+|`Customer.Birthdate`|Customer's birth date YYYY-MM-DD|Date|10|formato AAAA-MM-DD|
+|`Customer.Address.Street`|Customer's main contact address|Text|255|Alphanumeric Text|
+|`Customer.Address.Number`|Customer's main contact address building number|Text|15|Alphanumeric Text|
+|`Customer.Address.Complement`|Customer's main contact address additional data|Text|50|Alphanumeric Text|
+|`Customer.Address.ZipCode`|Customer's main contact address ZIP code|Text|9|Alphanumeric Text|
+|`Customer.Address.City`|Customer's main contact address' City|Text|50|Alphanumeric Text|
+|`Customer.Address.State`|Customer's main contact address' State|Text|2|Alphanumeric Text|
+|`Customer.Address.Country`|Customer's main contact address' Country|Text|35|Alphanumeric Text|
+|`Customer.Address.District`|Customer's main contact address' district name |Text|50 |Alphanumeric Text|
+|`Customer.DeliveryAddress.Street`|Customer's delivery address|Text|255|Alphanumeric Text|
+|`Customer.DeliveryAddress.Number`|Customer's delivery address building number|Text|15|Alphanumeric Text|
+|`Customer.DeliveryAddress.Complement`|Customer's delivery address additional data|Text|50|Alphanumeric Text|
+|`Customer.DeliveryAddress.ZipCode`|Customer's delivery address ZIP code|Text|9|Alphanumeric Text|
+|`Customer.DeliveryAddress.City`|Customer's delivery address' City|Text|50|Alphanumeric Text|
+|`Customer.DeliveryAddress.State`|Customer's delivery address' State|Text|2|Alphanumeric Text|
+|`Customer.DeliveryAddress.Country`|Customer's delivery address' Country|Text|35|Alphanumeric Text|
+|`Customer.DeliveryAddress.District`|Customer's delivery address' district name |Text|50 |Alphanumeric Text|
+|`Payment.Provider`|Payment Method Provider's name|Text|15|Payment Method Provider's name|
+|`Payment.Type`|Payment Method's Type|Text|100|Ex. CreditCard|
+|`Payment.Amount`|Transaction Amount (in cents)|Number|15|10000|
+|`Payment.CapturedAmount`|Paid Amount (in cents)|Number|15|10000|
+|`Payment.Instructions`|Specific instruction for boleto|Text|See more datails in the specification for each bank|Ex. "Não pagar após o vencimento"|
+|`Payment.Demonstrative`|Specific information for boleto|Text|See more datails in the specification for each bank|Ex. "Boleto referente ao pedido número 99999"|
+|`Payment.Url`|Boleto's URL|Text|-|Ex. "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"|
+|`Payment.BoletoNumber`|"Nosso Número"|Text|See more datails in the specification for each bank|Ex. "12345678"|
+|`Payment.BarCodeNumber`|Boleto's barcode number|Text|44|Ex. "99999390276000001234864001834007775680099999"|
+|`Payment.DigitableLine`|Boleto's digitable line|Text|54|Ex. "99999.39027 60000.012348 64001.834007 7 75680000199999"|
+|`Payment.Assignor`|Boleto's Assignor|Text|200|Ex. "RAZAO SOCIAL DA LOJA LTDA"|
+|`Payment.Address`|Assignor's address|Text|160|Ex. "Alameda Xingu 512"|
+|`Payment.Identification`|Assignor's identification number (CNPJ)|Text|18|Ex. "11.355.111/0001-11"|
+|`Payment.ExpirationDate`|Boleto's expiration date|Text|YYYY-MM-DD|Ex. "2018-06-21"|
+|`Payment.CreditDate`|Boleto's credit date|Text|YYYY-MM-DD|Ex. "2018-06-19"|
+|`Payment.CapturedDate`|Boleto's paid date|Text|YYYY-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
+|`Payment.ReceivedDate`|Boleto's creation date|Text|YYYY-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
+|`Payment.ReturnUrl`|Return URL for buyer|Text|-|Ex. "https://www.loja.com.br"|
+|`Payment.Currency`|Currency Code|Text|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Country`|Country Code|Text|3|BRA|
+|`Payment.ExtraDataCollection.Name`|Extra Data field's name|Text|50|Alphanumeric Text|
+|`Payment.ExtraDataCollection.Value`|Extra Data field's value|Text|1024|Alphanumeric Text|
+|`Payment.PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.ReasonCode`|Operation's Reason Code|Text|32|Alphanumeric Text|
+|`Payment.Status`|Transaction's Status|Byte|2|1|
+
 ## Query by Merchant's order ID
 
 This query returns a list of Braspag's Transaction ID corresponding to merchant's order ID.
