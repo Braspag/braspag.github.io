@@ -13465,11 +13465,541 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
+<h2 id="query-a-boleto-transaction-using-paymentid">Query a boleto transaction using PaymentID</h2>
+
+<p>To query a boleto transaction, follow the example bellow</p>
+
+<h3 id="request-31">Request</h3>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Merchant Identifier</td>
+      <td>Guid</td>
+      <td>3</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Merchant Key need to access the API</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Request Identifier defined by merchant, applicable to any operation GET/POST/PUT</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Transaction’s Payment ID</td>
+      <td>Text</td>
+      <td>50 </td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-31">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Cliente"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GONCALO DA CUNHA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04140040"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAO PAULO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHACARA INGLESA"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123464"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"BarCodeNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999990276000001234864001834099999999"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"DigitableLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99999.39027 60000.012348 64001.834007 7 75680999999999"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RAZAO SOCIAL DA LOJA LTDA."</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234567000189"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"CreditDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99992279-1c45-4271-9656-ccbde4ea9999"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">182000</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-26 23:33:07"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">182000</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 01:45:57"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco2"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.loja.com.br/notificacao"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+     </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+  <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2017051001"</span>,
+  <span class="s2">"Customer"</span>: <span class="o">{</span>
+    <span class="s2">"Name"</span>: <span class="s2">"Nome do Cliente"</span>,
+    <span class="s2">"Identity"</span>: <span class="s2">"12345678909"</span>,
+    <span class="s2">"Address"</span>: <span class="o">{</span>
+        <span class="s2">"Street"</span>: <span class="s2">"GONCALO DA CUNHA"</span>,
+        <span class="s2">"Number"</span>: <span class="s2">"111"</span>,
+        <span class="s2">"ZipCode"</span>: <span class="s2">"04140040"</span>,
+        <span class="s2">"City"</span>: <span class="s2">"SAO PAULO"</span>,
+        <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"District"</span>: <span class="s2">"CHACARA INGLESA"</span>
+     <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">"Payment"</span>: <span class="o">{</span>
+     <span class="s2">"Instructions"</span>: <span class="s2">""</span>,
+     <span class="s2">"ExpirationDate"</span>: <span class="s2">"2018-06-27"</span>,
+     <span class="s2">"Demonstrative"</span>: <span class="s2">""</span>,
+     <span class="s2">"Url"</span>: <span class="s2">"https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"</span>,
+     <span class="s2">"BoletoNumber"</span>: <span class="s2">"123464"</span>,
+     <span class="s2">"BarCodeNumber"</span>: <span class="s2">"9999990276000001234864001834099999999"</span>,
+     <span class="s2">"DigitableLine"</span>: <span class="s2">"99999.39027 60000.012348 64001.834007 7 75680999999999"</span>,
+     <span class="s2">"Assignor"</span>: <span class="s2">"RAZAO SOCIAL DA LOJA LTDA."</span>,
+     <span class="s2">"Address"</span>: <span class="s2">""</span>,
+     <span class="s2">"Identification"</span>: <span class="s2">"01234567000189"</span>,
+     <span class="s2">"CreditDate"</span>: <span class="s2">"2018-06-28"</span>,
+     <span class="s2">"PaymentId"</span>: <span class="s2">"99992279-1c45-4271-9656-ccbde4ea9999"</span>,
+     <span class="s2">"Type"</span>: <span class="s2">"Boleto"</span>,
+     <span class="s2">"Amount"</span>: 182000,
+     <span class="s2">"ReceivedDate"</span>: <span class="s2">"2018-06-26 23:33:07"</span>,
+     <span class="s2">"CapturedAmount"</span>: 182000,
+     <span class="s2">"CapturedDate"</span>: <span class="s2">"2018-06-27 01:45:57"</span>,
+     <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+     <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+     <span class="s2">"Provider"</span>: <span class="s2">"Bradesco2"</span>,
+     <span class="s2">"ReturnUrl"</span>: <span class="s2">"https://www.loja.com.br/notificacao"</span>,
+     <span class="s2">"ExtraDataCollection"</span>: <span class="o">[]</span>,
+     <span class="s2">"ReasonCode"</span>: 0,
+     <span class="s2">"Status"</span>: 2,
+    <span class="s2">"Links"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+        <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+        <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"</span>
+      <span class="o">}</span>,
+      <span class="o">{</span>
+        <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+        <span class="s2">"Rel"</span>: <span class="s2">"capture"</span>,
+        <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"</span>
+      <span class="o">}</span>,
+      <span class="o">{</span>
+        <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+        <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
+        <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"</span>
+      <span class="o">}</span>
+    <span class="o">]</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Merchant Order ID</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Customer’s Name</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Customer’s RG, CPF or CNPJ</td>
+      <td>Text</td>
+      <td>14 </td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Customer Identification Type  (CPF or CNPJ)</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>CPF ou CNPJ</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Customer’s e-mail address</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Birthdate</code></td>
+      <td>Customer’s birth date YYYY-MM-DD</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>formato AAAA-MM-DD</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Customer’s main contact address</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Customer’s main contact address building number</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Customer’s main contact address additional data</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Customer’s main contact address ZIP code</td>
+      <td>Text</td>
+      <td>9</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td>Customer’s main contact address’ City</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td>Customer’s main contact address’ State</td>
+      <td>Text</td>
+      <td>2</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Customer’s main contact address’ Country</td>
+      <td>Text</td>
+      <td>35</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td>Customer’s main contact address’ district name </td>
+      <td>Text</td>
+      <td>50 </td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Customer’s delivery address</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Customer’s delivery address building number</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Customer’s delivery address additional data</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Customer’s delivery address ZIP code</td>
+      <td>Text</td>
+      <td>9</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Customer’s delivery address’ City</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Customer’s delivery address’ State</td>
+      <td>Text</td>
+      <td>2</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Customer’s delivery address’ Country</td>
+      <td>Text</td>
+      <td>35</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td>Customer’s delivery address’ district name </td>
+      <td>Text</td>
+      <td>50 </td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Payment Method Provider’s name</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Payment Method Provider’s name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Payment Method’s Type</td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Ex. CreditCard</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Transaction Amount (in cents)</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CapturedAmount</code></td>
+      <td>Paid Amount (in cents)</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Instructions</code></td>
+      <td>Specific instruction for boleto</td>
+      <td>Text</td>
+      <td>See more datails in the specification for each bank</td>
+      <td>Ex. “Não pagar após o vencimento”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Demonstrative</code></td>
+      <td>Specific information for boleto</td>
+      <td>Text</td>
+      <td>See more datails in the specification for each bank</td>
+      <td>Ex. “Boleto referente ao pedido número 99999”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Url</code></td>
+      <td>Boleto’s URL</td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Ex. “https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.BoletoNumber</code></td>
+      <td>“Nosso Número”</td>
+      <td>Text</td>
+      <td>See more datails in the specification for each bank</td>
+      <td>Ex. “12345678”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.BarCodeNumber</code></td>
+      <td>Boleto’s barcode number</td>
+      <td>Text</td>
+      <td>44</td>
+      <td>Ex. “99999390276000001234864001834007775680099999”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.DigitableLine</code></td>
+      <td>Boleto’s digitable line</td>
+      <td>Text</td>
+      <td>54</td>
+      <td>Ex. “99999.39027 60000.012348 64001.834007 7 75680000199999”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Assignor</code></td>
+      <td>Boleto’s Assignor</td>
+      <td>Text</td>
+      <td>200</td>
+      <td>Ex. “RAZAO SOCIAL DA LOJA LTDA”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Address</code></td>
+      <td>Assignor’s address</td>
+      <td>Text</td>
+      <td>160</td>
+      <td>Ex. “Alameda Xingu 512”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Identification</code></td>
+      <td>Assignor’s identification number (CNPJ)</td>
+      <td>Text</td>
+      <td>18</td>
+      <td>Ex. “11.355.111/0001-11”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExpirationDate</code></td>
+      <td>Boleto’s expiration date</td>
+      <td>Text</td>
+      <td>YYYY-MM-DD</td>
+      <td>Ex. “2018-06-21”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CreditDate</code></td>
+      <td>Boleto’s credit date</td>
+      <td>Text</td>
+      <td>YYYY-MM-DD</td>
+      <td>Ex. “2018-06-19”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CapturedDate</code></td>
+      <td>Boleto’s paid date</td>
+      <td>Text</td>
+      <td>YYYY-MM-DD HH:mm:SS</td>
+      <td>Ex. “2018-06-19 01:45:57”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
+      <td>Boleto’s creation date</td>
+      <td>Text</td>
+      <td>YYYY-MM-DD HH:mm:SS</td>
+      <td>Ex. “2018-06-19 01:45:57”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>Return URL for buyer</td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Ex. “https://www.loja.com.br”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Currency</code></td>
+      <td>Currency Code</td>
+      <td>Text</td>
+      <td>3</td>
+      <td>BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Country</code></td>
+      <td>Country Code</td>
+      <td>Text</td>
+      <td>3</td>
+      <td>BRA</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Extra Data field’s name</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Extra Data field’s value</td>
+      <td>Text</td>
+      <td>1024</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.PaymentId</code></td>
+      <td>Braspag’s Transaction ID</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReasonCode</code></td>
+      <td>Operation’s Reason Code</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Status</code></td>
+      <td>Transaction’s Status</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="query-by-merchants-order-id">Query by Merchant’s order ID</h2>
 
 <p>This query returns a list of Braspag’s Transaction ID corresponding to merchant’s order ID.</p>
 
-<h3 id="request-31">Request</h3>
+<h3 id="request-32">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -13525,7 +14055,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-31">Response</h3>
+<h3 id="response-32">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -13585,7 +14115,7 @@ New Next scheduled recurrence date: Oct 2th <br />
 
 <p>To Query a Recurring Transaction, follow the example bellow</p>
 
-<h3 id="request-32">Request</h3>
+<h3 id="request-33">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -13641,7 +14171,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-32">Response</h3>
+<h3 id="response-33">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
