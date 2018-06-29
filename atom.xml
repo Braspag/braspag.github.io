@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-06-29T15:10:01+00:00</updated>
+    <updated>2018-06-29T16:52:53+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -25342,7 +25342,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExpirationDate&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Date&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DD&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.&lt;/td&gt;
     &lt;/tr&gt;
@@ -25943,7 +25943,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExpirationDate&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Date&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DD&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.&lt;/td&gt;
     &lt;/tr&gt;
@@ -26465,7 +26465,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExpirationDate&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Date&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DD&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.&lt;/td&gt;
     &lt;/tr&gt;
