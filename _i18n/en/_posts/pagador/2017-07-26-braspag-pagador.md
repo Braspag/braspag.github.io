@@ -5033,7 +5033,7 @@ curl
 |`Payment.BoletoNumber`|Text|See the table below|No|Boleto Identification Number ("Nosso Número"). If this fiel is filled, it overrides the configured value.|
 |`Payment.Assignor`|Text|200|No|Assignor's name. If this fiel is filled, it will override the configured value|
 |`Payment.Demonstrative`|Text|See the table below|No|Demonstrative message. If this fiel is filled, it will override the configured value.|
-|`Payment.ExpirationDate`|Date |10 |No|Days to expiration. If this fiel is filled, it will override the configured value.|
+|`Payment.ExpirationDate`|Date |YYYY-MM-DD|No|Days to expiration. If this fiel is filled, it will override the configured value.|
 |`Payment.Identification`|Text|14 |No|Merchant's CNPJ. If this fiel is filled, it will override the configured value.|
 |`Payment.Instructions`|Text|See the table below|No|Instruction Message. If this fiel is filled, it will override the configured value.|
 
