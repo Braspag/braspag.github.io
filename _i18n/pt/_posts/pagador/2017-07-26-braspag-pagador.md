@@ -8732,7 +8732,16 @@ curl
   "MerchantOrderId": "2017051001",
   "Customer": {
     "Name": "Nome do Cliente",
-    "Address": {}
+    "Identity": "12345678909",
+    "Address": {
+        "Street": "GONCALO DA CUNHA",
+        "Number": "111",
+        "ZipCode": "04140040",
+        "City": "SAO PAULO",
+        "State": "SP",
+        "Country": "BRA",
+        "District": "CHACARA INGLESA"
+     }
   },
   "Payment": {
     "ServiceTaxAmount": 0,
@@ -8893,6 +8902,219 @@ curl
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão|Texto|4|
 |`CreditCard.Brand`|Bandeira do cartão|Texto|10 |
 |`CreditCard.SaveCard`|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|Booleano|--- (Default false)|
+
+<aside class="notice"><strong>Regra:</strong>
+<ul>
+<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
+<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
+<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
+</ul>
+</aside>
+
+## Consultando uma transação de Boleto via PaymentID
+
+Para consultar uma transação de boleto registrado, é necessário fazer um GET para o recurso Payment conforme o exemplo.
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
+
+```shell
+curl
+--request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`PaymentId`|Numero de identificação do Pagamento. |Guid |36 |Sim|
+
+### Resposta
+
+```json
+{
+  "MerchantOrderId": "2017051001",
+  "Customer": {
+    "Name": "Nome do Cliente",
+    "Identity": "12345678909",
+    "Address": {
+        "Street": "GONCALO DA CUNHA",
+        "Number": "111",
+        "ZipCode": "04140040",
+        "City": "SAO PAULO",
+        "State": "SP",
+        "Country": "BRA",
+        "District": "CHACARA INGLESA"
+     }
+  },
+  "Payment": {
+     "Instructions": "",
+     "ExpirationDate": "2018-06-27",
+     "Demonstrative": "",
+     "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX",
+     "BoletoNumber": "123464",
+     "BarCodeNumber": "9999990276000001234864001834099999999",
+     "DigitableLine": "99999.39027 60000.012348 64001.834007 7 75680999999999",
+     "Assignor": "RAZAO SOCIAL DA LOJA LTDA.",
+     "Address": "",
+     "Identification": "01234567000189",
+     "CreditDate": "2018-06-28",
+     "PaymentId": "99992279-1c45-4271-9656-ccbde4ea9999",
+     "Type": "Boleto",
+     "Amount": 182000,
+     "ReceivedDate": "2018-06-26 23:33:07",
+     "CapturedAmount": 182000,
+     "CapturedDate": "2018-06-27 01:45:57",
+     "Currency": "BRL",
+     "Country": "BRA",
+     "Provider": "Bradesco2",
+     "ReturnUrl": "https://www.loja.com.br/notificacao",
+     "ExtraDataCollection": [],
+     "ReasonCode": 0,
+     "Status": 2,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "capture",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"
+      }
+    ]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "MerchantOrderId": "2017051001",
+  "Customer": {
+    "Name": "Nome do Cliente",
+    "Identity": "12345678909",
+    "Address": {
+        "Street": "GONCALO DA CUNHA",
+        "Number": "111",
+        "ZipCode": "04140040",
+        "City": "SAO PAULO",
+        "State": "SP",
+        "Country": "BRA",
+        "District": "CHACARA INGLESA"
+     }
+  },
+  "Payment": {
+     "Instructions": "",
+     "ExpirationDate": "2018-06-27",
+     "Demonstrative": "",
+     "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX",
+     "BoletoNumber": "123464",
+     "BarCodeNumber": "9999990276000001234864001834099999999",
+     "DigitableLine": "99999.39027 60000.012348 64001.834007 7 75680999999999",
+     "Assignor": "RAZAO SOCIAL DA LOJA LTDA.",
+     "Address": "",
+     "Identification": "01234567000189",
+     "CreditDate": "2018-06-28",
+     "PaymentId": "99992279-1c45-4271-9656-ccbde4ea9999",
+     "Type": "Boleto",
+     "Amount": 182000,
+     "ReceivedDate": "2018-06-26 23:33:07",
+     "CapturedAmount": 182000,
+     "CapturedDate": "2018-06-27 01:45:57",
+     "Currency": "BRL",
+     "Country": "BRA",
+     "Provider": "Bradesco2",
+     "ReturnUrl": "https://www.loja.com.br/notificacao",
+     "ExtraDataCollection": [],
+     "ReasonCode": 0,
+     "Status": 2,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "capture",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"
+      }
+    ]
+  }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`MerchantOrderId`|Numero de identificação do Pedido|Texto|50|Texto alfanumérico|
+|`Customer.Name`|Nome do comprador|Texto|255|Texto alfanumérico|
+|`Customer.Identity`|Número do RG, CPF ou CNPJ do Cliente|Texto |14 |Texto alfanumérico|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ)|Texto|255|CPF ou CNPJ|
+|`Customer.Email`|Email do comprador|Texto|255|Texto alfanumérico|
+|`Customer.Birthdate`|Data de nascimento do Comprador|Date|10|formato AAAA-MM-DD|
+|`Customer.Address.Street`|Endereço de contato do comprador|Texto|255|Texto alfanumérico|
+|`Customer.Address.Number`|Número endereço de contato do comprador|Texto|15|Texto alfanumérico|
+|`Customer.Address.Complement`|Complemento do endereço de contato do Comprador|Texto|50|Texto alfanumérico|
+|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador|Texto|9|Texto alfanumérico|
+|`Customer.Address.City`|Cidade do endereço de contato do comprador|Texto|50|Texto alfanumérico|
+|`Customer.Address.State`|Estado do endereço de contato do comprador|Texto|2|Texto alfanumérico|
+|`Customer.Address.Country`|Pais do endereço de contato do comprador|Texto|35|Texto alfanumérico|
+|`Customer.Address.District`|Bairro do Comprador|Texto |50 |Texto alfanumérico|
+|`Customer.DeliveryAddress.Street`|Endereço do comprador|Texto|255|Texto alfanumérico|
+|`Customer.DeliveryAddress.Number`|Número do endereço de entrega do pedido|Texto|15|Texto alfanumérico|
+|`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega do pedido|Texto|50|Texto alfanumérico|
+|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega do pedido|Texto|9|Texto alfanumérico|
+|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega do pedido|Texto|50|Texto alfanumérico|
+|`Customer.DeliveryAddress.State`|Estado do endereço de entrega do pedido|Texto|2|Texto alfanumérico|
+|`Customer.DeliveryAddress.Country`|Pais do endereço de entrega do pedido|Texto|35|Texto alfanumérico|
+|`Customer.DeliveryAddress.District`|Bairro do Comprador. |Texto |50 |Texto alfanumérico|
+|`Payment.Provider`|Nome da provedora de Meio de Pagamento|Texto|15| Consulta os provedores disponíveis nos anexos|
+|`Payment.Type`|Tipo do Meio de Pagamento|Texto|100|Ex. Boleto|
+|`Payment.Amount`|Valor do Pedido (em centavos)|Número|15|10000|
+|`Payment.CapturedAmount`|Valor pago do boleto (em centavos)|Número|15|10000|
+|`Payment.Instructions`|Texto sobre alguma instrução específica para o boleto|Texto|Vide Tabela dos bancos|Ex. "Não pagar após o vencimento"|
+|`Payment.Demonstrative`|Texto sobre alguma informação específica para o boleto|Texto|Vide Tabela dos bancos|Ex. "Boleto referente ao pedido número 99999"|
+|`Payment.Url`|URL para apresentação do boleto|Texto|-|Ex. "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"|
+|`Payment.BoletoNumber`|Nosso Número|Texto|Vide Tabela dos bancos|Ex. "12345678"|
+|`Payment.BarCodeNumber`|Código de Barras do boleto|Texto|44|Ex. "99999390276000001234864001834007775680099999"|
+|`Payment.DigitableLine`|Linha digitável do boleto|Texto|54|Ex. "99999.39027 60000.012348 64001.834007 7 75680000199999"|
+|`Payment.Assignor`|Nome do cedente do boleto|Texto|200|Ex. "RAZAO SOCIAL DA LOJA LTDA"|
+|`Payment.Address`|Endereço do cedente do boleto|Texto|160|Ex. "Alameda Xingu 512"|
+|`Payment.Identification`|CNPJ do cedente|Texto|18|Ex. "11.355.111/0001-11"|
+|`Payment.ExpirationDate`|Data de vencimento do boleto|Texto|AAAA-MM-DD|Ex. "2018-06-21"|
+|`Payment.CreditDate`|Data de crédito do valor pago do boleto|Texto|AAAA-MM-DD|Ex. "2018-06-19"|
+|`Payment.CapturedDate`|Data de pagamento do boleto|Texto|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
+|`Payment.ReturnUrl`|URL da loja para onde redireciona o cliente|Texto|-|Ex. "https://www.loja.com.br"|
+|`Payment.Currency`|Moeda na qual o pagamento será feito|Texto|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Country`|País na qual o pagamento será feito|Texto|3|BRA|
+|`Payment.ExtraDataCollection.Name`|Nome do campo que será gravado o Dado Extra|Texto|50|Texto alfanumérico|
+|`Payment.ExtraDataCollection.Value`|Valor do campo que será gravado o Dado Extra|Texto|1024|Texto alfanumérico|
+|`Payment.PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
+|`Payment.Status`|Status da Transação|Byte|2| Ex. 1|
 
 <aside class="notice"><strong>Regra:</strong>
 <ul>
