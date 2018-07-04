@@ -6898,7 +6898,7 @@ curl
      "FineAmount": 10.00,
      "DaysToInterest":1,
      "InterestRate": 5.00000,
-     "InterestAmount": 5.00		
+     "InterestAmount": 5.00
     }
 }
 --verbose
@@ -7057,7 +7057,7 @@ curl
     "InterestAmount": 1,
     "FineAmount": 5,
     "DaysToFine": 1,
-    "DaysToInterest": 1,	
+    "DaysToInterest": 1,
     "Links": [
       {
         "Method": "GET",
