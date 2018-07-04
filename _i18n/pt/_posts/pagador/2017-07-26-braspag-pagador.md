@@ -6837,15 +6837,21 @@ Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do 
     },
     "Payment":
     {  
-        "Provider":"Simulado",
-    "Type":"Boleto",
-    "Amount":10000,
-    "BoletoNumber":"2017091101",
-    "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "2017-12-31",
-        "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento."     
+     "Provider":"Simulado",
+     "Type":"Boleto",
+     "Amount":10000,
+     "BoletoNumber":"2017091101",
+     "Assignor": "Empresa Teste",
+     "Demonstrative": "Desmonstrative Teste",
+     "ExpirationDate": "2017-12-31",
+     "Identification": "12346578909",
+     "Instructions": "Aceitar somente até a data de vencimento.",
+     "DaysToFine": 1,
+     "FineRate": 10.00000,
+     "FineAmount": 10.00,
+     "DaysToInterest":1,
+     "InterestRate": 5.00000,
+     "InterestAmount": 5.00
     }
 }
 ```
@@ -6878,15 +6884,21 @@ curl
     },
     "Payment":
     {  
-        "Provider":"Simulado",
-    "Type":"Boleto",
-    "Amount":10000,
-    "BoletoNumber":"2017091101",
-    "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "2017-12-31",
-        "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento."      
+     "Provider":"Simulado",
+     "Type":"Boleto",
+     "Amount":10000,
+     "BoletoNumber":"2017091101",
+     "Assignor": "Empresa Teste",
+     "Demonstrative": "Desmonstrative Teste",
+     "ExpirationDate": "2017-12-31",
+     "Identification": "12346578909",
+     "Instructions": "Aceitar somente até a data de vencimento.",
+     "DaysToFine": 1,
+     "FineRate": 10.00000,
+     "FineAmount": 10.00,
+     "DaysToInterest":1,
+     "InterestRate": 5.00000,
+     "InterestAmount": 5.00		
     }
 }
 --verbose
@@ -6919,6 +6931,12 @@ curl
 |`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 |`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Payment.NullifyDays`|Número |2 |Não|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo contado a partir da data do vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander.|
+|`Payment.DaysToFine`|Número |15 |Não|Opcional e somente para provider Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex: 3|
+|`Payment.FineRate`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não enviar se utilizar FineAmount. Ex: 10.12345|
+|`Payment.FineAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em valor absoluto. Permitido decimal com até 2 casas decimais. Não enviar se utilizar FineRate.  Ex: 10.12|
+|`Payment.DaysToInterest`|Número |15 |Não|Opcional e somente para provider Bradesco2.Quantidade de dias após o vencimento para iniciar a cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex: 3|
+|`Payment.InterestRate`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (Mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não enviar se utilizar InterestAmount. Ex: 10.12345|
+|`Payment.InterestAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor absoluto de juros mensal após o vencimento. O valor de juros é cobrado proporcionalmente por dia (Mensal dividido por 30). Não enviar se utilizar InterestRate.|
 
 ### Tabela de Especificação de quantidade de caracteres do campo por Provider
 
@@ -6979,6 +6997,10 @@ curl
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "Status": 1,
+    "InterestAmount": 1,
+    "FineAmount": 5,
+    "DaysToFine": 1,
+    "DaysToInterest": 1,
     "Links": [
       {
         "Method": "GET",
@@ -7032,6 +7054,10 @@ curl
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "Status": 1,
+    "InterestAmount": 1,
+    "FineAmount": 5,
+    "DaysToFine": 1,
+    "DaysToInterest": 1,	
     "Links": [
       {
         "Method": "GET",
