@@ -10566,7 +10566,13 @@
         </span><span class="s2">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmonstrative Teste"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12346578909"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="w">      
+        </span><span class="s2">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"DaysToFine"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"FineRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.00000</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"FineAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.00</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"DaysToInterest"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"InterestRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00000</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"InterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -10605,7 +10611,13 @@
         <span class="s2">"Demonstrative"</span>: <span class="s2">"Desmonstrative Teste"</span>,
         <span class="s2">"ExpirationDate"</span>: <span class="s2">"2017-12-31"</span>,
         <span class="s2">"Identification"</span>: <span class="s2">"12346578909"</span>,
-        <span class="s2">"Instructions"</span>: <span class="s2">"Aceitar somente até a data de vencimento."</span>      
+        <span class="s2">"Instructions"</span>: <span class="s2">"Aceitar somente até a data de vencimento."</span>,
+     <span class="s2">"DaysToFine"</span>: 1,
+     <span class="s2">"FineRate"</span>: 10.00000,
+     <span class="s2">"FineAmount"</span>: 10.00,
+     <span class="s2">"DaysToInterest"</span>:1,
+     <span class="s2">"InterestRate"</span>: 5.00000,
+     <span class="s2">"InterestAmount"</span>: 5.00
     <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -10813,6 +10825,54 @@
       <td>See the table below</td>
       <td>No</td>
       <td>Instruction Message. If this fiel is filled, it will override the configured value.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.DaysToFine</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>No</td>
+      <td>Optional and only valid for provider Bradesco2. Number of days after boleto expiration in order to add a fine to original amount. Use integer number. Ex: 3</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FineRate</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>No</td>
+      <td>Optional and only valid for provider Bradesco2. Fine rate to be charged in percentage (%) over original amount. It is allowed to use up to five decimal digits. Don’t use this field if the FineAmount is already used. Ex: 10.12345</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FineAmount</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>No</td>
+      <td>Optional and only valid for provider Bradesco2. Absolute fine amount to be charged. Don’t use this field if the FineRate is already used.  Ex: 10.12</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.DaysToInterest</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>No</td>
+      <td>Optional and only valid for provider Bradesco2. Number of days after boleto expiration in order to start a interest charging. Use integer number.Ex: 3</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.InterestRate</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>No</td>
+      <td>Optional and only valid for provider Bradesco2. Interest rate to be charged in percentage (%) over original amount. The interest amount is charged proportionally per day (monthly interest divided by 30). It is allowed to use up to five decimal digits. Don’t use this field if the InterestAmount is already used.. Ex: 10.12345</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.InterestAmount</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>No</td>
+      <td>Optional and only valid for provider Bradesco2. Absolute interest amount to be charged. Don’t use this field if the InterestRate is already used.</td>
       <td> </td>
     </tr>
   </tbody>
