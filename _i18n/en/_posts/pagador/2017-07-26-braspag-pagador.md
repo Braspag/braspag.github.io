@@ -4964,7 +4964,13 @@ To create a registered boleto payment (known as "Boleto Registrado" as well), it
         "Demonstrative": "Desmonstrative Teste",
         "ExpirationDate": "2017-12-31",
         "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento."      
+        "Instructions": "Aceitar somente até a data de vencimento.",
+     "DaysToFine": 1,
+     "FineRate": 10.00000,
+     "FineAmount": 10.00,
+     "DaysToInterest":1,
+     "InterestRate": 5.00000,
+     "InterestAmount": 5.00
     }
 }
 ```
@@ -5004,7 +5010,13 @@ curl
         "Demonstrative": "Desmonstrative Teste",
         "ExpirationDate": "2017-12-31",
         "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento."      
+        "Instructions": "Aceitar somente até a data de vencimento.",
+     "DaysToFine": 1,
+     "FineRate": 10.00000,
+     "FineAmount": 10.00,
+     "DaysToInterest":1,
+     "InterestRate": 5.00000,
+     "InterestAmount": 5.00
     }
 }
 --verbose
@@ -5036,6 +5048,12 @@ curl
 |`Payment.ExpirationDate`|Date |YYYY-MM-DD|No|Days to expiration. If this fiel is filled, it will override the configured value.|
 |`Payment.Identification`|Text|14 |No|Merchant's CNPJ. If this fiel is filled, it will override the configured value.|
 |`Payment.Instructions`|Text|See the table below|No|Instruction Message. If this fiel is filled, it will override the configured value.|
+|`Payment.DaysToFine`|Number |15 |No|Optional and only valid for provider Bradesco2. Number of days after boleto expiration in order to add a fine to original amount. Use integer number. Ex: 3|
+|`Payment.FineRate`|Number |15 |No|Optional and only valid for provider Bradesco2. Fine rate to be charged in percentage (%) over original amount. It is allowed to use up to five decimal digits. Don't use this field if the FineAmount is already used. Ex: 10.12345|
+|`Payment.FineAmount`|Number |15 |No|Optional and only valid for provider Bradesco2. Absolute fine amount to be charged. Don't use this field if the FineRate is already used.  Ex: 10.12|
+|`Payment.DaysToInterest`|Number |15 |No|Optional and only valid for provider Bradesco2. Number of days after boleto expiration in order to start a interest charging. Use integer number.Ex: 3|
+|`Payment.InterestRate`|Number |15 |No|Optional and only valid for provider Bradesco2. Interest rate to be charged in percentage (%) over original amount. The interest amount is charged proportionally per day (monthly interest divided by 30). It is allowed to use up to five decimal digits. Don't use this field if the InterestAmount is already used.. Ex: 10.12345|
+|`Payment.InterestAmount`|Number |15 |No|Optional and only valid for provider Bradesco2. Absolute interest amount to be charged. Don't use this field if the InterestRate is already used. |
 
 ### Fields max length specification for each bank
 
