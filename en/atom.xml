@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-07-06T12:11:05+00:00</updated>
+    <updated>2018-07-06T12:16:18+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11314,7 +11314,7 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Optional and only valid for provider Bradesco2. Absolute interest amount to be charged. Don’t use this field if the InterestRate is already used.&lt;/td&gt;
+      &lt;td&gt;Optional and only valid for provider Bradesco2. Absolute daily interest amount to be charged. Don’t use this field if the InterestRate is already used.&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
