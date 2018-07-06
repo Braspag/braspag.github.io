@@ -6936,7 +6936,7 @@ curl
 |`Payment.FineAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em valor absoluto. Permitido decimal com até 2 casas decimais. Não enviar se utilizar FineRate.  Ex: 10.12|
 |`Payment.DaysToInterest`|Número |15 |Não|Opcional e somente para provider Bradesco2.Quantidade de dias após o vencimento para iniciar a cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex: 3|
 |`Payment.InterestRate`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (Mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não enviar se utilizar InterestAmount. Ex: 10.12345|
-|`Payment.InterestAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor absoluto de juros mensal após o vencimento. O valor de juros é cobrado proporcionalmente por dia (Mensal dividido por 30). Não enviar se utilizar InterestRate.|
+|`Payment.InterestAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor absoluto de juros diário após o vencimento. Não enviar se utilizar InterestRate.|
 
 ### Tabela de Especificação de quantidade de caracteres do campo por Provider
 
