@@ -1457,16 +1457,17 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules?initialForecastedDate={initialDate}&finalForecastedDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
 
-| Parâmetro                  | Descrição                                                                            | Tipo    | Formato    | Obrigatório | Valor Padrão
-|----------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
-| `InitialForecastedDate`    | Data de pagamento prevista inicial a ser consultada.                                 | Data    | YYYY-MM-DD | Não         | CurrentDate
-| `FinalForecastedDate`      | Data de pagamento prevista final a ser consultada.                                   | Data    | YYYY-MM-DD | Não         | InitialForecastedDate
-| `InitialPaymentDate`       | Data de pagamento inicial a ser consultada.                                          | Data    | YYYY-MM-DD | Não         | -
-| `FinalPaymentDate`         | Data de pagamento final a ser consultada.                                            | Data    | YYYY-MM-DD | Não         | InitialPaymentDate
-| `PageIndex`                | Página a ser consultada.                                                             | Inteiro | -          | Não         | 1
-| `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.                                   | Inteiro | -          | Não         | 25
-| `EventStatus`              | Status do evento [Scheduled - Pending - Settled - Error].                            | String  | -          | Não         | Todos
-| `MerchantIds`              | Lojas a serem consideradas na consulta.                                              | Guid    | -          | Não         | -
+| Parâmetro                  | Descrição                                                                            | Tipo    | Formato    | Obrigatório | Valor Padrão          |
+|----------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|-----------------------|
+| `InitialForecastedDate`    | Data de pagamento prevista inicial a ser consultada.                                 | Data    | YYYY-MM-DD | Não         | CurrentDate           |
+| `FinalForecastedDate`      | Data de pagamento prevista final a ser consultada.                                   | Data    | YYYY-MM-DD | Não         | InitialForecastedDate |
+| `InitialPaymentDate`       | Data de pagamento inicial a ser consultada.                                          | Data    | YYYY-MM-DD | Não         | -                     |
+| `FinalPaymentDate`         | Data de pagamento final a ser consultada.                                            | Data    | YYYY-MM-DD | Não         | InitialPaymentDate    |
+| `PageIndex`                | Página a ser consultada.                                                             | Inteiro | -          | Não         | 1                     |
+| `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.                                   | Inteiro | -          | Não         | 25                    |
+| `EventStatus`              | Status do evento [Scheduled - Pending - Settled - Error].                            | String  | -          | Não         | Todos                 |
+| `IncludeAllSubordinates`   | Inclui todos os subordinados na consulta.                                            | Boolean | -          | Não         | false                 | 
+| `MerchantIds`              | Lojas a serem consideradas na consulta.                                              | Guid    | -          | Não         | -                     |
 
 **Resquest**
 
@@ -1568,14 +1569,15 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions?initialCaptureDate={initialDate}&finalCaptureDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
 
-| Parâmetro               | Descrição                                                                     | Tipo    | Formato    | Obrigatório | Valor Padrão
-|-------------------------|-------------------------------------------------------------------------------|---------|------------|-------------|
-| `InitialCaptureDate`    | Data inicial a ser consultada, considerando a data de captura das transações. | Data    | YYYY-MM-DD | Não         | CurrentDate
-| `FinalCaptureDate`      | Data final a ser consultada, considerando a data de captura das transações.   | Data    | YYYY-MM-DD | Não         | InitialCaptureDate
-| `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1
-| `PageSize`              | Tamanho da página.  Valores possíveis: 25, 50, 100.                           | Inteiro | -          | Não         | 25
-| `EventStatus`           | Status do evento [Scheduled - Pending - Settled - Error].                     | String  | -          | Não         | Todos
-| `MerchantIds`           | Lojas a serem consideradas na consulta.                                       | Guid    | -          | Não         | -
+| Parâmetro               | Descrição                                                                     | Tipo    | Formato    | Obrigatório | Valor Padrão       |
+|-------------------------|-------------------------------------------------------------------------------|---------|------------|-------------|--------------------|
+| `InitialCaptureDate`    | Data inicial a ser consultada, considerando a data de captura das transações. | Data    | YYYY-MM-DD | Não         | CurrentDate        |
+| `FinalCaptureDate`      | Data final a ser consultada, considerando a data de captura das transações.   | Data    | YYYY-MM-DD | Não         | InitialCaptureDate |
+| `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1                  |
+| `PageSize`              | Tamanho da página.  Valores possíveis: 25, 50, 100.                           | Inteiro | -          | Não         | 25                 |
+| `EventStatus`           | Status do evento [Scheduled - Pending - Settled - Error].                     | String  | -          | Não         | Todos              |
+| `IncludeAllSubordinates`| Inclui todos os subordinados na consulta.                                     | Boolean | -          | Não         | false              |
+| `MerchantIds`           | Lojas a serem consideradas na consulta.                                       | Guid    | -          | Não         | -                  |
 
 Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds". Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
 
