@@ -1991,7 +1991,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <p>O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.</p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions?initialCaptureDate={initialDate}&amp;finalCaptureDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate={initialDate}&amp;finalCaptureDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
 
 <table>
   <thead>
@@ -2070,8 +2070,8 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate=2017-12-01&amp;finalCaptureDate=2017-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
+</code></pre></div></div>
 
 <p><strong>Response</strong></p>
 
