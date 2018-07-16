@@ -309,7 +309,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
          "Cart":{
             "Items":[
                {
-                  "ProductName": "Celular XYZ",
+                  "Name": "Celular XYZ",
                   "UnitPrice": "6500",
                   "MerchantItemId": "4",
                   "Sku": "abc123",
@@ -321,7 +321,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
                   "ShippingTrackingNumber": "123456"
                },
                {
-                  "ProductName": "TV XPTO Full HD",
+                  "Name": "TV XPTO Full HD",
                   "UnitPrice": "4000",
                   "MerchantItemId": "5",
                   "Sku": "abc456",
@@ -569,7 +569,7 @@ especiais|
          "Cart":{
             "Items":[
                {
-                  "ProductName": "Celular XYZ",
+                  "Name": "Celular XYZ",
                   "UnitPrice": "6500",
                   "MerchantItemId": "4",
                   "Sku": "abc123",
@@ -581,7 +581,7 @@ especiais|
                   "ShippingTrackingNumber": "123456"
                },
                {
-                  "ProductName": "TV XPTO Full HD",
+                  "Name": "TV XPTO Full HD",
                   "UnitPrice": "4000",
                   "MerchantItemId": "5",
                   "Sku": "abc456",
