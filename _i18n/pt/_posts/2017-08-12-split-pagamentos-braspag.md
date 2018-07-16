@@ -879,7 +879,8 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
 
-```x-www-form-urlencoded
+```shell
+x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
@@ -1188,7 +1189,8 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
-```x-www-form-urlencoded
+```shell
+x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
@@ -1246,7 +1248,8 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void</span></aside>
 
-```x-www-form-urlencoded
+```shell
+x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
@@ -1309,7 +1312,8 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
-```x-www-form-urlencoded
+```shell
+x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
@@ -1478,7 +1482,8 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialPaymentDate=2017-12-01&finalPaymentDate=2018-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-```x-www-form-urlencoded
+```shell
+x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"
 ```
 
@@ -1669,7 +1674,8 @@ Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-```x-www-form-urlencoded
+```shell
+x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"
 ```
 
