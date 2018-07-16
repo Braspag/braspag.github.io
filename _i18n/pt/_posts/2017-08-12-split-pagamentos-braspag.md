@@ -1087,7 +1087,8 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
-```x-www-form-urlencoded
+```shell
+x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
@@ -1672,7 +1673,7 @@ Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.
 
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/schedules/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```shell
 x-www-form-urlencoded
