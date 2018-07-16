@@ -6787,6 +6787,7 @@ The Braspag will make 3 tentatives to send a notification. It stops notifying wh
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|
 |Credibanco|Visa, Master, Diners, Amex, Credential|
 |Transbank|Visa, Master, Diners, Amex|
+|Stone|Visa, Master, Hipercard, Elo|
 
 ### Debit Card Payments Provider
 
