@@ -1430,7 +1430,6 @@ Eventos de Crédito:
 | `AntiFraudFeeWithReviewCredit` | Lançamento de crédito referente à transação de antifraude com revisão manual.                           |
 | `AdjustmentCredit`             | Lançamento de um crédito como ajuste.                                                                   |
 
-
 Eventos de Débito:
 
 | Evento                        | Descrição                                                                                               |
