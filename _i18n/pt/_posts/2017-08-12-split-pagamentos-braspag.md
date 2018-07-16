@@ -1584,7 +1584,8 @@ Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate=2017-12-01&finalCaptureDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-```x-www-form-urlencoded
+```shell
+x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
