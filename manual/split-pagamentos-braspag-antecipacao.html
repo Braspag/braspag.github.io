@@ -142,22 +142,22 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="err">AnticipateTo</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
-    </span><span class="err">ReceivablesToAnticipate</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"AnticipateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReceivablesToAnticipate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
-            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="p">,</span><span class="w">
-            </span><span class="err">Percent</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
-            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="w">
-            </span><span class="err">Percent</span><span class="p">:</span><span class="mf">5.01</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="w">
+            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.01</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
-            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="w">
-            </span><span class="err">Percent</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="w">
+            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -190,7 +190,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivablesToAnticipat[].Amount</code></td>
-      <td>Valor que se deseja antecipar.</td>
+      <td>Valor, em centavos, que se deseja antecipar.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
@@ -209,27 +209,27 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">Accepted</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="err">AticipationId</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="err">CC</span><span class="mi">958</span><span class="err">F</span><span class="mi">0</span><span class="err">-B</span><span class="mi">02</span><span class="err">B</span><span class="mi">-4</span><span class="err">F</span><span class="mi">66</span><span class="err">-B</span><span class="mi">5</span><span class="err">B</span><span class="mi">1</span><span class="err">-F</span><span class="mi">857</span><span class="err">AEF</span><span class="mi">4</span><span class="err">BE</span><span class="mi">1</span><span class="err">D</span><span class="p">,</span><span class="w">
-    </span><span class="err">AnticipateTo</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
-    </span><span class="err">Status</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
-    </span><span class="err">ReceivablesToAnticipate</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"AticipationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="err">CC</span><span class="mi">958</span><span class="err">F</span><span class="mi">0</span><span class="err">-B</span><span class="mi">02</span><span class="err">B</span><span class="mi">-4</span><span class="err">F</span><span class="mi">66</span><span class="err">-B</span><span class="mi">5</span><span class="err">B</span><span class="mi">1</span><span class="err">-F</span><span class="mi">857</span><span class="err">AEF</span><span class="mi">4</span><span class="err">BE</span><span class="mi">1</span><span class="err">D</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AnticipateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReceivablesToAnticipate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
-            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="w">
-            </span><span class="err">Percent</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="w">
+            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
-            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="p">,</span><span class="w">
-            </span><span class="err">Percent</span><span class="p">:</span><span class="mf">5.01</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
-            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="p">,</span><span class="w">
-            </span><span class="err">Percent</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+            </span><span class="s2">"Date: "</span><span class="mi">2018-04-23</span><span class="s2">",
+            "</span><span class="err">Amount</span><span class="s2">": 2354600,
+            "</span><span class="err">Percent</span><span class="s2">": 5.01
+        },
+        {
+            "</span><span class="err">Date</span><span class="s2">": "</span><span class="mi">2018-04-24</span><span class="s2">",
+            "</span><span class="err">Amount</span><span class="s2">": 150000,
+            "</span><span class="err">Percent</span><span class="s2">": 5.05
+        }
+    ]
+}
 </span></code></pre></div></div>
 
 <table>
@@ -275,24 +275,24 @@ x-www-form-urlencoded
 
 ```json
 {
-    AticipationId: 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
-    AnticipateTo: "2018-04-01",
-    Status: "Received",
-    ReceivablesToAnticipate: [
+    "AticipationId": 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
+    "AnticipateTo": "2018-04-01",
+    "Status": "Received",
+    "ReceivablesToAnticipate": [
         {
-            Date: "2018-04-22",
-            Amount: 5567890
-            Percent: 5.00
+            "Date": "2018-04-22",
+            "Amount": 5567890
+            "Percent": 5.00
         },
         {
-            Date: "2018-04-23",
-            Amount: 2354600,
-            Percent:5.01
+            "Date": "2018-04-23",
+            "Amount": 2354600,
+            "Percent": 5.01
         },
         {
-            Date: "2018-04-24",
-            Amount: 150000,
-            Percent: 5.05
+            "Date": "2018-04-24",
+            "Amount": 150000,
+            "Percent": 5.05
         }
     ]
 }
