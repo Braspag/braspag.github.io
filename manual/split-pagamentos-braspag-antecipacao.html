@@ -130,7 +130,7 @@
 
 <h2 id="integração">Integração</h2>
 
-<h3 id="criar-uma-antecipação">Criar uma Antecipação</h3>
+<h3 id="solicitar-uma-antecipação">Solicitar uma Antecipação</h3>
 
 <p>A antecipação de recebíveis deve ser realizada através de uma requisição informando os dias que se deseja antecipar e quando se deseja receber.</p>
 
@@ -207,9 +207,9 @@
 
 <h4 id="response">Response</h4>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">Accepted</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="s2">"202 Accepted"</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"AticipationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="err">CC</span><span class="mi">958</span><span class="err">F</span><span class="mi">0</span><span class="err">-B</span><span class="mi">02</span><span class="err">B</span><span class="mi">-4</span><span class="err">F</span><span class="mi">66</span><span class="err">-B</span><span class="mi">5</span><span class="err">B</span><span class="mi">1</span><span class="err">-F</span><span class="mi">857</span><span class="err">AEF</span><span class="mi">4</span><span class="err">BE</span><span class="mi">1</span><span class="err">D</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AticipationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"AnticipateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReceivablesToAnticipate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -219,17 +219,17 @@
             </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Date: "</span><span class="mi">2018-04-23</span><span class="s2">",
-            "</span><span class="err">Amount</span><span class="s2">": 2354600,
-            "</span><span class="err">Percent</span><span class="s2">": 5.01
-        },
-        {
-            "</span><span class="err">Date</span><span class="s2">": "</span><span class="mi">2018-04-24</span><span class="s2">",
-            "</span><span class="err">Amount</span><span class="s2">": 150000,
-            "</span><span class="err">Percent</span><span class="s2">": 5.05
-        }
-    ]
-}
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.01</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <table>
@@ -245,7 +245,7 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">AnticipateId</code></td>
-      <td>identificador da atencipação.</td>
+      <td>Identificador da atencipação.</td>
       <td>Guid</td>
       <td>-</td>
       <td>Sim</td>
@@ -264,40 +264,42 @@
 
 <h4 id="request-1">Request</h4>
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation/{anticipationid}
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation/{anticipationid}</span></aside>
 
-```shell
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"  
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
+</code></pre></div></div>
 
-#### Response
+<h4 id="response-1">Response</h4>
 
-```json
-{
-    "AticipationId": 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
-    "AnticipateTo": "2018-04-01",
-    "Status": "Received",
-    "ReceivablesToAnticipate": [
-        {
-            "Date": "2018-04-22",
-            "Amount": 5567890
-            "Percent": 5.00
-        },
-        {
-            "Date": "2018-04-23",
-            "Amount": 2354600,
-            "Percent": 5.01
-        },
-        {
-            "Date": "2018-04-24",
-            "Amount": 150000,
-            "Percent": 5.05
-        }
-    ]
-}
-```
-</span></aside>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"AticipationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AnticipateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReceivablesToAnticipate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="w">
+            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.01</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="agenda-financeira">Agenda Financeira</h2>
+
+<p>Caso a atencipação seja aceita, a agenda do estabelciment, para a qual a antecipação foi solicitada, será sensibilizada com eventos indicando as datas previstas para pagamento.</p>
+
 
 </div>
 
