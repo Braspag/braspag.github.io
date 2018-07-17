@@ -33,11 +33,13 @@ A antecipação dos recebíveis de vendas no Split é baseada nas seguintes regr
 
 ## Integração
 
+### Criar uma Antecipação
+
 A antecipação de recebíveis deve ser realizada através de uma requisição informando os dias que se deseja antecipar e quando se deseja receber.
 
-Como Master, é possível antecipar os recebíceis de um subordinado e informar o percentual a ser descontado do subordinado pela operação.
+Como Master, é possível antecipar os recebíveis de um subordinado e informar o percentual a ser descontado do subordinado pela operação.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation</span></aside>
 
@@ -72,7 +74,7 @@ Como Master, é possível antecipar os recebíceis de um subordinado e informar 
 | `ReceivablesToAnticipat[].Amount`  | Valor que se deseja antecipar.                                                       | Inteiro | -          | Sim         |
 | `ReceivablesToAnticipat[].Percent` | Percentual, destinado ao Master, sobre o valor ser antecipado.                       | Decimal | YYYY-MM-DD | Não         |
 
-### Response
+#### Response
 
 ```json
 -- 202 Accepted
@@ -104,3 +106,41 @@ Como Master, é possível antecipar os recebíceis de um subordinado e informar 
 |------------------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
 | `AnticipateId`                     | identificador da atencipação.                                                        | Guid    | -          | Sim         |
 | `Status`                           | Status da antecipação. [Received - Accepted - Rejected]                              | String  | -          | Sim         |
+
+### Consultar uma Antecipação
+
+#### Request
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation/{anticipationid}
+
+```shell
+x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"  
+```
+
+#### Response
+
+```json
+{
+    AticipationId: 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
+    AnticipateTo: "2018-04-01",
+    Status: "Received",
+    ReceivablesToAnticipate: [
+        {
+            Date: "2018-04-22",
+            Amount: 5567890
+            Percent: 5.00
+        },
+        {
+            Date: "2018-04-23",
+            Amount: 2354600,
+            Percent:5.01
+        },
+        {
+            Date: "2018-04-24",
+            Amount: 150000,
+            Percent: 5.05
+        }
+    ]
+}
+```
