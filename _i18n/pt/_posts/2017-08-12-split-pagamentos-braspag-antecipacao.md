@@ -158,7 +158,6 @@ Eventos de Crédito:
 | `UndoToAnticipationCredit`     | Lançamento de crédito para desfazimento de eventos futuros antecipados.                                 |
 | `AnticipationCredit`           | Lançamento de crédito de antecipação.                                                                   |
 
-
 Eventos de Débito:
 
 | Evento                         | Descrição                                                                                               |
