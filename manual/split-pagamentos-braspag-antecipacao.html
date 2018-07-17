@@ -109,7 +109,7 @@
 
 <h2 id="introdução">Introdução</h2>
 
-<p>O <strong>Split de Pagamentos</strong> liquida os valores referentes a cada particpante de uma transação de acordo com o regime padrão de cada arranjo de pagamento.</p>
+<p>O <strong>Split de Pagamentos</strong> liquida os valores referentes a cada participante de uma transação de acordo com o regime padrão de cada arranjo de pagamento.</p>
 
 <p>Como exemplo, para uma transação de crédito realizada em 3x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referentes a cada parcela da transação citada em 30, 60 e 90 dias.</p>
 
@@ -127,7 +127,7 @@
   <li>O percentual informado no momento da solicitação só é aplicável quando o Master está solicitando a antecipação para um dos seus subordinados. A Braspag irá desconsiderar este percentual caso a antecipação seja para o próprio Master.</li>
   <li>A solicitação de antecipação não é aceita imediatamente. A mesma é recebida, analisada e poderá ser aceita ou recusada.</li>
   <li>Ao realizar a antecipação de recebíveis de uma data, são antecipados tanto os créditos quanto os débitos.</li>
-  <li>A data para antecipar deverá ser maior ou igual a data da solicitação acrescida em 3 dias.</li>
+  <li>A data a receber os valores referentes à antecipação deverá ser maior ou igual a data da solicitação acrescida em 3 dias.</li>
 </ul>
 
 <p><img src="https://braspag.github.io/images/braspag/anticipation.png" alt="StateDiagramAnticipation" /></p>
@@ -136,13 +136,13 @@
 
 <h3 id="solicitar-uma-antecipação">Solicitar uma Antecipação</h3>
 
-<p>A antecipação de recebíveis deve ser realizada através de uma requisição informando os dias que se deseja antecipar e quando se deseja receber.</p>
+<p>A antecipação de recebíveis deve ser realizada através de uma requisição informando as datas dos recebíveis futuros que deseja antecipar e a data que deseja receber.</p>
 
-<p>Como Master, é possível antecipar os recebíveis de um subordinado e informar o percentual a ser descontado do subordinado pela operação.</p>
+<p>Como Master, é possível antecipar os recebíveis de um subordinado e informar o percentual a ser descontado do mesmo pela operação.</p>
 
 <h4 id="request">Request</h4>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipations</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -151,17 +151,17 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+            </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="w">
-            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.01</span><span class="w">
+            </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.01</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="w">
-            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
+            </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -186,21 +186,21 @@
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ReceivablesToAnticipat[].Date</code></td>
-      <td>Data prevista de recebíveis futuros que se deseja antecipar.</td>
+      <td><code class="highlighter-rouge">ReceivablesToAnticipate[].Date</code></td>
+      <td>Data prevista de recebíveis futuros que deseja antecipar.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ReceivablesToAnticipat[].Amount</code></td>
-      <td>Valor, em centavos, que se deseja antecipar.</td>
+      <td><code class="highlighter-rouge">ReceivablesToAnticipate[].Amount</code></td>
+      <td>Valor, em centavos, que deseja antecipar.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ReceivablesToAnticipat[].Percent</code></td>
+      <td><code class="highlighter-rouge">ReceivablesToAnticipate[].Percentage</code></td>
       <td>Percentual, destinado ao Master, sobre o valor ser antecipado.</td>
       <td>Decimal</td>
       <td>YYYY-MM-DD</td>
@@ -220,17 +220,17 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="w">
-            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+            </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.01</span><span class="w">
+            </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.01</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
+            </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -249,7 +249,7 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">AnticipateId</code></td>
-      <td>Identificador da atencipação.</td>
+      <td>Identificador da antecipação.</td>
       <td>Guid</td>
       <td>-</td>
       <td>Sim</td>
@@ -268,7 +268,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation/{anticipationid}</span></aside>
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipations/{anticipationId}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
@@ -284,17 +284,17 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="w">
-            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+            </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.01</span><span class="w">
+            </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.01</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
+            </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -302,7 +302,7 @@
 
 <h2 id="agenda-financeira">Agenda Financeira</h2>
 
-<p>Caso a atencipação seja aceita, a agenda do estabelciment, para a qual a antecipação foi solicitada, será sensibilizada com eventos indicando as datas previstas para pagamento.</p>
+<p>Caso a antecipação seja aceita, a agenda do estabelecimento, para a qual a antecipação foi solicitada, será sensibilizada com eventos indicando as datas previstas para pagamento.</p>
 
 <p>Eventos de Crédito:</p>
 
@@ -360,11 +360,11 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">Id </code></td>
-      <td>Identificador da anteciapção.</td>
+      <td>Identificador da antecipação.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ChangeType</code></td>
-      <td>10 - Analise da antecipação realizada.</td>
+      <td>10 - Análise da antecipação realizada.</td>
     </tr>
   </tbody>
 </table>
