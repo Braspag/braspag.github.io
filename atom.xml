@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-07-17T15:41:03+00:00</updated>
+    <updated>2018-07-17T15:44:07+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -12349,7 +12349,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
   &lt;li&gt;A data a receber os valores referentes à antecipação deverá ser maior ou igual a data da solicitação acrescida em 3 dias.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/anticipation.png&quot; alt=&quot;StateDiagramAnticipation&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/split/state-diagram-anticipation.png&quot; alt=&quot;StateDiagramAnticipation&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;integração&quot;&gt;Integração&lt;/h2&gt;
 
