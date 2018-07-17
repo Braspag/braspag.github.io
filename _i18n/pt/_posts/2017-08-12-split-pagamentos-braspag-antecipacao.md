@@ -30,6 +30,8 @@ A antecipação dos recebíveis de vendas no Split é baseada nas seguintes regr
 * É permitido somente antecipar o valor cheio de uma parcela, não sendo possível antecipar metade de uma parcela, por exemplo.
 * O percentual informado no momento da solicitação só é aplicável quando o Master está solicitando a antecipação para um dos seus subordinados. A Braspag irá desconsiderar este percentual caso a antecipação seja para o próprio Master.
 * A solicitação de antecipação não é aceita imediatamente. A mesma é recebida, analisada e poderá ser aceita ou recusada.
+* Ao realizar a antecipação de recebíveis de uma data, são antecipados tanto os créditos quanto os débitos.
+* A data para antecipar deverá ser maior ou igual a data da solicitação acrescida em 3 dias.
 
 ## Integração
 
@@ -148,4 +150,29 @@ x-www-form-urlencoded
 ## Agenda Financeira
 
 Caso a atencipação seja aceita, a agenda do estabelciment, para a qual a antecipação foi solicitada, será sensibilizada com eventos indicando as datas previstas para pagamento.
+
+Eventos de Crédito:
+
+| Evento                         | Descrição                                                                                               |
+|--------------------------------|---------------------------------------------------------------------------------------------------------|
+| `UndoToAnticipationCredit`     | Lançamento de crédito para desfazimento de eventos futuros antecipados.                                 |
+| `AnticipationCredit`           | Lançamento de crédito de antecipação.                                                                   |
+
+
+Eventos de Débito:
+
+| Evento                         | Descrição                                                                                               |
+|--------------------------------|---------------------------------------------------------------------------------------------------------|
+| `UndoToAnticipationDebit `     | Lançamento de débito para desfazimento de eventos futuros antecipados.                                  |
+| `AnticipationDebit`            | Lançamento de débito de antecipação.                                                                    |
+
+## Notificação
+
+Quando a antecipação for analisada, a mesma poderá ser aceita ou recusada e uma notificação pode ser enviada para um URL previamente cadastrada na Braspag.
+
+| Propriedade         | Descrição                                                                                               |
+|---------------------|---------------------------------------------------------------------------------------------------------|
+| `Id `               | Identificador da anteciapção.                                                                           |
+| `Status`            | status da antecipação. [Accepted - Rejected]                                                            |
+
 
