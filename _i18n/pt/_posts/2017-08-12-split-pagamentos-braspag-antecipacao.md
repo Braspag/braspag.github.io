@@ -18,9 +18,16 @@ O **Split de Pagamentos** liquidada os valores referentes a cada particpante de 
 
 Como exemplo, para uma transação de crédito realizada em 3x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referente a cada parcela da transação citada em 30, 60 e 90 dias.
 
-Com a Antecipação, é possível o Master antecipar seus recebíveis ou dos seus subordinados.
+Com a Antecipação, é possível o Master antecipar os seus recebíveis e/ou dos seus subordinados.
 
 ## Regras
+
+A antecipação dos recebíveis de vendas no Split é baseada nas seguintes regras:
+
+* Somente o Master pode solicitar antecipação
+* É permitido somente antecipar o valor cheio da parcela, não sendo possível antecipar metade de uma parcela, por exemplo.
+* O percentual informado no momento da solicitação só é aplicável quando o Master está solicitando a antecipação para um dos seus subordinados. A Braspag irá desconsiderar este percentual caso aantecipação seja para o próprio Master.
+* A solicitação de antecipação não é aceita imediatamente. A mesma é recebida, analisada e poderá ser aceita ou rejeitada.
 
 
 
