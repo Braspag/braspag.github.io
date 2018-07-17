@@ -14,7 +14,7 @@ tags:
 
 ## Introdução
 
-O **Split de Pagamentos** liquida os valores referentes a cada particpante de uma transação de acordo com o regime padrão de cada arranjo de pagamento.
+O **Split de Pagamentos** liquida os valores referentes a cada participante de uma transação de acordo com o regime padrão de cada arranjo de pagamento.
 
 Como exemplo, para uma transação de crédito realizada em 3x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referentes a cada parcela da transação citada em 30, 60 e 90 dias.
 
@@ -31,7 +31,7 @@ A antecipação dos recebíveis de vendas no Split é baseada nas seguintes regr
 * O percentual informado no momento da solicitação só é aplicável quando o Master está solicitando a antecipação para um dos seus subordinados. A Braspag irá desconsiderar este percentual caso a antecipação seja para o próprio Master.
 * A solicitação de antecipação não é aceita imediatamente. A mesma é recebida, analisada e poderá ser aceita ou recusada.
 * Ao realizar a antecipação de recebíveis de uma data, são antecipados tanto os créditos quanto os débitos.
-* A data para antecipar deverá ser maior ou igual a data da solicitação acrescida em 3 dias.
+* A data a receber os valores referentes à antecipação deverá ser maior ou igual a data da solicitação acrescida em 3 dias.
 
 ![StateDiagramAnticipation](https://braspag.github.io/images/braspag/anticipation.png)
 
@@ -39,13 +39,13 @@ A antecipação dos recebíveis de vendas no Split é baseada nas seguintes regr
 
 ### Solicitar uma Antecipação
 
-A antecipação de recebíveis deve ser realizada através de uma requisição informando os dias que se deseja antecipar e quando se deseja receber.
+A antecipação de recebíveis deve ser realizada através de uma requisição informando as datas dos recebíveis futuros que deseja antecipar e a data que deseja receber.
 
-Como Master, é possível antecipar os recebíveis de um subordinado e informar o percentual a ser descontado do subordinado pela operação.
+Como Master, é possível antecipar os recebíveis de um subordinado e informar o percentual a ser descontado do mesmo pela operação.
 
 #### Request
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipations</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -55,28 +55,28 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
         {
             "Date": "2018-04-22",
             "Amount": 5567890,
-            "Percent": 5.00
+            "Percentage": 5.00
         },
         {
             "Date": "2018-04-23",
             "Amount": 2354600
-            "Percent": 5.01
+            "Percentage": 5.01
         },
         {
             "Date": "2018-04-24",
             "Amount": 150000
-            "Percent": 5.05
+            "Percentage": 5.05
         }
     ]
 }
 ```
 
-| Parâmetro                          | Descrição                                                                            | Tipo    | Formato    | Obrigatório |
-|------------------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
-| `AnticipateTo`                     | Data para qual se deseja antecipar os recebíveis.                                    | Data    | YYYY-MM-DD | Sim         |
-| `ReceivablesToAnticipat[].Date`    | Data prevista de recebíveis futuros que se deseja antecipar.                         | Data    | YYYY-MM-DD | Sim         |
-| `ReceivablesToAnticipat[].Amount`  | Valor, em centavos, que se deseja antecipar.                                         | Inteiro | -          | Sim         |
-| `ReceivablesToAnticipat[].Percent` | Percentual, destinado ao Master, sobre o valor ser antecipado.                       | Decimal | YYYY-MM-DD | Não         |
+| Parâmetro                              | Descrição                                                                            | Tipo    | Formato    | Obrigatório |
+|----------------------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
+| `AnticipateTo`                         | Data para qual se deseja antecipar os recebíveis.                                    | Data    | YYYY-MM-DD | Sim         |
+| `ReceivablesToAnticipate[].Date`       | Data prevista de recebíveis futuros que deseja antecipar.                            | Data    | YYYY-MM-DD | Sim         |
+| `ReceivablesToAnticipate[].Amount`     | Valor, em centavos, que deseja antecipar.                                            | Inteiro | -          | Sim         |
+| `ReceivablesToAnticipate[].Percentage` | Percentual, destinado ao Master, sobre o valor ser antecipado.                       | Decimal | YYYY-MM-DD | Não         |
 
 #### Response
 
@@ -90,17 +90,17 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
         {
             "Date": "2018-04-22",
             "Amount": 5567890
-            "Percent": 5.00
+            "Percentage": 5.00
         },
         {
             "Date": "2018-04-23",
             "Amount": 2354600,
-            "Percent": 5.01
+            "Percentage": 5.01
         },
         {
             "Date": "2018-04-24",
             "Amount": 150000,
-            "Percent": 5.05
+            "Percentage": 5.05
         }
     ]
 }
@@ -108,14 +108,14 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
 
 | Parâmetro                          | Descrição                                                                            | Tipo    | Formato    | Obrigatório |
 |------------------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
-| `AnticipateId`                     | Identificador da atencipação.                                                        | Guid    | -          | Sim         |
+| `AnticipateId`                     | Identificador da antecipação.                                                        | Guid    | -          | Sim         |
 | `Status`                           | Status da antecipação. [Received - Accepted - Rejected]                              | String  | -          | Sim         |
 
 ### Consultar uma Antecipação
 
 #### Request
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation/{anticipationid}</span></aside>
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipations/{anticipationId}</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -133,17 +133,17 @@ x-www-form-urlencoded
         {
             "Date": "2018-04-22",
             "Amount": 5567890
-            "Percent": 5.00
+            "Percentage": 5.00
         },
         {
             "Date": "2018-04-23",
             "Amount": 2354600,
-            "Percent": 5.01
+            "Percentage": 5.01
         },
         {
             "Date": "2018-04-24",
             "Amount": 150000,
-            "Percent": 5.05
+            "Percentage": 5.05
         }
     ]
 }
@@ -151,7 +151,7 @@ x-www-form-urlencoded
 
 ## Agenda Financeira
 
-Caso a atencipação seja aceita, a agenda do estabelciment, para a qual a antecipação foi solicitada, será sensibilizada com eventos indicando as datas previstas para pagamento.
+Caso a antecipação seja aceita, a agenda do estabelecimento, para a qual a antecipação foi solicitada, será sensibilizada com eventos indicando as datas previstas para pagamento.
 
 Eventos de Crédito:
 
@@ -173,7 +173,7 @@ Quando a antecipação for analisada, a mesma poderá ser aceita ou recusada e u
 
 | Propriedade         | Descrição                                                                                               |
 |---------------------|---------------------------------------------------------------------------------------------------------|
-| `Id `               | Identificador da anteciapção.                                                                           |
-| `ChangeType`        | 10 - Analise da antecipação realizada.                                                                  |
+| `Id `               | Identificador da antecipação.                                                                           |
+| `ChangeType`        | 10 - Análise da antecipação realizada.                                                                  |
 
 Ao receber a notificação, consulte a antecipação para obter o status.
