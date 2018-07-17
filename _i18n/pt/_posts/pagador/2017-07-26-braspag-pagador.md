@@ -9553,6 +9553,24 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |--------|-----|
 |Alelo|Elo|
 
+### Providers para Zero Auth via VerifyCard
+
+|Provider|
+|--------|
+|Simulado|
+|Cielo30 (Cielo 3.0)|
+|Rede2 (e-Rede REST)|
+|Getnet|
+|FirstData|
+|GlobalPayments|
+
+### Providers para Consulta BIN via VerifyCard
+
+|Provider|
+|--------|
+|Simulado|
+|Cielo30 (Cielo 3.0)|
+
 ### Providers para Boleto com Registro
 
 |Provider|
