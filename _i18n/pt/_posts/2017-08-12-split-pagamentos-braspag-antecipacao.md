@@ -33,6 +33,8 @@ A antecipação dos recebíveis de vendas no Split é baseada nas seguintes regr
 * Ao realizar a antecipação de recebíveis de uma data, são antecipados tanto os créditos quanto os débitos.
 * A data para antecipar deverá ser maior ou igual a data da solicitação acrescida em 3 dias.
 
+![StateDiagramAnticipation](https://braspag.github.io/images/braspag/anticipation.png)
+
 ## Integração
 
 ### Solicitar uma Antecipação
