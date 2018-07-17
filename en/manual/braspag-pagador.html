@@ -14442,6 +14442,246 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
+<h2 id="querying-data-from-a-card-via-zero-auth-and-bin-query-service">Querying data from a card via Zero Auth and BIN Query Service</h2>
+
+<p>To query card data, a POST request is required on the VerifyCard service. The VerifyCard consists of two services: Zero Auth and BIN Query Service. Zero Auth is a service that identifies if a card is valid or not, through an operation similar to an authorization, but sending zero as transaction amount. The BIN Query Service is a service available for merchats that use Cielo 3.0 and it returns card BIN information such as brand and card type. Both services can be consumed simultaneously through the VerifyCard, as shown in the example below. It is also possible that the authorization process is automatically conditioned to a successful return of ZeroAuth. To enable this feature, please contact our support team.</p>
+
+<h3 id="request-34">Request</h3>
+
+<aside class="request"><span class="method get">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Card"</span><span class="w"> </span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"999999******9999"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Joao da Silva"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"03/2026"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET <span class="s2">"https://apihomolog.braspag.com.br/v2/verifycard"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+<span class="o">{</span>
+   <span class="s2">"Provider"</span>:<span class="s2">"Cielo30"</span>,
+   <span class="s2">"Card"</span> :
+   <span class="o">{</span>
+       <span class="s2">"CardNumber"</span>:<span class="s2">"999999******9999"</span>,
+       <span class="s2">"Holder"</span>:<span class="s2">"Joao da Silva"</span>,
+       <span class="s2">"ExpirationDate"</span>:<span class="s2">"03/2026"</span>,
+       <span class="s2">"SecurityCode"</span>:<span class="s2">"***"</span>,
+       <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
+       <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+       <span class="s2">"CardToken"</span>:<span class="s2">""</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Mandatory</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+      <td>Merchant ID</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+      <td>Merchant Key</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+      <td>Request Identifier defined by merchant, applicable to any operation GET/POST/PUT</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Payment Method Provider’s name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.CardNumber</code></td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Yes</td>
+      <td>Credit Card number. In case of doing just BIN Query Service, put the first six digits of card (BIN)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.Holder</code></td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Yes</td>
+      <td>Cardholder name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+      <td>Expiration Date (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.SecurityCode</code></td>
+      <td>Text</td>
+      <td>4</td>
+      <td>Yes</td>
+      <td>Security Code (CVV2)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.Brand</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Card’s Brand</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.Type</code></td>
+      <td>Text</td>
+      <td>CreditCard ou DebitCard</td>
+      <td>Yes</td>
+      <td>Identify the cart type to be queried. This information is relevant for multiple function card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.CardToken</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+      <td>Card Token that represents the card information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-34">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transacao autorizada"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BinData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crédito"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Analise autorizada"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"Status"</span>: 1,
+    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"85"</span>,
+    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Transacao autorizada"</span>,
+    <span class="s2">"BinData"</span>: <span class="o">{</span>
+        <span class="s2">"Provider"</span>: <span class="s2">"Master"</span>,
+        <span class="s2">"CardType"</span>: <span class="s2">"Crédito"</span>,
+        <span class="s2">"ForeignCard"</span>: <span class="nb">false</span>,
+        <span class="s2">"Code"</span>: <span class="s2">"00"</span>,
+        <span class="s2">"Message"</span>: <span class="s2">"Analise autorizada"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Zero Auth status</td>
+      <td>Number</td>
+      <td>1</td>
+      <td>0-Success Zero Auth response1-Failed Zero Auth response99-The query was succeeded but the card status is inconclusive</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
+      <td>Zero Auth query response code returned by the provider.</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Ex. For provider Cielo30, 85-Sucesso (valid card)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
+      <td>Zero Auth query response message returned by the provider.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Ex. “Transacao Autorizada”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BinData.Provider</code></td>
+      <td>Service provider</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Ex. Cielo30</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BinData.CardType</code></td>
+      <td>Card Type</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Ex. Crédito, Débito, Múltiplo, Débito Refeição, etc</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BinData.ForeignCard</code></td>
+      <td>Identify if the card was issues in Brazil or not</td>
+      <td>booleano</td>
+      <td>-</td>
+      <td>Ex. true ou false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BinData.Code</code></td>
+      <td>BIN query service return code</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Ex. For provider Cielo30, 00 means that the query was succeeded</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BinData.Message</code></td>
+      <td>query service return message</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Ex. For provider Cielo30, “Analise autorizada” means that the query was succeeded.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="notification-post">Notification POST</h1>
 
 <p>To receive the notification POSTs, the merchant must have a URL configurated at Braspag. After this configuration, the Braspag will notify the Merchant sending a simple POST as presented bellow</p>
@@ -14662,6 +14902,54 @@ New Next scheduled recurrence date: Oct 2th <br />
     <tr>
       <td>Alelo</td>
       <td>Elo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="providers-para-zero-auth-via-verifycard">Providers para Zero Auth via VerifyCard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simulado</td>
+    </tr>
+    <tr>
+      <td>Cielo30 (Cielo 3.0)</td>
+    </tr>
+    <tr>
+      <td>Rede2 (e-Rede REST)</td>
+    </tr>
+    <tr>
+      <td>Getnet</td>
+    </tr>
+    <tr>
+      <td>FirstData</td>
+    </tr>
+    <tr>
+      <td>GlobalPayments</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="providers-para-consulta-bin-via-verifycard">Providers para Consulta BIN via VerifyCard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simulado</td>
+    </tr>
+    <tr>
+      <td>Cielo30 (Cielo 3.0)</td>
     </tr>
   </tbody>
 </table>
