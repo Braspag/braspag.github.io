@@ -20,6 +20,10 @@ Como exemplo, para uma transação de crédito realizada em 3x e envolvendo 2 Su
 
 Com a Antecipação, é possível o Master antecipar seus recebíveis ou dos seus subordinados.
 
+## Regras
+
+
+
 ## Integração
 
 A antecipação de recebíveis deve ser realizada através de uma requisição informando os dias que se deseja antecipar e quando se deseja receber.
@@ -54,12 +58,21 @@ Como Master, é possível antecipar os recebíceis de um subordinado e informar 
 }
 ```
 
+| Parâmetro                          | Descrição                                                                            | Tipo    | Formato    | Obrigatório |
+|------------------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
+| `AnticipateTo`                     | Data para qual se deseja antecipar os recebíveis.                                    | Data    | YYYY-MM-DD | Sim         |
+| `ReceivablesToAnticipat[].Date`    | Data prevista de recebíveis futuros que se deseja antecipar.                         | Data    | YYYY-MM-DD | Sim         |
+| `ReceivablesToAnticipat[].Amount`  | Valor que se deseja antecipar.                                                       | Inteiro | -          | Sim         |
+| `ReceivablesToAnticipat[].Percent` | Percentual, destinado ao Master, sobre o valor ser antecipado.                       | Decimal | YYYY-MM-DD | Não         |
+
 ### Response
 
 ```json
+-- 202 Accepted
 {
-    AtecipateId: 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
+    AticipationId: 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
 	AnticipateTo: "2018-04-01",
+	Status: "Received",
     ReceivablesToAnticipate: [
         {
             Date: "2018-04-22",
@@ -79,3 +92,8 @@ Como Master, é possível antecipar os recebíceis de um subordinado e informar 
     ]
 }
 ```
+
+| Parâmetro                          | Descrição                                                                            | Tipo    | Formato    | Obrigatório |
+|------------------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
+| `AnticipateId`                     | identificador da atencipação.                                                        | Guid    | -          | Sim         |
+| `Status`                           | Status da antecipação. [Received - Accepted - Rejected]                              | String  | -          | Sim         |
