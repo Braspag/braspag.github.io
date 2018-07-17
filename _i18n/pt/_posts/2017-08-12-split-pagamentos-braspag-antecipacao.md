@@ -46,22 +46,22 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-    AnticipateTo: "2018-04-01",
-    ReceivablesToAnticipate: [
+    "AnticipateTo": "2018-04-01",
+    "ReceivablesToAnticipate": [
         {
-            Date: "2018-04-22",
-            Amount: 5567890,
-            Percent: 5.00
+            "Date": "2018-04-22",
+            "Amount": 5567890,
+            "Percent": 5.00
         },
         {
-            Date: "2018-04-23",
-            Amount: 2354600
-            Percent:5.01
+            "Date": "2018-04-23",
+            "Amount": 2354600
+            "Percent": 5.01
         },
         {
-            Date: "2018-04-24",
-            Amount: 150000
-            Percent: 5.05
+            "Date": "2018-04-24",
+            "Amount": 150000
+            "Percent": 5.05
         }
     ]
 }
@@ -71,7 +71,7 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
 |------------------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
 | `AnticipateTo`                     | Data para qual se deseja antecipar os recebíveis.                                    | Data    | YYYY-MM-DD | Sim         |
 | `ReceivablesToAnticipat[].Date`    | Data prevista de recebíveis futuros que se deseja antecipar.                         | Data    | YYYY-MM-DD | Sim         |
-| `ReceivablesToAnticipat[].Amount`  | Valor que se deseja antecipar.                                                       | Inteiro | -          | Sim         |
+| `ReceivablesToAnticipat[].Amount`  | Valor, em centavos, que se deseja antecipar.                                         | Inteiro | -          | Sim         |
 | `ReceivablesToAnticipat[].Percent` | Percentual, destinado ao Master, sobre o valor ser antecipado.                       | Decimal | YYYY-MM-DD | Não         |
 
 #### Response
@@ -79,24 +79,24 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
 ```json
 -- 202 Accepted
 {
-    AticipationId: 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
-    AnticipateTo: "2018-04-01",
-    Status: "Received",
-    ReceivablesToAnticipate: [
+    "AticipationId": 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
+    "AnticipateTo": "2018-04-01",
+    "Status": "Received",
+    "ReceivablesToAnticipate": [
         {
-            Date: "2018-04-22",
-            Amount: 5567890
-            Percent: 5.00
+            "Date": "2018-04-22",
+            "Amount": 5567890
+            "Percent": 5.00
         },
         {
-            Date: "2018-04-23",
-            Amount: 2354600,
-            Percent:5.01
+            "Date: "2018-04-23",
+            "Amount": 2354600,
+            "Percent": 5.01
         },
         {
-            Date: "2018-04-24",
-            Amount: 150000,
-            Percent: 5.05
+            "Date": "2018-04-24",
+            "Amount": 150000,
+            "Percent": 5.05
         }
     ]
 }
@@ -122,24 +122,24 @@ x-www-form-urlencoded
 
 ```json
 {
-    AticipationId: 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
-    AnticipateTo: "2018-04-01",
-    Status: "Received",
-    ReceivablesToAnticipate: [
+    "AticipationId": 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
+    "AnticipateTo": "2018-04-01",
+    "Status": "Received",
+    "ReceivablesToAnticipate": [
         {
-            Date: "2018-04-22",
-            Amount: 5567890
-            Percent: 5.00
+            "Date": "2018-04-22",
+            "Amount": 5567890
+            "Percent": 5.00
         },
         {
-            Date: "2018-04-23",
-            Amount: 2354600,
-            Percent:5.01
+            "Date": "2018-04-23",
+            "Amount": 2354600,
+            "Percent": 5.01
         },
         {
-            Date: "2018-04-24",
-            Amount: 150000,
-            Percent: 5.05
+            "Date": "2018-04-24",
+            "Amount": 150000,
+            "Percent": 5.05
         }
     ]
 }
