@@ -173,6 +173,6 @@ Quando a antecipação for analisada, a mesma poderá ser aceita ou recusada e u
 | Propriedade         | Descrição                                                                                               |
 |---------------------|---------------------------------------------------------------------------------------------------------|
 | `Id `               | Identificador da anteciapção.                                                                           |
-| `Status`            | status da antecipação. [Accepted - Rejected]                                                            |
+| `ChangeType`        | 10 - Analise da antecipação realizada.                                                                  |
 
-
+Ao receber a notificação, consulte a antecipação para obter o status.
