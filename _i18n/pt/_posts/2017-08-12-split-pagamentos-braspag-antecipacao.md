@@ -44,7 +44,7 @@ Como Master, é possível antecipar os recebíceis de um subordinado e informar 
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-	AnticipateTo: "2018-04-01",
+    AnticipateTo: "2018-04-01",
     ReceivablesToAnticipate: [
         {
             Date: "2018-04-22",
