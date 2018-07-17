@@ -109,14 +109,195 @@
 
 <h2 id="introdução">Introdução</h2>
 
-<p>O <strong>Split de Pagamentos</strong> permite a divisão de uma transação entre diferentes participantes de uma venda que será liquidada de acordo com o regime de cada arranjo de pagamento.</p>
+<p>O <strong>Split de Pagamentos</strong> liquida os valores referentes a cada particpante de uma transação de acordo com o regime padrão de cada arranjo de pagamento.</p>
 
-<p>Como exemplo, para uma transação de crédito realizada em 3x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referente a transação citada em 30, 60 e 90 dias.</p>
+<p>Como exemplo, para uma transação de crédito realizada em 3x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referentes a cada parcela da transação citada em 30, 60 e 90 dias.</p>
 
-<p>Com a Antecipação, o Master pode antecipar seus recebíveis ou dos seus subordinados.</p>
+<p>Com a Antecipação, é possível que o Master antecipe os seus recebíveis e/ou dos seus subordinados.</p>
+
+<p>Para consultar a agenda financeira com a previsão dos recebíveis futuros, consulte o manual <a href="https://braspag.github.io//manual/split-pagamentos-braspag#agenda-financeira" target="_blank">Split de Pagamentos</a>.</p>
+
+<h2 id="regras">Regras</h2>
+
+<p>A antecipação dos recebíveis de vendas no Split é baseada nas seguintes regras:</p>
+
+<ul>
+  <li>Somente o Master pode solicitar antecipação.</li>
+  <li>É permitido somente antecipar o valor cheio de uma parcela, não sendo possível antecipar metade de uma parcela, por exemplo.</li>
+  <li>O percentual informado no momento da solicitação só é aplicável quando o Master está solicitando a antecipação para um dos seus subordinados. A Braspag irá desconsiderar este percentual caso a antecipação seja para o próprio Master.</li>
+  <li>A solicitação de antecipação não é aceita imediatamente. A mesma é recebida, analisada e poderá ser aceita ou recusada.</li>
+</ul>
 
 <h2 id="integração">Integração</h2>
 
+<h3 id="criar-uma-antecipação">Criar uma Antecipação</h3>
+
+<p>A antecipação de recebíveis deve ser realizada através de uma requisição informando os dias que se deseja antecipar e quando se deseja receber.</p>
+
+<p>Como Master, é possível antecipar os recebíveis de um subordinado e informar o percentual a ser descontado do subordinado pela operação.</p>
+
+<h4 id="request">Request</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="err">AnticipateTo</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="err">ReceivablesToAnticipate</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
+            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="p">,</span><span class="w">
+            </span><span class="err">Percent</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
+            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="w">
+            </span><span class="err">Percent</span><span class="p">:</span><span class="mf">5.01</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
+            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="w">
+            </span><span class="err">Percent</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">AnticipateTo</code></td>
+      <td>Data para qual se deseja antecipar os recebíveis.</td>
+      <td>Data</td>
+      <td>YYYY-MM-DD</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReceivablesToAnticipat[].Date</code></td>
+      <td>Data prevista de recebíveis futuros que se deseja antecipar.</td>
+      <td>Data</td>
+      <td>YYYY-MM-DD</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReceivablesToAnticipat[].Amount</code></td>
+      <td>Valor que se deseja antecipar.</td>
+      <td>Inteiro</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReceivablesToAnticipat[].Percent</code></td>
+      <td>Percentual, destinado ao Master, sobre o valor ser antecipado.</td>
+      <td>Decimal</td>
+      <td>YYYY-MM-DD</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">Accepted</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="err">AticipationId</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="err">CC</span><span class="mi">958</span><span class="err">F</span><span class="mi">0</span><span class="err">-B</span><span class="mi">02</span><span class="err">B</span><span class="mi">-4</span><span class="err">F</span><span class="mi">66</span><span class="err">-B</span><span class="mi">5</span><span class="err">B</span><span class="mi">1</span><span class="err">-F</span><span class="mi">857</span><span class="err">AEF</span><span class="mi">4</span><span class="err">BE</span><span class="mi">1</span><span class="err">D</span><span class="p">,</span><span class="w">
+    </span><span class="err">AnticipateTo</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="err">Status</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+    </span><span class="err">ReceivablesToAnticipate</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-22"</span><span class="p">,</span><span class="w">
+            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">5567890</span><span class="w">
+            </span><span class="err">Percent</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-23"</span><span class="p">,</span><span class="w">
+            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">2354600</span><span class="p">,</span><span class="w">
+            </span><span class="err">Percent</span><span class="p">:</span><span class="mf">5.01</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="err">Date</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24"</span><span class="p">,</span><span class="w">
+            </span><span class="err">Amount</span><span class="p">:</span><span class="w"> </span><span class="mi">150000</span><span class="p">,</span><span class="w">
+            </span><span class="err">Percent</span><span class="p">:</span><span class="w"> </span><span class="mf">5.05</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">AnticipateId</code></td>
+      <td>identificador da atencipação.</td>
+      <td>Guid</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Status da antecipação. [Received - Accepted - Rejected]</td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="consultar-uma-antecipação">Consultar uma Antecipação</h3>
+
+<h4 id="request-1">Request</h4>
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-api}/schedule-api/{merchantId}/anticipation/{anticipationid}
+
+```shell
+x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"  
+```
+
+#### Response
+
+```json
+{
+    AticipationId: 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
+    AnticipateTo: "2018-04-01",
+    Status: "Received",
+    ReceivablesToAnticipate: [
+        {
+            Date: "2018-04-22",
+            Amount: 5567890
+            Percent: 5.00
+        },
+        {
+            Date: "2018-04-23",
+            Amount: 2354600,
+            Percent:5.01
+        },
+        {
+            Date: "2018-04-24",
+            Amount: 150000,
+            Percent: 5.05
+        }
+    ]
+}
+```
+</span></aside>
 
 </div>
 
