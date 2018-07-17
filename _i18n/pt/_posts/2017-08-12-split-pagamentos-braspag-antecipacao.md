@@ -20,8 +20,6 @@ Como exemplo, para uma transação de crédito realizada em 3x e envolvendo 2 Su
 
 Com a Antecipação, é possível que o Master antecipe os seus recebíveis e/ou dos seus subordinados.
 
-Para consultar a agenda financeira com a previsão dos recebíveis futuros, consulte o manual [Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag#agenda-financeira){:target="_blank"}.
-
 ## Regras
 
 A antecipação dos recebíveis de vendas no Split é baseada nas seguintes regras:
