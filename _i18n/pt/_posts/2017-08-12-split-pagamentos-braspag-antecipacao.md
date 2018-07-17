@@ -78,8 +78,8 @@ Como Master, é possível antecipar os recebíceis de um subordinado e informar 
 -- 202 Accepted
 {
     AticipationId: 1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D,
-	AnticipateTo: "2018-04-01",
-	Status: "Received",
+    AnticipateTo: "2018-04-01",
+    Status: "Received",
     ReceivablesToAnticipate: [
         {
             Date: "2018-04-22",
