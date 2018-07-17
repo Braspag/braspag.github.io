@@ -126,7 +126,11 @@
   <li>É permitido somente antecipar o valor cheio de uma parcela, não sendo possível antecipar metade de uma parcela, por exemplo.</li>
   <li>O percentual informado no momento da solicitação só é aplicável quando o Master está solicitando a antecipação para um dos seus subordinados. A Braspag irá desconsiderar este percentual caso a antecipação seja para o próprio Master.</li>
   <li>A solicitação de antecipação não é aceita imediatamente. A mesma é recebida, analisada e poderá ser aceita ou recusada.</li>
+  <li>Ao realizar a antecipação de recebíveis de uma data, são antecipados tanto os créditos quanto os débitos.</li>
+  <li>A data para antecipar deverá ser maior ou igual a data da solicitação acrescida em 3 dias.</li>
 </ul>
+
+<p><img src="https://braspag.github.io/images/braspag/anticipation.png" alt="StateDiagramAnticipation" /></p>
 
 <h2 id="integração">Integração</h2>
 
@@ -209,7 +213,7 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="s2">"202 Accepted"</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"AticipationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AnticipationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"AnticipateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReceivablesToAnticipate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -273,7 +277,7 @@
 <h4 id="response-1">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"AticipationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AnticipationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"AnticipateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReceivablesToAnticipate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -300,6 +304,72 @@
 
 <p>Caso a atencipação seja aceita, a agenda do estabelciment, para a qual a antecipação foi solicitada, será sensibilizada com eventos indicando as datas previstas para pagamento.</p>
 
+<p>Eventos de Crédito:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">UndoToAnticipationCredit</code></td>
+      <td>Lançamento de crédito para desfazimento de eventos futuros antecipados.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AnticipationCredit</code></td>
+      <td>Lançamento de crédito de antecipação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Eventos de Débito:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">UndoToAnticipationDebit </code></td>
+      <td>Lançamento de débito para desfazimento de eventos futuros antecipados.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AnticipationDebit</code></td>
+      <td>Lançamento de débito de antecipação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="notificação">Notificação</h2>
+
+<p>Quando a antecipação for analisada, a mesma poderá ser aceita ou recusada e uma notificação pode ser enviada para um URL previamente cadastrada na Braspag.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Id </code></td>
+      <td>Identificador da anteciapção.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ChangeType</code></td>
+      <td>10 - Analise da antecipação realizada.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ao receber a notificação, consulte a antecipação para obter o status.</p>
 
 </div>
 
