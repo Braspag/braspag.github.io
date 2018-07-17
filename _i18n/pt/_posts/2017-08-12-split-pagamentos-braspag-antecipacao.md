@@ -81,7 +81,7 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
 ```json
 -- "202 Accepted"
 {
-    "AticipationId": "1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D",
+    "AnticipationId": "1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D",
     "AnticipateTo": "2018-04-01",
     "Status": "Received",
     "ReceivablesToAnticipate": [
@@ -124,7 +124,7 @@ x-www-form-urlencoded
 
 ```json
 {
-    "AticipationId": "1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D",
+    "AnticipationId": "1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D",
     "AnticipateTo": "2018-04-01",
     "Status": "Received",
     "ReceivablesToAnticipate": [
