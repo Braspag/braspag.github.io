@@ -4967,10 +4967,10 @@ To create a registered boleto payment (known as "Boleto Registrado" as well), it
         "Instructions": "Aceitar somente até a data de vencimento.",
      "DaysToFine": 1,
      "FineRate": 10.00000,
-     "FineAmount": 10.00,
+     "FineAmount": 1000,
      "DaysToInterest":1,
      "InterestRate": 5.00000,
-     "InterestAmount": 5.00
+     "InterestAmount": 500
     }
 }
 ```
@@ -5013,10 +5013,10 @@ curl
         "Instructions": "Aceitar somente até a data de vencimento.",
      "DaysToFine": 1,
      "FineRate": 10.00000,
-     "FineAmount": 10.00,
+     "FineAmount": 1000,
      "DaysToInterest":1,
      "InterestRate": 5.00000,
-     "InterestAmount": 5.00
+     "InterestAmount": 500
     }
 }
 --verbose
@@ -5050,10 +5050,10 @@ curl
 |`Payment.Instructions`|Text|See the table below|No|Instruction Message. If this fiel is filled, it will override the configured value.|
 |`Payment.DaysToFine`|Number |15 |No|Optional and only valid for provider Bradesco2. Number of days after boleto expiration in order to add a fine to original amount. Use integer number. Ex: 3|
 |`Payment.FineRate`|Number |15 |No|Optional and only valid for provider Bradesco2. Fine rate to be charged in percentage (%) over original amount. It is allowed to use up to five decimal digits. Don't use this field if the FineAmount is already used. Ex: 10.12345|
-|`Payment.FineAmount`|Number |15 |No|Optional and only valid for provider Bradesco2. Absolute fine amount to be charged. Don't use this field if the FineRate is already used.  Ex: 10.12|
+|`Payment.FineAmount`|Number |15 |No|Optional and only valid for provider Bradesco2. Absolute fine amount to be charged in BRL cents. Don't use this field if the FineRate is already used.  Ex: 1000 = R$ 10,00|
 |`Payment.DaysToInterest`|Number |15 |No|Optional and only valid for provider Bradesco2. Number of days after boleto expiration in order to start a interest charging. Use integer number.Ex: 3|
 |`Payment.InterestRate`|Number |15 |No|Optional and only valid for provider Bradesco2. Interest rate to be charged in percentage (%) over original amount. The interest amount is charged proportionally per day (monthly interest divided by 30). It is allowed to use up to five decimal digits. Don't use this field if the InterestAmount is already used.. Ex: 10.12345|
-|`Payment.InterestAmount`|Number |15 |No|Optional and only valid for provider Bradesco2. Absolute daily interest amount to be charged. Don't use this field if the InterestRate is already used. |
+|`Payment.InterestAmount`|Number |15 |No|Optional and only valid for provider Bradesco2. Absolute daily interest amount to be charged in BRL cents. Don't use this field if the InterestRate is already used. Ex: 1000 = R$ 10,00|
 
 ### Fields max length specification for each bank
 
