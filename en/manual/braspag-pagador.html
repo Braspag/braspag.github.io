@@ -10569,10 +10569,10 @@
         </span><span class="s2">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
      </span><span class="s2">"DaysToFine"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="s2">"FineRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.00000</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"FineAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.00</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"FineAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
      </span><span class="s2">"DaysToInterest"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="s2">"InterestRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00000</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"InterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+     </span><span class="s2">"InterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -10614,10 +10614,10 @@
         <span class="s2">"Instructions"</span>: <span class="s2">"Aceitar somente até a data de vencimento."</span>,
      <span class="s2">"DaysToFine"</span>: 1,
      <span class="s2">"FineRate"</span>: 10.00000,
-     <span class="s2">"FineAmount"</span>: 10.00,
+     <span class="s2">"FineAmount"</span>: 1000,
      <span class="s2">"DaysToInterest"</span>:1,
      <span class="s2">"InterestRate"</span>: 5.00000,
-     <span class="s2">"InterestAmount"</span>: 5.00
+     <span class="s2">"InterestAmount"</span>: 500
     <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -10848,7 +10848,7 @@
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Optional and only valid for provider Bradesco2. Absolute fine amount to be charged. Don’t use this field if the FineRate is already used.  Ex: 10.12</td>
+      <td>Optional and only valid for provider Bradesco2. Absolute fine amount to be charged in BRL cents. Don’t use this field if the FineRate is already used.  Ex: 1000 = R$ 10,00</td>
       <td> </td>
     </tr>
     <tr>
@@ -10872,7 +10872,7 @@
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Optional and only valid for provider Bradesco2. Absolute daily interest amount to be charged. Don’t use this field if the InterestRate is already used.</td>
+      <td>Optional and only valid for provider Bradesco2. Absolute daily interest amount to be charged in BRL cents. Don’t use this field if the InterestRate is already used. Ex: 1000 = R$ 10,00</td>
       <td> </td>
     </tr>
   </tbody>
