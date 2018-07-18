@@ -14308,10 +14308,10 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
      </span><span class="s2">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
      </span><span class="s2">"DaysToFine"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="s2">"FineRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.00000</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"FineAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.00</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"FineAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
      </span><span class="s2">"DaysToInterest"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="s2">"InterestRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00000</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"InterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
+     </span><span class="s2">"InterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -14354,10 +14354,10 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
      <span class="s2">"Instructions"</span>: <span class="s2">"Aceitar somente até a data de vencimento."</span>,
      <span class="s2">"DaysToFine"</span>: 1,
      <span class="s2">"FineRate"</span>: 10.00000,
-     <span class="s2">"FineAmount"</span>: 10.00,
+     <span class="s2">"FineAmount"</span>: 1000,
      <span class="s2">"DaysToInterest"</span>:1,
      <span class="s2">"InterestRate"</span>: 5.00000,
-     <span class="s2">"InterestAmount"</span>: 5.00
+     <span class="s2">"InterestAmount"</span>: 500
     <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -14561,14 +14561,14 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td>Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não enviar se utilizar FineAmount. Ex: 10.12345</td>
+      <td>Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não enviar se utilizar FineAmount. Ex: 10.12345 = 10.12345%</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.FineAmount</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td>Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em valor absoluto. Permitido decimal com até 2 casas decimais. Não enviar se utilizar FineRate.  Ex: 10.12</td>
+      <td>Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não enviar se utilizar FineRate.  Ex: 1000 = R$ 10,00</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.DaysToInterest</code></td>
@@ -14589,7 +14589,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td>Opcional e somente para provider Bradesco2. Valor absoluto de juros diário após o vencimento. Não enviar se utilizar InterestRate.</td>
+      <td>Opcional e somente para provider Bradesco2. Valor absoluto de juros diário após o vencimento em centavos. Não enviar se utilizar InterestRate. Ex: 1000 = R$ 10,00</td>
     </tr>
   </tbody>
 </table>
