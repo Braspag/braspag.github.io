@@ -6848,10 +6848,10 @@ Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do 
      "Instructions": "Aceitar somente até a data de vencimento.",
      "DaysToFine": 1,
      "FineRate": 10.00000,
-     "FineAmount": 10.00,
+     "FineAmount": 1000,
      "DaysToInterest":1,
      "InterestRate": 5.00000,
-     "InterestAmount": 5.00
+     "InterestAmount": 500
     }
 }
 ```
@@ -6895,10 +6895,10 @@ curl
      "Instructions": "Aceitar somente até a data de vencimento.",
      "DaysToFine": 1,
      "FineRate": 10.00000,
-     "FineAmount": 10.00,
+     "FineAmount": 1000,
      "DaysToInterest":1,
      "InterestRate": 5.00000,
-     "InterestAmount": 5.00
+     "InterestAmount": 500
     }
 }
 --verbose
@@ -6932,11 +6932,11 @@ curl
 |`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Payment.NullifyDays`|Número |2 |Não|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo contado a partir da data do vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander.|
 |`Payment.DaysToFine`|Número |15 |Não|Opcional e somente para provider Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex: 3|
-|`Payment.FineRate`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não enviar se utilizar FineAmount. Ex: 10.12345|
-|`Payment.FineAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em valor absoluto. Permitido decimal com até 2 casas decimais. Não enviar se utilizar FineRate.  Ex: 10.12|
+|`Payment.FineRate`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não enviar se utilizar FineAmount. Ex: 10.12345 = 10.12345%|
+|`Payment.FineAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não enviar se utilizar FineRate.  Ex: 1000 = R$ 10,00|
 |`Payment.DaysToInterest`|Número |15 |Não|Opcional e somente para provider Bradesco2.Quantidade de dias após o vencimento para iniciar a cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex: 3|
 |`Payment.InterestRate`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (Mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não enviar se utilizar InterestAmount. Ex: 10.12345|
-|`Payment.InterestAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor absoluto de juros diário após o vencimento. Não enviar se utilizar InterestRate.|
+|`Payment.InterestAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor absoluto de juros diário após o vencimento em centavos. Não enviar se utilizar InterestRate. Ex: 1000 = R$ 10,00|
 
 ### Tabela de Especificação de quantidade de caracteres do campo por Provider
 
