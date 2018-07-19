@@ -8725,6 +8725,14 @@ Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP 
 
 # Consultas
 
+<aside class="notice"><strong>Regra:</strong>
+<ul>
+<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
+<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
+<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
+</ul>
+</aside>
+
 ## Consultando uma transação via PaymentID
 
 Para consultar uma transação de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
@@ -8928,14 +8936,6 @@ curl
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão|Texto|4|
 |`CreditCard.Brand`|Bandeira do cartão|Texto|10 |
 |`CreditCard.SaveCard`|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|Booleano|--- (Default false)|
-
-<aside class="notice"><strong>Regra:</strong>
-<ul>
-<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
-<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
-<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
-</ul>
-</aside>
 
 ## Consultando uma transação de Boleto via PaymentID
 
