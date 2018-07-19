@@ -8725,6 +8725,8 @@ Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP 
 
 # Consultas
 
+## Consultando uma transação via PaymentID
+
 <aside class="notice"><strong>Regra:</strong>
 <ul>
 <li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
@@ -8732,8 +8734,6 @@ Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP 
 <li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
 </ul>
 </aside>
-
-## Consultando uma transação via PaymentID
 
 Para consultar uma transação de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
@@ -8939,6 +8939,14 @@ curl
 
 ## Consultando uma transação de Boleto via PaymentID
 
+<aside class="notice"><strong>Regra:</strong>
+<ul>
+<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
+<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
+<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
+</ul>
+</aside>
+
 Para consultar uma transação de boleto registrado, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
 ### Requisição
@@ -9142,6 +9150,8 @@ curl
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
 |`Payment.Status`|Status da Transação|Byte|2| Ex. 1|
 
+## Consultando uma venda pelo identificador da loja
+
 <aside class="notice"><strong>Regra:</strong>
 <ul>
 <li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
@@ -9149,8 +9159,6 @@ curl
 <li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
 </ul>
 </aside>
-
-## Consultando uma venda pelo identificador da loja
 
 Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.
 
@@ -9218,14 +9226,6 @@ curls
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-
-<aside class="notice"><strong>Regra:</strong>
-<ul>
-<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
-<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
-<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
-</ul>
-</aside>
 
 ## Consultando um pedido Recorrente
 
