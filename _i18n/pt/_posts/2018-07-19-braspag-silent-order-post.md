@@ -33,7 +33,7 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente final de 
 
 ## Fluxo
 
-COLOCAR IMAGEM
+![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-silent-order-post-ptbr.JPG)
 
 **PASSO 1**
 
