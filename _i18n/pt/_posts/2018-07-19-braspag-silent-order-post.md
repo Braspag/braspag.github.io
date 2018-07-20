@@ -6,7 +6,7 @@ search: true
 translated: true
 categories: manual
 tags:
-  - Pagador
+  - Silent Order Post
 language_tabs:
   json: JSON
   shell: cURL
