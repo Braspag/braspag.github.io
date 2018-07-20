@@ -6,7 +6,7 @@ search: true
 translated: true
 categories: manual
 tags:
-  - Silent Order Post
+  - Pagador
 language_tabs:
   json: JSON
   shell: cURL
@@ -33,7 +33,7 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente final de 
 
 ## Fluxo
 
-![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-silent-order-post-ptbr.JPG)
+![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-sop-br.jpg)
 
 **PASSO 1**
 
