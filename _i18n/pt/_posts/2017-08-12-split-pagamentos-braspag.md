@@ -797,7 +797,7 @@ Para transações com **Cartão de Crédito**, este período é de **15 dias** s
 
 **Request**  
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
