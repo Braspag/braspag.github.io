@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-07-23T15:28:09+00:00</updated>
+    <updated>2018-07-23T15:32:12+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -161,9 +161,9 @@ O download poderá ser realizado a partir da seguinte URL:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Para o portador do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardholdername&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Para o número do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardnumber&lt;/strong&gt; 
-*Para a validade do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardexpirationdate&lt;/strong&gt; 
-*Para o código de segurança do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardcvvc&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Para o número do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardnumber&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Para a validade do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardexpirationdate&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Para o código de segurança do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardcvvc&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;c) O script fornecido pela Braspag fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: &lt;strong&gt;onSuccess&lt;/strong&gt; (onde será retornado o &lt;strong&gt;“PaymentToken”&lt;/strong&gt; após processar os dados do cartão), &lt;strong&gt;onError&lt;/strong&gt; (caso haja algum erro no consumo dos serviços da Braspag) e &lt;strong&gt;onInvalid&lt;/strong&gt; (onde será retornado o resultado da validação dos inputs).&lt;/p&gt;
