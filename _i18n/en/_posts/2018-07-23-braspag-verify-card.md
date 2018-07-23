@@ -1,23 +1,22 @@
 ---
 layout: manual
-title: Manual de integração Verify Card
+title: Integration Manual Verify Card
 description: Integração técnica Gateway Braspag
 search: true
-translated: true
 categories: manual
+translated: true
 tags:
   - Pagador
 language_tabs:
   json: JSON
   shell: cURL
-  html: HTML
 ---
 
-# Consultando dados de um cartão via Zero Auth e Consulta BIN
+# Querying data from a card via Zero Auth and BIN Query Service
 
-Para consultar dados de um cartão, é necessário fazer um POST no serviço VerifyCard. O VerifyCard é composto por dois serviços: Zero Auth e Consulta BIN. O Zero Auth é um serviço que indentifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00. A Consulta BIN é um serviço disponível para clientes Cielo 3.0 que retorna as características do BIN tais como bandeira e tipo do cartão, a partir do BIN (6 primeiros dígitos do cartão). Os dois serviços podem ser consumidos simultaneamente através do VerifyCard, conforme o exemplo baixo. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este fluxo, por favor, entre em contato com nosso time de suporte.
+To query card data, a POST request is required on the VerifyCard service. The VerifyCard consists of two services: Zero Auth and BIN Query Service. Zero Auth is a service that identifies if a card is valid or not, through an operation similar to an authorization, but sending zero as transaction amount. The BIN Query Service is a service available for merchats that use Cielo 3.0 and it returns card BIN information such as brand and card type. Both services can be consumed simultaneously through the VerifyCard, as shown in the example below. It is also possible that the authorization process is automatically conditioned to a successful return of ZeroAuth. To enable this feature, please contact our support team.
 
-## Requisição
+## Request
 
 <aside class="request"><span class="method get">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -61,21 +60,21 @@ curl
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Mandatory|Description|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Card.CardNumber`|Texto|16|Sim|Número do Cartão do comprador para Zero Auth e Consulta BIN. Caso seja uma somente requisição de Consulta BIN, enviar somente o BIN|
-|`Card.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`Card.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`Card.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`Card.Brand`|Texto|10|Sim |Bandeira do cartão|
-|`Card.Type`|Texto|CreditCard ou DebitCard|Sim|Tipo do cartão a ser consultado. Este campo é particularmente importante devido aos cartões com funções múltiplas.|
-|`Card.CardToken`|Guid|36|Não|Token do Cartão Protegido. Caso seja enviado o token, não é necessário enviar os dados do cartão.|
+|`MerchantId`|Guid|36|Yes|Merchant ID|
+|`MerchantKey`|Text|40|Yes|Merchant Key|
+|`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
+|`Payment.Provider`|Text|15|Yes|Payment Method Provider’s name|
+|`Card.CardNumber`|Text|16|Yes|Credit Card number. In case of doing just BIN Query Service, put the first six digits of card (BIN)|
+|`Card.Holder`|Text|25|Yes|Cardholder name|
+|`Card.ExpirationDate`|Text|7|Yes|Expiration Date (MM/YYYY)|
+|`Card.SecurityCode`|Text|4|Yes|Security Code (CVV2)|
+|`Card.Brand`|Text|10|Yes |Card’s Brand|
+|`Card.Type`|Text|CreditCard ou DebitCard|Yes|Identify the cart type to be queried. This information is relevant for multiple function card.|
+|`Card.CardToken`|Guid|36|No|Card Token that represents the card information.|
 
-## Resposta
+## Response
 
 ```json
 {
@@ -110,13 +109,13 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`Status`|Status do Zero Auth|Número|1 |<UL><LI>0-Consulta Zero Auth com sucesso</LI><LI>1-Falha na consulta ao Zero Auth</LI><LI>99-Consulta com sucesso, porém o status do cartão é inconclusivo</LI></UL> |
-|`ProviderReturnCode`|Código da consulta Zero Auth retornado pelo provedor. |Número|2|Ex. Para provedor Cielo30, 85-Sucesso (cartão válido)|
-|`ProviderReturnMessage`|Mensagem da consulta Zero Auth retornado pelo provedor. |Texto|512 |Ex. "Transacao Autorizada"|
-|`BinData.Provider`|Provedor do serviço|Texto|15 |Ex. Cielo30|
-|`BinData.CardType`|Tipo do Cartão retornado da Consulta BIN|Texto|15 |Ex. Crédito, Débito, Múltiplo, Débito Refeição, etc|
-|`BinData.ForeignCard`|Indicação se é um cartão emitido fora do Brasil|booleano|- |Ex. true ou false |
-|`BinData.Code`|Código de retorno da Consulta BIN|Número|2 |Ex. Para provedor Cielo30, 00 significa consulta realizada com sucesso.  |
-|`BinData.Message`|Mensagem de retorno da Consulta BIN |Texto|512 |Ex. Para provedor Cielo30, "Analise autorizada" significa consulta realizada com sucesso. |
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`Status`|Zero Auth status|Number|1 |<UL><LI>0-Success Zero Auth response</LI><LI>1-Failed Zero Auth response</LI><LI>99-The query was succeeded but the card status is inconclusive</LI></UL> |
+|`ProviderReturnCode`|Zero Auth query response code returned by the provider. |Number|2|Ex. For provider Cielo30, 85-Sucesso (valid card)|
+|`ProviderReturnMessage`|Zero Auth query response message returned by the provider. |Text|512 |Ex. "Transacao Autorizada"|
+|`BinData.Provider`|Service provider|Text|15 |Ex. Cielo30|
+|`BinData.CardType`|Card Type|Text|15 |Ex. Crédito, Débito, Múltiplo, Débito Refeição, etc|
+|`BinData.ForeignCard`|Identify if the card was issues in Brazil or not|booleano|- |Ex. true ou false |
+|`BinData.Code`|BIN query service return code|Number|2 |Ex. For provider Cielo30, 00 means that the query was succeeded  |
+|`BinData.Message`|query service return message|Text|512 |Ex. For provider Cielo30, "Analise autorizada" means that the query was succeeded. |
