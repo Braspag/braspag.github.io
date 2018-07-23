@@ -176,10 +176,10 @@ https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}<
 
 <h3 id="requisição">Requisição</h3>
 
-<aside class="request"><span class="method get">POST</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}"</span>
+<span class="nt">--request</span> POST <span class="s2">"https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--data-binary</span>
 <span class="nt">--verbose</span>
