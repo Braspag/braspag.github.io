@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-07-23T17:53:53+00:00</updated>
+    <updated>2018-07-23T17:58:15+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -266,7 +266,7 @@
         <link href="https://braspag.github.io//manual/braspag-silent-order-post"/>
         <updated>2018-07-19T00:00:00+00:00</updated>
         <id>https://braspag.github.io//manual/braspag-silent-order-post</id>
-        <content type="html">&lt;h1 id=&quot;introdução-ao-silent-order-post&quot;&gt;Introdução ao Silent Order Post&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;silent-order-post&quot;&gt;Silent Order Post&lt;/h1&gt;
 
 &lt;p&gt;Integração que a Braspag oferece aos lojistas, onde os dados de pagamentos são trafegue de forma segura, mantendo o controle total sobre a experiência de Ckeck Out.&lt;/p&gt;
 
@@ -274,7 +274,7 @@
 
 &lt;p&gt;É ideal para lojistas que exigem um alto nível de segurança, sem perder a identidade de sua página. Esse método permite um alto nível de personalização na sua página de checkout.&lt;/p&gt;
 
-&lt;h2 id=&quot;características&quot;&gt;Características&lt;/h2&gt;
+&lt;h1 id=&quot;características&quot;&gt;Características&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Captura de dados de pagamento diretamente para os sistemas da Braspag por meio dos campos hospedados na sua página através de um script (javascript).&lt;/li&gt;
@@ -284,11 +284,11 @@
   &lt;li&gt;Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;fluxo-transacional&quot;&gt;Fluxo Transacional&lt;/h2&gt;
+&lt;h1 id=&quot;fluxo-transacional&quot;&gt;Fluxo Transacional&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/fluxo-sop-br.jpg&quot; alt=&quot;Fluxo Silent Order Post&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;integração&quot;&gt;Integração&lt;/h2&gt;
+&lt;h1 id=&quot;integração&quot;&gt;Integração&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;PASSO 1&lt;/strong&gt;&lt;/p&gt;
 
@@ -302,7 +302,7 @@
 
 &lt;p&gt;Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h2 id=&quot;requisição&quot;&gt;Requisição&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v1/accesstoken?merchantid={mid_loja}&lt;/span&gt;&lt;/aside&gt;
 
@@ -334,7 +334,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h2 id=&quot;resposta&quot;&gt;Resposta&lt;/h2&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
