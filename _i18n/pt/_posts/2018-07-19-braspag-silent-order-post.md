@@ -8,9 +8,7 @@ categories: manual
 tags:
   - Pagador
 language_tabs:
-  json: JSON
   shell: cURL
-  html: HTML
 ---
 
 # Introdução ao Silent Order Post
