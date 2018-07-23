@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-07-23T17:34:20+00:00</updated>
+    <updated>2018-07-23T17:38:36+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13,16 +13,16 @@
     </author>
     
     <entry>
-        <title>Manual de integração Verify Card</title>
+        <title>Integration Manual Verify Card</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/braspag-verify-card-en"/>
         <updated>2018-07-23T00:00:00+00:00</updated>
         <id>https://braspag.github.io//en/manual/braspag-verify-card-en</id>
-        <content type="html">&lt;h1 id=&quot;consultando-dados-de-um-cartão-via-zero-auth-e-consulta-bin&quot;&gt;Consultando dados de um cartão via Zero Auth e Consulta BIN&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;querying-data-from-a-card-via-zero-auth-and-bin-query-service&quot;&gt;Querying data from a card via Zero Auth and BIN Query Service&lt;/h1&gt;
 
-&lt;p&gt;Para consultar dados de um cartão, é necessário fazer um POST no serviço VerifyCard. O VerifyCard é composto por dois serviços: Zero Auth e Consulta BIN. O Zero Auth é um serviço que indentifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00. A Consulta BIN é um serviço disponível para clientes Cielo 3.0 que retorna as características do BIN tais como bandeira e tipo do cartão, a partir do BIN (6 primeiros dígitos do cartão). Os dois serviços podem ser consumidos simultaneamente através do VerifyCard, conforme o exemplo baixo. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este fluxo, por favor, entre em contato com nosso time de suporte.&lt;/p&gt;
+&lt;p&gt;To query card data, a POST request is required on the VerifyCard service. The VerifyCard consists of two services: Zero Auth and BIN Query Service. Zero Auth is a service that identifies if a card is valid or not, through an operation similar to an authorization, but sending zero as transaction amount. The BIN Query Service is a service available for merchats that use Cielo 3.0 and it returns card BIN information such as brand and card type. Both services can be consumed simultaneously through the VerifyCard, as shown in the example below. It is also possible that the authorization process is automatically conditioned to a successful return of ZeroAuth. To enable this feature, please contact our support team.&lt;/p&gt;
 
-&lt;h2 id=&quot;requisição&quot;&gt;Requisição&lt;/h2&gt;
+&lt;h2 id=&quot;request&quot;&gt;Request&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/verifycard&lt;/span&gt;&lt;/aside&gt;
 
@@ -67,11 +67,11 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Propriedade&lt;/th&gt;
-      &lt;th&gt;Tipo&lt;/th&gt;
-      &lt;th&gt;Tamanho&lt;/th&gt;
-      &lt;th&gt;Obrigatório&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -79,83 +79,83 @@
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Guid&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Identificador da loja na Braspag&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Merchant ID&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;40&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Chave Publica para Autenticação Dupla na Braspag&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Merchant Key&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Guid&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Request Identifier defined by merchant, applicable to any operation GET/POST/PUT&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Nome da provedora de Meio de Pagamento&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Payment Method Provider’s name&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.CardNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;16&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Número do Cartão do comprador para Zero Auth e Consulta BIN. Caso seja uma somente requisição de Consulta BIN, enviar somente o BIN&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Credit Card number. In case of doing just BIN Query Service, put the first six digits of card (BIN)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Holder&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;25&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Nome do Comprador impresso no cartão&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Cardholder name&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.ExpirationDate&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Data de validade impresso no cartão, no formato MM/AAAA&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Expiration Date (MM/YYYY)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.SecurityCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Código de segurança impresso no verso do cartão&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Security Code (CVV2)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Brand&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Card’s Brand&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;CreditCard ou DebitCard&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Tipo do cartão a ser consultado. Este campo é particularmente importante devido aos cartões com funções múltiplas.&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Identify the cart type to be queried. This information is relevant for multiple function card.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.CardToken&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Guid&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Token do Cartão Protegido. Caso seja enviado o token, não é necessário enviar os dados do cartão.&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Card Token that represents the card information.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;resposta&quot;&gt;Resposta&lt;/h2&gt;
+&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -191,69 +191,69 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Propriedade&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Tipo&lt;/th&gt;
-      &lt;th&gt;Tamanho&lt;/th&gt;
-      &lt;th&gt;Formato&lt;/th&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Format&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Status do Zero Auth&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;Zero Auth status&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0-Consulta Zero Auth com sucesso1-Falha na consulta ao Zero Auth99-Consulta com sucesso, porém o status do cartão é inconclusivo&lt;/td&gt;
+      &lt;td&gt;0-Success Zero Auth response1-Failed Zero Auth response99-The query was succeeded but the card status is inconclusive&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Código da consulta Zero Auth retornado pelo provedor.&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;Zero Auth query response code returned by the provider.&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. Para provedor Cielo30, 85-Sucesso (cartão válido)&lt;/td&gt;
+      &lt;td&gt;Ex. For provider Cielo30, 85-Sucesso (valid card)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnMessage&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Mensagem da consulta Zero Auth retornado pelo provedor.&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Zero Auth query response message returned by the provider.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
       &lt;td&gt;Ex. “Transacao Autorizada”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Provedor do serviço&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Service provider&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Ex. Cielo30&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.CardType&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Tipo do Cartão retornado da Consulta BIN&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Card Type&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Ex. Crédito, Débito, Múltiplo, Débito Refeição, etc&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.ForeignCard&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Indicação se é um cartão emitido fora do Brasil&lt;/td&gt;
+      &lt;td&gt;Identify if the card was issues in Brazil or not&lt;/td&gt;
       &lt;td&gt;booleano&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Ex. true ou false&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Código de retorno da Consulta BIN&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;BIN query service return code&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. Para provedor Cielo30, 00 significa consulta realizada com sucesso.&lt;/td&gt;
+      &lt;td&gt;Ex. For provider Cielo30, 00 means that the query was succeeded&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Mensagem de retorno da Consulta BIN&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;query service return message&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
-      &lt;td&gt;Ex. Para provedor Cielo30, “Analise autorizada” significa consulta realizada com sucesso.&lt;/td&gt;
+      &lt;td&gt;Ex. For provider Cielo30, “Analise autorizada” means that the query was succeeded.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
