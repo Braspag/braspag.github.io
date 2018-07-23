@@ -8,7 +8,6 @@ translated: true
 tags:
   - Pagador
 language_tabs:
-  json: JSON
   shell: cURL
 ---
 
@@ -30,9 +29,9 @@ The customer finishes to checkout, and go to payment process.
 
 **STEP 2**
 
-a) The merchant must request a ticket (server to server) sending a POST to the following URL
+a) The merchant must request a ticket (server to server) sending a POST to the following URL:
 
-https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}
+**https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}**
 
 For example: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
 
