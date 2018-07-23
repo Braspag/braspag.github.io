@@ -53,11 +53,7 @@
                 <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
                 <ul class="language-buttons">
                     
-                    <li><a data-language-name='json'>JSON</a></li>
-                    
                     <li><a data-language-name='shell'>cURL</a></li>
-                    
-                    <li><a data-language-name='html'>HTML</a></li>
                     
                 </ul>
             </div>
@@ -437,11 +433,7 @@ O download poderá ser realizado a partir da seguinte URL:</p>
         });
 
         
-        langs += "<a data-language-name='json'>JSON</a>";
-        
         langs += "<a data-language-name='shell'>cURL</a>";
-        
-        langs += "<a data-language-name='html'>HTML</a>";
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
@@ -450,7 +442,7 @@ O download poderá ser realizado a partir da seguinte URL:</p>
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json",  "shell",  "html", ]);
+                setupLanguages([  "shell", ]);
             });
         </script>
         
