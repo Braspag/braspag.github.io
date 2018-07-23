@@ -165,17 +165,18 @@
 
 <p><strong>PASSO 2</strong></p>
 
-<p>a) O estabelecimento deverá solicitar um ticket (server to server) enviando um POST para a seguinte URL:
-https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}</p>
+<p>a) O estabelecimento deverá solicitar um ticket (server to server) enviando um POST para a seguinte URL:</p>
 
-<p>Exemplo: https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
+<p>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}</p>
+
+<p>Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
 <h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}"</span>
+<span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--data-binary</span>
 <span class="nt">--verbose</span>
