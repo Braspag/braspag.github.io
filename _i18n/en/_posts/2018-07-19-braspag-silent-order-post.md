@@ -21,7 +21,7 @@ The PagadorButton is another way to implement the Authorization process with Pag
 
 Follow below the way to implement the Silent Order Post:
 
-![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-sop-br.jpg)
+![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-silent-order-post-en.jpg)
 
 **STEP 1**
 
