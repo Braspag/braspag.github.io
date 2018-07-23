@@ -40,9 +40,10 @@ O cliente acaba o checkout, e vai para o processamento do pagamento.
 **PASSO 2**
 
 a) O estabelecimento deverá solicitar um ticket (server to server) enviando um POST para a seguinte URL:
-https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}
 
-Exemplo: https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
+https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}
+
+Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
 
 ### Requisição
 
@@ -50,7 +51,7 @@ Exemplo: https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00
 
 ```shell
 curl
---request POST "https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}"
+--request POST "https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"
 --header "Content-Type: application/json"
 --data-binary
 --verbose
