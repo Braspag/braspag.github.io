@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-07-23T20:23:41+00:00</updated>
+    <updated>2018-07-23T20:32:30+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -284,9 +284,9 @@
 
 &lt;p&gt;&lt;strong&gt;STEP 2&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;a) The merchant must request a ticket (server to server) sending a POST to the following URL&lt;/p&gt;
+&lt;p&gt;a) The merchant must request a ticket (server to server) sending a POST to the following URL:&lt;/p&gt;
 
-&lt;p&gt;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;For example: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&lt;/p&gt;
 

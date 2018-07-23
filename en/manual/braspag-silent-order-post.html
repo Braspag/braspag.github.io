@@ -53,8 +53,6 @@
                 <a class='hide-btn' id="hide-button" title="Toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
                 <ul class="language-buttons">
                     
-                    <li><a data-language-name='json'>JSON</a></li>
-                    
                     <li><a data-language-name='shell'>cURL</a></li>
                     
                 </ul>
@@ -155,9 +153,9 @@
 
 <p><strong>STEP 2</strong></p>
 
-<p>a) The merchant must request a ticket (server to server) sending a POST to the following URL</p>
+<p>a) The merchant must request a ticket (server to server) sending a POST to the following URL:</p>
 
-<p>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}</p>
+<p><strong>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}</strong></p>
 
 <p>For example: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
@@ -423,8 +421,6 @@
         });
 
         
-        langs += "<a data-language-name='json'>JSON</a>";
-        
         langs += "<a data-language-name='shell'>cURL</a>";
         
 
@@ -434,7 +430,7 @@
         <script src="https://braspag.github.io//en/assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json",  "shell", ]);
+                setupLanguages([  "shell", ]);
             });
         </script>
         
