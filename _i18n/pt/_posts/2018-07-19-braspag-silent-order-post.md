@@ -29,9 +29,11 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente final de 
 * Redução do escopo de PCI DSS
 * Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.
 
-## Fluxo
+## Fluxo Transacional
 
 ![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-sop-br.jpg)
+
+## Integração
 
 **PASSO 1**
 
