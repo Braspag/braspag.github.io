@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-07-23T14:59:54+00:00</updated>
+    <updated>2018-07-23T15:18:23+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -19,8 +19,6 @@
         <updated>2018-07-19T00:00:00+00:00</updated>
         <id>https://braspag.github.io//manual/braspag-silent-order-post</id>
         <content type="html">&lt;h1 id=&quot;introdução-ao-silent-order-post&quot;&gt;Introdução ao Silent Order Post&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;O objetivo desta documentação é orientar o desenvolvedor sobre implementação com o Silent Order Post&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Integração que a Braspag oferece aos lojistas, onde os dados de pagamentos são trafegue de forma segura, mantendo o controle total sobre a experiência de Ckeck Out.&lt;/p&gt;
 
