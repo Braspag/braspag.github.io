@@ -89,7 +89,7 @@ b) Para uso este recurso, por questões de segurança, obrigatoriamente será re
 
 a) Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo entre outras informações o ticket (AccessToken), como por exemplo:
 
-![Access Token]({{ site.baseurl_root }}/images/response-ticket.jpg)
+![Response Ticket]({{ site.baseurl_root }}/images/response-ticket.jpg)
 
 Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo de já estipulado na resposta, através do atributo ExpiresIn (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.
 
@@ -117,4 +117,4 @@ c) O script fornecido pela Braspag fornece três eventos para manipulação e tr
 
 Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:
 
-![Access Token]({{ site.baseurl_root }}/images/pagina-checkout.jpg)
+![Pagina Checkout]({{ site.baseurl_root }}/images/pagina-checkout.jpg)
