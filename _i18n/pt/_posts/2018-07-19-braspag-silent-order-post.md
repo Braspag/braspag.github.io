@@ -104,8 +104,8 @@ b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes
 
 * Para o portador do cartão de crédito/débito: **bp-sop-cardholdername** 
 * Para o número do cartão de crédito/débito: **bp-sop-cardnumber** 
-*Para a validade do cartão de crédito/débito: **bp-sop-cardexpirationdate** 
-*Para o código de segurança do cartão de crédito/débito: **bp-sop-cardcvvc**
+* Para a validade do cartão de crédito/débito: **bp-sop-cardexpirationdate** 
+* Para o código de segurança do cartão de crédito/débito: **bp-sop-cardcvvc**
 
 c) O script fornecido pela Braspag fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: **onSuccess** (onde será retornado o **“PaymentToken”** após processar os dados do cartão), **onError** (caso haja algum erro no consumo dos serviços da Braspag) e **onInvalid** (onde será retornado o resultado da validação dos inputs).
 
