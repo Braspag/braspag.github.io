@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-07-23T15:18:23+00:00</updated>
+    <updated>2018-07-23T15:19:28+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -36,9 +36,11 @@
   &lt;li&gt;Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;fluxo&quot;&gt;Fluxo&lt;/h2&gt;
+&lt;h2 id=&quot;fluxo-transacional&quot;&gt;Fluxo Transacional&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/fluxo-sop-br.jpg&quot; alt=&quot;Fluxo Silent Order Post&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;integração&quot;&gt;Integração&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;PASSO 1&lt;/strong&gt;&lt;/p&gt;
 
