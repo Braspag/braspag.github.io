@@ -1,51 +1,42 @@
 ---
 layout: manual
-title: Manual de integração Silent Order Post
+title: Integration Manual Silent Order Post
 description: Integração técnica Gateway Braspag
 search: true
-translated: true
 categories: manual
+translated: true
 tags:
   - Pagador
 language_tabs:
+  json: JSON
   shell: cURL
 ---
 
 # Silent Order Post
 
-Integração que a Braspag oferece aos lojistas, onde os dados de pagamentos são trafegue de forma segura, mantendo o controle total sobre a experiência de Ckeck Out.
+The main objective of this document is to guide your implementation with the PagadorButton, for Pagador platform.
 
-Esse método possibilita o envio dos dados do pagamento do seu cliente final de forma segura diretamente em nosso sistema. Os campos de pagamento são guardados do lado da Braspag, que conta com a certificação PCI DSS 3.1.
+The PagadorButton is another way to implement the Authorization process with Pagador platform. Using the JavaScript© as a script to do this and show a button in your checkout, you only needs to set-up the next steps in your checkout.
 
-É ideal para lojistas que exigem um alto nível de segurança, sem perder a identidade de sua página. Esse método permite um alto nível de personalização na sua página de checkout.
+# How To
 
-# Características
-
-* Captura de dados de pagamento diretamente para os sistemas da Braspag por meio dos campos hospedados na sua página através de um script (javascript).
-* Compatibilidade com todos os meios de pagamentos disponibilizados ao Gateway (Nacional e Internacional)
-* Autenticação do comprador (disponível)
-* Redução do escopo de PCI DSS
-* Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.
-
-# Fluxo Transacional
+Follow below the way to implement the Silent Order Post:
 
 ![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-sop-br.jpg)
 
-# Integração
+**STEP 1**
 
-**PASSO 1**
+The customer finishes to checkout, and go to payment process.
 
-O cliente acaba o checkout, e vai para o processamento do pagamento.
+**STEP 2**
 
-**PASSO 2**
-
-a) O estabelecimento deverá solicitar um ticket (server to server) enviando um POST para a seguinte URL:
+a) The merchant must request a ticket (server to server) sending a POST to the following URL
 
 https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}
 
-Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
+For example: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
 
-## Requisição
+## Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -57,11 +48,11 @@ curl
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|PROPERTY|DESCRIPTION|TYPE|SIZE|MANDATORY|
 |-----------|---------|----|-------|-----------|
-|`mid_loja`|Identificador da loja na API |Guid |36 |Sim|
+|`mid_loja`|API store identifier |Guid |36 |Yes|
 
-## Resposta
+## Response
 
 ```shell
 --header "Content-Type: application/json"
@@ -75,45 +66,44 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|PROPERTY|DESCRIPTION|TYPE|SIZE|MANDATORY|
 |-----------|---------|----|-------|-------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`AccessToken`|Token de Acesso|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
-|`Issued`|Data e hora da geração |Texto|--|AAAA-MM-DDTHH:MM:SS|
-|`ExpiresIn`|Data e hora da expiração |Texto|--|AAAA-MM-DDTHH:MM:SS|
+|`MerchantId`|API store identifier |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Access Token |Text|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Date and time of the generation |Text|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Date and time of the expiration |Text|--|AAAA-MM-DDTHH:MM:SS|
 
-b) Para uso este recurso, por questões de segurança, obrigatoriamente será requerido do lado da Braspag, **no mínimo um IP válido do estabelecimento**. Caso contrário a requisição não será autorizada (**HTTP 401 NotAuthorized**).
+b) In order to use this resource, for security reasons, it will be mandatory for Braspag to require, **at least a valid IP of the establishment**. Otherwise the requisition will not be authorized (**HTTP 401 NotAuthorized**).
 
-**PASSO 3**
+**STEP 3**
 
-a) Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo entre outras informações o ticket (AccessToken), como por exemplo:
+a) As answer the establishment will receive a json (HTTP 201 Created) having among other information the ticket (AccessToken), as for example:
 
 ![Response Ticket]({{ site.baseurl_root }}/images/response-ticket.jpg)
 
-Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo de já estipulado na resposta, através do atributo ExpiresIn (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.
+For matters of safety, this ticket will give permissions to the establishment to save only 1 card in the deadline already established on the answer, through the attribute Expiresln (for default 20 minutes). What happens first will invalidate this same ticket for future usage.
 
-**PASSO 4 ao 6**
+**STEPS 4 ao 6**
 
-a) O estabelecimento deverá fazer o download de um script fornecido pela Braspag, e anexá-lo a sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento.
-O download poderá ser realizado a partir da seguinte URL: 
+a) The establishment will have to download a script provided by Braspag and attach it on the checkout page. This script will allow Braspag to process all of the card information without the establishment intervention
 
-**https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**
+The download may be made from the following URL: **https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**
 
-b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes classes:
+b) The establishment will have to decorate the inputs from the form with the following classes:
 
-* Para o portador do cartão de crédito/débito: **bp-sop-cardholdername** 
-* Para o número do cartão de crédito/débito: **bp-sop-cardnumber** 
-* Para a validade do cartão de crédito/débito: **bp-sop-cardexpirationdate** 
-* Para o código de segurança do cartão de crédito/débito: **bp-sop-cardcvvc**
+* For the credit/debit card holder: **bp-sop-cardholdername** 
+* For credit/debit card number: **bp-sop-cardnumber** 
+* For credit/debit card expiration date: **bp-sop-cardexpirationdate** 
+* For the credit/debit card security code: **bp-sop-cardcvvc**
 
-c) O script fornecido pela Braspag fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: **onSuccess** (onde será retornado o **“PaymentToken”** após processar os dados do cartão), **onError** (caso haja algum erro no consumo dos serviços da Braspag) e **onInvalid** (onde será retornado o resultado da validação dos inputs).
+c) The script provided by Braspag present three events for the establishment’s manipulation and treatment which are: **onSuccess** (where will be returned the **PaymentToken** after the card data is processed), **onError** (in case there is any error in the consumption of Braspag services) and **onInvalid** (where the result of the validation of the inputs will be returned).
 
-* Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Braspag e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol.
+* On the input validation, the establishment may use the entire card data validation layer realized by Braspag in order to simplify the treatment on the checkout form. The returned messages on the validation result are available on the following languages: Portuguese (default) English and Spanish.
 
-* O **PaymentToken** será o token que representará todos os dados de cartão fornecido pelo comprador. O mesmo será utilizado pelo estabelecimento para não haver necessidade de tratar e processar dados de cartão do seu lado.
+* The **PaymentToken** will be the token that will represent every card data provided by the buyer. It will be utilized by the establishment so there will not be the necessity of treating and processing the card data on your side. This token may be used both in transactions using Hosted Page or SOAP / REST implementations of Pagador.
 
-**Por questões de segurança esse PaymentToken poderá ser usado apenas para 1 autorização na Braspag. Após o processamento do mesmo, este será invalidado.**
+**For matters of safety this PaymentToken may be used for only 1 authorization on Braspag. After the token processing, it will be invalid.**
 
-Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:
+Example of setup to be carried out by the establishment on the checkout page:
 
 ![Pagina Checkout]({{ site.baseurl_root }}/images/pagina-checkout.jpg)
