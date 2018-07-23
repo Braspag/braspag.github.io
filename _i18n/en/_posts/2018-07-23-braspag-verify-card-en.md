@@ -12,11 +12,11 @@ language_tabs:
   shell: cURL
 ---
 
-## Querying data from a card via Zero Auth and BIN Query Service
+# Querying data from a card via Zero Auth and BIN Query Service
 
 To query card data, a POST request is required on the VerifyCard service. The VerifyCard consists of two services: Zero Auth and BIN Query Service. Zero Auth is a service that identifies if a card is valid or not, through an operation similar to an authorization, but sending zero as transaction amount. The BIN Query Service is a service available for merchats that use Cielo 3.0 and it returns card BIN information such as brand and card type. Both services can be consumed simultaneously through the VerifyCard, as shown in the example below. It is also possible that the authorization process is automatically conditioned to a successful return of ZeroAuth. To enable this feature, please contact our support team.
 
-### Request
+## Request
 
 <aside class="request"><span class="method get">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -74,7 +74,7 @@ curl
 |`Card.Type`|Text|CreditCard ou DebitCard|Yes|Identify the cart type to be queried. This information is relevant for multiple function card.|
 |`Card.CardToken`|Guid|36|No|Card Token that represents the card information.|
 
-### Response
+## Response
 
 ```json
 {
