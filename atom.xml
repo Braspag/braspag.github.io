@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-07-23T15:20:06+00:00</updated>
+    <updated>2018-07-23T15:28:09+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -146,7 +146,7 @@ https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}&
 
 &lt;p&gt;a) Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo entre outras informações o ticket (AccessToken), como por exemplo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/response-ticket.jpg&quot; alt=&quot;Access Token&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/response-ticket.jpg&quot; alt=&quot;Response Ticket&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo de já estipulado na resposta, através do atributo ExpiresIn (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.&lt;/p&gt;
 
@@ -181,7 +181,7 @@ O download poderá ser realizado a partir da seguinte URL:&lt;/p&gt;
 
 &lt;p&gt;Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/pagina-checkout.jpg&quot; alt=&quot;Access Token&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/pagina-checkout.jpg&quot; alt=&quot;Pagina Checkout&quot; /&gt;&lt;/p&gt;
 </content>
     </entry>
     
