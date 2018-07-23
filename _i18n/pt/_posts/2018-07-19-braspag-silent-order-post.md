@@ -48,11 +48,11 @@ Exemplo: https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00
 
 ### Requisição
 
-<aside class="request"><span class="method get">POST</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
 ```shell
 curl
---request GET "https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}"
+--request POST "https://www.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}"
 --header "Content-Type: application/json"
 --data-binary
 --verbose
