@@ -11,7 +11,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Introdução ao Silent Order Post
+# Silent Order Post
 
 Integração que a Braspag oferece aos lojistas, onde os dados de pagamentos são trafegue de forma segura, mantendo o controle total sobre a experiência de Ckeck Out.
 
@@ -19,7 +19,7 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente final de 
 
 É ideal para lojistas que exigem um alto nível de segurança, sem perder a identidade de sua página. Esse método permite um alto nível de personalização na sua página de checkout.
 
-## Características
+# Características
 
 * Captura de dados de pagamento diretamente para os sistemas da Braspag por meio dos campos hospedados na sua página através de um script (javascript).
 * Compatibilidade com todos os meios de pagamentos disponibilizados ao Gateway (Nacional e Internacional)
@@ -27,11 +27,11 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente final de 
 * Redução do escopo de PCI DSS
 * Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.
 
-## Fluxo Transacional
+# Fluxo Transacional
 
 ![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-sop-br.jpg)
 
-## Integração
+# Integração
 
 **PASSO 1**
 
@@ -45,7 +45,7 @@ https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchan
 
 Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
 
-### Requisição
+## Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -61,7 +61,7 @@ curl
 |-----------|---------|----|-------|-----------|
 |`mid_loja`|Identificador da loja na API |Guid |36 |Sim|
 
-### Resposta
+## Resposta
 
 ```shell
 --header "Content-Type: application/json"
