@@ -8256,8 +8256,8 @@ curl
 |`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária. Ex.: 1234.|
 |`Payment.Credentials.Account`|Número |10 |Sim|O número da conta. Ex.: 0012345678.|
 |`Payment.Credentials.Wallet`|Número |3 |Sim|Número da carteira informado pelo Citibank. Ex.: 181. |
-|`Payment.Credentials.Code`|Número |20 |Sim|Código de conciliação. Informação enviada pelo Citibank. Ex.: 01234005678000250181|
-|`Payment.Credentials.Agreement`|Número |20 |Sim|Código de convênio gerado pelo Citibank. Ex.: 01234000567800250181|
+|`Payment.Credentials.Code`|Número |20 |Sim|Portfolio de Conciliação informado pelo Citibank. Ex.: 01234005678000250181|
+|`Payment.Credentials.Agreement`|Número |20 |Sim|Portfolio Transacional informado pelo Citibank. Ex.: 01234000567800250181|
 
 [Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado](https://braspag.github.io//manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider).
 
