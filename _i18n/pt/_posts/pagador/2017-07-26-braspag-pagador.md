@@ -8177,7 +8177,7 @@ Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do 
             "account": "0012345678",
             "wallet": "181",
             "code": "01234005678000250181",
-	        "agreement": "01234000567800250181"
+            "agreement": "01234000567800250181"
         }
     }
 }
@@ -8220,7 +8220,7 @@ curl
             "account": "0012345678",
             "wallet": "181",
             "code": "01234005678000250181",
-	        "agreement": "01234000567800250181"
+            "agreement": "01234000567800250181"
         }
     }
 }
