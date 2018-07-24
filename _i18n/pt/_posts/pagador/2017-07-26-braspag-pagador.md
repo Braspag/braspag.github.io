@@ -7082,7 +7082,7 @@ curl
 
 ## Criando uma transação de Boleto Registrado Bradesco com dados de afiliação 
 
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Bradesco. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrano, basta enviar as credenciais via requisição. 
+Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Bradesco. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
 
 ### Requisição
 
@@ -7356,7 +7356,7 @@ curl
 
 ## Criando uma transação de Boleto Registrado Banco do Brasil com dados de afiliação 
 
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco do Brasil. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrano, basta enviar as credenciais via requisição. 
+Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco do Brasil. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
 
 ### Requisição
 
@@ -7617,7 +7617,7 @@ curl
 
 ## Criando uma transação de Boleto Registrado Caixa Econômica com dados de afiliação 
 
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Bradesco. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrano, basta enviar as credenciais via requisição. 
+Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Caixe Econômica. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
 
 ### Requisição
 
