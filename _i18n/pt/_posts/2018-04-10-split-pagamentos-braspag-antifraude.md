@@ -299,7 +299,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
       "FraudAnalysis":{
          "Provider":"RedShield",
          "TotalOrderAmount":"150000",
-         "OrderDate":"2016-12-09",
+         "OrderDate":"2016-12-09 12:35:58.852",
          "IsRetryTransaction":false,
          "SplitingPaymentMethod":"None",
          "Browser":{
@@ -435,8 +435,8 @@ especiais|
 |:-|:-|:-|:-|:-|
 |`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
 |`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude <br/> Possíveis valores: RedShield|
-|`Payment.TotalOrderAmount`|Número|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação <br/> Ex.: Valor do pedido sem a taxa de entrega|
-|`Payment.OrderDate`|Date|-|Não|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|
+|`Payment.FraudAnalysis.TotalOrderAmount`|Número|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação <br/> Ex.: Valor do pedido sem a taxa de entrega|
+|`Payment.FraudAnalysis.OrderDate`|DateTime|-|Não|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|
 |`Payment.FraudAnalysis.IsRetryTransaction`|Booleano|-|Não|Indica se é uma retentativa de análise de fraude|
 |`Payment.FraudAnalysis.SplitingPaymentMethod`|Texto|-|Não|Indica se o pagamento esta sendo dividido. Possíveis valores: None (Pagamento com único cartão) - CardSplit (Pagamento com mais de um cartão)|
 
@@ -559,7 +559,7 @@ especiais|
          "CaptureOnLowRisk":false,
          "VoidOnHighRisk":false,
          "TotalOrderAmount":"150000",
-         "OrderDate":"2016-12-09",
+         "OrderDate":"2016-12-09 12:35:58.852",
          "IsRetryTransaction":false,
          "SplitingPaymentMethod":"None",
          "Browser":{
