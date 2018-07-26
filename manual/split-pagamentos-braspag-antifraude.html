@@ -645,7 +645,7 @@
       </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"RedShield"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="s2">"150000"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"OrderDate"</span><span class="p">:</span><span class="s2">"2016-12-09"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"OrderDate"</span><span class="p">:</span><span class="s2">"2016-12-09 12:35:58.852"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"IsRetryTransaction"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SplitingPaymentMethod"</span><span class="p">:</span><span class="s2">"None"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Browser"</span><span class="p">:{</span><span class="w">
@@ -1192,15 +1192,15 @@
       <td style="text-align: left">Identifica o provedor da solução de análise de fraude <br /> Possíveis valores: RedShield</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.TotalOrderAmount</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Valor total do pedido em centavos, podendo ser diferente do valor da transação <br /> Ex.: Valor do pedido sem a taxa de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.OrderDate</code></td>
-      <td style="text-align: left">Date</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.OrderDate</code></td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">-</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Data do pedido <br /> Ex.: 2016-12-09 19:16:38.155 <br /> Obs.: Caso não seja informada, uma data será gerada pela Braspag</td>
@@ -1545,7 +1545,7 @@
          </span><span class="s2">"CaptureOnLowRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="s2">"VoidOnHighRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="s2">"150000"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"OrderDate"</span><span class="p">:</span><span class="s2">"2016-12-09"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"OrderDate"</span><span class="p">:</span><span class="s2">"2016-12-09 12:35:58.852"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"IsRetryTransaction"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SplitingPaymentMethod"</span><span class="p">:</span><span class="s2">"None"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Browser"</span><span class="p">:{</span><span class="w">
