@@ -310,11 +310,10 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
             "Items":[
                {
                   "Name": "Celular XYZ",
-                  "UnitPrice": "6500",
                   "MerchantItemId": "4",
                   "Sku": "abc123",
                   "Quantity": 1,
-                  "OriginalPrice": "7000",
+                  "OriginalPrice": "70000",
                   "Description": "Celular XYZ, Wi-Fi, 4G, Câmera 8MP",
                   "ShippingInstructions": "Fragil",
                   "ShippingMethod": "SameDay",
@@ -326,7 +325,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
                   "MerchantItemId": "5",
                   "Sku": "abc456",
                   "Quantity": 1,
-                  "OriginalPrice": "500",
+                  "OriginalPrice": "400000",
                   "Description": "TV Full HD, 8 Entradas HDMI, Smart TV",
                   "ShippingInstructions": "Televissao - Cuidado",
                   "ShippingMethod": "SameDay",
@@ -450,7 +449,6 @@ especiais|
 |`Payment.FraudAnalysis.Cart.Items[].Name`|Texto|50|Não|Nome do produto|
 |`Payment.FraudAnalysis.Cart.Items[].Sku`|Texto|12|Não|Sku do produto|
 |`Payment.FraudAnalysis.Cart.Items[].MerchantItemId`|Texto|30|Não|ID do produto na loja|
-|`Payment.FraudAnalysis.Cart.Items[].UnitPrice`|Número|15|Não|Preço unitário do produto em centavos <br/> Ex.: r$ 1.559,85 = 155985|
 |`Payment.FraudAnalysis.Cart.Items[].OriginalPrice`|Número|15|Não|Preço original do produto em centavos <br/> Ex.: r$ 1.559,85 = 155985|
 |`Payment.FraudAnalysis.Cart.Items[].Quantity`|Número|-|Não|Quantidade do produto|
 |`Payment.FraudAnalysis.Cart.Items[].GiftMessage`|Texto|160|Não|Mensagem de presente|
@@ -570,11 +568,10 @@ especiais|
             "Items":[
                {
                   "Name": "Celular XYZ",
-                  "UnitPrice": "6500",
                   "MerchantItemId": "4",
                   "Sku": "abc123",
                   "Quantity": 1,
-                  "OriginalPrice": "7000",
+                  "OriginalPrice": "70000",
                   "Description": "Celular XYZ, Wi-Fi, 4G, Câmera 8MP",
                   "ShippingInstructions": "Mesa 51",
                   "ShippingMethod": "SameDay",
@@ -582,11 +579,10 @@ especiais|
                },
                {
                   "Name": "TV XPTO Full HD",
-                  "UnitPrice": "4000",
                   "MerchantItemId": "5",
                   "Sku": "abc456",
                   "Quantity": 1,
-                  "OriginalPrice": "500",
+                  "OriginalPrice": "400000",
                   "Description": "TV Full HD, 8 Entradas HDMI, Smart TV",
                   "ShippingInstructions": "Televisao - Cuidado",
                   "ShippingMethod": "SameDay",
