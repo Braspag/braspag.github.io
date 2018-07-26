@@ -1424,29 +1424,29 @@ A agenda é composta por eventos de Crédito e Débito que são gerados de acord
 
 Eventos de Crédito:
 
-| Evento                         | Descrição                                                                                               |
-|--------------------------------|---------------------------------------------------------------------------------------------------------|
-| `Credit`                       | Lançamento de crédito das parcelas de uma transação.                                                    |
-| `FeeCredit`                    | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
-| `RefundCredit`                 | Lançamento de crédito devido a um cancelamento.                                                         |
-| `ChargebackCredit`             | Lançamento de crédito devido a um chargeback.                                                           |
-| `UndoChargebackCredit`         | Lançamento de crédito para reversão de um chargeback.                                                   |
-| `AntiFraudFeeCredit`           | Lançamento de crédito referente à transação de antifraude.                                              |
-| `AntiFraudFeeWithReviewCredit` | Lançamento de crédito referente à transação de antifraude com revisão manual.                           |
-| `AdjustmentCredit`             | Lançamento de um crédito como ajuste.                                                                   |
+| Id | Evento                         | Descrição                                                                                               |
+|----|--------------------------------|---------------------------------------------------------------------------------------------------------|
+| 1  | `Credit`                       | Lançamento de crédito das parcelas de uma transação.                                                    |
+| 3  | `FeeCredit`                    | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
+| 5  | `RefundCredit`                 | Lançamento de crédito devido a um cancelamento.                                                         |
+| 7  | `ChargebackCredit`             | Lançamento de crédito devido a um chargeback.                                                           |
+| 9  | `UndoChargebackCredit`         | Lançamento de crédito para reversão de um chargeback.                                                   |
+| 11 | `AntiFraudFeeCredit`           | Lançamento de crédito referente à transação de antifraude.                                              |
+| 13 | `AntiFraudFeeWithReviewCredit` | Lançamento de crédito referente à transação de antifraude com revisão manual.                           |
+| 15 | `AdjustmentCredit`             | Lançamento de um crédito como ajuste.                                                                   |
 
 Eventos de Débito:
 
-| Evento                        | Descrição                                                                                               |
-|-------------------------------|---------------------------------------------------------------------------------------------------------|
-| `Debit`                       | Lançamento de débito das parcelas de uma transação.                                                     |
-| `FeeDebit`                    | Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).             |
-| `RefundDebit`                 | Lançamento de débito devido a um cancelamento.                                                          |
-| `ChargebackDebit`             | Lançamento de débito devido a um chargeback.                                                            |
-| `UndoChargebackDebit`         | Lançamento de débito para reversão de um chargeback.                                                    |
-| `AntiFraudFeeDebit`           | Lançamento de débito referente à transação de antifraude.                                               |
-| `AntiFraudFeeWithReviewDebit` | Lançamento de débito referente à transação de antifraude com revisão manual.                            |
-| `AdjustmentDebit`             | Lançamento de um débito como ajuste.                                                                    |
+| Id | Evento                        | Descrição                                                                                               |
+|----|-------------------------------|---------------------------------------------------------------------------------------------------------|
+| 2  | `Debit`                       | Lançamento de débito das parcelas de uma transação.                                                     |
+| 4  | `FeeDebit`                    | Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).             |
+| 6  | `RefundDebit`                 | Lançamento de débito devido a um cancelamento.                                                          |
+| 8  | `ChargebackDebit`             | Lançamento de débito devido a um chargeback.                                                            |
+| 10 | `UndoChargebackDebit`         | Lançamento de débito para reversão de um chargeback.                                                    |
+| 12 | `AntiFraudFeeDebit`           | Lançamento de débito referente à transação de antifraude.                                               |
+| 14 | `AntiFraudFeeWithReviewDebit` | Lançamento de débito referente à transação de antifraude com revisão manual.                            |
+| 16 | `AdjustmentDebit`             | Lançamento de um débito como ajuste.                                                                    |
 
 Um evento poderá estar em um dos seguintes status na agenda financeira:
 
