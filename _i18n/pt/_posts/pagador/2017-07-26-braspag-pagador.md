@@ -10243,7 +10243,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 
 |Provider|
 |--------|
-|Bradesco2, BancoDoBrasil2, ItauShopline, Santander2, Caixa2, CitiBank2, BankOfAmerica|
+|Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
 
 ### Providers para Transferência Eletronica (Débito Online)
 
