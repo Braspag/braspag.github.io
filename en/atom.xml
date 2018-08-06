@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-08-06T15:52:03+00:00</updated>
+    <updated>2018-08-06T16:00:10+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11109,7 +11109,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
       &lt;th&gt;Mandatory&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -11119,7 +11118,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Guid&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
@@ -11127,7 +11125,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
@@ -11135,7 +11132,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Guid&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
@@ -11143,7 +11139,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
@@ -11151,7 +11146,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt;&lt;/td&gt;
@@ -11159,7 +11153,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Customer’s RG, CPF or CNPJ&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;14&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.IdentityType&lt;/code&gt;&lt;/td&gt;
@@ -11167,7 +11160,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Email&lt;/code&gt;&lt;/td&gt;
@@ -11175,12 +11167,10 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Street&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Customer’s main contact address&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -11191,7 +11181,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Complement&lt;/code&gt;&lt;/td&gt;
@@ -11199,7 +11188,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.ZipCode&lt;/code&gt;&lt;/td&gt;
@@ -11207,7 +11195,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;&lt;/td&gt;
@@ -11215,7 +11202,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.State&lt;/code&gt;&lt;/td&gt;
@@ -11223,12 +11209,10 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Country&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Customer’s main contact address’ Country&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;35&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -11239,7 +11223,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
@@ -11247,7 +11230,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -11255,7 +11237,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
@@ -11263,7 +11244,6 @@ All the orders just authorized must be captured here. When the capture process i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
