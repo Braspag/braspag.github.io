@@ -6696,18 +6696,18 @@ curl
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API. |Texto |40 |Sim|
 |`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
 |`MerchantOrderId`|Numero de identificação do Pedido. |Texto |50 |Sim|
-|`Customer.Name`|Texto|255|Sim|Nome do comprador|
-|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Email`|Texto|255|Não|Email do comprador|
-|`Customer.Address.Street`|Texto|255|Sim|Endereço de contato do comprador|
-|`Customer.Address.Number`|Texto|15|Sim|Número endereço de contato do comprador|
-|`Customer.Address.Complement`|Texto|50|Sim|Complemento do endereço de contato do Comprador|
-|`Customer.Address.ZipCode`|Texto|9|Sim|CEP do endereço de contato do comprador|
-|`Customer.Address.City`|Texto|50|Sim|Cidade do endereço de contato do comprador|
-|`Customer.Address.State`|Texto|2|Sim|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Sim|Pais do endereço de contato do comprador|
-|`Customer.Address.District`|Texto|35|Sim|Bairro do endereço de contato do comprador|
+|`Customer.Name`|Nome do comprador|Texto|255|Sim|
+|`Customer.Identity`|Número do RG, CPF ou CNPJ do Cliente| Texto |14 |Sim|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ)|Texto|255|Não|
+|`Customer.Email`|Email do comprador|Texto|255|Não|
+|`Customer.Address.Street`|Endereço de contato do comprador|Texto|255|Sim|
+|`Customer.Address.Number`|Número endereço de contato do comprador|Texto|15|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de contato do Comprador|Texto|50|Sim|
+|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador|Texto|9|Sim|
+|`Customer.Address.City`|Cidade do endereço de contato do comprador|Texto|50|Sim|
+|`Customer.Address.State`|Estado do endereço de contato do comprador|Texto|2|Sim|
+|`Customer.Address.Country`|Pais do endereço de contato do comprador|Texto|35|Sim|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador|Texto|35|Sim|
 |`Payment.Type`|Tipo do Meio de Pagamento. |Texto |100 |Sim|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos)|Número |15 |Sim|
 |`Payment.Provider`|Nome da provedora de Meio de Pagamento|Texto |15 |---|
