@@ -4829,13 +4829,13 @@ curl
 |`Customer.Identity`|Yes|Customer's RG, CPF or CNPJ|Text|14|
 |`Customer.IdentityType`|Customer Identification Type  (CPF or CNPJ)|Text|255|No|
 |`Customer.Email`|Customer's e-mail address|Text|255|No|
-|`Customer.Address.Street`|Customer's main contact address||Text|255|No|
+|`Customer.Address.Street`|Customer's main contact address|Text|255|No|
 |`Customer.Address.Number`|Customer's main contact address building number|Text|15|No|
 |`Customer.Address.Complement`|Customer's main contact address additional data|Text|50|No|
 |`Customer.Address.ZipCode`|Customer's main contact address ZIP code|Text|9|No|
 |`Customer.Address.City`|Customer's main contact address' City|Text|50|No|
 |`Customer.Address.State`|Customer's main contact address' State|Text|2|No|
-|`Customer.Address.Country`|Customer's main contact address' Country||Text|35|No|
+|`Customer.Address.Country`|Customer's main contact address' Country|Text|35|No|
 |`Customer.Address.District`|Customer's main contact address' district name|Text|50|No|
 |`Payment.Type`|Payment Method's Type|Text|100|Yes|
 |`Payment.Amount`|Transaction Amount (must be sent in cents)|Number|15|Yes|
