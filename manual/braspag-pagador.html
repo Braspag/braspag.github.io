@@ -17447,6 +17447,86 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   </tbody>
 </table>
 
+<h2 id="criando-uma-transação-de-boleto-registrado-com-dados-de-afiliação">Criando uma transação de Boleto Registrado com dados de afiliação</h2>
+
+<p>Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição.</p>
+
+<h3 id="boleto-registrado-santander">Boleto Registrado Santander</h3>
+
+<p>Nesta modalidade, além de enviar as informações do comprador (nome completo, CPF/CNPJ, endereço), deve-se enviar dentro do nó <code class="highlighter-rouge">Payment</code> as informações transacionais:</p>
+
+<h4 id="requisição-31">Requisição</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"wallet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12312312312"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"agreement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transfererCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B97L"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Agency</code></td>
+      <td>Número</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>O número da agência bancária. Ex.: 1234.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Account</code></td>
+      <td>Número</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>O número da conta. Ex.: 123456789.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Wallet</code></td>
+      <td>Número</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Número da carteira informado pelo banco. Ex.: CNR.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Code</code></td>
+      <td>Número</td>
+      <td>12</td>
+      <td>Sim</td>
+      <td>Código de Conciliação. Ex.: 12312312312</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Agreement</code></td>
+      <td>Número</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Código Convênio. Ex.: 1234567</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.TransfererCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Código Cedente. Ex.: B97L</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="pagamentos-recorrentes">Pagamentos Recorrentes</h1>
 
 <ul>
@@ -17458,7 +17538,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>Neste exemplo, uma transação é submetida para autorização, e quando aprovada, a recorrência é agendada conforme as regras especificadas na transação. Uma transação recorrente não poderá ser parcelada.</p>
 
-<h3 id="requisição-31">Requisição</h3>
+<h3 id="requisição-32">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -17851,7 +17931,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>Diferentementemente da recorrência anterior, este exemplo não autoriza imediatamente, mas apenas agenda uma autorização futura. Quando esta autorização tiver sucesso, então o agendamento das próximas recorrências será efetivada.</p>
 
-<h3 id="requisição-32">Requisição</h3>
+<h3 id="requisição-33">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -18210,7 +18290,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>Este é um exemplo de como utilizar o Card Token, previamente salvo, para criar uma transação. Por questão de segurança, um Card Token não tem guardado o Código de Segurança. Desta forma, é necessário solicitar à adquirente a ativação do recurso de recorrência em seu estabelecimento e a liberação para transacionar sem o envio do Código de Segurança.</p>
 
-<h3 id="requisição-33">Requisição</h3>
+<h3 id="requisição-34">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -18559,7 +18639,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>Para alterar os dados do comprador em uma recorrência, basta fazer um PUT conforme o exemplo.</p>
 
-<h3 id="requisição-34">Requisição</h3>
+<h3 id="requisição-35">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -18830,7 +18910,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>Para alterar a data final da Recorrência, basta fazer um PUT conforme o exemplo.</p>
 
-<h3 id="requisição-35">Requisição</h3>
+<h3 id="requisição-36">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -18908,7 +18988,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>Para alterar o Intervalo da Recorrência, basta fazer um PUT conforme o exemplo.</p>
 
-<h3 id="requisição-36">Requisição</h3>
+<h3 id="requisição-37">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -18988,7 +19068,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <aside class="notice">Regra: Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
 
-<h3 id="requisição-37">Requisição</h3>
+<h3 id="requisição-38">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -19146,7 +19226,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>Para alterar a data do próximo Pagamento, basta fazer um PUT conforme o exemplo. Esta operação modifica somente a data do próximo pagamento, ou seja, a recorrências futuras a esta permanecerão com as carcaterísticas originais.</p>
 
-<h3 id="requisição-38">Requisição</h3>
+<h3 id="requisição-39">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -19226,7 +19306,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <aside class="notice">Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
 
-<h3 id="requisição-39">Requisição</h3>
+<h3 id="requisição-40">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -19395,7 +19475,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo.</p>
 
-<h3 id="requisição-40">Requisição</h3>
+<h3 id="requisição-41">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -19462,7 +19542,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-41">Requisição</h3>
+<h3 id="requisição-42">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -19539,7 +19619,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar uma transação de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-42">Requisição</h3>
+<h3 id="requisição-43">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -20106,7 +20186,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar uma transação de boleto registrado, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-43">Requisição</h3>
+<h3 id="requisição-44">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -20646,7 +20726,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.</p>
 
-<h3 id="requisição-44">Requisição</h3>
+<h3 id="requisição-45">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -20762,7 +20842,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar um pedido de Recorrência, é necessário fazer um GET conforme o exemplo.</p>
 
-<h3 id="requisição-45">Requisição</h3>
+<h3 id="requisição-46">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
