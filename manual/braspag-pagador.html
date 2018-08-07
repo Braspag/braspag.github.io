@@ -17459,14 +17459,20 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"wallet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12312312312"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"agreement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"transfererCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B97L"</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="err">(...)</span><span class="w">
+    </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">(...)</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Santander2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3689"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"130064491"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"wallet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNR"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68910064493"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"agreement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7673728"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transfererCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P67J"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
