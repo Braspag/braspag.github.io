@@ -8404,14 +8404,20 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-"Payment": {
-    "credentials": {
-        "agency": "1234",
-        "account": "123456789",
-        "wallet": "CNR",
-        "code": "12312312312",
-        "agreement": "1234567",
-        "transfererCode": "B97L"
+{
+    (...)
+    "Payment": {
+        (...)
+        "Type": "Boleto",
+        "Provider": "Santander2",
+        "credentials": {
+            "agency": "3689",
+            "account": "130064491",
+            "wallet": "CNR",
+            "code": "68910064493",
+            "agreement": "7673728",
+            "transfererCode": "P67J"
+        }
     }
 }
 ```
