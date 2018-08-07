@@ -8391,6 +8391,40 @@ curl
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
 |`Status`|Status da Transação. |Byte | 2 | Ex. 1|
 
+## Criando uma transação de Boleto Registrado com dados de afiliação 
+
+Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
+
+### Boleto Registrado Santander
+
+Nesta modalidade, além de enviar as informações do comprador (nome completo, CPF/CNPJ, endereço), deve-se enviar dentro do nó `Payment` as informações transacionais:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+"Payment": {
+    "credentials": {
+        "agency": "1234",
+        "account": "123456789",
+        "wallet": "CNR",
+        "code": "12312312312",
+        "agreement": "1234567",
+        "transfererCode": "B97L"
+    }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária. Ex.: 1234.|
+|`Payment.Credentials.Account`|Número |9 |Sim|O número da conta. Ex.: 123456789.|
+|`Payment.Credentials.Wallet`|Número |3 |Sim|Número da carteira informado pelo banco. Ex.: CNR. |
+|`Payment.Credentials.Code`|Número |12 |Sim|Código de Conciliação. Ex.: 12312312312|
+|`Payment.Credentials.Agreement`|Número |7 |Sim|Código Convênio. Ex.: 1234567|
+|`Payment.Credentials.TransfererCode`|Texto |4 |Sim|Código Cedente. Ex.: B97L|
+
 # Pagamentos Recorrentes
 
 * **Recorrente**: A Recorrência Inteligente é um recurso indispensável para estabelicimentos que precisam cobrar regularmente por seus produtos/serviços.
