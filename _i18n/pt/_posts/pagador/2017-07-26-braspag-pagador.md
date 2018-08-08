@@ -7080,43 +7080,85 @@ curl
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
 |`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
 
-## Criando uma transação de Boleto Registrado Bradesco com dados de afiliação 
+## Criando uma transação de Boleto Registrado com dados de afiliação 
 
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Bradesco. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
+Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
 
-### Requisição
+### Boleto Registrado Banco do Brasil
+
+Nesta modalidade, além de enviar as informações do comprador (nome completo, CPF/CNPJ, endereço), deve-se enviar dentro do nó `Payment` as informações transacionais:
+
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
-    "MerchantOrderId": "201803061142",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
+    (...)
     "Payment": {
-        "Provider": "Bradesco2",
+        (...)
         "Type": "Boleto",
-        "Amount": 100,
-        "BoletoNumber": "2018030601",
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "2018-03-31",
-        "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
+        "Provider": "BancoDoBrasil2",
+        "Credentials": {
+            "agency": "1234-1",
+            "account": "5678-2",
+            "code": "1234567",
+            "agreement": "123456"
+
+        }
+    }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    (...)
+    "Payment": {
+        (...)
+        "Type": "Boleto",
+        "Provider": "BancoDoBrasil2",
+        "Credentials": {
+            "agency": "1234-1",
+            "account": "5678-2",
+            "code": "1234567",
+            "agreement": "123456"
+
+        }
+    }
+}
+--verbose
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`Payment.Credentials.Agency`|Número |10 |Sim|Número da agência bancária. O dígito verificadro da agência deve ser enviado. Ex.: 0123-1.|
+|`Payment.Credentials.Account`|Número |10 |Sim|Número da conta bancária. O dígito verificador da conta deve ser enviado. Ex.: 123456-2.|
+|`Payment.Credentials.Code`|Número |7 |Sim|Número do Convênio de Cobrança fornecido pelo Banco do Brasil no momento da liberação do produto. Ex.: 1234567|
+|`Payment.Credentials.Agreement`|Número |6 |Sim |Convênio de Comércio Eletrônico fornecido pelo Banco do Brasil no momento da liberação do produto. |
+
+### Boleto Registrado Bradesco
+
+Nesta modalidade, além de enviar as informações do comprador (nome completo, CPF/CNPJ, endereço), deve-se enviar dentro do nó `Payment` as informações transacionais:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    (...)
+    "Payment": {
+        (...)
+        "Type": "Boleto",
+        "Provider": "Bradesco2",
+        "Credentials": {
             "agency": "1234",
             "account": "123456-7",
             "wallet": "26",
@@ -7138,33 +7180,12 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "MerchantOrderId": "201803061142",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
+    (...)
     "Payment": {
-        "Provider": "Bradesco2",
+        (...)
         "Type": "Boleto",
-        "Amount": 100,
-        "BoletoNumber": "2018030601",
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "2018-03-31",
-        "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
+        "Provider": "Bradesco2",
+        "Credentials": {
             "agency": "1234",
             "account": "123456-7",
             "wallet": "26",
@@ -7180,30 +7201,6 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`MerchantOrderId`|Texto|vide tabela abaixo|Sim|Numero de identificação do Pedido. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Name`|Texto|vide tabela abaixo|Sim|Nome do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Sim|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Address.Street`|Texto|vide tabela abaixo|Sim|Endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Number`|Texto|vide tabela abaixo|Sim|Número endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Complement`|Texto|vide tabela abaixo|Não|Complemento do endereço de contato do Comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.ZipCode`|Texto|8|Sim|CEP do endereço de contato do comprador|
-|`Customer.Address.District`|Texto|vide tabela abaixo|Sim|Bairro do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.City`|Texto|vide tabela abaixo|Sim|Cidade do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.State`|Texto|2|Sim|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Sim|Pais do endereço de contato do comprador|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso "Boleto"|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (deve ser enviado em centavos)|
-|`Payment.BoletoNumber`|Texto |vide tabela abaixo|Não|Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo|
-|`Payment.Assignor`|Texto |200|Não|Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Demonstrative`|Texto |vide tabela abaixo|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.ExpirationDate`|Date |AAAA-MM-DD|Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
-|`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária deve conter 4 posições; o dígito verificador não deve ser enviado. Caso necessário, completar com zeros à esquerda. Ex.: 0123.|
 |`Payment.Credentials.Account`|Número |7 |Sim|O número da conta bancária deve ser enviado com 7 posições, considerando o dígito verificador. Caso necessário, completar com zeros à esquerda. Ex.: 001234-5.|
 |`Payment.Credentials.Wallet`|Número |3 |Sim|Número da carteira registrada gerada pelo Banco. Ex.: 26|
@@ -7212,446 +7209,22 @@ curl
 |`Payment.Credentials.Username`|Texto |100 |Sim|Usuário gerado no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
 |`Payment.Credentials.Password`|Texto |50 |Sim|Chave de Segurança gerada no [Portal Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp).|
 
-[Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado](https://braspag.github.io//manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider).
+### Boleto Registrado Caixa Econômica
 
-### Resposta
+Nesta modalidade, além de enviar as informações do comprador (nome completo, CPF/CNPJ, endereço), deve-se enviar dentro do nó `Payment` as informações transacionais:
 
-```json
-{
-    "MerchantOrderId": "201803061142",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-03-31",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/a94c5614-374c-4df6-8535-e071a57bd033",
-        "BoletoNumber": "2018030601",
-        "BarCodeNumber": "23792374296020123456501016630004874800000000100",
-        "DigitableLine": "23792.37429 12345.803065 01016.630004 8 74800000000100",
-        "Assignor": "Empresa Teste",
-        "Address": "Rua Leão XIII, 500",
-        "Identification": "12346578909",
-        "IsRecurring": false,
-        "Credentials": {
-            "Agency": "1234",
-            "Account": "123456-7",
-            "Wallet": "26",
-            "Code": "100001234",
-            "Password": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M",
-            "Signature": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M",
-            "Username": "consultasondaboleto@nomefantasia.com.br"
-        },
-        "PaymentId": "werr56deg-374c-1a2d-8535-e071a57bd033",
-        "Type": "Boleto",
-        "Amount": 100,
-        "ReceivedDate": "2018-03-06 11:42:56",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Bradesco2",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "REGISTRO EFETUADO COM SUCESSO - CIP NAO CONFIRMADA",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquery.braspag.com.br/v2/sales/werr56deg-374c-1a2d-8535-e071a57bd033"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "201803061142",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-03-31",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/a94c5614-374c-4df6-8535-e071a57bd033",
-        "BoletoNumber": "2018030601",
-        "BarCodeNumber": "23792374296020123456501016630004874800000000100",
-        "DigitableLine": "23792.37429 12345.803065 01016.630004 8 74800000000100",
-        "Assignor": "Empresa Teste",
-        "Address": "Rua Leão XIII, 500",
-        "Identification": "12346578909",
-        "IsRecurring": false,
-        "Credentials": {
-            "Agency": "1234",
-            "Account": "123456-7",
-            "Wallet": "26",
-            "Code": "100001234",
-            "Password": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M",
-            "Signature": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M",
-            "Username": "consultasondaboleto@nomefantasia.com.br"
-        },
-        "PaymentId": "werr56deg-374c-1a2d-8535-e071a57bd033",
-        "Type": "Boleto",
-        "Amount": 100,
-        "ReceivedDate": "2018-03-06 11:42:56",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Bradesco2",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "REGISTRO EFETUADO COM SUCESSO - CIP NAO CONFIRMADA",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquery.braspag.com.br/v2/sales/werr56deg-374c-1a2d-8535-e071a57bd033"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
-|`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`Number`|"NossoNumero" gerado. |Texto|50 |2017091101 |
-|`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
-|`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte | 2 | Ex. 1|
-
-## Criando uma transação de Boleto Registrado Banco do Brasil com dados de afiliação 
-
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco do Brasil. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
-
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
-    "MerchantOrderId": "201803061615",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "Sao Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
+    (...)
     "Payment": {
-        "Provider": "BancoDoBrasil2",
+        (...)
         "Type": "Boleto",
-        "Amount": 100,
-        "BoletoNumber": "2018030601",
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "2018-03-31",
-        "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
-            "agency": "1234-1",
-            "account": "5678-2",
-            "code": "1234567",
-            "agreement": "123456"
-
-        }
-    }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.braspag.com.br/v2/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "201803061615",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "Sao Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Provider": "BancoDoBrasil2",
-        "Type": "Boleto",
-        "Amount": 100,
-        "BoletoNumber": "2018030601",
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "2018-03-31",
-        "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
-            "agency": "1234-1",
-            "account": "5678-2",
-            "code": "1234567",
-            "agreement": "123456"
-
-        }
-    }
-}
---verbose
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`MerchantOrderId`|Texto|vide tabela abaixo|Sim|Numero de identificação do Pedido. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Name`|Texto|vide tabela abaixo|Sim|Nome do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Sim|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Address.Street`|Texto|vide tabela abaixo|Sim|Endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Number`|Texto|vide tabela abaixo|Sim|Número endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Complement`|Texto|vide tabela abaixo|Não|Complemento do endereço de contato do Comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.ZipCode`|Texto|8|Sim|CEP do endereço de contato do comprador|
-|`Customer.Address.District`|Texto|vide tabela abaixo|Sim|Bairro do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.City`|Texto|vide tabela abaixo|Sim|Cidade do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.State`|Texto|2|Sim|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Sim|Pais do endereço de contato do comprador|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso "Boleto"|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (deve ser enviado em centavos)|
-|`Payment.BoletoNumber`|Texto |vide tabela abaixo|Não|Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo|
-|`Payment.Assignor`|Texto |200|Não|Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Demonstrative`|Texto |vide tabela abaixo|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.ExpirationDate`|Date|AAAA-MM-DD|Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
-|`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.Credentials.Agency`|Número |10 |Sim|Número da agência bancária. O dígito verificadro da agência deve ser enviado. Ex.: 0123-1.|
-|`Payment.Credentials.Account`|Número |10 |Sim|Número da conta bancária. O dígito verificador da conta deve ser enviado. Ex.: 123456-2.|
-|`Payment.Credentials.Code`|Número |7 |Sim|Número do Convênio de Cobrança fornecido pelo Banco do Brasil no momento da liberação do produto. Ex.: 1234567|
-|`Payment.Credentials.Agreement`|Número |6 |Sim |Convênio de Comércio Eletrônico fornecido pelo Banco do Brasil no momento da liberação do produto. |
-
-[Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado](https://braspag.github.io//manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider).
-
-### Resposta
-
-```json
-{
-    "MerchantOrderId": "201803061615",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "Sao Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-03-31",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/c78699d8-ffba-4f8a-aecf-s5da5s4d5a",
-        "BoletoNumber": "2018030601",
-        "BarCodeNumber": "",
-        "DigitableLine": "",
-        "Assignor": "Empresa Teste",
-        "Address": "Alameda Joaquim Eugênio de Lima , 187, Sala 92, 9 Andar CEP: 01403-001, São Paulo, SP",
-        "Identification": "12346578909",
-        "IsRecurring": false,
-        "Credentials": {
-            "Agency": "1234-1",
-            "Account": "4567-2",
-            "Agreement": "123456",
-            "Code": "1234567"
-        },
-        "PaymentId": "c78699d8-ffba-4f8a-aecf-s5da5s4d5a",
-        "Type": "Boleto",
-        "Amount": 100,
-        "ReceivedDate": "2018-03-06 16:14:38",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "BancoDoBrasil2",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "Transação criada com sucesso",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquery.braspag.com.br/v2/sales/c78699d8-ffba-4f8a-aecf-s5da5s4d5a"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "201803061615",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "Sao Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-03-31",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/c78699d8-ffba-4f8a-aecf-s5da5s4d5a",
-        "BoletoNumber": "2018030601",
-        "BarCodeNumber": "",
-        "DigitableLine": "",
-        "Assignor": "Empresa Teste",
-        "Address": "Alameda Joaquim Eugênio de Lima , 187, Sala 92, 9 Andar CEP: 01403-001, São Paulo, SP",
-        "Identification": "12346578909",
-        "IsRecurring": false,
-        "Credentials": {
-            "Agency": "1234-1",
-            "Account": "4567-2",
-            "Agreement": "123456",
-            "Code": "1234567"
-        },
-        "PaymentId": "c78699d8-ffba-4f8a-aecf-s5da5s4d5a",
-        "Type": "Boleto",
-        "Amount": 100,
-        "ReceivedDate": "2018-03-06 16:14:38",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "BancoDoBrasil2",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "Transação criada com sucesso",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquery.braspag.com.br/v2/sales/c78699d8-ffba-4f8a-aecf-s5da5s4d5a"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
-|`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`Number`|"NossoNumero" gerado. |Texto|50 |2017091101 |
-|`BarCodeNumber`|Representação numérica do código de barras. O Banco do Brasil não retorna este dado no response da transação.|-- |-- |-- |
-|`DigitableLine`|Linha digitável. O Banco do Brasil não retorna este dado no response da transação.|-- |-- |-- |
-|`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
-
-## Criando uma transação de Boleto Registrado Caixa Econômica com dados de afiliação 
-
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Caixe Econômica. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
-
-### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-```json
-{
-    "MerchantOrderId": "201803061142",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
         "Provider": "Caixa2",
-        "Type": "Boleto",
-        "Amount": 100,
-        "BoletoNumber": "2018030601",
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "2018-03-31",
-        "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
+        "Credentials": {
             "agency": "1234",
             "account": "123-0",
             "wallet": "003",
@@ -7671,33 +7244,12 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "MerchantOrderId": "201803061142",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
+    (...)
     "Payment": {
-        "Provider": "Caixa2",
+        (...)
         "Type": "Boleto",
-        "Amount": 100,
-        "BoletoNumber": "2018030601",
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "2018-03-31",
-        "Identification": "12346578909",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
+        "Provider": "Caixa2",
+        "Credentials": {
             "agency": "1234",
             "account": "123-0",
             "wallet": "003",
@@ -7711,468 +7263,28 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`MerchantOrderId`|Texto|vide tabela abaixo|Sim|Numero de identificação do Pedido. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Name`|Texto|vide tabela abaixo|Sim|Nome do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Sim|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Address.Street`|Texto|vide tabela abaixo|Sim|Endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Number`|Texto|vide tabela abaixo|Sim|Número endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Complement`|Texto|vide tabela abaixo|Não|Complemento do endereço de contato do Comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.ZipCode`|Texto|8|Sim|CEP do endereço de contato do comprador|
-|`Customer.Address.District`|Texto|vide tabela abaixo|Sim|Bairro do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.City`|Texto|vide tabela abaixo|Sim|Cidade do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.State`|Texto|2|Sim|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Sim|Pais do endereço de contato do comprador|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso "Boleto"|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (deve ser enviado em centavos)|
-|`Payment.BoletoNumber`|Texto |vide tabela abaixo|Não|Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo|
-|`Payment.Assignor`|Texto |200|Não|Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Demonstrative`|Texto |vide tabela abaixo|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.ExpirationDate`|Date |AAAA-MM-DD|Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
-|`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária. Ex.: 0123.|
 |`Payment.Credentials.Account`|Número |5 |Sim|O número da conta. Ex.: 123-1.|
 |`Payment.Credentials.Wallet`|Número |3 |Sim|Número da carteira registrada gerada pelo Banco. Ex.: 003|
 |`Payment.Credentials.Code`|Número |6 |Sim|Enviar neste campo o Código de Convênio. Ex.: 123456|
 |`Payment.Credentials.Agreement`|Número |6 |Sim|Código de Convênio Caixa Econômica. Ex.: 123456|
 
-[Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado](https://braspag.github.io//manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider).
+### Boleto Registrado Citibank
 
-### Resposta
+Nesta modalidade, além de enviar as informações do comprador (nome completo, CPF/CNPJ, endereço), deve-se enviar dentro do nó `Payment` as informações transacionais:
 
-```json
-{
-    "MerchantOrderId": "201803061142",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-03-31",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/werr56deg-123M-1a2d-8535-e071a57bd033",
-        "BoletoNumber": "2018030601",
-        "BarCodeNumber": "10495759600000001002528738000100040010003508",
-        "DigitableLine": "10492.52875 38000.100040 00100.035088 5 75960000000100",
-        "Assignor": "Empresa Teste",
-        "Address": "Rua Leão XIII, 500",
-        "Identification": "12346578909",
-        "IsRecurring": false,
-        "credentials": {
-            "agency": "1208",
-            "account": "702-0",
-            "wallet": "003",
-            "code": "252873",
-            "agreement": "252873"
-        },
-        "PaymentId": "werr56deg-123M-1a2d-8535-e071a57bd033",
-        "Type": "Boleto",
-        "Amount": 100,
-        "ReceivedDate": "2018-03-06 11:42:56",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Caixa2",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "(0) OPERACAO EFETUADA",
-        "Links": [{
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquery.braspag.com.br/v2/sales/werr56deg-374c-1a2d-8535-e071a57bd033"
-        }]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "201803061142",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-03-31",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/werr56deg-123M-1a2d-8535-e071a57bd033",
-        "BoletoNumber": "2018030601",
-        "BarCodeNumber": "10495759600000001002528738000100040010003508",
-        "DigitableLine": "10492.52875 38000.100040 00100.035088 5 75960000000100",
-        "Assignor": "Empresa Teste",
-        "Address": "Rua Leão XIII, 500",
-        "Identification": "12346578909",
-        "IsRecurring": false,
-        "credentials": {
-            "agency": "1208",
-            "account": "702-0",
-            "wallet": "003",
-            "code": "252873",
-            "agreement": "252873"
-        },
-        "PaymentId": "werr56deg-123M-1a2d-8535-e071a57bd033",
-        "Type": "Boleto",
-        "Amount": 100,
-        "ReceivedDate": "2018-03-06 11:42:56",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Caixa2",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "(0) OPERACAO EFETUADA",
-        "Links": [{
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquery.braspag.com.br/v2/sales/werr56deg-374c-1a2d-8535-e071a57bd033"
-        }]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
-|`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`Number`|"NossoNumero" gerado. |Texto|50 |2017091101 |
-|`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
-|`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte | 2 | Ex. 1|
-
-## Criando uma transação de Boleto Registrado Itaú API com dados de afiliação 
-
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Itaú. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
-
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
-    "MerchantOrderId": "1807257",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
+    (...)
     "Payment": {
-        "Provider": "Itau2",
+        (...)
         "Type": "Boleto",
-        "Amount": 100,
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
-            "agency": "1234",
-            "account": "12315-5",
-            "wallet": "109",
-            "code": "00223046000123",
-            "signature": "12345678-1234-1234-1234-123412341234",
-            "username": "QPP7dwvLqKD57",
-            "password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
-        }
-    }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.braspag.com.br/v2/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "1807257",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Provider": "Itau2",
-        "Type": "Boleto",
-        "Amount": 100,
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
-            "agency": "1234",
-            "account": "12315-5",
-            "wallet": "109",
-            "code": "00223046000123",
-            "signature": "12345678-1234-1234-1234-123412341234",
-            "username": "QPP7dwvLqKD57",
-            "password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
-        }
-    }
-}
---verbose
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`MerchantOrderId`|Texto|vide tabela abaixo|Sim|Numero de identificação do Pedido. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Name`|Texto|vide tabela abaixo|Sim|Nome do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Sim|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Address.Street`|Texto|vide tabela abaixo|Sim|Endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Number`|Texto|vide tabela abaixo|Sim|Número endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Complement`|Texto|vide tabela abaixo|Não|Complemento do endereço de contato do Comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.ZipCode`|Texto|8|Sim|CEP do endereço de contato do comprador|
-|`Customer.Address.District`|Texto|vide tabela abaixo|Sim|Bairro do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.City`|Texto|vide tabela abaixo|Sim|Cidade do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.State`|Texto|2|Sim|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Sim|Pais do endereço de contato do comprador|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso "Boleto"|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (deve ser enviado em centavos)|
-|`Payment.BoletoNumber`|Texto |vide tabela abaixo|Não|Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo|
-|`Payment.Assignor`|Texto |200|Não|Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Demonstrative`|Texto |vide tabela abaixo|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.ExpirationDate`|Date |AAAA-MM-DD|Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
-|`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária. Ex.: 0123.|
-|`Payment.Credentials.Account`|Número |7 |Sim|O número da conta. Ex.: 12345-1.|
-|`Payment.Credentials.Wallet`|Número |3 |Sim|A carteira padrão é a 109. |
-|`Payment.Credentials.Code`|Número |14 |Sim|Código de conciliação gerado pela VAN Nexxera (para Itaú, geralmente, é o CNPJ vinculado à conta). Ex.: 00223046000190|
-|`Payment.Credentials.Signature`|Guid |36 |Sim|Itaú Key (código gerado pelo Banco Itaú). Ex.: 12345678-1234-1234-1234-123412341234|
-|`Payment.Credentials.Username`|Texto |15 |Sim|Client Id (código gerado pelo Banco Itaú). Ex.: QPP7dwvLqKD57|
-|`Payment.Credentials.Password`|Texto |100 |Sim|Client Id (código gerado pelo Banco Itaú). Ex.: 70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7|
-
-[Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado](https://braspag.github.io//manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider).
-
-### Resposta
-
-```json
-{
-    "MerchantOrderId": "1807257",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-07-25",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/340e0267-1234-4067-8aca-45e44cba77c8",
-        "BoletoNumber": "00131651-0",
-        "BarCodeNumber": "341937596000000010010900123456902000186615000",
-        "DigitableLine": "34191.09008 123456.902007 01866.150004 3 75960000000100",
-        "Assignor": "Empresa Teste",
-        "Address": "Av. Aruanã, 280, Cond. Africa",
-        "IsRecurring": false,
-        "Credentials": {
-            "credentials": {
-                "agency": "1234",
-                "account": "12315-5",
-                "wallet": "109",
-                "code": "00223046000123",
-                "signature": "12345678-1234-1234-1234-123412341234",
-                "username": "QPP7dwvLqKD57",
-                "password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
-            },
-            "PaymentId": "340e0267-1234-4067-8aca-45e44cba77c8",
-            "Type": "Boleto",
-            "Amount": 100,
-            "ReceivedDate": "2018-07-24 13:19:25",
-            "Currency": "BRL",
-            "Country": "BRA",
-            "Provider": "Itau2",
-            "ReasonCode": 0,
-            "ReasonMessage": "Successful",
-            "Status": 1,
-            "ProviderReturnCode": "0",
-            "ProviderReturnMessage": "Boleto registrado com sucesso.",
-            "Links": [{
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquery.braspag.com.br/v2/sales/340e0267-1234-4067-8aca-45e44cba77c8"
-            }]
-        }
-    }
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "1807257",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-07-25",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/340e0267-1234-4067-8aca-45e44cba77c8",
-        "BoletoNumber": "00131651-0",
-        "BarCodeNumber": "341937596000000010010900123456902000186615000",
-        "DigitableLine": "34191.09008 123456.902007 01866.150004 3 75960000000100",
-        "Assignor": "Empresa Teste",
-        "Address": "Av. Aruanã, 280, Cond. Africa",
-        "IsRecurring": false,
-        "Credentials": {
-            "credentials": {
-                "agency": "1234",
-                "account": "12315-5",
-                "wallet": "109",
-                "code": "00223046000123",
-                "signature": "12345678-1234-1234-1234-123412341234",
-                "username": "QPP7dwvLqKD57",
-                "password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
-            },
-            "PaymentId": "340e0267-1234-4067-8aca-45e44cba77c8",
-            "Type": "Boleto",
-            "Amount": 100,
-            "ReceivedDate": "2018-07-24 13:19:25",
-            "Currency": "BRL",
-            "Country": "BRA",
-            "Provider": "Itau2",
-            "ReasonCode": 0,
-            "ReasonMessage": "Successful",
-            "Status": 1,
-            "ProviderReturnCode": "0",
-            "ProviderReturnMessage": "Boleto registrado com sucesso.",
-            "Links": [{
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquery.braspag.com.br/v2/sales/340e0267-1234-4067-8aca-45e44cba77c8"
-            }]
-        }
-    }
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
-|`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`Number`|"NossoNumero" gerado. |Texto|50 |2017091101 |
-|`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
-|`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte | 2 | Ex. 1|
-
-## Criando uma transação de Boleto Registrado Citibank com dados de afiliação 
-
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados do Banco Citibank. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
-
-### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-```json
-{
-    "MerchantOrderId": "18072511",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
         "Provider": "Citibank2",
-        "Type": "Boleto",
-        "Amount": 100,
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
+        "Credentials": {
             "agency": "1234",
             "account": "0012345678",
             "wallet": "181",
@@ -8192,30 +7304,12 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "MerchantOrderId": "18072511",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
+    (...)
     "Payment": {
-        "Provider": "Citibank2",
+        (...)
         "Type": "Boleto",
-        "Amount": 100,
-        "Assignor": "Empresa Teste",
-        "Demonstrative": "Desmonstrative Teste",
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "credentials": {
+        "Provider": "Citibank2",
+        "Credentials": {
             "agency": "1234",
             "account": "0012345678",
             "wallet": "181",
@@ -8229,171 +7323,11 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`MerchantOrderId`|Texto|vide tabela abaixo|Sim|Numero de identificação do Pedido. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Name`|Texto|vide tabela abaixo|Sim|Nome do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Sim|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Address.Street`|Texto|vide tabela abaixo|Sim|Endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Number`|Texto|vide tabela abaixo|Sim|Número endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Complement`|Texto|vide tabela abaixo|Não|Complemento do endereço de contato do Comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.ZipCode`|Texto|8|Sim|CEP do endereço de contato do comprador|
-|`Customer.Address.District`|Texto|vide tabela abaixo|Sim|Bairro do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.City`|Texto|vide tabela abaixo|Sim|Cidade do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.State`|Texto|2|Sim|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Sim|Pais do endereço de contato do comprador|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso "Boleto"|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (deve ser enviado em centavos)|
-|`Payment.BoletoNumber`|Texto |vide tabela abaixo|Não|Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo|
-|`Payment.Assignor`|Texto |200|Não|Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Demonstrative`|Texto |vide tabela abaixo|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.ExpirationDate`|Date |AAAA-MM-DD|Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
-|`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária. Ex.: 1234.|
 |`Payment.Credentials.Account`|Número |10 |Sim|O número da conta. Ex.: 0012345678.|
 |`Payment.Credentials.Wallet`|Número |3 |Sim|Número da carteira informado pelo Citibank. Ex.: 181. |
 |`Payment.Credentials.Code`|Número |20 |Sim|Portfolio de Conciliação informado pelo Citibank. Ex.: 01234005678000250181|
 |`Payment.Credentials.Agreement`|Número |20 |Sim|Portfolio Transacional informado pelo Citibank. Ex.: 01234000567800250181|
-
-[Tabela de Especificação de quantidade de caracteres dos campos do Boleto Registrado](https://braspag.github.io//manual/braspag-pagador#tabela-de-especifica%C3%A7%C3%A3o-de-quantidade-de-caracteres-do-campo-por-provider).
-
-### Resposta
-
-```json
-{
-    "MerchantOrderId": "18072511",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-07-25",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/29038ebc-1234-411a-8859-00aaae0facd9",
-        "BoletoNumber": "001000001234",
-        "BarCodeNumber": "74591759600000001001234549280025001000009820",
-        "DigitableLine": "74593.18106 12345.025005 10000.098201 1 75960000000100",
-        "Assignor": "Empresa Teste",
-        "Address": "Endereço Teste, 0",
-        "IsRecurring": false,
-        "credentials": {
-            "agency": "1234",
-            "account": "0012345678",
-            "wallet": "181",
-            "code": "01234005678000250181",
-            "agreement": "01234000567800250181"
-        },
-        "PaymentId": "29038ebc-1234-411a-8859-00aaae0facd9",
-        "Type": "Boleto",
-        "Amount": 100,
-        "ReceivedDate": "2018-07-24 16:38:06",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Citibank2",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "Data received                           ",
-        "Links": [{
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquery.braspag.com.br/v2/sales/29038ebc-1234-411a-8859-00aaae0facd9"
-        }]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "18072511",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12312312312",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455030",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2018-07-25",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://www.pagador.com.br/post/pagador/reenvia.asp/29038ebc-1234-411a-8859-00aaae0facd9",
-        "BoletoNumber": "001000001234",
-        "BarCodeNumber": "74591759600000001001234549280025001000009820",
-        "DigitableLine": "74593.18106 12345.025005 10000.098201 1 75960000000100",
-        "Assignor": "Empresa Teste",
-        "Address": "Endereço Teste, 0",
-        "IsRecurring": false,
-        "credentials": {
-            "agency": "1234",
-            "account": "0012345678",
-            "wallet": "181",
-            "code": "01234005678000250181",
-            "agreement": "01234000567800250181"
-        },
-        "PaymentId": "29038ebc-1234-411a-8859-00aaae0facd9",
-        "Type": "Boleto",
-        "Amount": 100,
-        "ReceivedDate": "2018-07-24 16:38:06",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Citibank2",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "Data received                           ",
-        "Links": [{
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquery.braspag.com.br/v2/sales/29038ebc-1234-411a-8859-00aaae0facd9"
-        }]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
-|`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`Number`|"NossoNumero" gerado. |Texto|50 |2017091101 |
-|`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
-|`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte | 2 | Ex. 1|
-
-## Criando uma transação de Boleto Registrado com dados de afiliação 
-
-Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do comprador como CPF e endereço. Exemplificamos a seguir o envio dos dados de afiliação via requisição para geração de boletos registrados. Neste fluxo não é necessário ter o meio de pagamento previamente cadastrado, basta enviar as credenciais via requisição. 
 
 ### Boleto Registrado Santander
 
@@ -8410,7 +7344,7 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
         (...)
         "Type": "Boleto",
         "Provider": "Santander2",
-        "credentials": {
+        "Credentials": {
             "agency": "3689",
             "account": "130064491",
             "wallet": "CNR",
@@ -8422,6 +7356,33 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
 }
 ```
 
+```shell
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    (...)
+    "Payment": {
+        (...)
+        "Type": "Boleto",
+        "Provider": "Santander2",
+        "Credentials": {
+            "agency": "3689",
+            "account": "130064491",
+            "wallet": "CNR",
+            "code": "68910064493",
+            "agreement": "7673728",
+            "transfererCode": "P67J"
+        }
+    }
+}
+--verbose
+```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
 |`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária. Ex.: 1234.|
@@ -8430,6 +7391,129 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
 |`Payment.Credentials.Code`|Número |12 |Sim|Código de Conciliação. Ex.: 12312312312|
 |`Payment.Credentials.Agreement`|Número |7 |Sim|Código Convênio. Ex.: 1234567|
 |`Payment.Credentials.TransfererCode`|Texto |4 |Sim|Código Cedente. Ex.: B97L|
+
+### Boleto Registrado Itaú API
+
+Nesta modalidade, além de enviar as informações do comprador (nome completo, CPF/CNPJ, endereço), deve-se enviar dentro do nó `Payment` as informações transacionais:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    (...)
+    "Payment": {
+        (...)
+        "Type": "Boleto",
+        "Provider": "Itau2",
+        "Credentials": {
+            "agency": "1234",
+            "account": "12315-5",
+            "wallet": "109",
+            "code": "00223046000123",
+            "signature": "12345678-1234-1234-1234-123412341234",
+            "username": "QPP7dwvLqKD57",
+            "password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
+        }
+    }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    (...)
+    "Payment": {
+        (...)
+        "Type": "Boleto",
+        "Provider": "Itau2",
+        "Credentials": {
+            "agency": "1234",
+            "account": "12315-5",
+            "wallet": "109",
+            "code": "00223046000123",
+            "signature": "12345678-1234-1234-1234-123412341234",
+            "username": "QPP7dwvLqKD57",
+            "password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
+        }
+    }
+}
+--verbose
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária. Ex.: 0123.|
+|`Payment.Credentials.Account`|Número |7 |Sim|O número da conta. Ex.: 12345-1.|
+|`Payment.Credentials.Wallet`|Número |3 |Sim|A carteira padrão é a 109. |
+|`Payment.Credentials.Code`|Número |14 |Sim|Código de conciliação gerado pela VAN Nexxera (para Itaú, geralmente, é o CNPJ vinculado à conta). Ex.: 00223046000190|
+|`Payment.Credentials.Signature`|Guid |36 |Sim|Itaú Key (código gerado pelo Banco Itaú). Ex.: 12345678-1234-1234-1234-123412341234|
+|`Payment.Credentials.Username`|Texto |15 |Sim|Client Id (código gerado pelo Banco Itaú). Ex.: QPP7dwvLqKD57|
+|`Payment.Credentials.Password`|Texto |100 |Sim|Client Id (código gerado pelo Banco Itaú). Ex.: 70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7|
+
+### Boleto Registrado Itaú Shopline
+
+Nesta modalidade, além de enviar as informações do comprador (nome completo, CPF/CNPJ, endereço), deve-se enviar dentro do nó `Payment` as informações transacionais:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    (...)
+    "Payment": {
+        (...)
+        "Type": "Boleto",
+        "Provider": "ItauShopline",
+        "Credentials": {
+            "agency": "1234",
+            "account": "12315-5",
+            "code": "J0557282240001060000017945",
+            "signature": "1nomedaloja01091952"
+        }
+    }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    (...)
+    "Payment": {
+        (...)
+        "Type": "Boleto",
+        "Provider": "ItauShopline",
+        "Credentials": {
+            "agency": "1234",
+            "account": "12315-5",
+            "code": "J0557282240001060000017945",
+            "signature": "1nomedaloja01091952"
+        }
+    }
+}
+--verbose
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`Payment.Credentials.Agency`|Número |4 |Sim|O número da agência bancária. Ex.: 0123.|
+|`Payment.Credentials.Account`|Número |7 |Sim|O número da conta. Ex.: 12345-1.|
+|`Payment.Credentials.Code`|Texto |26 |Sim|Código do Site informado pelo Itaú. Ex.: J0557282240001060000017945|
+|`Payment.Credentials.Signature`|Texto |36 |Sim|Chave de Segurança informada pelo Itaú. Ex.: 1nomedaloja01091952|
 
 # Pagamentos Recorrentes
 
