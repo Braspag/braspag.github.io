@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-08-16T15:01:02+00:00</updated>
+    <updated>2018-08-16T15:01:49+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1019,33 +1019,6 @@ All the orders just authorized must be captured here. When the capture process i
     &lt;tr&gt;
       &lt;td&gt;Query Endpoint&lt;/td&gt;
       &lt;td&gt;https://apiquerysandbox.braspag.com.br/&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;test-environment&quot;&gt;Test Environment&lt;/h3&gt;
-
-&lt;p&gt;Use this environment to validate the integration!&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Information&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;API Credentials&lt;/td&gt;
-      &lt;td&gt;Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Transactional Endpoint&lt;/td&gt;
-      &lt;td&gt;https://apihomolog.braspag.com.br/&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Query Endpoint&lt;/td&gt;
-      &lt;td&gt;https://apiqueryhomolog.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
