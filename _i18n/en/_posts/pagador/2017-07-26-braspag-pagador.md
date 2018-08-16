@@ -30,16 +30,6 @@ Try our APIs for free!
 |Transactional Endpoint|https://apisandbox.braspag.com.br/|
 |Query Endpoint|https://apiquerysandbox.braspag.com.br/|
 
-### Test Environment
-
-Use this environment to validate the integration!
-
-|Information|Description|
-|---|---|
-|API Credentials|Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!|
-|Transactional Endpoint|https://apihomolog.braspag.com.br/|
-|Query Endpoint|https://apiqueryhomolog.braspag.com.br/|
-
 ### Production Environment
 
 Ready to GoLive!
