@@ -17,7 +17,7 @@ language_tabs:
 
 **O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.**
 
-Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para respectivos ambientes: **Sandbox**, **Homologação** e **Produção**. [Para executar](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
+Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para respectivos ambientes: **Sandbox** e **Produção**. [Para executar](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
 
 ## Ambientes
 
@@ -30,16 +30,6 @@ Experimente as nossas APIs sem compromisso!
 |Credenciais de Acesso à API|Acesse o [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/) e crie uma conta de testes.<BR>Ao fim do cadastro você receberá um `MerchantId` e um `MerchantKey`,<BR> que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API|
 |Endpoint Transacional|https://apisandbox.braspag.com.br/|
 |Endpoint para Serviços de Consultas|https://apiquerysandbox.braspag.com.br/|
-
-### Ambiente de Homologação
-
-Valide seu desenvolvimento junto à nossa equipe!
-
-|Informação|Descrição|
-|---|---|
-|Credenciais de Acesso à API|Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!|
-|Endpoint Transacional|https://apihomolog.braspag.com.br/|
-|Endpoint para Serviços de Consultas|https://apiqueryhomolog.braspag.com.br/|
 
 ### Ambiente de Produção
 
