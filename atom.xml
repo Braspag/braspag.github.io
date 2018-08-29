@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-08-27T17:40:48+00:00</updated>
+    <updated>2018-08-29T18:45:12+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9953,7 +9953,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 &lt;br /&gt;
 &lt;strong&gt;Crédito&lt;/strong&gt;: Em até 31 dias. &lt;br /&gt;
 &lt;strong&gt;Crédito Parcelado&lt;/strong&gt;: 1º parcela em até 31 dias, demais a cada 30.
-&lt;strong&gt;Débito&lt;/strong&gt;: Em até 1 dia útil.&lt;/p&gt;
+&lt;strong&gt;Débito&lt;/strong&gt;: Em até 2 dias úteis.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como &lt;strong&gt;MerchantId (MID)&lt;/strong&gt;, que deverá ser utlizado ao informar as regras de divisão de uma transação.&lt;/p&gt;
