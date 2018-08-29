@@ -35,7 +35,7 @@ Com a transação capturada, a Braspag calcula o valor destinado a cada particip
 > <br>
 > **Crédito**: Em até 31 dias. <br>
 > **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30.
-> **Débito**: Em até 1 dia útil.
+> **Débito**: Em até 2 dias úteis.
 
 Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
 
