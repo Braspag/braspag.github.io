@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-08-30T17:00:54+00:00</updated>
+    <updated>2018-08-30T17:33:26+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -38316,6 +38316,31 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
 &lt;h2 id=&quot;sobre-este-manual&quot;&gt;Sobre este manual&lt;/h2&gt;
 
 &lt;p&gt;Este manual tem como objetivo orientar o desenvolvedor da loja sobre a integração com a plataforma &lt;strong&gt;CARTÃO PROTEGIDO&lt;/strong&gt;, descrevendo as funcionalidades existentes e os métodos a serem utilizados, listando informações a serem enviadas e recebidas e provendo exemplos.&lt;/p&gt;
+
+&lt;h2 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h2&gt;
+
+&lt;h3 id=&quot;ambiente-sandbox&quot;&gt;Ambiente Sandbox&lt;/h3&gt;
+
+&lt;p&gt;Experimente as nossas APIs sem compromisso!&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Informação&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Credenciais de Acesso à API&lt;/td&gt;
+      &lt;td&gt;Acesse o &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Cadastro do Sandbox&lt;/a&gt; e crie uma conta de testes.&lt;br /&gt;Ao fim do cadastro você receberá um &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; e um &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;,&lt;br /&gt; que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Endpoint Transacional&lt;/td&gt;
+      &lt;td&gt;https://apisandbox.braspag.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;Para receber a URL de Produção, solicite à nossa equipe de implantação através da ferramenta Suporte.&lt;/aside&gt;
 
