@@ -37,7 +37,7 @@ Experimente as nossas APIs sem compromisso!
 |Informação|Descrição|
 |---|---|
 |Credenciais de Acesso à API|Acesse o [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/) e crie uma conta de testes.<BR>Ao fim do cadastro você receberá um `MerchantId` e um `MerchantKey`,<BR> que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API|
-|Endpoint Transacional|https://apisandbox.braspag.com.br/|
+|Endpoint Transacional|**https://apisandbox.braspag.com.br/**|
 
 <aside class="warning">Para receber a URL de Produção, solicite à nossa equipe de implantação através da ferramenta Suporte.</aside>
 
