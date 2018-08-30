@@ -4,7 +4,7 @@ title: Manual de integração Silent Order Post
 description: Integração técnica Gateway Braspag
 search: true
 translated: true
-categories: manual
+categories: manualp
 tags:
   - Pagador
 language_tabs:
@@ -15,7 +15,7 @@ language_tabs:
 
 Integração que a Braspag oferece aos lojistas, onde os dados de pagamentos são trafegue de forma segura, mantendo o controle total sobre a experiência de Ckeck Out.
 
-Esse método possibilita o envio dos dados do pagamento do seu cliente final de forma segura diretamente em nosso sistema. Os campos de pagamento são guardados do lado da Braspag, que conta com a certificação PCI DSS 3.1.
+Esse método possibilita o envio dos dados do pagamento do seu cliente final de forma segura diretamente em nosso sistema. Os campos de pagamento são guardados do lado da Braspag, que conta com a certificação PCI DSS 3.2.
 
 É ideal para lojistas que exigem um alto nível de segurança, sem perder a identidade de sua página. Esse método permite um alto nível de personalização na sua página de checkout.
 
