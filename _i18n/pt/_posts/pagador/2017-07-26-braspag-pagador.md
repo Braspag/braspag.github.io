@@ -886,7 +886,7 @@ curl
 |`Payment.Credentials.Key`|Texto|100|Sim|chave de afiliação/token gerado pela adquirente|
 |`Payment.Credentials.Username`|Texto|50|Não|usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
 |`Payment.Credentials.Password`|Texto|50|Não|senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
-|`Payment.Credentials.signature`|Texto|3|Não|TerminalID da adquirete Global Payments. Ex.: 001|
+|`Payment.Credentials.Signature`|Texto|3|Não|Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001|
 |`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
