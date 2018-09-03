@@ -733,8 +733,8 @@ Este é um exemplo de uma transação com as credenciais geradas pelas adquirent
         "Provider": "Simulado",
         "Type": "CreditCard",
         "Amount": 10000,
-te Holder",
-            "Expira
+        te Holder ",
+        "Expira
         "Currency": "BRL",
         "Country": "BRA",
         "Installments": 1,
@@ -755,7 +755,8 @@ te Holder",
             "code": "9999999",
             "key": "D8888888",
             "password": "LOJA9999999",
-            "username": "#Braspag2018@NOMEDALOJA#"
+            "username": "#Braspag2018@NOMEDALOJA#",
+            "signature": "001"
         },
         "ExtraDataCollection": [{
             "Name": "NomeDoCampo",
@@ -806,7 +807,8 @@ curl
         "Provider": "Simulado",
         "Type": "CreditCard",
         "Amount": 10000,
-        "ServiceTaxAmount": 0,
+        te Holder ",
+        "Expira
         "Currency": "BRL",
         "Country": "BRA",
         "Installments": 1,
@@ -827,7 +829,8 @@ curl
             "code": "9999999",
             "key": "D8888888",
             "password": "LOJA9999999",
-            "username": "#Braspag2018@NOMEDALOJA#"
+            "username": "#Braspag2018@NOMEDALOJA#",
+            "signature": "001"
         },
         "ExtraDataCollection": [{
             "Name": "NomeDoCampo",
@@ -883,6 +886,7 @@ curl
 |`Payment.Credentials.Key`|Texto|100|Sim|chave de afiliação/token gerado pela adquirente|
 |`Payment.Credentials.Username`|Texto|50|Não|usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
 |`Payment.Credentials.Password`|Texto|50|Não|senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
+|`Payment.Credentials.signature`|Texto|3|Não|TerminalID da adquirete Global Payments. Ex.: 001|
 |`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
@@ -3363,7 +3367,7 @@ curl
 Exemplo de uma transação com DCC (Dynamic Currency Conversion), conversor de moedas da adquirente Global Payments que permite que o portador de um cartão estrangeiro escolha entre pagar em Reais ou em sua moeda Local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
 A solução é indicada para estabelecimentos que recebem pagamentos com cartões emitidos no exterior como hotéis, pousadas, polos comerciais e comércios em pontos turísticos.
 
-<aside class="notice"><strong>Autenticação:</strong>Para utilizar esta funcionalidade, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento.</aside>
+<aside class="notice"><strong>Autenticação:</strong> Para utilizar esta funcionalidade, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento.</aside>
 
 <aside class="warning">Esta funcionalidade não é compatível com transações com MPI Externo.</aside>
 
@@ -3380,9 +3384,11 @@ Na segunda etapa, o sistema da loja deverá apresentar ao comprador as opções 
 
 ![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
 
+Exemplo disponibilizado pela Global Payments
+
 Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. A resposta da autorização será retornada neste ponto. 
 
-**Passo 1** - Solicitação de autorização da transação: 
+**PASSO 1** - Solicitação de autorização da transação: 
 
 #### Requisição
 
@@ -3614,11 +3620,13 @@ curl
 | `CurrencyExchangeData.CurrencyExchanges.Currency` | Código da moeda Real | Texto | 3     | BRA                   |
 | `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor do pedido em Reais. | Numérico | 12     | 100                   |
 
-**Passo 2** - Exibição das opções de pagamento (pagar em Reais ou na moeda do cartão):
+**PASSO 2** - Exibição das opções de pagamento (pagar em Reais ou na moeda do cartão):
 
 ![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
 
-**Passo 3** - Confirmação da transação com a moeda escolhida pelo comprador: 
+Exemplo disponibilizado pela Global Payments
+
+**PASSO 3** - Confirmação da transação com a moeda escolhida pelo comprador: 
 
 #### Requisição
 
