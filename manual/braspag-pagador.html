@@ -1461,8 +1461,8 @@
         </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-</span><span class="err">te</span><span class="w"> </span><span class="err">Holder</span><span class="s2">",
-            "</span><span class="err">Expira</span><span class="w">
+        </span><span class="err">te</span><span class="w"> </span><span class="err">Holder</span><span class="w"> </span><span class="s2">",
+        "</span><span class="err">Expira</span><span class="w">
         </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1483,7 +1483,8 @@
             </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA9999999"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#Braspag2018@NOMEDALOJA#"</span><span class="w">
+            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#Braspag2018@NOMEDALOJA#"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NomeDoCampo"</span><span class="p">,</span><span class="w">
@@ -1533,7 +1534,8 @@
         <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
         <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
         <span class="s2">"Amount"</span>: 10000,
-        <span class="s2">"ServiceTaxAmount"</span>: 0,
+        te Holder <span class="s2">",
+        "</span>Expira
         <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
         <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
         <span class="s2">"Installments"</span>: 1,
@@ -1554,7 +1556,8 @@
             <span class="s2">"code"</span>: <span class="s2">"9999999"</span>,
             <span class="s2">"key"</span>: <span class="s2">"D8888888"</span>,
             <span class="s2">"password"</span>: <span class="s2">"LOJA9999999"</span>,
-            <span class="s2">"username"</span>: <span class="s2">"#Braspag2018@NOMEDALOJA#"</span>
+            <span class="s2">"username"</span>: <span class="s2">"#Braspag2018@NOMEDALOJA#"</span>,
+            <span class="s2">"signature"</span>: <span class="s2">"001"</span>
         <span class="o">}</span>,
         <span class="s2">"ExtraDataCollection"</span>: <span class="o">[{</span>
             <span class="s2">"Name"</span>: <span class="s2">"NomeDoCampo"</span>,
@@ -1876,6 +1879,13 @@
       <td>50</td>
       <td>Não</td>
       <td>senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.signature</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>TerminalID da adquirete Global Payments. Ex.: 001</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -6468,7 +6478,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
 <p>Exemplo de uma transação com DCC (Dynamic Currency Conversion), conversor de moedas da adquirente Global Payments que permite que o portador de um cartão estrangeiro escolha entre pagar em Reais ou em sua moeda Local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
 A solução é indicada para estabelecimentos que recebem pagamentos com cartões emitidos no exterior como hotéis, pousadas, polos comerciais e comércios em pontos turísticos.</p>
 
-<aside class="notice">Autenticação:Para utilizar esta funcionalidade, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento.</aside>
+<aside class="notice">Autenticação: Para utilizar esta funcionalidade, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento.</aside>
 
 <aside class="warning">Esta funcionalidade não é compatível com transações com MPI Externo.</aside>
 
@@ -6487,9 +6497,11 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p><img src="https://braspag.github.io//images/dcc-globalpayments.jpg" alt="DCC Global Payments" /></p>
 
+<p>Exemplo disponibilizado pela Global Payments</p>
+
 <p>Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. A resposta da autorização será retornada neste ponto.</p>
 
-<p><strong>Passo 1</strong> - Solicitação de autorização da transação:</p>
+<p><strong>PASSO 1</strong> - Solicitação de autorização da transação:</p>
 
 <h4 id="requisição-13">Requisição</h4>
 
@@ -6925,11 +6937,13 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   </tbody>
 </table>
 
-<p><strong>Passo 2</strong> - Exibição das opções de pagamento (pagar em Reais ou na moeda do cartão):</p>
+<p><strong>PASSO 2</strong> - Exibição das opções de pagamento (pagar em Reais ou na moeda do cartão):</p>
 
 <p><img src="https://braspag.github.io//images/dcc-globalpayments.jpg" alt="DCC Global Payments" /></p>
 
-<p><strong>Passo 3</strong> - Confirmação da transação com a moeda escolhida pelo comprador:</p>
+<p>Exemplo disponibilizado pela Global Payments</p>
+
+<p><strong>PASSO 3</strong> - Confirmação da transação com a moeda escolhida pelo comprador:</p>
 
 <h4 id="requisição-14">Requisição</h4>
 
