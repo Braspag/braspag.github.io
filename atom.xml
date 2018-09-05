@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-09-05T21:01:35+00:00</updated>
+    <updated>2018-09-05T21:26:49+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -430,7 +430,7 @@ O download poderá ser realizado a partir da seguinte URL:&lt;/p&gt;
 
 &lt;p&gt;Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/pagina-checkout.jpg&quot; alt=&quot;Pagina Checkout&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/consulta-bin.jpg&quot; alt=&quot;Pagina Checkout&quot; /&gt;&lt;/p&gt;
 </content>
     </entry>
     
