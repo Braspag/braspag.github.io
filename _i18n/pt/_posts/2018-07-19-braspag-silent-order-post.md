@@ -116,4 +116,4 @@ c) O script fornecido pela Braspag fornece três eventos para manipulação e tr
 
 Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:
 
-![Pagina Checkout]({{ site.baseurl_root }}/images/pagina-checkout.jpg)
+![Pagina Checkout]({{ site.baseurl_root }}/images/consulta-bin.jpg)
