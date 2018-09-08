@@ -6,9 +6,11 @@ search: true
 translated: true
 categories: manualp
 tags:
-  - Pagador
+  - Autenticação 3DS 2.0
 language_tabs:
+  json: JSON
   shell: cURL
+  html: HTML
 ---
 
 # Autenticação 3DS 2.0
