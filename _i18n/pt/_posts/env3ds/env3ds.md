@@ -63,15 +63,11 @@ REQUEST **POST**
 | {&quot;EstablishmentCode&quot;:&quot;1006993069&quot;,&quot;MerchantName&quot;:&quot;Loja Exemplo LTDA&quot;,&quot;MCC&quot;:&quot;5912&quot;} |
 | --- |
 
-
-
 | **Campo** | **Descrição** | **Tipo/Tamanho** |
 | --- | --- | --- |
 | EstablishmentCode | Código do Estabelecimento do Cielo E-Commerce 3.0 | Numérico [10 posições] |
 | MerchantName | Nome do estabelecimento registrado na Cielo | Alfanumérico [até 25 posições] |
 | MCC | Código de Categoria do estabelecimento | Numérico [4 posições] |
-
-
 
 RESPONSE
 
