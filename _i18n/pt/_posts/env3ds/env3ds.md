@@ -1,3 +1,16 @@
+---
+layout: manual
+title: Manual de integração 3DS 2.0
+description: Integração técnica Gateway Braspag
+search: true
+translated: true
+categories: manualp
+tags:
+  - Autenticação 3DS 2.0
+language_tabs:
+  shell: cURL
+---
+
 # Autenticação 3DS 2.0
 
 ## O que é 3DS 2.0?
