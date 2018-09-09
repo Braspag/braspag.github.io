@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Manual de integração 3DS 2.0 &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manualp/env3ds" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manualp/env3ds" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                    <li><a data-language-name='html'>HTML</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="http://www.braspag.com.br/suporte/" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://braspag.github.io//manualp/env3ds">
+                                    
+
+                                        <img alt="Português" src="https://braspag.github.io//assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://braspag.github.io//en/manualp/env3ds">
+                                    
+
+                                        <img alt="English" src="https://braspag.github.io//assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manualp/env3ds">Manual de integração 3DS 2.0</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="autenticação-3ds-20">Autenticação 3DS 2.0</h1>
+
+<h2 id="o-que-é-3ds-20">O que é 3DS 2.0?</h2>
+
+<p>Com o objetivo de minimizar o índice de fraude sem prejudicar a taxa de conversão, a indústria de meio de pagamento desenvolveu um novo padrão de autenticação, chamado <strong>EMV 3DS</strong> , ou também chamado de <strong>3DS 2.0</strong>. A nova versão é capaz de analisar dezenas de variáveis que são utilizadas como critérios para determinar se um comprador é de fato o portador cartão, permitindo em alguns casos, a autenticação silenciosa do mesmo (autenticação sem desafio), sem prejuízo à questão do <em>Liability Shift</em> dos estabelecimentos.</p>
+
+<p>Principais benefícios:</p>
+
+<ul>
+  <li>Integração facilitada via Java Script;</li>
+  <li>Interface de autenticação é responsiva para mobile;</li>
+  <li>Possibilidade de autenticação "silenciosa" (isenção do desafio);</li>
+  <li>Minimiza transações com fraudes;</li>
+</ul>
+
+<p><strong>Palavras chaves:</strong> Autenticação de Cartão de Crédito e Débito, EMVCO, 3DS 2.0, Visa, Mastercard, E-Commerce</p>
+
+<h2 id="quem-pode-usar-o-3ds-20">Quem pode usar o 3DS 2.0?</h2>
+
+<p>Qualquer estabelecimento comercial que tenha e-Commerce ou um aplicativo pode utilizar a solução. É particularmente indicado para estabelecimentos que pertencem ao segmento de alto risco.</p>
+
+<h2 id="quais-são-requisitos-para-a-utilização-do-3ds-20">Quais são requisitos para a utilização do 3DS 2.0?</h2>
+
+<p>O estabelecimento comercial deve atender aos requisitos abaixo para a utilização do 3DS 2.0:</p>
+
+<ul>
+  <li>Ter afiliação do Cielo E-Commerce 3.0;</li>
+  <li>Concluir a integração técnica do fluxo de autenticação;</li>
+  <li>Concluir a integração técnica do fluxo de autorização;</li>
+</ul>
+
+<h2 id="como-funciona-a-autorização-com-autenticação-via-3ds-20">Como funciona a autorização com autenticação via 3DS 2.0?</h2>
+
+<p>O processo de autorização de cartão autenticada via 3DS 2.0 ocorre em duas etapas:</p>
+
+<ol>
+  <li>Etapa 1: Autenticação</li>
+  <li>Etapa 2: Autorização</li>
+</ol>
+
+<p>O fluxo abaixo descreve as etapas em alto nível:</p>
+
+<p><img src="https://braspag.github.io//images/fluxo-env3ds.jpg" alt="Fluxo 3DS 2.0" /></p>
+
+<ol>
+  <li>O portador escolhe pagar com cartão de crédito ou débito</li>
+  <li>O estabelecimento solicita a autenticação através da solução Cielo</li>
+  <li>A plataforma de autenticação poderá seguir um dos dois fluxos: requisitar a autenticação do portador ou realizar a autenticação de forma silenciosa. No primeiro caso, a plataforma retornará a URL de Autenticação ao estabelecimento. No segundo caso, o passo seguinte já é o retorno com o resultado da autenticação.</li>
+  <li>O estabelecimento apresenta a interface de autenticação no <em>lightbox</em> (URL de Autenticação do emissor)</li>
+  <li>O portador se autentica no emissor (processo conhecido como <strong>realizar o desafio</strong> )</li>
+  <li>O emissor retorna o resultado da autenticação à plataforma 3DS, que por sua vez repassa para o estabelecimento</li>
+  <li>O estabelecimento poderá ou não, seguir com o processo de autorização. Quando optar por autorizar deverá submeter o resultado da autenticação no contrato técnico de autorização</li>
+  <li>A Cielo retorna o resultado da autorização para o estabelecimento, que por sua vez, retorna para o portador</li>
+</ol>
+
+<h2 id="etapa-1-autenticação">Etapa 1: Autenticação</h2>
+
+<p>A solução é composta pelo passo de solicitação de token de acesso via API e solicitação de autenticação via Java Script.</p>
+
+<h3 id="passo-1-solicitação-de-token-de-acesso">Passo 1. Solicitação de Token de Acesso</h3>
+
+<p><strong>Endpoints</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>SANDBOX</strong></th>
+      <th>https://mpisandbox.braspag.com.br</th>
+      <th>Authorization: Basic ZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlOkQvaWxSc2ZvcUhsU1VDaHdBTW5seUtkRE5kN0ZNc003Y1Uvdm8wMlJFYWc9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>PRODUÇÃO</strong></td>
+      <td>https://mpi.braspag.com.br</td>
+      <td>Authorization: (solicitar à equipe de suporte após concluir o desenvolvimento em sandbox)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>REQUEST</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/auth/token</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://mpisandbox.braspag.com.br/v2/auth/token"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+<span class="o">{</span>
+     <span class="s2">"EstablishmentCode"</span>:<span class="s2">"1006993069"</span>,
+     <span class="s2">"MerchantName"</span>: <span class="s2">"Loja Exemplo Ltda"</span>,
+     <span class="s2">"MCC"</span>: <span class="s2">"5912"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Campo</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EstablishmentCode</td>
+      <td>Código do Estabelecimento do Cielo E-Commerce 3.0</td>
+      <td>Numérico [10 posições]</td>
+    </tr>
+    <tr>
+      <td>MerchantName</td>
+      <td>Nome do estabelecimento registrado na Cielo</td>
+      <td>Alfanumérico [até 25 posições]</td>
+    </tr>
+    <tr>
+      <td>MCC</td>
+      <td>Código de Categoria do estabelecimento</td>
+      <td>Numérico [4 posições]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>RESPONSE</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+      <span class="s2">"access_token"</span>: <span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span>,
+      <span class="s2">"token_type"</span>: <span class="s2">"barear"</span>,
+      <span class="s2">"expires_in"</span>: <span class="s2">"2018-07-23T11:29:32"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Campo</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>access_token</td>
+      <td>Token necessário para realizar a autenticação.</td>
+      <td>Alfanumérico [tamanho variável]</td>
+    </tr>
+    <tr>
+      <td>token_type</td>
+      <td>Fixo "bearer"</td>
+      <td>Alfanumérico</td>
+    </tr>
+    <tr>
+      <td>expires_in</td>
+      <td>Tempo em minutos para expirar o token</td>
+      <td>Numérico</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="passo-2-implementação-do-script-em-sua-página-de-checkout">Passo 2. Implementação do script em sua página de checkout</h3>
+
+<p>Neste passo, é implementado o <em>script</em> e o mapeamento de <em>classes</em> responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que descreve o código Java Script abaixo. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    function bpmpi_config() {
+        var options = {
+            onSuccess: function (e) {
+                // Cartão elegível para autenticação, e portador autenticou com sucesso.
+                var cavv = e.Cavv;
+                var xid = e.Xid;
+                var eci = e.Eci;
+                var version = e.Version;
+                var referenceId = e.ReferenceId;
+            },
+            onFailure: function (e) {
+                // Cartão elegível para autenticação, porém o portador finalizou com falha.
+                var xid = e.Xid;
+                var eci = e.Eci;        
+                var version = e.Version;        
+                var referenceId = e.ReferenceId;
+            },
+            onUnerolled: function (e) {
+                // Cartão não elegível para autenticação (não autenticável).
+                var eci = e.Eci;
+                var version = e.Version;
+                var referenceId = e.ReferenceId;
+            },
+            onDisabled: function (e) {
+                // Loja não requer autenticação do portador (classe "bpmpi_auth" false -&gt; autenticação desabilitada).
+                var referenceId = e.ReferenceId;
+            },
+            onError: function (e) {
+                // Erro no processo de autenticação. 
+                var returnCode = e.ReturnCode;
+                var returnMessage = e.ReturnMessage;
+                var referenceId = e.ReferenceId;
+            },
+            Environment: "SDB",
+            Debug: true
+        };
+    }
+</code></pre></div></div>
+
+<p>Descrição dos Eventos</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Evento</strong></th>
+      <th><strong>Descrição</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>onSuccess</td>
+      <td>É acionado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.</td>
+    </tr>
+    <tr>
+      <td>onFailure</td>
+      <td>É acionado quando o cartão é elegível, porém não teve o processo de autenticação falhou por algum motivo. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>onUnerolled</td>
+      <td>É acionado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>onDisabled</td>
+      <td>É acionado quando o estabelecimento optou por não submeter o portador ao processo de autenticação (classe "bpmpi_auth" como false). Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>onError</td>
+      <td>É acionado quando o processo de autenticação recebeu um erro sistêmico. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Descrição dos Parâmetros de entrada</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Parâmetro</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Environment</td>
+      <td>Indica o ambiente a ser utilizado (Sandbox ou Produção)</td>
+      <td>SDB – Sandbox (ambiente de teste)PRD – Produção (ambiente de produção)</td>
+    </tr>
+    <tr>
+      <td>Debug</td>
+      <td>Booleano que indica se o modo debug é ativado ou não. Quando true, a plataforma emitirá o relatório no mecanismo de debug do browser.</td>
+      <td>Booleanotrue – modo debug ativadofalse – modo debug desativado</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>IMPORTANTE!</strong></p>
+
+<p>O arquivo JavaScript deve ser salvo no servidor onde está a aplicação da loja. Para baixar o arquivo, acesse:</p>
+
+<p><a href="https://bit.ly/2wWXK2T">https://bit.ly/2wWXK2T</a></p>
+
+<p>Descrição das saídas</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Saída</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cavv</td>
+      <td>Dado que representa assinatura da autenticação</td>
+      <td>Alfanumérico [28 posições]</td>
+    </tr>
+    <tr>
+      <td>Xid</td>
+      <td>ID que representa a requisição da autenticação</td>
+      <td>Alfanumérico [28 posições]</td>
+    </tr>
+    <tr>
+      <td>Eci</td>
+      <td>Código indicador do e-commerce, que representa o resultado da autenticação</td>
+      <td>Numérico [até 2 posições]</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>Versão do 3DS aplicado</td>
+      <td>Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0</td>
+    </tr>
+    <tr>
+      <td>ReferenceID</td>
+      <td>ID que representa a requisição de autenticação</td>
+      <td>GUID [36 posições]</td>
+    </tr>
+    <tr>
+      <td>ReturnCode</td>
+      <td>Código de retorno da requisição de autenticação</td>
+      <td>Alphanumérico [até 5 posições]</td>
+    </tr>
+    <tr>
+      <td>ReturnMessage</td>
+      <td>Mensagem de retorno da requisição de autenticação</td>
+      <td>Alphanumérico [varivável]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="passo-3-mapeamento-de-classes">Passo 3. Mapeamento de classes</h3>
+
+<p>A solução disponibiliza dezenas de classes que devem ser mapeadas em seu código HTML.</p>
+
+<p>Uma vez que a classe é mapeada em determinado campo, o script é capaz de recuperar o valor contido no campo e submetê-lo para compor a requisição de autenticação.</p>
+
+<p><strong>IMPORTANTE!</strong></p>
+
+<p>Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Campos</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório para autenticação com desafio</strong></th>
+      <th><strong>Obrigatório para autenticação silenciosa (sem desafio)</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_auth</td>
+      <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
+      <td>Booleanotrue – submeter à autenticaçãofalse – não submeter à autenticação</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_accesstoken</td>
+      <td>Token gerado pela API de Token de Acesso (etapa 1)</td>
+      <td>Alphanumérico [varivável]</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cardnumber</td>
+      <td>Número do Cartão</td>
+      <td>Numérico [até 19 posições]</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cardexpirationmonth</td>
+      <td>Mês do vencimento do cartão</td>
+      <td>Numérico [2 posições]</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cardexpirationyear</td>
+      <td>Ano do vencimento do cartão</td>
+      <td>Numérico [2 posições]</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cardtype</td>
+      <td>Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit</td>
+      <td>Credit – Cartão de CréditoDebit – Cartão de Débito</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_currency</td>
+      <td>Código da moeda</td>
+      <td>Fixo "BRL"</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_grandTotalAmountbpmpi_totalamount</td>
+      <td>Valor total da transação, enviado em centavos</td>
+      <td>Numérico [até 15 posições]</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_merchantNewCustomer</td>
+      <td>Indica se o comprador é um cliente novo ou não</td>
+      <td>Booleanotrue – comprador novofalse – comprador que já fez uma compra anteriormente</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_paymentAccountDate</td>
+      <td>Indica a data de quando o cartão foi adicionado na conta do comprador</td>
+      <td>Numérico:-1 – não foi adicionado (guest account)0 – adicionado durante esta transaçãoDDMMAAAA – nenhuma das alternativas acima</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_city</td>
+      <td>Cidade do endereço de cobrança</td>
+      <td>Alfanumérico [até 50]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_email</td>
+      <td>E-mail do contato do endereço de cobrança</td>
+      <td>Alfanumérico [até 255], no formato <a href="mailto:nome@exemplo.com">nome@exemplo.com</a></td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_Name</td>
+      <td>Nome do contato do endereço de cobrança</td>
+      <td>Alfanumérico [até 120]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_street1</td>
+      <td>Logradouro e Número do endereço de cobrança</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_street2</td>
+      <td>Complemento e bairro do endereço de cobrança</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_ipAddress</td>
+      <td>Endereço IP da máquina do comprador</td>
+      <td>Alfanumérico [até 45]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_customerAccountChangeDate</td>
+      <td>Indica a data de quando houve a última alteração na conta do comprador</td>
+      <td>Numérico:-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da última alteração</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_customerAccountCreateDate</td>
+      <td>Indica a data de quando houve a criação da conta do comprador</td>
+      <td>Numérico:-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da criação</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_customerAccountPasswordChangeDate</td>
+      <td>Indica a data de quando houve a alteração de senha da conta do comprador</td>
+      <td>Numérico:-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da última alteração de senha</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_phoneNumber</td>
+      <td>Telefone de contato do endereço de cobrança</td>
+      <td>Alfanumérico [até 15 posições], no formato: 5511999999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_postalCode</td>
+      <td>CEP do endereço de cobrança</td>
+      <td>Alfanumérico [até 10 posições], no formato: 99999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_state</td>
+      <td>Sigla do estado do endereço de cobrança</td>
+      <td>Texto [2 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_country</td>
+      <td>Código do país do endereço de entrega</td>
+      <td>Fixo "BR"</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_city</td>
+      <td>Cidade do endereço de entrega</td>
+      <td>Alfanumérico [até 50]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_firstName</td>
+      <td>Nome do contato do endereço de entrega</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_lastName</td>
+      <td>Sobrenome do contato do endereço de entrega</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_street1</td>
+      <td>Logradouro e Número do endereço de entrega</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_street2</td>
+      <td>Complemento e bairro do endereço de entrega</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_destinationCode</td>
+      <td>Indica o tipo do destino do endereço de entrega</td>
+      <td>Numérico [2 posições]01- Mesmo endereço que o de cobrança02- Endereço diferente do de endereço de cobrança, mas previamente verificado03- Endereço diferente do endereço de cobrança04- Retirar na loja05- Digital goods06- Viagem, ingressos que não há entrega shipped07- Outros</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_shippingMethod</td>
+      <td>Tipo do método de envio</td>
+      <td>lowcost: envio econômicosameday: envio no mesmo diaoneday: envio no dia seguintetwoday: envio em dois diasthreeday: envio em três diaspickup: retirada na lojaother: outrosnone: não há envio</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_phoneNumber</td>
+      <td>Telefone de contato do endereço de entrega</td>
+      <td>Alfanumérico [até 15 posições], no formato: 5511999999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_postalCode</td>
+      <td>CEP do endereço de entrega</td>
+      <td>Alfanumérico [até 10 posições], no formato: 99999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_state</td>
+      <td>Sigla do estado do endereço de entrega</td>
+      <td>Texto [2 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_deviceFingerprintData_#_data</td>
+      <td>Id retornado pelo Device Finger Print</td>
+      <td>Alfanumérico [sem limiotação]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_deviceFingerprintData_#_provider</td>
+      <td>Nome do provedor do Device Finger Print</td>
+      <td>Alfphanumérico [até 32 posições] cardinalinauththreatmetrix</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_reorder</td>
+      <td>Indica se é a primeira compra ou não</td>
+      <td>Numérico [1 posição]0 – primeira compra1 – compra recorrente</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_item_#_productDescription</td>
+      <td>Descrição do item</td>
+      <td>Alphanumérico [até 255 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_item_#_productName</td>
+      <td>Nome do item</td>
+      <td>Alphanumérico [até 255 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_item_#_productSKU</td>
+      <td>SKU do item</td>
+      <td>Alphanumérico [até 255 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_item_#_quantity</td>
+      <td>Quantidade do item no carrinho</td>
+      <td>Numérico [até 10 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_item_#_unitPrice</td>
+      <td>Valor unitário do item do carrinho em centavos</td>
+      <td>Numérico [até 10 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_productCode</td>
+      <td>Tipoda compra</td>
+      <td>ACC: HotelariaACF: Financiamento de contaCHA: Check acceptanceDIG: Digital GoodsDSP: Dispensação de dinheiroGAS: CombustívelGEN: Varejo geralLUX: Artigos de luxoPAL: recargaPHY: compra de mercadoriasQCT: Transação quase-dinheiroREN: Alugue de CarrosRES: RestauranteSVC: ServiçosTBD: OutrosTRA: Turismo</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipAddressUsageDate</td>
+      <td>Indica a data de quando houve a primeira utilização do endereço de entrega</td>
+      <td>Numérico:-1 – guest account0 – utilizado pela primeira vez nesta transaçãoDDMMAAAA – data da criação</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_transactionCountDay</td>
+      <td>Quantidade de pedidos efetuados por este comprador nas últimas 24h</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_addCardAttempts</td>
+      <td>Quantidade de transações com o mesmo cartão nas últimas 24h</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_accountPurchases</td>
+      <td>Quantidade de pedidos efetuados por este comprador nos últimos 6 meses</td>
+      <td>Numérico [até 4 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_transactionCountYear</td>
+      <td>Quantidade de pedidos efetuados por este comprador no último ano</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>RECORRÊNCIA</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_alternateAuthenticationMethod</td>
+      <td>Método de autenticação do comprador na loja</td>
+      <td>01- Não houve autenticação02- Login da própria loja03- Login com ID federado04- Login com autenticador FIDO</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_alternateAuthenticationData</td>
+      <td>Dado que representa o protocolo de login efetuado na loja</td>
+      <td>Alphanumérico [até 2048 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi__alternateAuthenticationDate</td>
+      <td>A data e hora que o login foi efetuado na loja</td>
+      <td>Numérico [12 posições]AAAAMMDDHHMM</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_marketingOptIn</td>
+      <td>Indica se o comprador aceitou receber ofertas de marketing</td>
+      <td>Booleanotrue – simfalse – não</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_marketingSource</td>
+      <td>Identifica a origem da campanha de marketing</td>
+      <td>Alphanumérico [até 40 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_customerCCAlias</td>
+      <td>Identifica o alias do token do cartão (caso aplicável)</td>
+      <td>Alphanumérico [128posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_defaultCard</td>
+      <td>Indica se o cartão/token utilizado é uma opção padrão</td>
+      <td>Booleanotrue – simfalse – não</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_giftCardAmount</td>
+      <td>O total do valor da compra para cartões-presente pré-pagos em valor arredondado</td>
+      <td>Numérico [até 15 posições], exemplo: R$ 125,54 = 125</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airlineData_leg_#_carrierCode</td>
+      <td>Código IATA para o trecho</td>
+      <td>Alphanumérico [2 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airlineData_leg_#_departureDate</td>
+      <td>Data de partida</td>
+      <td>Numérico [8 posições]AAAAMMDD</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airlineData_leg_#_destination</td>
+      <td>Código IATA do aeroporto de destino</td>
+      <td>Alphanumérico [5 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airlineData_leg_#_originatingAirportCode</td>
+      <td>Código IATA do aeroporto de origem</td>
+      <td>Alphanumérico [5 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airlineData_numberOfPassengers</td>
+      <td>Número de passageiros</td>
+      <td>Numérico [3 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airlineData_passenger_#_firstName</td>
+      <td>Primeiro nome do passageiro</td>
+      <td>Alphanumérico [até 60 posições</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airlineData_passenger_#_lastName</td>
+      <td>Último nome do passageiro</td>
+      <td>Alphanumérico [até 60 posições</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_passportCountry</td>
+      <td>Código do país que emitiu o passaporte</td>
+      <td>Numérico [3 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_passportNumber</td>
+      <td>Número do passaporte</td>
+      <td>Alfanumérico [40 posições]</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_mddField_1</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>bpmpi_mddField_2</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>bpmpi_mddField_3</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>bpmpi_mddField_4</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>bpmpi_mddField_5</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="passo-4-implementação-da-chamada-ao-evento-de-autenticação">Passo 4. Implementação da chamada ao evento de autenticação</h3>
+
+<p>O evento "<strong>bpmpi_Authenticate()</strong>" deve chamado no momento de finalização do checkout (finalização da compra). Vide exemplo abaixo:</p>
+
+<p>\&lt;inputtype="button"onclick="bpmpi_authenticate()" /\&gt;</p>
+
+<h2 id="etapa-2-autorização">Etapa 2: Autorização</h2>
+
+<p>Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de "autenticação externa" (nó <strong>ExternalAuthentication</strong> ).</p>
+
+<p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador:</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+<span class="o">{</span>  
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2017051002"</span>,
+   <span class="s2">"Customer"</span>:
+   <span class="o">{</span>  
+     <span class="o">(</span>...<span class="o">)</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>:
+   <span class="o">{</span>  
+     <span class="o">(</span>...<span class="o">)</span>
+     <span class="s2">"Provider"</span>:<span class="s2">"Cielo30"</span>,
+     <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
+         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
+         <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
+         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
+         <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>
+     <span class="o">}</span>,
+     <span class="s2">"ExternalAuthentication"</span>:
+     <span class="o">{</span>
+       <span class="s2">"Cavv"</span>:<span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span>,
+       <span class="s2">"Xid"</span>:<span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span>,
+       <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
+       <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
+       <span class="s2">"RefereceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
+     <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Campo</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cavv</td>
+      <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
+      <td>Alphanumérico [28 posições]</td>
+      <td>Sim, quando a autenticação foi um sucesso</td>
+    </tr>
+    <tr>
+      <td>Xid</td>
+      <td>XID retornado no processo de autenticação</td>
+      <td>Alphanumérico [28 posições]</td>
+      <td>Sim, quando a versão do 3DS for "1"</td>
+    </tr>
+    <tr>
+      <td>Eci</td>
+      <td>E-Commerce Indicator retornado no processo de autenticação</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>Versão do 3DS utilizado no processo de autenticação</td>
+      <td>Alphanumérico [1 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ReferenceID</td>
+      <td>RequestID retornado no processo de autenticação</td>
+      <td>GUID [36 posições]</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="http://www.braspag.com.br/fale-conosco/">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io//">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+        langs += "<a data-language-name='shell'>cURL</a>";
+        
+        langs += "<a data-language-name='html'>HTML</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json",  "shell",  "html", ]);
+            });
+        </script>
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:715256,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
