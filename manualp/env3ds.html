@@ -322,7 +322,7 @@
 
 <p>Neste passo, é implementado o <em>script</em> e o mapeamento de <em>classes</em> responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que descreve o código Java Script abaixo. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
     
         
         
@@ -420,47 +420,47 @@
         
     
     
-        function bpmpi_config() {
-            var options = {
-                onSuccess: function (e) {
-                    // Cartão elegível para autenticação, e portador autenticou com sucesso.
-                    var cavv = e.Cavv;
-                    var xid = e.Xid;
-                    var eci = e.Eci;
-                    var version = e.Version;
-                    var referenceId = e.ReferenceId;
-                },
-                onFailure: function (e) {
-                    // Cartão elegível para autenticação, porém o portador finalizou com falha.
-                    var xid = e.Xid;
-                    var eci = e.Eci;        
-                    var version = e.Version;        
-                    var referenceId = e.ReferenceId;
-                },
-                onUnerolled: function (e) {
-                    // Cartão não elegível para autenticação (não autenticável).
-                    var eci = e.Eci;
-                    var version = e.Version;
-                    var referenceId = e.ReferenceId;
-                },
-                onDisabled: function (e) {
-                    // Loja não requer autenticação do portador (classe "bpmpi_auth" false -&gt; autenticação desabilitada).
-                    var referenceId = e.ReferenceId;
-                },
-                onError: function (e) {
-                    // Erro no processo de autenticação. 
-                    var returnCode = e.ReturnCode;
-                    var returnMessage = e.ReturnMessage;
-                    var referenceId = e.ReferenceId;
-                },
-                Environment: "SDB",
-                Debug: true
-            };
-        }
+        </span><span class="err">function</span><span class="w"> </span><span class="err">bpmpi_config()</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">var</span><span class="w"> </span><span class="err">options</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">onSuccess</span><span class="p">:</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">(e)</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">//</span><span class="w"> </span><span class="err">Cartão</span><span class="w"> </span><span class="err">elegível</span><span class="w"> </span><span class="err">para</span><span class="w"> </span><span class="err">autenticação</span><span class="p">,</span><span class="w"> </span><span class="err">e</span><span class="w"> </span><span class="err">portador</span><span class="w"> </span><span class="err">autenticou</span><span class="w"> </span><span class="err">com</span><span class="w"> </span><span class="err">sucesso.</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">cavv</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.Cavv;</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">xid</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.Xid;</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">eci</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.Eci;</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">version</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.Version;</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">referenceId</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.ReferenceId;</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">onFailure</span><span class="p">:</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">(e)</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">//</span><span class="w"> </span><span class="err">Cartão</span><span class="w"> </span><span class="err">elegível</span><span class="w"> </span><span class="err">para</span><span class="w"> </span><span class="err">autenticação</span><span class="p">,</span><span class="w"> </span><span class="err">porém</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">portador</span><span class="w"> </span><span class="err">finalizou</span><span class="w"> </span><span class="err">com</span><span class="w"> </span><span class="err">falha.</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">xid</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.Xid;</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">eci</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.Eci;</span><span class="w">        
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">version</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.Version;</span><span class="w">        
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">referenceId</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.ReferenceId;</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">onUnerolled</span><span class="p">:</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">(e)</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">//</span><span class="w"> </span><span class="err">Cartão</span><span class="w"> </span><span class="err">não</span><span class="w"> </span><span class="err">elegível</span><span class="w"> </span><span class="err">para</span><span class="w"> </span><span class="err">autenticação</span><span class="w"> </span><span class="err">(não</span><span class="w"> </span><span class="err">autenticável).</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">eci</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.Eci;</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">version</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.Version;</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">referenceId</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.ReferenceId;</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">onDisabled</span><span class="p">:</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">(e)</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">//</span><span class="w"> </span><span class="err">Loja</span><span class="w"> </span><span class="err">não</span><span class="w"> </span><span class="err">requer</span><span class="w"> </span><span class="err">autenticação</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">portador</span><span class="w"> </span><span class="err">(classe</span><span class="w"> </span><span class="s2">"bpmpi_auth"</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="err">autenticação</span><span class="w"> </span><span class="err">desabilitada).</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">referenceId</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.ReferenceId;</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">onError</span><span class="p">:</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">(e)</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">//</span><span class="w"> </span><span class="err">Erro</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">processo</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">autenticação.</span><span class="w"> 
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">returnCode</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.ReturnCode;</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">returnMessage</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.ReturnMessage;</span><span class="w">
+                    </span><span class="err">var</span><span class="w"> </span><span class="err">referenceId</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">e.ReferenceId;</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">Environment</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDB"</span><span class="p">,</span><span class="w">
+                </span><span class="err">Debug</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">}</span><span class="err">;</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     
     
 
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <p>Descrição dos Eventos</p>
 
