@@ -194,11 +194,9 @@
   <li>A Cielo retorna o resultado da autorização para o estabelecimento, que por sua vez, retorna para o portador</li>
 </ol>
 
-<h2 id="etapa-1-autenticação">Etapa 1: Autenticação</h2>
+<h2 id="etapa-de-autenticação---passo-1-solicitação-de-token-de-acesso">Etapa de Autenticação - passo 1. Solicitação de Token de Acesso</h2>
 
 <p>A solução é composta pelo passo de solicitação de token de acesso via API e solicitação de autenticação via Java Script.</p>
-
-<h3 id="passo-1-solicitação-de-token-de-acesso">Passo 1. Solicitação de Token de Acesso</h3>
 
 <table>
   <thead>
@@ -224,9 +222,16 @@
   </tbody>
 </table>
 
-<p>REQUEST</p>
+<h3 id="request">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/auth/token</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+     </span><span class="s2">"EstablishmentCode"</span><span class="p">:</span><span class="s2">"1006993069"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja Exemplo Ltda"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"MCC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5912"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> POST <span class="s2">"https://mpisandbox.braspag.com.br/v2/auth/token"</span>
@@ -267,7 +272,7 @@
   </tbody>
 </table>
 
-<p>RESPONSE</p>
+<h3 id="response">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
@@ -306,7 +311,7 @@
   </tbody>
 </table>
 
-<h3 id="passo-2-implementação-do-script-em-sua-página-de-checkout">Passo 2. Implementação do script em sua página de checkout</h3>
+<h2 id="etapa-de-autenticação---passo-2---implementação-do-script">Etapa de Autenticação - passo 2 - Implementação do script</h2>
 
 <p>Neste passo, é implementado o <em>script</em> e o mapeamento de <em>classes</em> responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que descreve o código Java Script abaixo. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:</p>
 
@@ -461,7 +466,7 @@
   </tbody>
 </table>
 
-<h3 id="passo-3-mapeamento-de-classes">Passo 3. Mapeamento de classes</h3>
+<h2 id="etapa-de-autenticação---passo-3---mapeamento-de-classes">Etapa de Autenticação - passo 3 - Mapeamento de classes</h2>
 
 <p>A solução disponibiliza dezenas de classes que devem ser mapeadas em seu código HTML.</p>
 
@@ -975,19 +980,51 @@
   </tbody>
 </table>
 
-<h3 id="passo-4-implementação-da-chamada-ao-evento-de-autenticação">Passo 4. Implementação da chamada ao evento de autenticação</h3>
+<h2 id="etapa-de-autenticação---passo-4---implementação-da-chamada-ao-evento-de-autenticação">Etapa de Autenticação - passo 4 - Implementação da chamada ao evento de autenticação</h2>
 
 <p>O evento "<strong>bpmpi_Authenticate()</strong>" deve chamado no momento de finalização do checkout (finalização da compra). Vide exemplo abaixo:</p>
 
 <p>\&lt;inputtype="button"onclick="bpmpi_authenticate()" /\&gt;</p>
 
-<h2 id="etapa-2-autorização">Etapa 2: Autorização</h2>
+<h2 id="etapa-de-autorização">Etapa de Autorização</h2>
 
 <p>Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de "autenticação externa" (nó <strong>ExternalAuthentication</strong> ).</p>
 
 <p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales</span></aside>
+
+<h3 id="request-1">Request</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">  
+     </span><span class="err">(...)</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">  
+     </span><span class="err">(...)</span><span class="w">
+     </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000183"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"ExternalAuthentication"</span><span class="p">:</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"Cavv"</span><span class="p">:</span><span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Xid"</span><span class="p">:</span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"Version"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"RefereceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales"</span>
@@ -1066,6 +1103,10 @@
     </tr>
   </tbody>
 </table>
+
+<h3 id="response-1">Response</h3>
+
+<p>Vide https://braspag.github.io/manual/braspag-pagador</p>
 
 </div>
 
