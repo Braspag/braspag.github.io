@@ -733,8 +733,6 @@ Este é um exemplo de uma transação com as credenciais geradas pelas adquirent
         "Provider": "Simulado",
         "Type": "CreditCard",
         "Amount": 10000,
-        te Holder ",
-        "Expira
         "Currency": "BRL",
         "Country": "BRA",
         "Installments": 1,
@@ -807,8 +805,6 @@ curl
         "Provider": "Simulado",
         "Type": "CreditCard",
         "Amount": 10000,
-        te Holder ",
-        "Expira
         "Currency": "BRL",
         "Country": "BRA",
         "Installments": 1,
