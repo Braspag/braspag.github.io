@@ -282,7 +282,7 @@
 </span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
       <span class="s2">"access_token"</span>: <span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span>,
@@ -497,7 +497,7 @@
     <tr>
       <td>bpmpi_cardtype</td>
       <td>Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit</td>
-      <td>Credit – Cartão de CréditoDebit – Cartão de Débito</td>
+      <td>Credit – Cartão de Crédito<br />Debit – Cartão de Débito</td>
       <td>Sim</td>
       <td>Sim</td>
     </tr>
@@ -518,14 +518,14 @@
     <tr>
       <td>bpmpi_merchantNewCustomer</td>
       <td>Indica se o comprador é um cliente novo ou não</td>
-      <td>Booleano<br />true – comprador novofalse – comprador que já fez uma compra anteriormente</td>
+      <td>Booleano<br />true – comprador novo<br />false – comprador que já fez uma compra anteriormente</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_paymentAccountDate</td>
       <td>Indica a data de quando o cartão foi adicionado na conta do comprador</td>
-      <td>Numérico<br />-1 – não foi adicionado (guest account)0 – adicionado durante esta transaçãoDDMMAAAA – nenhuma das alternativas acima</td>
+      <td>Numérico<br />-1 – não foi adicionado (guest account)<br />0 – adicionado durante esta transação<br />DDMMAAAA – nenhuma das alternativas acima</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -574,21 +574,21 @@
     <tr>
       <td>bpmpi_billTo_customerAccountChangeDate</td>
       <td>Indica a data de quando houve a última alteração na conta do comprador</td>
-      <td>Numérico<br />-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da última alteração</td>
+      <td>Numérico<br />-1 – guest account<br />0 – adicionado durante esta transação<br />DDMMAAAA – data da última alteração</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_customerAccountCreateDate</td>
       <td>Indica a data de quando houve a criação da conta do comprador</td>
-      <td>Numérico<br />-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da criação</td>
+      <td>Numérico<br />-1 – guest account<br />0 – adicionado durante esta transação<br />DDMMAAAA – data da criação</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_customerAccountPasswordChangeDate</td>
       <td>Indica a data de quando houve a alteração de senha da conta do comprador</td>
-      <td>Numérico<br />-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da última alteração de senha</td>
+      <td>Numérico<br />-1 – guest account<br />0 – adicionado durante esta transação<br />DDMMAAAA – data da última alteração de senha</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -658,14 +658,14 @@
     <tr>
       <td>bpmpi_shipTo_destinationCode</td>
       <td>Indica o tipo do destino do endereço de entrega</td>
-      <td>Numérico [2 posições]01- Mesmo endereço que o de cobrança02- Endereço diferente do de endereço de cobrança, mas previamente verificado03- Endereço diferente do endereço de cobrança04- Retirar na loja05- Digital goods06- Viagem, ingressos que não há entrega shipped07- Outros</td>
+      <td>Numérico [2 posições]01- Mesmo endereço que o de cobrança<br />02- Endereço diferente do de endereço de cobrança, mas previamente verificado<br />03- Endereço diferente do endereço de cobrança<br />04- Retirar na loja<br />05- Digital goods<br />06- Viagem, ingressos que não há entrega shipped<br />07- Outros</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_shipTo_shippingMethod</td>
       <td>Tipo do método de envio</td>
-      <td>lowcost: envio econômicosameday: envio no mesmo diaoneday: envio no dia seguintetwoday: envio em dois diasthreeday: envio em três diaspickup: retirada na lojaother: outrosnone: não há envio</td>
+      <td>lowcost: envio econômico<br />sameday: envio no mesmo dia<br />oneday: envio no dia seguinte<br />twoday: envio em dois dias<br />threeday: envio em três dias<br />pickup: retirada na loja<br />other: outrosnone: não há envio</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -700,14 +700,14 @@
     <tr>
       <td>bpmpi_deviceFingerprintData_#_provider</td>
       <td>Nome do provedor do Device Finger Print</td>
-      <td>Alfanumérico [até 32 posições] cardinalinauththreatmetrix</td>
+      <td>Alfanumérico [até 32 posições] cardinal<br />inauth<br />threatmetrix</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_reorder</td>
       <td>Indica se é a primeira compra ou não</td>
-      <td>Numérico [1 posição]0 – primeira compra1 – compra recorrente</td>
+      <td>Numérico [1 posição]0 – primeira compra<br />1 – compra recorrente</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -749,14 +749,14 @@
     <tr>
       <td>bpmpi_productCode</td>
       <td>Tipoda compra</td>
-      <td>ACC: HotelariaACF: Financiamento de contaCHA: Check acceptanceDIG: Digital GoodsDSP: Dispensação de dinheiroGAS: CombustívelGEN: Varejo geralLUX: Artigos de luxoPAL: recargaPHY: compra de mercadoriasQCT: Transação quase-dinheiroREN: Alugue de CarrosRES: RestauranteSVC: ServiçosTBD: OutrosTRA: Turismo</td>
+      <td>ACC: Hotelaria<br />ACF: Financiamento de conta<br />CHA: Check acceptance<br />DIG: Digital Goods<br />DSP: Dispensação de dinheiro<br />GAS: Combustível<br />GEN: Varejo geral<br />LUX: Artigos de luxo<br />PAL: recarga<br />PHY: compra de mercadorias<br />QCT: Transação quase-dinheiro<br />REN: Alugue de Carros<br />RES: Restaurante<br />SVC: Serviços<br />TBD: Outros<br />TRA: Turismo</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_shipAddressUsageDate</td>
       <td>Indica a data de quando houve a primeira utilização do endereço de entrega</td>
-      <td>Numérico<br />-1 – guest account0 – utilizado pela primeira vez nesta transaçãoDDMMAAAA – data da criação</td>
+      <td>Numérico<br />-1 – guest account<br />0 – utilizado pela primeira vez nesta transação<br />DDMMAAAA – data da criação</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -791,7 +791,7 @@
     <tr>
       <td>bpmpi_alternateAuthenticationMethod</td>
       <td>Método de autenticação do comprador na loja</td>
-      <td>01- Não houve autenticação02- Login da própria loja03- Login com ID federado04- Login com autenticador FIDO</td>
+      <td>01- Não houve autenticação<br />02- Login da própria loja<br />03- Login com ID federado<br />04- Login com autenticador FIDO</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -812,7 +812,7 @@
     <tr>
       <td>bpmpi_marketingOptIn</td>
       <td>Indica se o comprador aceitou receber ofertas de marketing</td>
-      <td>Booleano<br />true – simfalse – não</td>
+      <td>Booleano<br />true – sim<br />false – não</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -833,7 +833,7 @@
     <tr>
       <td>bpmpi_defaultCard</td>
       <td>Indica se o cartão/token utilizado é uma opção padrão</td>
-      <td>Booleano<br />true – simfalse – não/li&gt;</td>
+      <td>Booleano<br />true – sim<br />false – não/li&gt;</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
