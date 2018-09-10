@@ -168,6 +168,8 @@
   <li>Concluir a integração técnica do fluxo de autorização;</li>
 </ul>
 
+<aside class="notice">Caso tenha implementado mecanismo de autenticação fora da Cielo (MPI Externo), pule direto para "Etapa de Autorização"</aside>
+
 <h2 id="como-funciona-a-autorização-com-autenticação-via-3ds-20">Como funciona a autorização com autenticação via 3DS 2.0?</h2>
 
 <p>O processo de autorização de cartão autenticada via 3DS 2.0 ocorre em duas etapas:</p>
@@ -954,11 +956,12 @@
 
 <p>O evento "<strong>bpmpi_Authenticate()</strong>" deve chamado no momento de finalização do checkout (finalização da compra). Vide exemplo abaixo:</p>
 
-<p>\&lt;inputtype="button"onclick="bpmpi_authenticate()" /\&gt;</p>
+<p>&lt;input type="button"onclick="bpmpi_authenticate()" /&gt;</p>
 
 <h2 id="etapa-de-autorização">Etapa de Autorização</h2>
 
-<p>Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de "autenticação externa" (nó <strong>ExternalAuthentication</strong> ).</p>
+<p>Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de "autenticação externa" (nó <strong>ExternalAuthentication</strong> ).
+Este procedimento é válido também para estabelecimentos que realizaram a autenticação fora da Cielo (MPI Externo).</p>
 
 <p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador:</p>
 
