@@ -428,12 +428,12 @@
     <tr>
       <td>ReturnCode</td>
       <td>Código de retorno da requisição de autenticação</td>
-      <td>Alphanumérico [até 5 posições]</td>
+      <td>Alfanumérico [até 5 posições]</td>
     </tr>
     <tr>
       <td>ReturnMessage</td>
       <td>Mensagem de retorno da requisição de autenticação</td>
-      <td>Alphanumérico [varivável]</td>
+      <td>Alfanumérico [varivável]</td>
     </tr>
   </tbody>
 </table>
@@ -444,9 +444,9 @@
 
 <p>Uma vez que a classe é mapeada em determinado campo, o script é capaz de recuperar o valor contido no campo e submetê-lo para compor a requisição de autenticação.</p>
 
-<p><strong>IMPORTANTE!</strong></p>
+<aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco</aside>
 
-<p>Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco.</p>
+<aside class="notice">o caracter # indicados no campo deve ser substituído por número que representa o índice do item. Exemplo: bpmpi_item_1_productName representa o nome do item 1 do carrinho</aside>
 
 <table>
   <thead>
@@ -469,7 +469,7 @@
     <tr>
       <td>bpmpi_accesstoken</td>
       <td>Token gerado pela API de Token de Acesso (etapa 1)</td>
-      <td>Alphanumérico [varivável]</td>
+      <td>Alfanumérico [varivável]</td>
       <td>Sim</td>
       <td>Sim</td>
     </tr>
@@ -518,14 +518,14 @@
     <tr>
       <td>bpmpi_merchantNewCustomer</td>
       <td>Indica se o comprador é um cliente novo ou não</td>
-      <td>Booleanotrue – comprador novofalse – comprador que já fez uma compra anteriormente</td>
+      <td>Booleano<br />true – comprador novofalse – comprador que já fez uma compra anteriormente</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_paymentAccountDate</td>
       <td>Indica a data de quando o cartão foi adicionado na conta do comprador</td>
-      <td>Numérico:-1 – não foi adicionado (guest account)0 – adicionado durante esta transaçãoDDMMAAAA – nenhuma das alternativas acima</td>
+      <td>Numérico<br />-1 – não foi adicionado (guest account)0 – adicionado durante esta transaçãoDDMMAAAA – nenhuma das alternativas acima</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -574,21 +574,21 @@
     <tr>
       <td>bpmpi_billTo_customerAccountChangeDate</td>
       <td>Indica a data de quando houve a última alteração na conta do comprador</td>
-      <td>Numérico:-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da última alteração</td>
+      <td>Numérico<br />-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da última alteração</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_customerAccountCreateDate</td>
       <td>Indica a data de quando houve a criação da conta do comprador</td>
-      <td>Numérico:-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da criação</td>
+      <td>Numérico<br />-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da criação</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_customerAccountPasswordChangeDate</td>
       <td>Indica a data de quando houve a alteração de senha da conta do comprador</td>
-      <td>Numérico:-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da última alteração de senha</td>
+      <td>Numérico<br />-1 – guest account0 – adicionado durante esta transaçãoDDMMAAAA – data da última alteração de senha</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -700,7 +700,7 @@
     <tr>
       <td>bpmpi_deviceFingerprintData_#_provider</td>
       <td>Nome do provedor do Device Finger Print</td>
-      <td>Alfphanumérico [até 32 posições] cardinalinauththreatmetrix</td>
+      <td>Alfanumérico [até 32 posições] cardinalinauththreatmetrix</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -714,21 +714,21 @@
     <tr>
       <td>bpmpi_item_#_productDescription</td>
       <td>Descrição do item</td>
-      <td>Alphanumérico [até 255 posições]</td>
+      <td>Alfanumérico [até 255 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_item_#_productName</td>
       <td>Nome do item</td>
-      <td>Alphanumérico [até 255 posições]</td>
+      <td>Alfanumérico [até 255 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_item_#_productSKU</td>
       <td>SKU do item</td>
-      <td>Alphanumérico [até 255 posições]</td>
+      <td>Alfanumérico [até 255 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -756,7 +756,7 @@
     <tr>
       <td>bpmpi_shipAddressUsageDate</td>
       <td>Indica a data de quando houve a primeira utilização do endereço de entrega</td>
-      <td>Numérico:-1 – guest account0 – utilizado pela primeira vez nesta transaçãoDDMMAAAA – data da criação</td>
+      <td>Numérico<br />-1 – guest account0 – utilizado pela primeira vez nesta transaçãoDDMMAAAA – data da criação</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -805,77 +805,77 @@
     <tr>
       <td>bpmpi_alternateAuthenticationData</td>
       <td>Dado que representa o protocolo de login efetuado na loja</td>
-      <td>Alphanumérico [até 2048 posições]</td>
+      <td>Alfanumérico [até 2048 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi__alternateAuthenticationDate</td>
       <td>A data e hora que o login foi efetuado na loja</td>
-      <td>Numérico [12 posições]AAAAMMDDHHMM</td>
+      <td>Numérico [12 posições]<br />AAAAMMDDHHMM</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_marketingOptIn</td>
       <td>Indica se o comprador aceitou receber ofertas de marketing</td>
-      <td>Booleanotrue – simfalse – não</td>
+      <td>Booleano<br />true – simfalse – não</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_marketingSource</td>
       <td>Identifica a origem da campanha de marketing</td>
-      <td>Alphanumérico [até 40 posições]</td>
+      <td>Alfanumérico [até 40 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_customerCCAlias</td>
       <td>Identifica o alias do token do cartão (caso aplicável)</td>
-      <td>Alphanumérico [128posições]</td>
+      <td>Alfanumérico [128posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_defaultCard</td>
       <td>Indica se o cartão/token utilizado é uma opção padrão</td>
-      <td>Booleanotrue – simfalse – não</td>
+      <td>Booleano<br />true – simfalse – não/li&gt;</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_giftCardAmount</td>
       <td>O total do valor da compra para cartões-presente pré-pagos em valor arredondado</td>
-      <td>Numérico [até 15 posições], exemplo: R$ 125,54 = 125</td>
+      <td>Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 125</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_airlineData_leg_#_carrierCode</td>
       <td>Código IATA para o trecho</td>
-      <td>Alphanumérico [2 posições]</td>
+      <td>Alfanumérico [2 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_airlineData_leg_#_departureDate</td>
       <td>Data de partida</td>
-      <td>Numérico [8 posições]AAAAMMDD</td>
+      <td>Numérico [8 posições]<br />AAAAMMDD</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_airlineData_leg_#_destination</td>
       <td>Código IATA do aeroporto de destino</td>
-      <td>Alphanumérico [5 posições]</td>
+      <td>Alfanumérico [5 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_airlineData_leg_#_originatingAirportCode</td>
       <td>Código IATA do aeroporto de origem</td>
-      <td>Alphanumérico [5 posições]</td>
+      <td>Alfanumérico [5 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -889,14 +889,14 @@
     <tr>
       <td>bpmpi_airlineData_passenger_#_firstName</td>
       <td>Primeiro nome do passageiro</td>
-      <td>Alphanumérico [até 60 posições</td>
+      <td>Alfanumérico [até 60 posições</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_airlineData_passenger_#_lastName</td>
       <td>Último nome do passageiro</td>
-      <td>Alphanumérico [até 60 posições</td>
+      <td>Alfanumérico [até 60 posições</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -1047,13 +1047,13 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
     <tr>
       <td>Cavv</td>
       <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
-      <td>Alphanumérico [28 posições]</td>
+      <td>Alfanumérico [28 posições]</td>
       <td>Sim, quando a autenticação foi um sucesso</td>
     </tr>
     <tr>
       <td>Xid</td>
       <td>XID retornado no processo de autenticação</td>
-      <td>Alphanumérico [28 posições]</td>
+      <td>Alfanumérico [28 posições]</td>
       <td>Sim, quando a versão do 3DS for "1"</td>
     </tr>
     <tr>
@@ -1065,7 +1065,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
     <tr>
       <td>Version</td>
       <td>Versão do 3DS utilizado no processo de autenticação</td>
-      <td>Alphanumérico [1 posições]</td>
+      <td>Alfanumérico [1 posições]</td>
       <td>Sim</td>
     </tr>
     <tr>
