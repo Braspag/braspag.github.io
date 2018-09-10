@@ -4114,7 +4114,7 @@ curl
 |`FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador|
 |`FraudAnalysis.Browser.HostName`|Texto|60|Não|Nome do host onde o comprador estava antes de entrar no site da loja|
 |`FraudAnalysis.Browser.IpAddress`|Texto|15|Sim|Endereço IP do comprador. É altamente recomendável o envio deste campo|
-|`FraudAnalysis.Browser.Type`|Texto|40|Não|Nome do browser utilizado pelo comprador|
+|`FraudAnalysis.Browser.Type`|Texto|40|Não|Nome do browser utilizado pelo comprador. Ex.: Google Chrome, Mozilla Firefox, Safari, etc. |
 |`FraudAnalysis.Cart.IsGift`|Booleano|---|Não|Booleano que indica se o pedido é para presente ou não|
 |`FraudAnalysis.Cart.ReturnsAccepted`|Booleano|---|Não|Booleano que define se devoluções são aceitas para o pedido|
 |`FraudAnalysis.Items.GiftCategory`|Texto|9|Não|Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.<BR>*"Yes"* (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)<BR>*"No"* (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)<BR>*"Off"* (Ignora a análise de risco para endereços divergentes)|
