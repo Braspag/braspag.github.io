@@ -1322,7 +1322,8 @@
     </span><span class="s2">"BrowserHostName"</span><span class="p">:</span><span class="s2">"www.dominiobrowsercomprador.com.br"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"BrowserCookiesAccepted"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"BrowserEmail"</span><span class="p">:</span><span class="s2">"emailbrowsercomprador@dominio.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BrowserType"</span><span class="p">:</span><span class="s2">"Chrome 58 on Windows 10"</span><span class="w">
+    </span><span class="s2">"BrowserType"</span><span class="p">:</span><span class="s2">"Chrome 58 on Windows 10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BrowserFingerprint"</span><span class="p">:</span><span class="s2">"braspag123456789"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"CartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1779,7 +1780,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserEmail</code></td>
-      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (<code class="highlighter-rouge">Customer.Email</code>)</td>
+      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(<code class="highlighter-rouge">Customer.Email</code>)</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">100</td>
@@ -1790,6 +1791,13 @@
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">40</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserFingerprint</code></td>
+      <td style="text-align: left">Identificador pode ser qualquer coisa que você queira usar (precisa ser exclusivo por 48 horas). Normalmente, as pessoas usam um identificador de compra ou qualquer outra coisa</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ProductName</code></td>
@@ -5579,8 +5587,8 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
       <td style="text-align: left">Para obter este valor, entre em contato com a Braspag</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderSessionId</code></td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br /> O valor da concatenação entre este campo e o <code class="highlighter-rouge">ProviderMerchantId</code>, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout e enviado na requisição da análise através do campo <code class="highlighter-rouge">Customer.BrowserFingerprint</code>. <br /> Exemplo: <code class="highlighter-rouge">ProviderMerchantId</code> = braspag <br /> <code class="highlighter-rouge">ProviderSessionId</code> = 123456789 <br /> Resultado = braspag123456789</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderIdentifier</code></td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo <code class="highlighter-rouge">Customer.BrowserFingerprint</code> que será enviado na requisição da análise. <br /> O valor da concatenação entre o campo <code class="highlighter-rouge">ProviderMerchantId</code> e este, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout. <br /> Exemplo: <code class="highlighter-rouge">ProviderMerchantId</code> = braspag <br /> <code class="highlighter-rouge">ProviderIdentifier</code> = 123456789 <br />  = braspag123456789 <br /><br /> Obs.: Este valor deverá ser único por 48 horas e normalmente as lojas utilizam o identificador como sendo o número do pedido.</td>
     </tr>
   </tbody>
 </table>
