@@ -1885,16 +1885,11 @@ O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caix
 
 ## Cybersource
 
-Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag *<body>* da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.
+Será necessário adicionar duas tags, a *<script>* dentro da tag *<head>* para uma performance correta e a *<noscript>* dentro da tag *<body>*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
 **IMPORTANTE!**
-Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
+Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
 
-**Colocando os segmentos de código e substituindo os valores das variáveis**
-
-Coloque os segmentos de código imediatamente acima da tag *</body>* para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.
-
-Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.
 
 *Domain*
 
@@ -1911,24 +1906,28 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 |`ProviderMerchantId`|Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag|
 |`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do(s) script(s) que serão incluídos na página de checkout. <br/> Exemplo: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
 
-> PNG Image
-
-![Exemplo Image]({{ site.baseurl_root }}/images/braspag/af/exemplocyberimage.png)
-
-> Flash Code
-
-![Exemplo Image]({{ site.baseurl_root }}/images/braspag/af/exemplocyberflash.png)
-
 > Javascript Code
 
-![Exemplo Image]({{ site.baseurl_root }}/images/braspag/af/exemplocyberjavascript.png)
+```html
+<!-- HEAD -->
+<head>
+<script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></script>
+</head>
+ 
+<!-- BODY -->
+<body>
+<noscript>
+<iframe style="width: 100px; height: 100px; border: 0; position:absolute; top: -5000px;" src="https://h.online-metrix.net/fp/tags?org_id=ProviderOrgId &session_id=ProviderMerchantIdProviderIdentifier"></iframe>
+</noscript>
+</body>
+```
 
 **IMPORTANTE!**
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.
 
 **Configurando seu Servidor Web**
 
-Na seção *Colocando os segmentos de código e substituindo os valores das variáveis (Domain)*, todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.
+Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.
 
 **IMPORTANTE!**
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.
@@ -1936,7 +1935,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 ## Integração em aplicativos mobile
 
 **Baixando o SDK**
-Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br/> [Download Deviceprint SDK iOS]({{ site.baseurl_root }}/files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip) <br/> [Download Deviceprint SDK Android]({{ site.baseurl_root }}/files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip)
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado: <br/> [Download Deviceprint SDK iOS]({{ site.baseurl_root }}/files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip) <br/> [Download Deviceprint SDK Android]({{ site.baseurl_root }}/files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip)
 
 # Tabelas
 
