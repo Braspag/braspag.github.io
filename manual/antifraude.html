@@ -5536,16 +5536,10 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 
 <h2 id="cybersource">Cybersource</h2>
 
-<p>Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ** da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.</p>
+<p>Será necessário adicionar duas tags, a ** dentro da tag ** para uma performance correta e a ** dentro da tag **, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.</p>
 
 <p><strong>IMPORTANTE!</strong>
-Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.</p>
-
-<p><strong>Colocando os segmentos de código e substituindo os valores das variáveis</strong></p>
-
-<p>Coloque os segmentos de código imediatamente acima da tag ** para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.</p>
-
-<p>Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.</p>
+Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.</p>
 
 <p><em>Domain</em></p>
 
@@ -5594,29 +5588,28 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
 </table>
 
 <blockquote>
-  <p>PNG Image</p>
-</blockquote>
-
-<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberimage.png" alt="Exemplo Image" /></p>
-
-<blockquote>
-  <p>Flash Code</p>
-</blockquote>
-
-<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberflash.png" alt="Exemplo Image" /></p>
-
-<blockquote>
   <p>Javascript Code</p>
 </blockquote>
 
-<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberjavascript.png" alt="Exemplo Image" /></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+ 
+
+
+
+
+
+
+</code></pre></div></div>
 
 <p><strong>IMPORTANTE!</strong>
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</p>
 
 <p><strong>Configurando seu Servidor Web</strong></p>
 
-<p>Na seção <em>Colocando os segmentos de código e substituindo os valores das variáveis (Domain)</em>, todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.</p>
+<p>Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.</p>
 
 <p><strong>IMPORTANTE!</strong>
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</p>
@@ -5624,7 +5617,7 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 <h2 id="integração-em-aplicativos-mobile-1">Integração em aplicativos mobile</h2>
 
 <p><strong>Baixando o SDK</strong>
-Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip">Download Deviceprint SDK iOS</a> <br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip">Download Deviceprint SDK Android</a></p>
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado: <br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip">Download Deviceprint SDK iOS</a> <br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip">Download Deviceprint SDK Android</a></p>
 
 <h1 id="tabelas">Tabelas</h1>
 
