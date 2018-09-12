@@ -1885,7 +1885,7 @@ O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caix
 
 ## Cybersource
 
-Será necessário adicionar duas tags, a *<script>* dentro da tag *<head>* para uma performance correta e a *<noscript>* dentro da tag *<body>*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
+Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
 **IMPORTANTE!**
 
