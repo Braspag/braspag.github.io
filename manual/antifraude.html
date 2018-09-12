@@ -53,7 +53,9 @@
                 <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
                 <ul class="language-buttons">
                     
-                    <li><a data-language-name='json'>JSON | HTML</a></li>
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='html'>HTML</a></li>
                     
                 </ul>
             </div>
@@ -7846,7 +7848,9 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
         });
 
         
-        langs += "<a data-language-name='json'>JSON | HTML</a>";
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+        langs += "<a data-language-name='html'>HTML</a>";
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
@@ -7855,7 +7859,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json", ]);
+                setupLanguages([  "json",  "html", ]);
             });
         </script>
         
