@@ -1451,7 +1451,7 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td style="text-align: left">Número do pedido da loja <br /> Obs.: Este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint</td>
+      <td style="text-align: left">Número do pedido da loja</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
@@ -1794,7 +1794,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserFingerprint</code></td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="highlighter-rouge">session_id</code> do(s) script(s) que ser(ão) incluído(s) na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="highlighter-rouge">session_id</code> do(s) script(s) que ser(ão) incluído(s) na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, seguindo as seguintes regras: <br /> * Deverá ser único durante 48 horas. <br /></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
@@ -5580,11 +5580,11 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderOrgId</code></td>
-      <td style="text-align: left">Para obter este valor, entre em contato com a Braspag</td>
+      <td style="text-align: left">Sandbox = 1snn5n9w <br /> Produção = k8vif92e</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderMerchantId</code></td>
-      <td style="text-align: left">Para obter este valor, entre em contato com a Braspag</td>
+      <td style="text-align: left">Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderIdentifier</code></td>
