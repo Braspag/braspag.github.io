@@ -1907,7 +1907,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 |:-|:-|
 |`ProviderOrgId`|Para obter este valor, entre em contato com a Braspag|
 |`ProviderMerchantId`|Para obter este valor, entre em contato com a Braspag|
-|`ProviderSessionId`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> O valor da concatenação entre este campo e o `ProviderMerchantId`, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout e enviado na requisição da análise através do campo `Customer.BrowserFingerprint`.|
+|`ProviderSessionId`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> O valor da concatenação entre este campo e o `ProviderMerchantId`, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout e enviado na requisição da análise através do campo `Customer.BrowserFingerprint`. <br/> Exemplo: `ProviderMerchantId` = braspag <br/> `ProviderSessionId` = 123456789 <br/> Resultado = braspag123456789|
 
 > PNG Image
 
