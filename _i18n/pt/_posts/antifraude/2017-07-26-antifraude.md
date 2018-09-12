@@ -1909,7 +1909,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 |:-|:-|
 |`ProviderOrgId`|Para obter este valor, entre em contato com a Braspag|
 |`ProviderMerchantId`|Para obter este valor, entre em contato com a Braspag|
-|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do(s) script(s) que serão incluídos na página de checkout. <br/> Exemplo: `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
+|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do(s) script(s) que serão incluídos na página de checkout. <br/> Exemplo: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
 
 > PNG Image
 
