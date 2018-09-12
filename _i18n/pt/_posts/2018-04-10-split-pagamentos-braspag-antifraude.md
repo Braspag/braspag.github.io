@@ -143,6 +143,7 @@ Se a *análise de velocidade* recomendar **Rejeitar** a transação, o fluxo tra
         "Identity": "11225468954",
         "IdentityType": "CPF",
         "Email": "compradorteste@teste.com",
+        "IpAddress": "222.237.207.155",
         "Address": {
             "Street": "Rua Teste",
             "Number": "123",
@@ -162,8 +163,7 @@ Se a *análise de velocidade* recomendar **Rejeitar** a transação, o fluxo tra
             "State": "RJ",
             "Country": "BRA",
             "District": "BairroXYZ"
-        },
-        "IpAddress": "222.237.207.155"
+        }
     },
     "Payment": {
         "ServiceTaxAmount": 0,
@@ -322,7 +322,6 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
                },
                {
                   "Name": "TV XPTO Full HD",
-                  
                   "MerchantItemId": "5",
                   "Sku": "abc456",
                   "Quantity": 1,
@@ -443,6 +442,7 @@ especiais|
 
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |:-|:-|:-|:-|:-|
+|`Payment.FraudAnalysis.Browser.IpAddress`|Texto|255|Sim|Ip do comprador|
 |`Payment.FraudAnalysis.Browser.BrowserFingerPrint`|Texto|6010|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador <br/> [Configuração do Fingerprint](https://braspag.github.io/manual/antifraude#redshield)
 
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
