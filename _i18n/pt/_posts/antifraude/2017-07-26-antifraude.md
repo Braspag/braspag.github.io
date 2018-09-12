@@ -1888,16 +1888,17 @@ O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caix
 Será necessário adicionar duas tags, a *<script>* dentro da tag *<head>* para uma performance correta e a *<noscript>* dentro da tag *<body>*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
 **IMPORTANTE!**
+
 Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
 
-*Domain*
+**Domain**
 
 |Ambiente|Descrição|
 |:-|:-|
 |`Testing`|Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
 |`Production`|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|
 
-*Variáveis*
+**Variáveis**
 
 |Variável|Descrição|
 |:-|:-|
