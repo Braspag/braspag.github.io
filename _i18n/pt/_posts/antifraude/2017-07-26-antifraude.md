@@ -1890,7 +1890,6 @@ Será necessário adicionar duas tags, a *<script>* dentro da tag *<head>* para 
 **IMPORTANTE!**
 Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
 
-
 *Domain*
 
 |Ambiente|Descrição|
