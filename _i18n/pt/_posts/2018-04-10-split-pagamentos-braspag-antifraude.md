@@ -419,8 +419,7 @@ Se a *análise de fraude* recomendar **Rejeitar** a transação, o fluxo transac
 |`Payment.Provider`|Texto|15|Sim|Nome do meio de pagamento <br/> Obs.: Não obrigatório para cartão de crédito|
 |`Payment.ServiceTaxAmount`|Número|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço <br/> Obs.: Esse valor não é adicionado ao valor da autorização|
 |`Payment.Installments`|Número|2|Sim|Número de parcelas do pedido|
-|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador <br/> Disponível apenas para VISA / MASTER <br/> Não permite caracteres
-especiais|
+|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador <br/> Disponível apenas para VISA / MASTER <br/> Não permite caracteres especiais|
 
 |CAMPOS|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |:-|:-|:-|:-|:-|
