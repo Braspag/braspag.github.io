@@ -483,7 +483,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
     "BrowserHostName":"www.dominiobrowsercomprador.com.br",
     "BrowserCookiesAccepted":true,
     "BrowserEmail":"emailbrowsercomprador@dominio.com.br",
-    "BrowserType":"Chrome 58 on Windows 10"
+    "BrowserType":"Chrome 58 on Windows 10",
+    "BrowserFingerprint":"braspag123456789"
   },
   "CartItems": [
     {
@@ -627,8 +628,9 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|não|15|
 |`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|não|60|
 |`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|-|-|
-|`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|não|100|
+|`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|string|não|100|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|não|40|
+|`Customer.BrowserFingerprint`|Identificador pode ser qualquer coisa que você queira usar (precisa ser exclusivo por 48 horas). Normalmente, as pessoas usam um identificador de compra ou qualquer outra coisa |string|sim|100|
 |`CartItem[n].ProductName`|Nome do produto|string|sim|255|
 |`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 11 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
@@ -1907,7 +1909,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 |:-|:-|
 |`ProviderOrgId`|Para obter este valor, entre em contato com a Braspag|
 |`ProviderMerchantId`|Para obter este valor, entre em contato com a Braspag|
-|`ProviderSessionId`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> O valor da concatenação entre este campo e o `ProviderMerchantId`, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout e enviado na requisição da análise através do campo `Customer.BrowserFingerprint`. <br/> Exemplo: `ProviderMerchantId` = braspag <br/> `ProviderSessionId` = 123456789 <br/> Resultado = braspag123456789|
+|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise. <br/> O valor da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout. <br/> Exemplo: `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/>  = braspag123456789 <br/><br/> Obs.: Este valor deverá ser único por 48 horas e normalmente as lojas utilizam o identificador como sendo o número do pedido.|
 
 > PNG Image
 
