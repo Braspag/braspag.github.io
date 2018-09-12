@@ -1794,7 +1794,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserFingerprint</code></td>
-      <td style="text-align: left">Identificador pode ser qualquer coisa que você queira usar (precisa ser exclusivo por 48 horas). Normalmente, as pessoas usam um identificador de compra ou qualquer outra coisa</td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="highlighter-rouge">session_id</code> do(s) script(s) que ser(ão) incluído(s) na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
@@ -5588,7 +5588,7 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderIdentifier</code></td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo <code class="highlighter-rouge">Customer.BrowserFingerprint</code> que será enviado na requisição da análise. <br /> O valor da concatenação entre o campo <code class="highlighter-rouge">ProviderMerchantId</code> e este, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout. <br /> Exemplo: <code class="highlighter-rouge">ProviderMerchantId</code> = braspag <br /> <code class="highlighter-rouge">ProviderIdentifier</code> = 123456789 <br />  = braspag123456789 <br /><br /> Obs.: Este valor deverá ser único por 48 horas e normalmente as lojas utilizam o identificador como sendo o número do pedido.</td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo <code class="highlighter-rouge">Customer.BrowserFingerprint</code> que será enviado na requisição da análise. <br /> O resultado da concatenação entre o campo <code class="highlighter-rouge">ProviderMerchantId</code> e este, deve ser atribuído ao campo <code class="highlighter-rouge">session_id</code> do(s) script(s) que serão incluídos na página de checkout. <br /> Exemplo: <code class="highlighter-rouge">ProviderMerchantId</code> = braspag <br /> <code class="highlighter-rouge">ProviderIdentifier</code> = 123456789 <br /> Resultado = braspag123456789 <br /><br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
     </tr>
   </tbody>
 </table>
