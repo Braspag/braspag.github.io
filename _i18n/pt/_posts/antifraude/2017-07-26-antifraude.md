@@ -7,7 +7,8 @@ categories: manual
 tags:
   - Gestão de Risco
 language_tabs:
-  json: JSON | HTML
+  json: JSON
+  html: HTML    
 ---
 
 # Visão Geral
