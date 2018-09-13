@@ -5505,50 +5505,37 @@ O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caix
 
 ### Cybersource
 
-Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag *<body>* da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.
+Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
 **IMPORTANTE!**
-Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
 
-**Colocando os segmentos de código e substituindo os valores das variáveis**
+Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
 
-Coloque os segmentos de código imediatamente acima da tag *</body>* para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.
-
-Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.
-
-*Domain*
+**Domain**
 
 |Ambiente|Descrição|
 |:-|:-|
 |`Testing`|Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
 |`Production`|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|
 
-*Variáveis*
+**Variáveis**
 
 |Variável|Descrição|
 |:-|:-|
-|`ProviderOrgId`|Para obter este valor, entre em contato com a Braspag|
-|`ProviderMerchantId`|Para obter este valor, entre em contato com a Braspag|
-|`ProviderSessionId`|Prencha este campo com o mesmo valor do campo `MerchantOrderId` que será enviado na requisição da análise de fraude|
-
-> PNG Image
-
-![Exemplo Image]({{ site.baseurl_root }}/images/braspag/af/exemplocyberimage.png)
-
-> Flash Code
-
-![Exemplo Image]({{ site.baseurl_root }}/images/braspag/af/exemplocyberflash.png)
+|`ProviderOrgId`|Sandbox = 1snn5n9w <br/> Produção = k8vif92e|
+|`ProviderMerchantId`|Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag|
+|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do(s) script(s) que serão incluídos na página de checkout. <br/> Exemplo: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
 
 > Javascript Code
 
-![Exemplo Image]({{ site.baseurl_root }}/images/braspag/af/exemplocyberjavascript.png)
+![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
 **IMPORTANTE!**
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.
 
 **Configurando seu Servidor Web**
 
-Na seção *Colocando os segmentos de código e substituindo os valores das variáveis (Domain)*, todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.
+Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.
 
 **IMPORTANTE!**
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.
