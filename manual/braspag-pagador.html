@@ -11443,18 +11443,13 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 
 <h3 id="cybersource">Cybersource</h3>
 
-<p>Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ** da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.</p>
+<p>Será necessário adicionar duas tags, a <em>script</em> dentro da tag <em>head</em> para uma performance correta e a <em>noscript</em> dentro da tag <em>body</em>, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.</p>
 
-<p><strong>IMPORTANTE!</strong>
-Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.</p>
+<p><strong>IMPORTANTE!</strong></p>
 
-<p><strong>Colocando os segmentos de código e substituindo os valores das variáveis</strong></p>
+<p>Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.</p>
 
-<p>Coloque os segmentos de código imediatamente acima da tag ** para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.</p>
-
-<p>Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.</p>
-
-<p><em>Domain</em></p>
+<p><strong>Domain</strong></p>
 
 <table>
   <thead>
@@ -11475,7 +11470,7 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
   </tbody>
 </table>
 
-<p><em>Variáveis</em></p>
+<p><strong>Variáveis</strong></p>
 
 <table>
   <thead>
@@ -11487,43 +11482,31 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderOrgId</code></td>
-      <td style="text-align: left">Para obter este valor, entre em contato com a Braspag</td>
+      <td style="text-align: left">Sandbox = 1snn5n9w <br /> Produção = k8vif92e</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderMerchantId</code></td>
-      <td style="text-align: left">Para obter este valor, entre em contato com a Braspag</td>
+      <td style="text-align: left">Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderSessionId</code></td>
-      <td style="text-align: left">Prencha este campo com o mesmo valor do campo <code class="highlighter-rouge">MerchantOrderId</code> que será enviado na requisição da análise de fraude</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderIdentifier</code></td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo <code class="highlighter-rouge">Customer.BrowserFingerprint</code> que será enviado na requisição da análise. <br /> O resultado da concatenação entre o campo <code class="highlighter-rouge">ProviderMerchantId</code> e este, deve ser atribuído ao campo <code class="highlighter-rouge">session_id</code> do(s) script(s) que serão incluídos na página de checkout. <br /> Exemplo: <br /> <code class="highlighter-rouge">ProviderMerchantId</code> = braspag <br /> <code class="highlighter-rouge">ProviderIdentifier</code> = 123456789 <br /> Resultado = braspag123456789 <br /><br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p>PNG Image</p>
-</blockquote>
-
-<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberimage.png" alt="Exemplo Image" /></p>
-
-<blockquote>
-  <p>Flash Code</p>
-</blockquote>
-
-<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberflash.png" alt="Exemplo Image" /></p>
-
-<blockquote>
   <p>Javascript Code</p>
 </blockquote>
 
-<p><img src="https://braspag.github.io//images/braspag/af/exemplocyberjavascript.png" alt="Exemplo Image" /></p>
+<p><img src="https://braspag.github.io//images/braspag/af/exemploscriptdfp.png" alt="Exemplo Código" /></p>
 
 <p><strong>IMPORTANTE!</strong>
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</p>
 
 <p><strong>Configurando seu Servidor Web</strong></p>
 
-<p>Na seção <em>Colocando os segmentos de código e substituindo os valores das variáveis (Domain)</em>, todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.</p>
+<p>Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.</p>
 
 <p><strong>IMPORTANTE!</strong>
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</p>
