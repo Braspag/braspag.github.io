@@ -1722,7 +1722,9 @@ x-www-form-urlencoded
 
 A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
 
-Quando lançado um ajuste à Crédito para um Subordinado, automaticamente é lançado um ajuste à Débito para o Marketplace na mesma data, e vice-versa.
+Para realizar um ajuste, devem ser imforma
+
+
 
 **Request**
 
@@ -1731,10 +1733,11 @@ Quando lançado um ajuste à Crédito para um Subordinado, automaticamente é la
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-    "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-    "Amount": 10000,
-    "Event": "AdjustmentDebit",
-    "Date": "2017-12-20"
+	"MerchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
+	"MerchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
+	"ForecastedDate": "2018-09-18",
+	"Amount": 1,
+	"Description": "Multa por não cumprimento do prazo de entrega do pedido XYZ"
 }
 ```
 
