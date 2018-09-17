@@ -606,7 +606,7 @@
 
 <p>O CSV que será construído com dos dados de chargeback deverá ter o layout abaixo, seguindo o tipo e obrigatoriedade de cada campo.</p>
 <blockquote>
-  <p>Amount;Date;Comment;ReasonCode;ReasonMessage;IsFraud;Id;Tid;Nsu;AuthorizationCode;SaleDate;BraspagTransactionId;NegativeValues</p>
+  <p>Amount,Date,Comment,ReasonCode,ReasonMessage,IsFraud,Id,Tid,Nsu,AuthorizationCode,SaleDate,BraspagTransactionId,NegativeValues</p>
 </blockquote>
 
 <table>
@@ -713,6 +713,12 @@
     </tr>
   </tbody>
 </table>
+
+<p><strong>IMPORTANTE</strong></p>
+
+<blockquote>
+  <p>SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO <code class="highlighter-rouge">Id</code> SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">BraspagTransactionId</code>.</p>
+</blockquote>
 
 <h2 id="passo-4---enviando-o-arquivo-de-chargeback">Passo 4 - Enviando o arquivo de chargeback</h2>
 
