@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-09-17T17:44:15+00:00</updated>
+    <updated>2018-09-17T18:01:17+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -11458,15 +11458,29 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;Um ajuste somente será efetivamente lançado na agenda financeira dos evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, o lançamento do ajuste na agenda financeira será postergado até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.&lt;/p&gt;
 
-&lt;p&gt;Ex: Marketplace lança um ajuste de R$100,00 no Subordinado A com data prevista de cobrança em 17/12/2018.&lt;/p&gt;
+&lt;p&gt;Ex: Marketplace lança um ajuste de R$100,00 no Subordinado A com data prevista de cobrança em 17/10/2018.&lt;/p&gt;
 
 &lt;p&gt;Caso 1) Subordinado possui saldo positivo na data prevista informada.&lt;/p&gt;
 
-&lt;p&gt;Neste caso, o ajuste será lançado na agenda financeira na data prevista informada.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/split/adjustment001.png&quot; alt=&quot;SplitSampleadjustment001&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Os valores até o dia 16/10/2018 foram liquidados normalmente.&lt;/p&gt;
+
+&lt;p&gt;Como o subordinado tinha R$150,00 para receber no dia 17/10/2018, o ajuste foi lançado na agenda financeira na data prevista informada e o mesmo receberá R$50,00 devido ao débito do ajuste.&lt;/p&gt;
+
+&lt;p&gt;O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 17/10/2018.&lt;/p&gt;
 
 &lt;p&gt;Caso 2) Subordinado não possui saldo positivo na data prevista informada.&lt;/p&gt;
 
-&lt;p&gt;Neste caso, o ajuste não é lançado na agenda financeira na data escolhida e será lançado efetivamente quando o Subordinado possuir saldo positivo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/split/adjustment002.png&quot; alt=&quot;SplitSampleadjustment002&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Os valores até o dia 16/10/2018 foram liquidados normalmente.&lt;/p&gt;
+
+&lt;p&gt;O Subordinado tenha a receber apenas R$60,00 no dia 17/10/2018, o que não cobre o valore do ajuste a ser debitado do mesmo.&lt;/p&gt;
+
+&lt;p&gt;Neste cenário, os pagamentos do subordinado serão retidos até que o mesmo tenha saldo para cobrir o ajuste, o que ocorre no dia 19/10/2018, onde o acumulado retido é de R$130,00. Com isso, o subordinado receberá R$30,00.&lt;/p&gt;
+
+&lt;p&gt;O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 19/10/2018.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
