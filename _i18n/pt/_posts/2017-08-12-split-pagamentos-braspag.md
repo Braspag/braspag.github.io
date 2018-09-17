@@ -1766,11 +1766,11 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 
 | Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------| 
-| `merchantIdToDebit`               | Merchant do qual o valor será debitado da agenda financeira                                             | Guid    | 36      | Sim         |
-| `merchantIdToCredit`              | Merchant onde o valor será credita.                                                                     | Inteiro | -       | Sim         |
-| `forecastedDate`                  | Data prevista para lançamento do ajuste de ambos os envolvidos.                                         | String  | -       | Sim         |
+| `merchantIdToDebit`               | Merchant do qual o valor será debitado.                                                                 | Guid    | 36      | Sim         |
+| `merchantIdToCredit`              | Merchant para o qual o valor será creditado.                                                            | Inteiro | -       | Sim         |
+| `forecastedDate`                  | Data prevista para lançamento do ajuste na agenda financeira.                                           | String  | -       | Sim         |
 | `amount`                          | Valor em centavos do ajuste.                                                                            | Inteiro | -       | Sim         |
-| `description`                     | Decrição do ajuste sendo lançado.                                                                       | String  | 500     | Sim         |
+| `description`                     | Decrição do ajuste.                                                                                     | String  | 500     | Sim         |
 | `transactionId`                   | Identificador da transação para qual o ajuste está sendo lançado.                                       | Guid    | -       | Não         |
 
 > Ao associar o ajuste a uma transação, o envilvidos a serem debitados e creditados devem ser participantes da transação.
@@ -1779,12 +1779,14 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 
 ```json
 {
-    "Id": "68465ddd-451a-4194-abca-be1ed71fb2ea",
-    "MerchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
-    "MerchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
-    "ForecastedDate": "2018-09-19",
-    "Amount": 1000,
-    "Description": "Multa por não cumprimento do prazo de entrega no pedido",
+    "id": "68465ddd-451a-4194-abca-be1ed71fb2ea",
+    "merchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
+    "merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
+    "forecastedDate": "2018-09-19",
+    "amount": 1000,
+    "description": "Multa por não cumprimento do prazo de entrega no pedido",
+    "transactionId": "717A0BD0-3D92-43DB-9D1E-9B82DFAFA392",
+    "status": "Created"
 }
 ```
 
