@@ -1870,6 +1870,10 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
 | `ChargebackSplitPayments.ChargebackSplits` | Lista contendo a divisão do chargeback para cada participante.                                          | Guid    | 36      |
 
+### Liquidação
+
+## Trava
+
 ## Notificação
 
 **Em breve** será disponibilizado o serviço de notificação que informará os eventos que ocorrerem em uma transação de Split:
