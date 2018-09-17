@@ -1720,7 +1720,19 @@ x-www-form-urlencoded
 
 ### Ajustes
 
-A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
+O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
+
+Um ajuste somente será efetivamente lançado na agenda financeira dos evolvidos caso o participante a ser debitado possua saldo positivo na data prevista escolhida para efetivação do ajuste. Caso contrário, o lançamento do ajuste na agenda financeira será postergado até que o participante a ser debitado tenha saldo para cobrir o valor do ajuste.
+
+Ex: Marketplace lança um ajuste de R$100,00 no Subordinado A com data prevista de cobrança em 17/12/2018.
+
+Caso 1) Subordinado possui saldo positivo na data prevista de lançamento do ajuste.
+
+Neste caso, o ajuste será lançado na agenda financeira na data escolhida do ajuste.
+
+Caso 2) Subordinado não possui saldo positivo na data prevista de lançamento do ajuste.
+
+Neste caso, o ajuste não é lançado na agenda financeira na data escolhida e é lançado efetivamente quando o Subordinado possui saldo positivo.
 
 **Request**
 
