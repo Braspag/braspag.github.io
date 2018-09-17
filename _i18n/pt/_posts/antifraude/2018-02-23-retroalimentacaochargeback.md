@@ -260,7 +260,7 @@ Você poderá realizar o download de um arquivo de template através da opção 
 ![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/teladownloadtemplatecbk.png){: .centerimg }{:title="Download template arquivo CSV"}
 
 O CSV que será construído com dos dados de chargeback deverá ter o layout abaixo, seguindo o tipo e obrigatoriedade de cada campo.
-> Amount;Date;Comment;ReasonCode;ReasonMessage;IsFraud;Id;Tid;Nsu;AuthorizationCode;SaleDate;BraspagTransactionId;NegativeValues
+> Amount,Date,Comment,ReasonCode,ReasonMessage,IsFraud,Id,Tid,Nsu,AuthorizationCode,SaleDate,BraspagTransactionId,NegativeValues
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
