@@ -1722,10 +1722,6 @@ x-www-form-urlencoded
 
 A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
 
-Para realizar um ajuste, devem ser imforma
-
-
-
 **Request**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/schedules/adjustment/</span></aside>
@@ -1733,11 +1729,12 @@ Para realizar um ajuste, devem ser imforma
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-	"merchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
-	"merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
-	"forecastedDate": "2018-09-18",
-	"amount": 1000,
-	"description": "Multa por não cumprimento do prazo de entrega no pedido XYZ"
+    "merchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
+    "merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
+    "forecastedDate": "2018-09-18",
+    "amount": 1000,
+    "description": "Multa por não cumprimento do prazo de entrega no pedido XYZ"
+    "transactionId": "717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"
 }
 ```
 
