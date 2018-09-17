@@ -1792,7 +1792,8 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 
 | Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------| 
-| `Id`                              | Identificador do ajuste.                                                                                | Guid    | 36      | Sim         |
+| `Id`                              | Identificador do ajuste.                                                                                | Guid    | 36      | -           |
+| `Created`                         | Status do ajustes [Created - Scheduled - Processed - Canceled ].                                        | String  | -       | -           |
 
 ## Chargeback
 
