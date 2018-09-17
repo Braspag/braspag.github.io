@@ -1759,7 +1759,7 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
     "merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
     "forecastedDate": "2018-09-18",
     "amount": 1000,
-    "description": "Multa por não cumprimento do prazo de entrega no pedido XYZ"
+    "description": "Multa por não cumprimento do prazo de entrega no pedido XYZ",
     "transactionId": "717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"
 }
 ```
@@ -1772,6 +1772,8 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 | `amount`                          | Valor em centavos do ajuste.                                                                            | Inteiro | -       | Sim         |
 | `description`                     | Decrição do ajuste sendo lançado.                                                                       | String  | 500     | Sim         |
 | `transactionId`                   | Identificador da transação para qual o ajuste está sendo lançado.                                       | Guid    | -       | Não         |
+
+> Ao associar o ajuste a uma transação, o envilvidos a serem debitados e creditados devem ser participantes da transação.
 
 **Response**
 
