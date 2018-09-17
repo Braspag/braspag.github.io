@@ -2321,7 +2321,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"merchantIdToDebit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EA4DB25A-F981-4849-87FF-026897E006C6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"merchantIdToCredit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44F68284-27CF-43CB-9D14-1B1EE3F36838"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"forecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"forecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-17"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multa por não cumprimento do prazo de entrega no pedido XYZ"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"</span><span class="w">
@@ -2341,21 +2341,21 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">merchantIdToDebit</code></td>
-      <td>Merchant do qual o valor será debitado da agenda financeira</td>
+      <td>Merchant do qual o valor será debitado.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">merchantIdToCredit</code></td>
-      <td>Merchant onde o valor será credita.</td>
+      <td>Merchant para o qual o valor será creditado.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">forecastedDate</code></td>
-      <td>Data prevista para lançamento do ajuste de ambos os envolvidos.</td>
+      <td>Data prevista para lançamento do ajuste na agenda financeira.</td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
@@ -2369,7 +2369,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">description</code></td>
-      <td>Decrição do ajuste sendo lançado.</td>
+      <td>Decrição do ajuste.</td>
       <td>String</td>
       <td>500</td>
       <td>Sim</td>
@@ -2384,19 +2384,19 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   </tbody>
 </table>
 
-<blockquote>
-  <p>Ao associar o ajuste a uma transação, o envilvidos a serem debitados e creditados devem ser participantes da transação.</p>
-</blockquote>
+<aside class="warning">Ao associar o ajuste a uma transação, o envilvidos a serem debitados e creditados devem ser participantes da transação.</aside>
 
 <p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68465ddd-451a-4194-abca-be1ed71fb2ea"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"MerchantIdToDebit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EA4DB25A-F981-4849-87FF-026897E006C6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"MerchantIdToCredit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44F68284-27CF-43CB-9D14-1B1EE3F36838"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-19"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multa por não cumprimento do prazo de entrega no pedido"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68465ddd-451a-4194-abca-be1ed71fb2ea"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"merchantIdToDebit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EA4DB25A-F981-4849-87FF-026897E006C6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"merchantIdToCredit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44F68284-27CF-43CB-9D14-1B1EE3F36838"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"forecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multa por não cumprimento do prazo de entrega no pedido"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Created"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
