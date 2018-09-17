@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-09-17T19:07:20+00:00</updated>
+    <updated>2018-09-17T21:21:35+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -11585,7 +11585,14 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
       &lt;td&gt;Identificador do ajuste.&lt;/td&gt;
       &lt;td&gt;Guid&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Created&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Status do ajustes [Created - Scheduled - Processed - Canceled ].&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
