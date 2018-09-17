@@ -1722,11 +1722,11 @@ x-www-form-urlencoded
 
 O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
 
-Um ajuste somente será efetivamente lançado na agenda financeira dos evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, o lançamento do ajuste na agenda financeira será postergado até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.
+Um ajuste somente será efetivamente liquidao para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.
 
-Ex: Marketplace lança um ajuste de R$100,00 no Subordinado A com data prevista de cobrança em 17/10/2018.
+**Ex:** Marketplace lança um ajuste de R$100,00 no Subordinado A com data prevista de cobrança em 17/10/2018.
 
-Caso 1) Subordinado possui saldo positivo na data prevista informada.
+**Caso 1)** Subordinado possui saldo positivo na data prevista informada.
 
 ![SplitSampleadjustment001](https://braspag.github.io/images/braspag/split/adjustment001.png)
 
@@ -1736,13 +1736,13 @@ Como o subordinado tinha R$150,00 para receber no dia 17/10/2018, o ajuste foi l
 
 O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 17/10/2018.
 
-Caso 2) Subordinado não possui saldo positivo na data prevista informada.
+**Caso 2)** Subordinado não possui saldo positivo na data prevista informada.
 
 ![SplitSampleadjustment002](https://braspag.github.io/images/braspag/split/adjustment002.png)
 
 Os valores até o dia 16/10/2018 foram liquidados normalmente.
 
-O Subordinado tenha a receber apenas R$60,00 no dia 17/10/2018, o que não cobre o valore do ajuste a ser debitado do mesmo.
+O Subordinado tinha a receber apenas R$60,00 no dia 17/10/2018, o que não cobre o valore do ajuste a ser debitado do mesmo.
 
 Neste cenário, os pagamentos do subordinado serão retidos até que o mesmo tenha saldo para cobrir o ajuste, o que ocorre no dia 19/10/2018, onde o acumulado retido é de R$130,00. Com isso, o subordinado receberá R$30,00.
 
