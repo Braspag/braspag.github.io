@@ -1733,47 +1733,39 @@ Para realizar um ajuste, devem ser imforma
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-	"MerchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
-	"MerchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
-	"ForecastedDate": "2018-09-18",
-	"Amount": 1,
-	"Description": "Multa por não cumprimento do prazo de entrega do pedido XYZ"
+	"merchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
+	"merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
+	"forecastedDate": "2018-09-18",
+	"amount": 1000,
+	"description": "Multa por não cumprimento do prazo de entrega no pedido XYZ"
 }
 ```
 
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `SubordinateMerchantId`           | Identificador do Subordinado.                                                                           | Guid    | 36      |
-| `Amount`                          | Valor do ajuste, em centavos.                                                                           | Inteiro | -       |
-| `Event`                           | AdjustmentDebit (Débito) ou AdjustamentCredit (Crédito).                                                | String  | -       |
-| `Date`                            | Data prevista de liquidação.                                                                            | Data    | -       |
+| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------| 
+| `merchantIdToDebit`               | Merchant do qual o valor será debitado da agenda financeira                                             | Guid    | 36      | Sim         |
+| `merchantIdToCredit`              | Merchant onde o valor será credita.                                                                     | Inteiro | -       | Sim         |
+| `forecastedDate`                  | Data prevista para lançamento do ajuste de ambos os envolvidos.                                         | String  | -       | Sim         |
+| `amount`                          | Valor em centavos do ajuste.                                                                            | Inteiro | -       | Sim         |
+| `description`                     | Decrição do ajuste sendo lançado.                                                                       | String  | 500     | Sim         |
+| `transactionId`                   | Identificador da transação para qual o ajuste está sendo lançado.                                       | Guid    | -       | Não         |
 
 **Response**
 
 ```json
 {
-    "Schedules" : [
-        {
-            "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-            "Date": "2017-12-20",
-            "Installments": 1,
-            "InstallmentAmount": 10000,
-            "InstallmentNumber": 1,
-            "Event": 12,
-            "EventDescription": "AdjustmentDebit"
-        },
-        {
-            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-            "Date": "2017-12-20",
-            "Installments": 1,
-            "InstallmentAmount": 10000,
-            "InstallmentNumber": 1,
-            "Event": 11,
-            "EventDescription": "AdjustmentCredit"
-        }
-    ]
+    "Id": "68465ddd-451a-4194-abca-be1ed71fb2ea",
+    "MerchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
+    "MerchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
+    "ForecastedDate": "2018-09-19",
+    "Amount": 1000,
+    "Description": "Multa por não cumprimento do prazo de entrega no pedido",
 }
 ```
+
+| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------| 
+| `Id`                              | Identificador do ajuste.                                                                                | Guid    | 36      | Sim         |
 
 ## Chargeback
 
