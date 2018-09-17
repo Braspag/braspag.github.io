@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-09-17T15:22:26+00:00</updated>
+    <updated>2018-09-17T15:27:17+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9064,9 +9064,9 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;h2 id=&quot;passo-3---construindo-o-arquivo-de-chargeback-no-formato-csv&quot;&gt;Passo 3 - Construindo o arquivo de chargeback no formato CSV&lt;/h2&gt;
 
-&lt;p&gt;Neste passo será explicado como construir um arquivo no formato CSV (Semicolon-separated values - Valores separados por ponto-e-vírgula) com os dados do chargeback.&lt;/p&gt;
+&lt;p&gt;Neste passo será explicado como construir um arquivo no formato CSV (Comma-separated values - Valores separados por vírgula) com os dados do chargeback.&lt;/p&gt;
 
-&lt;p&gt;CSV é um formato de arquivo que contém valores separados por algum delimitador, ponto-e-vígula (;) por exemplo. Pode ser criado em qualquer editor de texto e lido em uma planilha de textos, como por exemplo, o excel. A planilha eletrônica irá dividir em linha/coluna cada item do arquivo separados por ponto-e-vírgula (;).&lt;/p&gt;
+&lt;p&gt;CSV é um formato de arquivo que contém valores separados por algum delimitador, vígula (,) por exemplo. Pode ser criado em qualquer editor de texto e lido em uma planilha de textos, como por exemplo, o excel. A planilha eletrônica irá dividir em linha/coluna cada item do arquivo separados por vírgula (,).&lt;/p&gt;
 
 &lt;p&gt;Você poderá realizar o download de um arquivo de template através da opção disponibilizada na tela de Upload de Arquivo de Chargeback, conforme print abaixo:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/af/teladownloadtemplatecbk.png&quot; alt=&quot;Upload de Arquivo de Chargeback&quot; class=&quot;centerimg&quot; title=&quot;Download template arquivo CSV&quot; /&gt;&lt;/p&gt;
