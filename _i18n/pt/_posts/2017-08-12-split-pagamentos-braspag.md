@@ -1750,7 +1750,7 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/schedules/adjustment/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/adjustment-api/adjustments/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
