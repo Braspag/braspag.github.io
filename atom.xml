@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-09-17T22:29:19+00:00</updated>
+    <updated>2018-09-17T22:34:01+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10932,6 +10932,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
   &lt;li&gt;&lt;strong&gt;Pending&lt;/strong&gt;: Aguardando confirmação de liquidação&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Settled&lt;/strong&gt;: Liquidado&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Error&lt;/strong&gt;: Erro de liquidação na instituição financeira.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;WaitingFoAdjustementDebit&lt;/strong&gt;: Aguardando liquidação do ajuste de débito associado&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;consultar-eventos&quot;&gt;Consultar Eventos&lt;/h3&gt;
@@ -11456,7 +11457,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.&lt;/p&gt;
 
-&lt;p&gt;Um ajuste somente será efetivamente liquidao para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.&lt;/p&gt;
+&lt;p&gt;Um ajuste somente será efetivamente liquidado para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Ex:&lt;/strong&gt; Marketplace lança um ajuste a débito de R$100,00 para o Subordinado A com data prevista de cobrança em 17/10/2018.&lt;/p&gt;
 
@@ -11596,18 +11597,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;p&gt;A efetivação do ajuste segue o seguinte processo:&lt;/p&gt;
-
-&lt;p&gt;1) Ajuste é criado pelo Marketplace
-2) Em Até D+1 da data de criação do ajuste, os eventos de débito e crédito são incluídos na agenda.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Para o crédito é gerada um evento com o status &lt;strong&gt;WaitingForAdjustmentDebit&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Para o débito é criado um evento com o status &lt;strong&gt;Scheduled&lt;/strong&gt;.
-3) Na data prevista de liquidação do ajuste:&lt;/li&gt;
-  &lt;li&gt;Caso o particpante a ser debitado tenha saldo para cobrir o ajuste, o mesmo será liquidado.&lt;/li&gt;
-  &lt;li&gt;Caso o participante a ser debitado não tenha saldo para cobrir o ajuste, o valor que o mesmo tem a receber é retido até que o mesmo possua saldo para cobrir o ajuste.&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;h2 id=&quot;chargeback&quot;&gt;Chargeback&lt;/h2&gt;
 

@@ -1763,6 +1763,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   <li><strong>Pending</strong>: Aguardando confirmação de liquidação</li>
   <li><strong>Settled</strong>: Liquidado</li>
   <li><strong>Error</strong>: Erro de liquidação na instituição financeira.</li>
+  <li><strong>WaitingFoAdjustementDebit</strong>: Aguardando liquidação do ajuste de débito associado</li>
 </ul>
 
 <h3 id="consultar-eventos">Consultar Eventos</h3>
@@ -2287,7 +2288,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <p>O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.</p>
 
-<p>Um ajuste somente será efetivamente liquidao para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.</p>
+<p>Um ajuste somente será efetivamente liquidado para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.</p>
 
 <p><strong>Ex:</strong> Marketplace lança um ajuste a débito de R$100,00 para o Subordinado A com data prevista de cobrança em 17/10/2018.</p>
 
@@ -2427,18 +2428,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </tr>
   </tbody>
 </table>
-
-<p>A efetivação do ajuste segue o seguinte processo:</p>
-
-<p>1) Ajuste é criado pelo Marketplace
-2) Em Até D+1 da data de criação do ajuste, os eventos de débito e crédito são incluídos na agenda.</p>
-<ul>
-  <li>Para o crédito é gerada um evento com o status <strong>WaitingForAdjustmentDebit</strong>.</li>
-  <li>Para o débito é criado um evento com o status <strong>Scheduled</strong>.
-3) Na data prevista de liquidação do ajuste:</li>
-  <li>Caso o particpante a ser debitado tenha saldo para cobrir o ajuste, o mesmo será liquidado.</li>
-  <li>Caso o participante a ser debitado não tenha saldo para cobrir o ajuste, o valor que o mesmo tem a receber é retido até que o mesmo possua saldo para cobrir o ajuste.</li>
-</ul>
 
 <h2 id="chargeback">Chargeback</h2>
 
