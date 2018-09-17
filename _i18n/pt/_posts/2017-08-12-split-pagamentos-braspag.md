@@ -1757,7 +1757,7 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 {
     "merchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
     "merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
-    "forecastedDate": "2018-09-18",
+    "forecastedDate": "2018-09-17",
     "amount": 1000,
     "description": "Multa por não cumprimento do prazo de entrega no pedido XYZ",
     "transactionId": "717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"
