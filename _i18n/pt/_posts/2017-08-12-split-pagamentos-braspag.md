@@ -1773,7 +1773,7 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 | `description`                     | Decrição do ajuste.                                                                                     | String  | 500     | Sim         |
 | `transactionId`                   | Identificador da transação para qual o ajuste está sendo lançado.                                       | Guid    | -       | Não         |
 
-<aside class="warning">Ao associar o ajuste a uma transação, o envolvidos devem ser participantes da transação.</aside>
+<aside class="warning">Ao associar o ajuste a uma transação, os envolvidos devem ser participantes da transação.</aside>
 
 **Response**
 
