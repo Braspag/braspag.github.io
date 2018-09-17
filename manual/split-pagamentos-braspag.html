@@ -2428,6 +2428,18 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   </tbody>
 </table>
 
+<p>A efetivação do ajuste segue o seguinte processo:</p>
+
+<p>1) Ajuste é criado pelo Marketplace
+2) Em Até D+1 da data de criação do ajuste, os eventos de débito e crédito são incluídos na agenda.</p>
+<ul>
+  <li>Para o crédito é gerada um evento com o status <strong>WaitingForAdjustmentDebit</strong>.</li>
+  <li>Para o débito é criado um evento com o status <strong>Scheduled</strong>.
+3) Na data prevista de liquidação do ajuste:</li>
+  <li>Caso o particpante a ser debitado tenha saldo para cobrir o ajuste, o mesmo será liquidado.</li>
+  <li>Caso o participante a ser debitado não tenha saldo para cobrir o ajuste, o valor que o mesmo tem a receber é retido até que o mesmo possua saldo para cobrir o ajuste.</li>
+</ul>
+
 <h2 id="chargeback">Chargeback</h2>
 
 <p>No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.</p>
