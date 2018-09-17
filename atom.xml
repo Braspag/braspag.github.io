@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-09-17T15:37:28+00:00</updated>
+    <updated>2018-09-17T15:39:01+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -11454,7 +11454,19 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;h3 id=&quot;ajustes&quot;&gt;Ajustes&lt;/h3&gt;
 
-&lt;p&gt;A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.&lt;/p&gt;
+&lt;p&gt;O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.&lt;/p&gt;
+
+&lt;p&gt;Um ajuste somente será efetivamente lançado na agenda financeira dos evolvidos caso o participante a ser debitado possua saldo positivo na data prevista escolhida para efetivação do ajuste. Caso contrário, o lançamento do ajuste na agenda financeira será postergado até que o participante a ser debitado tenha saldo para cobrir o valor do ajuste.&lt;/p&gt;
+
+&lt;p&gt;Ex: Marketplace lança um ajuste de R$100,00 no Subordinado A com data prevista de cobrança em 17/12/2018.&lt;/p&gt;
+
+&lt;p&gt;Caso 1) Subordinado possui saldo positivo na data prevista de lançamento do ajuste.&lt;/p&gt;
+
+&lt;p&gt;Neste caso, o ajuste será lançado na agenda financeira na data escolhida do ajuste.&lt;/p&gt;
+
+&lt;p&gt;Caso 2) Subordinado não possui saldo positivo na data prevista de lançamento do ajuste.&lt;/p&gt;
+
+&lt;p&gt;Neste caso, o ajuste não é lançado na agenda financeira na data escolhida e é lançado efetivamente quando o Subordinado possui saldo positivo.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
