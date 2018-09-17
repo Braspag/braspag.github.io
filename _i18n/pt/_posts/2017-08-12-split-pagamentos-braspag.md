@@ -1454,6 +1454,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 * **Pending**: Aguardando confirmação de liquidação
 * **Settled**: Liquidado
 * **Error**: Erro de liquidação na instituição financeira.
+* **WaitingFoAdjustementDebit**: Aguardando liquidação do ajuste de débito associado
 
 ### Consultar Eventos
 
@@ -1722,7 +1723,7 @@ x-www-form-urlencoded
 
 O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
 
-Um ajuste somente será efetivamente liquidao para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.
+Um ajuste somente será efetivamente liquidado para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.
 
 **Ex:** Marketplace lança um ajuste a débito de R$100,00 para o Subordinado A com data prevista de cobrança em 17/10/2018.
 
@@ -1794,16 +1795,6 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------| 
 | `Id`                              | Identificador do ajuste.                                                                                | Guid    | 36      | -           |
 | `Created`                         | Status do ajustes [Created - Scheduled - Processed - Canceled ].                                        | String  | -       | -           |
-
-A efetivação do ajuste segue o seguinte processo:
-
-1) Ajuste é criado pelo Marketplace
-2) Em Até D+1 da data de criação do ajuste, os eventos de débito e crédito são incluídos na agenda.
-   - Para o crédito é gerada um evento com o status **WaitingForAdjustmentDebit**.
-   - Para o débito é criado um evento com o status **Scheduled**.
-3) Na data prevista de liquidação do ajuste:
-   - Caso o particpante a ser debitado tenha saldo para cobrir o ajuste, o mesmo será liquidado.
-   - Caso o participante a ser debitado não tenha saldo para cobrir o ajuste, o valor que o mesmo tem a receber é retido até que o mesmo possua saldo para cobrir o ajuste.
 
 ## Chargeback
 
