@@ -278,6 +278,10 @@ O CSV que será construído com dos dados de chargeback deverá ter o layout aba
 |`SaleDate`|Data da venda da transação <br/> Ex.: 2017-10-15 <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `AuthorizationCode` se os campos `Id` e `BraspagTransactionId` não forem enviados|date|não|-|
 |`BraspagTransactionId`|Id da transação no Pagador Braspag <br/> Este campo se torna obrigatório se o campo `AntifraudTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados|Guid|não|-|
 
+**IMPORTANTE**
+
+> SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO `Id` SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: `Tid`, `Nsu`, `AuthorizationCode` e `BraspagTransactionId`.
+
 ## Passo 4 - Enviando o arquivo de chargeback
 
 Com o arquivo já construído, e realizando os passos 1 e 2, agora é selecionar o arquivo e enviá-lo, conforme print abaixo:
