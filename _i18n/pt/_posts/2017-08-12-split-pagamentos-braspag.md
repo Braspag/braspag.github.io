@@ -1724,7 +1724,7 @@ O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débi
 
 Um ajuste somente será efetivamente liquidao para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.
 
-**Ex:** Marketplace lança um ajuste de R$100,00 no Subordinado A com data prevista de cobrança em 17/10/2018.
+**Ex:** Marketplace lança um ajuste a débito de R$100,00 para o Subordinado A com data prevista de cobrança em 17/10/2018.
 
 **Caso 1)** Subordinado possui saldo positivo na data prevista informada.
 
