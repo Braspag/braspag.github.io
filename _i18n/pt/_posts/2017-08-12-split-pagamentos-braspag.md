@@ -1795,6 +1795,16 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 | `Id`                              | Identificador do ajuste.                                                                                | Guid    | 36      | -           |
 | `Created`                         | Status do ajustes [Created - Scheduled - Processed - Canceled ].                                        | String  | -       | -           |
 
+A efetivação do ajuste segue o seguinte processo:
+
+1) Ajuste é criado pelo Marketplace
+2) Em Até D+1 da data de criação do ajuste, os eventos de débito e crédito são incluídos na agenda.
+   - Para o crédito é gerada um evento com o status **WaitingForAdjustmentDebit**.
+   - Para o débito é criado um evento com o status **Scheduled**.
+3) Na data prevista de liquidação do ajuste:
+   - Caso o particpante a ser debitado tenha saldo para cobrir o ajuste, o mesmo será liquidado.
+   - Caso o participante a ser debitado não tenha saldo para cobrir o ajuste, o valor que o mesmo tem a receber é retido até que o mesmo possua saldo para cobrir o ajuste.
+
 ## Chargeback
 
 No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.
