@@ -1780,6 +1780,7 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 **Response**
 
 ```json
+-- 201 - Created
 {
     "id": "68465ddd-451a-4194-abca-be1ed71fb2ea",
     "merchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
