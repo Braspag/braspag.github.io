@@ -1755,6 +1755,7 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
 
 ```json
 --header "Authorization: Bearer {access_token}"
+--header "Accept: application/json"
 {
     "merchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
     "merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
