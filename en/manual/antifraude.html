@@ -488,9 +488,9 @@
     <tr>
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: center">Tipo</th>
-      <th style="text-align: center">Obrigatório</th>
-      <th style="text-align: right">Tamanho</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: right">Size</th>
     </tr>
   </thead>
   <tbody>
@@ -587,560 +587,560 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
-      <td style="text-align: left">Número do cartão de crédito</td>
+      <td style="text-align: left">Credit card number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
-      <td style="text-align: left">Nome do cartão de crédito</td>
+      <td style="text-align: left">Holder name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">50</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.ExpirationDate</code></td>
-      <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
+      <td style="text-align: left">Credit card expiration date <br /> Ex.: 01/2023</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">7</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Cvv</code></td>
-      <td style="text-align: left">Código de segurança do cartão de crédito</td>
+      <td style="text-align: left">Credit card security code</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">4</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
-      <td style="text-align: left">Bandeira do cartão de crédito <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-3-card.brand">Tabela 3 - Card.Brand</a></td>
+      <td style="text-align: left">Credit card brand <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-3-card.brand">Table 3 - Card.Brand</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.EciThreeDSecure</code></td>
-      <td style="text-align: left">Código do ECI (Eletronic Commerce Indicator) de autenticação</td>
+      <td style="text-align: left">Electronic Commerce Indicator (ECI)</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">1</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Save</code></td>
-      <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
+      <td style="text-align: left">Indicates whether credit card data will be stored on the Cartão Protegido</td>
       <td style="text-align: center">bool</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Token</code></td>
-      <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: left">Credit card token saved on the Cartão Protegido</td>
       <td style="text-align: center">guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Alias</code></td>
-      <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: left">Credit card alias saved on the Cartão Protegido</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">64</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Street</code></td>
-      <td style="text-align: left">Logradouro do endereço de cobrança</td>
+      <td style="text-align: left">Billing address street</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">24</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Number</code></td>
-      <td style="text-align: left">Número do endereço de cobrança</td>
+      <td style="text-align: left">Billing address number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Complement</code></td>
-      <td style="text-align: left">Complemento do endereço de cobrança</td>
+      <td style="text-align: left">Billing address complement</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">14</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Neighborhood</code></td>
-      <td style="text-align: left">Bairro do endereço de cobrança</td>
+      <td style="text-align: left">Billing address neighborhood</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.City</code></td>
-      <td style="text-align: left">Cidade do endereço de cobrança</td>
+      <td style="text-align: left">Billing address city</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">20</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.State</code></td>
-      <td style="text-align: left">Estado do endereço de cobrança</td>
+      <td style="text-align: left">Billing address state</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Country</code></td>
-      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Billing address country. More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.ZipCode</code></td>
-      <td style="text-align: left">Código postal do endereço de cobrança</td>
+      <td style="text-align: left">Billing address zipcode</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Street</code></td>
-      <td style="text-align: left">Logradouro do endereço de entrega</td>
+      <td style="text-align: left">Shipping address street</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">24</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Number</code></td>
-      <td style="text-align: left">Número do endereço de entrega</td>
+      <td style="text-align: left">Shipping address number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Complement</code></td>
-      <td style="text-align: left">Complemento do endereço de entrega</td>
+      <td style="text-align: left">Shipping address complement</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">14</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Neighborhood</code></td>
-      <td style="text-align: left">Bairro do endereço de entrega</td>
+      <td style="text-align: left">Shipping address neighborhood</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.City</code></td>
-      <td style="text-align: left">Cidade do endereço de entrega</td>
+      <td style="text-align: left">Shipping address city</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">20</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.State</code></td>
-      <td style="text-align: left">Estado do endereço de entrega</td>
+      <td style="text-align: left">Shipping address state</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Country</code></td>
-      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Shipping address country. More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ZipCode</code></td>
-      <td style="text-align: left">Código postal do endereço de entrega</td>
+      <td style="text-align: left">Shipping address zipcode</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Email</code></td>
-      <td style="text-align: left">E-mail do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">Email of the person responsible to receive the product at the shipping address</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">First name of person in charge of receiving product at shipping address</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.MiddleName</code></td>
-      <td style="text-align: left">Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">First letter of the middle name of the person in charge of receiving the product at the shipping address</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">1</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.LastName</code></td>
-      <td style="text-align: left">Último do nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">Last name of the person in charge of receiving the product at the shipping address</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Phone</code></td>
-      <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Telephone number of the person in charge of receiving the product at the shipping address <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.WorkPhone</code></td>
-      <td style="text-align: left">Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114701</td>
+      <td style="text-align: left">Workphone number of the person in charge of receiving the product at the shipping address <br /> Ex.: 552121114701</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Mobile</code></td>
-      <td style="text-align: left">Número do celular do responsável a receber o produto no endereço de entrega <br /> Ex.: 5521987654321</td>
+      <td style="text-align: left">Mobile number of the person in charge of receiving the product at the shipping address <br /> Ex.: 5521987654321</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
+      <td style="text-align: left">Order delivery method <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Table 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Comment</code></td>
-      <td style="text-align: left">Referências do endereço de entrega</td>
+      <td style="text-align: left">Shipping address references</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">160</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.MerchantCustomerId</code></td>
-      <td style="text-align: left">Número do documento de identificação do comprador, CPF ou CNPJ</td>
+      <td style="text-align: left">Customer document number, CPF or CNPJ</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">16</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do comprador</td>
+      <td style="text-align: left">Customer first name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.MiddleName</code></td>
-      <td style="text-align: left">Primeira letra do nome do comprador</td>
+      <td style="text-align: left">First letter of the middle name customer</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">1</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.LastName</code></td>
-      <td style="text-align: left">Último nome do comprador</td>
+      <td style="text-align: left">Customer last name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
-      <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
+      <td style="text-align: left">Customer birthdate <br /> Ex.: 1983-10-01</td>
       <td style="text-align: center">date</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Gender</code></td>
-      <td style="text-align: left">Sexo do comprador <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-6-customer.gender">Tabela 6 - Customer.Gender</a></td>
+      <td style="text-align: left">Customer gender <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-6-customer.gender">Table 6 - Customer.Gender</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">6</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
-      <td style="text-align: left">E-mail do comprador</td>
+      <td style="text-align: left">Customer email</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Ip</code></td>
-      <td style="text-align: left">Endereço de IP do comprador</td>
+      <td style="text-align: left">Customer IP address</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phone</code></td>
-      <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Customer telephone number <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.WorkPhone</code></td>
-      <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114701</td>
+      <td style="text-align: left">Customer workphone number <br /> Ex.: 552121114701</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Mobile</code></td>
-      <td style="text-align: left">Número do celular do comprador <br /> Ex.: 5521987654321</td>
+      <td style="text-align: left">Customer mobile number <br /> Ex.: 5521987654321</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Status</code></td>
-      <td style="text-align: left">Status do comprador na loja <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-7-customer.status">Tabela 7 - Customer.Status</a></td>
+      <td style="text-align: left">Merchant customer status <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-7-customer.status">Table 7 - Customer.Status</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">8</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserFingerPrint</code></td>
-      <td style="text-align: left">Impressão digital de dispositivos e geolocalização real do IP do comprador - <a href="https://braspag.github.io//manual/antifraude#redshield44">Configuração do Fingerprint</a></td>
+      <td style="text-align: left">Device fingerprint and customer IP real geolocation - <a href="https://braspag.github.io//en/manual/antifraude#redshield44">Fingerprint configuration</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">6005</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ProductName</code></td>
-      <td style="text-align: left">Nome do produto</td>
+      <td style="text-align: left">Product name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">50</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].UnitPrice</code></td>
-      <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = r$ 109,50</td>
+      <td style="text-align: left">Product unit price <br /> Ex: 10950 = r$ 109,50</td>
       <td style="text-align: center">long</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].OriginalPrice</code></td>
-      <td style="text-align: left">Preço original do produto <br /> Ex: 11490 = r$ 114,90</td>
+      <td style="text-align: left">Product original price <br /> Ex: 11490 = r$ 114,90</td>
       <td style="text-align: center">long</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].MerchantItemId</code></td>
-      <td style="text-align: left">ID do produto na loja</td>
+      <td style="text-align: left">Merchant product id</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Sku</code></td>
-      <td style="text-align: left">Sku do produto</td>
+      <td style="text-align: left">Product SKU</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">12</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Quantity</code></td>
-      <td style="text-align: left">Quantidade do produto</td>
+      <td style="text-align: left">Product quantity</td>
       <td style="text-align: center">int</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].GiftMessage</code></td>
-      <td style="text-align: left">Mensagem de presente</td>
+      <td style="text-align: left">Gift message</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">160</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Description</code></td>
-      <td style="text-align: left">Description do produto</td>
+      <td style="text-align: left">Product description</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">76</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingInstructions</code></td>
-      <td style="text-align: left">Instruções de entrega do produto</td>
+      <td style="text-align: left">Product delivery instructions</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">160</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do produto <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
+      <td style="text-align: left">Product delivery method <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Table 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingTranckingNumber</code></td>
-      <td style="text-align: left">Número de rastreamento do produto</td>
+      <td style="text-align: left">Product tracking number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.ThirdPartyBooking</code></td>
-      <td style="text-align: left">Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo</td>
+      <td style="text-align: left">Indicates whether the reservation was scheduled by third parties, such as tourism agencies</td>
       <td style="text-align: center">bool</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.BookingType</code></td>
-      <td style="text-align: left">Tipo de agendamento da reserva</td>
+      <td style="text-align: left">Type of booking schedule</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.TicketDeliveryMethod</code></td>
-      <td style="text-align: left">Tipo de entrega da passagem</td>
+      <td style="text-align: left">Ticket delivery type</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">127</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.BookingReferenceNumber</code></td>
-      <td style="text-align: left">Número de referêcia da reserva</td>
+      <td style="text-align: left">Booking reference number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do passageiro</td>
+      <td style="text-align: left">Passenger first name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">29</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].MiddleName</code></td>
-      <td style="text-align: left">Nome do meio do passageiro</td>
+      <td style="text-align: left">Passenger middle name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">1</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].LastName</code></td>
-      <td style="text-align: left">Último nome do passageiro</td>
+      <td style="text-align: left">Passenger last name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">28</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].PassengerType</code></td>
-      <td style="text-align: left">Tipo do passageiro <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-9-airline.passengers[n].passengertype">Tabela 9 - Airline.Passengers{n}.PassengerType</a></td>
+      <td style="text-align: left">Passenger type <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-9-airline.passengers[n].passengertype">Table 9 - Airline.Passengers{n}.PassengerType</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Phone</code></td>
-      <td style="text-align: left">Telefone do passageiro <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Passenger telephone number <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Email</code></td>
-      <td style="text-align: left">E-mail do passageiro</td>
+      <td style="text-align: left">Passenger email</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].LoyaltyMemberNumber</code></td>
-      <td style="text-align: left">Número de fidelidade do passageiro</td>
+      <td style="text-align: left">Loyalty member number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].TicketNumber</code></td>
-      <td style="text-align: left">Número da passagem</td>
+      <td style="text-align: left">Ticket number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">20</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DeparturelAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de saída. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureAirport</code></td>
+      <td style="text-align: left">Departure airport code. More informations on <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureCountry</code></td>
-      <td style="text-align: left">Código do país do aeroporto de saída. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 3-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Country code of departure airport. More information on <a href="https://www.iso.org/obp/ui">ISO 3-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left">Arrival airport code. More information on <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalCountry</code></td>
-      <td style="text-align: left">Código do país do aeroporto de chegada. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 3-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Country code of arrival airport. More information on <a href="https://www.iso.org/obp/ui">ISO 3-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].AirlineCode</code></td>
-      <td style="text-align: left">Código da companhia aérea</td>
+      <td style="text-align: left">Airline code</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureDateTime</code></td>
-      <td style="text-align: left">Data e hora de partida <br /> Ex.: 2018-03-31 19:16:38</td>
+      <td style="text-align: left">Departure datetime <br /> Ex.: 2018-03-31 19:16:38</td>
       <td style="text-align: center">datetime</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].ClassOfService</code></td>
-      <td style="text-align: left">Classe de serviço</td>
+      <td style="text-align: left">Class service</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.MerchantWebsite</code></td>
-      <td style="text-align: left">Website da loja</td>
+      <td style="text-align: left">Merchant website</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
-      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-36-merchantdefineddata-(redshield)">Tabela 36 - MerchantDefinedData(ReDShield)</a></td>
+      <td style="text-align: left">Field key set against antifraud provider <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-36-merchantdefineddata-(redshield)">Table 36 - MerchantDefinedData(ReDShield)</a></td>
       <td style="text-align: center">int</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Value</code></td>
-      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-36-merchantdefineddata-(redshield)">Tabela 36 - MerchantDefinedData(ReDShield)</a></td>
+      <td style="text-align: left">Field value set against antifraud provider <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-36-merchantdefineddata-(redshield)">Table 36 - MerchantDefinedData(ReDShield)</a></td>
       <td style="text-align: center">var</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -1207,58 +1207,58 @@
     <tr>
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Type</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">TransactionId</code></td>
-      <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: left">Transaction id on Antifraud Gateway Braspag</td>
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-20-status">Tabela 20 - Status</a></td>
+      <td style="text-align: left">Transaction status on Antifraud Gateway Braspag <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-20-status">Table 20  - Status</a></td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderRequestId</code></td>
-      <td style="text-align: left">Id do request da transação na ReDShield</td>
+      <td style="text-align: left">ReDShield transaction request id</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Result.ProviderCode</code></td>
-      <td style="text-align: left">Código de retorno da ReDShield</td>
+      <td style="text-align: left">ReDShield return code</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Result.ProviderDescription</code></td>
-      <td style="text-align: left">Mensagem de retorno da ReDShield</td>
+      <td style="text-align: left">ReDShield return message</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.CSITransactionLink</code></td>
-      <td style="text-align: left">Link para visualizar os detalhes da transação no portal CSI da ReDShield</td>
+      <td style="text-align: left">Link to view transaction details on ReDShield CSI portal</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderStatus</code></td>
-      <td style="text-align: left">Status da transação na ReDShield <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-21-providerstatus">Tabela 21 - ProviderStatus</a></td>
+      <td style="text-align: left">ReDShield transaction status <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-21-providerstatus">Table 21 - ProviderStatus</a></td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderTransactionId</code></td>
-      <td style="text-align: left">Id da transação na ReDShield</td>
+      <td style="text-align: left">ReDShield transaction id</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderOrderId</code></td>
-      <td style="text-align: left">Id do pedido na ReDShield</td>
+      <td style="text-align: left">ReDShield order id</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Ndc</code></td>
-      <td style="text-align: left">Id único e exclusivo da requisição da ReDShield</td>
+      <td style="text-align: left">ReDShield unique request id</td>
       <td style="text-align: center">string</td>
     </tr>
   </tbody>
@@ -1443,9 +1443,9 @@
     <tr>
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: center">Tipo</th>
-      <th style="text-align: center">Obrigatório</th>
-      <th style="text-align: right">Tamanho</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: right">Size</th>
     </tr>
   </thead>
   <tbody>
@@ -1528,560 +1528,560 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
-      <td style="text-align: left">Número do cartão de crédito</td>
+      <td style="text-align: left">Credit card number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">20</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
-      <td style="text-align: left">Nome do cartão de crédito</td>
+      <td style="text-align: left">Holder name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">50</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.ExpirationDate</code></td>
-      <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
+      <td style="text-align: left">Credit card expiration date <br /> Ex.: 01/2023</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">7</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
-      <td style="text-align: left">Bandeira do cartão de crédito <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-3-card.brand">Tabela 3 - Card.Brand</a></td>
+      <td style="text-align: left">Credit card brand <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-3-card.brand">Table 3 - Card.Brand</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Save</code></td>
-      <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
+      <td style="text-align: left">Indicates whether credit card data will be stored on the Cartão Protegido</td>
       <td style="text-align: center">bool</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Token</code></td>
-      <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: left">Credit card token saved on the Cartão Protegido</td>
       <td style="text-align: center">guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Alias</code></td>
-      <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: left">Credit card alias saved on the Cartão Protegido</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">64</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Street</code></td>
-      <td style="text-align: left">Logradouro do endereço de cobrança</td>
+      <td style="text-align: left">Billing address street</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">54</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Number</code></td>
-      <td style="text-align: left">Número do endereço de cobrança</td>
+      <td style="text-align: left">Billing address number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Complement</code></td>
-      <td style="text-align: left">Complemento do endereço de cobrança</td>
+      <td style="text-align: left">Billing address complement</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">14</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Neighborhood</code></td>
-      <td style="text-align: left">Bairro do endereço de cobrança</td>
+      <td style="text-align: left">Billing address neighborhood</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">45</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.City</code></td>
-      <td style="text-align: left">Cidade do endereço de cobrança</td>
+      <td style="text-align: left">Billing address city</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">50</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.State</code></td>
-      <td style="text-align: left">Estado do endereço de cobrança</td>
+      <td style="text-align: left">Billing address state</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Country</code></td>
-      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Billing address country. More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.ZipCode</code></td>
-      <td style="text-align: left">Código postal do endereço de cobrança</td>
+      <td style="text-align: left">Billing address zipcode</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Street</code></td>
-      <td style="text-align: left">Logradouro do endereço de entrega</td>
+      <td style="text-align: left">Shipping address street</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">54</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Number</code></td>
-      <td style="text-align: left">Número do endereço de entrega</td>
+      <td style="text-align: left">Shipping address number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Complement</code></td>
-      <td style="text-align: left">Complemento do endereço de entrega</td>
+      <td style="text-align: left">Shipping address complement</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">14</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Neighborhood</code></td>
-      <td style="text-align: left">Bairro do endereço de entrega</td>
+      <td style="text-align: left">Shipping address neighborhood</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">45</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.City</code></td>
-      <td style="text-align: left">Cidade do endereço de entrega</td>
+      <td style="text-align: left">Shipping address city</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">50</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.State</code></td>
-      <td style="text-align: left">Estado do endereço de entrega</td>
+      <td style="text-align: left">Shipping address state</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Country</code></td>
-      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Shipping address country. More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ZipCode</code></td>
-      <td style="text-align: left">Código postal do endereço de entrega</td>
+      <td style="text-align: left">Shipping address zipcode</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">First name of person in charge of receiving product at shipping address</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.LastName</code></td>
-      <td style="text-align: left">Último do nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">Last name of the person in charge of receiving the product at the shipping address</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Phone</code></td>
-      <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Telephone number of the person in charge of receiving the product at the shipping address <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
+      <td style="text-align: left">Order delivery method <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Table 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.MerchantCustomerId</code></td>
-      <td style="text-align: left">Número do documento de identificação do comprador, CPF ou CNPJ</td>
+      <td style="text-align: left">Customer document number, CPF or CNPJ</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">16</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do comprador</td>
+      <td style="text-align: left">Customer first name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.LastName</code></td>
-      <td style="text-align: left">Último nome do comprador</td>
+      <td style="text-align: left">Customer last name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
-      <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
+      <td style="text-align: left">Customer birthdate <br /> Ex.: 1983-10-01</td>
       <td style="text-align: center">date</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
-      <td style="text-align: left">E-mail do comprador</td>
+      <td style="text-align: left">Customer email</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Ip</code></td>
-      <td style="text-align: left">Endereço de IP do comprador</td>
+      <td style="text-align: left">Customer IP address</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phone</code></td>
-      <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Customer telephone number <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserHostName</code></td>
-      <td style="text-align: left">Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP</td>
+      <td style="text-align: left">Host name entered by the customer’s browser and identified through the HTTP header</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserCookiesAccepted</code></td>
-      <td style="text-align: left">Identifica se o browser do comprador aceita cookies ou não</td>
+      <td style="text-align: left">Identifies whether the customer’s browser accepts cookies or not</td>
       <td style="text-align: center">bool</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserEmail</code></td>
-      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(<code class="highlighter-rouge">Customer.Email</code>)</td>
+      <td style="text-align: left">E-mail registered in the customer’s browser. Can differ from merchant email (<code class="highlighter-rouge">Customer.Email</code>)</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserType</code></td>
-      <td style="text-align: left">Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP</td>
+      <td style="text-align: left">Name of the browser used by the customer and identified through the HTTP header</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">40</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserFingerprint</code></td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="highlighter-rouge">session_id</code> do(s) script(s) que ser(ão) incluído(s) na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br /> <a href="https://braspag.github.io//manual/antifraude#cybersource">Configuração do Fingerprint</a></td>
+      <td style="text-align: left">Identifier used to cross information obtained from the buyer’s device. This same identifier must be used to generate the value that will be assigned to the <code class="highlighter-rouge">session_id</code> field of the script that will be included on the checkout page. <br /> Note: This identifier can be any value or order number but must be unique for 48 hours. <br /> <a href="https://braspag.github.io//manual/antifraude#cybersource">Fingerprint Configuration</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ProductName</code></td>
-      <td style="text-align: left">Nome do produto</td>
+      <td style="text-align: left">Product name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Risk</code></td>
-      <td style="text-align: left">Nível de risco do produto associado a quantidade de chargebacks <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-11-cartitem[n].risk">Table 11 - CartItem{n}.Risk</a></td>
+      <td style="text-align: left">Risk level of the product associated with the quantity of chargebacks <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-11-cartitem[n].risk">Table 11 - CartItem{n}.Risk</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].UnitPrice</code></td>
-      <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = r$ 109,50</td>
+      <td style="text-align: left">Product unit price <br /> Ex: 10950 = r$ 109,50</td>
       <td style="text-align: center">long</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Sku</code></td>
-      <td style="text-align: left">Sku do produto</td>
+      <td style="text-align: left">Product SKU</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Quantity</code></td>
-      <td style="text-align: left">Quantidade do produto</td>
+      <td style="text-align: left">Product quantity</td>
       <td style="text-align: center">int</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].AddressRiskVerify</code></td>
-      <td style="text-align: left">Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-12-cartitem[n].addressriskverify">Table 12 - CartItem{n}.AddressRiskVerify</a></td>
+      <td style="text-align: left">Identifies that you will evaluate the billing and shipping addresses for different cities, states or countries <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-12-cartitem[n].addressriskverify">Table 12 - CartItem{n}.AddressRiskVerify</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].HostHedge</code></td>
-      <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-13-cartitem[n].hosthedge">Table 13 - CartItem{n}.HostHedge</a></td>
+      <td style="text-align: left">Level of importance of customer IP and email addresses in fraud analysis <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-13-cartitem[n].hosthedge">Table 13 - CartItem{n}.HostHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].NonSensicalHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge">Table 14 - CartItem{n}.NonSensicalHedge</a></td>
+      <td style="text-align: left">Level of importance of verifications about the customer data non sensical in fraud analysis <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge">Table 14 - CartItem{n}.NonSensicalHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ObscenitiesHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-15-cartitem[n].obscenitieshedge">Table 15 - CartItem{n}.ObscenitiesHedge</a></td>
+      <td style="text-align: left">Level of importance of checks on customer data with obscenity in fraud analysis <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-15-cartitem[n].obscenitieshedge">Table 15 - CartItem{n}.ObscenitiesHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].TimeHedge</code></td>
-      <td style="text-align: left">Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-16-cartitem[n].timehedge">Table 16 - CartItem{n}.TimeHedge</a></td>
+      <td style="text-align: left">Level of importance of the time of day in the fraud analysis that the customer made the request <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-16-cartitem[n].timehedge">Table 16 - CartItem{n}.TimeHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].PhoneHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-17-cartitem[n].phonehedge">Table 17 - CartItem{n}.PhoneHedge</a></td>
+      <td style="text-align: left">Level of importance of checks on customer’s phone numbers in fraud analysis <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-17-cartitem[n].phonehedge">Table 17 - CartItem{n}.PhoneHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].VelocityHedge</code></td>
-      <td style="text-align: left">Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-18-cartitem[n].velocityhedge">Table 18 - CartItem{n}.VelocityHedge</a></td>
+      <td style="text-align: left">Level of importance of customer’s purchase frequency in the fraud analysis of the previous 15 minutes <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-18-cartitem[n].velocityhedge">Table 18 - CartItem{n}.VelocityHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Name</code></td>
-      <td style="text-align: left">Nome do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">40</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Code</code></td>
-      <td style="text-align: left">Código do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank code</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Agency</code></td>
-      <td style="text-align: left">Agência do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank agency</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Address</code></td>
-      <td style="text-align: left">Endereço do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank address</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.City</code></td>
-      <td style="text-align: left">Cidade onde está localizado o banco do comprador</td>
+      <td style="text-align: left">Customer’s bank city</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Country</code></td>
-      <td style="text-align: left">País onde está localizado o banco do comprador <br /> Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Customer’s bank city <br /> More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.SwiftCode</code></td>
-      <td style="text-align: left">Código identificador único do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank swift code</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.AccountName</code></td>
-      <td style="text-align: left">Nome vinculado a conta bancária</td>
+      <td style="text-align: left">Name linked to bank account</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.AccountNumber</code></td>
-      <td style="text-align: left">Número da conta bancária do comprador</td>
+      <td style="text-align: left">Customer’s bank account number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.BankCheckDigit</code></td>
-      <td style="text-align: left">Código utilizado para validar a conta bancária do comprador</td>
+      <td style="text-align: left">Code used to validate customer’s bank account</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.Iban</code></td>
-      <td style="text-align: left">Número internacional da conta bancária do comprador (IBAN)</td>
+      <td style="text-align: left">Customer’s International Bank Account Number (IBAN)</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.IsGift</code></td>
-      <td style="text-align: left">Indica se o pedido realizado pelo comprador é para presente</td>
+      <td style="text-align: left">Indicates whether the order placed by the customer is for gift</td>
       <td style="text-align: center">bool</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.ReturnsAccepted</code></td>
-      <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser devolvido a loja</td>
+      <td style="text-align: left">Indicates whether the order placed by the customer can be returned to the merchant</td>
       <td style="text-align: center">bool</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.Tender</code></td>
-      <td style="text-align: left">Forma de pagamento utilizada pelo comprador <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-19-invoice.tender">Table 19 - Invoice.Tender</a></td>
+      <td style="text-align: left">Payment method used by the customer <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-19-invoice.tender">Table 19 - Invoice.Tender</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.JourneyType</code></td>
-      <td style="text-align: left">Tipo de viagem <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-8-airline.journeytype">Tabela 8 - Airline.JourneyType</a></td>
+      <td style="text-align: left">Journey type <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-8-airline.journeytype">Table 8 - Airline.JourneyType</a></td>
       <td style="text-align: center">enun</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.DepartureDateTime</code></td>
-      <td style="text-align: left">Data e hora de partida <br /> Ex.: 2018-03-31 19:16:38</td>
+      <td style="text-align: left">Departure datetime <br /> Ex.: 2018-03-31 19:16:38</td>
       <td style="text-align: center">datetime</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do passageiro</td>
+      <td style="text-align: left">Passenger first name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].LastName</code></td>
-      <td style="text-align: left">Último nome do passageiro</td>
+      <td style="text-align: left">Passenger last name</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].PassengerId</code></td>
-      <td style="text-align: left">Identificador do passageiro a quem a passagem foi emitida</td>
+      <td style="text-align: left">Identifier of the passenger to whom the ticket was issued</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">32</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].PassengerType</code></td>
-      <td style="text-align: left">Tipo do passageiro <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-9-airline.passengers[n].passengertype">Tabela 9 - Airline.Passengers{n}.PassengerType</a></td>
+      <td style="text-align: left">Passenger type <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-9-airline.passengers[n].passengertype">Table 9 - Airline.Passengers{n}.PassengerType</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Phone</code></td>
-      <td style="text-align: left">Telefone do passageiro <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Passenger telephone number <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Email</code></td>
-      <td style="text-align: left">E-mail do passageiro</td>
+      <td style="text-align: left">Passenger email</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Status</code></td>
-      <td style="text-align: left">Classificação da empresa aérea <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-10-airline.passengers[n].status">Table 10 - Airline.Passengers{n}.Status</a></td>
+      <td style="text-align: left">Airline classification <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-10-airline.passengers[n].status">Table 10 - Airline.Passengers{n}.Status</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DeparturelAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de partida. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureAirport</code></td>
+      <td style="text-align: left">Departure airport code. More informations on. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left">Arrival airport code. More information on <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.Comments</code></td>
-      <td style="text-align: left">Comentários que a loja poderá associar a análise de fraude</td>
+      <td style="text-align: left">Comments that the merchant may associate fraud analysis</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.ScoreThreshold</code></td>
-      <td style="text-align: left">Nível aceitável de risco para cada produto</td>
+      <td style="text-align: left">Acceptable level of risk for each product</td>
       <td style="text-align: center">int</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
-      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData(Cybersource)</a></td>
+      <td style="text-align: left">Field key set against antifraud provider <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-37-merchantdefineddata-(cybersource)">Table 37 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">int</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Value</code></td>
-      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData(Cybersource)</a></td>
+      <td style="text-align: left">Field value set against antifraud provider <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-37-merchantdefineddata-(cybersource)">Table 37 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">var</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -2156,18 +2156,18 @@
     <tr>
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Type</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">TransactionId</code></td>
-      <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: left">Transaction id on Antifraud Gateway Braspag Braspag</td>
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-20-status">Tabela 20 - Status</a></td>
+      <td style="text-align: left">Transaction status on Antifraud Gateway Braspag <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-20-status">Table 20  - Status</a></td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
@@ -2177,7 +2177,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code></td>
-      <td style="text-align: left">Status da transação na ReDShield <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-21-providerstatus">Tabela 21 - ProviderStatus</a></td>
+      <td style="text-align: left">ReDShield transaction status <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-21-providerstatus">Table 21 - ProviderStatus</a></td>
       <td style="text-align: center">enum</td>
     </tr>
     <tr>
@@ -2242,7 +2242,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.HostSeverity</code></td>
-      <td style="text-align: left">Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto</td>
+      <td style="text-align: left">Nível de risco do domínio de Customer email, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto</td>
       <td style="text-align: center">int</td>
     </tr>
     <tr>
@@ -2708,7 +2708,7 @@
     <tr>
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Type</th>
       <th> </th>
       <th> </th>
     </tr>
@@ -2716,70 +2716,70 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">TransactionId</code></td>
-      <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: left">Transaction id on Antifraud Gateway Braspag Braspag</td>
       <td style="text-align: center">guid</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-20-status">Tabela 20 - Status</a></td>
+      <td style="text-align: left">Transaction status on Antifraud Gateway Braspag <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-20-status">Table 20  - Status</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderRequestId</code></td>
-      <td style="text-align: left">Id do request da transação na ReDShield</td>
+      <td style="text-align: left">ReDShield transaction request id</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Result.ProviderCode</code></td>
-      <td style="text-align: left">Código de retorno da ReDShield</td>
+      <td style="text-align: left">ReDShield return code</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Result.ProviderDescription</code></td>
-      <td style="text-align: left">Mensagem de retorno da ReDShield</td>
+      <td style="text-align: left">ReDShield return message</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.CSITransactionLink</code></td>
-      <td style="text-align: left">Link para visualizar os detalhes da transação no portal CSI da ReDShield</td>
+      <td style="text-align: left">Link to view transaction details on ReDShield CSI portal</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderStatus</code></td>
-      <td style="text-align: left">Status da transação na ReDShield <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-21-providerstatus">Tabela 21 - ProviderStatus</a></td>
+      <td style="text-align: left">ReDShield transaction status <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-21-providerstatus">Table 21 - ProviderStatus</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderTransactionId</code></td>
-      <td style="text-align: left">Id da transação na ReDShield</td>
+      <td style="text-align: left">ReDShield transaction id</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderOrderId</code></td>
-      <td style="text-align: left">Id do pedido na ReDShield</td>
+      <td style="text-align: left">ReDShield order id</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.Ndc</code></td>
-      <td style="text-align: left">Id único e exclusivo da requisição da ReDShield</td>
+      <td style="text-align: left">ReDShield unique request id</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -2877,322 +2877,322 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
-      <td style="text-align: left">Número do cartão de crédito</td>
+      <td style="text-align: left">Credit card number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
-      <td style="text-align: left">Nome do cartão de crédito</td>
+      <td style="text-align: left">Holder name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.ExpirationDate</code></td>
-      <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
+      <td style="text-align: left">Credit card expiration date <br /> Ex.: 01/2023</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Cvv</code></td>
-      <td style="text-align: left">Código de segurança do cartão de crédito</td>
+      <td style="text-align: left">Credit card security code</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
-      <td style="text-align: left">Bandeira do cartão de crédito <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-3-card.brand">Tabela 3 - Card.Brand</a></td>
+      <td style="text-align: left">Credit card brand <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-3-card.brand">Table 3 - Card.Brand</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.EciThreeDSecure</code></td>
-      <td style="text-align: left">Código do ECI (Eletronic Commerce Indicator) de autenticação</td>
+      <td style="text-align: left">Electronic Commerce Indicator (ECI)</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Save</code></td>
-      <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
+      <td style="text-align: left">Indicates whether credit card data will be stored on the Cartão Protegido</td>
       <td style="text-align: center">bool</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Token</code></td>
-      <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: left">Credit card token saved on the Cartão Protegido</td>
       <td style="text-align: center">guid</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Alias</code></td>
-      <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: left">Credit card alias saved on the Cartão Protegido</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Street</code></td>
-      <td style="text-align: left">Logradouro do endereço de cobrança</td>
+      <td style="text-align: left">Billing address street</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Number</code></td>
-      <td style="text-align: left">Número do endereço de cobrança</td>
+      <td style="text-align: left">Billing address number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Complement</code></td>
-      <td style="text-align: left">Complemento do endereço de cobrança</td>
+      <td style="text-align: left">Billing address complement</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Neighborhood</code></td>
-      <td style="text-align: left">Bairro do endereço de cobrança</td>
+      <td style="text-align: left">Billing address neighborhood</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.City</code></td>
-      <td style="text-align: left">Cidade do endereço de cobrança</td>
+      <td style="text-align: left">Billing address city</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.State</code></td>
-      <td style="text-align: left">Estado do endereço de cobrança</td>
+      <td style="text-align: left">Billing address state</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Country</code></td>
-      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Billing address country. More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.ZipCode</code></td>
-      <td style="text-align: left">Código postal do endereço de cobrança</td>
+      <td style="text-align: left">Billing address zipcode</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Street</code></td>
-      <td style="text-align: left">Logradouro do endereço de entrega</td>
+      <td style="text-align: left">Shipping address street</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Number</code></td>
-      <td style="text-align: left">Número do endereço de entrega</td>
+      <td style="text-align: left">Shipping address number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Complement</code></td>
-      <td style="text-align: left">Complemento do endereço de entrega</td>
+      <td style="text-align: left">Shipping address complement</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Neighborhood</code></td>
-      <td style="text-align: left">Bairro do endereço de entrega</td>
+      <td style="text-align: left">Shipping address neighborhood</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.City</code></td>
-      <td style="text-align: left">Cidade do endereço de entrega</td>
+      <td style="text-align: left">Shipping address city</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.State</code></td>
-      <td style="text-align: left">Estado do endereço de entrega</td>
+      <td style="text-align: left">Shipping address state</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Country</code></td>
-      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Shipping address country. More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ZipCode</code></td>
-      <td style="text-align: left">Código postal do endereço de entrega</td>
+      <td style="text-align: left">Shipping address zipcode</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Email</code></td>
-      <td style="text-align: left">E-mail do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">Email of the person responsible to receive the product at the shipping address</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">First name of person in charge of receiving product at shipping address</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.MiddleName</code></td>
-      <td style="text-align: left">Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">First letter of the middle name of the person in charge of receiving the product at the shipping address</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.LastName</code></td>
-      <td style="text-align: left">Último do nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">Last name of the person in charge of receiving the product at the shipping address</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Phone</code></td>
-      <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Telephone number of the person in charge of receiving the product at the shipping address <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.WorkPhone</code></td>
-      <td style="text-align: left">Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114701</td>
+      <td style="text-align: left">Workphone number of the person in charge of receiving the product at the shipping address <br /> Ex.: 552121114701</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Mobile</code></td>
-      <td style="text-align: left">Número do celular do responsável a receber o produto no endereço de entrega <br /> Ex.: 5521987654321</td>
+      <td style="text-align: left">Mobile number of the person in charge of receiving the product at the shipping address <br /> Ex.: 5521987654321</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
+      <td style="text-align: left">Order delivery method <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Table 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Comment</code></td>
-      <td style="text-align: left">Referências do endereço de entrega</td>
+      <td style="text-align: left">Shipping address references</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.MerchantCustomerId</code></td>
-      <td style="text-align: left">Número do documento de identificação do comprador, CPF ou CNPJ</td>
+      <td style="text-align: left">Customer document number, CPF or CNPJ</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do comprador</td>
+      <td style="text-align: left">Customer first name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.MiddleName</code></td>
-      <td style="text-align: left">Primeira letra do nome do comprador</td>
+      <td style="text-align: left">First letter of the middle name customer</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.LastName</code></td>
-      <td style="text-align: left">Último nome do comprador</td>
+      <td style="text-align: left">Customer last name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
-      <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
+      <td style="text-align: left">Customer birthdate <br /> Ex.: 1983-10-01</td>
       <td style="text-align: center">date</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Gender</code></td>
-      <td style="text-align: left">Sexo do comprador <br /> <a href="https://braspag.github.io///en/manual/antifraude#table-6-customer.gender">Tabela 6 - Customer.Gender</a></td>
+      <td style="text-align: left">Customer gender <br /> <a href="https://braspag.github.io///en/manual/antifraude#table-6-customer.gender">Table 6 - Customer.Gender</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
-      <td style="text-align: left">E-mail do comprador</td>
+      <td style="text-align: left">Customer email</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Ip</code></td>
-      <td style="text-align: left">Endereço de IP do comprador</td>
+      <td style="text-align: left">Customer IP address</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phone</code></td>
-      <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Customer telephone number <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.WorkPhone</code></td>
-      <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114701</td>
+      <td style="text-align: left">Customer workphone number <br /> Ex.: 552121114701</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Mobile</code></td>
-      <td style="text-align: left">Número do celular do comprador <br /> Ex.: 5521987654321</td>
+      <td style="text-align: left">Customer mobile number <br /> Ex.: 5521987654321</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Status</code></td>
-      <td style="text-align: left">Status do comprador na loja <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-7-customer.status">Tabela 7 - Customer.Status</a></td>
+      <td style="text-align: left">Merchant customer status <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-7-customer.status">Table 7 - Customer.Status</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -3206,231 +3206,231 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ProductName</code></td>
-      <td style="text-align: left">Nome do produto</td>
+      <td style="text-align: left">Product name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].UnitPrice</code></td>
-      <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = r$ 109,50</td>
+      <td style="text-align: left">Product unit price <br /> Ex: 10950 = r$ 109,50</td>
       <td style="text-align: center">long</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].OriginalPrice</code></td>
-      <td style="text-align: left">Preço original do produto <br /> Ex: 11490 = r$ 114,90</td>
+      <td style="text-align: left">Product original price <br /> Ex: 11490 = r$ 114,90</td>
       <td style="text-align: center">long</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].MerchantItemId</code></td>
-      <td style="text-align: left">ID do produto na loja</td>
+      <td style="text-align: left">Merchant product id</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Sku</code></td>
-      <td style="text-align: left">Sku do produto</td>
+      <td style="text-align: left">Product SKU</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Quantity</code></td>
-      <td style="text-align: left">Quantidade do produto</td>
+      <td style="text-align: left">Product quantity</td>
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].GiftMessage</code></td>
-      <td style="text-align: left">Mensagem de presente</td>
+      <td style="text-align: left">Gift message</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Description</code></td>
-      <td style="text-align: left">Description do produto</td>
+      <td style="text-align: left">Product description</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingInstructions</code></td>
-      <td style="text-align: left">Instruções de entrega do produto</td>
+      <td style="text-align: left">Product delivery instructions</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do produto <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
+      <td style="text-align: left">Product delivery method <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Table 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ShippingTranckingNumber</code></td>
-      <td style="text-align: left">Número de rastreamento do produto</td>
+      <td style="text-align: left">Product tracking number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.ThirdPartyBooking</code></td>
-      <td style="text-align: left">Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo</td>
+      <td style="text-align: left">Indicates whether the reservation was scheduled by third parties, such as tourism agencies</td>
       <td style="text-align: center">bool</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.BookingType</code></td>
-      <td style="text-align: left">Tipo de agendamento da reserva</td>
+      <td style="text-align: left">Type of booking schedule</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.TicketDeliveryMethod</code></td>
-      <td style="text-align: left">Tipo de entrega da passagem</td>
+      <td style="text-align: left">Ticket delivery type</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.BookingReferenceNumber</code></td>
-      <td style="text-align: left">Número de referêcia da reserva</td>
+      <td style="text-align: left">Booking reference number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do passageiro</td>
+      <td style="text-align: left">Passenger first name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].MiddleName</code></td>
-      <td style="text-align: left">Nome do meio do passageiro</td>
+      <td style="text-align: left">Passenger middle name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].LastName</code></td>
-      <td style="text-align: left">Último nome do passageiro</td>
+      <td style="text-align: left">Passenger last name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].PassengerType</code></td>
-      <td style="text-align: left">Tipo do passageiro <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-9-airline.passengers[n].passengertype">Tabela 9 - Airline.Passengers{n}.PassengerType</a></td>
+      <td style="text-align: left">Passenger type <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-9-airline.passengers[n].passengertype">Table 9 - Airline.Passengers{n}.PassengerType</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Phone</code></td>
-      <td style="text-align: left">Telefone do passageiro <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Passenger telephone number <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Email</code></td>
-      <td style="text-align: left">E-mail do passageiro</td>
+      <td style="text-align: left">Passenger email</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].LoyaltyMemberNumber</code></td>
-      <td style="text-align: left">Número de fidelidade do passageiro</td>
+      <td style="text-align: left">Loyalty member number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].TicketNumber</code></td>
-      <td style="text-align: left">Número da passagem</td>
+      <td style="text-align: left">Ticket number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DeparturelAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de saída. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureAirport</code></td>
+      <td style="text-align: left">Departure airport code. More informations on <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureCountry</code></td>
-      <td style="text-align: left">Código do país do aeroporto de saída. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 3-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Country code of departure airport. More information on <a href="https://www.iso.org/obp/ui">ISO 3-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left">Arrival airport code. More information on <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalCountry</code></td>
-      <td style="text-align: left">Código do país do aeroporto de chegada. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 3-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Country code of arrival airport. More information on <a href="https://www.iso.org/obp/ui">ISO 3-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].AirlineCode</code></td>
-      <td style="text-align: left">Código da companhia aérea</td>
+      <td style="text-align: left">Airline code</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureDateTime</code></td>
-      <td style="text-align: left">Data e hora de partida <br /> Ex.: 2018-03-31 19:16:38</td>
+      <td style="text-align: left">Departure datetime <br /> Ex.: 2018-03-31 19:16:38</td>
       <td style="text-align: center">datetime</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].ClassOfService</code></td>
-      <td style="text-align: left">Classe de serviço</td>
+      <td style="text-align: left">Class service</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.MerchantWebsite</code></td>
-      <td style="text-align: left">Website da loja</td>
+      <td style="text-align: left">Merchant website</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
-      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-36-merchantdefineddata-(redshield)">Tabela 36 - MerchantDefinedData(ReDShield)</a></td>
+      <td style="text-align: left">Field key set against antifraud provider <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-36-merchantdefineddata-(redshield)">Table 36 - MerchantDefinedData(ReDShield)</a></td>
       <td style="text-align: center">int</td>
       <td>não</td>
       <td>-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Value</code></td>
-      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-36-merchantdefineddata-(redshield)">Tabela 36 - MerchantDefinedData(ReDShield)</a></td>
+      <td style="text-align: left">Field value set against antifraud provider <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-36-merchantdefineddata-(redshield)">Table 36 - MerchantDefinedData(ReDShield)</a></td>
       <td style="text-align: center">var</td>
       <td>não</td>
       <td>-</td>
@@ -3668,7 +3668,7 @@
     <tr>
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Type</th>
       <th> </th>
       <th> </th>
     </tr>
@@ -3676,14 +3676,14 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">TransactionId</code></td>
-      <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: left">Transaction id on Antifraud Gateway Braspag Braspag</td>
       <td style="text-align: center">guid</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-20-status">Tabela 20 - Status</a></td>
+      <td style="text-align: left">Transaction status on Antifraud Gateway Braspag <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-20-status">Table 20  - Status</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
@@ -3697,7 +3697,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code></td>
-      <td style="text-align: left">Status da transação na ReDShield <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-21-providerstatus">Tabela 21 - ProviderStatus</a></td>
+      <td style="text-align: left">ReDShield transaction status <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-21-providerstatus">Table 21 - ProviderStatus</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
@@ -3788,7 +3788,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderAnalysisResult.AfsReply.HostSeverity</code></td>
-      <td style="text-align: left">Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto</td>
+      <td style="text-align: left">Nível de risco do domínio de Customer email, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto</td>
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
@@ -4103,553 +4103,553 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Number</code></td>
-      <td style="text-align: left">Número do cartão de crédito</td>
+      <td style="text-align: left">Credit card number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Holder</code></td>
-      <td style="text-align: left">Nome do cartão de crédito</td>
+      <td style="text-align: left">Holder name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.ExpirationDate</code></td>
-      <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
+      <td style="text-align: left">Credit card expiration date <br /> Ex.: 01/2023</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Brand</code></td>
-      <td style="text-align: left">Bandeira do cartão de crédito <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-3-card.brand">Tabela 3 - Card.Brand</a></td>
+      <td style="text-align: left">Credit card brand <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-3-card.brand">Table 3 - Card.Brand</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Save</code></td>
-      <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
+      <td style="text-align: left">Indicates whether credit card data will be stored on the Cartão Protegido</td>
       <td style="text-align: center">bool</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Token</code></td>
-      <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: left">Credit card token saved on the Cartão Protegido</td>
       <td style="text-align: center">guid</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Card.Alias</code></td>
-      <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: left">Credit card alias saved on the Cartão Protegido</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Street</code></td>
-      <td style="text-align: left">Logradouro do endereço de cobrança</td>
+      <td style="text-align: left">Billing address street</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Number</code></td>
-      <td style="text-align: left">Número do endereço de cobrança</td>
+      <td style="text-align: left">Billing address number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Complement</code></td>
-      <td style="text-align: left">Complemento do endereço de cobrança</td>
+      <td style="text-align: left">Billing address complement</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Neighborhood</code></td>
-      <td style="text-align: left">Bairro do endereço de cobrança</td>
+      <td style="text-align: left">Billing address neighborhood</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.City</code></td>
-      <td style="text-align: left">Cidade do endereço de cobrança</td>
+      <td style="text-align: left">Billing address city</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.State</code></td>
-      <td style="text-align: left">Estado do endereço de cobrança</td>
+      <td style="text-align: left">Billing address state</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.Country</code></td>
-      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Billing address country. More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Billing.ZipCode</code></td>
-      <td style="text-align: left">Código postal do endereço de cobrança</td>
+      <td style="text-align: left">Billing address zipcode</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Street</code></td>
-      <td style="text-align: left">Logradouro do endereço de entrega</td>
+      <td style="text-align: left">Shipping address street</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Number</code></td>
-      <td style="text-align: left">Número do endereço de entrega</td>
+      <td style="text-align: left">Shipping address number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Complement</code></td>
-      <td style="text-align: left">Complemento do endereço de entrega</td>
+      <td style="text-align: left">Shipping address complement</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Neighborhood</code></td>
-      <td style="text-align: left">Bairro do endereço de entrega</td>
+      <td style="text-align: left">Shipping address neighborhood</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.City</code></td>
-      <td style="text-align: left">Cidade do endereço de entrega</td>
+      <td style="text-align: left">Shipping address city</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.State</code></td>
-      <td style="text-align: left">Estado do endereço de entrega</td>
+      <td style="text-align: left">Shipping address state</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Country</code></td>
-      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Shipping address country. More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ZipCode</code></td>
-      <td style="text-align: left">Código postal do endereço de entrega</td>
+      <td style="text-align: left">Shipping address zipcode</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">First name of person in charge of receiving product at shipping address</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.LastName</code></td>
-      <td style="text-align: left">Último do nome do responsável a receber o produto no endereço de entrega</td>
+      <td style="text-align: left">Last name of the person in charge of receiving the product at the shipping address</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.Phone</code></td>
-      <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Telephone number of the person in charge of receiving the product at the shipping address <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Shipping.ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
+      <td style="text-align: left">Order delivery method <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-4-shippingmethod">Table 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.MerchantCustomerId</code></td>
-      <td style="text-align: left">Número do documento de identificação do comprador, CPF ou CNPJ</td>
+      <td style="text-align: left">Customer document number, CPF or CNPJ</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do comprador</td>
+      <td style="text-align: left">Customer first name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.LastName</code></td>
-      <td style="text-align: left">Último nome do comprador</td>
+      <td style="text-align: left">Customer last name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BirthDate</code></td>
-      <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
+      <td style="text-align: left">Customer birthdate <br /> Ex.: 1983-10-01</td>
       <td style="text-align: center">date</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
-      <td style="text-align: left">E-mail do comprador</td>
+      <td style="text-align: left">Customer email</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Ip</code></td>
-      <td style="text-align: left">Endereço de IP do comprador</td>
+      <td style="text-align: left">Customer IP address</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phone</code></td>
-      <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Customer telephone number <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserHostName</code></td>
-      <td style="text-align: left">Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP</td>
+      <td style="text-align: left">Host name entered by the customer’s browser and identified through the HTTP header</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserCookiesAccepted</code></td>
-      <td style="text-align: left">Identifica se o browser do comprador aceita cookies ou não</td>
+      <td style="text-align: left">Identifies whether the customer’s browser accepts cookies or not</td>
       <td style="text-align: center">bool</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserEmail</code></td>
-      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (<code class="highlighter-rouge">Customer.Email</code>)</td>
+      <td style="text-align: left">E-mail registered in the customer’s browser. Can differ from merchant email (<code class="highlighter-rouge">Customer.Email</code>)</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserType</code></td>
-      <td style="text-align: left">Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP</td>
+      <td style="text-align: left">Name of the browser used by the customer and identified through the HTTP header</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ProductName</code></td>
-      <td style="text-align: left">Nome do produto</td>
+      <td style="text-align: left">Product name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Risk</code></td>
-      <td style="text-align: left">Nível de risco do produto associado a quantidade de chargebacks <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-11-cartitem[n].risk">Table 11 - CartItem{n}.Risk</a></td>
+      <td style="text-align: left">Risk level of the product associated with the quantity of chargebacks <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-11-cartitem[n].risk">Table 11 - CartItem{n}.Risk</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].UnitPrice</code></td>
-      <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = r$ 109,50</td>
+      <td style="text-align: left">Product unit price <br /> Ex: 10950 = r$ 109,50</td>
       <td style="text-align: center">long</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Sku</code></td>
-      <td style="text-align: left">Sku do produto</td>
+      <td style="text-align: left">Product SKU</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Quantity</code></td>
-      <td style="text-align: left">Quantidade do produto</td>
+      <td style="text-align: left">Product quantity</td>
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].AddressRiskVerify</code></td>
-      <td style="text-align: left">Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-12-cartitem[n].addressriskverify">Table 12 - CartItem{n}.AddressRiskVerify</a></td>
+      <td style="text-align: left">Identifies that you will evaluate the billing and shipping addresses for different cities, states or countries <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-12-cartitem[n].addressriskverify">Table 12 - CartItem{n}.AddressRiskVerify</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].HostHedge</code></td>
-      <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-13-cartitem[n].hosthedge">Table 13 - CartItem{n}.HostHedge</a></td>
+      <td style="text-align: left">Level of importance of customer IP and email addresses in fraud analysis <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-13-cartitem[n].hosthedge">Table 13 - CartItem{n}.HostHedge</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].NonSensicalHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge">Table 14 - CartItem{n}.NonSensicalHedge</a></td>
+      <td style="text-align: left">Level of importance of verifications about the customer data non sensical in fraud analysis <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge">Table 14 - CartItem{n}.NonSensicalHedge</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ObscenitiesHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-15-cartitem[n].obscenitieshedge">Table 15 - CartItem{n}.ObscenitiesHedge</a></td>
+      <td style="text-align: left">Level of importance of checks on customer data with obscenity in fraud analysis <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-15-cartitem[n].obscenitieshedge">Table 15 - CartItem{n}.ObscenitiesHedge</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].TimeHedge</code></td>
-      <td style="text-align: left">Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-16-cartitem[n].timehedge">Table 16 - CartItem{n}.TimeHedge</a></td>
+      <td style="text-align: left">Level of importance of the time of day in the fraud analysis that the customer made the request <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-16-cartitem[n].timehedge">Table 16 - CartItem{n}.TimeHedge</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].PhoneHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-17-cartitem[n].phonehedge">Table 17 - CartItem{n}.PhoneHedge</a></td>
+      <td style="text-align: left">Level of importance of checks on customer’s phone numbers in fraud analysis <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-17-cartitem[n].phonehedge">Table 17 - CartItem{n}.PhoneHedge</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].VelocityHedge</code></td>
-      <td style="text-align: left">Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-18-cartitem[n].velocityhedge">Table 18 - CartItem{n}.VelocityHedge</a></td>
+      <td style="text-align: left">Level of importance of customer’s purchase frequency in the fraud analysis of the previous 15 minutes <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-18-cartitem[n].velocityhedge">Table 18 - CartItem{n}.VelocityHedge</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Name</code></td>
-      <td style="text-align: left">Nome do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Code</code></td>
-      <td style="text-align: left">Código do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank code</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Agency</code></td>
-      <td style="text-align: left">Agência do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank agency</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Address</code></td>
-      <td style="text-align: left">Endereço do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank address</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.City</code></td>
-      <td style="text-align: left">Cidade onde está localizado o banco do comprador</td>
+      <td style="text-align: left">Customer’s bank city</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.Country</code></td>
-      <td style="text-align: left">País onde está localizado o banco do comprador <br /> Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">Customer’s bank city <br /> More information on <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Bank.SwiftCode</code></td>
-      <td style="text-align: left">Código identificador único do banco do comprador</td>
+      <td style="text-align: left">Customer’s bank swift code</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.AccountName</code></td>
-      <td style="text-align: left">Nome vinculado a conta bancária</td>
+      <td style="text-align: left">Name linked to bank account</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.AccountNumber</code></td>
-      <td style="text-align: left">Número da conta bancária do comprador</td>
+      <td style="text-align: left">Customer’s bank account number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.BankCheckDigit</code></td>
-      <td style="text-align: left">Código utilizado para validar a conta bancária do comprador</td>
+      <td style="text-align: left">Code used to validate customer’s bank account</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">FundTransfer.Iban</code></td>
-      <td style="text-align: left">Número internacional da conta bancária do comprador (IBAN)</td>
+      <td style="text-align: left">Customer’s International Bank Account Number (IBAN)</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.IsGift</code></td>
-      <td style="text-align: left">Indica se o pedido realizado pelo comprador é para presente</td>
+      <td style="text-align: left">Indicates whether the order placed by the customer is for gift</td>
       <td style="text-align: center">bool</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.ReturnsAccepted</code></td>
-      <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser devolvido a loja</td>
+      <td style="text-align: left">Indicates whether the order placed by the customer can be returned to the merchant</td>
       <td style="text-align: center">bool</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Invoice.Tender</code></td>
-      <td style="text-align: left">Forma de pagamento utilizada pelo comprador <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-19-invoice.tender">Table 19 - Invoice.Tender</a></td>
+      <td style="text-align: left">Payment method used by the customer <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-19-invoice.tender">Table 19 - Invoice.Tender</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.JourneyType</code></td>
-      <td style="text-align: left">Tipo de viagem <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-8-airline.journeytype">Tabela 8 - Airline.JourneyType</a></td>
+      <td style="text-align: left">Tipo de viagem <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-8-airline.journeytype">Table 8 - Airline.JourneyType</a></td>
       <td style="text-align: center">enun</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.DepartureDateTime</code></td>
-      <td style="text-align: left">Data e hora de partida <br /> Ex.: 2018-03-31 19:16:38</td>
+      <td style="text-align: left">Departure datetime <br /> Ex.: 2018-03-31 19:16:38</td>
       <td style="text-align: center">datetime</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].FirstName</code></td>
-      <td style="text-align: left">Primeiro nome do passageiro</td>
+      <td style="text-align: left">Passenger first name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].LastName</code></td>
-      <td style="text-align: left">Último nome do passageiro</td>
+      <td style="text-align: left">Passenger last name</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].PassengerId</code></td>
-      <td style="text-align: left">Identificador do passageiro a quem a passagem foi emitida</td>
+      <td style="text-align: left">Identifier of the passenger to whom the ticket was issued</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].PassengerType</code></td>
-      <td style="text-align: left">Tipo do passageiro <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-9-airline.passengers[n].passengertype">Tabela 9 - Airline.Passengers{n}.PassengerType</a></td>
+      <td style="text-align: left">Passenger type <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-9-airline.passengers[n].passengertype">Table 9 - Airline.Passengers{n}.PassengerType</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Phone</code></td>
-      <td style="text-align: left">Telefone do passageiro <br /> Ex.: 552121114700</td>
+      <td style="text-align: left">Passenger telephone number <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Email</code></td>
-      <td style="text-align: left">E-mail do passageiro</td>
+      <td style="text-align: left">Passenger email</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Status</code></td>
-      <td style="text-align: left">Classificação da empresa aérea <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-10-airline.passengers[n].status">Table 10 - Airline.Passengers{n}.Status</a></td>
+      <td style="text-align: left">Airline classification <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-10-airline.passengers[n].status">Table 10 - Airline.Passengers{n}.Status</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DeparturelAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de partida. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureAirport</code></td>
+      <td style="text-align: left">Departure airport code. More informations on. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left">Arrival airport code. More information on <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.Comments</code></td>
-      <td style="text-align: left">Comentários que a loja poderá associar a análise de fraude</td>
+      <td style="text-align: left">Comments that the merchant may associate fraud analysis</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CustomConfiguration.ScoreThreshold</code></td>
-      <td style="text-align: left">Nível aceitável de risco para cada produto</td>
+      <td style="text-align: left">Acceptable level of risk for each product</td>
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Key</code></td>
-      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData(Cybersource)</a></td>
+      <td style="text-align: left">Field key set against antifraud provider <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-37-merchantdefineddata-(cybersource)">Table 37 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">int</td>
       <td>não</td>
       <td>-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantDefinedData[n].Value</code></td>
-      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-37-merchantdefineddata-(cybersource)">Tabela 37 - MerchantDefinedData(Cybersource)</a></td>
+      <td style="text-align: left">Field value set against antifraud provider <br /> <a href="https://braspag.github.io/en/manual/antifraude#table-37-merchantdefineddata-(cybersource)">Table 37 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">var</td>
       <td>não</td>
       <td>-</td>
@@ -4767,13 +4767,13 @@
     <tr>
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Type</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
-      <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
+      <td style="text-align: left">Transaction id on Antifraud Gateway Braspag Braspag</td>
       <td style="text-align: center">guid</td>
     </tr>
   </tbody>
@@ -4858,9 +4858,9 @@
     <tr>
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: center">Tipo</th>
-      <th style="text-align: center">Obrigatório</th>
-      <th style="text-align: right">Tamanho</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: right">Size</th>
     </tr>
   </thead>
   <tbody>
@@ -5020,9 +5020,9 @@
     <tr>
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: center">Tipo</th>
-      <th style="text-align: center">Obrigatório</th>
-      <th style="text-align: right">Tamanho</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: right">Size</th>
     </tr>
   </thead>
   <tbody>
@@ -6695,7 +6695,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">NEG-BZC</td>
-      <td style="text-align: left">O código postal do endereço de cobrança está na lista negativa</td>
+      <td style="text-align: left">O Billing address zipcode está na lista negativa</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -6750,7 +6750,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">NEG-PEM</td>
-      <td style="text-align: left">O endereço de e-mail do passageiro está na lista negativa</td>
+      <td style="text-align: left">O endereço de Passenger email está na lista negativa</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -6765,7 +6765,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">NEG-PPH</td>
-      <td style="text-align: left">O número do telefone do passageiro está na lista negativa</td>
+      <td style="text-align: left">O número do Passenger telephone number está na lista negativa</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -6780,7 +6780,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">NEG-SZC</td>
-      <td style="text-align: left">O código postal do endereço de entrega está na lista negativa</td>
+      <td style="text-align: left">O Shipping address zipcode está na lista negativa</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -6815,12 +6815,12 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">REV-BZC</td>
-      <td style="text-align: left">O código postal do endereço de cobrança está na lista de revisão</td>
+      <td style="text-align: left">O Billing address zipcode está na lista de revisão</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">REV-CC</td>
-      <td style="text-align: left">O número do cartão de crédito está na lista de revisão</td>
+      <td style="text-align: left">O Credit card number está na lista de revisão</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -6865,7 +6865,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">REV-PEM</td>
-      <td style="text-align: left">O endereço de e-mail do passageiro está na lista de revisão</td>
+      <td style="text-align: left">O endereço de Passenger email está na lista de revisão</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -6880,7 +6880,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">REV-PPH</td>
-      <td style="text-align: left">O número do telefone do passageiro está na lista de revisão</td>
+      <td style="text-align: left">O número do Passenger telephone number está na lista de revisão</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -6895,7 +6895,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">REV-SZC</td>
-      <td style="text-align: left">O código postal do endereço de entrega está na lista de revisão</td>
+      <td style="text-align: left">O Shipping address zipcode está na lista de revisão</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
@@ -6958,32 +6958,32 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <tbody>
     <tr>
       <td style="text-align: left">FREE-EM</td>
-      <td style="text-align: left">O endereço de e-mail do comprador é de um provedor de e-mail gratuito</td>
+      <td style="text-align: left">O endereço de Customer email é de um provedor de e-mail gratuito</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">INTL-IPCO</td>
-      <td style="text-align: left">O país do endereço de e-mail do comprador está fora dos EUA</td>
+      <td style="text-align: left">O país do endereço de Customer email está fora dos EUA</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">INV-EM</td>
-      <td style="text-align: left">O endereço de e-mail do comprador é inválido</td>
+      <td style="text-align: left">O endereço de Customer email é inválido</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">MM-EMBCO</td>
-      <td style="text-align: left">O domínio do endereço de e-mail do comprador não é consistente com o país do endereço de cobrança</td>
+      <td style="text-align: left">O domínio do endereço de Customer email não é consistente com o país do endereço de cobrança</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">MM-IPBC</td>
-      <td style="text-align: left">O endereço de e-mail do comprador não é consistente com a cidade do endereço de cobrança</td>
+      <td style="text-align: left">O endereço de Customer email não é consistente com a Billing address city</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">MM-IPBCO</td>
-      <td style="text-align: left">O endereço de e-mail do comprador não é consistente com o país do endereço de cobrança</td>
+      <td style="text-align: left">O endereço de Customer email não é consistente com o país do endereço de cobrança</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -6993,12 +6993,12 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">MM-IPEM</td>
-      <td style="text-align: left">O endereço de e-mail do comprador não é consistente com o endereço IP</td>
+      <td style="text-align: left">O endereço de Customer email não é consistente com o endereço IP</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">RISK-EM</td>
-      <td style="text-align: left">O domínio do e-mail do comprador (por exemplo, mail.example.com) está associado com alto risco</td>
+      <td style="text-align: left">O domínio do Customer email (por exemplo, mail.example.com) está associado com alto risco</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -7101,22 +7101,22 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">NON-BC</td>
-      <td style="text-align: left">A cidade do endereço de cobrança é sem sentido</td>
+      <td style="text-align: left">A Billing address city é sem sentido</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">NON-FN</td>
-      <td style="text-align: left">O primeiro nome do comprador é sem sentido</td>
+      <td style="text-align: left">O Customer first name é sem sentido</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">NON-LN</td>
-      <td style="text-align: left">O último nome do comprador é sem sentido</td>
+      <td style="text-align: left">O Customer last name é sem sentido</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">OBS-BC</td>
-      <td style="text-align: left">A cidade do endereço de cobrança contem obscenidades</td>
+      <td style="text-align: left">A Billing address city contem obscenidades</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -7131,7 +7131,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">RISK-BC</td>
-      <td style="text-align: left">A cidade do endereço de cobrança possui caracteres repetidos</td>
+      <td style="text-align: left">A Billing address city possui caracteres repetidos</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -7146,12 +7146,12 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">RISK-FN</td>
-      <td style="text-align: left">Nome e último nome do comprador contêm combinações de letras improváveis</td>
+      <td style="text-align: left">Nome e Customer last name contêm combinações de letras improváveis</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">RISK-LN</td>
-      <td style="text-align: left">Nome do meio ou último nome do comprador contêm combinações de letras improváveis</td>
+      <td style="text-align: left">Nome do meio ou Customer last name contêm combinações de letras improváveis</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -7195,7 +7195,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <tbody>
     <tr>
       <td style="text-align: left">VEL-ADDR</td>
-      <td style="text-align: left">Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email</td>
+      <td style="text-align: left">Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o Credit card number e/ou endereço de email</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -7205,27 +7205,27 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">VEL-NAME</td>
-      <td style="text-align: left">Diferentes nomes foram usados várias vezes com o mesmo número do cartão de crédito e/ou endereço de email</td>
+      <td style="text-align: left">Diferentes nomes foram usados várias vezes com o mesmo Credit card number e/ou endereço de email</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">VELS-CC</td>
-      <td style="text-align: left">O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo curto</td>
+      <td style="text-align: left">O Credit card number tem sido utilizado várias vezes durante um intervalo curto</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">VELI-CC</td>
-      <td style="text-align: left">O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo médio</td>
+      <td style="text-align: left">O Credit card number tem sido utilizado várias vezes durante um intervalo médio</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">VELL-CC</td>
-      <td style="text-align: left">O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo longo</td>
+      <td style="text-align: left">O Credit card number tem sido utilizado várias vezes durante um intervalo longo</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">VELV-CC</td>
-      <td style="text-align: left">O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo muito longo</td>
+      <td style="text-align: left">O Credit card number tem sido utilizado várias vezes durante um intervalo muito longo</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -7465,7 +7465,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     <tr>
       <th style="text-align: left">Key</th>
       <th style="text-align: left">Value</th>
-      <th style="text-align: left">Tipo</th>
+      <th style="text-align: left">Type</th>
       <th style="text-align: left">Tamanho</th>
       <th> </th>
     </tr>
@@ -7551,7 +7551,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     <tr>
       <th style="text-align: left">Key</th>
       <th style="text-align: left">Value</th>
-      <th style="text-align: left">Tipo</th>
+      <th style="text-align: left">Type</th>
     </tr>
   </thead>
   <tbody>
@@ -7667,7 +7667,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">33</td>
-      <td style="text-align: left">Identifica se o número do cartão de crédito foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado</td>
+      <td style="text-align: left">Identifica se o Credit card number foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado</td>
       <td style="text-align: left">string</td>
     </tr>
     <tr>
