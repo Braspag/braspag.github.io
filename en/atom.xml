@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-09-19T17:39:17+00:00</updated>
+    <updated>2018-09-19T18:38:39+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17424,37 +17424,37 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
     </entry>
     
     <entry>
-        <title>Antifraude - Manual de integração</title>
+        <title>Antifraud - Integration Manual</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/antifraude"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
         <id>https://braspag.github.io//en/manual/antifraude</id>
-        <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Antifraude Gateway&lt;/strong&gt; é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Antifraud Gateway&lt;/strong&gt; is a platform developed by the Braspag Risk team to facilitate the integration of customers who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example..&lt;/p&gt;
 
-&lt;p&gt;A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.&lt;/p&gt;
+&lt;p&gt;The platform is based on REST architecture, which exchanges data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the market and supported by technical communities.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Para saber mais sobre OAuth 2, consulte &lt;a href=&quot;https://oauth.net/2/&quot;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;To learn more about OAuth 2, see &lt;a href=&quot;https://oauth.net/2/&quot;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.&lt;/p&gt;
+&lt;p&gt;The platform was built using one of Braspag’s main products, the Cartão Protegido, for card tokenization and token fraud analysis.&lt;/p&gt;
 
-&lt;h1 id=&quot;objetivo&quot;&gt;Objetivo&lt;/h1&gt;
+&lt;h1 id=&quot;objective&quot;&gt;Objective&lt;/h1&gt;
 
-&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
+&lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with Antifraud Gateway API Braspag, gateway of providers of antifraud solutions, describing the operations available with sample requests and responses.&lt;/p&gt;
 
-&lt;p&gt;Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
+&lt;p&gt;To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send using the HTTP VERB as described in the operation.&lt;/p&gt;
 
 &lt;h1 id=&quot;hosts&quot;&gt;Hosts&lt;/h1&gt;
 
-&lt;h2 id=&quot;api-braspagauth&quot;&gt;API BraspagAuth&lt;/h2&gt;
+&lt;h2 id=&quot;braspagauth-api&quot;&gt;BraspagAuth API&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Ambiente&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Environment&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;URL&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -17470,12 +17470,12 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;api-antifraude-gateway&quot;&gt;API Antifraude Gateway&lt;/h2&gt;
+&lt;h2 id=&quot;antifraud-gateway-api&quot;&gt;Antifraud Gateway API&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Ambiente&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Environment&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;URL&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -17491,55 +17491,55 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h1&gt;
+&lt;h1 id=&quot;authentication&quot;&gt;Authentication&lt;/h1&gt;
 
-&lt;h2 id=&quot;tokens-de-acesso&quot;&gt;Tokens de Acesso&lt;/h2&gt;
+&lt;h2 id=&quot;access-token&quot;&gt;Access Token&lt;/h2&gt;
 
-&lt;p&gt;A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The Antifraud Gateway API uses the industry standard OAuth 2.0 protocol for authorization of access to its specific resources by environments, which are: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na plataforma.&lt;/p&gt;
+&lt;p&gt;This session describes the flow required for client applications to obtain valid access tokens for use on the platform.&lt;/p&gt;
 
-&lt;h2 id=&quot;obtenção-do-token-de-acesso&quot;&gt;Obtenção do token de acesso&lt;/h2&gt;
+&lt;h2 id=&quot;obtaining-the-access-token&quot;&gt;Obtaining the access token&lt;/h2&gt;
 
-&lt;p&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;API Antifraude Gateway&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The access token is obtained through the oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. The diagram below illustrates, in chronological order, the communication between &lt;strong&gt;Client Application&lt;/strong&gt;, &lt;strong&gt;BraspagAuth API&lt;/strong&gt; and &lt;strong&gt;Antifraud Gateway API&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, informa à API &lt;strong&gt;BraspagAuth&lt;/strong&gt; sua credencial.&lt;/p&gt;
+    &lt;p&gt;The &lt;strong&gt;Client Application&lt;/strong&gt;, informs the &lt;strong&gt;BraspagAuth API&lt;/strong&gt; your credential.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;O &lt;strong&gt;BraspagAuth&lt;/strong&gt; valida a credencial recebida. Se for válida, retorna o token de acesso para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;The &lt;strong&gt;BraspagAuth API&lt;/strong&gt; validates the credential received. If valid, returns the access token for &lt;strong&gt;Client Application&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;API Antifraude Gateway Braspag&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;The &lt;strong&gt;Client Application&lt;/strong&gt; informs the access token in the header of the HTTP requests made to the &lt;strong&gt;Antifraud Gateway API&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Se o token de acesso for válido, a requisição é processada e os dados são retornados para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;If the access token is valid, the request is processed and the data is returned to the &lt;strong&gt;Client Application&lt;/strong&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.&lt;br /&gt;
-&lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. &lt;br /&gt;
+&lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us&quot;&gt;Support Braspag&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;como-obter-o-token&quot;&gt;Como obter o token&lt;/h2&gt;
+&lt;h2 id=&quot;how-to-get-the-token&quot;&gt;How to get the token&lt;/h2&gt;
 
-&lt;p&gt;Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção &lt;strong&gt;client_id:client_secret&lt;/strong&gt;, e enviar o resultado no cabeçalho através do campo &lt;strong&gt;Authorization&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Once in possession of the credential, you will need to “encrypt” it in Base64, using the &lt;strong&gt;client_id:client_secret&lt;/strong&gt; convention, and send the result in the header through the &lt;strong&gt;Authorization&lt;/strong&gt; field.&lt;/p&gt;
 
-&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;p&gt;Exemple:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;client_id: &lt;strong&gt;braspagtestes&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;client_secret: &lt;strong&gt;1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;String a ser codificada em Base64: &lt;strong&gt;braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Resultado após a codificação: &lt;strong&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;String to be encoded in Base64: &lt;strong&gt;braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Result after encoding: &lt;strong&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;oauth2/token&lt;/span&gt;&lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -17560,7 +17560,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -17590,36 +17590,36 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;access_token&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;The access token requested. The application can use this token to authenticate itself to the protected resource, in this case the Antifraud Gateway API&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;token_type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Indica o valor do tipo de token&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Indicates the value of the token type&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;expires_in&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Expiração do o token de acesso, em segundos &lt;br /&gt;O token quando expirar, é necessário obter um novo&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Expiry of the access token, in seconds &lt;br /&gt; The token when it expires, it is necessary to get a new one&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;realizando-uma-análise-de-fraude&quot;&gt;Realizando uma análise de fraude&lt;/h1&gt;
+&lt;h1 id=&quot;conducting-a-fraud-analysis&quot;&gt;Conducting a fraud analysis&lt;/h1&gt;
 
-&lt;p&gt;A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.&lt;/p&gt;
+&lt;p&gt;Braspag, upon receiving the request data, directs the provider to analyze them. Providers use technologies such as device identification, IP geolocation, social network analytics, proxy detection, and speed counters. In real-time you will receive a recommendation from the analysis and you can take an action.&lt;/p&gt;
 
-&lt;h2 id=&quot;analisando-uma-transação-na-redshield&quot;&gt;Analisando uma transação na ReDShield&lt;/h2&gt;
+&lt;h2 id=&quot;analyzing-a-transaction-in-redshield&quot;&gt;Analyzing a transaction in ReDShield&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
 
@@ -17766,7 +17766,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -17795,13 +17795,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
       &lt;th style=&quot;text-align: right&quot;&gt;Tamanho&lt;/th&gt;
@@ -17810,7 +17810,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do pedido da loja&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Merchant order number&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;100&lt;/td&gt;
@@ -18279,7 +18279,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].Description&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Descrição do produto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Description do produto&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;76&lt;/td&gt;
@@ -18493,7 +18493,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -18514,13 +18514,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -18578,7 +18578,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;analisando-uma-transação-na-cybersource&quot;&gt;Analisando uma transação na Cybersource&lt;/h2&gt;
+&lt;h2 id=&quot;analyzing-a-transaction-in-cybersource&quot;&gt;Analyzing a transaction in Cybersource&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/&lt;/span&gt;&lt;/aside&gt;
 
@@ -18721,7 +18721,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -18750,13 +18750,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
       &lt;th style=&quot;text-align: right&quot;&gt;Tamanho&lt;/th&gt;
@@ -18765,7 +18765,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do pedido da loja&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Merchant order number&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;100&lt;/td&gt;
@@ -19442,7 +19442,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;response-2&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -19463,13 +19463,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -19748,7 +19748,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;response-3&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -19769,13 +19769,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -19963,7 +19963,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -19994,7 +19994,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -20015,13 +20015,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
@@ -20100,7 +20100,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do pedido da loja&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Merchant order number&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -20569,7 +20569,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].Description&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Descrição do produto&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Description do produto&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -20923,7 +20923,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/{Id}&lt;/span&gt;&lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -20954,7 +20954,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;response-5&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -20975,13 +20975,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
@@ -21340,7 +21340,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do pedido da loja &lt;br /&gt; Obs.: Este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Merchant order number&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -21977,7 +21977,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;request-5&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22008,7 +22008,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h3 id=&quot;response-6&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22057,7 +22057,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22074,13 +22074,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -22095,7 +22095,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h2 id=&quot;response-7&quot;&gt;Response&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22136,7 +22136,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22165,13 +22165,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
       &lt;th style=&quot;text-align: right&quot;&gt;Tamanho&lt;/th&gt;
@@ -22190,7 +22190,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h2 id=&quot;response-8&quot;&gt;Response&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway&lt;/li&gt;
@@ -22298,7 +22298,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22327,13 +22327,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
       &lt;th style=&quot;text-align: right&quot;&gt;Tamanho&lt;/th&gt;
@@ -22368,7 +22368,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22389,13 +22389,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -22417,7 +22417,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22438,13 +22438,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -22466,7 +22466,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22487,13 +22487,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -22515,7 +22515,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22536,13 +22536,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -22572,7 +22572,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -22593,13 +22593,13 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22630,7 +22630,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h4 id=&quot;como-configurar&quot;&gt;Como configurar?&lt;/h4&gt;
 
-&lt;p&gt;1 - Inclua o javascript da Iovation em sua página de checkout &lt;br /&gt; 2 - Adicione parâmetros de configuração no javascript &lt;br /&gt; 3 - Crie um campo do tipo &lt;em&gt;hidden&lt;/em&gt; em sua página para escrever a &lt;em&gt;caixa preta&lt;/em&gt; nele e enviá-lo junto com os dados da transação a ser analisada&lt;/p&gt;
+&lt;p&gt;1 - Inclua o javascript da Iovation em sua página de checkout &lt;br /&gt; 2 - Adicione Parameters de configuração no javascript &lt;br /&gt; 3 - Crie um campo do tipo &lt;em&gt;hidden&lt;/em&gt; em sua página para escrever a &lt;em&gt;caixa preta&lt;/em&gt; nele e enviá-lo junto com os dados da transação a ser analisada&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Obs.:&lt;/strong&gt; Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.&lt;/p&gt;
 
@@ -22643,14 +22643,14 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 &lt;p&gt;Esta é a URL da versão do snare.js da Iovation: &amp;lt;script type=”text/javascript” src=”https://mpsnare.iesnare.com/snare.js”&amp;gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Parâmetros de configuração&lt;/li&gt;
+  &lt;li&gt;Parameters de configuração&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Default&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -22662,7 +22662,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_flash_needs_handler&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Este parâmetro só terá validade se o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;io_install_flash&lt;/code&gt; estiver configurado como TRUE, caso contrário não será executado &lt;br /&gt; É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado &lt;br /&gt; Ex.: var &lt;code class=&quot;highlighter-rouge&quot;&gt;io_flash_needs_handler&lt;/code&gt; = “Alert(‘Instalar Flash’);”&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Este Parameter só terá validade se o Parameter &lt;code class=&quot;highlighter-rouge&quot;&gt;io_install_flash&lt;/code&gt; estiver configurado como TRUE, caso contrário não será executado &lt;br /&gt; É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado &lt;br /&gt; Ex.: var &lt;code class=&quot;highlighter-rouge&quot;&gt;io_flash_needs_handler&lt;/code&gt; = “Alert(‘Instalar Flash’);”&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -22677,7 +22677,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_bbout_element_id&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id do elemento HTML para preencher com a &lt;em&gt;caixa preta&lt;/em&gt; &lt;br /&gt; Se o parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;io_bb_callback&lt;/code&gt; for definido, este não terá efeito&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id do elemento HTML para preencher com a &lt;em&gt;caixa preta&lt;/em&gt; &lt;br /&gt; Se o Parameter &lt;code class=&quot;highlighter-rouge&quot;&gt;io_bb_callback&lt;/code&gt; for definido, este não terá efeito&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -22687,14 +22687,14 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;io_bb_callback&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Parâmetro para customizar a checagem da coleta da &lt;em&gt;caixa preta&lt;/em&gt; foi concluída &lt;br /&gt; Ao utilizar, escrever a função conforme com a seguinte sintaxe: &lt;br /&gt; &lt;em&gt;io_callback(bb, complete)&lt;/em&gt;, onde: &lt;br /&gt; bb - valor da caixa preta &lt;br /&gt; complete - valor booleano que indica que a coleta foi concluída&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Parameter para customizar a checagem da coleta da &lt;em&gt;caixa preta&lt;/em&gt; foi concluída &lt;br /&gt; Ao utilizar, escrever a função conforme com a seguinte sintaxe: &lt;br /&gt; &lt;em&gt;io_callback(bb, complete)&lt;/em&gt;, onde: &lt;br /&gt; bb - valor da caixa preta &lt;br /&gt; complete - valor booleano que indica que a coleta foi concluída&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;
-Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.&lt;/p&gt;
+Os Parameters de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;
 &lt;img src=&quot;https://braspag.github.io//images/braspag/af/exemplohtmlred.png&quot; alt=&quot;Exemplo HTML&quot; /&gt;&lt;/p&gt;
@@ -22813,7 +22813,7 @@ Se as permissões listadas não são necessárias pelo aplicativo, os valores ob
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Parâmetros&lt;/li&gt;
+  &lt;li&gt;Parameters&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
@@ -22862,7 +22862,7 @@ Se a opção para executar o módulo não aparecer, selecione &lt;em&gt;File -&a
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Ambiente&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22883,7 +22883,7 @@ Se a opção para executar o módulo não aparecer, selecione &lt;em&gt;File -&a
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Variável&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22949,7 +22949,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23035,7 +23035,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23104,7 +23104,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23128,7 +23128,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23152,7 +23152,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23176,7 +23176,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23250,7 +23250,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23279,7 +23279,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23308,7 +23308,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23342,7 +23342,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23376,7 +23376,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23410,7 +23410,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23444,7 +23444,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23478,7 +23478,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23512,7 +23512,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23566,7 +23566,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23610,7 +23610,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;De-Para com o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; (Status da transação no Antifraude Gateway Braspag)&lt;/th&gt;
     &lt;/tr&gt;
@@ -23691,7 +23691,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23765,7 +23765,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23839,7 +23839,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23953,7 +23953,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -23977,7 +23977,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -24221,7 +24221,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -24265,7 +24265,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -24339,7 +24339,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -24388,7 +24388,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -24502,7 +24502,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -24646,7 +24646,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -24744,7 +24744,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;

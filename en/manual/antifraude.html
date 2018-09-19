@@ -12,7 +12,7 @@
 
     <title>
         
-        Antifraude - Manual de integração &middot; Documentações e tutoriais
+        Antifraud - Integration Manual &middot; Documentações e tutoriais
         
     </title>
 
@@ -105,7 +105,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/antifraude">Antifraude - Manual de integração</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/antifraude">Antifraud - Integration Manual</a></li>
                                     
                                 
                             
@@ -115,32 +115,32 @@
             </div>
 
             <div class="post">
-  <h1 id="visão-geral">Visão Geral</h1>
+  <h1 id="overview">Overview</h1>
 
-<p><strong>Antifraude Gateway</strong> é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.</p>
+<p><strong>Antifraud Gateway</strong> is a platform developed by the Braspag Risk team to facilitate the integration of customers who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example..</p>
 
-<p>A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.</p>
+<p>The platform is based on REST architecture, which exchanges data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the market and supported by technical communities.</p>
 
 <blockquote>
-  <p>Para saber mais sobre OAuth 2, consulte <a href="https://oauth.net/2/">https://oauth.net/2/</a></p>
+  <p>To learn more about OAuth 2, see <a href="https://oauth.net/2/">https://oauth.net/2/</a></p>
 </blockquote>
 
-<p>A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.</p>
+<p>The platform was built using one of Braspag’s main products, the Cartão Protegido, for card tokenization and token fraud analysis.</p>
 
-<h1 id="objetivo">Objetivo</h1>
+<h1 id="objective">Objective</h1>
 
-<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.</p>
+<p>The purpose of this documentation is to guide the developer on how to integrate with Antifraud Gateway API Braspag, gateway of providers of antifraud solutions, describing the operations available with sample requests and responses.</p>
 
-<p>Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.</p>
+<p>To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send using the HTTP VERB as described in the operation.</p>
 
 <h1 id="hosts">Hosts</h1>
 
-<h2 id="api-braspagauth">API BraspagAuth</h2>
+<h2 id="braspagauth-api">BraspagAuth API</h2>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Ambiente</th>
+      <th style="text-align: left">Environment</th>
       <th style="text-align: left">URL</th>
     </tr>
   </thead>
@@ -156,12 +156,12 @@
   </tbody>
 </table>
 
-<h2 id="api-antifraude-gateway">API Antifraude Gateway</h2>
+<h2 id="antifraud-gateway-api">Antifraud Gateway API</h2>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Ambiente</th>
+      <th style="text-align: left">Environment</th>
       <th style="text-align: left">URL</th>
     </tr>
   </thead>
@@ -177,55 +177,55 @@
   </tbody>
 </table>
 
-<h1 id="autenticação">Autenticação</h1>
+<h1 id="authentication">Authentication</h1>
 
-<h2 id="tokens-de-acesso">Tokens de Acesso</h2>
+<h2 id="access-token">Access Token</h2>
 
-<p>A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
+<p>The Antifraud Gateway API uses the industry standard OAuth 2.0 protocol for authorization of access to its specific resources by environments, which are: <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
 
-<p>Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na plataforma.</p>
+<p>This session describes the flow required for client applications to obtain valid access tokens for use on the platform.</p>
 
-<h2 id="obtenção-do-token-de-acesso">Obtenção do token de acesso</h2>
+<h2 id="obtaining-the-access-token">Obtaining the access token</h2>
 
-<p>O token de acesso é obtido através do fluxo oauth <strong>client_credentials</strong>. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a <strong>Aplicação Cliente</strong>, a <strong>API BraspagAuth</strong> e a <strong>API Antifraude Gateway</strong>.</p>
+<p>The access token is obtained through the oauth <strong>client_credentials</strong>. The diagram below illustrates, in chronological order, the communication between <strong>Client Application</strong>, <strong>BraspagAuth API</strong> and <strong>Antifraud Gateway API</strong>.</p>
 
 <ol>
   <li>
-    <p>A <strong>Aplicação Cliente</strong>, informa à API <strong>BraspagAuth</strong> sua credencial.</p>
+    <p>The <strong>Client Application</strong>, informs the <strong>BraspagAuth API</strong> your credential.</p>
   </li>
   <li>
-    <p>O <strong>BraspagAuth</strong> valida a credencial recebida. Se for válida, retorna o token de acesso para a <strong>Aplicação Cliente</strong>.</p>
+    <p>The <strong>BraspagAuth API</strong> validates the credential received. If valid, returns the access token for <strong>Client Application</strong>.</p>
   </li>
   <li>
-    <p>A <strong>Aplicação Cliente</strong> informa o token de acesso no cabeçalho das requisições HTTP feitas à <strong>API Antifraude Gateway Braspag</strong>.</p>
+    <p>The <strong>Client Application</strong> informs the access token in the header of the HTTP requests made to the <strong>Antifraud Gateway API</strong>.</p>
   </li>
   <li>
-    <p>Se o token de acesso for válido, a requisição é processada e os dados são retornados para a <strong>Aplicação Cliente</strong>.</p>
+    <p>If the access token is valid, the request is processed and the data is returned to the <strong>Client Application</strong></p>
   </li>
 </ol>
 
 <blockquote>
-  <p>Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.<br />
-<a href="https://suporte.braspag.com.br/hc/pt-br">Suporte Braspag</a></p>
+  <p>Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. <br />
+<a href="https://suporte.braspag.com.br/hc/en-us">Support Braspag</a></p>
 </blockquote>
 
-<h2 id="como-obter-o-token">Como obter o token</h2>
+<h2 id="how-to-get-the-token">How to get the token</h2>
 
-<p>Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção <strong>client_id:client_secret</strong>, e enviar o resultado no cabeçalho através do campo <strong>Authorization</strong>.</p>
+<p>Once in possession of the credential, you will need to “encrypt” it in Base64, using the <strong>client_id:client_secret</strong> convention, and send the result in the header through the <strong>Authorization</strong> field.</p>
 
-<p>Exemplo:</p>
+<p>Exemple:</p>
 <ul>
   <li>client_id: <strong>braspagtestes</strong></li>
   <li>client_secret: <strong>1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
-  <li>String a ser codificada em Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
-  <li>Resultado após a codificação: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong></li>
+  <li>String to be encoded in Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
+  <li>Result after encoding: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong></li>
 </ul>
 
 <h3 id="request">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -246,7 +246,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
@@ -276,36 +276,36 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">access_token</code></td>
-      <td style="text-align: left">O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway</td>
+      <td style="text-align: left">The access token requested. The application can use this token to authenticate itself to the protected resource, in this case the Antifraud Gateway API</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">token_type</code></td>
-      <td style="text-align: left">Indica o valor do tipo de token</td>
+      <td style="text-align: left">Indicates the value of the token type</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">expires_in</code></td>
-      <td style="text-align: left">Expiração do o token de acesso, em segundos <br />O token quando expirar, é necessário obter um novo</td>
+      <td style="text-align: left">Expiry of the access token, in seconds <br /> The token when it expires, it is necessary to get a new one</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="realizando-uma-análise-de-fraude">Realizando uma análise de fraude</h1>
+<h1 id="conducting-a-fraud-analysis">Conducting a fraud analysis</h1>
 
-<p>A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.</p>
+<p>Braspag, upon receiving the request data, directs the provider to analyze them. Providers use technologies such as device identification, IP geolocation, social network analytics, proxy detection, and speed counters. In real-time you will receive a recommendation from the analysis and you can take an action.</p>
 
-<h2 id="analisando-uma-transação-na-redshield">Analisando uma transação na ReDShield</h2>
+<h2 id="analyzing-a-transaction-in-redshield">Analyzing a transaction in ReDShield</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -452,7 +452,7 @@
 
 <h3 id="request-1">Request</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -481,13 +481,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: center">Tipo</th>
       <th style="text-align: center">Obrigatório</th>
       <th style="text-align: right">Tamanho</th>
@@ -496,7 +496,7 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td style="text-align: left">Número do pedido da loja</td>
+      <td style="text-align: left">Merchant order number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
@@ -965,7 +965,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Description</code></td>
-      <td style="text-align: left">Descrição do produto</td>
+      <td style="text-align: left">Description do produto</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">76</td>
@@ -1179,7 +1179,7 @@
 
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -1200,13 +1200,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: center">Tipo</th>
     </tr>
   </thead>
@@ -1264,7 +1264,7 @@
   </tbody>
 </table>
 
-<h2 id="analisando-uma-transação-na-cybersource">Analisando uma transação na Cybersource</h2>
+<h2 id="analyzing-a-transaction-in-cybersource">Analyzing a transaction in Cybersource</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -1407,7 +1407,7 @@
 
 <h3 id="request-2">Request</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -1436,13 +1436,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: center">Tipo</th>
       <th style="text-align: center">Obrigatório</th>
       <th style="text-align: right">Tamanho</th>
@@ -1451,7 +1451,7 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td style="text-align: left">Número do pedido da loja</td>
+      <td style="text-align: left">Merchant order number</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
@@ -2128,7 +2128,7 @@
 
 <h3 id="response-2">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -2149,13 +2149,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: center">Tipo</th>
     </tr>
   </thead>
@@ -2434,7 +2434,7 @@
 
 <h3 id="response-3">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -2455,13 +2455,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
@@ -2649,7 +2649,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -2680,7 +2680,7 @@
 
 <h3 id="response-4">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -2701,13 +2701,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: center">Tipo</th>
       <th> </th>
       <th> </th>
@@ -2786,7 +2786,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td style="text-align: left">Número do pedido da loja</td>
+      <td style="text-align: left">Merchant order number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -3255,7 +3255,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Description</code></td>
-      <td style="text-align: left">Descrição do produto</td>
+      <td style="text-align: left">Description do produto</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -3609,7 +3609,7 @@
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -3640,7 +3640,7 @@
 
 <h3 id="response-5">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -3661,13 +3661,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: center">Tipo</th>
       <th> </th>
       <th> </th>
@@ -4026,7 +4026,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td style="text-align: left">Número do pedido da loja <br /> Obs.: Este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint</td>
+      <td style="text-align: left">Merchant order number</td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -4663,7 +4663,7 @@
 
 <h3 id="request-5">Request</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -4694,7 +4694,7 @@
 
 <h3 id="response-6">Response</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -4743,7 +4743,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -4760,13 +4760,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: center">Tipo</th>
     </tr>
   </thead>
@@ -4781,7 +4781,7 @@
 
 <h2 id="response-7">Response</h2>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -4822,7 +4822,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -4851,13 +4851,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: center">Tipo</th>
       <th style="text-align: center">Obrigatório</th>
       <th style="text-align: right">Tamanho</th>
@@ -4876,7 +4876,7 @@
 
 <h2 id="response-8">Response</h2>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <ul>
   <li>Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway</li>
@@ -4984,7 +4984,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -5013,13 +5013,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: center">Tipo</th>
       <th style="text-align: center">Obrigatório</th>
       <th style="text-align: right">Tamanho</th>
@@ -5054,7 +5054,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -5075,13 +5075,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th> </th>
     </tr>
   </thead>
@@ -5103,7 +5103,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -5124,13 +5124,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th> </th>
     </tr>
   </thead>
@@ -5152,7 +5152,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -5173,13 +5173,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th> </th>
     </tr>
   </thead>
@@ -5201,7 +5201,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -5222,13 +5222,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th> </th>
     </tr>
   </thead>
@@ -5258,7 +5258,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -5279,13 +5279,13 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parameters in the body (Body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
@@ -5316,7 +5316,7 @@
 
 <h4 id="como-configurar">Como configurar?</h4>
 
-<p>1 - Inclua o javascript da Iovation em sua página de checkout <br /> 2 - Adicione parâmetros de configuração no javascript <br /> 3 - Crie um campo do tipo <em>hidden</em> em sua página para escrever a <em>caixa preta</em> nele e enviá-lo junto com os dados da transação a ser analisada</p>
+<p>1 - Inclua o javascript da Iovation em sua página de checkout <br /> 2 - Adicione Parameters de configuração no javascript <br /> 3 - Crie um campo do tipo <em>hidden</em> em sua página para escrever a <em>caixa preta</em> nele e enviá-lo junto com os dados da transação a ser analisada</p>
 
 <p><strong>Obs.:</strong> Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.</p>
 
@@ -5329,14 +5329,14 @@
 <p>Esta é a URL da versão do snare.js da Iovation: &lt;script type=”text/javascript” src=”https://mpsnare.iesnare.com/snare.js”&gt;&lt;/script&gt;</p>
 
 <ul>
-  <li>Parâmetros de configuração</li>
+  <li>Parameters de configuração</li>
 </ul>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Default</th>
     </tr>
   </thead>
@@ -5348,7 +5348,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_flash_needs_handler</code></td>
-      <td style="text-align: left">Este parâmetro só terá validade se o parâmetro <code class="highlighter-rouge">io_install_flash</code> estiver configurado como TRUE, caso contrário não será executado <br /> É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado <br /> Ex.: var <code class="highlighter-rouge">io_flash_needs_handler</code> = “Alert(‘Instalar Flash’);”</td>
+      <td style="text-align: left">Este Parameter só terá validade se o Parameter <code class="highlighter-rouge">io_install_flash</code> estiver configurado como TRUE, caso contrário não será executado <br /> É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado <br /> Ex.: var <code class="highlighter-rouge">io_flash_needs_handler</code> = “Alert(‘Instalar Flash’);”</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
@@ -5363,7 +5363,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_bbout_element_id</code></td>
-      <td style="text-align: left">Id do elemento HTML para preencher com a <em>caixa preta</em> <br /> Se o parâmetro <code class="highlighter-rouge">io_bb_callback</code> for definido, este não terá efeito</td>
+      <td style="text-align: left">Id do elemento HTML para preencher com a <em>caixa preta</em> <br /> Se o Parameter <code class="highlighter-rouge">io_bb_callback</code> for definido, este não terá efeito</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
@@ -5373,14 +5373,14 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_bb_callback</code></td>
-      <td style="text-align: left">Parâmetro para customizar a checagem da coleta da <em>caixa preta</em> foi concluída <br /> Ao utilizar, escrever a função conforme com a seguinte sintaxe: <br /> <em>io_callback(bb, complete)</em>, onde: <br /> bb - valor da caixa preta <br /> complete - valor booleano que indica que a coleta foi concluída</td>
+      <td style="text-align: left">Parameter para customizar a checagem da coleta da <em>caixa preta</em> foi concluída <br /> Ao utilizar, escrever a função conforme com a seguinte sintaxe: <br /> <em>io_callback(bb, complete)</em>, onde: <br /> bb - valor da caixa preta <br /> complete - valor booleano que indica que a coleta foi concluída</td>
       <td style="text-align: left">-</td>
     </tr>
   </tbody>
 </table>
 
 <p><strong>IMPORTANTE!</strong>
-Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.</p>
+Os Parameters de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.</p>
 
 <p><strong>Exemplo</strong>
 <img src="https://braspag.github.io//images/braspag/af/exemplohtmlred.png" alt="Exemplo HTML" /></p>
@@ -5499,7 +5499,7 @@ Se as permissões listadas não são necessárias pelo aplicativo, os valores ob
 </blockquote>
 
 <ul>
-  <li>Parâmetros</li>
+  <li>Parameters</li>
 </ul>
 
 <blockquote>
@@ -5548,7 +5548,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   <thead>
     <tr>
       <th style="text-align: left">Ambiente</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
@@ -5569,7 +5569,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   <thead>
     <tr>
       <th style="text-align: left">Variável</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
@@ -5635,7 +5635,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -5721,7 +5721,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -5790,7 +5790,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -5814,7 +5814,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -5838,7 +5838,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -5862,7 +5862,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -5936,7 +5936,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -5965,7 +5965,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -5994,7 +5994,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6028,7 +6028,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6062,7 +6062,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6096,7 +6096,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6130,7 +6130,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6164,7 +6164,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6198,7 +6198,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6252,7 +6252,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6296,7 +6296,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
       <th style="text-align: left">De-Para com o campo <code class="highlighter-rouge">Status</code> (Status da transação no Antifraude Gateway Braspag)</th>
     </tr>
@@ -6377,7 +6377,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6451,7 +6451,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6525,7 +6525,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6639,7 +6639,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6663,7 +6663,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6907,7 +6907,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -6951,7 +6951,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -7025,7 +7025,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -7074,7 +7074,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -7188,7 +7188,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -7332,7 +7332,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
@@ -7430,7 +7430,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   <thead>
     <tr>
       <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Description</th>
       <th style="text-align: left">Provider</th>
     </tr>
   </thead>
