@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-09-19T19:19:28+00:00</updated>
+    <updated>2018-09-19T20:09:38+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -40289,8 +40289,8 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;20&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Airline.Passengers[n].Legs[n].DeparturelAirport&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código do aeroporto de saída. Mais informações em &lt;a href=&quot;http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm&quot;&gt;IATA 3-Letter Codes&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Airline.Passengers[n].Legs[n].DepartureAirport&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código do aeroporto de partida. Mais informações em &lt;a href=&quot;http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm&quot;&gt;IATA 3-Letter Codes&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
@@ -41258,7 +41258,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;60&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Airline.Passengers[n].Legs[n].DeparturelAirport&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Airline.Passengers[n].Legs[n].DepartureAirport&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Código do aeroporto de partida. Mais informações em &lt;a href=&quot;http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm&quot;&gt;IATA 3-Letter Codes&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
@@ -42579,8 +42579,8 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Airline.Passengers[n].Legs[n].DeparturelAirport&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código do aeroporto de saída. Mais informações em &lt;a href=&quot;http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm&quot;&gt;IATA 3-Letter Codes&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Airline.Passengers[n].Legs[n].DepartureAirport&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código do aeroporto de partida. Mais informações em &lt;a href=&quot;http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm&quot;&gt;IATA 3-Letter Codes&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -43826,7 +43826,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Airline.Passengers[n].Legs[n].DeparturelAirport&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Airline.Passengers[n].Legs[n].DepartureAirport&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Código do aeroporto de partida. Mais informações em &lt;a href=&quot;http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm&quot;&gt;IATA 3-Letter Codes&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
