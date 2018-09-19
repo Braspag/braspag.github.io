@@ -277,10 +277,10 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |Parameter|Description|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
 |`MerchantOrderId`|Merchant order number|string|sim|100|
-|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
-|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
-|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|-|-|
-|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}manual/antifraude#tabela-1-provider)|enum|-|-|
+|`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
+|`TransactionAmount`|Value of the financial transaction in cents <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
+|`Currency`|Currency. More information on [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|-|-|
+|`Provider`|Antifraud provider <br/> [Table 1 - Provider]({{ site.baseurl_root }}manual/antifraude#tabela-1-provider)|enum|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|não|-|
 |`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|20|
@@ -582,10 +582,10 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |Parameter|Description|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
 |`MerchantOrderId` |Merchant order number|string|sim|100|
-|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
-|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
-|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|sim|3|
-|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}manual/antifraude#tabela-1-provider)|enum|-|-|
+|`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
+|`TransactionAmount`|Value of the financial transaction in cents <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
+|`Currency`|Currency. More information on [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|sim|3|
+|`Provider`|Antifraud provider <br/> [Table 1 - Provider]({{ site.baseurl_root }}manual/antifraude#tabela-1-provider)|enum|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|não|-|
 |`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|20|
@@ -632,17 +632,17 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|não|40|
 |`Customer.BrowserFingerprint`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do(s) script(s) que ser(ão) incluído(s) na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|sim|100|
 |`CartItem[n].ProductName`|Nome do produto|string|sim|255|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 11 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].risk)|enum|-|-|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Table 11 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
 |`CartItem[n].Sku`|Sku do produto|string|não|255|
 |`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}manual/antifraude#tabela-12-cartitem[n].addressriskverify)|enum|-|-|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-13-cartitem[n].hosthedge)|enum|-|-|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|-|-|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/antifraude#tabela-15-cartitem[n].obscenitieshedge)|enum|-|-|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}manual/antifraude#tabela-16-cartitem[n].timehedge)|enum|-|-|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|-|-|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|-|-|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Table 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}manual/antifraude#tabela-12-cartitem[n].addressriskverify)|enum|-|-|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Table 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-13-cartitem[n].hosthedge)|enum|-|-|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Table 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|-|-|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Table 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/antifraude#tabela-15-cartitem[n].obscenitieshedge)|enum|-|-|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Table 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}manual/antifraude#tabela-16-cartitem[n].timehedge)|enum|-|-|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Table 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|-|-|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Table 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|-|-|
 |`Bank.Name`|Nome do banco do comprador|string|não|40|
 |`Bank.Code`|Código do banco do comprador|string|não|15|
 |`Bank.Agency`|Agência do banco do comprador|string|não|15|
@@ -656,7 +656,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|não|30|
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|não|-|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|não|-|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 19 - Invoice.Tender]({{ site.baseurl_root }}manual/antifraude#tabela-19-invoice.tender)|enum|não|-|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Table 19 - Invoice.Tender]({{ site.baseurl_root }}manual/antifraude#tabela-19-invoice.tender)|enum|não|-|
 |`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 8 - Airline.JourneyType]({{ site.baseurl_root }}manual/antifraude#tabela-8-airline.journeytype)|enun|não|-|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|60|
@@ -665,7 +665,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|não|-|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|15|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|255|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}manual/antifraude#tabela-10-airline.passengers[n].status)|enum|não|60|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Table 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}manual/antifraude#tabela-10-airline.passengers[n].status)|enum|não|60|
 |`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
@@ -1015,10 +1015,10 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
 |`MerchantOrderId`|Merchant order number|string|
-|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
-|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|
-|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}//manual/antifraude#tabela-1-provider)|enum|
+|`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|
+|`TransactionAmount`|Value of the financial transaction in cents <br/> Ex: 150000 = r$ 1.500,00|long|
+|`Currency`|Currency. More information on [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|
+|`Provider`|Antifraud provider <br/> [Table 1 - Provider]({{ site.baseurl_root }}//manual/antifraude#tabela-1-provider)|enum|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155|datetime|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|
 |`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|
@@ -1353,10 +1353,10 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
 |`MerchantOrderId` |Merchant order number|string|
-|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
-|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|
-|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}//manual/antifraude#tabela-1-provider)|enum|
+|`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|
+|`TransactionAmount`|Value of the financial transaction in cents <br/> Ex: 150000 = r$ 1.500,00|long|
+|`Currency`|Currency. More information on [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|
+|`Provider`|Antifraud provider <br/> [Table 1 - Provider]({{ site.baseurl_root }}//manual/antifraude#tabela-1-provider)|enum|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155|datetime|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|
 |`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|
@@ -1402,17 +1402,17 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|
 |`CartItem[n].ProductName`|Nome do produto|string|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 11 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].risk)|enum|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Table 11 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].risk)|enum|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
 |`CartItem[n].Sku`|Sku do produto|string|
 |`CartItem[n].Quantity`|Quantidade do produto|int|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}manual/antifraude#tabela-12-cartitem[n].addressriskverify)|enum|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-13-cartitem[n].hosthedge)|enum|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/antifraude#tabela-15-cartitem[n].obscenitieshedge)|enum|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}manual/antifraude#tabela-16-cartitem[n].timehedge)|enum|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Table 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}manual/antifraude#tabela-12-cartitem[n].addressriskverify)|enum|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Table 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-13-cartitem[n].hosthedge)|enum|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Table 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Table 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/antifraude#tabela-15-cartitem[n].obscenitieshedge)|enum|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Table 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}manual/antifraude#tabela-16-cartitem[n].timehedge)|enum|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Table 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Table 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|
 |`Bank.Name`|Nome do banco do comprador|string|
 |`Bank.Code`|Código do banco do comprador|string|
 |`Bank.Agency`|Agência do banco do comprador|string|
@@ -1426,7 +1426,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 19 - Invoice.Tender]({{ site.baseurl_root }}manual/antifraude#tabela-19-invoice.tender)|enum|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Table 19 - Invoice.Tender]({{ site.baseurl_root }}manual/antifraude#tabela-19-invoice.tender)|enum|
 |`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 8 - Airline.JourneyType]({{ site.baseurl_root }}manual/antifraude#tabela-8-airline.journeytype)|enun|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|
@@ -1435,7 +1435,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}manual/antifraude#tabela-10-airline.passengers[n].status)|enum|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Table 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}manual/antifraude#tabela-10-airline.passengers[n].status)|enum|
 |`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
@@ -1604,7 +1604,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 |Parameter|Description|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
-|`Status`|Novo status da transação - Tabela 19|enum|sim|-|
+|`Status`|Novo status da transação - Table 19|enum|sim|-|
 |`Comments`|Comentário associado a mudança de status|string|não|255|
 
 ## Response
@@ -1927,7 +1927,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 # Tabelas
 
-## Tabela 1 - Provider
+## Table 1 - Provider
 
 |Valor|
 |:-|
@@ -2007,7 +2007,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |SeniorCitizen|Idoso|ReDShield|
 |Military|Militar|ReDShield|
 
-## Tabela 10 - Airline.Passengers[n].Status
+## Table 10 - Airline.Passengers[n].Status
 
 |Valor|Provider|
 |:-|:-|
@@ -2015,7 +2015,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |Gold|Cybersource|
 |Platinum|Cybersource|
 
-## Tabela 11 - CartItem[n].Risk
+## Table 11 - CartItem[n].Risk
 
 |Valor|Description|Provider|
 |:-|:-|:-|
@@ -2023,7 +2023,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |Normal|Produto associado com a quantidade normal de chargebacks|Cybersource|
 |High|Produto associado com muito chargebacks|Cybersource|
 
-## Tabela 12 - CartItem[n].AddressRiskVerify
+## Table 12 - CartItem[n].AddressRiskVerify
 
 |Valor|Description|Provider|
 |:-|:-|:-|
@@ -2031,7 +2031,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|Cybersource|
 |Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|Cybersource|
 
-## Tabela 13 - CartItem[n].HostHedge
+## Table 13 - CartItem[n].HostHedge
 
 |Valor|Description|Provider|
 |:-|:-|:-|
@@ -2040,7 +2040,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 14 - CartItem[n].NonSensicalHedge
+## Table 14 - CartItem[n].NonSensicalHedge
 
 |Valor|Description|Provider|
 |:-|:-|:-|
@@ -2049,7 +2049,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 15 - CartItem[n].ObscenitiesHedge
+## Table 15 - CartItem[n].ObscenitiesHedge
 
 |Valor|Description|Provider|
 |:-|:-|:-|
@@ -2058,7 +2058,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 16 - CartItem[n].TimeHedge
+## Table 16 - CartItem[n].TimeHedge
 
 |Valor|Description|Provider|
 |:-|:-|:-|
@@ -2067,7 +2067,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 17 - CartItem[n].PhoneHedge
+## Table 17 - CartItem[n].PhoneHedge
 
 |Valor|Description|Provider|
 |:-|:-|:-|
@@ -2076,7 +2076,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 18 - CartItem[n].VelocityHedge
+## Table 18 - CartItem[n].VelocityHedge
 
 |Valor|Description|Provider|
 |:-|:-|:-|
@@ -2085,7 +2085,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |High|Alta|Cybersource|
 |Off|Não irão afetar o score da análise de fraude|Cybersource|
 
-## Tabela 19 - Invoice.Tender
+## Table 19 - Invoice.Tender
 
 |Valor|Description|Provider|
 |:-|:-|:-|
