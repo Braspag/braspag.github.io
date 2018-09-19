@@ -359,7 +359,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|60|
 |`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|não|255|
 |`Airline.Passengers[n].TicketNumber`|Número da passagem|string|não|20|
-|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de saída. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
@@ -666,7 +666,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|15|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|255|
 |`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}manual/antifraude#tabela-10-airline.passengers[n].status)|enum|não|60|
-|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
@@ -1097,7 +1097,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|
 |`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|
 |`Airline.Passengers[n].TicketNumber`|Número da passagem|string|
-|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de saída. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
@@ -1436,7 +1436,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|
 |`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}manual/antifraude#tabela-10-airline.passengers[n].status)|enum|
-|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|
