@@ -274,7 +274,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|Tipo|Obrigatório|Tamanho|
+|Parameter|Description|Type|Required|Size|
 |:-|:-|:-:|:-:|-:|
 |`MerchantOrderId`|Merchant order number|string|sim|100|
 |`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
@@ -289,86 +289,86 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`SaleDate`|Acquirer authorization date <br/> Note: If you do not have integration with the Braspag Pagador, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `Nsu `and` AuthorizationCode`, in addition to the one in question|datetime|não|-|
 |`SplitingPaymentMethod`|Identifies whether the transaction authorization is with one or more cards or with more than one payment methods <br/> [Table 2 - SplitingPaymentMethod]({{ site.baseurl_root }}en/manual/antifraude#table-2-splitingpaymentmethod)|enum|-|-|
 |`IsRetryTransaction`|Retentive of an analysis, and should be sent with value equal to TRUE when the return code on the first attempt equals BP900|bool|não|-|
-|`Card.Number`|Número do cartão de crédito|string|sim|19|
-|`Card.Holder`|Nome do cartão de crédito|string|sim|50|
-|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
-|`Card.Cvv`|Código de segurança do cartão de crédito|string|sim|4|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|-|-|
-|`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|não|1|
-|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|
-|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|
-|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|não|64|
-|`Billing.Street`|Logradouro do endereço de cobrança|string|não|24|
-|`Billing.Number`|Número do endereço de cobrança|string|não|5|
-|`Billing.Complement`|Complemento do endereço de cobrança|string|não|14|
-|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|não|15|
-|`Billing.City`|Cidade do endereço de cobrança|string|não|20|
-|`Billing.State`|Estado do endereço de cobrança|string|não|2|
-|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
-|`Billing.ZipCode`|Código postal do endereço de cobrança|string|não|9|
-|`Shipping.Street`|Logradouro do endereço de entrega|string|não|24|
-|`Shipping.Number`|Número do endereço de entrega|string|não|5|
-|`Shipping.Complement`|Complemento do endereço de entrega|string|não|14|
-|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|não|15|
-|`Shipping.City`|Cidade do endereço de entrega|string|não|20|
-|`Shipping.State`|Estado do endereço de entrega|string|não|2|
-|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
-|`Shipping.ZipCode`|Código postal do endereço de entrega|string|não|9|
-|`Shipping.Email`|E-mail do responsável a receber o produto no endereço de entrega|string|não|60|
-|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|não|30|
-|`Shipping.MiddleName`|Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega|string|não|1|
-|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|não|30|
-|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|19|
-|`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114701|string|não|19|
-|`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|não|19|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
-|`Shipping.Comment`|Referências do endereço de entrega|string|não|160|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|sim|16|
-|`Customer.FirstName`|Primeiro nome do comprador|string|sim|30|
-|`Customer.MiddleName`|Primeira letra do nome do comprador|string|não|1|
-|`Customer.LastName`|Último nome do comprador|string|sim|30|
-|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
-|`Customer.Gender`|Sexo do comprador <br/> [Tabela 6 - Customer.Gender]({{ site.baseurl_root }}en/manual/antifraude#table-6-customer.gender)|string|não|6|
-|`Customer.Email`|E-mail do comprador|string|não|60|
-|`Customer.Ip`|Endereço de IP do comprador|string|não|15|
-|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|não|19|
-|`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|não|19|
-|`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|não|19|
-|`Customer.Status`|Status do comprador na loja <br/> [Tabela 7 - Customer.Status]({{ site.baseurl_root }}en/manual/antifraude#table-7-customer.status)|string|não|8|
-|`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/antifraude#redshield44)|string|sim|6005|
-|`CartItem[n].ProductName`|Nome do produto|string|não|50|
-|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|não|-|
-|`CartItem[n].OriginalPrice`|Preço original do produto <br/> Ex: 11490 = r$ 114,90|long|não|-|
-|`CartItem[n].MerchantItemId`|ID do produto na loja|string|não|30|
-|`CartItem[n].Sku`|Sku do produto|string|não|12|
-|`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
-|`CartItem[n].GiftMessage`|Mensagem de presente|string|não|160|
-|`CartItem[n].Description`|Description do produto|string|não|76|
-|`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|
-|`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
-|`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
-|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|bool|não|-|
-|`Airline.BookingType`|Tipo de agendamento da reserva|string|não|255|
-|`Airline.TicketDeliveryMethod`|Tipo de entrega da passagem|string|não|127|
-|`Airline.BookingReferenceNumber`|Número de referêcia da reserva|string|não|9|
-|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|29|
-|`Airline.Passengers[n].MiddleName`|Nome do meio do passageiro|string|não|1|
-|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|28|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|não|-|
-|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|19|
-|`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|60|
-|`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|não|255|
-|`Airline.Passengers[n].TicketNumber`|Número da passagem|string|não|20|
-|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de saída. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
-|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
-|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
-|`Airline.Passengers[n].Legs[n].AirlineCode`|Código da companhia aérea|string|não|3|
-|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|não|-|
-|`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|não|30|
-|`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|var|não|-|
+|`Card.Number`|Credit card number|string|sim|19|
+|`Card.Holder`|Holder name|string|sim|50|
+|`Card.ExpirationDate`|Credit card expiration date <br/> Ex.: 01/2023|string|sim|7|
+|`Card.Cvv`|Credit card security code|string|sim|4|
+|`Card.Brand`|Credit card brand <br/> [Table 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|-|-|
+|`Card.EciThreeDSecure`|Electronic Commerce Indicator (ECI)|string|não|1|
+|`Card.Save`|Indicates whether credit card data will be stored on the Cartão Protegido|bool|não|-|
+|`Card.Token`|Credit card token saved on the Cartão Protegido|guid|não|-|
+|`Card.Alias`|Credit card alias saved on the Cartão Protegido|string|não|64|
+|`Billing.Street`|Billing address street|string|não|24|
+|`Billing.Number`|Billing address number|string|não|5|
+|`Billing.Complement`|Billing address complement|string|não|14|
+|`Billing.Neighborhood`|Billing address neighborhood|string|não|15|
+|`Billing.City`|Billing address city|string|não|20|
+|`Billing.State`|Billing address state|string|não|2|
+|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
+|`Billing.ZipCode`|Billing address zipcode|string|não|9|
+|`Shipping.Street`|Shipping address street|string|não|24|
+|`Shipping.Number`|Shipping address number|string|não|5|
+|`Shipping.Complement`|Shipping address complement|string|não|14|
+|`Shipping.Neighborhood`|Shipping address neighborhood|string|não|15|
+|`Shipping.City`|Shipping address city|string|não|20|
+|`Shipping.State`|Shipping address state|string|não|2|
+|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
+|`Shipping.ZipCode`|Shipping address zipcode|string|não|9|
+|`Shipping.Email`|Email of the person responsible to receive the product at the shipping address|string|não|60|
+|`Shipping.FirstName`|First name of person in charge of receiving product at shipping address|string|não|30|
+|`Shipping.MiddleName`|First letter of the middle name of the person in charge of receiving the product at the shipping address|string|não|1|
+|`Shipping.LastName`|Last name of the person in charge of receiving the product at the shipping address|string|não|30|
+|`Shipping.Phone`|Telephone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114700|string|não|19|
+|`Shipping.WorkPhone`|Workphone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114701|string|não|19|
+|`Shipping.Mobile`|Mobile number of the person in charge of receiving the product at the shipping address <br/> Ex.: 5521987654321|string|não|19|
+|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
+|`Shipping.Comment`|Shipping address references|string|não|160|
+|`Customer.MerchantCustomerId`|Customer document number, CPF or CNPJ|string|sim|16|
+|`Customer.FirstName`|Customer first name|string|sim|30|
+|`Customer.MiddleName`|First letter of the middle name customer|string|não|1|
+|`Customer.LastName`|Customer last name|string|sim|30|
+|`Customer.BirthDate`|Customer birthdate <br/> Ex.: 1983-10-01|date|sim|-|
+|`Customer.Gender`|Customer gender <br/> [Table 6 - Customer.Gender]({{ site.baseurl_root }}en/manual/antifraude#table-6-customer.gender)|string|não|6|
+|`Customer.Email`|Customer email|string|não|60|
+|`Customer.Ip`|Customer IP address|string|não|15|
+|`Customer.Phone`|Customer telephone number <br/> Ex.: 552121114700|string|não|19|
+|`Customer.WorkPhone`|Customer workphone number <br/> Ex.: 552121114701|string|não|19|
+|`Customer.Mobile`|Customer mobile number <br/> Ex.: 5521987654321|string|não|19|
+|`Customer.Status`|Merchant customer status <br/> [Table 7 - Customer.Status]({{ site.baseurl_root }}en/manual/antifraude#table-7-customer.status)|string|não|8|
+|`Customer.BrowserFingerPrint`|Device fingerprint and customer IP real geolocation - [Fingerprint configuration]({{ site.baseurl_root }}/en/manual/antifraude#redshield44)|string|sim|6005|
+|`CartItem[n].ProductName`|Product name|string|não|50|
+|`CartItem[n].UnitPrice`|Product unit price <br/> Ex: 10950 = r$ 109,50|long|não|-|
+|`CartItem[n].OriginalPrice`|Product original price <br/> Ex: 11490 = r$ 114,90|long|não|-|
+|`CartItem[n].MerchantItemId`|Merchant product id|string|não|30|
+|`CartItem[n].Sku`|Product SKU|string|não|12|
+|`CartItem[n].Quantity`|Product quantity|int|não|-|
+|`CartItem[n].GiftMessage`|Gift message|string|não|160|
+|`CartItem[n].Description`|Product description|string|não|76|
+|`CartItem[n].ShippingInstructions`|Product delivery instructions|string|não|160|
+|`CartItem[n].ShippingMethod`|Product delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
+|`CartItem[n].ShippingTranckingNumber`|Product tracking number|string|não|19|
+|`Airline.ThirdPartyBooking`|Indicates whether the reservation was scheduled by third parties, such as tourism agencies|bool|não|-|
+|`Airline.BookingType`|Type of booking schedule|string|não|255|
+|`Airline.TicketDeliveryMethod`|Ticket delivery type|string|não|127|
+|`Airline.BookingReferenceNumber`|Booking reference number|string|não|9|
+|`Airline.Passengers[n].FirstName`|Passenger first name|string|não|29|
+|`Airline.Passengers[n].MiddleName`|Passenger middle name|string|não|1|
+|`Airline.Passengers[n].LastName`|Passenger last name|string|não|28|
+|`Airline.Passengers[n].PassengerType`|Passenger type <br/> [Table 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|não|-|
+|`Airline.Passengers[n].Phone`|Passenger telephone number <br/> Ex.: 552121114700|string|não|19|
+|`Airline.Passengers[n].Email`|Passenger email|string|não|60|
+|`Airline.Passengers[n].LoyaltyMemberNumber`|Loyalty member number|string|não|255|
+|`Airline.Passengers[n].TicketNumber`|Ticket number|string|não|20|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More informations on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`Airline.Passengers[n].Legs[n].DepartureCountry`|Country code of departure airport. More information on [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Country code of arrival airport. More information on [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
+|`Airline.Passengers[n].Legs[n].AirlineCode`|Airline code|string|não|3|
+|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Departure datetime <br/> Ex.: 2018-03-31 19:16:38 |datetime|não|-|
+|`Airline.Passengers[n].Legs[n].ClassOfService`|Class service|string|não|30|
+|`CustomConfiguration.MerchantWebsite`|Merchant website|string|não|60|
+|`MerchantDefinedData[n].Key`|Field key set against antifraud provider <br/> [Table 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|int|não|-|
+|`MerchantDefinedData[n].Value`|Field value set against antifraud provider <br/> [Table 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|var|não|-|
 
 ### Response
 
@@ -411,18 +411,18 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|Tipo|
+|Parameter|Description|Type|
 |:-|:-|:-:|
-|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
-|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
-|`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
-|`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
-|`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
-|`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
+|`TransactionId`|Transaction id on Antifraud Gateway Braspag|guid|
+|`Status`|Transaction status on Antifraud Gateway Braspag <br/> [Table 20  - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
+|`ProviderAnalysisResult.ProviderRequestId`|ReDShield transaction request id |string|
+|`ProviderAnalysisResult.Result.ProviderCode`|ReDShield return code|string|
+|`ProviderAnalysisResult.Result.ProviderDescription`|ReDShield return message|string|
+|`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link to view transaction details on ReDShield CSI portal|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|ReDShield transaction status <br/> [Table 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|ReDShield transaction id|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|ReDShield order id|string|
+|`ProviderAnalysisResult.Ndc`|ReDShield unique request id|string|
 
 ## Analyzing a transaction in Cybersource
 
@@ -579,7 +579,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|Tipo|Obrigatório|Tamanho|
+|Parameter|Description|Type|Required|Size|
 |:-|:-|:-:|:-:|-:|
 |`MerchantOrderId` |Merchant order number|string|sim|100|
 |`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
@@ -592,86 +592,86 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Nsu`|Acquirer transaction unique sequence number <br/> Note: If you do not have integration with the Braspag Pagador, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `AuthorizationCode` and `SaleDate`, in addition to the one in question|string|não|10|
 |`AuthorizationCode`|Acquirer authorization code <br/> Note: If you do not have integration with the Braspag Pagador, you can not send the `BraspagTransactionId` field, so you need to send the` Tid`, `Nsu` and `SaleDate`, in addition to the one in question|string|não|10|
 |`SaleDate`|Acquirer authorization date <br/> Note: If you do not have integration with the Braspag Pagador, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `Nsu `and` AuthorizationCode`, in addition to the one in question|datetime|não|-|
-|`Card.Number`|Número do cartão de crédito|string|sim|20|
-|`Card.Holder`|Nome do cartão de crédito|string|sim|50|
-|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|-|-|
-|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|
-|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|
-|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|não|64|
-|`Billing.Street`|Logradouro do endereço de cobrança|string|sim|54|
-|`Billing.Number`|Número do endereço de cobrança|string|não|5|
-|`Billing.Complement`|Complemento do endereço de cobrança|string|não|14|
-|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|não|45|
-|`Billing.City`|Cidade do endereço de cobrança|string|sim|50|
-|`Billing.State`|Estado do endereço de cobrança|string|não|2|
-|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|sim|2|
-|`Billing.ZipCode`|Código postal do endereço de cobrança|string|não|9|
-|`Shipping.Street`|Logradouro do endereço de entrega|string|não|54|
-|`Shipping.Number`|Número do endereço de entrega|string|não|5|
-|`Shipping.Complement`|Complemento do endereço de entrega|string|não|14|
-|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|não|45|
-|`Shipping.City`|Cidade do endereço de entrega|string|não|50|
-|`Shipping.State`|Estado do endereço de entrega|string|não|2|
-|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
-|`Shipping.ZipCode`|Código postal do endereço de entrega|string|não|9|
-|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|não|60|
-|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|não|60|
-|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|15|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|sim|16|
-|`Customer.FirstName`|Primeiro nome do comprador|string|sim|60|
-|`Customer.LastName`|Último nome do comprador|string|sim|60|
-|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
-|`Customer.Email`|E-mail do comprador|string|sim|100|
-|`Customer.Ip`|Endereço de IP do comprador|string|não|15|
-|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|não|15|
-|`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|não|60|
-|`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|-|-|
-|`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|string|não|100|
-|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|não|40|
-|`Customer.BrowserFingerprint`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do(s) script(s) que ser(ão) incluído(s) na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|sim|100|
-|`CartItem[n].ProductName`|Nome do produto|string|sim|255|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Table 11 - CartItem{n}.Risk]({{ site.baseurl_root }}en/manual/antifraude#table-11-cartitem[n].risk)|enum|-|-|
-|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
-|`CartItem[n].Sku`|Sku do produto|string|não|255|
-|`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Table 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}en/manual/antifraude#table-12-cartitem[n].addressriskverify)|enum|-|-|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Table 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}en/manual/antifraude#table-13-cartitem[n].hosthedge)|enum|-|-|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Table 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge)|enum|-|-|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Table 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}en/manual/antifraude#table-15-cartitem[n].obscenitieshedge)|enum|-|-|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Table 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}en/manual/antifraude#table-16-cartitem[n].timehedge)|enum|-|-|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Table 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}en/manual/antifraude#table-17-cartitem[n].phonehedge)|enum|-|-|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Table 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}en/manual/antifraude#table-18-cartitem[n].velocityhedge)|enum|-|-|
-|`Bank.Name`|Nome do banco do comprador|string|não|40|
-|`Bank.Code`|Código do banco do comprador|string|não|15|
-|`Bank.Agency`|Agência do banco do comprador|string|não|15|
-|`Bank.Address`|Endereço do banco do comprador|string|não|255|
-|`Bank.City`|Cidade onde está localizado o banco do comprador|string|não|15|
-|`Bank.Country`|País onde está localizado o banco do comprador <br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
-|`Bank.SwiftCode`|Código identificador único do banco do comprador|string|não|30|
-|`FundTransfer.AccountName`|Nome vinculado a conta bancária|string|não|30|
-|`FundTransfer.AccountNumber`|Número da conta bancária do comprador|string|não|30|
-|`FundTransfer.BankCheckDigit`|Código utilizado para validar a conta bancária do comprador|string|não|2|
-|`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|não|30|
-|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|não|-|
-|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|não|-|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Table 19 - Invoice.Tender]({{ site.baseurl_root }}en/manual/antifraude#table-19-invoice.tender)|enum|não|-|
-|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 8 - Airline.JourneyType]({{ site.baseurl_root }}en/manual/antifraude#table-8-airline.journeytype)|enun|não|-|
-|`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
-|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|60|
-|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|60|
-|`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|não|32|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|não|-|
-|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|15|
-|`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|255|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Table 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}en/manual/antifraude#table-10-airline.passengers[n].status)|enum|não|60|
-|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
-|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
-|`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|var|não|-|
+|`Card.Number`|Credit card number|string|sim|20|
+|`Card.Holder`|Holder name|string|sim|50|
+|`Card.ExpirationDate`|Credit card expiration date <br/> Ex.: 01/2023|string|sim|7|
+|`Card.Brand`|Credit card brand <br/> [Table 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|-|-|
+|`Card.Save`|Indicates whether credit card data will be stored on the Cartão Protegido|bool|não|-|
+|`Card.Token`|Credit card token saved on the Cartão Protegido|guid|não|-|
+|`Card.Alias`|Credit card alias saved on the Cartão Protegido|string|não|64|
+|`Billing.Street`|Billing address street|string|sim|54|
+|`Billing.Number`|Billing address number|string|não|5|
+|`Billing.Complement`|Billing address complement|string|não|14|
+|`Billing.Neighborhood`|Billing address neighborhood|string|não|45|
+|`Billing.City`|Billing address city|string|sim|50|
+|`Billing.State`|Billing address state|string|não|2|
+|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|sim|2|
+|`Billing.ZipCode`|Billing address zipcode|string|não|9|
+|`Shipping.Street`|Shipping address street|string|não|54|
+|`Shipping.Number`|Shipping address number|string|não|5|
+|`Shipping.Complement`|Shipping address complement|string|não|14|
+|`Shipping.Neighborhood`|Shipping address neighborhood|string|não|45|
+|`Shipping.City`|Shipping address city|string|não|50|
+|`Shipping.State`|Shipping address state|string|não|2|
+|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
+|`Shipping.ZipCode`|Shipping address zipcode|string|não|9|
+|`Shipping.FirstName`|First name of person in charge of receiving product at shipping address|string|não|60|
+|`Shipping.LastName`|Last name of the person in charge of receiving the product at the shipping address|string|não|60|
+|`Shipping.Phone`|Telephone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114700|string|não|15|
+|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
+|`Customer.MerchantCustomerId`|Customer document number, CPF or CNPJ|string|sim|16|
+|`Customer.FirstName`|Customer first name|string|sim|60|
+|`Customer.LastName`|Customer last name|string|sim|60|
+|`Customer.BirthDate`|Customer birthdate <br/> Ex.: 1983-10-01|date|sim|-|
+|`Customer.Email`|Customer email|string|sim|100|
+|`Customer.Ip`|Customer IP address|string|não|15|
+|`Customer.Phone`|Customer telephone number <br/> Ex.: 552121114700|string|não|15|
+|`Customer.BrowserHostName`|Host name entered by the customer's browser and identified through the HTTP header|string|não|60|
+|`Customer.BrowserCookiesAccepted`|Identifies whether the customer's browser accepts cookies or not|bool|-|-|
+|`Customer.BrowserEmail`|E-mail registered in the customer's browser. Can differ from merchant email (`Customer.Email`)|string|não|100|
+|`Customer.BrowserType`|Name of the browser used by the customer and identified through the HTTP header|string|não|40|
+|`Customer.BrowserFingerprint`|Identifier used to cross information obtained from the buyer's device. This same identifier must be used to generate the value that will be assigned to the `session_id` field of the script that will be included on the checkout page. <br/> Note: This identifier can be any value or order number but must be unique for 48 hours. <br/> [Fingerprint Configuration]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|sim|100|
+|`CartItem[n].ProductName`|Product name|string|sim|255|
+|`CartItem[n].Risk`|Risk level of the product associated with the quantity of chargebacks <br/> [Table 11 - CartItem{n}.Risk]({{ site.baseurl_root }}en/manual/antifraude#table-11-cartitem[n].risk)|enum|-|-|
+|`CartItem[n].UnitPrice`|Product unit price <br/> Ex: 10950 = r$ 109,50|long|sim|-|
+|`CartItem[n].Sku`|Product SKU|string|não|255|
+|`CartItem[n].Quantity`|Product quantity|int|não|-|
+|`CartItem[n].AddressRiskVerify`|Identifies that you will evaluate the billing and shipping addresses for different cities, states or countries <br/> [Table 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}en/manual/antifraude#table-12-cartitem[n].addressriskverify)|enum|-|-|
+|`CartItem[n].HostHedge`|Level of importance of customer IP and email addresses in fraud analysis <br/> [Table 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}en/manual/antifraude#table-13-cartitem[n].hosthedge)|enum|-|-|
+|`CartItem[n].NonSensicalHedge`|Level of importance of verifications about the customer data non sensical in fraud analysis <br/> [Table 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge)|enum|-|-|
+|`CartItem[n].ObscenitiesHedge`|Level of importance of checks on customer data with obscenity in fraud analysis <br/> [Table 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}en/manual/antifraude#table-15-cartitem[n].obscenitieshedge)|enum|-|-|
+|`CartItem[n].TimeHedge`|Level of importance of the time of day in the fraud analysis that the customer made the request <br/> [Table 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}en/manual/antifraude#table-16-cartitem[n].timehedge)|enum|-|-|
+|`CartItem[n].PhoneHedge`|Level of importance of checks on customer's phone numbers in fraud analysis <br/> [Table 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}en/manual/antifraude#table-17-cartitem[n].phonehedge)|enum|-|-|
+|`CartItem[n].VelocityHedge`|Level of importance of customer's purchase frequency in the fraud analysis of the previous 15 minutes <br/> [Table 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}en/manual/antifraude#table-18-cartitem[n].velocityhedge)|enum|-|-|
+|`Bank.Name`|Customer's bank name|string|não|40|
+|`Bank.Code`|Customer's bank code|string|não|15|
+|`Bank.Agency`|Customer's bank agency|string|não|15|
+|`Bank.Address`|Customer's bank address|string|não|255|
+|`Bank.City`|Customer's bank city|string|não|15|
+|`Bank.Country`|Customer's bank city <br/> More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
+|`Bank.SwiftCode`|Customer's bank swift code|string|não|30|
+|`FundTransfer.AccountName`|Name linked to bank account|string|não|30|
+|`FundTransfer.AccountNumber`|Customer's bank account number|string|não|30|
+|`FundTransfer.BankCheckDigit`|Code used to validate customer's bank account|string|não|2|
+|`FundTransfer.Iban`|Customer's International Bank Account Number (IBAN)|string|não|30|
+|`Invoice.IsGift`|Indicates whether the order placed by the customer is for gift|bool|não|-|
+|`Invoice.ReturnsAccepted`|Indicates whether the order placed by the customer can be returned to the merchant|bool|não|-|
+|`Invoice.Tender`|Payment method used by the customer <br/> [Table 19 - Invoice.Tender]({{ site.baseurl_root }}en/manual/antifraude#table-19-invoice.tender)|enum|não|-|
+|`Airline.JourneyType`|Journey type <br/> [Table 8 - Airline.JourneyType]({{ site.baseurl_root }}en/manual/antifraude#table-8-airline.journeytype)|enun|não|-|
+|`Airline.DepartureDateTime`|Departure datetime <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
+|`Airline.Passengers[n].FirstName`|Passenger first name|string|não|60|
+|`Airline.Passengers[n].LastName`|Passenger last name|string|não|60|
+|`Airline.Passengers[n].PassengerId`|Identifier of the passenger to whom the ticket was issued|string|não|32|
+|`Airline.Passengers[n].PassengerType`|Passenger type <br/> [Table 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|não|-|
+|`Airline.Passengers[n].Phone`|Passenger telephone number <br/> Ex.: 552121114700|string|não|15|
+|`Airline.Passengers[n].Email`|Passenger email|string|não|255|
+|`Airline.Passengers[n].Status`|Airline classification <br/> [Table 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}en/manual/antifraude#table-10-airline.passengers[n].status)|enum|não|60|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More informations on. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
+|`CustomConfiguration.Comments`|Comments that the merchant may associate fraud analysis|string|não|255|
+|`CustomConfiguration.ScoreThreshold`|Acceptable level of risk for each product|int|-|-|
+|`MerchantDefinedData[n].Key`|Field key set against antifraud provider <br/> [Table 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Field value set against antifraud provider <br/> [Table 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|var|não|-|
 
 ``` json
 {
@@ -722,12 +722,12 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|Tipo|
+|Parameter|Description|Type|
 |:-|:-|:-:|
-|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
+|`TransactionId`|Transaction id on Antifraud Gateway Braspag Braspag|guid|
+|`Status`|Transaction status on Antifraud Gateway Braspag <br/> [Table 20  - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderStatus`|ReDShield transaction status <br/> [Table 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
 |`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}en/manual/antifraude#table-22-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
 |`ProviderAnalysisResult.Missing`|Campos faltantes na requisição enviada a Cybersource|string|
@@ -740,7 +740,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
 |`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão|string|
 |`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
-|`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
+|`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de Customer email, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
 |`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-26-provideranalysisresult.afsreply.hotlistinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-27-provideranalysisresult.afsreply.identityinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-28-provideranalysisresult.afsreply.internetinfocode)|string|
@@ -1002,18 +1002,18 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|Tipo|
+|Parameter|Description|Type|
 |:-|:-|:-:|
-|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
-|`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
-|`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
-|`ProviderAnalysisResult.Result.ProviderDescription`|Mensagem de retorno da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link para visualizar os detalhes da transação no portal CSI da ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
-|`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
-|`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
+|`TransactionId`|Transaction id on Antifraud Gateway Braspag Braspag|guid|
+|`Status`|Transaction status on Antifraud Gateway Braspag <br/> [Table 20  - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
+|`ProviderAnalysisResult.ProviderRequestId`|ReDShield transaction request id |string|
+|`ProviderAnalysisResult.Result.ProviderCode`|ReDShield return code|string|
+|`ProviderAnalysisResult.Result.ProviderDescription`|ReDShield return message|string|
+|`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link to view transaction details on ReDShield CSI portal|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|ReDShield transaction status <br/> [Table 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|ReDShield transaction id|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|ReDShield order id|string|
+|`ProviderAnalysisResult.Ndc`|ReDShield unique request id|string|
 |`MerchantOrderId`|Merchant order number|string|
 |`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|
 |`TransactionAmount`|Value of the financial transaction in cents <br/> Ex: 150000 = r$ 1.500,00|long|
@@ -1027,86 +1027,86 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`SaleDate`|Acquirer authorization date <br/> Note: If you do not have integration with the Braspag Pagador, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `Nsu `and` AuthorizationCode`, in addition to the one in question|datetime|
 |`SplitingPaymentMethod`|Identifies whether the transaction authorization is with one or more cards or with more than one payment methods <br/> [Table 2 - SplitingPaymentMethod]({{ site.baseurl_root }}en/manual/antifraude#table-2-splitingpaymentmethod)|enum|
 |`IsRetryTransaction`|Retentive of an analysis, and should be sent with value equal to TRUE when the return code on the first attempt equals BP900|bool|
-|`Card.Number`|Número do cartão de crédito|string|
-|`Card.Holder`|Nome do cartão de crédito|string|
-|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|
-|`Card.Cvv`|Código de segurança do cartão de crédito|string|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|
-|`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|
-|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|
-|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|
-|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|
-|`Billing.Street`|Logradouro do endereço de cobrança|string|
-|`Billing.Number`|Número do endereço de cobrança|string|
-|`Billing.Complement`|Complemento do endereço de cobrança|string|
-|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|
-|`Billing.City`|Cidade do endereço de cobrança|string|
-|`Billing.State`|Estado do endereço de cobrança|string|
-|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Billing.ZipCode`|Código postal do endereço de cobrança|string|
-|`Shipping.Street`|Logradouro do endereço de entrega|string|
-|`Shipping.Number`|Número do endereço de entrega|string|
-|`Shipping.Complement`|Complemento do endereço de entrega|string|
-|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|
-|`Shipping.City`|Cidade do endereço de entrega|string|
-|`Shipping.State`|Estado do endereço de entrega|string|
-|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Shipping.ZipCode`|Código postal do endereço de entrega|string|
-|`Shipping.Email`|E-mail do responsável a receber o produto no endereço de entrega|string|
-|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|
-|`Shipping.MiddleName`|Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega|string|
-|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|
-|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|
-|`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114701|string|
-|`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|
-|`Shipping.Comment`|Referências do endereço de entrega|string|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|
-|`Customer.FirstName`|Primeiro nome do comprador|string|
-|`Customer.MiddleName`|Primeira letra do nome do comprador|string|
-|`Customer.LastName`|Último nome do comprador|string|
-|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|
-|`Customer.Gender`|Sexo do comprador <br/> [Tabela 6 - Customer.Gender]({{ site.baseurl_root }}//en/manual/antifraude#table-6-customer.gender)|string|
-|`Customer.Email`|E-mail do comprador|string|
-|`Customer.Ip`|Endereço de IP do comprador|string|
-|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|
-|`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|
-|`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|
-|`Customer.Status`|Status do comprador na loja <br/> [Tabela 7 - Customer.Status]({{ site.baseurl_root }}en/manual/antifraude#table-7-customer.status)|string|
+|`Card.Number`|Credit card number|string|
+|`Card.Holder`|Holder name|string|
+|`Card.ExpirationDate`|Credit card expiration date <br/> Ex.: 01/2023|string|
+|`Card.Cvv`|Credit card security code|string|
+|`Card.Brand`|Credit card brand <br/> [Table 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|
+|`Card.EciThreeDSecure`|Electronic Commerce Indicator (ECI)|string|
+|`Card.Save`|Indicates whether credit card data will be stored on the Cartão Protegido|bool|
+|`Card.Token`|Credit card token saved on the Cartão Protegido|guid|
+|`Card.Alias`|Credit card alias saved on the Cartão Protegido|string|
+|`Billing.Street`|Billing address street|string|
+|`Billing.Number`|Billing address number|string|
+|`Billing.Complement`|Billing address complement|string|
+|`Billing.Neighborhood`|Billing address neighborhood|string|
+|`Billing.City`|Billing address city|string|
+|`Billing.State`|Billing address state|string|
+|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Billing.ZipCode`|Billing address zipcode|string|
+|`Shipping.Street`|Shipping address street|string|
+|`Shipping.Number`|Shipping address number|string|
+|`Shipping.Complement`|Shipping address complement|string|
+|`Shipping.Neighborhood`|Shipping address neighborhood|string|
+|`Shipping.City`|Shipping address city|string|
+|`Shipping.State`|Shipping address state|string|
+|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Shipping.ZipCode`|Shipping address zipcode|string|
+|`Shipping.Email`|Email of the person responsible to receive the product at the shipping address|string|
+|`Shipping.FirstName`|First name of person in charge of receiving product at shipping address|string|
+|`Shipping.MiddleName`|First letter of the middle name of the person in charge of receiving the product at the shipping address|string|
+|`Shipping.LastName`|Last name of the person in charge of receiving the product at the shipping address|string|
+|`Shipping.Phone`|Telephone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114700|string|
+|`Shipping.WorkPhone`|Workphone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114701|string|
+|`Shipping.Mobile`|Mobile number of the person in charge of receiving the product at the shipping address <br/> Ex.: 5521987654321|string|
+|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|
+|`Shipping.Comment`|Shipping address references|string|
+|`Customer.MerchantCustomerId`|Customer document number, CPF or CNPJ|string|
+|`Customer.FirstName`|Customer first name|string|
+|`Customer.MiddleName`|First letter of the middle name customer|string|
+|`Customer.LastName`|Customer last name|string|
+|`Customer.BirthDate`|Customer birthdate <br/> Ex.: 1983-10-01|date|
+|`Customer.Gender`|Customer gender <br/> [Table 6 - Customer.Gender]({{ site.baseurl_root }}//en/manual/antifraude#table-6-customer.gender)|string|
+|`Customer.Email`|Customer email|string|
+|`Customer.Ip`|Customer IP address|string|
+|`Customer.Phone`|Customer telephone number <br/> Ex.: 552121114700|string|
+|`Customer.WorkPhone`|Customer workphone number <br/> Ex.: 552121114701|string|
+|`Customer.Mobile`|Customer mobile number <br/> Ex.: 5521987654321|string|
+|`Customer.Status`|Merchant customer status <br/> [Table 7 - Customer.Status]({{ site.baseurl_root }}en/manual/antifraude#table-7-customer.status)|string|
 |`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador|string|
-|`CartItem[n].ProductName`|Nome do produto|string|
-|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
-|`CartItem[n].OriginalPrice`|Preço original do produto <br/> Ex: 11490 = r$ 114,90|long|
-|`CartItem[n].MerchantItemId`|ID do produto na loja|string|
-|`CartItem[n].Sku`|Sku do produto|string|
-|`CartItem[n].Quantity`|Quantidade do produto|int|
-|`CartItem[n].GiftMessage`|Mensagem de presente|string|
-|`CartItem[n].Description`|Description do produto|string|
-|`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|
-|`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|
-|`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|
-|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|bool|
-|`Airline.BookingType`|Tipo de agendamento da reserva|string|
-|`Airline.TicketDeliveryMethod`|Tipo de entrega da passagem|string|
-|`Airline.BookingReferenceNumber`|Número de referêcia da reserva|string|
-|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|
-|`Airline.Passengers[n].MiddleName`|Nome do meio do passageiro|string|
-|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|
-|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|
-|`Airline.Passengers[n].Email`|E-mail do passageiro|string|
-|`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|
-|`Airline.Passengers[n].TicketNumber`|Número da passagem|string|
-|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de saída. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Airline.Passengers[n].Legs[n].AirlineCode`|Código da companhia aérea|string|
-|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|
-|`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|
-|`CustomConfiguration.MerchantWebsite`|Website da loja|string|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|var|não|-|
+|`CartItem[n].ProductName`|Product name|string|
+|`CartItem[n].UnitPrice`|Product unit price <br/> Ex: 10950 = r$ 109,50|long|
+|`CartItem[n].OriginalPrice`|Product original price <br/> Ex: 11490 = r$ 114,90|long|
+|`CartItem[n].MerchantItemId`|Merchant product id|string|
+|`CartItem[n].Sku`|Product SKU|string|
+|`CartItem[n].Quantity`|Product quantity|int|
+|`CartItem[n].GiftMessage`|Gift message|string|
+|`CartItem[n].Description`|Product description|string|
+|`CartItem[n].ShippingInstructions`|Product delivery instructions|string|
+|`CartItem[n].ShippingMethod`|Product delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|
+|`CartItem[n].ShippingTranckingNumber`|Product tracking number|string|
+|`Airline.ThirdPartyBooking`|Indicates whether the reservation was scheduled by third parties, such as tourism agencies|bool|
+|`Airline.BookingType`|Type of booking schedule|string|
+|`Airline.TicketDeliveryMethod`|Ticket delivery type|string|
+|`Airline.BookingReferenceNumber`|Booking reference number|string|
+|`Airline.Passengers[n].FirstName`|Passenger first name|string|
+|`Airline.Passengers[n].MiddleName`|Passenger middle name|string|
+|`Airline.Passengers[n].LastName`|Passenger last name|string|
+|`Airline.Passengers[n].PassengerType`|Passenger type <br/> [Table 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|
+|`Airline.Passengers[n].Phone`|Passenger telephone number <br/> Ex.: 552121114700|string|
+|`Airline.Passengers[n].Email`|Passenger email|string|
+|`Airline.Passengers[n].LoyaltyMemberNumber`|Loyalty member number|string|
+|`Airline.Passengers[n].TicketNumber`|Ticket number|string|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More informations on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`Airline.Passengers[n].Legs[n].DepartureCountry`|Country code of departure airport. More information on [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Country code of arrival airport. More information on [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Airline.Passengers[n].Legs[n].AirlineCode`|Airline code|string|
+|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Departure datetime <br/> Ex.: 2018-03-31 19:16:38 |datetime|
+|`Airline.Passengers[n].Legs[n].ClassOfService`|Class service|string|
+|`CustomConfiguration.MerchantWebsite`|Merchant website|string|
+|`MerchantDefinedData[n].Key`|Field key set against antifraud provider <br/> [Table 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|int|não|-|
+|`MerchantDefinedData[n].Value`|Field value set against antifraud provider <br/> [Table 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|var|não|-|
 
 ## Consultando uma transação Cybersource
 
@@ -1300,12 +1300,12 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|Tipo|
+|Parameter|Description|Type|
 |:-|:-|:-:|
-|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
+|`TransactionId`|Transaction id on Antifraud Gateway Braspag Braspag|guid|
+|`Status`|Transaction status on Antifraud Gateway Braspag <br/> [Table 20  - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderStatus`|ReDShield transaction status <br/> [Table 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
 |`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}en/manual/antifraude#table-22-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
 |`ProviderAnalysisResult.Missing`|Campos faltantes na requisição enviada a Cybersource|string|
@@ -1318,7 +1318,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
 |`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão|string|
 |`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
-|`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
+|`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de Customer email, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
 |`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-26-provideranalysisresult.afsreply.hotlistinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-27-provideranalysisresult.afsreply.identityinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-28-provideranalysisresult.afsreply.internetinfocode)|string|
@@ -1363,85 +1363,85 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Nsu`|Acquirer transaction unique sequence number <br/> Note: If you do not have integration with the Braspag Pagador, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `AuthorizationCode` and `SaleDate`, in addition to the one in question|string|
 |`AuthorizationCode`|Acquirer authorization code <br/> Note: If you do not have integration with the Braspag Pagador, you can not send the `BraspagTransactionId` field, so you need to send the` Tid`, `Nsu` and `SaleDate`, in addition to the one in question|string|
 |`SaleDate`|Acquirer authorization date <br/> Note: If you do not have integration with the Braspag Pagador, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `Nsu `and` AuthorizationCode`, in addition to the one in question|datetime|
-|`Card.Number`|Número do cartão de crédito|string|
-|`Card.Holder`|Nome do cartão de crédito|string|
-|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|
-|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|
-|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|
-|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|
-|`Billing.Street`|Logradouro do endereço de cobrança|string|
-|`Billing.Number`|Número do endereço de cobrança|string|
-|`Billing.Complement`|Complemento do endereço de cobrança|string|
-|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|
-|`Billing.City`|Cidade do endereço de cobrança|string|
-|`Billing.State`|Estado do endereço de cobrança|string|
-|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Billing.ZipCode`|Código postal do endereço de cobrança|string|
-|`Shipping.Street`|Logradouro do endereço de entrega|string|
-|`Shipping.Number`|Número do endereço de entrega|string|
-|`Shipping.Complement`|Complemento do endereço de entrega|string|
-|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|
-|`Shipping.City`|Cidade do endereço de entrega|string|
-|`Shipping.State`|Estado do endereço de entrega|string|
-|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Shipping.ZipCode`|Código postal do endereço de entrega|string|
-|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|
-|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|
-|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|
-|`Customer.FirstName`|Primeiro nome do comprador|string|
-|`Customer.LastName`|Último nome do comprador|string|
-|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|
-|`Customer.Email`|E-mail do comprador|string|
-|`Customer.Ip`|Endereço de IP do comprador|string|
-|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|
-|`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|
-|`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|
-|`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|
-|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|
-|`CartItem[n].ProductName`|Nome do produto|string|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Table 11 - CartItem{n}.Risk]({{ site.baseurl_root }}en/manual/antifraude#table-11-cartitem[n].risk)|enum|
-|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
-|`CartItem[n].Sku`|Sku do produto|string|
-|`CartItem[n].Quantity`|Quantidade do produto|int|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Table 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}en/manual/antifraude#table-12-cartitem[n].addressriskverify)|enum|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Table 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}en/manual/antifraude#table-13-cartitem[n].hosthedge)|enum|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Table 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge)|enum|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Table 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}en/manual/antifraude#table-15-cartitem[n].obscenitieshedge)|enum|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Table 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}en/manual/antifraude#table-16-cartitem[n].timehedge)|enum|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Table 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}en/manual/antifraude#table-17-cartitem[n].phonehedge)|enum|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Table 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}en/manual/antifraude#table-18-cartitem[n].velocityhedge)|enum|
-|`Bank.Name`|Nome do banco do comprador|string|
-|`Bank.Code`|Código do banco do comprador|string|
-|`Bank.Agency`|Agência do banco do comprador|string|
-|`Bank.Address`|Endereço do banco do comprador|string|
-|`Bank.City`|Cidade onde está localizado o banco do comprador|string|
-|`Bank.Country`|País onde está localizado o banco do comprador <br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Bank.SwiftCode`|Código identificador único do banco do comprador|string|
-|`FundTransfer.AccountName`|Nome vinculado a conta bancária|string|
-|`FundTransfer.AccountNumber`|Número da conta bancária do comprador|string|
-|`FundTransfer.BankCheckDigit`|Código utilizado para validar a conta bancária do comprador|string|
-|`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|
-|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|
-|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Table 19 - Invoice.Tender]({{ site.baseurl_root }}en/manual/antifraude#table-19-invoice.tender)|enum|
-|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 8 - Airline.JourneyType]({{ site.baseurl_root }}en/manual/antifraude#table-8-airline.journeytype)|enun|
-|`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|
-|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|
-|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|
-|`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|
-|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|
-|`Airline.Passengers[n].Email`|E-mail do passageiro|string|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Table 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}en/manual/antifraude#table-10-airline.passengers[n].status)|enum|
-|`Airline.Passengers[n].Legs[n].DeparturelAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
-|`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|var|não|-|
+|`Card.Number`|Credit card number|string|
+|`Card.Holder`|Holder name|string|
+|`Card.ExpirationDate`|Credit card expiration date <br/> Ex.: 01/2023|string|
+|`Card.Brand`|Credit card brand <br/> [Table 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|
+|`Card.Save`|Indicates whether credit card data will be stored on the Cartão Protegido|bool|
+|`Card.Token`|Credit card token saved on the Cartão Protegido|guid|
+|`Card.Alias`|Credit card alias saved on the Cartão Protegido|string|
+|`Billing.Street`|Billing address street|string|
+|`Billing.Number`|Billing address number|string|
+|`Billing.Complement`|Billing address complement|string|
+|`Billing.Neighborhood`|Billing address neighborhood|string|
+|`Billing.City`|Billing address city|string|
+|`Billing.State`|Billing address state|string|
+|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Billing.ZipCode`|Billing address zipcode|string|
+|`Shipping.Street`|Shipping address street|string|
+|`Shipping.Number`|Shipping address number|string|
+|`Shipping.Complement`|Shipping address complement|string|
+|`Shipping.Neighborhood`|Shipping address neighborhood|string|
+|`Shipping.City`|Shipping address city|string|
+|`Shipping.State`|Shipping address state|string|
+|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Shipping.ZipCode`|Shipping address zipcode|string|
+|`Shipping.FirstName`|First name of person in charge of receiving product at shipping address|string|
+|`Shipping.LastName`|Last name of the person in charge of receiving the product at the shipping address|string|
+|`Shipping.Phone`|Telephone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114700|string|
+|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|
+|`Customer.MerchantCustomerId`|Customer document number, CPF or CNPJ|string|
+|`Customer.FirstName`|Customer first name|string|
+|`Customer.LastName`|Customer last name|string|
+|`Customer.BirthDate`|Customer birthdate <br/> Ex.: 1983-10-01|date|
+|`Customer.Email`|Customer email|string|
+|`Customer.Ip`|Customer IP address|string|
+|`Customer.Phone`|Customer telephone number <br/> Ex.: 552121114700|string|
+|`Customer.BrowserHostName`|Host name entered by the customer's browser and identified through the HTTP header|string|
+|`Customer.BrowserCookiesAccepted`|Identifies whether the customer's browser accepts cookies or not|bool|
+|`Customer.BrowserEmail`|E-mail registered in the customer's browser. Can differ from merchant email (`Customer.Email`)|string|
+|`Customer.BrowserType`|Name of the browser used by the customer and identified through the HTTP header|string|
+|`CartItem[n].ProductName`|Product name|string|
+|`CartItem[n].Risk`|Risk level of the product associated with the quantity of chargebacks <br/> [Table 11 - CartItem{n}.Risk]({{ site.baseurl_root }}en/manual/antifraude#table-11-cartitem[n].risk)|enum|
+|`CartItem[n].UnitPrice`|Product unit price <br/> Ex: 10950 = r$ 109,50|long|
+|`CartItem[n].Sku`|Product SKU|string|
+|`CartItem[n].Quantity`|Product quantity|int|
+|`CartItem[n].AddressRiskVerify`|Identifies that you will evaluate the billing and shipping addresses for different cities, states or countries <br/> [Table 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}en/manual/antifraude#table-12-cartitem[n].addressriskverify)|enum|
+|`CartItem[n].HostHedge`|Level of importance of customer IP and email addresses in fraud analysis <br/> [Table 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}en/manual/antifraude#table-13-cartitem[n].hosthedge)|enum|
+|`CartItem[n].NonSensicalHedge`|Level of importance of verifications about the customer data non sensical in fraud analysis <br/> [Table 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge)|enum|
+|`CartItem[n].ObscenitiesHedge`|Level of importance of checks on customer data with obscenity in fraud analysis <br/> [Table 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}en/manual/antifraude#table-15-cartitem[n].obscenitieshedge)|enum|
+|`CartItem[n].TimeHedge`|Level of importance of the time of day in the fraud analysis that the customer made the request <br/> [Table 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}en/manual/antifraude#table-16-cartitem[n].timehedge)|enum|
+|`CartItem[n].PhoneHedge`|Level of importance of checks on customer's phone numbers in fraud analysis <br/> [Table 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}en/manual/antifraude#table-17-cartitem[n].phonehedge)|enum|
+|`CartItem[n].VelocityHedge`|Level of importance of customer's purchase frequency in the fraud analysis of the previous 15 minutes <br/> [Table 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}en/manual/antifraude#table-18-cartitem[n].velocityhedge)|enum|
+|`Bank.Name`|Customer's bank name|string|
+|`Bank.Code`|Customer's bank code|string|
+|`Bank.Agency`|Customer's bank agency|string|
+|`Bank.Address`|Customer's bank address|string|
+|`Bank.City`|Customer's bank city|string|
+|`Bank.Country`|Customer's bank city <br/> More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Bank.SwiftCode`|Customer's bank swift code|string|
+|`FundTransfer.AccountName`|Name linked to bank account|string|
+|`FundTransfer.AccountNumber`|Customer's bank account number|string|
+|`FundTransfer.BankCheckDigit`|Code used to validate customer's bank account|string|
+|`FundTransfer.Iban`|Customer's International Bank Account Number (IBAN)|string|
+|`Invoice.IsGift`|Indicates whether the order placed by the customer is for gift|bool|
+|`Invoice.ReturnsAccepted`|Indicates whether the order placed by the customer can be returned to the merchant|bool|
+|`Invoice.Tender`|Payment method used by the customer <br/> [Table 19 - Invoice.Tender]({{ site.baseurl_root }}en/manual/antifraude#table-19-invoice.tender)|enum|
+|`Airline.JourneyType`|Tipo de viagem <br/> [Table 8 - Airline.JourneyType]({{ site.baseurl_root }}en/manual/antifraude#table-8-airline.journeytype)|enun|
+|`Airline.DepartureDateTime`|Departure datetime <br/> Ex.: 2018-03-31 19:16:38|datetime|
+|`Airline.Passengers[n].FirstName`|Passenger first name|string|
+|`Airline.Passengers[n].LastName`|Passenger last name|string|
+|`Airline.Passengers[n].PassengerId`|Identifier of the passenger to whom the ticket was issued|string|
+|`Airline.Passengers[n].PassengerType`|Passenger type <br/> [Table 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|
+|`Airline.Passengers[n].Phone`|Passenger telephone number <br/> Ex.: 552121114700|string|
+|`Airline.Passengers[n].Email`|Passenger email|string|
+|`Airline.Passengers[n].Status`|Airline classification <br/> [Table 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}en/manual/antifraude#table-10-airline.passengers[n].status)|enum|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More informations on. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`CustomConfiguration.Comments`|Comments that the merchant may associate fraud analysis|string|
+|`CustomConfiguration.ScoreThreshold`|Acceptable level of risk for each product|int|
+|`MerchantDefinedData[n].Key`|Field key set against antifraud provider <br/> [Table 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Field value set against antifraud provider <br/> [Table 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|var|não|-|
 
 ## Consultando uma transação inexistente 
 
@@ -1497,9 +1497,9 @@ Esta sessão descreve o serviço de POST de Notificação, que envia uma notific
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|Tipo|
+|Parameter|Description|Type|
 |:-|:-|:-:|
-|`Id`|Id da transação no Antifraude Gateway Braspag|guid|
+|`Id`|Transaction id on Antifraud Gateway Braspag Braspag|guid|
 
 ## Response
 
@@ -1540,7 +1540,7 @@ Esta sessão descreve como associar uma transação do Pagador Braspag à uma tr
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|Tipo|Obrigatório|Tamanho|
+|Parameter|Description|Type|Required|Size|
 |:-|:-|:-:|:-:|-:|
 |`BraspagTransactionId`|Id da transação no Pagador Braspag|guid|sim|-|
 
@@ -1602,7 +1602,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|Tipo|Obrigatório|Tamanho|
+|Parameter|Description|Type|Required|Size|
 |:-|:-|:-:|:-:|-:|
 |`Status`|Novo status da transação - Table 19|enum|sim|-|
 |`Comments`|Comentário associado a mudança de status|string|não|255|
@@ -2200,7 +2200,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |NEG-BCO|O país do endereço de cobrança está na lista negativa|Cybersource|
 |NEG-BIN|O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista negativa|Cybersource|
 |NEG-BINCO|O país em que o cartão de crédito foi emitido está na lista negativa|Cybersource|
-|NEG-BZC|O código postal do endereço de cobrança está na lista negativa|Cybersource|
+|NEG-BZC|O Billing address zipcode está na lista negativa|Cybersource|
 |NEG-CC|O número de cartão de crédito está na lista negativa|Cybersource|
 |NEG-EM|O endereço de e-mail está na lista negativa|Cybersource|
 |NEG-EMCO|O país em que o endereço de e-mail está localizado na lista negativa|Cybersource|
@@ -2211,21 +2211,21 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |NEG-IP|O endereço IP (por exemplo, 10.1.27.63) está na lista negativa|Cybersource|
 |NEG-IP3|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista negativa. Um endereço de IP da rede inclui até 256 endereços IP|Cybersource|
 |NEG-IPCO|O país em que o endereço IP está localizado está na lista negativa|Cybersource|
-|NEG-PEM|O endereço de e-mail do passageiro está na lista negativa|Cybersource|
+|NEG-PEM|O endereço de Passenger email está na lista negativa|Cybersource|
 |NEG-PH|O número do telefone está na lista negativa|Cybersource|
 |NEG-PID|Identificador do passageiro está na lista negativa|Cybersource|
-|NEG-PPH|O número do telefone do passageiro está na lista negativa|Cybersource|
+|NEG-PPH|O número do Passenger telephone number está na lista negativa|Cybersource|
 |NEG-SA|O endereço de entrega está na lista negativa|Cybersource|
 |NEG-SCO|O país do endereço de entrega está na lista negativa|Cybersource|
-|NEG-SZC|O código postal do endereço de entrega está na lista negativa|Cybersource|
+|NEG-SZC|O Shipping address zipcode está na lista negativa|Cybersource|
 |POS-TEMP|O comprador está temporariamente na lista positiva|Cybersource|
 |POS-PERM|O comprador está permanente na lista positiva|Cybersource|
 |REV-BA|O endereço de cobrança esta na lista de revisão|Cybersource|
 |REV-BCO|O país do endereço de cobrança está na lista de revisão|Cybersource|
 |REV-BIN|O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista de revisão|Cybersource|
 |REV-BINCO|O país em que o cartão de crédito foi emitido está na lista de revisão|Cybersource|
-|REV-BZC|O código postal do endereço de cobrança está na lista de revisão|Cybersource|
-|REV-CC|O número do cartão de crédito está na lista de revisão|Cybersource|
+|REV-BZC|O Billing address zipcode está na lista de revisão|Cybersource|
+|REV-CC|O Credit card number está na lista de revisão|Cybersource|
 |REV-EM|O endereço de e-mail está na lista de revisão|Cybersource|
 |REV-EMCO|O país em que o endereço de e-mail está localizado está na lista de revisão|Cybersource|
 |REV-EMDOM|O domínio de e-mail (por exemplo, mail.example.com) está na lista de revisão|Cybersource|
@@ -2234,13 +2234,13 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |REV-IP|O endereço IP (por exemplo, 10.1.27.63) está na lista de revisão|Cybersource|
 |REV-IP3|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista de revisão. Um endereço de IP da rede inclui até 256 endereços IP|Cybersource|
 |REV-IPCO|O país em que o endereço IP está localizado está na lista de revisão|Cybersource|
-|REV-PEM|O endereço de e-mail do passageiro está na lista de revisão|Cybersource|
+|REV-PEM|O endereço de Passenger email está na lista de revisão|Cybersource|
 |REV-PH|O número do telefone está na lista de revisão|Cybersource|
 |REV-PID|Identificador do passageiro está na lista de revisão|Cybersource|
-|REV-PPH|O número do telefone do passageiro está na lista de revisão|Cybersource|
+|REV-PPH|O número do Passenger telephone number está na lista de revisão|Cybersource|
 |REV-SA|O endereço de entrega está na lista de revisão|Cybersource|
 |REV-SCO|O país do endereço de entrega está na lista de revisão|Cybersource|
-|REV-SZC|O código postal do endereço de entrega está na lista de revisão|Cybersource|
+|REV-SZC|O Shipping address zipcode está na lista de revisão|Cybersource|
 
 ## Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
 
@@ -2257,15 +2257,15 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 |Valor|Description|Provider|
 |:-|:-|:-|
-|FREE-EM|O endereço de e-mail do comprador é de um provedor de e-mail gratuito|Cybersource|
-|INTL-IPCO|O país do endereço de e-mail do comprador está fora dos EUA|Cybersource|
-|INV-EM|O endereço de e-mail do comprador é inválido|Cybersource|
-|MM-EMBCO|O domínio do endereço de e-mail do comprador não é consistente com o país do endereço de cobrança|Cybersource|
-|MM-IPBC|O endereço de e-mail do comprador não é consistente com a cidade do endereço de cobrança|Cybersource|
-|MM-IPBCO|O endereço de e-mail do comprador não é consistente com o país do endereço de cobrança|Cybersource|
+|FREE-EM|O endereço de Customer email é de um provedor de e-mail gratuito|Cybersource|
+|INTL-IPCO|O país do endereço de Customer email está fora dos EUA|Cybersource|
+|INV-EM|O endereço de Customer email é inválido|Cybersource|
+|MM-EMBCO|O domínio do endereço de Customer email não é consistente com o país do endereço de cobrança|Cybersource|
+|MM-IPBC|O endereço de Customer email não é consistente com a Billing address city|Cybersource|
+|MM-IPBCO|O endereço de Customer email não é consistente com o país do endereço de cobrança|Cybersource|
 |MM-IPBST|O endereço IP do comprador não é consistente com o estado no endereço de cobrança. No entanto, este código de informação não pode ser devolvido quando a inconsistência é entre estados imediatamente  adjacentes|Cybersource|
-|MM-IPEM|O endereço de e-mail do comprador não é consistente com o endereço IP|Cybersource|
-|RISK-EM|O domínio do e-mail do comprador (por exemplo, mail.example.com) está associado com alto risco|Cybersource|
+|MM-IPEM|O endereço de Customer email não é consistente com o endereço IP|Cybersource|
+|RISK-EM|O domínio do Customer email (por exemplo, mail.example.com) está associado com alto risco|Cybersource|
 |UNV-NID|O endereço IP do comprador é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP|Cybersource|
 |UNV-RI400SK|O endereço IP é de origem de risco|Cybersource|
 |UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|Cybersource|
@@ -2290,17 +2290,17 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |INTL-BIN|O cartão de crédito foi emitido fora dos EUA|Cybersource|
 |MM-TZTLO|Fuso horário do dispositivo é incompatível com os fusos horários do país|Cybersource|
 |MUL-EM|O comprador tem usado mais de quatro endereços de e-mail diferentes|Cybersource|
-|NON-BC|A cidade do endereço de cobrança é sem sentido|Cybersource|
-|NON-FN|O primeiro nome do comprador é sem sentido|Cybersource|
-|NON-LN|O último nome do comprador é sem sentido|Cybersource|
-|OBS-BC|A cidade do endereço de cobrança contem obscenidades|Cybersource|
+|NON-BC|A Billing address city é sem sentido|Cybersource|
+|NON-FN|O Customer first name é sem sentido|Cybersource|
+|NON-LN|O Customer last name é sem sentido|Cybersource|
+|OBS-BC|A Billing address city contem obscenidades|Cybersource|
 |OBS-EM|O endereço de e-mail contem obscenidades|Cybersource|
 |RISK-AVS|O resultado do combinado do teste AVS e endereço de cobrança normalizado são arriscados, o resultado AVS indica uma correspondência exata, mas o endereço de cobrança não é entregável|Cybersource|
-|RISK-BC|A cidade do endereço de cobrança possui caracteres repetidos|Cybersource|
+|RISK-BC|A Billing address city possui caracteres repetidos|Cybersource|
 |RISK-BIN|No passado, este BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) mostrou uma elevada incidência de fraude|Cybersource|
 |RISK-DEV|Algumas das características do dispositivo são arriscadas|Cybersource|
-|RISK-FN|Nome e último nome do comprador contêm combinações de letras improváveis|Cybersource|
-|RISK-LN|Nome do meio ou último nome do comprador contêm combinações de letras improváveis|Cybersource|
+|RISK-FN|Nome e Customer last name contêm combinações de letras improváveis|Cybersource|
+|RISK-LN|Nome do meio ou Customer last name contêm combinações de letras improváveis|Cybersource|
 |RISK-PIP|O endereço IP do proxy é arriscado|Cybersource|
 |RISK-SD|A inconsistência nos países dos endereços cobrança e entrega é arriscada|Cybersource|
 |RISK-TB|O dia e a hora da ordem associada ao endereço de cobrança é arriscado|Cybersource|
@@ -2311,13 +2311,13 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 |Valor|Description|Provider|
 |:-|:-|:-|
-|VEL-ADDR|Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email|Cybersource|
+|VEL-ADDR|Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o Credit card number e/ou endereço de email|Cybersource|
 |VEL-CC|Diferentes números de cartões de créditos foram usados várias vezes com o mesmo nome ou endereço de email|Cybersource|
-|VEL-NAME|Diferentes nomes foram usados várias vezes com o mesmo número do cartão de crédito e/ou endereço de email|Cybersource|
-|VELS-CC|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
-|VELI-CC|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
-|VELL-CC|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
-|VELV-CC|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
+|VEL-NAME|Diferentes nomes foram usados várias vezes com o mesmo Credit card number e/ou endereço de email|Cybersource|
+|VELS-CC|O Credit card number tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
+|VELI-CC|O Credit card number tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
+|VELL-CC|O Credit card number tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
+|VELV-CC|O Credit card number tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
 |VELS-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
 |VELI-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
 |VELL-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
@@ -2374,7 +2374,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 36 - MerchantDefinedData (ReDShield)
 
-|Key|Value|Tipo|Tamanho|
+|Key|Value|Type|Tamanho|
 |:-|:-|:-|:-|
 |1 a 3|Reservado|-|-|
 |4 a 8|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|var|256|
@@ -2389,7 +2389,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 37 - MerchantDefinedData (Cybersource)
 
-|Key|Value|Tipo|
+|Key|Value|Type|
 |:-|:-|:-|
 |1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|
 |2|Quantidade em dias que o cliente é seu cliente|int|
@@ -2413,7 +2413,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |27-30|Reservados para campos interno|-|
 |31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|
 |32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
-|33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
+|33|Identifica se o Credit card number foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
 |34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possível valor: SIM <br/> Caso não tenha sido confirmado ou não exista um processo de ativação de conta com confiração de e-mail, não enviar o campo|string|
 |35|Identifica o tipo de cliente <br/> Pssíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
 |36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
