@@ -1,92 +1,92 @@
 ---
 layout: manual
-title: Antifraude - Manual de integração
-description: Integração técnica API Antifraude Gateway Braspag
+title: Antifraud - Integration Manual
+description: Technical integration API Antifraud Gateway Braspag
 search: true
 categories: manual
 tags:
-  - Gestão de Risco
+  - Risk Management
 language_tabs:
   json: JSON    
 ---
 
-# Visão Geral
+# Overview
 
-**Antifraude Gateway** é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.
+**Antifraud Gateway** is a platform developed by the Braspag Risk team to facilitate the integration of customers who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example..
 
-A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
+The platform is based on REST architecture, which exchanges data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the market and supported by technical communities.
 
-> Para saber mais sobre OAuth 2, consulte [https://oauth.net/2/](https://oauth.net/2/)
+> To learn more about OAuth 2, see [https://oauth.net/2/](https://oauth.net/2/)
 
-A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.
+The platform was built using one of Braspag's main products, the Cartão Protegido, for card tokenization and token fraud analysis.
 
-# Objetivo
+# Objective
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.
+The purpose of this documentation is to guide the developer on how to integrate with Antifraud Gateway API Braspag, gateway of providers of antifraud solutions, describing the operations available with sample requests and responses.
 
-Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
+To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send using the HTTP VERB as described in the operation.
 
 # Hosts
 
-## API BraspagAuth
+## BraspagAuth API
 
-|Ambiente|URL|
+|Environment|URL|
 |:-|:-|
 |`Sandbox`|https://authsandbox.braspag.com.br|
 |`Produção`|https://auth.braspag.com.br|
 
-## API Antifraude Gateway
+## Antifraud Gateway API
 
-|Ambiente|URL|
+|Environment|URL|
 |:-|:-|
 |`Sandbox`|https://risksandbox.braspag.com.br|
 |`Produção`|https://risk.braspag.com.br|
 
-# Autenticação
+# Authentication
 
-## Tokens de Acesso
+## Access Token
 
-A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
+The Antifraud Gateway API uses the industry standard OAuth 2.0 protocol for authorization of access to its specific resources by environments, which are: **Sandbox** e **Produção**.
 
-Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na plataforma.
+This session describes the flow required for client applications to obtain valid access tokens for use on the platform.
 
-## Obtenção do token de acesso  
+## Obtaining the access token  
 
-O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Antifraude Gateway**.
+The access token is obtained through the oauth **client_credentials**. The diagram below illustrates, in chronological order, the communication between **Client Application**, **BraspagAuth API** and **Antifraud Gateway API**.
 
-1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
+1. The **Client Application**, informs the **BraspagAuth API** your credential.
 
-2. O **BraspagAuth** valida a credencial recebida. Se for válida, retorna o token de acesso para a **Aplicação Cliente**.
+2. The **BraspagAuth API** validates the credential received. If valid, returns the access token for **Client Application**.
 
-3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **API Antifraude Gateway Braspag**.
+3. The **Client Application** informs the access token in the header of the HTTP requests made to the **Antifraud Gateway API**.
 
-4. Se o token de acesso for válido, a requisição é processada e os dados são retornados para a **Aplicação Cliente**.
+4. If the access token is valid, the request is processed and the data is returned to the **Client Application**
 
-> Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.  
-[Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
+> Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. <br/>
+[Support Braspag](https://suporte.braspag.com.br/hc/en-us)
 
-## Como obter o token
+## How to get the token
 
-Uma vez em posse da credencial, será necessário "codificá-la" em Base64, utilizando a convenção **client_id:client_secret**, e enviar o resultado no cabeçalho através do campo **Authorization**.
+Once in possession of the credential, you will need to "encrypt" it in Base64, using the **client_id:client_secret** convention, and send the result in the header through the **Authorization** field.
 
-Exemplo:
+Exemple:
 * client_id: **braspagtestes**
 * client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
+* String to be encoded in Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
+* Result after encoding: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
 
 ### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/x-www-form-urlencoded|
 |`Authorization`|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
 |Key|Value|
 |:-|:-|
@@ -103,19 +103,19 @@ Exemplo:
 }
 ```
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|
+|Parameter|Description|
 |:-|:-|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway|
-|`token_type`|Indica o valor do tipo de token|
-|`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
+|`access_token`|The access token requested. The application can use this token to authenticate itself to the protected resource, in this case the Antifraud Gateway API|
+|`token_type`|Indicates the value of the token type|
+|`expires_in`|Expiry of the access token, in seconds <br/> The token when it expires, it is necessary to get a new one|
 
-# Realizando uma análise de fraude
+# Conducting a fraud analysis
 
-A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real receberá um recomendação da análise e poderá tomar uma ação.
+Braspag, upon receiving the request data, directs the provider to analyze them. Providers use technologies such as device identification, IP geolocation, social network analytics, proxy detection, and speed counters. In real-time you will receive a recommendation from the analysis and you can take an action.
 
-## Analisando uma transação na ReDShield
+## Analyzing a transaction in ReDShield
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -263,7 +263,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -272,11 +272,11 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|Parameter|Description|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
-|`MerchantOrderId`|Número do pedido da loja|string|sim|100|
+|`MerchantOrderId`|Merchant order number|string|sim|100|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|-|-|
@@ -343,7 +343,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].Sku`|Sku do produto|string|não|12|
 |`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
 |`CartItem[n].GiftMessage`|Mensagem de presente|string|não|160|
-|`CartItem[n].Description`|Descrição do produto|string|não|76|
+|`CartItem[n].Description`|Description do produto|string|não|76|
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|
 |`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
@@ -402,16 +402,16 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|201 Created|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|Tipo|
+|Parameter|Description|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-20-status)|enum|
@@ -424,7 +424,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
 
-## Analisando uma transação na Cybersource
+## Analyzing a transaction in Cybersource
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -568,7 +568,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -577,11 +577,11 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|Parameter|Description|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
-|`MerchantOrderId` |Número do pedido da loja|string|sim|100|
+|`MerchantOrderId` |Merchant order number|string|sim|100|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|sim|3|
@@ -713,16 +713,16 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Response
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|201 Created|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|Tipo|
+|Parameter|Description|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-20-status)|enum|
@@ -797,16 +797,16 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Response
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|
+|Parameter|Description|
 |:-|:-|
 |`Message`|Mensagem informando que o request é inválido|
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual|
@@ -982,7 +982,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -993,16 +993,16 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Response
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|Tipo|
+|Parameter|Description|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-20-status)|enum|
@@ -1014,7 +1014,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Id da transação na ReDShield|string|
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
-|`MerchantOrderId`|Número do pedido da loja|string|
+|`MerchantOrderId`|Merchant order number|string|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|
@@ -1081,7 +1081,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].Sku`|Sku do produto|string|
 |`CartItem[n].Quantity`|Quantidade do produto|int|
 |`CartItem[n].GiftMessage`|Mensagem de presente|string|
-|`CartItem[n].Description`|Descrição do produto|string|
+|`CartItem[n].Description`|Description do produto|string|
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|
 |`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|
@@ -1280,7 +1280,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -1291,16 +1291,16 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Response
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|Tipo|
+|Parameter|Description|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-20-status)|enum|
@@ -1352,7 +1352,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|Quando modo verbose ativado, nome da regra|string|
 |`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
-|`MerchantOrderId` |Número do pedido da loja <br/> Obs.: Este mesmo valor deve ser passado na variável SESSIONID do script do fingerprint|string|
+|`MerchantOrderId` |Merchant order number|string|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|
@@ -1449,7 +1449,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -1460,7 +1460,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 ### Response
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -1489,21 +1489,21 @@ Esta sessão descreve o serviço de POST de Notificação, que envia uma notific
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|Tipo|
+|Parameter|Description|Tipo|
 |:-|:-|:-:|
 |`Id`|Id da transação no Antifraude Gateway Braspag|guid|
 
 ## Response
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -1529,7 +1529,7 @@ Esta sessão descreve como associar uma transação do Pagador Braspag à uma tr
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -1538,15 +1538,15 @@ Esta sessão descreve como associar uma transação do Pagador Braspag à uma tr
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|Parameter|Description|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
 |`BraspagTransactionId`|Id da transação no Pagador Braspag|guid|sim|-|
 
 ## Response
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 * Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway
 
@@ -1591,7 +1591,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -1600,9 +1600,9 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|Parameter|Description|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
 |`Status`|Novo status da transação - Tabela 19|enum|sim|-|
 |`Comments`|Comentário associado a mudança de status|string|não|255|
@@ -1617,16 +1617,16 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|
+|Parameter|Description|
 |:-|:-|
 |`Message`|Mensagem contendo o motivo da operação|string|
 
@@ -1638,16 +1638,16 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|404 Not Found|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|
+|Parameter|Description|
 |:-|:-|
 |`Message`|Mensagem contendo o motivo da operação|string|
 
@@ -1659,16 +1659,16 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|
+|Parameter|Description|
 |:-|:-|
 |`Message`|Mensagem contendo o motivo da operação|string|
 
@@ -1680,16 +1680,16 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|
+|Parameter|Description|
 |:-|:-|
 |`Message`|Mensagem contendo o motivo da operação|string|
 
@@ -1709,16 +1709,16 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|
+|Parameter|Description|
 |:-|:-|
 |`Message`|Mensagem informando que o request é inválido|
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo, domínio ou tamanho conforme especificado no manual|
@@ -1739,7 +1739,7 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 #### Como configurar?
 
-1 - Inclua o javascript da Iovation em sua página de checkout <br/> 2 - Adicione parâmetros de configuração no javascript <br/> 3 - Crie um campo do tipo *hidden* em sua página para escrever a *caixa preta* nele e enviá-lo junto com os dados da transação a ser analisada
+1 - Inclua o javascript da Iovation em sua página de checkout <br/> 2 - Adicione Parameters de configuração no javascript <br/> 3 - Crie um campo do tipo *hidden* em sua página para escrever a *caixa preta* nele e enviá-lo junto com os dados da transação a ser analisada
 
 **Obs.:** Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.
 
@@ -1749,20 +1749,20 @@ Para incluir o javascript, adicione o seguinte elemento **&lt;script&gt;** na su
 
 Esta é a URL da versão do snare.js da Iovation: &lt;script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"&gt;&lt;/script&gt;
 
-* Parâmetros de configuração
+* Parameters de configuração
 
-|Parâmetro|Descrição|Default|
+|Parameter|Description|Default|
 |:-|:-|:-|
 |`io_install_flash`|Determina se será solicitado ao usuário a instalação do Flash ou atualização da versão|false|
-|`io_flash_needs_handler`|Este parâmetro só terá validade se o parâmetro `io_install_flash` estiver configurado como TRUE, caso contrário não será executado <br/> É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado <br/> Ex.: var `io_flash_needs_handler` = "Alert('Instalar Flash');"|-|
+|`io_flash_needs_handler`|Este Parameter só terá validade se o Parameter `io_install_flash` estiver configurado como TRUE, caso contrário não será executado <br/> É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado <br/> Ex.: var `io_flash_needs_handler` = "Alert('Instalar Flash');"|-|
 |`io_install_stm`|Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware <br/> Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito|false|
 |`io_exclude_stm`|Determina se o Active X deverá ser executado quando instalado <br/> É possível optar por desativar o controle para plataformas específicas <br/> Possíveis valores: <br/> 0 - executa em todas as plataformas <br/> 1 - não executa no Windows 9.x (incluindo as versões 3.1, 95, 98 e ME) <br/> 2 - não executa no Windows CE <br/> 4 - não executa no Windows XP (incluindo as versões NT, 2000, 2003 e 8) <br/> 8 - não executa no Windows Vista <br/> Obs.: Os valores são a combinação de somas dos valores acima, por exemplo: 12 - não executa no Windows XP (4) ou no Windows Vista (8)|15|
-|`io_bbout_element_id`|Id do elemento HTML para preencher com a *caixa preta* <br/> Se o parâmetro `io_bb_callback` for definido, este não terá efeito|-|
+|`io_bbout_element_id`|Id do elemento HTML para preencher com a *caixa preta* <br/> Se o Parameter `io_bb_callback` for definido, este não terá efeito|-|
 |`io_enable_rip`|Determina se tentará coletar informações para obter o IP real do usuário|true|
-|`io_bb_callback`|Parâmetro para customizar a checagem da coleta da *caixa preta* foi concluída <br/> Ao utilizar, escrever a função conforme com a seguinte sintaxe: <br/> *io_callback(bb, complete)*, onde: <br/> bb - valor da caixa preta <br/> complete - valor booleano que indica que a coleta foi concluída|-|
+|`io_bb_callback`|Parameter para customizar a checagem da coleta da *caixa preta* foi concluída <br/> Ao utilizar, escrever a função conforme com a seguinte sintaxe: <br/> *io_callback(bb, complete)*, onde: <br/> bb - valor da caixa preta <br/> complete - valor booleano que indica que a coleta foi concluída|-|
 
 **IMPORTANTE!**
-Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.
+Os Parameters de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros caso os mesmos sejam colocados antes da chamada do javascript.
 
 **Exemplo**
 ![Exemplo HTML]({{ site.baseurl_root }}/images/braspag/af/exemplohtmlred.png)
@@ -1857,7 +1857,7 @@ A função *ioBegin* coleta informações sobre o dispositivo e gera uma *caixa 
 
 > public static String ioBegin(Context context)
 
-* Parâmetros
+* Parameters
 
 > context - uma instância da classe *android.content.Context* usado para acessar informações sobre o dispositivo
 
@@ -1893,14 +1893,14 @@ Se os 2 segmentos de código não forem colocados na página de checkout, os res
 
 **Domain**
 
-|Ambiente|Descrição|
+|Ambiente|Description|
 |:-|:-|
 |`Testing`|Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
 |`Production`|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|
 
 **Variáveis**
 
-|Variável|Descrição|
+|Variável|Description|
 |:-|:-|
 |`ProviderOrgId`|Sandbox = 1snn5n9w <br/> Produção = k8vif92e|
 |`ProviderMerchantId`|Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag|
@@ -1936,7 +1936,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 2 - SplitingPaymentMethod
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |None|Pagamento com um cartão apenas|ReDShield|
 |CardSplit|Pagamento com mais de um cartão|ReDShield|
@@ -1960,7 +1960,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 4 - ShippingMethod
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |SameDay|Meio de entrega no mesmo dia|ReDShield, Cybersource|
 |NextDay|Meio de entrega no próximo dia|ReDShield, Cybersource|
@@ -1976,28 +1976,28 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 6 - Customer.Gender
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Male|Masculino|ReDShield|
 |Female|Feminino|ReDShield|
 
 ## Tabela 7 - Customer.Status
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |New|Identifica quando o comprador é novo na loja, nunca fez uma compra|ReDShield|
 |Existing|Identifica quando o comprador é existente na loja, já realizou uma compra|ReDShield|
 
 ## Tabela 8 - Airline.JourneyType
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |OneWayTrip|Viagem somente de ida|Cybersource|
 |RoundTrip|Viagem de ida e volta|Cybersource|
 
 ## Tabela 9 - Airline.Passengers[n].PassengerType
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Adult|Adulto|ReDShield, Cybersource|
 |Child|Criança|ReDShield, Cybersource|
@@ -2017,7 +2017,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 11 - CartItem[n].Risk
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Low|Produto associado com pouco chargebacks (default)|Cybersource|
 |Normal|Produto associado com a quantidade normal de chargebacks|Cybersource|
@@ -2025,7 +2025,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 12 - CartItem[n].AddressRiskVerify
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Yes|Em caso de divergência entre endereços de cobrança e entrega, atribui risco baixo ao pedido|Cybersource|
 |No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|Cybersource|
@@ -2033,7 +2033,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 13 - CartItem[n].HostHedge
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
@@ -2042,7 +2042,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 14 - CartItem[n].NonSensicalHedge
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
@@ -2051,7 +2051,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 15 - CartItem[n].ObscenitiesHedge
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
@@ -2060,7 +2060,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 16 - CartItem[n].TimeHedge
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
@@ -2069,7 +2069,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 17 - CartItem[n].PhoneHedge
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
@@ -2078,7 +2078,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 18 - CartItem[n].VelocityHedge
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
@@ -2087,7 +2087,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 19 - Invoice.Tender
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Consumer|Cartão de crédito pessoal (default)|Cybersource|
 |Corporate|Cartão de crédito corporativo|Cybersource|
@@ -2100,7 +2100,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 20 - Status
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Accept|Transação aceita após análise de fraude|ReDShield, Cybersource|
 |Review|Transação em revisão após análise de fraude|ReDShield, Cybersource|
@@ -2111,7 +2111,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 21 - ProviderStatus
 
-|Valor|Descrição|Provider|De-Para com o campo `Status` (Status da transação no Antifraude Gateway Braspag)|
+|Valor|Description|Provider|De-Para com o campo `Status` (Status da transação no Antifraude Gateway Braspag)|
 |:-|:-|:-|:-|
 |APPROVE|Transação aprovada no provedor|ReDShield|Accept|
 |ACCEPT|Transação aceita no provedor|ReDShield, Cybersource|Accept|
@@ -2127,7 +2127,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 22 - ProviderAnalysisResult.ProviderCode
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |100|Operação realizada com sucesso|Cybersource|
 |101|A transação enviada para análise de fraude está faltando um ou mais campos necessários <br/> Verificar no response o campo `ProviderAnalysisResult.Missing` <br/> Possível ação: Reenviar a transação com a informação completa|Cybersource|
@@ -2144,7 +2144,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |COR-BA|O endereço de cobrança pode ser normalizado|Cybersource|
 |COR-SA|O endereço de entrega pode ser normalizado|Cybersource|
@@ -2161,7 +2161,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |A|Mudança de endereço excessiva. O comprador mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses|Cybersource|
 |B|BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão|Cybersource|
@@ -2186,14 +2186,14 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |CN|Cartão privado|Cybersource|
 |CP|Cartão corporativo|Cybersource|
 
 ## Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |CON-POSNEG|A ordem disparada bate tanto com a lista positiva e negativa. O resultado da lista positiva sobrescreve a lista negativa|Cybersource|
 |NEG-BA|O endereço de cobrança está na lista negativa|Cybersource|
@@ -2244,7 +2244,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |MORPH-B|O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
 |MORPH-C|O mesmo cartão de crédito tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
@@ -2255,7 +2255,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |FREE-EM|O endereço de e-mail do comprador é de um provedor de e-mail gratuito|Cybersource|
 |INTL-IPCO|O país do endereço de e-mail do comprador está fora dos EUA|Cybersource|
@@ -2272,7 +2272,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |MM-ACBST|O número de telefone do comprador não é consistente com o estado no endereço de cobrança|Cybersource|
 |RISK-AC|O código de área do comprador está associado com risco alto|Cybersource|
@@ -2284,7 +2284,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |BAD-FP|O dispositivo é arriscado|Cybersource|
 |INTL-BIN|O cartão de crédito foi emitido fora dos EUA|Cybersource|
@@ -2309,7 +2309,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |VEL-ADDR|Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email|Cybersource|
 |VEL-CC|Diferentes números de cartões de créditos foram usados várias vezes com o mesmo nome ou endereço de email|Cybersource|
@@ -2340,7 +2340,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |Anonymizer|Endereços de IP estão escondidos porque o comprador é extremamente cauteloso, quer privacidade absoluta ou é fraudulento|Cybersource|
 |AOL, AOL dialup, AOL POP and AOL proxy|Membros da AOL. Na maioria dos casos, o país pode ser identificado, mas o estado e cidade não podem|Cybersource|
@@ -2365,7 +2365,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
 
-|Valor|Descrição|Provider|
+|Valor|Description|Provider|
 |:-|:-|:-|
 |T|A regra é verdadeira|Cybersource|
 |F|A regra é falsa|Cybersource|
