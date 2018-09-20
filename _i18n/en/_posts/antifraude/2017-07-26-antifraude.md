@@ -2261,30 +2261,30 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|FREE-EM|O endereço de Customer email é de um provedor de e-mail gratuito|Cybersource|
-|INTL-IPCO|O país do endereço de Customer email está fora dos EUA|Cybersource|
-|INV-EM|O endereço de Customer email é inválido|Cybersource|
-|MM-EMBCO|O domínio do endereço de Customer email não é consistente com o país do endereço de cobrança|Cybersource|
-|MM-IPBC|O endereço de Customer email não é consistente com a Billing address city|Cybersource|
-|MM-IPBCO|O endereço de Customer email não é consistente com o país do endereço de cobrança|Cybersource|
-|MM-IPBST|O endereço IP do comprador não é consistente com o estado no endereço de cobrança. No entanto, este código de informação não pode ser devolvido quando a inconsistência é entre estados imediatamente  adjacentes|Cybersource|
-|MM-IPEM|O endereço de Customer email não é consistente com o endereço IP|Cybersource|
-|RISK-EM|O domínio do Customer email (por exemplo, mail.example.com) está associado com alto risco|Cybersource|
-|UNV-NID|O endereço IP do comprador é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP|Cybersource|
-|UNV-RI400SK|O endereço IP é de origem de risco|Cybersource|
-|UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|Cybersource|
+|FREE-EM|The customer’s email address is from a free email provider|Cybersource|
+|INTL-IPCO|The country of the customer’s IP address is outside of the U.S.|Cybersource|
+|INV-EM|The customer’s email address is invalid|Cybersource|
+|MM-EMBCO|The domain in the customer’s email address is not consistent with the country in the billing address|Cybersource|
+|MM-IPBC|The customer’s IP address is not consistent with the city in the billing address|Cybersource|
+|MM-IPBCO|The customer’s IP address is not consistent with the country in the billing address|Cybersource|
+|MM-IPBST|The customer’s IP address is not consistent with the state in the billing address. However, this information code may not be returned when the inconsistency is between immediately adjacent states|Cybersource|
+|MM-IPEM|The customer’s email address is not consistent with the customer’s IP address|Cybersource|
+|RISK-EM|The customer's email domain (for example, mail.example.com) is associated with higher risk|Cybersource|
+|UNV-NID|The customer’s IP address is from an anonymous proxy. These entities completely hide the IP information|Cybersource|
+|UNV-RISK|The IP address is from a risky source|Cybersource|
+|UNV-EMBCO|The country of the customer’s email address does not match the country in the billing address|Cybersource|
 
 ## Table 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|MM-ACBST|O número de telefone do comprador não é consistente com o estado no endereço de cobrança|Cybersource|
-|RISK-AC|O código de área do comprador está associado com risco alto|Cybersource|
-|RISK-PH|O número de telefone dos EUA. ou do Canadá é incompleto, ou uma ou mais partes do número são arriscadas|Cybersource|
-|TF-AC|O número do telefone utiliza um código de área toll-free (grátis)|Cybersource|
-|UNV-AC|O código de área é inválido|Cybersource|
-|UNV-OC|O código de área e/ou o prefixo de telefone são/é inválido|Cybersource|
-|UNV-PH|O número do telefone é inválido|Cybersource|
+|MM-ACBST|Customer's phone number not consistent with billing address state|Cybersource|
+|RISK-AC|Customer's area code associated with high risk|Cybersource|
+|RISK-PH|U.S. or Canada phone number incomplete, or one or more parts of the number are risky|Cybersource|
+|TF-AC|Phone number uses toll-free area code|Cybersource|
+|UNV-AC|Invalid area code|Cybersource|
+|UNV-OC|Invalid area code and/or phone prefix|Cybersource|
+|UNV-PH|Invalid phone number|Cybersource|
 
 ## Table 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
 
@@ -2371,24 +2371,24 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|T|A regra é verdadeira|Cybersource|
-|F|A regra é falsa|Cybersource|
-|N|A regra não pode ser avaliada porque os dados são insuficientes|Cybersource|
-|E|A regra não pode ser avaliada porque ocorreu um erro|Cybersource|
+|T|Rule true|Cybersource|
+|F|Rule false|Cybersource|
+|N|The rule can not be evaluated because the data is insufficient|Cybersource|
+|E|The rule can not be evaluated because an error has occurred|Cybersource|
 
 ## Table 36 - MerchantDefinedData (ReDShield)
 
 |Key|Value|Type|Tamanho|
 |:-|:-|:-|:-|
 |1 a 3|Reservado|-|-|
-|4 a 8|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|var|256|
+|4 a 8|Free and defined fields with the antifraud provider, according to the business rules|var|256|
 |9 a 13|Reservado|-|-|
-|14|Segment|MCC (Merchant Category Code) da sua loja|int|-|
-|15 a 20|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|var|30|
+|14|Segment|MCC (Merchant Category Code) of your merchant|int|-|
+|15 a 20|Free and defined fields with the antifraud provider, according to the business rules|var|30|
 |21|Reservado|-|-|
-|22|Campo livre e definido junto ao provedor de antifraude, conforme as regras de negócio|var|30|
+|22|Free and defined fields with the antifraud provider, according to the business rules|var|30|
 |23|Reservado|-|-|
-|24|Campo livre e definido junto ao provedor de antifraude, conforme a regras de negócio|var|30|
+|24|Free and defined fields with the antifraud provider, according to the business rules|var|30|
 |25|Reservado|-|-|
 
 ## Table 37 - MerchantDefinedData (Cybersource)
