@@ -1578,7 +1578,7 @@ Esta sessão descreve como associar uma transação do Pagador Braspag à uma tr
 
 # Update de Status Cybersource
 
-Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject).
+Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).
 
 ## Request
 
