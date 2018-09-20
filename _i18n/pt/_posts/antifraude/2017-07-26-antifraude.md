@@ -1725,7 +1725,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 # Configuração do Fingerprint
 
-Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
+Esta sessão descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
 
 ## ReDShield
 
@@ -1758,7 +1758,7 @@ Esta é a URL da versão do snare.js da Iovation: &lt;script type="text/javascri
 |`io_install_stm`|Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware <br/> Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito|false|
 |`io_exclude_stm`|Determina se o Active X deverá ser executado quando instalado <br/> É possível optar por desativar o controle para plataformas específicas <br/> Possíveis valores: <br/> 0 - executa em todas as plataformas <br/> 1 - não executa no Windows 9.x (incluindo as versões 3.1, 95, 98 e ME) <br/> 2 - não executa no Windows CE <br/> 4 - não executa no Windows XP (incluindo as versões NT, 2000, 2003 e 8) <br/> 8 - não executa no Windows Vista <br/> Obs.: Os valores são a combinação de somas dos valores acima, por exemplo: 12 - não executa no Windows XP (4) ou no Windows Vista (8)|15|
 |`io_bbout_element_id`|Id do elemento HTML para preencher com a *caixa preta* <br/> Se o parâmetro `io_bb_callback` for definido, este não terá efeito|-|
-|`io_enable_rip`|Determina se tentará coletar informações para obter o IP real do usuário|true|
+|`io_enable_rip`|Determina se tentará coletar informações para obter o endereço IP real do comprador|true|
 |`io_bb_callback`|Parâmetro para customizar a checagem da coleta da *caixa preta* foi concluída <br/> Ao utilizar, escrever a função conforme com a seguinte sintaxe: <br/> *io_callback(bb, complete)*, onde: <br/> bb - valor da caixa preta <br/> complete - valor booleano que indica que a coleta foi concluída|-|
 
 **IMPORTANTE!**
@@ -1776,7 +1776,7 @@ Este tópico explica como integrar o mobile SDK da Iovation em seus aplicativos 
 Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br/> [Download Deviceprint SDK iOS](https://github.com/iovation/deviceprint-SDK-iOS) <br/> [Download Deviceprint SDK Android](https://github.com/iovation/deviceprint-SDK-Android)
 
 **Sobre a integração**
-Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma *caixa preta* que contém todas as informações do dispositivo disponíveis.
+Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos compradores. Será gerada uma *caixa preta* que contém todas as informações do dispositivo disponíveis.
 
 ![Fluxo da coleta do fingerprint mobile]({{ site.baseurl_root }}/images/braspag/af/fingerprintmobile.png)
 
@@ -1817,7 +1817,7 @@ Obs.: Não incluir, a menos que seu aplicativo solicite permissão de geolocaliz
 
 * Usando a função +ioBegin
 
-A função *+ioBegin* coleta informações sobre o dispositivo e gera uma *caixa preta*. Esta *caixa preta* deverá ser enviada através do campo *CustomerData.BrowserFingerPrint* em conjunto com os outros dados para análise.
+A função *+ioBegin* coleta informações sobre o dispositivo e gera uma *caixa preta*. Esta *caixa preta* deverá ser enviada através do campo *Customer.BrowserFingerPrint* em conjunto com os outros dados para análise.
 
 * Sintaxe
 
@@ -1851,7 +1851,7 @@ A versão 1.2.0 do Iovation Mobile SDK para Android suporta versões do Android 
 
 * Usando a função ioBegin
 
-A função *ioBegin* coleta informações sobre o dispositivo e gera uma *caixa preta*. Esta *caixa preta* deverá ser enviada através do campo *CustomerData.BrowserFingerPrint* em conjunto com os outros dados para análise.
+A função *ioBegin* coleta informações sobre o dispositivo e gera uma *caixa preta*. Esta *caixa preta* deverá ser enviada através do campo *Customer.BrowserFingerPrint* em conjunto com os outros dados para análise.
 
 * Sintaxe
 
@@ -1865,15 +1865,15 @@ A função *ioBegin* coleta informações sobre o dispositivo e gera uma *caixa 
 
 > string que contem a *caixa preta*
 
-**IMPORTANTE!**
+**IMPORTANTE**
 A *caixa preta* que retornou de *ioBegin* nunca deve estar vazio. Uma *caixa preta* vazia indica que contem apenas *0500* indica que a proteção oferecida pelo sistema pode ter sido comprometida.
 
-**IMPORTANTE!**
+**IMPORTANTE**
 O arquivo *device-lib-1.2.0.aar* deverá ser empacotado com o aplicativo.
 
 * Compilando o aplicativo de exemplo no Android Studio
 
-**IMPORTANTE!**
+**IMPORTANTE**
 Se a opção para executar o módulo não aparecer, selecione *File -> Project Structure* e abra o painel *Modules*. A partir disso, defina na lista a versão do Android SDK.
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemplocodigo2.png)
@@ -1885,9 +1885,9 @@ O exemplo ao lado é simples, onde o mesmo possui um botão e ao clicar uma caix
 
 ## Cybersource
 
-Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
+Será necessário adicionar duas tags, a **&lt;script&gt;** dentro da tag **&lt;head&gt;** para uma performance correta e a **&lt;noscript&gt;** dentro da tag **&lt;body&gt;**, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
-**IMPORTANTE!**
+**IMPORTANTE**
 
 Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
 
@@ -1904,20 +1904,20 @@ Se os 2 segmentos de código não forem colocados na página de checkout, os res
 |:-|:-|
 |`ProviderOrgId`|Sandbox = 1snn5n9w <br/> Produção = k8vif92e|
 |`ProviderMerchantId`|Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag|
-|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do(s) script(s) que serão incluídos na página de checkout. <br/> Exemplo: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
+|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Exemplo: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
 
 > Javascript Code
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
-**IMPORTANTE!**
+**IMPORTANTE**
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.
 
 **Configurando seu Servidor Web**
 
 Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.
 
-**IMPORTANTE!**
+**IMPORTANTE**
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.
 
 ## Integração em aplicativos mobile
@@ -2038,7 +2038,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|Off|Não irá afetar o score da análise de fraude|Cybersource|
 
 ## Tabela 14 - CartItem[n].NonSensicalHedge
 
@@ -2047,7 +2047,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|Off|Não irá afetar o score da análise de fraude|Cybersource|
 
 ## Tabela 15 - CartItem[n].ObscenitiesHedge
 
@@ -2056,7 +2056,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|Off|Não irá afetar o score da análise de fraude|Cybersource|
 
 ## Tabela 16 - CartItem[n].TimeHedge
 
@@ -2065,7 +2065,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|Off|Não irá afetar o score da análise de fraude|Cybersource|
 
 ## Tabela 17 - CartItem[n].PhoneHedge
 
@@ -2074,7 +2074,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|Off|Não irá afetar o score da análise de fraude|Cybersource|
 
 ## Tabela 18 - CartItem[n].VelocityHedge
 
@@ -2083,7 +2083,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |Low|Baixa|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|Off|Não irá afetar o score da análise de fraude|Cybersource|
 
 ## Tabela 19 - Invoice.Tender
 
@@ -2106,7 +2106,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |Review|Transação em revisão após análise de fraude|ReDShield, Cybersource|
 |Reject|Transação rejeitada após análise de fraude|ReDShield, Cybersource|
 |Pendent|Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource|Cybersource|
-|Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource, no response da análise o campo `ProviderAnalysisResult.ProviderStatus` for igual a **REJECT** e o campo `ProviderAnalysisResult.ProviderCode` diferente de **481**, o status da transação será **Unfineshed**|ReDShield, Cybersource|
+|Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource, no response da análise o campo `ProviderAnalysisResult.ProviderStatus` for igual a **REJECT** e o campo `ProviderAnalysisResult.ProviderCode` diferente de **481**, o status da transação será **Unfinished**|ReDShield, Cybersource|
 |ProviderError|Transação com erro no provedor ao ser enviada para análise|ReDShield, Cybersource|
 
 ## Tabela 21 - ProviderStatus
