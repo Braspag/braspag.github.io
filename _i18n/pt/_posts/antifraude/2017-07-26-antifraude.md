@@ -630,7 +630,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|-|-|
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|string|não|100|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|não|40|
-|`Customer.BrowserFingerprint`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do(s) script(s) que ser(ão) incluído(s) na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|sim|100|
+|`Customer.BrowserFingerprint`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|sim|100|
 |`CartItem[n].ProductName`|Nome do produto|string|sim|255|
 |`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 11 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
@@ -1469,15 +1469,15 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 
 # Post de Notificação
 
-Esta sessão descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de status na transação de revisão para aceita/rejeita.
+Esta sessão descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de status na transação de revisão para aceita/rejeita ou aceita para rejeita.
 
-* No processo de onboarding da sua loja, é necessário solicitar ao Time de Implementação o cadastramento da URL de mudança de status da sua loja.
+* No processo de onboarding da sua loja, é necessário solicitar ao Time de Implementação da Braspag o cadastramento da URL de mudança de status da sua loja.
 
 * Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada para receber a notificação da mudança de status, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja. Caso contrário, serão realizadas mais 3 tentativas de envio.
 
 * A URL de mudança de status somente pode utilizar a porta 80 (padrão para http) ou a porta 443 (padrão para https). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.
 
-* Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://{antifraude endpoint}/analysis/v2/{Id}, enviando o Id da transação que foi recebido na notficação da mudança de status.
+* Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://{antifraude endpoint}/analysis/v2/{Id}, enviando o Id da transação que foi recebido na notficação da mudança de status para obter o novo status da transação.
 
 ## Request
 
