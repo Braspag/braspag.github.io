@@ -5302,7 +5302,7 @@
 
 <h1 id="configuração-do-fingerprint">Configuração do Fingerprint</h1>
 
-<p>Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.</p>
+<p>Esta sessão descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.</p>
 
 <h2 id="redshield">ReDShield</h2>
 
@@ -5368,7 +5368,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">io_enable_rip</code></td>
-      <td style="text-align: left">Determina se tentará coletar informações para obter o IP real do usuário</td>
+      <td style="text-align: left">Determina se tentará coletar informações para obter o endereço IP real do comprador</td>
       <td style="text-align: left">true</td>
     </tr>
     <tr>
@@ -5394,7 +5394,7 @@ Este tópico explica como integrar o mobile SDK da Iovation em seus aplicativos 
 Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br /> <a href="https://github.com/iovation/deviceprint-SDK-iOS">Download Deviceprint SDK iOS</a> <br /> <a href="https://github.com/iovation/deviceprint-SDK-Android">Download Deviceprint SDK Android</a></p>
 
 <p><strong>Sobre a integração</strong>
-Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma <em>caixa preta</em> que contém todas as informações do dispositivo disponíveis.</p>
+Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos compradores. Será gerada uma <em>caixa preta</em> que contém todas as informações do dispositivo disponíveis.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/af/fingerprintmobile.png" alt="Fluxo da coleta do fingerprint mobile" /></p>
 
@@ -5442,7 +5442,7 @@ Obs.: Não incluir, a menos que seu aplicativo solicite permissão de geolocaliz
   <li>Usando a função +ioBegin</li>
 </ul>
 
-<p>A função <em>+ioBegin</em> coleta informações sobre o dispositivo e gera uma <em>caixa preta</em>. Esta <em>caixa preta</em> deverá ser enviada através do campo <em>CustomerData.BrowserFingerPrint</em> em conjunto com os outros dados para análise.</p>
+<p>A função <em>+ioBegin</em> coleta informações sobre o dispositivo e gera uma <em>caixa preta</em>. Esta <em>caixa preta</em> deverá ser enviada através do campo <em>Customer.BrowserFingerPrint</em> em conjunto com os outros dados para análise.</p>
 
 <ul>
   <li>Sintaxe</li>
@@ -5488,7 +5488,7 @@ Se as permissões listadas não são necessárias pelo aplicativo, os valores ob
   <li>Usando a função ioBegin</li>
 </ul>
 
-<p>A função <em>ioBegin</em> coleta informações sobre o dispositivo e gera uma <em>caixa preta</em>. Esta <em>caixa preta</em> deverá ser enviada através do campo <em>CustomerData.BrowserFingerPrint</em> em conjunto com os outros dados para análise.</p>
+<p>A função <em>ioBegin</em> coleta informações sobre o dispositivo e gera uma <em>caixa preta</em>. Esta <em>caixa preta</em> deverá ser enviada através do campo <em>Customer.BrowserFingerPrint</em> em conjunto com os outros dados para análise.</p>
 
 <ul>
   <li>Sintaxe</li>
@@ -5514,17 +5514,17 @@ Se as permissões listadas não são necessárias pelo aplicativo, os valores ob
   <p>string que contem a <em>caixa preta</em></p>
 </blockquote>
 
-<p><strong>IMPORTANTE!</strong>
+<p><strong>IMPORTANTE</strong>
 A <em>caixa preta</em> que retornou de <em>ioBegin</em> nunca deve estar vazio. Uma <em>caixa preta</em> vazia indica que contem apenas <em>0500</em> indica que a proteção oferecida pelo sistema pode ter sido comprometida.</p>
 
-<p><strong>IMPORTANTE!</strong>
+<p><strong>IMPORTANTE</strong>
 O arquivo <em>device-lib-1.2.0.aar</em> deverá ser empacotado com o aplicativo.</p>
 
 <ul>
   <li>Compilando o aplicativo de exemplo no Android Studio</li>
 </ul>
 
-<p><strong>IMPORTANTE!</strong>
+<p><strong>IMPORTANTE</strong>
 Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Project Structure</em> e abra o painel <em>Modules</em>. A partir disso, defina na lista a versão do Android SDK.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/af/exemplocodigo2.png" alt="Exemplo Código" /></p>
@@ -5536,9 +5536,9 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 
 <h2 id="cybersource">Cybersource</h2>
 
-<p>Será necessário adicionar duas tags, a <em>script</em> dentro da tag <em>head</em> para uma performance correta e a <em>noscript</em> dentro da tag <em>body</em>, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.</p>
+<p>Será necessário adicionar duas tags, a <strong>&lt;script&gt;</strong> dentro da tag <strong>&lt;head&gt;</strong> para uma performance correta e a <strong>&lt;noscript&gt;</strong> dentro da tag <strong>&lt;body&gt;</strong>, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.</p>
 
-<p><strong>IMPORTANTE!</strong></p>
+<p><strong>IMPORTANTE</strong></p>
 
 <p>Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.</p>
 
@@ -5583,7 +5583,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ProviderIdentifier</code></td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo <code class="highlighter-rouge">Customer.BrowserFingerprint</code> que será enviado na requisição da análise. <br /> O resultado da concatenação entre o campo <code class="highlighter-rouge">ProviderMerchantId</code> e este, deve ser atribuído ao campo <code class="highlighter-rouge">session_id</code> do(s) script(s) que serão incluídos na página de checkout. <br /> Exemplo: <br /> <code class="highlighter-rouge">ProviderMerchantId</code> = braspag <br /> <code class="highlighter-rouge">ProviderIdentifier</code> = 123456789 <br /> Resultado = braspag123456789 <br /><br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo <code class="highlighter-rouge">Customer.BrowserFingerprint</code> que será enviado na requisição da análise. <br /> O resultado da concatenação entre o campo <code class="highlighter-rouge">ProviderMerchantId</code> e este, deve ser atribuído ao campo <code class="highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Exemplo: <br /> <code class="highlighter-rouge">ProviderMerchantId</code> = braspag <br /> <code class="highlighter-rouge">ProviderIdentifier</code> = 123456789 <br /> Resultado = braspag123456789 <br /><br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
     </tr>
   </tbody>
 </table>
@@ -5594,14 +5594,14 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 
 <p><img src="https://braspag.github.io//images/braspag/af/exemploscriptdfp.png" alt="Exemplo Código" /></p>
 
-<p><strong>IMPORTANTE!</strong>
+<p><strong>IMPORTANTE</strong>
 Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</p>
 
 <p><strong>Configurando seu Servidor Web</strong></p>
 
 <p>Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.</p>
 
-<p><strong>IMPORTANTE!</strong>
+<p><strong>IMPORTANTE</strong>
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</p>
 
 <h2 id="integração-em-aplicativos-mobile-1">Integração em aplicativos mobile</h2>
@@ -6016,7 +6016,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
@@ -6050,7 +6050,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
@@ -6084,7 +6084,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
@@ -6118,7 +6118,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
@@ -6152,7 +6152,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
@@ -6186,7 +6186,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Não irão afetar o score da análise de fraude</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
@@ -6279,7 +6279,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     </tr>
     <tr>
       <td style="text-align: left">Unfinished</td>
-      <td style="text-align: left">Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br /> Uma transação analisada na Cybersource, no response da análise o campo <code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code> for igual a <strong>REJECT</strong> e o campo <code class="highlighter-rouge">ProviderAnalysisResult.ProviderCode</code> diferente de <strong>481</strong>, o status da transação será <strong>Unfineshed</strong></td>
+      <td style="text-align: left">Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br /> Uma transação analisada na Cybersource, no response da análise o campo <code class="highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code> for igual a <strong>REJECT</strong> e o campo <code class="highlighter-rouge">ProviderAnalysisResult.ProviderCode</code> diferente de <strong>481</strong>, o status da transação será <strong>Unfinished</strong></td>
       <td style="text-align: left">ReDShield, Cybersource</td>
     </tr>
     <tr>
