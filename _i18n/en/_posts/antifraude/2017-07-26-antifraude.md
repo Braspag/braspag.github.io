@@ -1514,11 +1514,6 @@ This session describes the Notification POST service, which sends a notification
 
 This session describes how to link a transaction from the Pagador Braspag to a transaction of the Antifraud Gateway Braspag.
 
-> Você deverá realizar esta chamada quando estiver utilizando o fluxo abaixo: <br/>
-> 1 - Realiza análise através do Antifraude Gateway Braspag <br/>
-> 2 - Realiza a autorização através do Pagador <br/>
-> 3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag
-
 > You should make this call when using the flow below: <br/>
 > 1 - Send analyzes through the Antifraud Gateway Braspag <br/>
 > 2 - Performs the authorization through the Pagador Braspag <br/>
