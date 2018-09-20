@@ -1730,7 +1730,7 @@ This section describes how to change the status of transactions in review to acc
 
 # Configuração do Fingerprint
 
-Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
+Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles
 
 ## ReDShield
 
