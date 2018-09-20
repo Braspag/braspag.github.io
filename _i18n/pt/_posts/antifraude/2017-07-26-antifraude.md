@@ -2267,7 +2267,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |MM-IPEM|O endereço de e-mail do comprador não é consistente com o endereço IP|Cybersource|
 |RISK-EM|O domínio do e-mail do comprador (por exemplo, mail.example.com) está associado com alto risco|Cybersource|
 |UNV-NID|O endereço IP do comprador é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP|Cybersource|
-|UNV-RI400SK|O endereço IP é de origem de risco|Cybersource|
+|UNV-RISK|O endereço IP é de origem de risco|Cybersource|
 |UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|Cybersource|
 
 ## Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode
