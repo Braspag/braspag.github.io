@@ -6037,7 +6037,7 @@ Formato de `EphemeralPublicKey` que devem ser repassados ao Pagador API
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "453211******1521",
-            "Holder": "Leonardo Romano",
+            "Holder": "BJORN IRONSIDE",
             "ExpirationDate": "08/2020",
             "SaveCard": false,
             "Brand": "Visa"
@@ -6048,11 +6048,11 @@ Formato de `EphemeralPublicKey` que devem ser repassados ao Pagador API
         "Wallet": {
             "Type": "TIPO DE WALLET",
             "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
-            "Eci": 0
+            "Eci": 0,
             "AdditionalData": {
                 "EphemeralPublicKey": "TOKEN INFORMADO PELA WALLET"
-                              },                
-                 },
+            },                
+        },
         "SoftDescriptor": "123456789ABCD",
         "Amount": 100,
         "ReceivedDate": "2018-03-19 16:08:16",
@@ -6223,7 +6223,7 @@ Exemplo de Requisição padrão *Apple Pay*
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "453211******1521",
-            "Holder": "Leonardo Romano",
+            "Holder": "BJORN IRONSIDE",
             "ExpirationDate": "08/2020",
             "SaveCard": false,
             "Brand": "Visa"
@@ -6234,11 +6234,11 @@ Exemplo de Requisição padrão *Apple Pay*
         "Wallet": {
             "Type": "ApplePay",
             "WalletKey": "9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+sRXTDtqLOJQAprs0MNTkPzF95nXGKCCnPV2mfR7z8FHcP7AGqO7aTLBGJLgxFOnRKaFnYlY2E9uTPBbB5JjZywlLIWsPKur5G4m1/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc",
-            "Eci": 0
+            "Eci": 0,
             "AdditionalData": {
                 "EphemeralPublicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ=="
-                              },                
-                 },
+            },                
+        },
         "SoftDescriptor": "123456789ABCD",
         "Amount": 100,
         "ReceivedDate": "2018-03-19 16:08:16",
@@ -6351,7 +6351,7 @@ Exemplo de Requisição padrão *Samsung Pay*
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "453211******1521",
-            "Holder": "Leonardo Romano",
+            "Holder": "BJORN IRONSIDE",
             "ExpirationDate": "08/2020",
             "SaveCard": false,
             "Brand": "Visa"
@@ -6363,7 +6363,7 @@ Exemplo de Requisição padrão *Samsung Pay*
             "Type": "SamsungPay",
             "WalletKey": "eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-LldMArSoG59x6i0BbI7jttqxyAdcriSy8q_77VAp3854P9kekjj54RKLrP6APDIr46DI97kjG9E99ONXImnEyamHj95ZH_AW8lvkfa09KAr4537RM8GEXyZoys2vfIW8zqjjicZ8EKIpAixNlmrFJu6-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ",
             "Eci": 0
-                 },
+        },
         "SoftDescriptor": "123456789ABCD",
         "Amount": 100,
         "ReceivedDate": "2018-03-19 16:08:16",
@@ -6424,9 +6424,9 @@ Exemplo de Requisição padrão *Android Pay*
 {
   "MerchantOrderId":"6242-642-723",
   "Customer":{
-     "Name":"Exemplo Wallet Padrão",
-     "Identity":"11225468954",
-      "IdentityType":"CPF"
+    "Name":"Exemplo Wallet Padrão",
+    "Identity":"11225468954",
+    "IdentityType":"CPF"
   },
   "Payment":{
      "Type":"CreditCard",
@@ -6478,7 +6478,7 @@ Exemplo de Requisição padrão *Android Pay*
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "453211******1521",
-            "Holder": "Leonardo Romano",
+            "Holder": "BJORN IRONSIDE",
             "ExpirationDate": "08/2020",
             "SaveCard": false,
             "Brand": "Visa"
@@ -6489,10 +6489,11 @@ Exemplo de Requisição padrão *Android Pay*
         "Wallet": {
             "Type": "AndroidPay",
             "WalletKey": "En6NrAzy/V9l7U9FukJTlOkXLx8lsHJ9Lp3aO16WbZuXX+dHI6fy3G8PES5Leu63x+ZSAKQTQxJC/+hFCU3N3Vzl2Eo0bhQDv9pZwU9oghS1rx0QlqNPslspQ8ufTqfDDg2IlsVh7ANh8BXC1pi4YzhUXhAB5J2xSu7ivJwWL4/9FVJ2u0mZIK6QHtuGJXdvol54HtNn9Cik9IA7xeh/gutJ/z9K8rVk1KrCBSSTE1cgxbUbpBp535IXsP//okqXIf7qlTi/sUkfIjXVWLPVP/JPcm+MHE0s/37aVyprz0xfkJjHkUExsJ2h1v7LU5nnK7uYmyUdEI42wUuzfGkwvjvfS3xllxGwqy3Of4ts5mkPLNXdLnPNGvP8RE4uYyrQM4hXdie3tTPgW6FK5ExDsKyw8Qm0ikvbb4Clo9JvALTjqJkr1VkT20UITdetra/8JUWOX/PbcxDYv2oOPLG9hDumRExuifi04cNtwzFvyFVBnV1SO3GKp+k/gGNDs7EziHNjToEq7JOWoaAlhNEUu2nxQxNiDEaRckgYd5A",
-            "Eci": 0
-            "AdditionalData":{
+            "Eci": 0,
+            "AdditionalData": {
                 "EphemeralPublicKey":"BG9mGFe2/kSo6PJDEoO5bRXRS4RKQ4b3jikXio0FUhZPqQe5f6SMlZQI3sfyiKteM0PRSeNDnQQ10XYeobN9avM="
-                 },
+            }
+        },
         "SoftDescriptor": "123456789ABCD",
         "Amount": 100,
         "ReceivedDate": "2018-03-19 16:08:16",
@@ -6707,7 +6708,7 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
 {
   "MerchantOrderId": "2014111708",
   "Customer": {
-    "Name": "comprador VisaCheckout"
+    "Name": "Comprador VisaCheckout"
   },
   "Payment": {
     "ServiceTaxAmount": 0,
@@ -7224,17 +7225,17 @@ Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do 
     {  
         "Name":"Nome do Comprador",
         "Identity":"12345678909",
-    "IdentityType":"CPF",
-    "Address":{  
-       "Street":"Alameda Xingu",
-       "Number":"512",
-       "Complement":"27 andar",
-       "ZipCode":"12345987",
-       "City":"São Paulo",
-       "State":"SP",
-       "Country":"BRA",
-       "District":"Alphaville"
-     }
+        "IdentityType":"CPF",
+        "Address":{  
+            "Street":"Alameda Xingu",
+            "Number":"512",
+            "Complement":"27 andar",
+            "ZipCode":"12345987",
+            "City":"São Paulo",
+            "State":"SP",
+            "Country":"BRA",
+            "District":"Alphaville"
+        }
     },
     "Payment":
     {  
@@ -7250,7 +7251,7 @@ Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do 
      "DaysToFine": 1,
      "FineRate": 10.00000,
      "FineAmount": 1000,
-     "DaysToInterest":1,
+     "DaysToInterest": 1,
      "InterestRate": 5.00000,
      "InterestAmount": 500
     }
@@ -7271,23 +7272,23 @@ curl
     {  
         "Name":"Nome do Comprador",
         "Identity":"12345678909",
-    "IdentityType":"CPF",
-    "Address":{
-        "Street":"Alameda Xingu",
-        "Number":"512",
-        "Complement":"27 andar",
-        "ZipCode":"12345987",
-        "City":"São Paulo",
-        "State":"SP",
-        "Country":"BRA",
-        "District":"Alphaville"
-     }
+        "IdentityType":"CPF",
+        "Address":{
+            "Street":"Alameda Xingu",
+            "Number":"512",
+            "Complement":"27 andar",
+            "ZipCode":"12345987",
+            "City":"São Paulo",
+            "State":"SP",
+            "Country":"BRA",
+            "District":"Alphaville"
+        }
     },
     "Payment":
     {  
      "Provider":"Simulado",
      "Type":"Boleto",
-     "Amount":10000,
+     "Amount": 10000,
      "BoletoNumber":"2017091101",
      "Assignor": "Empresa Teste",
      "Demonstrative": "Desmonstrative Teste",
@@ -7297,7 +7298,7 @@ curl
      "DaysToFine": 1,
      "FineRate": 10.00000,
      "FineAmount": 1000,
-     "DaysToInterest":1,
+     "DaysToInterest": 1,
      "InterestRate": 5.00000,
      "InterestAmount": 500
     }
@@ -7501,10 +7502,10 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
         "Type": "Boleto",
         "Provider": "BancoDoBrasil2",
         "Credentials": {
-            "agency": "1234-1",
-            "account": "5678-2",
-            "code": "1234567",
-            "agreement": "123456"
+            "Agency": "1234-1",
+            "Account": "5678-2",
+            "Code": "1234567",
+            "Agreement": "123456"
 
         }
     }
@@ -7526,11 +7527,10 @@ curl
         "Type": "Boleto",
         "Provider": "BancoDoBrasil2",
         "Credentials": {
-            "agency": "1234-1",
-            "account": "5678-2",
-            "code": "1234567",
-            "agreement": "123456"
-
+            "Agency": "1234-1",
+            "Account": "5678-2",
+            "Code": "1234567",
+            "Agreement": "123456"
         }
     }
 }
@@ -7560,13 +7560,13 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
         "Type": "Boleto",
         "Provider": "Bradesco2",
         "Credentials": {
-            "agency": "1234",
-            "account": "123456-7",
-            "wallet": "26",
-            "code": "100001234",
-            "signature": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M",
-            "username": "consultasondaboleto@nomefantasia.com.br",
-            "password": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M"
+            "Agency": "1234",
+            "Account": "123456-7",
+            "Wallet": "26",
+            "Code": "100001234",
+            "Signature": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M",
+            "Username": "consultasondaboleto@nomefantasia.com.br",
+            "Password": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M"
         }
     }
 }
@@ -7587,13 +7587,13 @@ curl
         "Type": "Boleto",
         "Provider": "Bradesco2",
         "Credentials": {
-            "agency": "1234",
-            "account": "123456-7",
-            "wallet": "26",
-            "code": "100001234",
-            "signature": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M",
-            "username": "consultasondaboleto@nomefantasia.com.br",
-            "password": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M"
+            "Agency": "1234",
+            "Account": "123456-7",
+            "Wallet": "26",
+            "Code": "100001234",
+            "Signature": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M",
+            "Username": "consultasondaboleto@nomefantasia.com.br",
+            "Password": "asdasd7325fgh-vUrPa9d8a7sdas7sdf8sdfiV0Z-_y_M"
         }
     }
 }
@@ -7626,11 +7626,11 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
         "Type": "Boleto",
         "Provider": "Caixa2",
         "Credentials": {
-            "agency": "1234",
-            "account": "123-0",
-            "wallet": "003",
-            "code": "123456",
-            "agreement": "123456"
+            "Agency": "1234",
+            "Account": "123-0",
+            "Wallet": "003",
+            "Code": "123456",
+            "Agreement": "123456"
         }
     }
 }
@@ -7651,11 +7651,11 @@ curl
         "Type": "Boleto",
         "Provider": "Caixa2",
         "Credentials": {
-            "agency": "1234",
-            "account": "123-0",
-            "wallet": "003",
-            "code": "123456",
-            "agreement": "123456"
+            "Agency": "1234",
+            "Account": "123-0",
+            "Wallet": "003",
+            "Code": "123456",
+            "Agreement": "123456"
         }
     }
 }
@@ -7686,11 +7686,11 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
         "Type": "Boleto",
         "Provider": "Citibank2",
         "Credentials": {
-            "agency": "1234",
-            "account": "0012345678",
-            "wallet": "181",
-            "code": "01234005678000250181",
-            "agreement": "01234000567800250181"
+            "Agency": "1234",
+            "Account": "0012345678",
+            "Wallet": "181",
+            "Code": "01234005678000250181",
+            "Agreement": "01234000567800250181"
         }
     }
 }
@@ -7711,11 +7711,11 @@ curl
         "Type": "Boleto",
         "Provider": "Citibank2",
         "Credentials": {
-            "agency": "1234",
-            "account": "0012345678",
-            "wallet": "181",
-            "code": "01234005678000250181",
-            "agreement": "01234000567800250181"
+            "Agency": "1234",
+            "Account": "0012345678",
+            "Wallet": "181",
+            "Code": "01234005678000250181",
+            "Agreement": "01234000567800250181"
         }
     }
 }
@@ -7746,12 +7746,12 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
         "Type": "Boleto",
         "Provider": "Santander2",
         "Credentials": {
-            "agency": "3689",
-            "account": "130064491",
-            "wallet": "CNR",
-            "code": "68910064493",
-            "agreement": "7673728",
-            "transfererCode": "P67J"
+            "Agency": "3689",
+            "Account": "130064491",
+            "Wallet": "CNR",
+            "Code": "68910064493",
+            "Agreement": "7673728",
+            "TransfererCode": "P67J"
         }
     }
 }
@@ -7772,12 +7772,12 @@ curl
         "Type": "Boleto",
         "Provider": "Santander2",
         "Credentials": {
-            "agency": "3689",
-            "account": "130064491",
-            "wallet": "CNR",
-            "code": "68910064493",
-            "agreement": "7673728",
-            "transfererCode": "P67J"
+            "Agency": "3689",
+            "Account": "130064491",
+            "Wallet": "CNR",
+            "Code": "68910064493",
+            "Agreement": "7673728",
+            "TransfererCode": "P67J"
         }
     }
 }
@@ -7809,13 +7809,13 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
         "Type": "Boleto",
         "Provider": "Itau2",
         "Credentials": {
-            "agency": "1234",
-            "account": "12315-5",
-            "wallet": "109",
-            "code": "00223046000123",
-            "signature": "12345678-1234-1234-1234-123412341234",
-            "username": "QPP7dwvLqKD57",
-            "password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
+            "Agency": "1234",
+            "Account": "12315-5",
+            "Wallet": "109",
+            "Code": "00223046000123",
+            "Signature": "12345678-1234-1234-1234-123412341234",
+            "Username": "QPP7dwvLqKD57",
+            "Password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
         }
     }
 }
@@ -7836,13 +7836,13 @@ curl
         "Type": "Boleto",
         "Provider": "Itau2",
         "Credentials": {
-            "agency": "1234",
-            "account": "12315-5",
-            "wallet": "109",
-            "code": "00223046000123",
-            "signature": "12345678-1234-1234-1234-123412341234",
-            "username": "QPP7dwvLqKD57",
-            "password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
+            "Agency": "1234",
+            "Account": "12315-5",
+            "Wallet": "109",
+            "Code": "00223046000123",
+            "Signature": "12345678-1234-1234-1234-123412341234",
+            "Username": "QPP7dwvLqKD57",
+            "Password": "70_5EKD4nNrVyAw2OGsrMwv3aiEZ4At6xAqXW0BWkylx7hbxn5f6rhQABosi9sHjGsymWXwHyDAlOdIJTSqt_v7"
         }
     }
 }
@@ -7875,10 +7875,10 @@ Nesta modalidade, além de enviar as informações do comprador (nome completo, 
         "Type": "Boleto",
         "Provider": "ItauShopline",
         "Credentials": {
-            "agency": "1234",
-            "account": "12315-5",
-            "code": "J0557282240001060000017945",
-            "signature": "1nomedaloja01091952"
+            "Agency": "1234",
+            "Account": "12315-5",
+            "Code": "J0557282240001060000017945",
+            "Signature": "1nomedaloja01091952"
         }
     }
 }
@@ -7899,10 +7899,10 @@ curl
         "Type": "Boleto",
         "Provider": "ItauShopline",
         "Credentials": {
-            "agency": "1234",
-            "account": "12315-5",
-            "code": "J0557282240001060000017945",
-            "signature": "1nomedaloja01091952"
+            "Agency": "1234",
+            "Account": "12315-5",
+            "Code": "J0557282240001060000017945",
+            "Signature": "1nomedaloja01091952"
         }
     }
 }
@@ -7931,28 +7931,28 @@ Neste exemplo, uma transação é submetida para autorização, e quando aprovad
 
 ```json
 {
-   "MerchantOrderId":"2017051113",
-   "Customer":{
-      "Name":"Nome do Cliente"
-   },
-   "Payment":{
-     "Provider":"Simulado",
-     "Type":"CreditCard",
-     "Amount":10000,
-     "Installments":1,
-     "CreditCard":{
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-     },
-     "RecurrentPayment":{
-       "AuthorizeNow":"true",
-       "EndDate":"2019-12-31",
-       "Interval":"Monthly"
-     }
-   }
+    "MerchantOrderId":"2017051113",
+    "Customer":{
+        "Name":"Nome do Cliente"
+    },
+    "Payment": {
+        "Provider":"Simulado",
+        "Type":"CreditCard",
+        "Amount": 10000,
+        "Installments": 1,
+        "CreditCard": {
+            "CardNumber":"4551870000000181",
+            "Holder":"Nome do Portador",
+            "ExpirationDate":"12/2021",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+        },
+        "RecurrentPayment": {
+            "AuthorizeNow":"true",
+            "EndDate":"2019-12-31",
+            "Interval":"Monthly"
+        }
+    }
 }
 ```
 
