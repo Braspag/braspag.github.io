@@ -1794,7 +1794,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.BrowserFingerprint</code></td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="highlighter-rouge">session_id</code> do(s) script(s) que ser(ão) incluído(s) na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br /> <a href="https://braspag.github.io//manual/antifraude#cybersource">Configuração do Fingerprint</a></td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br /> <a href="https://braspag.github.io//manual/antifraude#cybersource">Configuração do Fingerprint</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">100</td>
@@ -4717,11 +4717,11 @@
 
 <h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>Esta sessão descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de status na transação de revisão para aceita/rejeita.</p>
+<p>Esta sessão descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de status na transação de revisão para aceita/rejeita ou aceita para rejeita.</p>
 
 <ul>
   <li>
-    <p>No processo de onboarding da sua loja, é necessário solicitar ao Time de Implementação o cadastramento da URL de mudança de status da sua loja.</p>
+    <p>No processo de onboarding da sua loja, é necessário solicitar ao Time de Implementação da Braspag o cadastramento da URL de mudança de status da sua loja.</p>
   </li>
   <li>
     <p>Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada para receber a notificação da mudança de status, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja. Caso contrário, serão realizadas mais 3 tentativas de envio.</p>
@@ -4730,7 +4730,7 @@
     <p>A URL de mudança de status somente pode utilizar a porta 80 (padrão para http) ou a porta 443 (padrão para https). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.</p>
   </li>
   <li>
-    <p>Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://{antifraude endpoint}/analysis/v2/{Id}, enviando o Id da transação que foi recebido na notficação da mudança de status.</p>
+    <p>Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://{antifraude endpoint}/analysis/v2/{Id}, enviando o Id da transação que foi recebido na notficação da mudança de status para obter o novo status da transação.</p>
   </li>
 </ul>
 
