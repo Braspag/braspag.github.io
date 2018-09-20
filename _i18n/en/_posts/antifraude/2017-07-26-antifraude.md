@@ -1735,7 +1735,7 @@ This session describes how it works and how to set up the fingerprint on your ch
 
 ![Fluxo]({{ site.baseurl_root }}/images/braspag/af/fingerprint.png)
 
-1 - The merchant checkout page sends the attributes of the customer's device to Iovation, thus creating the *blackbox* 2 - The merchant receives the encrypted Iovation string and writes the same on the checkout page in a field of type *hidden* 3 - The merchant sends to Braspag, along with the other data of the transaction to be analyzed, the *blackbox* 4 - Braspag receives all the data, validated and sends to ReDShield <br/> 5 - ReDShield receives all data, sends the *blackbox* to Iovation to decrypt <br/> 6 - RedShield receives from Iovation the attributes of the customer's device
+1 - The merchant checkout page sends the attributes of the customer's device to Iovation, thus creating the *blackbox* <br/> 2 - The merchant receives the encrypted Iovation string and writes the same on the checkout page in a field of type *hidden* <br/> 3 - The merchant sends to Braspag, along with the other data of the transaction to be analyzed, the *blackbox* <br/> 4 - Braspag receives all the data, validated and sends to ReDShield <br/> 5 - ReDShield receives all data, sends the *blackbox* to Iovation to decrypt <br/> 6 - RedShield receives from Iovation the attributes of the customer's device
 
 #### How to configure?
 
@@ -1962,50 +1962,50 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|SameDay|Meio de entrega no mesmo dia|ReDShield, Cybersource|
-|NextDay|Meio de entrega no próximo dia|ReDShield, Cybersource|
-|TwoDay|Meio de entrega em dois dias|ReDShield, Cybersource|
-|ThreeDay|Meio de entrega em três dias|ReDShield, Cybersource|
-|LowCost|Meio de entrega de baixo custo|ReDShield, Cybersource|
-|Pickup|Retirada na loja|ReDShield, Cybersource|
-|CarrierDesignatedByCustomer|Meio de entrega designada pelo comprador|ReDShield|
-|International|Meio de entrega internacional|ReDShield|
-|Military|Meio de entrega militar|ReDShield|
-|Other|Outro meio de entrega|ReDShield, Cybersource|
-|None|Sem meio de entrega, pois é um serviço ou assinatura|ReDShield, Cybersource|
+|SameDay|Same day delivery|ReDShield, Cybersource|
+|NextDay|Next day delivery|ReDShield, Cybersource|
+|TwoDay|Two-day delivery|ReDShield, Cybersource|
+|ThreeDay|Three day delivery|ReDShield, Cybersource|
+|LowCost|Low cost delivery|ReDShield, Cybersource|
+|Pickup|Store pickup|ReDShield, Cybersource|
+|CarrierDesignatedByCustomer|Customer designated delivery|ReDShield|
+|International|International delivery|ReDShield|
+|Military|Military delivery|ReDShield|
+|Other|Other delivery method|ReDShield, Cybersource|
+|None|No delivery, as it is a service or subscription|ReDShield, Cybersource| 
 
 ## Table 6 - Customer.Gender
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Male|Masculino|ReDShield|
-|Female|Feminino|ReDShield|
+|Male|Male|ReDShield|
+|Female|Female|ReDShield|
 
 ## Table 7 - Customer.Status
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|New|Identifica quando o comprador é novo na loja, nunca fez uma compra|ReDShield|
-|Existing|Identifica quando o comprador é existente na loja, já realizou uma compra|ReDShield|
+|New|Identifies when the customer is new to the merchant, never made a purchase|ReDShield|
+|Existing|Identifies when the customer exists in the merchant, has already made a purchase|ReDShield|
 
 ## Table 8 - Airline.JourneyType
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|OneWayTrip|Viagem somente de ida|Cybersource|
-|RoundTrip|Viagem de ida e volta|Cybersource|
+|OneWayTrip|One way trip|Cybersource|
+|RoundTrip|Round trip|Cybersource|
 
 ## Table 9 - Airline.Passengers[n].PassengerType
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Adult|Adulto|ReDShield, Cybersource|
-|Child|Criança|ReDShield, Cybersource|
-|Infant|Infantil|ReDShield, Cybersource|
-|Youth|Adolescente|ReDShield|
-|Student|Estudante|ReDShield|
-|SeniorCitizen|Idoso|ReDShield|
-|Military|Militar|ReDShield|
+|Adult|Adult|ReDShield, Cybersource|
+|Child|Child|ReDShield, Cybersource|
+|Infant|Infant|ReDShield, Cybersource|
+|Youth|Youth|ReDShield|
+|Student|Student|ReDShield|
+|SeniorCitizen|Senior|ReDShield|
+|Military|Military|ReDShield|
 
 ## Table 10 - Airline.Passengers[n].Status
 
@@ -2019,9 +2019,9 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Low|Produto associado com pouco chargebacks (default)|Cybersource|
-|Normal|Produto associado com a quantidade normal de chargebacks|Cybersource|
-|High|Produto associado com muito chargebacks|Cybersource|
+|Low|Product associated with few chargebacks (default)|Cybersource|
+|Normal|Product associated with the normal quantity of chargebacks|Cybersource|
+|High|Product associated with many chargebacks|Cybersource|
 
 ## Table 12 - CartItem[n].AddressRiskVerify
 
@@ -2031,227 +2031,231 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 |No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|Cybersource|
 |Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|Cybersource|
 
+|Yes|In case of divergence between billing and shipping addresses, it assigns low risk to the request|Cybersource|
+|No|In case of divergence between billing and shipping addresses, it assigns high risk to the request (default)|Cybersource|
+|Off|Differences between billing and shipping addresses do not affect punctuation|Cybersource|
+
 ## Table 13 - CartItem[n].HostHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Low|Baixa|Cybersource|
+|Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|High|High|Cybersource|
+|Off|Will not affect fraud scoring score|Cybersource|
 
 ## Table 14 - CartItem[n].NonSensicalHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Low|Baixa|Cybersource|
+|Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|High|High|Cybersource|
+|Off|Will not affect fraud scoring score|Cybersource|
 
 ## Table 15 - CartItem[n].ObscenitiesHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Low|Baixa|Cybersource|
+|Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|High|High|Cybersource|
+|Off|Will not affect fraud scoring score|Cybersource|
 
 ## Table 16 - CartItem[n].TimeHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Low|Baixa|Cybersource|
+|Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|High|High|Cybersource|
+|Off|Will not affect fraud scoring score|Cybersource|
 
 ## Table 17 - CartItem[n].PhoneHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Low|Baixa|Cybersource|
+|Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|High|High|Cybersource|
+|Off|Will not affect fraud scoring score|Cybersource|
 
 ## Table 18 - CartItem[n].VelocityHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Low|Baixa|Cybersource|
+|Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
-|High|Alta|Cybersource|
-|Off|Não irão afetar o score da análise de fraude|Cybersource|
+|High|High|Cybersource|
+|Off|Will not affect fraud scoring score|Cybersource|
 
 ## Table 19 - Invoice.Tender
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Consumer|Cartão de crédito pessoal (default)|Cybersource|
-|Corporate|Cartão de crédito corporativo|Cybersource|
-|Debit|Cartão de débito|Cybersource|
-|CollectDelivery|Cobrança na entrega|Cybersource|
-|EletronicCheck|Cheque eletrônico|Cybersource|
-|PaymentP2P|Pagamento de pessoa para pessoa|Cybersource|
-|PrivateLabel|Pagamento com cartão de crédito privado|Cybersource|
-|Other|Pagamentos com outros métodos|Cybersource|
+|Consumer|Personal credit card (default)|Cybersource|
+|Corporate|Corporate credit card|Cybersource|
+|Debit|Debit card|Cybersource|
+|CollectDelivery|Delivery charges|Cybersource|
+|ElectronicCheck|Electronic check|Cybersource|
+|PaymentP2P|Payment from person to person|Cybersource|
+|PrivateLabel|Private credit card|Cybersource|
+|Other|Payments with other methods|Cybersource|
 
 ## Table 20 - Status
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Accept|Transação aceita após análise de fraude|ReDShield, Cybersource|
-|Review|Transação em revisão após análise de fraude|ReDShield, Cybersource|
-|Reject|Transação rejeitada após análise de fraude|ReDShield, Cybersource|
-|Pendent|Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource|Cybersource|
-|Unfinished|Transação não finalizada por algum motivo, de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource, no response da análise o campo `ProviderAnalysisResult.ProviderStatus` for igual a **REJECT** e o campo `ProviderAnalysisResult.ProviderCode` diferente de **481**, o status da transação será **Unfineshed**|ReDShield, Cybersource|
-|ProviderError|Transação com erro no provedor ao ser enviada para análise|ReDShield, Cybersource|
+|Accept|Transaction accepted after fraud analysis |ReDShield, Cybersource|
+|Review|Transaction review after fraud analysis|ReDShield, Cybersource|
+|Reject|Rejected Transaction after fraud analysis|ReDShield, Cybersource|
+|Pendent|Transaction pending, when sending the same for analysis of fraud occurred a timeout in the response between Braspag and Cybersource|
+|Unfinished|Transaction not finalized for some reason, contract validation or internal error <br/> A transaction analyzed in Cybersource, in the analysis response the `ProviderAnalysisResult.ProviderStatus` field is equal to **REJECT** and the `ProviderAnalysisResult.ProviderCode` other than **481**, the transaction status will be **Unfinished**|ReDShield, Cybersource|
+|ProviderError|Transaction with provider error while being submitted for analysis|ReDShield, Cybersource|
 
 ## Table 21 - ProviderStatus
 
-|Value|Description|Provider|De-Para com o campo `Status` (Status da transação no Antifraude Gateway Braspag)|
+|Value|Description|Provider|From-To with the `Status` field (Transaction status in Antifraud Gateway Braspag)|
 |:-|:-|:-|:-|
-|APPROVE|Transação aprovada no provedor|ReDShield|Accept|
-|ACCEPT|Transação aceita no provedor|ReDShield, Cybersource|Accept|
-|PEND|Transação em revisão no provedor|ReDShield|Review|
-|CHALLENGE|Transação em revisão no provedor|ReDShield|Review|
-|REVIEW|Transação em revisão no provedor|Cybersource|Review|
-|CANCEL|Transação rejeitada no provedor|ReDShield|Reject|
-|DENY|Transação rejeitada no provedor|ReDShield|Reject|
-|REJECT|Transação rejeitada no provedor|Cybesource|Reject|
-|ENETLP|Transação com erro no provedor|ReDShield|ProviderError|
-|ENORSP|Transação com erro no provedor|ReDShield|ProviderError|
-|ERROR|Transação com erro no provedor|ReDShield, Cybersource|ProviderError|
+|APPROVE|Approved transaction at provider|ReDShield|Accept|
+|ACCEPT|Accepted transaction at provider|ReDShield, Cybersource|Accept|
+|PEND|Transactio review at provider|ReDShield|Review|
+|CHALLENGE|Transaction review at provider|ReDShield|Review|
+|REVIEW|Transaction review at provider|Cybersource|Review|
+|CANCEL|Reject transaction at provider|ReDShield|Reject|
+|DENY|Rejected transaction at provider|ReDShield|Reject|
+|REJECT|Rejected transaction at provider|Cybesource|Reject|
+|ENETLP|Transaction with provider error|ReDShield|ProviderError|
+|ENORSP|Transaction with provider error|ReDShield|ProviderError|
+|ERROR|Transaction with provider error|ReDShield, Cybersource|ProviderError|
 
 ## Table 22 - ProviderAnalysisResult.ProviderCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|100|Operação realizada com sucesso|Cybersource|
-|101|A transação enviada para análise de fraude está faltando um ou mais campos necessários <br/> Verificar no response o campo `ProviderAnalysisResult.Missing` <br/> Possível ação: Reenviar a transação com a informação completa|Cybersource|
-|102|A transação enviada para análise de fraude possui um ou mais campos com valores inválidos <br/> Verificar no response o campo `ProviderAnalysisResult.Invalid` <br/> Possível ação: Reenviar a transação com as informações corretas|Cybersource|
-|150|Erro interno <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
-|151|A transação foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
-|152|O pedido foi recebido, mas ocorreu time-out <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
-|202|Transação recusada pois o cartão expirou ou a data de validade não coincide com a correta <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|Cybersource|
-|231|Transação recusada pois o cartão é inválido <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|Cybersource|
-|234|Problema com a configuração da loja na Cybersource <br/> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração|Cybersource|
-|400|A pontuação de fraude ultrapassa o seu limite <br> Possível ação: Reveja a transação do comprador|Cybersource|
-|480|A transação foi marcada como revisão pelo DM (Decision Manager)|Cybersource|
-|481|A transação foi rejeitada pelo DM (Decision Manager)|Cybersource|
+|100|Operation successful|Cybersource|
+|101|The transaction sent for fraud analysis is missing one or more required fields <br/> Check in the response the `ProviderAnalysisResult.Missing` field <br/> Possible action: Resend the transaction with the complete information|Cybersource|
+|102|The transaction sent for fraud analysis has one or more fields with invalid values <br/> Check in the response the `ProviderAnalysisResult.Invalid` field <br/> Possible action: Resend the transaction with the correct information|Cybersource|
+|150|Internal error <br/> Possible action: Wait a few minutes and try to resend the transaction|Cybersource|
+|151|The transaction was received, but time-out occurred on the server. This error does not include time-out between client and server <br/> Possible action: Wait a few minutes and try to resend the transaction|Cybersource|
+|152|The request was received, but has occurred time-out <br/> Possible action: Wait a few minutes and try to resend the transaction|Cybersource|
+|202|Transaction declined because card expired or expiration date does not match correct <br/> Possible action: Request another card or other payment method|Cybersource|
+|231|Transaction declined because card is invalid <br/> Possible action: Request another card or other payment method|Cybersource|
+|234|Trouble with store setup in Cybersource <br/> Possible action: Contact support to fix the configuration problem|Cybersource|
+|400|Fraud score exceeds your limit <br> Possible action: Review the customer transaction|Cybersource|
+|480|The transaction was marked as review by the DM (Decision Manager)|Cybersource|
+|481|The transaction was rejected by the DM (Decision Manager)|Cybersource|
 
 ## Table 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|COR-BA|O endereço de cobrança pode ser normalizado|Cybersource|
-|COR-SA|O endereço de entrega pode ser normalizado|Cybersource|
-|INTL-BA|O país do endereço de cobrança está fora dos EUA|Cybersource|
-|INTL-SA|O país do endereço de entrega está fora dos EUA|Cybersource|
-|MIL-USA|Endereço militar nos EUA|Cybersource|
-|MM-A|Os endereços de cobrança e entrega usam nomes de ruas diferentes|Cybersource|
-|MM-BIN|O BIN do cartão (os seis primeiros dígitos do número do cartão) não corresponde ao país|Cybersource|
-|MM-C|Os endereços de cobrança e entrega usam cidades diferentes|Cybersource|
-|MM-CO|Os endereços de cobrança e entrega usam países diferentes|Cybersource|
-|MM-ST|Os endereços de cobrança e entrega usam estados diferentes|Cybersource|
-|MM-Z|Os endereços de cobrança e entrega usam códidos postais diferentes|Cybersource|
-|UNV-ADDR|O endereço é inverificável|Cybersource|
+|COR-BA|The billing address has corrected elements or can be normalized|Cybersource|
+|COR-SA|The shipping address has corrected elements or can be normalized|Cybersource|
+|INTL-BA|The billing country is outside of the U.S.|Cybersource|
+|INTL-SA|The shipping country is outside of the U.S.|Cybersource|
+|MIL-USA|The address is a U.S. military address|Cybersource|
+|MM-A|The billing and shipping addresses use different street addresses|Cybersource|
+|MM-BIN|The card BIN (the first six digits of the number) does not match the country|Cybersource|
+|MM-C|The billing and shipping addresses use different cities|Cybersource|
+|MM-CO|The billing and shipping addresses use different countries|Cybersource|
+|MM-ST|The billing and shipping addresses use different states|Cybersource|
+|MM-Z|The billing and shipping addresses use different postal codes|Cybersource|
+|UNV-ADDR|The address is unverifiable|Cybersource|
 
 ## Table 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|A|Mudança de endereço excessiva. O comprador mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses|Cybersource|
-|B|BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão|Cybersource|
-|C|Elevado números de cartões de créditos. O comprador tem usado mais de seis números de cartões de créditos nos últimos seis meses|Cybersource|
-|D|Impacto do endereço de e-mail. O comprador usa um provedor de e-mail gratuito ou o endereço de email é arriscado|Cybersource|
-|E|Lista positiva. O comprador está na sua lista positiva|Cybersource|
-|F|Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa|Cybersource|
-|G|Inconsistências de geolocalização. O domínio do comprador de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito|Cybersource|
-|H|Excessivas mudanças de nome. O comprador mudou o nome duas ou mais vezes nos últimos seis meses|Cybersource|
-|I|Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança|Cybersource|
-|N|Entrada sem sentido. O nome do comprador e os campos de endereço contém palavras sem sentido ou idioma|Cybersource|
-|O|Obscenidades. Dados do comprador contém palavras obscenas|Cybersource|
-|P|Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefones estão ligados a um número de conta única|Cybersource|
-|Q|Inconsistências do telefone. O número de telefone do comprador é suspeito|Cybersource|
-|R|Ordem arriscada. A transação, o comprador e o lojista mostram informações correlacionadas de alto risco|Cybersource|
-|T|Cobertura Time. O comprador está a tentar uma compra fora do horário esperado|Cybersource|
-|U|Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado|Cybersource|
-|V|O cartão foi usado muitas vezes nos últimos 15 minutos|Cybersource|
-|W|Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito|Cybersource|
-|Y|O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam|Cybersource|
-|Z|Value inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias|Cybersource|
+|A|Excessive address change. The customer changed the billing address two or more times in the last six months|Cybersource|
+|B|Card BIN or authorization risk. Risk factors are related to credit card BIN and/or card authorization checks|Cybersource|
+|C|High number of account numbers. The customer used more than six credit cards numbers in the last six months|Cybersource|
+|D|Email address impact. The customer uses a free email provider, or the email address is risky|Cybersource|
+|E|Positive list. The customer is on your positive list|Cybersource|
+|F|Negative list. The account number, street address, email address, or IP address for this order appears on your negative list|Cybersource|
+|G|Geolocation inconsistencies. The customer’s email domain, phone number, billing address, shipping address, or IP address is suspicious|Cybersource|
+|H|Excessive name changes. The customer changed the name two or more times in the last six months|Cybersource|
+|I|Internet inconsistencies. The IP address and email domain are not consistent with the billing address|Cybersource|
+|N|Nonsensical input. The customer name and address fields contain meaningless words or language|Cybersource|
+|O|Obscenities. The customer’s input contains obscene words|Cybersource|
+|P|Identity morphing. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number|Cybersource|
+|Q|Phone inconsistencies. The customer’s phone number is suspicious|Cybersource|
+|R|Risky order. The transaction, customer, and merchant information show multiple high-risk correlations|Cybersource|
+|T|Time hedge. The customer is attempting a purchase outside of the expected hours|Cybersource|
+|U|Unverifiable address. The billing or shipping address cannot be verified|Cybersource|
+|V|Velocity. The account number was used many times in the past 15 minutes|Cybersource|
+|W|Marked as suspect. The billing or shipping address is similar to an address previously marked as suspect|Cybersource|
+|Y|Gift Order. The street address, city, state, or country of the billing and shipping addresses do not correlate|Cybersource|
+|Z|Invalid value. Because the request contains an unexpected value, a default value was substituted. Although the transaction can still be processed, examine the request carefully for abnormalities in the order|Cybersource|
 
 ## Table 25 - ProviderAnalysisResult.AfsReply.CardAccountType
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|CN|Cartão privado|Cybersource|
-|CP|Cartão corporativo|Cybersource|
+|CN|Private card|Cybersource|
+|CP|Corporate card|Cybersource|
 
 ## Table 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|CON-POSNEG|A ordem disparada bate tanto com a lista positiva e negativa. O resultado da lista positiva sobrescreve a lista negativa|Cybersource|
-|NEG-BA|O endereço de cobrança está na lista negativa|Cybersource|
-|NEG-BCO|O país do endereço de cobrança está na lista negativa|Cybersource|
-|NEG-BIN|O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista negativa|Cybersource|
-|NEG-BINCO|O país em que o cartão de crédito foi emitido está na lista negativa|Cybersource|
-|NEG-BZC|O Billing address zipcode está na lista negativa|Cybersource|
-|NEG-CC|O número de cartão de crédito está na lista negativa|Cybersource|
-|NEG-EM|O endereço de e-mail está na lista negativa|Cybersource|
-|NEG-EMCO|O país em que o endereço de e-mail está localizado na lista negativa|Cybersource|
-|NEG-EMDOM|O domínio de e-mail (por exemplo, mail.example.com) está na lista negativa|Cybersource|
+|CON-POSNEG|The order triggered both a positive and negative list match. The result of the positive list match overrides that of the negative list match|Cybersource|
+|NEG-BA|The billing address is on the negative list|Cybersource|
+|NEG-BCO|The billing country is on the negative list|Cybersource|
+|NEG-BIN|The credit card BIN (the first six digits of the number) is on the negative list|Cybersource|
+|NEG-BINCO|The country in which the credit card was issued is on the negative list|Cybersource|
+|NEG-BZC|The billing postal code is on the negative list|Cybersource|
+|NEG-CC|The credit card number is on the negative list|Cybersource|
+|NEG-EM|The email address is on the negative list|Cybersource|
+|NEG-EMCO|The country in which the email address is located is on the negative list|Cybersource|
+|NEG-EMDOM|The email domain (for example, mail.example.com) is on the negative list|Cybersource|
 |NEG-FP|O device fingerprint está na lista negativa|Cybersource|
-|NEG-HIST|A transação foi encontrada na lista negativa|Cybersource|
-|NEG-ID|Identificador do comprador (CPF ou CNPJ) está na lista negativa|Cybersource|
-|NEG-IP|O endereço IP (por exemplo, 10.1.27.63) está na lista negativa|Cybersource|
-|NEG-IP3|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista negativa. Um endereço de IP da rede inclui até 256 endereços IP|Cybersource|
-|NEG-IPCO|O país em que o endereço IP está localizado está na lista negativa|Cybersource|
-|NEG-PEM|O endereço de Passenger email está na lista negativa|Cybersource|
-|NEG-PH|O número do telefone está na lista negativa|Cybersource|
-|NEG-PID|Identificador do passageiro está na lista negativa|Cybersource|
-|NEG-PPH|O número do Passenger telephone number está na lista negativa|Cybersource|
-|NEG-SA|O endereço de entrega está na lista negativa|Cybersource|
-|NEG-SCO|O país do endereço de entrega está na lista negativa|Cybersource|
-|NEG-SZC|O Shipping address zipcode está na lista negativa|Cybersource|
-|POS-TEMP|O comprador está temporariamente na lista positiva|Cybersource|
-|POS-PERM|O comprador está permanente na lista positiva|Cybersource|
-|REV-BA|O endereço de cobrança esta na lista de revisão|Cybersource|
-|REV-BCO|O país do endereço de cobrança está na lista de revisão|Cybersource|
-|REV-BIN|O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista de revisão|Cybersource|
-|REV-BINCO|O país em que o cartão de crédito foi emitido está na lista de revisão|Cybersource|
-|REV-BZC|O Billing address zipcode está na lista de revisão|Cybersource|
-|REV-CC|O Credit card number está na lista de revisão|Cybersource|
-|REV-EM|O endereço de e-mail está na lista de revisão|Cybersource|
-|REV-EMCO|O país em que o endereço de e-mail está localizado está na lista de revisão|Cybersource|
-|REV-EMDOM|O domínio de e-mail (por exemplo, mail.example.com) está na lista de revisão|Cybersource|
+|NEG-HIST|A transaction was found on the negative list|Cybersource|
+|NEG-ID|The customer’s account ID is on the negative list|Cybersource|
+|NEG-IP|The IP address (for example, 10.1.27.63) is on the negative list|Cybersource|
+|NEG-IP3|The network IP address (for example, 10.1.27) is on the negative list. A network IP address includes up to 256 IP addresses|Cybersource|
+|NEG-IPCO|The country in which the IP address is located is on the negative list|Cybersource|
+|NEG-PEM|A passenger’s email address is on the negative list|Cybersource|
+|NEG-PH|The phone number is on the negative list|Cybersource|
+|NEG-PID|A passenger’s account ID is on the negative list|Cybersource|
+|NEG-PPH|A passenger’s phone number is on the negative list|Cybersource|
+|NEG-SA|The shipping address is on the negative list|Cybersource|
+|NEG-SCO|The shipping country is on the negative list|Cybersource|
+|NEG-SZC|The shipping postal code is on the negative list|Cybersource|
+|POS-TEMP|The customer is on the temporary positive list|Cybersource|
+|POS-PERM|The customer is on the permanent positive list|Cybersource|
+|REV-BA|The billing address is on the review list|Cybersource|
+|REV-BCO|The billing country is on the review list|Cybersource|
+|REV-BIN|The credit card BIN (the first six digits of the number) is on the review list|Cybersource|
+|REV-BINCO|The country in which the credit card was issued is on the review list|Cybersource|
+|REV-BZC|The billing postal code is on the review list|Cybersource|
+|REV-CC|The credit card number is on the review list|Cybersource|
+|REV-EM|The email address is on the review list|Cybersource|
+|REV-EMCO|The country in which the email address is located is on the review list|Cybersource|
+|REV-EMDOM|The email domain (for example, mail.example.com) is on the review list|Cybersource|
 |REV-FP|O device fingerprint está na lista de revisão|Cybersource|
-|REV-ID|Identificador do comprador (CPF ou CNPJ) está na lista de revisão|Cybersource|
-|REV-IP|O endereço IP (por exemplo, 10.1.27.63) está na lista de revisão|Cybersource|
-|REV-IP3|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista de revisão. Um endereço de IP da rede inclui até 256 endereços IP|Cybersource|
-|REV-IPCO|O país em que o endereço IP está localizado está na lista de revisão|Cybersource|
-|REV-PEM|O endereço de Passenger email está na lista de revisão|Cybersource|
-|REV-PH|O número do telefone está na lista de revisão|Cybersource|
-|REV-PID|Identificador do passageiro está na lista de revisão|Cybersource|
-|REV-PPH|O número do Passenger telephone number está na lista de revisão|Cybersource|
-|REV-SA|O endereço de entrega está na lista de revisão|Cybersource|
-|REV-SCO|O país do endereço de entrega está na lista de revisão|Cybersource|
-|REV-SZC|O Shipping address zipcode está na lista de revisão|Cybersource|
+|REV-ID|The customer’s document (CPF ou CNPJ) is on the review list|Cybersource|
+|REV-IP|The IP address (for example, 10.1.27.63) is on the review list|Cybersource|
+|REV-IP3|The network IP address (for example, 10.1.27) is on the review list. A network IP address includes up to 256 IP addresses|Cybersource|
+|REV-IPCO|The country in which the IP address is located is on the review list|Cybersource|
+|REV-PEM|A passenger’s email address is on the review list|Cybersource|
+|REV-PH|The phone number is on the review list|Cybersource|
+|REV-PID|A passenger’s account ID is on the review list|Cybersource|
+|REV-PPH|A passenger’s phone number is on the review list|Cybersource|
+|REV-SA|The shipping address is on the review list|Cybersource|
+|REV-SCO|The shipping country is on the review list|Cybersource|
+|REV-SZC|The shipping postal code is on the review list|Cybersource|
 
 ## Table 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|MORPH-B|O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
-|MORPH-C|O mesmo cartão de crédito tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
-|MORPH-E|O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
-|MORPH-I|O mesmo endereço IP tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
-|MORPH-P|O mesmo número de telefone tem sido usado várias vezes com identidades de múltiplos compradores|Cybersource|
-|MORPH-S|O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
+|MORPH-B|The same billing address has been used several times with multiple customer identities|Cybersource|
+|MORPH-C|The same card number has been used several times with multiple customer identities|Cybersource|
+|MORPH-E|The same email address has been used several times with multiple customer identities|Cybersource|
+|MORPH-I|The same IP address has been used several times with multiple customer identities|Cybersource|
+|MORPH-P|The same phone number has been used several times with multiple customer identities|Cybersource|
+|MORPH-S|The same shipping address has been used several times with multiple customer identities|Cybersource|
 
 ## Table 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode
 
