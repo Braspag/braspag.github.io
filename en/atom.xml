@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-09-21T17:37:53+00:00</updated>
+    <updated>2018-09-21T17:38:37+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -22713,7 +22713,7 @@ Add the Iovation Mobile SDK to your applications to collect information about cu
 &lt;h3 id=&quot;integrating-with-ios-apps&quot;&gt;Integrating with iOS apps&lt;/h3&gt;
 
 &lt;p&gt;IOS Integration files and requirements
-&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios1.png&quot; alt=&quot;IOS integration details&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintios1en.png&quot; alt=&quot;IOS integration details&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This version supports iOS 5.1.1 or higher on the following devices:&lt;/p&gt;
 &lt;ul&gt;
@@ -22781,7 +22781,7 @@ The &lt;em&gt;blackbox&lt;/em&gt; that returned from &lt;em&gt;+ioBegin&lt;/em&g
 &lt;h3 id=&quot;integrating-with-android-apps&quot;&gt;Integrating with Android apps&lt;/h3&gt;
 
 &lt;p&gt;Android integration files and requirements
-&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroid.png&quot; alt=&quot;Details&quot; /&gt; {:.left} {:title = “Android integration details”}&lt;/p&gt;
+&lt;img src=&quot;https://braspag.github.io//images/braspag/af/fingerprintandroiden.png&quot; alt=&quot;Details&quot; /&gt; {:.left} {:title = “Android integration details”}&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;
 If the listed permissions are not required by the application, the values obtained by using these permissions are ignored. Permissions are not required to get a &lt;em&gt;blackbox&lt;/em&gt;, but help get more information from the device.&lt;/p&gt;
