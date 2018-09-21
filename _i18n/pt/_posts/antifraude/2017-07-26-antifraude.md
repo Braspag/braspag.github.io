@@ -2415,7 +2415,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
 |33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
 |34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possível valor: SIM <br/> Caso não tenha sido confirmado ou não exista um processo de ativação de conta com confiração de e-mail, não enviar o campo|string|
-|35|Identifica o tipo de cliente <br/> Pssíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
+|35|Identifica o tipo de cliente <br/> Possíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
 |36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
 |37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
 |38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
