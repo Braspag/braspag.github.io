@@ -2027,10 +2027,6 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Yes|Em caso de divergência entre endereços de cobrança e entrega, atribui risco baixo ao pedido|Cybersource|
-|No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|Cybersource|
-|Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|Cybersource|
-
 |Yes|In case of divergence between billing and shipping addresses, it assigns low risk to the request|Cybersource|
 |No|In case of divergence between billing and shipping addresses, it assigns high risk to the request (default)|Cybersource|
 |Off|Differences between billing and shipping addresses do not affect punctuation|Cybersource|
@@ -2380,16 +2376,16 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Key|Value|Type|Tamanho|
 |:-|:-|:-|:-|
-|1 a 3|Reservado|-|-|
+|1 a 3|Reserved|-|-|
 |4 a 8|Free and defined fields with the antifraud provider, according to the business rules|var|256|
-|9 a 13|Reservado|-|-|
+|9 a 13|Reserved|-|-|
 |14|Segment|MCC (Merchant Category Code) of your merchant|int|-|
 |15 a 20|Free and defined fields with the antifraud provider, according to the business rules|var|30|
-|21|Reservado|-|-|
+|21|Reserved|-|-|
 |22|Free and defined fields with the antifraud provider, according to the business rules|var|30|
-|23|Reservado|-|-|
+|23|Reserved|-|-|
 |24|Free and defined fields with the antifraud provider, according to the business rules|var|30|
-|25|Reservado|-|-|
+|25|Reserved|-|-|
 
 ## Table 37 - MerchantDefinedData (Cybersource)
 
@@ -2398,31 +2394,31 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 |1|Customer has logged in <br/> If the final customer has logged into the site to buy, send: his login <br/> If you made purchase as visitor, send: Guest <br/> If the sale was made directly by a third party, an agent for example does not send the field|string|
 |2|Quantity on days that the client is your client|int|
 |3|Quantity of parcels of the order|int|
-|4|Canal de Venda <br/> Possíveis valores: <br/> Call Center -> compra pelo telefone <br/> Web -> compra pela web <br/> Portal -> um agente fazendo a compra para o cliente <br/> Quiosque -> compras em quiosques <br/> Movel -> compras feitas em celulares ou tablets|string|
-|5|Enviar o código do cupom/desconto caso o cliente utilize na compra|string|
-|6|Data da última compra realizada pelo cliente <br/> Formato: MM-DD-AAAA - Ex.: 12-15-2017|date|
-|7|Código ou nome do seller (vendedor)|string|
-|8|Tentativas realizada pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|
-|9|Identifica se cliente irá retirar o produto na loja <br/> Possíveis valores: SIM ou NAO|string|
-|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br/> Possíveis valores: SIM ou NAO|string|
-|11|Categoria do hotel (quantas estrelas) <br/> Possíveis valores: <br/> 1 -> Simples <br/> 2 -> Econômico <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|
-|12|Data de checkin no hotel <br/> Formato: MM-DD-AAAA - Ex.: 12-05-2018|date|
-|12|Data de checkout no hotel <br/> Formato: MM-DD-AAAA - Ex.: 19-05-2018|date|
-|14|Categoria da viagem ou pacote <br> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|
-|15|Nome da companhia aérea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|
-|16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|
-|17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string
-|18-25|Reservados para novos campos de turismo|-|
-|26|Bin (6 primeiros dígitos) do cartão de crédito|string|
-|27-30|Reservados para campos interno|-|
-|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|
-|32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
-|33|Identifica se o Credit card number foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
-|34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possível valor: SIM <br/> Caso não tenha sido confirmado ou não exista um processo de ativação de conta com confiração de e-mail, não enviar o campo|string|
-|35|Identifica o tipo de cliente <br/> Pssíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
-|36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
-|37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
-|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
-|39 a 40|Reservados|-|
-|41 a 95|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|
-|96 a 100|Reservados|-|
+|4|Sales Channel <br/> Possible values: <br/> Call Center -> purchase by phone <br/> Web -> purchase via the web <br/> Portal -> an agent making the purchase for the client <br/> Kiosk -> kiosk purchases <br/> Mobile -> purchases made on mobile phones or tablets|string|
+|5|Send coupon / discount code if customer uses for purchase|string|
+|6|Date of last purchase made by customer <br/> Format: MM-DD-AAAA - Ex.: 12-15-2017|date|
+|7|Seller's code or name|string|
+|8|Attempts made by the customer to make the payment of the same order, which may be with different credit cards and / or through other payment methods|int|
+|9|Identifies if customer will withdraw the product in the store <br/> Possible values: SIM or NAO|string|
+|10|Identifies whether the payment will be made by another person who is not present on the trip or package <br/> Possible values: SIM ou NAO|string|
+|11|Hotel category (how many stars) <br/> Possible values: <br/> 1 -> Simples <br/> 2 -> Economicoy <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|
+|12|Check in at the hotel <br/> Format: MM-DD-AAAA - Ex.: 12-05-2018|date|
+|12|Check out at the hotel <br/> Format: MM-DD-AAAA - Ex.: 19-05-2018|date|
+|14|Travel category or package <br> Possible values: Nacional or Internacional or National/International|string|
+|15|Name of airline / car rental company / hotel <br/> Send the name of each of the companies, separated by /|string|
+|16|Reservation PNR code <br/> When there is a change of the reservation for this PNR, with anticipation of the flight date, it is important to re-analyze the fraud by sending this PNR again|string|
+|17|It identifies if there was anticipation of reservation <br/> Possible values: SIM or NAO <br/> If yes, it is also fundamental to send the field 16 - Reservation PNR code|string
+|18-25|Reserved for new tourism fields|-|
+|26|Bin (6 first digits) of the credit card|string|
+|27-30|Reserved for internal fields|-|
+|31|Quantity of exchanges of credit card numbers that the customer made to make the payment of the order|int|
+|32|Identifies whether the email was pasted or typed <br/> Possible values: Digitado ou Colado|string|
+|33|Identifies whether the credit card number was pasted or typed <br/> Possible values: Digitado ou Colado|string|
+|34|Identifies if the email has been confirmed for account activation <br/> Possible value: SIM <br/> If an account activation process with email verification has not been confirmed or does not exist, do not send the field|string|
+|35|Identifies the client type <br/> Possible values: Local or Turista <br/> If you do not have this information, do not send the field|string|
+|36|Identifies if a gift card (GiftCard) was used in the purchase <br/> Possible value: SIM <br/> If no card was used in the purchase, do not send the field|string|
+|37|Order submission method <br/> Possible values: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> If you do not have a shipping method, do not send the field|string|
+|38|Customer's telephone number identified through the bina when sales through the sales channel equal to Call Center <br/> Format: DDDNnumber - ex: 2121114720|string|
+|39 a 40|Reserved|-|
+|41 a 95|Free and defined fields with the antifraud provider, according to the business rules|-|
+|96 a 100|Reserved|-|
