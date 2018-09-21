@@ -1783,7 +1783,7 @@ Add the Iovation Mobile SDK to your applications to collect information about cu
 ### Integrating with iOS apps
 
 IOS Integration files and requirements
-![IOS integration details]({{ site.baseurl_root }}/images/braspag/af/fingerprintios1.png)
+![IOS integration details]({{ site.baseurl_root }}/images/braspag/af/fingerprintios1en.png)
 
 This version supports iOS 5.1.1 or higher on the following devices:
 - iPhone 3GS and later
@@ -1836,7 +1836,7 @@ The *blackbox* that returned from *+ioBegin* should never be empty. An empty bla
 ### Integrating with Android apps
 
 Android integration files and requirements
-![Details]({{site.baseurl_root}}/images/braspag/af/fingerprintandroid.png) {:.left} {:title = "Android integration details"}
+![Details]({{site.baseurl_root}}/images/braspag/af/fingerprintandroiden.png) {:.left} {:title = "Android integration details"}
 
 **NOTE**
 If the listed permissions are not required by the application, the values obtained by using these permissions are ignored. Permissions are not required to get a *blackbox*, but help get more information from the device.
