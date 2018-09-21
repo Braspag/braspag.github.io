@@ -2290,73 +2290,73 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|BAD-FP|O dispositivo é arriscado|Cybersource|
-|INTL-BIN|O cartão de crédito foi emitido fora dos EUA|Cybersource|
-|MM-TZTLO|Fuso horário do dispositivo é incompatível com os fusos horários do país|Cybersource|
-|MUL-EM|O comprador tem usado mais de quatro endereços de e-mail diferentes|Cybersource|
-|NON-BC|A Billing address city é sem sentido|Cybersource|
-|NON-FN|O Customer first name é sem sentido|Cybersource|
-|NON-LN|O Customer last name é sem sentido|Cybersource|
-|OBS-BC|A Billing address city contem obscenidades|Cybersource|
-|OBS-EM|O endereço de e-mail contem obscenidades|Cybersource|
-|RISK-AVS|O resultado do combinado do teste AVS e endereço de cobrança normalizado são arriscados, o resultado AVS indica uma correspondência exata, mas o endereço de cobrança não é entregável|Cybersource|
-|RISK-BC|A Billing address city possui caracteres repetidos|Cybersource|
-|RISK-BIN|No passado, este BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) mostrou uma elevada incidência de fraude|Cybersource|
-|RISK-DEV|Algumas das características do dispositivo são arriscadas|Cybersource|
-|RISK-FN|Nome e Customer last name contêm combinações de letras improváveis|Cybersource|
-|RISK-LN|Nome do meio ou Customer last name contêm combinações de letras improváveis|Cybersource|
-|RISK-PIP|O endereço IP do proxy é arriscado|Cybersource|
-|RISK-SD|A inconsistência nos países dos endereços cobrança e entrega é arriscada|Cybersource|
-|RISK-TB|O dia e a hora da ordem associada ao endereço de cobrança é arriscado|Cybersource|
-|RISK-TIP|O verdadeiro endereço IP é arriscado|Cybersource|
-|RISK-TS|O dia e a hora da ordem associada ao endereço de entrega é arriscado|Cybersource|
+|BAD-FP|The device is risky|Cybersource|
+|INTL-BIN|The credit card was issued outside of the U.S.|Cybersource|
+|MM-TZTLO|The device's time zone is inconsistent with the country's time zones|Cybersource|
+|MUL-EM|The customer has used more than four different email addresses|Cybersource|
+|NON-BC|The billing city is nonsensical|Cybersource|
+|NON-FN|The customer’s first name is nonsensical|Cybersource|
+|NON-LN|The customer’s last name is nonsensical|Cybersource|
+|OBS-BC|The billing city contains obscenities|Cybersource|
+|OBS-EM|The email address contains obscenities|Cybersource|
+|RISK-AVS|The combined AVS test result and normalized billing address are risky, such as when the AVS result indicates an exact match, but the normalized billing address is not deliverable|Cybersource|
+|RISK-BC|The billing city has repeated characters|Cybersource|
+|RISK-BIN|In the past, this payment card BIN has shown a high incidence of fraud|Cybersource|
+|RISK-DEV|Some of the device characteristics are risky|Cybersource|
+|RISK-FN|The customer’s first and last names contain unlikely letter combinations|Cybersource|
+|RISK-LN|The customer’s middle or last name contains unlikely letter combinations|Cybersource|
+|RISK-PIP|The proxy IP address is risky|Cybersource|
+|RISK-SD|The inconsistency in billing and shipping countries is risky|Cybersource|
+|RISK-TB|The day and time of the order associated with the billing address is risky|Cybersource|
+|RISK-TIP|The true IP address is risky|Cybersource|
+|RISK-TS|The day and time of the order associated with the shipping address is risky|Cybersource|
 
 ## Table 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|VEL-ADDR|Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o Credit card number e/ou endereço de email|Cybersource|
-|VEL-CC|Diferentes números de cartões de créditos foram usados várias vezes com o mesmo nome ou endereço de email|Cybersource|
-|VEL-NAME|Diferentes nomes foram usados várias vezes com o mesmo Credit card number e/ou endereço de email|Cybersource|
-|VELS-CC|O Credit card number tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
-|VELI-CC|O Credit card number tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
-|VELL-CC|O Credit card number tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
-|VELV-CC|O Credit card number tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
-|VELS-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
-|VELI-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
-|VELL-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
-|VELV-EM|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
-|VELS-FP|O device fingerprint tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
-|VELI-FP|O device fingerprint tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
-|VELL-FP|O device fingerprint tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
-|VELV-FP|O device fingerprint tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
-|VELS-IP|O endereço IP tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
-|VELI-IP|O endereço IP tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
-|VELL-IP|O endereço IP tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
-|VELV-IP|O endereço IP tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
-|VELS-SA|O endereço de entrega tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
-|VELI-SA|O endereço de entrega tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
-|VELL-SA|O endereço de entrega tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
-|VELV-SA|O endereço de entrega tem sido utilizado várias vezes durante um intervalo muito longo|Cybersource|
-|VELS-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo curto|Cybersource|
-|VELI-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
-|VELL-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
+|VEL-ADDR|Different billing and/or shipping states (U.S. and Canada only) have been used several times with the credit card number and/or email address|Cybersource|
+|VEL-CC|Different credit cards have been used several times with the same name or email address|Cybersource|
+|VEL-NAME|Different names have been used several times with the credit card number and/or email address|Cybersource|
+|VELS-CC|The credit cards has been used several times during the short tracking interval|Cybersource|
+|VELI-CC|The credit cards has been used several times during the medium tracking interval|Cybersource|
+|VELL-CC|The credit cards has been used several times during the long tracking interval|Cybersource|
+|VELV-CC|The credit cards has been used several times during the very long tracking interval|Cybersource|
+|VELS-EM|The customer’s email address has been used several times during the short tracking interval|Cybersource|
+|VELI-EM|The customer’s email address has been used several times during the medium tracking interval|Cybersource|
+|VELL-EM|The customer’s email address has been used several times during the long tracking interval|Cybersource|
+|VELV-EM|The customer’s email address has been used several times during the very long tracking interval|Cybersource|
+|VELS-FP|The device fingerptint has been used several times during the short tracking interval.
+|VELI-FP|The device fingerptint has been used several times during the medium tracking interval.
+|VELL-FP|The device fingerptint has been used several times during the long tracking interval.
+|VELV-FP|The device fingerptint has been used several times during the very long tracking interval.
+|VELS-IP|The IP address has been used several times during the short tracking interval|Cybersource|
+|VELI-IP|The IP address has been used several times during the medium tracking interval|Cybersource|
+|VELL-IP|The IP address has been used several times during the long tracking interval|Cybersource|
+|VELV-IP|The IP address has been used several times during the very long tracking interval|Cybersource|
+|VELS-SA|The shipping address has been used several times during the short tracking interval|Cybersource|
+|VELI-SA|The shipping address has been used several times during the medium tracking interval|Cybersource|
+|VELL-SA|The shipping address has been used several times during the long tracking interval|Cybersource|
+|VELV-SA|The shipping address has been used several times during the very long tracking interval|Cybersource|
+|VELS-TIP|The true IP address has been used several times during the short interval|Cybersource|
+|VELI-TIP|The true IP address has been used several times during the medium interval|Cybersource|
+|VELL-TIP|The true IP address has been used several times during the long interval|Cybersource|
 
 ## Table 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Anonymizer|Endereços de IP estão escondidos porque o comprador é extremamente cauteloso, quer privacidade absoluta ou é fraudulento|Cybersource|
-|AOL, AOL dialup, AOL POP and AOL proxy|Membros da AOL. Na maioria dos casos, o país pode ser identificado, mas o estado e cidade não podem|Cybersource|
-|Cache proxy|Proxy usado através de um acelerador da Internet ou de uma distribuição de conteúdo de serviço. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP|Cybersource|
-|Fixed|O endereço de IP está próximo ou no mesmo local que o comprador|Cybersource|
-|International proxy|Proxy que contém tráfego de vários países. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP. Em muitos casos, redes corporativas estão roteando o tráfego de escritórios internacionais através de um ponto central, muitas vezes a sede corporativa|Cybersource|
-|Mobile gateway|Gateway para conectar dispositivos móveis à internet. Muitas operadoras, especialmente na Europa, atendem mais do que um país e tráfego ocorre através de hubs de rede centralizados. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP|Cybersource|
-|POP|Discagem do comprador em um ISP regional provavelmente perto da localização do endereço de IP, mas possivelmente através de limites geográficos|Cybersource|
-|Regional proxy|Proxy que contém tráfego de vários estados dentro de um único país. O comprador pode estar localizado em um estado diferente do indicado pelo endereço de IP. Em muitos casos, redes corporativas estão roteando o tráfego de escritórios internacionais através de um ponto central, muitas vezes a sede corporativa|Cybersource|
-|Satellite|Conexões por satélite. Se o uplink e o downlink estiverem cadastrados, o método roteamento é considerado padrão porque o remetente é conhecido. No entanto, se o downlink não está registrado, o comprador pode estar em qualquer lugar dentro do feixe padrão do satélite, que pode abranger um continente ou mais|Cybersource|
-|SuperPOP|O comprador está discando em um ISP multi-estatal ou multinacional que provavelmente não é provável a localização do endereço de IP. O comprador pode estar discando através de limites geográficos|Cybersource|
-|No value returned|O tipo de roteamento é desconhecido|Cybersource|
+|Anonymizer|IP addresses that are hidden because the customer is extremely cautious, wants absolute privacy, or is fraudulent|Cybersource|
+|AOL, AOL dialup, AOL POP and AOL proxy|AOL members. In most cases, the country can be identified, but the state and city cannot|Cybersource|
+|Cache proxy|Proxy used through either an Internet accelerator or a content distribution service. The customer may be located in a country different from that indicated by the IP address|Cybersource|
+|Fixed|IP address is near or at the same location as the user|Cybersource|
+|International proxy|Proxy that contains traffic from multiple countries. The customer may be located in a country different from that indicated by the IP address. In many cases, corporate networks are routing the traffic from international offices through a central point, often the corporate headquarters|Cybersource|
+|Mobile gateway|Gateway to connect mobile devices to the public Internet. Many mobile operators, especially in Europe, service more than one country and route traffic through centralized network hubs. The customer may be located in a country different from that indicated by the IP address|Cybersource|
+|POP|Customer dialing into a regional ISP most likely near the IP location but possibly across geographical boundaries|Cybersource|
+|Regional proxy|Proxy that contains traffic from multiple states within a single country. The customer may be located in a state different from that indicated by the IP address. In many cases, corporate networks are routing the traffic from regional offices through a central point, often the corporate headquarters|Cybersource|
+|Satellite|Satellite connections. If the uplink and the downlink are registered, the routing method is considered standard because the sender is known. However, if the downlink is not registered, the customer can be anywhere within the beam pattern of the satellite, which may span a continent or more|Cybersource|
+|SuperPOP|Customer is dialing into a multi-state or multi-national ISP that is not likely near the IP location. The customer may be dialing across geographical boundaries|Cybersource|
+|No value returned|The routing type is unknown|Cybersource|
 
 ## Table 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
 
@@ -2395,9 +2395,9 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Key|Value|Type|
 |:-|:-|:-|
-|1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|
-|2|Quantidade em dias que o cliente é seu cliente|int|
-|3|Quantidade de parcelas do pedido|int|
+|1|Customer has logged in <br/> If the final customer has logged into the site to buy, send: his login <br/> If you made purchase as visitor, send: Guest <br/> If the sale was made directly by a third party, an agent for example does not send the field|string|
+|2|Quantity on days that the client is your client|int|
+|3|Quantity of parcels of the order|int|
 |4|Canal de Venda <br/> Possíveis valores: <br/> Call Center -> compra pelo telefone <br/> Web -> compra pela web <br/> Portal -> um agente fazendo a compra para o cliente <br/> Quiosque -> compras em quiosques <br/> Movel -> compras feitas em celulares ou tablets|string|
 |5|Enviar o código do cupom/desconto caso o cliente utilize na compra|string|
 |6|Data da última compra realizada pelo cliente <br/> Formato: MM-DD-AAAA - Ex.: 12-15-2017|date|
