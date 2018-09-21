@@ -7476,7 +7476,7 @@ curl
 |`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
 |`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`Number`|"NossoNumero" gerado. |Texto|50 |2017091101 |
+|`BoletoNumber`|"NossoNumero" gerado. |Texto|50 |2017091101 |
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
@@ -7918,7 +7918,7 @@ curl
 
 # Pagamentos Recorrentes
 
-* **Recorrente**: A Recorrência Inteligente é um recurso indispensável para estabelicimentos que precisam cobrar regularmente por seus produtos/serviços.
+* **Recorrente**: A Recorrência Inteligente é um recurso indispensável para estabelecimentos que precisam cobrar regularmente por seus produtos/serviços.
 É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Os lojistas contarão com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, pois toda parametrização é configurável, tais como: periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.
 
 ## Autorizar uma transação e agendar as próximas recorrências
