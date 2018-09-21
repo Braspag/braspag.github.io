@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-09-20T20:51:48+00:00</updated>
+    <updated>2018-09-21T11:38:39+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -28481,7 +28481,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
       &lt;td&gt;https://…/pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Number&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BoletoNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;“NossoNumero” gerado.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
@@ -29246,7 +29246,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 &lt;h1 id=&quot;pagamentos-recorrentes&quot;&gt;Pagamentos Recorrentes&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Recorrente&lt;/strong&gt;: A Recorrência Inteligente é um recurso indispensável para estabelicimentos que precisam cobrar regularmente por seus produtos/serviços.
+  &lt;li&gt;&lt;strong&gt;Recorrente&lt;/strong&gt;: A Recorrência Inteligente é um recurso indispensável para estabelecimentos que precisam cobrar regularmente por seus produtos/serviços.
 É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Os lojistas contarão com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, pois toda parametrização é configurável, tais como: periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.&lt;/li&gt;
 &lt;/ul&gt;
 
