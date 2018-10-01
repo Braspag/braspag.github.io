@@ -3071,7 +3071,8 @@ As adquirentes que suportam o AVS são Cielo e Rede.</p>
      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">    
+     </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.loja.com.br"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
      </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
@@ -3141,7 +3142,8 @@ As adquirentes que suportam o AVS são Cielo e Rede.</p>
      <span class="s2">"Installments"</span>:1,
      <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
      <span class="s2">"Capture"</span>:true,
-     <span class="s2">"Authenticate"</span>:false,    
+     <span class="s2">"Authenticate"</span>:true,
+     <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.loja.com.br"</span>,
      <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
      <span class="s2">"SoftDescriptor"</span>:<span class="s2">"Mensagem"</span>,
      <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
@@ -3421,6 +3423,13 @@ As adquirentes que suportam o AVS são Cielo e Rede.</p>
       <td>—</td>
       <td>Não (Default false)</td>
       <td>Booleano que indica se a transação deve ser autenticada (true) ou não (false). Para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “False”, e no nó <code class="highlighter-rouge">ExternalAuthentication</code> deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>Texto</td>
+      <td>1024</td>
+      <td>Sim (quando Autenticate é true)</td>
+      <td>URL para onde o usuário será redirecionado após o fim da autenticação</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Recurrent</code></td>
