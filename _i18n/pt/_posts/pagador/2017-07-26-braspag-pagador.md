@@ -1533,7 +1533,8 @@ Este é um exemplo de uma transação com dados de autenticação externa. Este 
      "Installments":1,
      "Interest":"ByMerchant",
      "Capture":true,
-     "Authenticate":false,    
+     "Authenticate":true,
+     "ReturnUrl":"http://www.loja.com.br",
      "Recurrent": false,
      "SoftDescriptor":"Mensagem",
      "CreditCard":{  
@@ -1604,7 +1605,8 @@ curl
      "Installments":1,
      "Interest":"ByMerchant",
      "Capture":true,
-     "Authenticate":false,    
+     "Authenticate":true,
+     "ReturnUrl":"http://www.loja.com.br",	 
      "Recurrent": false,
      "SoftDescriptor":"Mensagem",
      "CreditCard":{  
@@ -1666,6 +1668,7 @@ curl
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Emissor (ByIssuer)|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Booleano que indica se a transação deve ser autenticada (true) ou não (false). Para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor "False", e no nó `ExternalAuthentication` deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI). |
+|`Payment.ReturnUrl`|Texto|1024|Sim (quando Autenticate é true)|URL para onde o usuário será redirecionado após o fim da autenticação|
 |`Payment.Recurrent`|Booleano|---|Não (Default false)|Booleano que indica se a transação é do tipo recorrente (true) ou não (false). Este com valor true não originará uma nova Recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações Cielo. Authenticate deve ser false quando Recurrent é true|
 |`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador|
 |`Payment.ExternalAuthentication.Cavv`|Texto|28|Sim|O valor Cavv é retornado pelo mecanismo de autenticação|
