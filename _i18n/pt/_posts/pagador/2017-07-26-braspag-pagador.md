@@ -1606,7 +1606,7 @@ curl
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":true,
-     "ReturnUrl":"http://www.loja.com.br",	 
+     "ReturnUrl":"http://www.loja.com.br",
      "Recurrent": false,
      "SoftDescriptor":"Mensagem",
      "CreditCard":{  
