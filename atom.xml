@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-01T21:22:41+00:00</updated>
+    <updated>2018-10-04T17:57:03+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -16475,7 +16475,7 @@ As adquirentes que suportam o AVS são Cielo e Rede.&lt;/p&gt;
       &lt;td&gt;Booleano&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Não (Default false)&lt;/td&gt;
-      &lt;td&gt;Booleano que indica se a transação deve ser autenticada (true) ou não (false). Para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “False”, e no nó &lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication&lt;/code&gt; deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).&lt;/td&gt;
+      &lt;td&gt;Booleano que indica se a transação deve ser autenticada (true) ou não (false). Mesmo para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “True”, e no nó &lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication&lt;/code&gt; deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReturnUrl&lt;/code&gt;&lt;/td&gt;

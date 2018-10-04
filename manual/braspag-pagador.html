@@ -3422,7 +3422,7 @@ As adquirentes que suportam o AVS são Cielo e Rede.</p>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
-      <td>Booleano que indica se a transação deve ser autenticada (true) ou não (false). Para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “False”, e no nó <code class="highlighter-rouge">ExternalAuthentication</code> deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).</td>
+      <td>Booleano que indica se a transação deve ser autenticada (true) ou não (false). Mesmo para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “True”, e no nó <code class="highlighter-rouge">ExternalAuthentication</code> deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
