@@ -44,8 +44,9 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
 
 ### Definição do Gateway
 
-No passo "_Step 2: Choose a payment tokenization method_", siga o modelo indicado como "GATEWAY" e preencha o valor para parâmetro "type" como " **PAYMENT\_GATEWAY**"  e o parâmetro " **gateway**" como " **cielo**", conforme o exemplo abaixo:
+No passo "_Step 2: Choose a payment tokenization method_", siga o modelo indicado como "GATEWAY" e preencha o valor para parâmetro "type" como " **PAYMENT\_GATEWAY**"  e o parâmetro " **gateway**" como " **cielo**", conforme o exemplo ao lado:
 
+```json
 private static JSONObject getTokenizationSpecification() {
   JSONObject tokenizationSpecification = new JSONObject();
   tokenizationSpecification.put("type", "PAYMENT\_GATEWAY");
@@ -56,8 +57,9 @@ private static JSONObject getTokenizationSpecification() {
           .put("gatewayMerchantId", "exampleMerchantId"));
   return tokenizationSpecification;
 }
+```
 
-No parâmetro " **gatewayMerchantId**", preencha com o valor do **MerchantID** fornecido pela Braspag.
+No parâmetro " **gatewayMerchantId**", preencha com o seu código do aplicativo registrado no Google Pay 
 
 ### Definição das Bandeiras aceitas
 
