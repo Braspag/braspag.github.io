@@ -59,7 +59,7 @@ private static JSONObject getTokenizationSpecification() {
 }
 ```
 
-No parâmetro " **gatewayMerchantId**", preencha com o seu código do aplicativo registrado no Google Pay. Para efeitos de teste, utilize o valor "18045945416119260263O"
+No parâmetro " **gatewayMerchantId**", preencha com o seu código do aplicativo registrado no Google Pay. Para efeitos de teste, utilize o valor "18045945416119260263"
 
 ### Definição das Bandeiras aceitas
 
