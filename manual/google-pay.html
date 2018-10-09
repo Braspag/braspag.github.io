@@ -172,20 +172,21 @@
 
 <h3 id="definição-do-gateway">Definição do Gateway</h3>
 
-<p>No passo “<em>Step 2: Choose a payment tokenization method</em>”, siga o modelo indicado como “GATEWAY” e preencha o valor para parâmetro “type” como “ <strong>PAYMENT_GATEWAY</strong>”  e o parâmetro “ <strong>gateway</strong>” como “ <strong>cielo</strong>”, conforme o exemplo abaixo:</p>
+<p>No passo “<em>Step 2: Choose a payment tokenization method</em>”, siga o modelo indicado como “GATEWAY” e preencha o valor para parâmetro “type” como “ <strong>PAYMENT_GATEWAY</strong>”  e o parâmetro “ <strong>gateway</strong>” como “ <strong>cielo</strong>”, conforme o exemplo ao lado:</p>
 
-<p>private static JSONObject getTokenizationSpecification() {
-  JSONObject tokenizationSpecification = new JSONObject();
-  tokenizationSpecification.put(“type”, “PAYMENT_GATEWAY”);
-  tokenizationSpecification.put(
-      “parameters”,
-      new JSONObject()
-          .put(“gateway”, “cielo”)
-          .put(“gatewayMerchantId”, “exampleMerchantId”));
-  return tokenizationSpecification;
-}</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">private</span><span class="w"> </span><span class="err">static</span><span class="w"> </span><span class="err">JSONObject</span><span class="w"> </span><span class="err">getTokenizationSpecification()</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="err">JSONObject</span><span class="w"> </span><span class="err">tokenizationSpecification</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">JSONObject();</span><span class="w">
+  </span><span class="err">tokenizationSpecification.put(</span><span class="s2">"type"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PAYMENT</span><span class="se">\_</span><span class="s2">GATEWAY"</span><span class="err">);</span><span class="w">
+  </span><span class="err">tokenizationSpecification.put(</span><span class="w">
+      </span><span class="s2">"parameters"</span><span class="p">,</span><span class="w">
+      </span><span class="err">new</span><span class="w"> </span><span class="err">JSONObject()</span><span class="w">
+          </span><span class="err">.put(</span><span class="s2">"gateway"</span><span class="p">,</span><span class="w"> </span><span class="s2">"cielo"</span><span class="err">)</span><span class="w">
+          </span><span class="err">.put(</span><span class="s2">"gatewayMerchantId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"exampleMerchantId"</span><span class="err">));</span><span class="w">
+  </span><span class="err">return</span><span class="w"> </span><span class="err">tokenizationSpecification;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-<p>No parâmetro “ <strong>gatewayMerchantId</strong>”, preencha com o valor do <strong>MerchantID</strong> fornecido pela Braspag.</p>
+<p>No parâmetro “ <strong>gatewayMerchantId</strong>”, preencha com o seu código do aplicativo registrado no Google Pay</p>
 
 <h3 id="definição-das-bandeiras-aceitas">Definição das Bandeiras aceitas</h3>
 

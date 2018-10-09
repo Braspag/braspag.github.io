@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-09T20:00:27+00:00</updated>
+    <updated>2018-10-09T21:55:50+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -55,20 +55,21 @@
 
 &lt;h3 id=&quot;definição-do-gateway&quot;&gt;Definição do Gateway&lt;/h3&gt;
 
-&lt;p&gt;No passo “&lt;em&gt;Step 2: Choose a payment tokenization method&lt;/em&gt;”, siga o modelo indicado como “GATEWAY” e preencha o valor para parâmetro “type” como “ &lt;strong&gt;PAYMENT_GATEWAY&lt;/strong&gt;”  e o parâmetro “ &lt;strong&gt;gateway&lt;/strong&gt;” como “ &lt;strong&gt;cielo&lt;/strong&gt;”, conforme o exemplo abaixo:&lt;/p&gt;
+&lt;p&gt;No passo “&lt;em&gt;Step 2: Choose a payment tokenization method&lt;/em&gt;”, siga o modelo indicado como “GATEWAY” e preencha o valor para parâmetro “type” como “ &lt;strong&gt;PAYMENT_GATEWAY&lt;/strong&gt;”  e o parâmetro “ &lt;strong&gt;gateway&lt;/strong&gt;” como “ &lt;strong&gt;cielo&lt;/strong&gt;”, conforme o exemplo ao lado:&lt;/p&gt;
 
-&lt;p&gt;private static JSONObject getTokenizationSpecification() {
-  JSONObject tokenizationSpecification = new JSONObject();
-  tokenizationSpecification.put(“type”, “PAYMENT_GATEWAY”);
-  tokenizationSpecification.put(
-      “parameters”,
-      new JSONObject()
-          .put(“gateway”, “cielo”)
-          .put(“gatewayMerchantId”, “exampleMerchantId”));
-  return tokenizationSpecification;
-}&lt;/p&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;getTokenizationSpecification()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject();&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PAYMENT&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;GATEWAY&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parameters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gateway&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cielo&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gatewayMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;exampleMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;No parâmetro “ &lt;strong&gt;gatewayMerchantId&lt;/strong&gt;”, preencha com o valor do &lt;strong&gt;MerchantID&lt;/strong&gt; fornecido pela Braspag.&lt;/p&gt;
+&lt;p&gt;No parâmetro “ &lt;strong&gt;gatewayMerchantId&lt;/strong&gt;”, preencha com o seu código do aplicativo registrado no Google Pay&lt;/p&gt;
 
 &lt;h3 id=&quot;definição-das-bandeiras-aceitas&quot;&gt;Definição das Bandeiras aceitas&lt;/h3&gt;
 
