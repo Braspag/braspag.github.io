@@ -146,7 +146,7 @@ The authorization with the Google Pay token must be performed as the same way as
 | Payment.Wallet.WalletKey | String | Provide the "encryptedMessage" received from Google Pay |
 | Payment.Wallet.AdditionalData. EphemeralPublicKey | String | Provide the "ephemeralPublicKey" received from Google Pay |
 
-Para mais informações, acesse [https://braspag.github.io/manual/braspag-pagador](https://braspag.github.io/manual/braspag-pagador)
+For more information: [https://braspag.github.io/manual/braspag-pagador](https://braspag.github.io/manual/braspag-pagador)
 
 ## Response
 
