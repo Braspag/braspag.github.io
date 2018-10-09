@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-09T22:59:41+00:00</updated>
+    <updated>2018-10-09T23:08:31+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -69,7 +69,7 @@
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;No parâmetro “ &lt;strong&gt;gatewayMerchantId&lt;/strong&gt;”, preencha com o seu código do aplicativo registrado no Google Pay&lt;/p&gt;
+&lt;p&gt;No parâmetro “ &lt;strong&gt;gatewayMerchantId&lt;/strong&gt;”, preencha com o seu código do aplicativo registrado no Google Pay. Para efeitos de teste, utilize o valor “18045945416119260263O”&lt;/p&gt;
 
 &lt;h3 id=&quot;definição-das-bandeiras-aceitas&quot;&gt;Definição das Bandeiras aceitas&lt;/h3&gt;
 
