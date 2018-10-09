@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-09T19:40:17+00:00</updated>
+    <updated>2018-10-09T19:44:06+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -14,10 +14,10 @@
     
     <entry>
         <title>Manual de integração Google Pay</title>
-        <category term="manualp" />
-        <link href="https://braspag.github.io//manualp/google-pay"/>
+        <category term="manual" />
+        <link href="https://braspag.github.io//manual/google-pay"/>
         <updated>2018-10-09T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//manualp/google-pay</id>
+        <id>https://braspag.github.io//manual/google-pay</id>
         <content type="html">&lt;h1 id=&quot;google-pay&quot;&gt;Google Pay&lt;/h1&gt;
 
 &lt;p&gt;Google Pay é uma carteira virtual. Ele permite que os compradores realizem pagamentos em lojas virtuais e apps utilizando de forma prática e segura, seus cartões de crédito e débito armazenados em suas contas “Google Account” e dispositivos Android.&lt;/p&gt;
