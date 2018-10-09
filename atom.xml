@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-09T19:44:06+00:00</updated>
+    <updated>2018-10-09T20:00:27+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -34,11 +34,9 @@
 
 &lt;h1 id=&quot;etapa-1-integrando-google-pay-em-seu-aplicativo-android&quot;&gt;Etapa 1: Integrando Google Pay em seu aplicativo Android&lt;/h1&gt;
 
-&lt;p&gt;Para integrar o Google Pay sem seu aplicativo, siga os passos abaixo:&lt;/p&gt;
+&lt;h2 id=&quot;passo-1---configuração-do-projeto&quot;&gt;Passo 1 - Configuração do Projeto&lt;/h2&gt;
 
-&lt;h2 id=&quot;passo-1&quot;&gt;Passo 1&lt;/h2&gt;
-
-&lt;p&gt;Siga os passos de parametrização do projeto, descritos no manual do Google Pay abaixo: &lt;a href=&quot;https://developers.google.com/pay/api/android/guides/setup&quot;&gt;https://developers.google.com/pay/api/android/guides/setup&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/setup&quot;&gt;https://developers.google.com/pay/api/android/guides/setup&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Nestes passos, os seguintes pontos devem ser atendidos:&lt;/p&gt;
 
@@ -47,44 +45,44 @@
   &lt;li&gt;Modificação do arquivo &lt;em&gt;Manifest&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;passo-2&quot;&gt;Passo 2&lt;/h2&gt;
+&lt;h2 id=&quot;passo-2---implementação-do-google-pay&quot;&gt;Passo 2 - Implementação do Google Pay&lt;/h2&gt;
 
-&lt;p&gt;Siga todos os passos de implementação do projeto, descritos no manual do Google Pay abaixo:&lt;/p&gt;
+&lt;p&gt;Para integrar o Google Pay sem seu aplicativo, siga todos os passos indicados na documentação do Google Pay:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/tutorial&quot;&gt;https://developers.google.com/pay/api/android/guides/tutorial&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;ponto-de-atenção-1&quot;&gt;Ponto de atenção 1&lt;/h3&gt;
+&lt;p&gt;Para a correta integração do Google Pay via Braspag, é necessário se atentar aos pontos abaixo:&lt;/p&gt;
+
+&lt;h3 id=&quot;definição-do-gateway&quot;&gt;Definição do Gateway&lt;/h3&gt;
 
 &lt;p&gt;No passo “&lt;em&gt;Step 2: Choose a payment tokenization method&lt;/em&gt;”, siga o modelo indicado como “GATEWAY” e preencha o valor para parâmetro “type” como “ &lt;strong&gt;PAYMENT_GATEWAY&lt;/strong&gt;”  e o parâmetro “ &lt;strong&gt;gateway&lt;/strong&gt;” como “ &lt;strong&gt;cielo&lt;/strong&gt;”, conforme o exemplo abaixo:&lt;/p&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;getTokenizationSpecification()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject();&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PAYMENT&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;GATEWAY&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parameters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gateway&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cielo&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gatewayMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;exampleMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;private static JSONObject getTokenizationSpecification() {
+  JSONObject tokenizationSpecification = new JSONObject();
+  tokenizationSpecification.put(“type”, “PAYMENT_GATEWAY”);
+  tokenizationSpecification.put(
+      “parameters”,
+      new JSONObject()
+          .put(“gateway”, “cielo”)
+          .put(“gatewayMerchantId”, “exampleMerchantId”));
+  return tokenizationSpecification;
+}&lt;/p&gt;
 
 &lt;p&gt;No parâmetro “ &lt;strong&gt;gatewayMerchantId&lt;/strong&gt;”, preencha com o valor do &lt;strong&gt;MerchantID&lt;/strong&gt; fornecido pela Braspag.&lt;/p&gt;
 
-&lt;h3 id=&quot;ponto-de-atenção-2&quot;&gt;Ponto de atenção 2&lt;/h3&gt;
+&lt;h3 id=&quot;definição-das-bandeiras-aceitas&quot;&gt;Definição das Bandeiras aceitas&lt;/h3&gt;
 
 &lt;p&gt;No passo “&lt;em&gt;Step 3: Define supported payment card networks&lt;/em&gt;”, seguir com as bandeiras: “VISA”, “MASTERCARD”, “AMEX”, “DISCOVER” E “JCB”&lt;/p&gt;
 
-&lt;h3 id=&quot;ponto-de-atenção-3&quot;&gt;Ponto de atenção 3&lt;/h3&gt;
+&lt;h3 id=&quot;definição-do-ambiente&quot;&gt;Definição do ambiente&lt;/h3&gt;
 
 &lt;p&gt;No passo “&lt;em&gt;Step 5: Create a PaymentsClient instance&lt;/em&gt;”, utilize o valor “ENVIRONMENT_TEST” para utilizar o ambiente de teste.&lt;/p&gt;
 
-&lt;h3 id=&quot;ponto-de-atenção-4&quot;&gt;Ponto de atenção 4&lt;/h3&gt;
+&lt;h3 id=&quot;definição-dos-dados-de-compra&quot;&gt;Definição dos dados de compra&lt;/h3&gt;
 
 &lt;p&gt;No passo “&lt;em&gt;Step 7: Create a PaymentDataRequest object&lt;/em&gt;”, utilize o valor “BRL” para parâmetro “ &lt;strong&gt;currencyCode&lt;/strong&gt;”. O campo “ &lt;strong&gt;merchantName&lt;/strong&gt;” é o nome que o comprador visualizará durante o pagamento com Google Pay, desta forma, recomenda-se colocar um nome amigável e reconhecido.&lt;/p&gt;
 
-&lt;h3 id=&quot;ponto-de-atenção-5&quot;&gt;Ponto de atenção 5&lt;/h3&gt;
+&lt;h3 id=&quot;recuperação-dos-dados-pagamento&quot;&gt;Recuperação dos dados pagamento&lt;/h3&gt;
 
 &lt;p&gt;No passo “&lt;em&gt;Step 9: Handle the response object&lt;/em&gt;”, está descrito o evento “Activity.RESULT_OK”, onde é retornado um objeto com todos os dados referente ao dados de pagamento, inclusive o token de pagamento.&lt;/p&gt;
 
@@ -129,9 +127,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;(vide mais informações em:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&quot;&gt;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;(vide mais informações em: &lt;a href=&quot;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&quot;&gt;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&lt;/a&gt;)&lt;/p&gt;
 
 &lt;p&gt;Guarde os dados “&lt;em&gt;encryptedMessage&lt;/em&gt;” e “&lt;em&gt;ephemeralPublicKey&lt;/em&gt;”, que serão requisitados na autorização via Pagador da Braspag na próxima etapa (Etapa 2: Autorização com token do Google Pay)&lt;/p&gt;
 
@@ -221,7 +217,7 @@
 
 &lt;p&gt;Para mais informações, acesse &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador&quot;&gt;https://braspag.github.io/manual/braspag-pagador&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;request-1&quot;&gt;Request&lt;/h2&gt;
+&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
 
 &lt;p&gt;Vide &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador?json#resposta&quot;&gt;https://braspag.github.io/manual/braspag-pagador?json#resposta&lt;/a&gt;&lt;/p&gt;
 </content>
