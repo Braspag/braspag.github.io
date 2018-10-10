@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-09T23:10:19+00:00</updated>
+    <updated>2018-10-10T16:59:16+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -25,7 +25,7 @@
 &lt;h1 id=&quot;requisitos&quot;&gt;Requisitos&lt;/h1&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Contratar o Google Pay&lt;/li&gt;
+  &lt;li&gt;Concordar com os termos do Google Pay&lt;/li&gt;
   &lt;li&gt;Integrar com o Google Pay em seu site ou app (&lt;a href=&quot;https://developers.google.com/pay/api/android/overview&quot;&gt;https://developers.google.com/pay/api/android/overview&lt;/a&gt;)&lt;/li&gt;
   &lt;li&gt;Contratar o Pagador API REST como gateway de pagamento&lt;/li&gt;
   &lt;li&gt;Contratar o Cielo 3.0 como adquirência&lt;/li&gt;
