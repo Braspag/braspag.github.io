@@ -116,7 +116,7 @@ curl
 |`ProviderReturnCode`|Código da consulta Zero Auth retornado pelo provedor. |Número|2|Ex. Para provedor Cielo30, 85-Sucesso (cartão válido)|
 |`ProviderReturnMessage`|Mensagem da consulta Zero Auth retornado pelo provedor. |Texto|512 |Ex. "Transacao Autorizada"|
 |`BinData.Provider`|Provedor do serviço|Texto|15 |Ex. Cielo30|
-|`BinData.CardType`|Tipo do Cartão retornado da Consulta BIN|Texto|15 |Ex. Crédito, Débito, Múltiplo, Débito Refeição, etc|
+|`BinData.CardType`|Tipo do Cartão retornado da Consulta BIN|Texto|15 |Ex. Crédito, Débito ou Múltiplo|
 |`BinData.ForeignCard`|Indicação se é um cartão emitido fora do Brasil|booleano|- |Ex. true ou false |
 |`BinData.Code`|Código de retorno da Consulta BIN|Número|2 |Ex. Para provedor Cielo30, 00 significa consulta realizada com sucesso.  |
 |`BinData.Message`|Mensagem de retorno da Consulta BIN |Texto|512 |Ex. Para provedor Cielo30, "Analise autorizada" significa consulta realizada com sucesso. |
