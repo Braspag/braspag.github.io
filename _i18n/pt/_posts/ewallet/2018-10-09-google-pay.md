@@ -17,7 +17,7 @@ Google Pay é uma carteira virtual. Ele permite que os compradores realizem paga
 
 # Requisitos
 
-1. Contratar o Google Pay
+1. Concordar com os termos do Google Pay
 2. Integrar com o Google Pay em seu site ou app ([https://developers.google.com/pay/api/android/overview](https://developers.google.com/pay/api/android/overview))
 3. Contratar o Pagador API REST como gateway de pagamento
 4. Contratar o Cielo 3.0 como adquirência
