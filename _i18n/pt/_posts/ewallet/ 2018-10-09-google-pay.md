@@ -4,7 +4,7 @@ title: Manual de integração Google Pay
 description: Integração técnica Gateway Braspag
 search: true
 translated: true
-categories: manual
+categories: piloto
 tags:
   - Pagador
 language_tabs:
