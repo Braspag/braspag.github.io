@@ -1,7 +1,7 @@
 ---
 layout: manual
 title: Chargeback API - Manual de integração
-description: Integração técnica API Chargeback Braspag
+description: Integração técnica Chargeback API Braspag
 search: true
 categories: manual
 tags:
@@ -15,7 +15,7 @@ language_tabs:
 
 Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa de chargeback e acatar um chargeback.
 
-A retroalimentação de chargeback para o provedor de antifraude, proporciona:
+A retroalimentação de chargeback ao provedor de antifraude, proporciona:
 
 - Melhoria na performance das decisões automáticas - Uma vez que dados marcados na transação em que ocorreu o chargeback são adicionados à lista negativa, é possível realizar regras mais rigorosas provendo um ganho na estratégia;
 - Maior assertividade para equipes de revisão manual - Quando uma transação é marcada como chargeback, ela recebe um rótulo que fica visível para pesquisas posteriores que incluem pesquisas por “transações similares” (recurso bastante utilizado por equipes de revisão manual de transações tanto da Cybersource quanto próprias).  
@@ -26,7 +26,7 @@ A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo 
 
 # Objetivo
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Chargeback Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a Chargeback API Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.
 
 Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
 
@@ -39,7 +39,7 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 |`Sandbox`|https:\\\\authsandbox.braspag.com.br|
 |`Produção`|https:\\\\auth.braspag.com.br|
 
-## API Retroalimentação de Chargeback
+## Chargeback API Braspag
 
 |Ambiente|URL|
 |:-|:-|
@@ -50,19 +50,19 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 ## Tokens de Acesso
 
-A API de Charegabck Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
+A Charegabck API Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
 
 Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.
 
 ## Obtenção do token de acesso  
 
-O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API de Chargeback**.
+O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **Chargeback API**.
 
 1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
 
 2. O **BraspagAuth** valida a credencial recebida. Se for válida, retorna o token de acesso para a **Aplicação Cliente**.
 
-3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **API de Chargeback**.
+3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **Chargeback API**.
 
 4. Se o token de acesso for válido, a requisição é processada e os dados são retornados para a **Aplicação Cliente**.
 
@@ -111,7 +111,7 @@ Exemplo:
 
 |Parâmetro|Descrição|
 |:-|:-|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Retroalimentação de Chargeback|
+|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a Chargeback API|
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
 
@@ -303,7 +303,121 @@ Em caso de alguma falha, será apresentada a mensagem de **Operação parciament
 
 Neste caso, é possível verificar os erros encontrados em cada linha, tratar e reenviar o arquivo.
 
-# 
+# Consultas
+
+## Consultando uma transação
+
+### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">chargeback?CaseNumber={CaseNumber}&AcquirerTransactionId={AcquirerTransactionId}&BraspagTransactionId={BraspagTransactionId}/span></aside>
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parâmetros na querystring**
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|não|
+|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
+|`BraspagTransactionId`|Identificador da transação na Braspag|não|
+|`StartDate`|Data início da consulta|não|
+|`EndDate`|Data fim da consulta|não|
+|`PageIndex`|Número da página desejada|sim|
+|`PageSize`|Quantidade de itens desejado na página|sim|
+
+### Response
+
+```json
+{
+    "PageIndex": 1,
+    "PageSize": 250,
+    "Total": 1
+    "Chargebacks":
+    [
+        {
+            "Id": "fd14e3fb-cf2a-4228-b690-1338660afc54",
+            "AcquirerType": "Cielo",
+            "EstablishmentCode": "TesteAffiliationBp",
+            "CaseNumber": "000001",
+            "Amount": 10000,
+            "PurchaseAmount": 10000,
+            "PurchaseDate": "2018-09-13T00:00:00",
+            "AuthorizationCode": "384910",
+            "AcquirerTransactionId": "0913050523453",
+            "ProofOfSale": "523453",
+            "Brand": "Master",
+            "CardHolder": "José das Couves",
+            "MaskedCardNumber": "123456******7890",
+            "ReasonCode": "28",
+            "ReasonMessage": "Consumidor nao reconhece a compra",
+            "Status": "Received",
+            "ReceivedDate": "2018-09-14T00:00:00",
+            "BraspagTransactionId": "f9518dd7-76a8-400b-b7cf-b8c09731d71d",
+            "AntifraudTransactionId": "4e9dd957-90b7-e811-bce7-0003ff21d4d7"
+        }
+    ]
+}
+```
+
+### Response
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id do chargeback na Chargeback API Braspag|guid|
+|`AcquirerType`|Tipo da adquirente|string|
+|`EstablishmentCode`|Código do estabelecimento|long|
+|`CaseNumber`|Número do caso relacionado ao chargeback|guid|
+|`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`TransactionAmount`|Valor da transação em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
+|`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Ex.: 2018-03-01|date|
+|`AuthorizationCode`|Código de autorização da transação na adquirente|string|
+|`AcquirerTransactionId`|Id da transação na adquirente|string|
+|`ProofOfSale`|Número sequencial único da transação na adquirente|string|
+|`CardHolder`|Nome do cartão de crédito|string|
+|`MaskedCardNumber`|Número do cartão de crédito mascarado|string|
+|`ReasonCode`|Código do motivo do chargeback|string|
+|`ReasonMessage`|Mensagem do motivo do chargeback|string|
+|`Status`|Status do charegabck na Braspag|guid|
+|`ReceivedDate`|Data de recebimento do chargeback na Braspagguid|
+|`BraspagTransactionId`|Id da transação na Braspag|guid|
+|`AntifraudTransactionId`|Id da transação de antifraude na Braspag|guid|
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+**Parâmetros no corpo (Body)**
+
+## Consultando uma transação inexistente
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+### Response
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
 
 # Tabelas
 
