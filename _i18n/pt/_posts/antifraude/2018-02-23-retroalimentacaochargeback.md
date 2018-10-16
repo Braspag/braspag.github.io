@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Chargeback - Manual de integração
+title: Chargeback API - Manual de integração
 description: Integração técnica API Chargeback Braspag
 search: true
 categories: manual
@@ -13,7 +13,7 @@ language_tabs:
 
 # Visão Geral
 
-API desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa do chargeback e aceitar um chargeback.
+Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa de chargeback e acatar um chargeback.
 
 A retroalimentação de chargeback para o provedor de antifraude, proporciona:
 
@@ -302,6 +302,8 @@ Em caso de alguma falha, será apresentada a mensagem de **Operação parciament
 ![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/uploadparcial.png){: .centerimg }{:title="Upload parcialmente processado"}  
 
 Neste caso, é possível verificar os erros encontrados em cada linha, tratar e reenviar o arquivo.
+
+# 
 
 # Tabelas
 
