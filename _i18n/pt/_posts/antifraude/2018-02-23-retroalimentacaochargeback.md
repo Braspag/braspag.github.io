@@ -309,7 +309,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ### Request
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">chargeback?CaseNumber={CaseNumber}&AcquirerTransactionId={AcquirerTransactionId}&BraspagTransactionId={BraspagTransactionId}/span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">chargebackFromAcquirer?CaseNumber={CaseNumber}&AcquirerTransactionId={AcquirerTransactionId}&BraspagTransactionId={BraspagTransactionId}/span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
