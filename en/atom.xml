@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-10-11T13:25:02+00:00</updated>
+    <updated>2018-10-16T14:10:55+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -211,7 +211,7 @@
       &lt;td&gt;Zero Auth query response code returned by the provider.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. For provider Cielo30, 85-Sucesso (valid card)&lt;/td&gt;
+      &lt;td&gt;The same code returned by the provider upon authorization. Ex: provider Cielo30 code 82-cartão invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnMessage&lt;/code&gt;&lt;/td&gt;
@@ -232,7 +232,7 @@
       &lt;td&gt;Card Type&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
-      &lt;td&gt;Ex. Crédito, Débito, Múltiplo, Débito Refeição, etc&lt;/td&gt;
+      &lt;td&gt;Ex. Crédito, Débito, Múltiplo&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.ForeignCard&lt;/code&gt;&lt;/td&gt;
