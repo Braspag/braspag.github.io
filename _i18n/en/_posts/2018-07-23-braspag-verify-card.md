@@ -112,10 +112,10 @@ curl
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Zero Auth status|Number|1 |<UL><LI>0-Success Zero Auth response</LI><LI>1-Failed Zero Auth response</LI><LI>99-The query was succeeded but the card status is inconclusive</LI></UL> |
-|`ProviderReturnCode`|Zero Auth query response code returned by the provider. |Number|2|Ex. For provider Cielo30, 85-Sucesso (valid card)|
+|`ProviderReturnCode`|Zero Auth query response code returned by the provider. |Number|2|The same code returned by the provider upon authorization. Ex: provider Cielo30 code 82-cartão invalido|
 |`ProviderReturnMessage`|Zero Auth query response message returned by the provider. |Text|512 |Ex. "Transacao Autorizada"|
 |`BinData.Provider`|Service provider|Text|15 |Ex. Cielo30|
-|`BinData.CardType`|Card Type|Text|15 |Ex. Crédito, Débito, Múltiplo, Débito Refeição, etc|
+|`BinData.CardType`|Card Type|Text|15 |Ex. Crédito, Débito, Múltiplo|
 |`BinData.ForeignCard`|Identify if the card was issues in Brazil or not|booleano|- |Ex. true ou false |
 |`BinData.Code`|BIN query service return code|Number|2 |Ex. For provider Cielo30, 00 means that the query was succeeded  |
 |`BinData.Message`|query service return message|Text|512 |Ex. For provider Cielo30, "Analise autorizada" means that the query was succeeded. |
