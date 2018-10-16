@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-16T16:49:00+00:00</updated>
+    <updated>2018-10-16T20:02:06+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -8730,7 +8730,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;p&gt;Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa de chargeback e acatar um chargeback.&lt;/p&gt;
 
-&lt;p&gt;A retroalimentação de chargeback para o provedor de antifraude, proporciona:&lt;/p&gt;
+&lt;p&gt;A retroalimentação de chargeback ao provedor de antifraude, proporciona:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Melhoria na performance das decisões automáticas - Uma vez que dados marcados na transação em que ocorreu o chargeback são adicionados à lista negativa, é possível realizar regras mais rigorosas provendo um ganho na estratégia;&lt;/li&gt;
@@ -8745,7 +8745,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;h1 id=&quot;objetivo&quot;&gt;Objetivo&lt;/h1&gt;
 
-&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Chargeback Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
+&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a Chargeback API Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
 
 &lt;p&gt;Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
 
@@ -8772,7 +8772,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;api-retroalimentação-de-chargeback&quot;&gt;API Retroalimentação de Chargeback&lt;/h2&gt;
+&lt;h2 id=&quot;chargeback-api-braspag&quot;&gt;Chargeback API Braspag&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -8797,13 +8797,13 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;h2 id=&quot;tokens-de-acesso&quot;&gt;Tokens de Acesso&lt;/h2&gt;
 
-&lt;p&gt;A API de Charegabck Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A Charegabck API Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.&lt;/p&gt;
 
 &lt;h2 id=&quot;obtenção-do-token-de-acesso&quot;&gt;Obtenção do token de acesso&lt;/h2&gt;
 
-&lt;p&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;API de Chargeback&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;Chargeback API&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -8813,7 +8813,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;p&gt;O &lt;strong&gt;BraspagAuth&lt;/strong&gt; valida a credencial recebida. Se for válida, retorna o token de acesso para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;API de Chargeback&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;Chargeback API&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Se o token de acesso for válido, a requisição é processada e os dados são retornados para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
@@ -8904,7 +8904,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;access_token&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Retroalimentação de Chargeback&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a Chargeback API&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;token_type&lt;/code&gt;&lt;/td&gt;
@@ -9348,71 +9348,146 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;p&gt;Neste caso, é possível verificar os erros encontrados em cada linha, tratar e reenviar o arquivo.&lt;/p&gt;
 
-&lt;p&gt;#&lt;/p&gt;
+&lt;h1 id=&quot;consultas&quot;&gt;Consultas&lt;/h1&gt;
 
-&lt;h1 id=&quot;tabelas&quot;&gt;Tabelas&lt;/h1&gt;
+&lt;h2 id=&quot;consultando-uma-transação&quot;&gt;Consultando uma transação&lt;/h2&gt;
 
-&lt;h2 id=&quot;tabela-1---chargebacksnnegativevalues&quot;&gt;Tabela 1 - Chargebacks[n].NegativeValues&lt;/h2&gt;
+&lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;Possíveis valores a serem inseridos na lista negativa na Cybersource.&lt;/p&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;chargeback?CaseNumber={CaseNumber}&amp;amp;AcquirerTransactionId={AcquirerTransactionId}&amp;amp;BraspagTransactionId={BraspagTransactionId}/span&amp;gt;&amp;lt;/aside&amp;gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;CustomerDocumentNumber&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento do comprador, CPF ou CNPJ&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;CustomerIpAddress&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Endereço de IP do comprador&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;CustomerPhone&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número de telefone do comprador&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ShippingStreet&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Logradouro do endereço de entrega&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;DeviceFingerprintSmartId&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Fingerprint do dispositivo do comprador&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+**Parâmetros no cabeçalho (Header)**
 
-&lt;h2 id=&quot;tabela-2---resultprocessingstatus&quot;&gt;Tabela 2 - Result.ProcessingStatus&lt;/h2&gt;
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-&lt;p&gt;Possíveis retornos do chargeback enviado.&lt;/p&gt;
+**Parâmetros na querystring**
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|não|
+|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
+|`BraspagTransactionId`|Identificador da transação na Braspag|não|
+|`StartDate`|Data início da consulta|não|
+|`EndDate`|Data fim da consulta|não|
+|`PageIndex`|Número da página desejada|sim|
+|`PageSize`|Quantidade de itens desejado na página|sim|
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;AlreadyExist&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transação já marcada com chargeback anteriormente&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Remand&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback deverá ser reenviado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;NotFound&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+### Response
+
+```json
+{
+    &quot;PageIndex&quot;: 1,
+    &quot;PageSize&quot;: 250,
+    &quot;Total&quot;: 1
+    &quot;Chargebacks&quot;:
+    [
+        {
+            &quot;Id&quot;: &quot;fd14e3fb-cf2a-4228-b690-1338660afc54&quot;,
+            &quot;AcquirerType&quot;: &quot;Cielo&quot;,
+            &quot;EstablishmentCode&quot;: &quot;TesteAffiliationBp&quot;,
+            &quot;CaseNumber&quot;: &quot;000001&quot;,
+            &quot;Amount&quot;: 10000,
+            &quot;PurchaseAmount&quot;: 10000,
+            &quot;PurchaseDate&quot;: &quot;2018-09-13T00:00:00&quot;,
+            &quot;AuthorizationCode&quot;: &quot;384910&quot;,
+            &quot;AcquirerTransactionId&quot;: &quot;0913050523453&quot;,
+            &quot;ProofOfSale&quot;: &quot;523453&quot;,
+            &quot;Brand&quot;: &quot;Master&quot;,
+            &quot;CardHolder&quot;: &quot;José das Couves&quot;,
+            &quot;MaskedCardNumber&quot;: &quot;123456******7890&quot;,
+            &quot;ReasonCode&quot;: &quot;28&quot;,
+            &quot;ReasonMessage&quot;: &quot;Consumidor nao reconhece a compra&quot;,
+            &quot;Status&quot;: &quot;Received&quot;,
+            &quot;ReceivedDate&quot;: &quot;2018-09-14T00:00:00&quot;,
+            &quot;BraspagTransactionId&quot;: &quot;f9518dd7-76a8-400b-b7cf-b8c09731d71d&quot;,
+            &quot;AntifraudTransactionId&quot;: &quot;4e9dd957-90b7-e811-bce7-0003ff21d4d7&quot;
+        }
+    ]
+}
+```
+
+### Response
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id do chargeback na Chargeback API Braspag|guid|
+|`AcquirerType`|Tipo da adquirente|string|
+|`EstablishmentCode`|Código do estabelecimento|long|
+|`CaseNumber`|Número do caso relacionado ao chargeback|guid|
+|`Amount`|Valor do chargeback em centavos &lt;br /&gt; Ex: 123456 = r$ 1.234,56|long|
+|`TransactionAmount`|Valor da transação em centavos &lt;br /&gt; Ex: 150000 = r$ 1.500,00|long|
+|`SaleDate`|Data da autorização da transação da transação na adquirente &lt;br /&gt; Ex.: 2018-03-01|date|
+|`AuthorizationCode`|Código de autorização da transação na adquirente|string|
+|`AcquirerTransactionId`|Id da transação na adquirente|string|
+|`ProofOfSale`|Número sequencial único da transação na adquirente|string|
+|`CardHolder`|Nome do cartão de crédito|string|
+|`MaskedCardNumber`|Número do cartão de crédito mascarado|string|
+|`ReasonCode`|Código do motivo do chargeback|string|
+|`ReasonMessage`|Mensagem do motivo do chargeback|string|
+|`Status`|Status do charegabck na Braspag|guid|
+|`ReceivedDate`|Data de recebimento do chargeback na Braspagguid|
+|`BraspagTransactionId`|Id da transação na Braspag|guid|
+|`AntifraudTransactionId`|Id da transação de antifraude na Braspag|guid|
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+**Parâmetros no corpo (Body)**
+
+## Consultando uma transação inexistente
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+### Response
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
+# Tabelas
+
+## Tabela 1 - Chargebacks[n].NegativeValues
+
+Possíveis valores a serem inseridos na lista negativa na Cybersource.
+
+|Valor|Descrição|
+|:-|:-|
+|CustomerDocumentNumber|Número do documento do comprador, CPF ou CNPJ|
+|CustomerIpAddress|Endereço de IP do comprador|
+|CustomerPhone|Número de telefone do comprador|
+|ShippingStreet|Logradouro do endereço de entrega|
+|DeviceFingerprintSmartId|Fingerprint do dispositivo do comprador|
+
+## Tabela 2 - Result.ProcessingStatus
+
+Possíveis retornos do chargeback enviado.
+
+|Valor|Descrição|
+|:-|:-|
+|AlreadyExist|Transação já marcada com chargeback anteriormente|
+|Remand|Chargeback deverá ser reenviado|
+|NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction|
+&lt;/span&gt;&lt;/aside&gt;
 </content>
     </entry>
     
