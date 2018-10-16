@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-16T22:00:39+00:00</updated>
+    <updated>2018-10-16T22:05:14+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9354,140 +9354,327 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;chargebackFromAcquirer?CaseNumber={CaseNumber}&amp;amp;AcquirerTransactionId={AcquirerTransactionId}&amp;amp;BraspagTransactionId={BraspagTransactionId}/span&amp;gt;&amp;lt;/aside&amp;gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;chargebackFromAcquirer?CaseNumber={CaseNumber}&amp;amp;AcquirerTransactionId={AcquirerTransactionId}&amp;amp;BraspagTransactionId={BraspagTransactionId}&lt;/span&gt;&lt;/aside&gt;
 
-**Parâmetros no cabeçalho (Header)**
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-**Parâmetros na querystring**
+&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|não|
-|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
-|`BraspagTransactionId`|Identificador da transação na Braspag|não|
-|`StartDate`|Data início da consulta|não|
-|`EndDate`|Data fim da consulta|não|
-|`PageIndex`|Número da página desejada|sim|
-|`PageSize`|Quantidade de itens desejado na página|sim|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;|Número do caso relacionado ao chargeback|não|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;AcquirerTransactionId&lt;/code&gt;|Identificador da transação na adquirente (TID)|não|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;BraspagTransactionId&lt;/code&gt;|Identificador da transação na Braspag|não|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;StartDate&lt;/code&gt;|Data início da consulta|não|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;EndDate&lt;/code&gt;|Data fim da consulta|não|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;PageIndex&lt;/code&gt;|Número da página desejada|sim|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;PageSize&lt;/code&gt;|Quantidade de itens desejado na página|sim|&lt;/p&gt;
 
-### Response
+&lt;h3 id=&quot;response-2&quot;&gt;Response&lt;/h3&gt;
 
-```json
-{
-    &quot;PageIndex&quot;: 1,
-    &quot;PageSize&quot;: 250,
-    &quot;Total&quot;: 1
-    &quot;Chargebacks&quot;:
-    [
-        {
-            &quot;Id&quot;: &quot;fd14e3fb-cf2a-4228-b690-1338660afc54&quot;,
-            &quot;AcquirerType&quot;: &quot;Cielo&quot;,
-            &quot;EstablishmentCode&quot;: &quot;TesteAffiliationBp&quot;,
-            &quot;CaseNumber&quot;: &quot;000001&quot;,
-            &quot;Amount&quot;: 10000,
-            &quot;PurchaseAmount&quot;: 10000,
-            &quot;PurchaseDate&quot;: &quot;2018-09-13T00:00:00&quot;,
-            &quot;AuthorizationCode&quot;: &quot;384910&quot;,
-            &quot;AcquirerTransactionId&quot;: &quot;0913050523453&quot;,
-            &quot;ProofOfSale&quot;: &quot;523453&quot;,
-            &quot;Brand&quot;: &quot;Master&quot;,
-            &quot;CardHolder&quot;: &quot;José das Couves&quot;,
-            &quot;MaskedCardNumber&quot;: &quot;123456******7890&quot;,
-            &quot;ReasonCode&quot;: &quot;28&quot;,
-            &quot;ReasonMessage&quot;: &quot;Consumidor nao reconhece a compra&quot;,
-            &quot;Status&quot;: &quot;Received&quot;,
-            &quot;ReceivedDate&quot;: &quot;2018-09-14T00:00:00&quot;,
-            &quot;BraspagTransactionId&quot;: &quot;f9518dd7-76a8-400b-b7cf-b8c09731d71d&quot;,
-            &quot;AntifraudTransactionId&quot;: &quot;4e9dd957-90b7-e811-bce7-0003ff21d4d7&quot;
-        }
-    ]
-}
-```
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PageIndex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PageSize&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;250&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Total&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Chargebacks&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;fd14e3fb-cf2a-4228-b690-1338660afc54&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AcquirerType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EstablishmentCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TesteAffiliationBp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CaseNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;000001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PurchaseAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PurchaseDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-09-13T00:00:00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;384910&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AcquirerTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0913050523453&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;523453&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Master&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardHolder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;José das Couves&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MaskedCardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456******7890&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReasonCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;28&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReasonMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Consumidor nao reconhece a compra&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Received&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-09-14T00:00:00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BraspagTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f9518dd7-76a8-400b-b7cf-b8c09731d71d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AntifraudTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4e9dd957-90b7-e811-bce7-0003ff21d4d7&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-### Response
+&lt;h3 id=&quot;response-3&quot;&gt;Response&lt;/h3&gt;
 
-|Parâmetro|Descrição|Tipo|
-|:-|:-|:-:|
-|`Id`|Id do chargeback na Chargeback API Braspag|guid|
-|`AcquirerType`|Tipo da adquirente|string|
-|`EstablishmentCode`|Código do estabelecimento|long|
-|`CaseNumber`|Número do caso relacionado ao chargeback|guid|
-|`Amount`|Valor do chargeback em centavos &lt;br /&gt; Ex: 123456 = r$ 1.234,56|long|
-|`TransactionAmount`|Valor da transação em centavos &lt;br /&gt; Ex: 150000 = r$ 1.500,00|long|
-|`SaleDate`|Data da autorização da transação da transação na adquirente &lt;br /&gt; Ex.: 2018-03-01|date|
-|`AuthorizationCode`|Código de autorização da transação na adquirente|string|
-|`AcquirerTransactionId`|Id da transação na adquirente|string|
-|`ProofOfSale`|Número sequencial único da transação na adquirente|string|
-|`CardHolder`|Nome do cartão de crédito|string|
-|`MaskedCardNumber`|Número do cartão de crédito mascarado|string|
-|`ReasonCode`|Código do motivo do chargeback|string|
-|`ReasonMessage`|Mensagem do motivo do chargeback|string|
-|`Status`|Status do charegabck na Braspag|guid|
-|`ReceivedDate`|Data de recebimento do chargeback na Braspagguid|
-|`BraspagTransactionId`|Id da transação na Braspag|guid|
-|`AntifraudTransactionId`|Id da transação de antifraude na Braspag|guid|
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Id&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id do chargeback na Chargeback API Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;guid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AcquirerType&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo da adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código do estabelecimento&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso relacionado ao chargeback&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;guid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Valor do chargeback em centavos &lt;br /&gt; Ex: 123456 = r$ 1.234,56&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TransactionAmount&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Valor da transação em centavos &lt;br /&gt; Ex: 150000 = r$ 1.500,00&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SaleDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data da autorização da transação da transação na adquirente &lt;br /&gt; Ex.: 2018-03-01&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;date&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizationCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de autorização da transação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AcquirerTransactionId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id da transação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProofOfSale&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número sequencial único da transação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CardHolder&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nome do cartão de crédito&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MaskedCardNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do cartão de crédito mascarado&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código do motivo do chargeback&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonMessage&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem do motivo do chargeback&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Status do charegabck na Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;guid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReceivedDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data de recebimento do chargeback na Braspagguid&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BraspagTransactionId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id da transação na Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;guid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AntifraudTransactionId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id da transação de antifraude na Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;guid&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-**Parâmetros no cabeçalho (Header)**
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200 OK&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-**Parâmetros no corpo (Body)**
+&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
 
-## Consultando uma transação inexistente
+&lt;h2 id=&quot;consultando-uma-transação-inexistente&quot;&gt;Consultando uma transação inexistente&lt;/h2&gt;
 
-### Request
+&lt;h3 id=&quot;request-3&quot;&gt;Request&lt;/h3&gt;
 
-**Parâmetros no cabeçalho (Header)**
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-### Response
+&lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
 
-**Parâmetros no cabeçalho (Header)**
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;404 Not Found&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-# Tabelas
+&lt;h1 id=&quot;tabelas&quot;&gt;Tabelas&lt;/h1&gt;
 
-## Tabela 1 - Chargebacks[n].NegativeValues
+&lt;h2 id=&quot;tabela-1---chargebacksnnegativevalues&quot;&gt;Tabela 1 - Chargebacks[n].NegativeValues&lt;/h2&gt;
 
-Possíveis valores a serem inseridos na lista negativa na Cybersource.
+&lt;p&gt;Possíveis valores a serem inseridos na lista negativa na Cybersource.&lt;/p&gt;
 
-|Valor|Descrição|
-|:-|:-|
-|CustomerDocumentNumber|Número do documento do comprador, CPF ou CNPJ|
-|CustomerIpAddress|Endereço de IP do comprador|
-|CustomerPhone|Número de telefone do comprador|
-|ShippingStreet|Logradouro do endereço de entrega|
-|DeviceFingerprintSmartId|Fingerprint do dispositivo do comprador|
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CustomerDocumentNumber&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento do comprador, CPF ou CNPJ&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CustomerIpAddress&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Endereço de IP do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CustomerPhone&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número de telefone do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ShippingStreet&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Logradouro do endereço de entrega&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;DeviceFingerprintSmartId&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Fingerprint do dispositivo do comprador&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-## Tabela 2 - Result.ProcessingStatus
+&lt;h2 id=&quot;tabela-2---resultprocessingstatus&quot;&gt;Tabela 2 - Result.ProcessingStatus&lt;/h2&gt;
 
-Possíveis retornos do chargeback enviado.
+&lt;p&gt;Possíveis retornos do chargeback enviado.&lt;/p&gt;
 
-|Valor|Descrição|
-|:-|:-|
-|AlreadyExist|Transação já marcada com chargeback anteriormente|
-|Remand|Chargeback deverá ser reenviado|
-|NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction|
-&lt;/span&gt;&lt;/aside&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;AlreadyExist&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transação já marcada com chargeback anteriormente&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Remand&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback deverá ser reenviado&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;NotFound&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     

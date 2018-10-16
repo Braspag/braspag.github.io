@@ -745,140 +745,327 @@
 
 <h3 id="request-2">Request</h3>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">chargebackFromAcquirer?CaseNumber={CaseNumber}&amp;AcquirerTransactionId={AcquirerTransactionId}&amp;BraspagTransactionId={BraspagTransactionId}/span&gt;&lt;/aside&gt;
+<aside class="request"><span class="method get">GET</span><span class="endpoint">chargebackFromAcquirer?CaseNumber={CaseNumber}&amp;AcquirerTransactionId={AcquirerTransactionId}&amp;BraspagTransactionId={BraspagTransactionId}</span></aside>
 
-**Parâmetros no cabeçalho (Header)**
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
 
-**Parâmetros na querystring**
+<p><strong>Parâmetros na querystring</strong>
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|não|
-|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
-|`BraspagTransactionId`|Identificador da transação na Braspag|não|
-|`StartDate`|Data início da consulta|não|
-|`EndDate`|Data fim da consulta|não|
-|`PageIndex`|Número da página desejada|sim|
-|`PageSize`|Quantidade de itens desejado na página|sim|
+|<code class="highlighter-rouge">CaseNumber</code>|Número do caso relacionado ao chargeback|não|
+|<code class="highlighter-rouge">AcquirerTransactionId</code>|Identificador da transação na adquirente (TID)|não|
+|<code class="highlighter-rouge">BraspagTransactionId</code>|Identificador da transação na Braspag|não|
+|<code class="highlighter-rouge">StartDate</code>|Data início da consulta|não|
+|<code class="highlighter-rouge">EndDate</code>|Data fim da consulta|não|
+|<code class="highlighter-rouge">PageIndex</code>|Número da página desejada|sim|
+|<code class="highlighter-rouge">PageSize</code>|Quantidade de itens desejado na página|sim|</p>
 
-### Response
+<h3 id="response-2">Response</h3>
 
-```json
-{
-    "PageIndex": 1,
-    "PageSize": 250,
-    "Total": 1
-    "Chargebacks":
-    [
-        {
-            "Id": "fd14e3fb-cf2a-4228-b690-1338660afc54",
-            "AcquirerType": "Cielo",
-            "EstablishmentCode": "TesteAffiliationBp",
-            "CaseNumber": "000001",
-            "Amount": 10000,
-            "PurchaseAmount": 10000,
-            "PurchaseDate": "2018-09-13T00:00:00",
-            "AuthorizationCode": "384910",
-            "AcquirerTransactionId": "0913050523453",
-            "ProofOfSale": "523453",
-            "Brand": "Master",
-            "CardHolder": "José das Couves",
-            "MaskedCardNumber": "123456******7890",
-            "ReasonCode": "28",
-            "ReasonMessage": "Consumidor nao reconhece a compra",
-            "Status": "Received",
-            "ReceivedDate": "2018-09-14T00:00:00",
-            "BraspagTransactionId": "f9518dd7-76a8-400b-b7cf-b8c09731d71d",
-            "AntifraudTransactionId": "4e9dd957-90b7-e811-bce7-0003ff21d4d7"
-        }
-    ]
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd14e3fb-cf2a-4228-b690-1338660afc54"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AcquirerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TesteAffiliationBp"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"PurchaseAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"PurchaseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-13T00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"384910"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0913050523453"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"523453"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"CardHolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"José das Couves"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MaskedCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456******7890"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumidor nao reconhece a compra"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-14T00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f9518dd7-76a8-400b-b7cf-b8c09731d71d"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AntifraudTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e9dd957-90b7-e811-bce7-0003ff21d4d7"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-### Response
+<h3 id="response-3">Response</h3>
 
-|Parâmetro|Descrição|Tipo|
-|:-|:-|:-:|
-|`Id`|Id do chargeback na Chargeback API Braspag|guid|
-|`AcquirerType`|Tipo da adquirente|string|
-|`EstablishmentCode`|Código do estabelecimento|long|
-|`CaseNumber`|Número do caso relacionado ao chargeback|guid|
-|`Amount`|Valor do chargeback em centavos <br /> Ex: 123456 = r$ 1.234,56|long|
-|`TransactionAmount`|Valor da transação em centavos <br /> Ex: 150000 = r$ 1.500,00|long|
-|`SaleDate`|Data da autorização da transação da transação na adquirente <br /> Ex.: 2018-03-01|date|
-|`AuthorizationCode`|Código de autorização da transação na adquirente|string|
-|`AcquirerTransactionId`|Id da transação na adquirente|string|
-|`ProofOfSale`|Número sequencial único da transação na adquirente|string|
-|`CardHolder`|Nome do cartão de crédito|string|
-|`MaskedCardNumber`|Número do cartão de crédito mascarado|string|
-|`ReasonCode`|Código do motivo do chargeback|string|
-|`ReasonMessage`|Mensagem do motivo do chargeback|string|
-|`Status`|Status do charegabck na Braspag|guid|
-|`ReceivedDate`|Data de recebimento do chargeback na Braspagguid|
-|`BraspagTransactionId`|Id da transação na Braspag|guid|
-|`AntifraudTransactionId`|Id da transação de antifraude na Braspag|guid|
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
+      <td style="text-align: left">Id do chargeback na Chargeback API Braspag</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AcquirerType</code></td>
+      <td style="text-align: left">Tipo da adquirente</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">Código do estabelecimento</td>
+      <td style="text-align: center">long</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Amount</code></td>
+      <td style="text-align: left">Valor do chargeback em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">TransactionAmount</code></td>
+      <td style="text-align: left">Valor da transação em centavos <br /> Ex: 150000 = r$ 1.500,00</td>
+      <td style="text-align: center">long</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">SaleDate</code></td>
+      <td style="text-align: left">Data da autorização da transação da transação na adquirente <br /> Ex.: 2018-03-01</td>
+      <td style="text-align: center">date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AcquirerTransactionId</code></td>
+      <td style="text-align: left">Id da transação na adquirente</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td style="text-align: left">Número sequencial único da transação na adquirente</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CardHolder</code></td>
+      <td style="text-align: left">Nome do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MaskedCardNumber</code></td>
+      <td style="text-align: left">Número do cartão de crédito mascarado</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ReasonCode</code></td>
+      <td style="text-align: left">Código do motivo do chargeback</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ReasonMessage</code></td>
+      <td style="text-align: left">Mensagem do motivo do chargeback</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Status do charegabck na Braspag</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ReceivedDate</code></td>
+      <td style="text-align: left">Data de recebimento do chargeback na Braspagguid</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação na Braspag</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AntifraudTransactionId</code></td>
+      <td style="text-align: left">Id da transação de antifraude na Braspag</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+  </tbody>
+</table>
 
-**Parâmetros no cabeçalho (Header)**
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
 
-**Parâmetros no corpo (Body)**
+<p><strong>Parâmetros no corpo (Body)</strong></p>
 
-## Consultando uma transação inexistente
+<h2 id="consultando-uma-transação-inexistente">Consultando uma transação inexistente</h2>
 
-### Request
+<h3 id="request-3">Request</h3>
 
-**Parâmetros no cabeçalho (Header)**
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
 
-### Response
+<h3 id="response-4">Response</h3>
 
-**Parâmetros no cabeçalho (Header)**
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
 
-# Tabelas
+<h1 id="tabelas">Tabelas</h1>
 
-## Tabela 1 - Chargebacks[n].NegativeValues
+<h2 id="tabela-1---chargebacksnnegativevalues">Tabela 1 - Chargebacks[n].NegativeValues</h2>
 
-Possíveis valores a serem inseridos na lista negativa na Cybersource.
+<p>Possíveis valores a serem inseridos na lista negativa na Cybersource.</p>
 
-|Valor|Descrição|
-|:-|:-|
-|CustomerDocumentNumber|Número do documento do comprador, CPF ou CNPJ|
-|CustomerIpAddress|Endereço de IP do comprador|
-|CustomerPhone|Número de telefone do comprador|
-|ShippingStreet|Logradouro do endereço de entrega|
-|DeviceFingerprintSmartId|Fingerprint do dispositivo do comprador|
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CustomerDocumentNumber</td>
+      <td style="text-align: left">Número do documento do comprador, CPF ou CNPJ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CustomerIpAddress</td>
+      <td style="text-align: left">Endereço de IP do comprador</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CustomerPhone</td>
+      <td style="text-align: left">Número de telefone do comprador</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ShippingStreet</td>
+      <td style="text-align: left">Logradouro do endereço de entrega</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeviceFingerprintSmartId</td>
+      <td style="text-align: left">Fingerprint do dispositivo do comprador</td>
+    </tr>
+  </tbody>
+</table>
 
-## Tabela 2 - Result.ProcessingStatus
+<h2 id="tabela-2---resultprocessingstatus">Tabela 2 - Result.ProcessingStatus</h2>
 
-Possíveis retornos do chargeback enviado.
+<p>Possíveis retornos do chargeback enviado.</p>
 
-|Valor|Descrição|
-|:-|:-|
-|AlreadyExist|Transação já marcada com chargeback anteriormente|
-|Remand|Chargeback deverá ser reenviado|
-|NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction|
-</span></aside>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AlreadyExist</td>
+      <td style="text-align: left">Transação já marcada com chargeback anteriormente</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Remand</td>
+      <td style="text-align: left">Chargeback deverá ser reenviado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NotFound</td>
+      <td style="text-align: left">Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
