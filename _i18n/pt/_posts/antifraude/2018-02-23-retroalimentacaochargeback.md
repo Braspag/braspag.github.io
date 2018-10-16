@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Retroalimentação de Chargeback - Manual de integração
-description: Integração técnica API Retroalimentação de Chargeback Braspag
+title: Chargeback - Manual de integração
+description: Integração técnica API Chargeback Braspag
 search: true
 categories: manual
 tags:
@@ -13,7 +13,9 @@ language_tabs:
 
 # Visão Geral
 
-Retroalimentação de Chargeback é uma API desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas, proporcionando:
+API desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa do chargeback e aceitar um chargeback.
+
+A retroalimentação de chargeback para o provedor de antifraude, proporciona:
 
 - Melhoria na performance das decisões automáticas - Uma vez que dados marcados na transação em que ocorreu o chargeback são adicionados à lista negativa, é possível realizar regras mais rigorosas provendo um ganho na estratégia;
 - Maior assertividade para equipes de revisão manual - Quando uma transação é marcada como chargeback, ela recebe um rótulo que fica visível para pesquisas posteriores que incluem pesquisas por “transações similares” (recurso bastante utilizado por equipes de revisão manual de transações tanto da Cybersource quanto próprias).  
@@ -24,7 +26,7 @@ A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo 
 
 # Objetivo
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Retroalimentação de Chargeback Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Chargeback Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.
 
 Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
 
@@ -48,23 +50,23 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 ## Tokens de Acesso
 
-A API Retroalimentação de Charegabck Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
+A API de Charegabck Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
 
 Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.
 
 ## Obtenção do token de acesso  
 
-O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Retroalimentação de Chargeback**.
+O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API de Chargeback**.
 
 1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
 
 2. O **BraspagAuth** valida a credencial recebida. Se for válida, retorna o token de acesso para a **Aplicação Cliente**.
 
-3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **API Retroalimentação de Charegack**.
+3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **API de Chargeback**.
 
 4. Se o token de acesso for válido, a requisição é processada e os dados são retornados para a **Aplicação Cliente**.
 
-> Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.  
+> Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.
 [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
 
 ## Como obter o token
@@ -113,7 +115,9 @@ Exemplo:
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
 
-# Retroalimentando chargeback via API
+# Retroalimentação
+
+## Via API
 
 ### Request
 
@@ -229,11 +233,11 @@ Exemplo:
 |`Result.ProcessingStatus`|Status do processamento do chargeback - [Tabela 2](https://braspag.github.io//manual/retroalimentacaochargeback#tabela-2-result.processingstatus)|enum|
 |`Result.ErrorMessages`|Mensagens de erro para chargebacks não processados|string|
 
-# Retroalimentando chargeback via Admin Braspag
+## Via Admin Braspag
 
 Nesta seção será explicado passo a passo como realizar o upload do arquivo de chargeback via Admin Braspag.
 
-## Passo 1 - Acessando o Admin Braspag
+### Passo 1 - Acessando o Admin Braspag
 
 Para acessar o Admin Braspag, digitar no browser de sua preferência a URL de acordo com o ambiente desejado, conforme abaixo:
 
@@ -244,13 +248,13 @@ Para acessar o Admin Braspag, digitar no browser de sua preferência a URL de ac
 > Caso não possua um usuário para o ambiente desejado, solicite a criação do mesmo através da nossa ferramenta de suporte.
 [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
 
-## Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback
+### Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback
 
 Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: `Configurações -> Upload de Arquivo de Chargeback`
 
 ![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/acesso.png){: .centerimg }{:title="Acessando a tela de Upload de Arquivo de Chargeback"}  
 
-## Passo 3 - Construindo o arquivo de chargeback no formato CSV
+### Passo 3 - Construindo o arquivo de chargeback no formato CSV
 
 Neste passo será explicado como construir um arquivo no formato CSV (Comma-separated values - Valores separados por vírgula) com os dados do chargeback.
 
@@ -278,7 +282,7 @@ O CSV que será construído com dos dados de chargeback deverá ter o layout aba
 |`SaleDate`|Data da venda da transação <br/> Ex.: 2017-10-15 <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `AuthorizationCode` se os campos `Id` e `BraspagTransactionId` não forem enviados|date|não|-|
 |`BraspagTransactionId`|Id da transação no Pagador Braspag <br/> Este campo se torna obrigatório se o campo `AntifraudTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados|Guid|não|-|
 
-## Passo 4 - Enviando o arquivo de chargeback
+### Passo 4 - Enviando o arquivo de chargeback
 
 Com o arquivo já construído, e realizando os passos 1 e 2, agora é selecionar o arquivo e enviá-lo, conforme print abaixo:
 
@@ -287,7 +291,7 @@ Com o arquivo já construído, e realizando os passos 1 e 2, agora é selecionar
 1 - Clique no botão `Choose File` para selecionar o arquivo na máquina local.  
 2 - Com o arquivo selecionado, clique no botão `Enviar` para realizar o upload do arquivo.
 
-## Passo 5 - Verificando o resultado do envio do arquivo de chargeback
+### Passo 5 - Verificando o resultado do envio do arquivo de chargeback
 
 Após realizar todos os passos acima, o arquivo será processado e através da seção Resultado será possível verificar o resultado do processamento.  
 
