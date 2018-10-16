@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-16T15:15:41+00:00</updated>
+    <updated>2018-10-16T16:49:00+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -8721,14 +8721,14 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     </entry>
     
     <entry>
-        <title>Chargeback - Manual de integração</title>
+        <title>Chargeback API - Manual de integração</title>
         <category term="manual" />
         <link href="https://braspag.github.io//manual/retroalimentacaochargeback"/>
         <updated>2018-02-23T00:00:00+00:00</updated>
         <id>https://braspag.github.io//manual/retroalimentacaochargeback</id>
         <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
 
-&lt;p&gt;API desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa do chargeback e aceitar um chargeback.&lt;/p&gt;
+&lt;p&gt;Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa de chargeback e acatar um chargeback.&lt;/p&gt;
 
 &lt;p&gt;A retroalimentação de chargeback para o provedor de antifraude, proporciona:&lt;/p&gt;
 
@@ -9347,6 +9347,8 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/uploadparcial.png&quot; alt=&quot;Upload de Arquivo de Chargeback&quot; class=&quot;centerimg&quot; title=&quot;Upload parcialmente processado&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Neste caso, é possível verificar os erros encontrados em cada linha, tratar e reenviar o arquivo.&lt;/p&gt;
+
+&lt;p&gt;#&lt;/p&gt;
 
 &lt;h1 id=&quot;tabelas&quot;&gt;Tabelas&lt;/h1&gt;
 
