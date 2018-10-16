@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-16T14:10:50+00:00</updated>
+    <updated>2018-10-16T15:15:41+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -8721,14 +8721,16 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     </entry>
     
     <entry>
-        <title>Retroalimentação de Chargeback - Manual de integração</title>
+        <title>Chargeback - Manual de integração</title>
         <category term="manual" />
         <link href="https://braspag.github.io//manual/retroalimentacaochargeback"/>
         <updated>2018-02-23T00:00:00+00:00</updated>
         <id>https://braspag.github.io//manual/retroalimentacaochargeback</id>
         <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
 
-&lt;p&gt;Retroalimentação de Chargeback é uma API desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas, proporcionando:&lt;/p&gt;
+&lt;p&gt;API desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa do chargeback e aceitar um chargeback.&lt;/p&gt;
+
+&lt;p&gt;A retroalimentação de chargeback para o provedor de antifraude, proporciona:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Melhoria na performance das decisões automáticas - Uma vez que dados marcados na transação em que ocorreu o chargeback são adicionados à lista negativa, é possível realizar regras mais rigorosas provendo um ganho na estratégia;&lt;/li&gt;
@@ -8743,7 +8745,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;h1 id=&quot;objetivo&quot;&gt;Objetivo&lt;/h1&gt;
 
-&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Retroalimentação de Chargeback Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
+&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Chargeback Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
 
 &lt;p&gt;Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
 
@@ -8795,13 +8797,13 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;h2 id=&quot;tokens-de-acesso&quot;&gt;Tokens de Acesso&lt;/h2&gt;
 
-&lt;p&gt;A API Retroalimentação de Charegabck Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A API de Charegabck Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.&lt;/p&gt;
 
 &lt;h2 id=&quot;obtenção-do-token-de-acesso&quot;&gt;Obtenção do token de acesso&lt;/h2&gt;
 
-&lt;p&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;API Retroalimentação de Chargeback&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;API de Chargeback&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -8811,7 +8813,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;p&gt;O &lt;strong&gt;BraspagAuth&lt;/strong&gt; valida a credencial recebida. Se for válida, retorna o token de acesso para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;API Retroalimentação de Charegack&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;API de Chargeback&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Se o token de acesso for válido, a requisição é processada e os dados são retornados para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
@@ -8819,7 +8821,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.&lt;br /&gt;
+  &lt;p&gt;Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.
 &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -8915,7 +8917,9 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;retroalimentando-chargeback-via-api&quot;&gt;Retroalimentando chargeback via API&lt;/h1&gt;
+&lt;h1 id=&quot;retroalimentação&quot;&gt;Retroalimentação&lt;/h1&gt;
+
+&lt;h2 id=&quot;via-api&quot;&gt;Via API&lt;/h2&gt;
 
 &lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
 
@@ -9168,11 +9172,11 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;retroalimentando-chargeback-via-admin-braspag&quot;&gt;Retroalimentando chargeback via Admin Braspag&lt;/h1&gt;
+&lt;h2 id=&quot;via-admin-braspag&quot;&gt;Via Admin Braspag&lt;/h2&gt;
 
 &lt;p&gt;Nesta seção será explicado passo a passo como realizar o upload do arquivo de chargeback via Admin Braspag.&lt;/p&gt;
 
-&lt;h2 id=&quot;passo-1---acessando-o-admin-braspag&quot;&gt;Passo 1 - Acessando o Admin Braspag&lt;/h2&gt;
+&lt;h3 id=&quot;passo-1---acessando-o-admin-braspag&quot;&gt;Passo 1 - Acessando o Admin Braspag&lt;/h3&gt;
 
 &lt;p&gt;Para acessar o Admin Braspag, digitar no browser de sua preferência a URL de acordo com o ambiente desejado, conforme abaixo:&lt;/p&gt;
 
@@ -9198,13 +9202,13 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;passo-2---acessando-a-tela-de-upload-de-arquivo-de-chargeback&quot;&gt;Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback&lt;/h2&gt;
+&lt;h3 id=&quot;passo-2---acessando-a-tela-de-upload-de-arquivo-de-chargeback&quot;&gt;Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback&lt;/h3&gt;
 
 &lt;p&gt;Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: &lt;code class=&quot;highlighter-rouge&quot;&gt;Configurações -&amp;gt; Upload de Arquivo de Chargeback&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/acesso.png&quot; alt=&quot;Upload de Arquivo de Chargeback&quot; class=&quot;centerimg&quot; title=&quot;Acessando a tela de Upload de Arquivo de Chargeback&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;passo-3---construindo-o-arquivo-de-chargeback-no-formato-csv&quot;&gt;Passo 3 - Construindo o arquivo de chargeback no formato CSV&lt;/h2&gt;
+&lt;h3 id=&quot;passo-3---construindo-o-arquivo-de-chargeback-no-formato-csv&quot;&gt;Passo 3 - Construindo o arquivo de chargeback no formato CSV&lt;/h3&gt;
 
 &lt;p&gt;Neste passo será explicado como construir um arquivo no formato CSV (Comma-separated values - Valores separados por vírgula) com os dados do chargeback.&lt;/p&gt;
 
@@ -9323,7 +9327,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;passo-4---enviando-o-arquivo-de-chargeback&quot;&gt;Passo 4 - Enviando o arquivo de chargeback&lt;/h2&gt;
+&lt;h3 id=&quot;passo-4---enviando-o-arquivo-de-chargeback&quot;&gt;Passo 4 - Enviando o arquivo de chargeback&lt;/h3&gt;
 
 &lt;p&gt;Com o arquivo já construído, e realizando os passos 1 e 2, agora é selecionar o arquivo e enviá-lo, conforme print abaixo:&lt;/p&gt;
 
@@ -9332,7 +9336,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 &lt;p&gt;1 - Clique no botão &lt;code class=&quot;highlighter-rouge&quot;&gt;Choose File&lt;/code&gt; para selecionar o arquivo na máquina local.&lt;br /&gt;
 2 - Com o arquivo selecionado, clique no botão &lt;code class=&quot;highlighter-rouge&quot;&gt;Enviar&lt;/code&gt; para realizar o upload do arquivo.&lt;/p&gt;
 
-&lt;h2 id=&quot;passo-5---verificando-o-resultado-do-envio-do-arquivo-de-chargeback&quot;&gt;Passo 5 - Verificando o resultado do envio do arquivo de chargeback&lt;/h2&gt;
+&lt;h3 id=&quot;passo-5---verificando-o-resultado-do-envio-do-arquivo-de-chargeback&quot;&gt;Passo 5 - Verificando o resultado do envio do arquivo de chargeback&lt;/h3&gt;
 
 &lt;p&gt;Após realizar todos os passos acima, o arquivo será processado e através da seção Resultado será possível verificar o resultado do processamento.&lt;/p&gt;
 
