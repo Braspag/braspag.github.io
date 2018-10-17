@@ -384,8 +384,8 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`MaskedCardNumber`|Número do cartão de crédito mascarado|string|
 |`ReasonCode`|Código do motivo do chargeback|string|
 |`ReasonMessage`|Mensagem do motivo do chargeback|string|
-|`Status`|Status do charegabck na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/retroalimentacaochargeback#tabela-3-chargebacks[n].status)|guid|
-|`ReceivedDate`|Data de recebimento do chargeback na Braspagguid|
+|`Status`|Status do charegabck na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/retroalimentacaochargeback#tabela-3-chargebacks[n].status)|string|
+|`ReceivedDate`|Data de recebimento do chargeback na Braspag|date|
 |`BraspagTransactionId`|Id da transação na Braspag|guid|
 |`AntifraudTransactionId`|Id da transação de antifraude na Braspag|guid|
 
