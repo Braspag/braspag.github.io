@@ -422,9 +422,9 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 # Aceitação
 
-## Aceitando um chargeback
+## Aceitando um chargeback existente
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/{CaseNumber}/acceptance</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -445,12 +445,116 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ### Response
 
+```
+{
+    "CaseNumber": "000001",
+    "StatusDescription": "AcceptedByMerchant",
+    "Status": 2
+}
+```
+
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`CaseNumber`|Número do caso relacionado ao chargeback|
+|`Status`|Status da aceitação do chargeback - Tabela 4|
+|`StatusDescription`|Descrição do status da aceitação do chargeback|
+
+## Aceitando um chargeback inexistente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+```
+{
+    "Code": "ChargebackNotFounded",
+    "Message": "Chargeback not found"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código do chargeback quando não encontrado|
+|`Message`|Mensagem do chargeback não encontrado|
+
+## Aceitando um chargeback aceito anteriormente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+```
+{
+    "Code": "ChargebackAlreadyUpdated",
+    "Message": "Chargeback already updated"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código do chargeback aceito anteriormente|
+|`Message`|Mensagem do chargeback aceito anteriormente|
 
 # Contestação
 
