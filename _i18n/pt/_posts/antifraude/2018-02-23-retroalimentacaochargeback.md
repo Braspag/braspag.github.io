@@ -172,7 +172,7 @@ Exemplo:
 |`Chargebacks[n].ReasonCode`|Código do motivo do chargeback|string|sim|8|
 |`Chargebacks[n].ReasonMessage`|Mensagem do motivo do chargeback|string|sim|128|
 |`Chargebacks[n].IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|não|-|
-|`Chargebacks[n].NegativeValues`|Parâmetros que deseja incluir na lista negativa <br/> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - [Tabela 1](https://braspag.github.io//manual/retroalimentacaochargeback#tabela-1)|enum|não|-|
+|`Chargebacks[n].NegativeValues`|Parâmetros que deseja incluir na lista negativa <br/> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - [Tabela 1]({{ site.baseurl_root }}manual/retroalimentacaochargeback#tabela-1)|enum|não|-|
 |`Chargebacks[n].Transaction.Id`|Id da transação no Antifraude <br/> Este campo se torna obrigatório se o campo `BraspagTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados <br/><br/> **IMPORTANTE** <br/> **SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO `Id` SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: `Tid`, `Nsu`, `AuthorizationCode` e `BraspagTransactionId`**<br/>|Guid|não|-|
 |`Chargebacks[n].Transaction.Tid`|Identificador da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Nsu`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|20|
 |`Chargebacks[n].Transaction.Nsu`|Número sequencial único da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
@@ -230,7 +230,7 @@ Exemplo:
 **Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|Tipo|
-|`Result.ProcessingStatus`|Status do processamento do chargeback - [Tabela 2](https://braspag.github.io//manual/retroalimentacaochargeback#tabela-2-result.processingstatus)|enum|
+|`Result.ProcessingStatus`|Status do processamento do chargeback - [Tabela 2]({{ site.baseurl_root }}manual/retroalimentacaochargeback#tabela-2-result.processingstatus)|enum|
 |`Result.ErrorMessages`|Mensagens de erro para chargebacks não processados|string|
 
 ## Via Admin Braspag
@@ -274,7 +274,7 @@ O CSV que será construído com dos dados de chargeback deverá ter o layout aba
 |`ReasonCode`|Código do motivo do chargeback|string|sim|8|
 |`ReasonMessage`|Mensagem do motivo do chargeback|string|sim|128|
 |`IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|não|-|
-|`NegativeValues`|Parâmetros que deseja incluir na lista negativa <br/> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - [Tabela 1](https://braspag.github.io//manual/retroalimentacaochargeback#tabela-1-chargebacks[n].negativevalues)|enum|não|-|
+|`NegativeValues`|Parâmetros que deseja incluir na lista negativa <br/> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - [Tabela 1]({{ site.baseurl_root }}manual/retroalimentacaochargeback#tabela-1-chargebacks[n].negativevalues)|enum|não|-|
 |`Id`|Id da transação no Antifraude <br/> Este campo se torna obrigatório se o campo `BraspagTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados <br/><br/> **IMPORTANTE** <br/> **SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO `Id` SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: `Tid`, `Nsu`, `AuthorizationCode` e `BraspagTransactionId`**<br/>|Guid|não|-|
 |`Tid`|Identificador da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Nsu`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|20|
 |`Nsu`|Número sequencial único da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
@@ -348,7 +348,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
             "CaseNumber": "000001",
             "Amount": 10000,
             "PurchaseAmount": 10000,
-            "PurchaseDate": "2018-09-13T00:00:00",
+            "PurchaseDate": "2018-09-13",
             "AuthorizationCode": "384910",
             "AcquirerTransactionId": "0913050523453",
             "ProofOfSale": "523453",
@@ -358,7 +358,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
             "ReasonCode": "28",
             "ReasonMessage": "Consumidor nao reconhece a compra",
             "Status": "Received",
-            "ReceivedDate": "2018-09-14T00:00:00",
+            "ReceivedDate": "2018-09-14",
             "BraspagTransactionId": "f9518dd7-76a8-400b-b7cf-b8c09731d71d",
             "AntifraudTransactionId": "4e9dd957-90b7-e811-bce7-0003ff21d4d7"
         }
@@ -384,7 +384,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`MaskedCardNumber`|Número do cartão de crédito mascarado|string|
 |`ReasonCode`|Código do motivo do chargeback|string|
 |`ReasonMessage`|Mensagem do motivo do chargeback|string|
-|`Status`|Status do charegabck na Braspag|guid|
+|`Status`|Status do charegabck na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/retroalimentacaochargeback#tabela-3-chargebacks[n].status)|guid|
 |`ReceivedDate`|Data de recebimento do chargeback na Braspagguid|
 |`BraspagTransactionId`|Id da transação na Braspag|guid|
 |`AntifraudTransactionId`|Id da transação de antifraude na Braspag|guid|
@@ -420,6 +420,38 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`Content-Type`|application/json|
 |`Status`|404 Not Found|
 
+# Aceitação
+
+## Aceitando um chargeback
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/{CaseNumber}/Acceptance</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
 # Tabelas
 
 ## Tabela 1 - Chargebacks[n].NegativeValues
@@ -443,3 +475,13 @@ Possíveis retornos do chargeback enviado.
 |AlreadyExist|Transação já marcada com chargeback anteriormente|
 |Remand|Chargeback deverá ser reenviado|
 |NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction|
+
+## Tabela 3 - Chargebacks[n].Status
+
+Possíveis valores do chargeback.
+
+|Valor|Descrição|
+|:-|:-|
+|Received|Chargeback recebido da adquirente|
+|AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa|
+|ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
