@@ -309,7 +309,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ### Request
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">chargeback?CaseNumber={CaseNumber}&AcquirerTransactionId={AcquirerTransactionId}&BraspagTransactionId={BraspagTransactionId}&StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/chargeback?CaseNumber={CaseNumber}&AcquirerTransactionId={AcquirerTransactionId}&BraspagTransactionId={BraspagTransactionId}&StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -424,7 +424,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ## Aceitando um chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/{CaseNumber}/Acceptance</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/{CaseNumber}/acceptance</span></aside>
 
 ### Request
 
@@ -442,6 +442,32 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+# Contestação
+
+## Contestando um chargeback
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/contestation</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
 ### Response
 
