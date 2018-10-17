@@ -321,6 +321,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
 **Parâmetros na querystring**
+
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso relacionado ao chargeback|não|
