@@ -424,7 +424,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ## Aceitando um chargeback existente
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">PUT</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -445,7 +445,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ### Response
 
-```
+``` json
 {
     "CaseNumber": "000001",
     "StatusDescription": "AcceptedByMerchant",
@@ -470,7 +470,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ## Aceitando um chargeback inexistente
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">PUT</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -491,7 +491,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ### Response
 
-```
+``` json
 {
     "Code": "ChargebackNotFounded",
     "Message": "Chargeback not found"
@@ -514,7 +514,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ## Aceitando um chargeback aceito anteriormente
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">PUT</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -535,7 +535,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ### Response
 
-```
+``` json
 {
     "Code": "ChargebackAlreadyUpdated",
     "Message": "Chargeback already updated"
