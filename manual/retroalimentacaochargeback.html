@@ -745,7 +745,7 @@
 
 <h3 id="request-2">Request</h3>
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">chargeback?CaseNumber={CaseNumber}&amp;AcquirerTransactionId={AcquirerTransactionId}&amp;BraspagTransactionId={BraspagTransactionId}&amp;StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/chargeback?CaseNumber={CaseNumber}&amp;AcquirerTransactionId={AcquirerTransactionId}&amp;BraspagTransactionId={BraspagTransactionId}&amp;StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1045,7 +1045,7 @@
 
 <h2 id="aceitando-um-chargeback">Aceitando um chargeback</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/{CaseNumber}/Acceptance</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/{CaseNumber}/acceptance</span></aside>
 
 <h3 id="request-4">Request</h3>
 
@@ -1098,6 +1098,66 @@
 </table>
 
 <h3 id="response-5">Response</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="contestação">Contestação</h1>
+
+<h2 id="contestando-um-chargeback">Contestando um chargeback</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/contestation</span></aside>
+
+<h3 id="request-5">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-6">Response</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
