@@ -5053,7 +5053,7 @@ curl
 |`MerchantOrderId`|27 (OBS 1)|50 (OBS 1)|8|50 (OBS 1)|11 (OBS 1)|10 (OBS 1)|
 |`Payment.BoletoNumber`|11 (OBS 2)|9 (OBS 2)|8 (OBS 1)|13 (OBS 2)|14 (OBS 2)|11 (OBS 2)|
 |`Customer.Name`|34 (OBS 3)|60 (OBS,3)|30|40 (OBS 3)|40 (OBS 3)|50 (OBS 3)|
-|`Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District`|Street: 70 (OBS 4); Number: 10 (OBS 4); Complement: 20 (OBS 4); District: 50 (OBS 4)|These fields must have up to 60 characters|Street, Number e Complement must have up to 40 characters;  District: 15|Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)|Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)|Street, Number e Complement must have up to 40 characters (OBS 3); District: 50 (OBS 3)|
+|`Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District`|Street: 70 (OBS 4); Number: 10 (OBS 4); Complement: 20 (OBS 4); District: 50 (OBS 4)|These fields must have up to 60 characters / OBS 3 |Street, Number e Complement must have up to 40 characters;  District: 15|Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)|Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)|Street, Number e Complement must have up to 40 characters (OBS 3); District: 50 (OBS 3)|
 |`Customer.Address.City`|50 (OBS 4)|18 (OBS 3)|15|30 (OBS 3)|15 (OBS 3)|50 (OBS 4)|
 |`Payment.Instructions`|450|450|this field is not sent to the bank|450|450|450|
 |`Payment.Demonstrative`|255|this field is not sent to the bank|this field is not sent to the bank|255|255|255|
