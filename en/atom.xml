@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-10-25T20:39:21+00:00</updated>
+    <updated>2018-10-25T21:35:11+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11736,7 +11736,7 @@ All the orders just authorized must be captured here. When the capture process i
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Street&lt;/code&gt;; &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Number&lt;/code&gt;; &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Complement&lt;/code&gt;; &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.District&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Street: 70 (OBS 4); Number: 10 (OBS 4); Complement: 20 (OBS 4); District: 50 (OBS 4)&lt;/td&gt;
-      &lt;td&gt;These fields must have up to 60 characters&lt;/td&gt;
+      &lt;td&gt;These fields must have up to 60 characters / OBS 3&lt;/td&gt;
       &lt;td&gt;Street, Number e Complement must have up to 40 characters;  District: 15&lt;/td&gt;
       &lt;td&gt;Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)&lt;/td&gt;
       &lt;td&gt;Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)&lt;/td&gt;
