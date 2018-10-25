@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-10-17T20:09:04+00:00</updated>
+    <updated>2018-10-25T20:39:16+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -29111,7 +29111,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Street&lt;/code&gt;; &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Number&lt;/code&gt;; &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Complement&lt;/code&gt;; &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.District&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Street: 70 (OBS 4); Number: 10 (OBS 4); Complement: 20 (OBS 4); District: 50 (OBS 4)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Os campos devem totalizar até 60 caracteres&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Os campos devem totalizar até 60 caracteres / OBS 3&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Street, Number e Complement devem totalizar até 40 caracteres;  District: 15&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Street, Number e Complement devem totalizar até 40 caracteres (OBS 3); District: 15 (OBS 3)&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Street, Number e Complement devem totalizar até 40 caracteres (OBS 3); District: 15 (OBS 3)&lt;/td&gt;
@@ -29167,7 +29167,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
       &lt;td style=&quot;text-align: center&quot;&gt;OBS 2: o valor é presistido no banco&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;OBS 2: quando enviado acima de 9 posições, o Pagador trunca automaticamente, considerando os últimos 9 dígitos&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;OBS 1: o nosso número será sempre igual ao Order ID, sendo que o pagador valida o tamanho do campo&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;OBS 2: o valor é persistido no banco&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OBS 2: o dado é validado pelo banco&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;OBS 2: inicia-se com “14” + 14 dígitos + dígito verificador gerado automaticamente. Quando maior que 14, o Pagador trunca pegando os últimos 14 digitos&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;OBS 1: quando fora do limite, o pagador gera um número incremental configurado a partir do Admin&lt;/td&gt;
     &lt;/tr&gt;
@@ -29176,13 +29176,13 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
       &lt;td style=&quot;text-align: center&quot;&gt;OBS 3: o Pagador trunca automaticamente&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;OBS 3: são aceitos como caracteres válidos: as letras de A a Z (MAIÚSCULAS); caracteres especiais de conjunção: hífen (-), apóstrofo (‘). Quando utilizados não pode conter espaços entre as letras; Exemplos corretos: D’EL-REI, D’ALCORTIVO, SANT’ANA. Exemplos incorretos: D’EL - REI; até um espaço em branco entre palavras&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;OBS 3: o valor é persistido no Pagador&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;OBS 3: o valor é persistido no Pagador&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OBS 3: o dado é validado pelo Pagador&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OBS 3: o dado é validado pelo Pagador&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;OBS 2: quando fora do limite, o pagador gera um número aleatório&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;OBS 4: o valor é persistido no Pagador&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OBS 4: o dado é validado pelo Pagador&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
