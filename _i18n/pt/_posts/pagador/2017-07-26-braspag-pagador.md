@@ -9731,7 +9731,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |RedeSitef|Visa, Master, Hipercard, Diners|Provider para transações na plataforma Rede com tecnologia TEF|
 |CieloSitef|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma Cielo com tecnologia TEF|
 |SantanderSitef|Visa, Master|Provider para transações na plataforma GetNet com tecnologia TEF|
-|DMCard|---|
+|DMCard|---|---|
 
 ### Providers pra Débito
 
