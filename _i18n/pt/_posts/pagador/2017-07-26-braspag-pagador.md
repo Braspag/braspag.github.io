@@ -9712,42 +9712,42 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 
 ### Providers para Crédito
 
-|Provider|Brand|
-|--------|-----|
-|Simulado|---|
-|Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
-|Cielo30 (Cielo 3.0)|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|
-|Redecard (Komerci)|Visa, Master, Hipercard, Hiper, Diners|
-|Rede (e-Rede SOAP)|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|
-|Rede2 (e-Rede REST)|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|
-|RedeSitef|Visa, Master, Hipercard, Diners|
-|CieloSitef|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|
-|SantanderSitef|Visa, Master|
-|Banorte|Visa, Master, Carnet|
-|Getnet|Visa, Master, Elo, Amex|
-|FirstData|Visa, Master, Cabal|
-|GlobalPayments|Visa, Master|
+|Provider|Brand|Descrição|
+|--------|-----|---------|
+|Simulado|---|Provider de Sandbox|
+|Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma legado Cielo 1.5|
+|Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|Provider para transações na plataforma de e-commerce Cielo 3.0|
+|Redecard|Visa, Master, Hipercard, Hiper, Diners|Provider para transações na plataforma legado Rede Komerci|
+|Rede|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede e-Rede na versão SOAP|
+|Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede e-Rede na versão REST|
+|Getnet|Visa, Master, Elo, Amex|Provider para transações na plataforma de e-commerce GetNet|
+|GlobalPayments|Visa, Master|Provider para transações na plataforma de e-commerce Global Payments|
+|Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone|
+|FirstData|Visa, Master, Cabal|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data|
+|Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data|
+|Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte|
+|Credibanco|Visa, Master, Diners, Amex, Credential|Provider para transações em pesos colombianos (COP) na plataforma de e-commerce Credibanco|
+|Transbank|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank|
+|RedeSitef|Visa, Master, Hipercard, Diners|Provider para transações na plataforma Rede com tecnologia TEF|
+|CieloSitef|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma Cielo com tecnologia TEF|
+|SantanderSitef|Visa, Master|Provider para transações na plataforma GetNet com tecnologia TEF|
 |DMCard|---|
-|Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|
-|Credibanco|Visa, Master, Diners, Amex, Credential|
-|Transbank|Visa, Master, Diners, Amex|
-|Stone|Visa, Master, Hipercard, Elo|
 
 ### Providers pra Débito
 
-|Provider|Brand|
-|--------|-----|
-|Cielo|Visa, Master|
-|Cielo30 (Cielo 3.0)|Visa, Master|
-|Getnet|Visa, Master|
-|FirstData|Visa, Master|
-|GlobalPayments|Visa, Master|
+|Provider|Brand|Descrição|
+|--------|-----|---------|
+|Cielo|Visa, Master|Provider para transações de débito na plataforma legado Cielo 1.5|
+|Cielo30|Visa, Master|Provider para transações de débito na plataforma de e-commerce Cielo 3.0|
+|Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce GetNet|
+|FirstData|Visa, Master|Provider para transações de débito na plataforma de e-commerce First Data|
+|GlobalPayments|Visa, Master|Provider para transações de débito na plataforma de e-commerce Global Payments|
 
 ### Providers pra Voucher
 
-|Provider|Brand|
-|--------|-----|
-|Alelo|Elo|
+|Provider|Brand|Descrição|
+|--------|-----|---------|
+|Alelo|Elo|Provider para transações de voucher (vale refeição/alimentação) na plataforma Alelo|
 
 ### Providers para Zero Auth via VerifyCard
 
