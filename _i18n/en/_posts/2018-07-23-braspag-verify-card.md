@@ -111,7 +111,7 @@ curl
 
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`Status`|Zero Auth status|Number|1 |<UL><LI>0-Success Zero Auth response</LI><LI>1-Failed Zero Auth response</LI><LI>99-The query was succeeded but the card status is inconclusive</LI></UL> |
+|`Status`|Zero Auth status|Number|1 |<UL><LI>0-Failed Zero Auth response</LI><LI>1-Success Zero Auth response</LI><LI>99-The query was succeeded but the card status is inconclusive</LI></UL> |
 |`ProviderReturnCode`|Zero Auth query response code returned by the provider. |Number|2|The same code returned by the provider upon authorization. Ex: provider Cielo30 code 82-cartão invalido|
 |`ProviderReturnMessage`|Zero Auth query response message returned by the provider. |Text|512 |Ex. "Transacao Autorizada"|
 |`BinData.Provider`|Service provider|Text|15 |Ex. Cielo30|
