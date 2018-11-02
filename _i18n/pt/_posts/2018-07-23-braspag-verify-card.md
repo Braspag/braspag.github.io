@@ -39,7 +39,7 @@ Para consultar dados de um cartão, é necessário fazer um POST no serviço Ver
 
 ```shell
 curl
---request GET "https://apihomolog.braspag.com.br/v2/verifycard"
+--request GET "https://apisandbox.braspag.com.br/v2/verifycard"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
