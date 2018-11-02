@@ -161,7 +161,7 @@
 </span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://apihomolog.braspag.com.br/v2/verifycard"</span>
+<span class="nt">--request</span> GET <span class="s2">"https://apisandbox.braspag.com.br/v2/verifycard"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -323,7 +323,7 @@
       <td>Zero Auth status</td>
       <td>Number</td>
       <td>1</td>
-      <td>0-Failed Zero Auth response1-Success Zero Auth response99-The query was succeeded but the card status is inconclusive</td>
+      <td>0-Failed Zero Auth response; 1-Success Zero Auth response; 99-The query was succeeded but the card status is inconclusive;</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
