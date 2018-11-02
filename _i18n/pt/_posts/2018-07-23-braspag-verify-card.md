@@ -39,7 +39,7 @@ Para consultar dados de um cartão, é necessário fazer um POST no serviço Ver
 
 ```shell
 curl
---request GET "https://apihomolog.braspag.com.br/v2/verifycard"
+--request GET "https://apisandbox.braspag.com.br/v2/verifycard"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
@@ -112,7 +112,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status do Zero Auth|Número|1 |<UL><LI>0-Falha na consulta ao Zero Auth</LI><LI>1-Consulta Zero Auth com sucesso</LI><LI>99-Consulta com sucesso, porém o status do cartão é inconclusivo</LI></UL> |
+|`Status`|Status do Zero Auth|Número|1 |<UL><LI>0-Falha na consulta ao Zero Auth;&nbsp;</LI><LI>1-Consulta Zero Auth com sucesso;&nbsp;</LI><LI>99-Consulta com sucesso, porém o status do cartão é inconclusivo;</LI></UL> |
 |`ProviderReturnCode`|Código da consulta Zero Auth retornado pelo provedor. |Número|2|Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código 82-cartão inválido|
 |`ProviderReturnMessage`|Mensagem da consulta Zero Auth retornado pelo provedor. |Texto|512 |Ex. "Transacao Autorizada"|
 |`BinData.Provider`|Provedor do serviço|Texto|15 |Ex. Cielo30|

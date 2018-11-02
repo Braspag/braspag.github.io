@@ -38,7 +38,7 @@ To query card data, a POST request is required on the VerifyCard service. The Ve
 
 ```shell
 curl
---request GET "https://apihomolog.braspag.com.br/v2/verifycard"
+--request GET "https://apisandbox.braspag.com.br/v2/verifycard"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
@@ -111,7 +111,7 @@ curl
 
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`Status`|Zero Auth status|Number|1 |<UL><LI>0-Failed Zero Auth response</LI><LI>1-Success Zero Auth response</LI><LI>99-The query was succeeded but the card status is inconclusive</LI></UL> |
+|`Status`|Zero Auth status|Number|1 |<UL><LI>0-Failed Zero Auth response;&nbsp;</LI><LI>1-Success Zero Auth response;&nbsp;</LI><LI>99-The query was succeeded but the card status is inconclusive;</LI></UL> |
 |`ProviderReturnCode`|Zero Auth query response code returned by the provider. |Number|2|The same code returned by the provider upon authorization. Ex: provider Cielo30 code 82-cartão invalido|
 |`ProviderReturnMessage`|Zero Auth query response message returned by the provider. |Text|512 |Ex. "Transacao Autorizada"|
 |`BinData.Provider`|Service provider|Text|15 |Ex. Cielo30|
