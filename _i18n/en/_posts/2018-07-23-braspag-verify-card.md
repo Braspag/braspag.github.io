@@ -30,8 +30,7 @@ To query card data, a POST request is required on the VerifyCard service. The Ve
        "ExpirationDate":"03/2026",
        "SecurityCode":"***",
        "Brand":"Visa",
-       "Type":"CreditCard",
-       "CardToken":""
+       "Type":"CreditCard"
    }
 }
 ```
@@ -54,8 +53,7 @@ curl
        "ExpirationDate":"03/2026",
        "SecurityCode":"***",
        "Brand":"Visa",
-       "Type":"CreditCard",
-       "CardToken":""
+       "Type":"CreditCard"
    }
 }
 ```
@@ -72,14 +70,13 @@ curl
 |`Card.SecurityCode`|Text|4|Yes|Security Code (CVV2)|
 |`Card.Brand`|Text|10|Yes |Card’s Brand|
 |`Card.Type`|Text|CreditCard ou DebitCard|Yes|Identify the cart type to be queried. This information is relevant for multiple function card.|
-|`Card.CardToken`|Guid|36|No|Card Token that represents the card information.|
 
 ## Response
 
 ```json
 {
     "Status": 1,
-    "ProviderReturnCode": "85",
+    "ProviderReturnCode": "00",
     "ProviderReturnMessage": "Transacao autorizada",
     "BinData": {
         "Provider": "Master",
@@ -97,7 +94,7 @@ curl
 --data-binary
 {
     "Status": 1,
-    "ProviderReturnCode": "85",
+    "ProviderReturnCode": "00",
     "ProviderReturnMessage": "Transacao autorizada",
     "BinData": {
         "Provider": "Master",
