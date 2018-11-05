@@ -156,8 +156,7 @@
        </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"03/2026"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+       </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -179,8 +178,7 @@
        <span class="s2">"ExpirationDate"</span>:<span class="s2">"03/2026"</span>,
        <span class="s2">"SecurityCode"</span>:<span class="s2">"***"</span>,
        <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-       <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-       <span class="s2">"CardToken"</span>:<span class="s2">""</span>
+       <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>
    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -266,13 +264,6 @@
       <td>Sim</td>
       <td>Tipo do cartão a ser consultado. Este campo é particularmente importante devido aos cartões com funções múltiplas.</td>
     </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Card.CardToken</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Não</td>
-      <td>Token do Cartão Protegido. Caso seja enviado o token, não é necessário enviar os dados do cartão.</td>
-    </tr>
   </tbody>
 </table>
 
@@ -280,7 +271,7 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transacao autorizada"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"BinData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
@@ -297,7 +288,7 @@
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
     <span class="s2">"Status"</span>: 1,
-    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"85"</span>,
+    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"00"</span>,
     <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Transacao autorizada"</span>,
     <span class="s2">"BinData"</span>: <span class="o">{</span>
         <span class="s2">"Provider"</span>: <span class="s2">"Master"</span>,
