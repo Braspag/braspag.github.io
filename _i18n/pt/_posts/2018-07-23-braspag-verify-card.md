@@ -31,8 +31,7 @@ Para consultar dados de um cartão, é necessário fazer um POST no serviço Ver
        "ExpirationDate":"03/2026",
        "SecurityCode":"***",
        "Brand":"Visa",
-       "Type":"CreditCard",
-       "CardToken":""
+       "Type":"CreditCard"
    }
 }
 ```
@@ -55,8 +54,7 @@ curl
        "ExpirationDate":"03/2026",
        "SecurityCode":"***",
        "Brand":"Visa",
-       "Type":"CreditCard",
-       "CardToken":""
+       "Type":"CreditCard"
    }
 }
 ```
@@ -73,14 +71,13 @@ curl
 |`Card.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
 |`Card.Brand`|Texto|10|Sim |Bandeira do cartão|
 |`Card.Type`|Texto|CreditCard ou DebitCard|Sim|Tipo do cartão a ser consultado. Este campo é particularmente importante devido aos cartões com funções múltiplas.|
-|`Card.CardToken`|Guid|36|Não|Token do Cartão Protegido. Caso seja enviado o token, não é necessário enviar os dados do cartão.|
 
 ## Resposta
 
 ```json
 {
     "Status": 1,
-    "ProviderReturnCode": "85",
+    "ProviderReturnCode": "00",
     "ProviderReturnMessage": "Transacao autorizada",
     "BinData": {
         "Provider": "Master",
@@ -98,7 +95,7 @@ curl
 --data-binary
 {
     "Status": 1,
-    "ProviderReturnCode": "85",
+    "ProviderReturnCode": "00",
     "ProviderReturnMessage": "Transacao autorizada",
     "BinData": {
         "Provider": "Master",
