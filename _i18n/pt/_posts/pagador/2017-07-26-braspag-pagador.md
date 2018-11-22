@@ -3813,7 +3813,7 @@ Para que a análise de fraude via Cybersource seja efetuada em tempo de transaç
             "ZipCode": "12345987",
             "City": "São Paulo",
             "State": "SP",
-            "Country": "BRA",
+            "Country": "BR",
             "District": "Alphaville"
         },
         "DeliveryAddress": {
@@ -3823,7 +3823,7 @@ Para que a análise de fraude via Cybersource seja efetuada em tempo de transaç
             "ZipCode": "12345987",
             "City": "São Paulo",
             "State": "SP",
-            "Country": "BRA",
+            "Country": "BR",
             "District": "Alphaville"
         }
     },
@@ -3945,7 +3945,7 @@ curl
             "ZipCode": "12345987",
             "City": "São Paulo",
             "State": "SP",
-            "Country": "BRA",
+            "Country": "BR",
             "District": "Alphaville"
         },
         "DeliveryAddress": {
@@ -3955,7 +3955,7 @@ curl
             "ZipCode": "12345987",
             "City": "São Paulo",
             "State": "SP",
-            "Country": "BRA",
+            "Country": "BR",
             "District": "Alphaville"
         }
     },
@@ -4171,7 +4171,7 @@ curl
             "ZipCode": "12345987",
             "City": "São Paulo",
             "State": "SP",
-            "Country": "BRA",
+            "Country": "BR",
             "District": "Alphaville"
         },
         "DeliveryAddress": {
@@ -4181,7 +4181,7 @@ curl
             "ZipCode": "12345987",
             "City": "São Paulo",
             "State": "SP",
-            "Country": "BRA",
+            "Country": "BR",
             "District": "Alphaville"
         }
     },
@@ -4315,7 +4315,7 @@ curl
             "ZipCode": "12345987",
             "City": "São Paulo",
             "State": "SP",
-            "Country": "BRA",
+            "Country": "BR",
             "District": "Alphaville"
         },
         "DeliveryAddress": {
@@ -4325,7 +4325,7 @@ curl
             "ZipCode": "12345987",
             "City": "São Paulo",
             "State": "SP",
-            "Country": "BRA",
+            "Country": "BR",
             "District": "Alphaville"
         }
     },
