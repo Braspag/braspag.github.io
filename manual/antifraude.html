@@ -4802,20 +4802,22 @@
   </tbody>
 </table>
 
-<h1 id="associar-transação-pagador-e-antifraude">Associar transação Pagador e Antifraude</h1>
+<h1 id="associar-transação">Associar transação</h1>
 
-<p>Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.</p>
+<p>Esta sessão descreve como associar uma transação do Pagador Braspag ou outra solução de autorização à uma transação do Antifraude Gateway Braspag.</p>
 
 <blockquote>
   <p>Você deverá realizar esta chamada quando estiver utilizando o fluxo abaixo: <br />
 1 - Realiza análise através do Antifraude Gateway Braspag <br />
-2 - Realiza a autorização através do Pagador <br />
-3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag</p>
+2 - Realiza a autorização através do Pagador Braspag ou outra solução de autorização <br />
+3 - Chamada a este serviço para associar a transação do Pagador Braspag ou outra solução de autorização à transação do Antifraude Gateway Braspag</p>
 </blockquote>
+
+<h2 id="pagador-e-antifraude">Pagador e Antifraude</h2>
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
-<h2 id="request-7">Request</h2>
+<h3 id="request-7">Request</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
@@ -4874,7 +4876,7 @@
   </tbody>
 </table>
 
-<h2 id="response-8">Response</h2>
+<h3 id="response-8">Response</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -4970,11 +4972,194 @@
   </tbody>
 </table>
 
+<h2 id="outra-solução-de-autorização-e-antifraude">Outra Solução de Autorização e Antifraude</h2>
+
+<aside class="request"><span class="method patch">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
+
+<h2 id="request-8">Request</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910111216AB8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"951852"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"T12345"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 10:01:55.662"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Obrigatório</th>
+      <th style="text-align: right">Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Tid</code></td>
+      <td style="text-align: left">Id da transação na adquirente</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Nsu</code></td>
+      <td style="text-align: left">Número sequencial único da transação na adquirente</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">SaleDate</code></td>
+      <td style="text-align: left">Data da autorização da transação da transação na adquirente</td>
+      <td style="text-align: center">datetime</td>
+      <td style="text-align: center">sim</td>
+      <td style="text-align: right">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="response-9">Response</h2>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<ul>
+  <li>Quando a transação de outra solução de autorização for associada corretamente com a transação do Antifraude Gateway</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Quando um dos campos do contrato (Tid, Nsu, Código de autorização e Data da venda) não for informada na requisição</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Quando a transação do Antifraude Gateway não for encontrada na base de dados</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Quando a transação de outra solução de autorização já estiver associada a outra transação do Antifraude Gateway</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">409 Conflict</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="update-de-status-cybersource">Update de Status Cybersource</h1>
 
 <p>Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).</p>
 
-<h2 id="request-8">Request</h2>
+<h2 id="request-9">Request</h2>
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
@@ -5043,7 +5228,7 @@
   </tbody>
 </table>
 
-<h2 id="response-9">Response</h2>
+<h2 id="response-10">Response</h2>
 
 <ul>
   <li>Quando a transação for recebida para processamento</li>

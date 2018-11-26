@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-11-16T01:23:59+00:00</updated>
+    <updated>2018-11-26T19:45:30+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -8044,7 +8044,7 @@ O download poderá ser realizado a partir da seguinte URL:&lt;/p&gt;
 
 &lt;p&gt;7.2 – Ainda que o Contrato seja firmado por prazo indeterminado, em razão dos investimentos realizados pela &lt;strong&gt;CONTRATADA&lt;/strong&gt;, nenhum dos serviços contratados, conforme definido na Proposta Comercial, poderão ser rescindidos pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt; sem justa causa antes de decorridos 12 (doze) meses da prestação de cada um dos serviços contratados (“Vigência Mínima”).&lt;/p&gt;
 
-&lt;p&gt;7.3 – Caso a &lt;strong&gt;CONTRATADA&lt;/strong&gt; queira rescindir o Contrato ou qualquer um dos serviços descritos na Proposta Comercial antes do término da Vigência Mínima, será devido à &lt;strong&gt;CONTRATADA&lt;/strong&gt;, a título de multa não compensatória, o valor correspondente a 3 (três) vezes a “Tarifa mínima mensal” descrita na Proposta Comercial referente ao respectivo serviço contratado. Assim, caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; queira rescindir, antes do término da Vigência Mínima, apenas um dos serviços contratados, pagará o total de 3 (três) vezes a “Tarifa mínima mensal” referente àquele serviço. Caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; queira rescindir o Contrato integralmente, antes do término da Vigência Mínima, deverá pagar o total de 3 (três) vezes a “Tarifa mínima mensal” referente a cada um dos serviços contratados.&lt;/p&gt;
+&lt;p&gt;7.3 – Caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; queira rescindir o Contrato ou qualquer um dos serviços descritos na Proposta Comercial antes do término da Vigência Mínima, será devido à &lt;strong&gt;CONTRATADA&lt;/strong&gt;, a título de multa não compensatória, o valor correspondente a 3 (três) vezes a “Tarifa mínima mensal” descrita na Proposta Comercial referente ao respectivo serviço contratado. Assim, caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; queira rescindir, antes do término da Vigência Mínima, apenas um dos serviços contratados, pagará o total de 3 (três) vezes a “Tarifa mínima mensal” referente àquele serviço. Caso a &lt;strong&gt;CONTRATANTE&lt;/strong&gt; queira rescindir o Contrato integralmente, antes do término da Vigência Mínima, deverá pagar o total de 3 (três) vezes a “Tarifa mínima mensal” referente a cada um dos serviços contratados.&lt;/p&gt;
 
 &lt;p&gt;7.4 – O presente Contrato poderá ser denunciado por qualquer uma das partes, a qualquer tempo, sem a incidência de ônus ou penalidades, mediante aviso prévio encaminhado por escrito à outra parte com antecedência mínima de 90 (noventa) dias, respeitado o disposto nas Cláusulas acima no que tange ao prazo de Vigência Mínima aceito pela &lt;strong&gt;CONTRATANTE&lt;/strong&gt;.&lt;/p&gt;
 
@@ -10340,13 +10340,13 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Atualmente o Split de Pagamentos está disponivel para os seguintes tipos de pagamento:&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Cartão de Crédito
-&lt;br /&gt;
-&lt;strong&gt;Em breve estarão disponíveis&lt;/strong&gt;:&lt;/li&gt;
-    &lt;li&gt;Cartão de Débito&lt;/li&gt;
-    &lt;li&gt;Boleto&lt;/li&gt;
-  &lt;/ul&gt;
+
+  &lt;p&gt;Cartão de Crédito
+Cartão de Débito&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Em breve estarão disponíveis&lt;/strong&gt;:&lt;/p&gt;
+
+  &lt;p&gt;Boleto&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Exemplo:&lt;/p&gt;
@@ -20987,7 +20987,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345987&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;São Paulo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Alphaville&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DeliveryAddress&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -20997,7 +20997,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345987&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;São Paulo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Alphaville&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -21118,7 +21118,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
             &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12345987&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;São Paulo&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Alphaville&quot;&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;DeliveryAddress&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -21128,7 +21128,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
             &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12345987&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;São Paulo&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Alphaville&quot;&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
@@ -21924,7 +21924,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345987&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;São Paulo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Alphaville&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DeliveryAddress&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -21934,7 +21934,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345987&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;São Paulo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Alphaville&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -22067,7 +22067,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
             &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12345987&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;São Paulo&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Alphaville&quot;&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;DeliveryAddress&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -22077,7 +22077,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
             &lt;span class=&quot;s2&quot;&gt;&quot;ZipCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12345987&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;São Paulo&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;State&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;SP&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BR&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;District&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Alphaville&quot;&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
@@ -44896,20 +44896,22 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;associar-transação-pagador-e-antifraude&quot;&gt;Associar transação Pagador e Antifraude&lt;/h1&gt;
+&lt;h1 id=&quot;associar-transação&quot;&gt;Associar transação&lt;/h1&gt;
 
-&lt;p&gt;Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.&lt;/p&gt;
+&lt;p&gt;Esta sessão descreve como associar uma transação do Pagador Braspag ou outra solução de autorização à uma transação do Antifraude Gateway Braspag.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Você deverá realizar esta chamada quando estiver utilizando o fluxo abaixo: &lt;br /&gt;
 1 - Realiza análise através do Antifraude Gateway Braspag &lt;br /&gt;
-2 - Realiza a autorização através do Pagador &lt;br /&gt;
-3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag&lt;/p&gt;
+2 - Realiza a autorização através do Pagador Braspag ou outra solução de autorização &lt;br /&gt;
+3 - Chamada a este serviço para associar a transação do Pagador Braspag ou outra solução de autorização à transação do Antifraude Gateway Braspag&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;h2 id=&quot;pagador-e-antifraude&quot;&gt;Pagador e Antifraude&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method patch&quot;&gt;PATCH&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;transaction/{id}&lt;/span&gt;&lt;/aside&gt;
 
-&lt;h2 id=&quot;request-7&quot;&gt;Request&lt;/h2&gt;
+&lt;h3 id=&quot;request-7&quot;&gt;Request&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BraspagTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a3e08eb2-2144-4e41-85d4-61f1befc7a3b&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -44968,7 +44970,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;response-8&quot;&gt;Response&lt;/h2&gt;
+&lt;h3 id=&quot;response-8&quot;&gt;Response&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
 
@@ -45064,11 +45066,194 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;h2 id=&quot;outra-solução-de-autorização-e-antifraude&quot;&gt;Outra Solução de Autorização e Antifraude&lt;/h2&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method patch&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;transaction/{id}&lt;/span&gt;&lt;/aside&gt;
+
+&lt;h2 id=&quot;request-8&quot;&gt;Request&lt;/h2&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345678910111216AB8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Nsu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;951852&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;T12345&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaleDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2016-12-09 10:01:55.662&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Tamanho&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Tid&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Id da transação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Nsu&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número sequencial único da transação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizationCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de autorização da transação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SaleDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Data da autorização da transação da transação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;datetime&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;response-9&quot;&gt;Response&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quando a transação de outra solução de autorização for associada corretamente com a transação do Antifraude Gateway&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200 OK&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quando um dos campos do contrato (Tid, Nsu, Código de autorização e Data da venda) não for informada na requisição&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;400 Bad Request&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quando a transação do Antifraude Gateway não for encontrada na base de dados&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;404 Not Found&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quando a transação de outra solução de autorização já estiver associada a outra transação do Antifraude Gateway&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;409 Conflict&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h1 id=&quot;update-de-status-cybersource&quot;&gt;Update de Status Cybersource&lt;/h1&gt;
 
 &lt;p&gt;Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).&lt;/p&gt;
 
-&lt;h2 id=&quot;request-8&quot;&gt;Request&lt;/h2&gt;
+&lt;h2 id=&quot;request-9&quot;&gt;Request&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method patch&quot;&gt;PATCH&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;transaction/{id}&lt;/span&gt;&lt;/aside&gt;
 
@@ -45137,7 +45322,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;response-9&quot;&gt;Response&lt;/h2&gt;
+&lt;h2 id=&quot;response-10&quot;&gt;Response&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Quando a transação for recebida para processamento&lt;/li&gt;
