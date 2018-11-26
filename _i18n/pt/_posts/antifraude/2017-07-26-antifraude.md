@@ -1510,18 +1510,20 @@ Esta sessão descreve o serviço de POST de Notificação, que envia uma notific
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-# Associar transação Pagador e Antifraude
+# Associar transação
 
-Esta sessão descreve como associar uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.
+Esta sessão descreve como associar uma transação do Pagador Braspag ou outra solução de autorização à uma transação do Antifraude Gateway Braspag.
 
 > Você deverá realizar esta chamada quando estiver utilizando o fluxo abaixo: <br/>
 > 1 - Realiza análise através do Antifraude Gateway Braspag <br/>
-> 2 - Realiza a autorização através do Pagador <br/>
-> 3 - O 3º passo deverá ser a chamada a este serviço para associar a transação do Pagador à transação do Antifraude Gateway Braspag
+> 2 - Realiza a autorização através do Pagador Braspag ou outra solução de autorização <br/>
+> 3 - Chamada a este serviço para associar a transação do Pagador Braspag ou outra solução de autorização à transação do Antifraude Gateway Braspag
+
+## Pagador e Antifraude
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
-## Request
+### Request
 
 ``` json
 {
@@ -1544,7 +1546,7 @@ Esta sessão descreve como associar uma transação do Pagador Braspag à uma tr
 |:-|:-|:-:|:-:|-:|
 |`BraspagTransactionId`|Id da transação no Pagador Braspag|guid|sim|-|
 
-## Response
+### Response
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -1570,6 +1572,71 @@ Esta sessão descreve como associar uma transação do Pagador Braspag à uma tr
 |`Status`|404 Not Found|
 
 * Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|409 Conflict|
+
+## Outra Solução de Autorização e Antifraude
+
+<aside class="request"><span class="method patch">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
+
+## Request
+
+``` json
+{
+    "Tid": "12345678910111216AB8",
+    "Nsu": "951852",
+    "AuthorizationCode":"T12345",
+    "SaleDate": "2016-12-09 10:01:55.662"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|:-|:-|:-:|:-:|-:|
+|`Tid`|Id da transação na adquirente|string|sim|20|
+|`Nsu`|Número sequencial único da transação na adquirente|string|sim|10|
+|`AuthorizationCode`|Código de autorização da transação na adquirente|string|sim|10|
+|`SaleDate`|Data da autorização da transação da transação na adquirente|datetime|sim|-|
+
+## Response
+
+**Parâmetros no cabeçalho (Header)**
+
+* Quando a transação de outra solução de autorização for associada corretamente com a transação do Antifraude Gateway
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+* Quando um dos campos do contrato (Tid, Nsu, Código de autorização e Data da venda) não for informada na requisição
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+* Quando a transação do Antifraude Gateway não for encontrada na base de dados
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
+* Quando a transação de outra solução de autorização já estiver associada a outra transação do Antifraude Gateway
 
 |Key|Value|
 |:-|:-|
