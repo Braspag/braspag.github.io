@@ -1582,7 +1582,7 @@ Esta sessão descreve como associar uma transação do Pagador Braspag ou outra 
 
 <aside class="request"><span class="method patch">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
 
-## Request
+### Request
 
 ``` json
 {
@@ -1611,7 +1611,7 @@ Esta sessão descreve como associar uma transação do Pagador Braspag ou outra 
 |`AuthorizationCode`|Código de autorização da transação na adquirente|string|sim|10|
 |`SaleDate`|Data da autorização da transação da transação na adquirente|datetime|sim|-|
 
-## Response
+### Response
 
 **Parâmetros no cabeçalho (Header)**
 
