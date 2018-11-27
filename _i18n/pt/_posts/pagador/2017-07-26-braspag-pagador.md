@@ -110,7 +110,6 @@ Exemplo de uma transação para processamento de uma venda. Alguns parâmetros s
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {  
    "MerchantOrderId":"2017051002",
    "Customer":{  
