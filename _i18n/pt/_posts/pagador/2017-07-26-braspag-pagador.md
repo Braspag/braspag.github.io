@@ -19,9 +19,12 @@ language_tabs:
 
 Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para respectivos ambientes: **Sandbox** e **Produção**. [Para executar](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
 
+
 ## Ambientes
 
+
 ### Ambiente Sandbox
+
 
 Experimente as nossas APIs sem compromisso!
 
