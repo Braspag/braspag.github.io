@@ -21,7 +21,6 @@ Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key)
 
 ## Ambientes
 
-
 ### Ambiente Sandbox
 
 Experimente as nossas APIs sem compromisso!
