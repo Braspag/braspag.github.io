@@ -1181,7 +1181,6 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
-
 ## Cancelando/Estornando uma transação
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
@@ -2162,7 +2161,6 @@ curl
 | `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
 | `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
 | `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
-
 
 # Pagamentos com Boleto
 
@@ -3905,11 +3903,12 @@ curl
 ### Resposta
 
 ```shell
+
 HTTP Status 200
+
 ```
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
-
 
 ## Transação com Renova Fácil
 
@@ -3963,9 +3962,11 @@ Bancos Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamerica
     [...]
   }
 }
+
 ```
 
 ```shell
+
 {
   [...]
   "Payment": {
@@ -4005,6 +4006,7 @@ Bancos Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamerica
     [...]
   }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -4026,6 +4028,7 @@ Para que a análise de fraude via Cybersource seja efetuada em tempo de transaç
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {  
    "MerchantOrderId":"2017051002",
    "Customer":{  
@@ -4156,9 +4159,11 @@ Para que a análise de fraude via Cybersource seja efetuada em tempo de transaç
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -4297,6 +4302,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -4782,7 +4788,6 @@ curl
 |`FraudAnalysis.ReplyData.ScoreModelUsed`|Nome do modelo de score utilizado|Texto|20|Ex: default_lac|
 |`FraudAnalysis.ReplyData.CasePriority`|Caso o lojista seja assinante do Enhanced Case Management, ele recebe este valor com o nível de prioridade, sendo 1 o mais alto e 5 o mais baixo|Número|---|3|
 |`FraudAnalysis.ReplyData.ProviderTransactionId`|Identificador da transação no provedor de fraude. |Texto|100|Ex: "5206061832306553904009"| 
-
 
 ## Configuração do Fingerprint
 
