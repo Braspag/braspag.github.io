@@ -48,7 +48,6 @@ Já estou pronto para entrar em Produção!
 
 http://suporte.braspag.com.br/
 
-
 ## Características da Solução
 
 A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, entre outras.
