@@ -110,6 +110,7 @@ Exemplo de uma transação para processamento de uma venda. Alguns parâmetros s
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {  
    "MerchantOrderId":"2017051002",
    "Customer":{  
@@ -173,9 +174,11 @@ Exemplo de uma transação para processamento de uma venda. Alguns parâmetros s
         }]
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -241,6 +244,7 @@ curl
    }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -300,6 +304,7 @@ curl
 ### Resposta
 
 ```json
+
 {
 "MerchantOrderId": "2017051002",
     "Customer": {
@@ -390,9 +395,11 @@ curl
         ]
     }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -486,6 +493,7 @@ curl
         ]
     }
 }
+
 ```
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
@@ -512,10 +520,6 @@ Transações que não forem capturadas em até 15 dias são automaticamente desf
 ### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
-
-```json
-
-```
 
 ```shell
 
@@ -682,6 +686,7 @@ curl
 --verbose
 
 ```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
@@ -1084,6 +1089,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 }
 
 ```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento. Atualmente somente a "Cielo" suporta esta forma de pagamento via Pagador|
@@ -1188,10 +1194,6 @@ Para cancelar uma transação que utilizou cartão de crédito, é necessário f
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
-```json
-
-```
-
 ```shell
 
 curl
@@ -1284,9 +1286,11 @@ No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP171 -
     [...]
   }
 }
+
 ```
 
 ```shell
+
 {
   [...]
     "VelocityAnalysis": {
@@ -1302,6 +1306,7 @@ No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP171 -
     [...]
   }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -1327,6 +1332,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {  
    [...]
    },
@@ -1354,9 +1360,11 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
         [...]
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -1392,6 +1400,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -1413,6 +1422,7 @@ curl
 O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transações futuras com o mesmo cartão.
 
 ```json
+
 {
   [...]
   },
@@ -1450,9 +1460,11 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
     [...]
   }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -1498,6 +1510,7 @@ curl
   }
 }
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -1525,6 +1538,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {  
    [...]
    },
@@ -1548,9 +1562,11 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
         [...]
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -1582,6 +1598,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -1597,6 +1614,7 @@ curl
 ### Resposta
 
 ```json
+
 {  
    [...]
    },
@@ -1635,9 +1653,11 @@ curl
    [...]
   }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1672,6 +1692,7 @@ curl
    [...]
   }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -1696,6 +1717,7 @@ Este é um exemplo de como utilizar o Alias, previamente salvo, para criar uma t
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {  
    [...]
    },
@@ -1719,9 +1741,11 @@ Este é um exemplo de como utilizar o Alias, previamente salvo, para criar uma t
         [...]
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -1753,6 +1777,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -1769,6 +1794,7 @@ curl
 ### Resposta
 
 ```json
+
 {  
    [...]
    },
@@ -1807,9 +1833,11 @@ curl
    [...]
   }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1851,6 +1879,7 @@ curl
    [...]
   }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -1901,6 +1930,7 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 #### Resposta
 
 ```json
+
 {
     [...]
     },
@@ -1947,9 +1977,11 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
         },
         [...]
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1999,6 +2031,7 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
         }
         [...]
 }
+
 ```
 
 | Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
@@ -2034,14 +2067,17 @@ Exemplo disponibilizado pela Global Payments
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
 
 ```json
+
 {  
   "Id":"1b05456446c116374005602dcbaf8db8879515a0",
   "Currency":"EUR",
   "Amount":23
 }
+
 ```
 
 ```shell
+
 curl
 --request POST " https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"
 --header "Content-Type: application/json"
@@ -2055,6 +2091,7 @@ curl
   "Amount":23
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -2066,6 +2103,7 @@ curl
 #### Resposta
 
 ```json
+
 {
    [...]
    "Payment": {
@@ -2103,9 +2141,11 @@ curl
         [...]
     }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -2146,6 +2186,7 @@ curl
         [...]
     }
 }
+
 ```
 
 | Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
@@ -2182,6 +2223,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {  
     "MerchantOrderId":"2017091101",
     "Customer":
@@ -2226,9 +2268,11 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -2280,6 +2324,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -2323,6 +2368,7 @@ curl
 ### Resposta
 
 ```json
+
 {
   "MerchantOrderId": "2017091101",
   "Customer": {
@@ -2373,9 +2419,11 @@ curl
     ]
   }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -2430,6 +2478,7 @@ curl
     ]
   }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -2452,6 +2501,7 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
     [...]
     "Payment":
@@ -2480,9 +2530,11 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -2519,6 +2571,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -2537,6 +2590,7 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
     [...]
     "Payment":
@@ -2567,9 +2621,11 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -2608,6 +2664,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -2629,6 +2686,7 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
     [...]
     "Payment":
@@ -2657,9 +2715,11 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -2696,6 +2756,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -2715,6 +2776,7 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
     [...]
     "Payment":
@@ -2743,9 +2805,11 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -2782,6 +2846,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -2801,6 +2866,7 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
     [...]
     "Payment":
@@ -2830,9 +2896,11 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -2870,6 +2938,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -2890,6 +2959,7 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
     [...]
     "Payment":
@@ -2920,9 +2990,11 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -2961,6 +3033,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -2982,6 +3055,7 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
     [...]
     "Payment":
@@ -3009,9 +3083,11 @@ O nó `Credentials` será alterado em relação ao contrato do "Simulado" confor
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -3047,6 +3123,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -3059,7 +3136,7 @@ curl
 ## Tabela de Especificação de quantidade de caracteres do campo por Provider
 
 | Propriedade | Bradesco | BancoBanco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
-|------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
+|:-|:-:|:-:|:-:|:-:|:-:|:-:|
 | Provider | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
 | `MerchantOrderId` | 27 (OBS 1) | 50 (OBS 1) | 8 | 50 (OBS 1) | 11 (OBS 1) | 10 (OBS 1) |
 | `Payment.BoletoNumber` | 11 (OBS 2) | 9 (OBS 2) | 8 (OBS 1) | 13 (OBS 2) | 14 (OBS 2) | 11 (OBS 2) |
@@ -3094,6 +3171,7 @@ Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrência 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
     [...]
     "Payment": {
@@ -3115,9 +3193,11 @@ Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrência 
         }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -3147,6 +3227,7 @@ curl
     }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -3167,6 +3248,7 @@ curl
 ### Resposta
 
 ```json
+
 {
   [...]
   "Payment": {
@@ -3209,9 +3291,11 @@ curl
     }
   }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -3257,6 +3341,7 @@ curl
     }
   }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -3278,6 +3363,7 @@ Para programar a primeira transação da série de recorrência, passe o parâme
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
    [...]
    "Payment":{
@@ -3300,9 +3386,11 @@ Para programar a primeira transação da série de recorrência, passe o parâme
      }
    }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -3333,6 +3421,7 @@ curl
    }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -3354,6 +3443,7 @@ curl
 ### Resposta
 
 ```json
+
 {
   [...]
   "Payment": {
@@ -3389,9 +3479,11 @@ curl
     }
   }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -3430,6 +3522,7 @@ curl
     }
   }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -3450,6 +3543,7 @@ Para alterar os dados do comprador em uma recorrência já existente, basta faze
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
 ```json
+
 {  
   "Name":"Outro nome do Comprador",
   "Email":"outrocomprador@braspag.com.br",
@@ -3478,9 +3572,11 @@ Para alterar os dados do comprador em uma recorrência já existente, basta faze
       }
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Customer"
 --header "Content-Type: application/json"
@@ -3516,6 +3612,7 @@ curl
       }
 }
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -3549,7 +3646,9 @@ curl
 ### Resposta
 
 ```shell
+
 HTTP Status 200
+
 ```
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -3563,10 +3662,13 @@ Para alterar a data final da recorrência já existente, basta fazer um PUT conf
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
 ```json
+
 "2021-01-09"
+
 ```
 
 ```shell
+
 curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate"
 --header "Content-Type: application/json"
@@ -3576,6 +3678,7 @@ curl
 --data-binary
 "2021-01-09"
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -3589,7 +3692,9 @@ curl
 ### Resposta
 
 ```shell
+
 HTTP Status 200
+
 ```
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -3603,10 +3708,13 @@ Para alterar o Intervalo de uma recorrência já existente, basta fazer um PUT c
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
 ```json
+
 6
+
 ```
 
 ```shell
+
 curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Interval"
 --header "Content-Type: application/json"
@@ -3616,6 +3724,7 @@ curl
 --data-binary
 6
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -3629,7 +3738,9 @@ curl
 ### Resposta
 
 ```shell
+
 HTTP Status 200
+
 ```
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -3645,10 +3756,13 @@ Para modificar o dia de vencimento de uma recorrência já existente, basta faze
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
 ```json
+
 16
+
 ```
 
 ```shell
+
 curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay"
 --header "Content-Type: application/json"
@@ -3658,6 +3772,7 @@ curl
 --data-binary
 16
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -3671,7 +3786,9 @@ curl
 ### Resposta
 
 ```shell
+
 HTTP Status 200
+
 ```
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -3685,10 +3802,13 @@ Para modificar o valor da transação de uma recorrência já existente, basta f
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
 ```json
+
 156
+
 ```
 
 ```shell
+
 curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Amount"
 --header "Content-Type: application/json"
@@ -3698,6 +3818,7 @@ curl
 --data-binary
 156
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -3713,7 +3834,9 @@ curl
 ### Resposta
 
 ```shell
+
 HTTP Status 200
+
 ```
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -3729,10 +3852,13 @@ Esta operação modifica somente a data do próximo pagamento, ou seja, a recorr
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
 ```json
+
 "2017-06-15"
+
 ```
 
 ```shell
+
 curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate"
 --header "Content-Type: application/json"
@@ -3742,6 +3868,7 @@ curl
 --data-binary
 "2016-06-15"
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -3755,7 +3882,9 @@ curl
 ### Resposta
 
 ```shell
+
 HTTP Status 200
+
 ```
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -3771,6 +3900,7 @@ Para alterar os dados de pagamento de uma recorrência já existente, basta faze
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
 ```json
+
 {  
    "Type":"CreditCard",
    "Amount":"20000",
@@ -3786,9 +3916,11 @@ Para alterar os dados de pagamento de uma recorrência já existente, basta faze
       "ExpirationDate":"05/2019"
    }
 }
+
 ```
 
 ```shell
+
 curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Payment"
 --header "Content-Type: application/json"
@@ -3812,6 +3944,7 @@ curl
    }
 }
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
