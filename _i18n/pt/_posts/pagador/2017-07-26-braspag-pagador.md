@@ -1,4 +1,3 @@
-
 ---
 layout: manual
 title: Manual de integração API Rest
@@ -46,7 +45,9 @@ Já estou pronto para entrar em Produção!
 
 <aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda à sexta, das 9h às 19h, e telefone de emergência 24×7, através de ferramenta via web. Contamos com a equipe que poderá atender em português, inglês e espanhol</aside>
 
-http://suporte.braspag.com.br/
+* Atendimento Web: http://suporte.braspag.com.br/
+* E-mail: suporte@braspag.com.br
+* Telefone: (11) 2184-0550
 
 ## Características da Solução
 
@@ -511,13 +512,14 @@ Transações que não forem capturadas em até 15 dias são automaticamente desf
 
 ### Requisição
 
-
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
 ```json
+
 ```
 
 ```shell
+
 curl
 --request PUT "https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/capture?amount=xxx&serviceTaxAmount=xxx"
 --header "Content-Type: application/json"
@@ -525,6 +527,7 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -539,6 +542,7 @@ curl
 ### Resposta
 
 ```json
+
 {
     "Status": 2,
     "ReasonCode": 0,
@@ -558,9 +562,11 @@ curl
         }
     ]
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -583,6 +589,7 @@ curl
         }
     ]
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -606,6 +613,7 @@ O Parâmetro `Payment.Authenticate` deverá ser enviado como *true* conforme exe
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {  
    [...]
    },
@@ -633,9 +641,11 @@ O Parâmetro `Payment.Authenticate` deverá ser enviado como *true* conforme exe
         [...]
     }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -671,6 +681,7 @@ curl
     }
 }
 --verbose
+
 ```
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
@@ -691,6 +702,7 @@ curl
 Uma transação com autenticação padrão receberá, além do retorno padrão da transação de autorização, o parâmetro `Payment.AuthenticationUrl` como _true_.
 
 ```json
+
 {  
    [...]
    },
@@ -734,9 +746,11 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
    [...]
   }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -783,6 +797,7 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
    [...]
   }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -799,14 +814,16 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de autenticação|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
-### Autenticação  Externa
+### Autenticação Externa
 
 #### Requisição
+
 Adicione o nó `Payment.ExternalAuthentication` ao contrato padrão conforme exemplo. Este fluxo é suportado pelas adquirentes Cielo, Global Payments e Banorte.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
   [...]
  "Payment": {
@@ -838,9 +855,11 @@ Adicione o nó `Payment.ExternalAuthentication` ao contrato padrão conforme exe
      [...]
    }
 }
+
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -880,6 +899,7 @@ curl
    }
 }
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -893,6 +913,7 @@ curl
 Uma transação com autenticação externa receberá, além do retorno padrão da transação de autorização, o nó `Payment.ExternalAuthentication` com as mesmas informações envidas na requisição.
 
 ```json
+
 {
   [...]
   },
@@ -936,9 +957,11 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
      [...]
   }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -985,6 +1008,7 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
      [...]
   }
 }
+
 ```
 
 |Propriedade|Tipo|Tamanho|Descrição|
@@ -998,7 +1022,9 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
 Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação.
 
 ### Requisição
+
 ```json
+
 {  
    [...]
    },
@@ -1024,8 +1050,11 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
         [...]
     }
 }
+
 ```
+
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1054,6 +1083,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
         [...]
     }
 }
+
 ```
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
@@ -1071,6 +1101,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 ### Resposta
 
 ```json
+
 {
  [...]
   "Payment": {
@@ -1098,9 +1129,11 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
     [...]
   }
 }
+
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1131,6 +1164,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
     [...]
   }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -1157,9 +1191,11 @@ Para cancelar uma transação que utilizou cartão de crédito, é necessário f
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
 ```json
+
 ```
 
 ```shell
+
 curl
 --request PUT "https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/void?amount=xxx"
 --header "Content-Type: application/json"
@@ -1167,6 +1203,7 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --verbose
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -1180,6 +1217,7 @@ curl
 ### Resposta
 
 ```json
+
 {
     "Status": 10,
     "ReasonCode": 0,
@@ -1194,9 +1232,11 @@ curl
         }
     ]
 }
+
 ```
 
 ```shell
+
 {
     "Status": 10,
     "ReasonCode": 0,
@@ -1211,6 +1251,7 @@ curl
         }
     ]
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
