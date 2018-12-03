@@ -178,11 +178,6 @@ Porém, para indentificar que a transação enviada se trata de uma transação 
 | **Transação Comum** | CreditCard             | DebitCard             |
 | **Transação Split** | SplittedCreditCard     | SplittedDebitCard     |
 
-> Atualmente o Split de Pagamentos está disponivel para os seguintes tipos de pagamento:
->
-> Cartão de Crédito
-> Cartão de Débito
->
 > **Em breve estarão disponíveis**:
 >
 > Boleto
