@@ -98,7 +98,7 @@ Abaixo segue a lista de adquirentes com as quais temos integração para solicit
 * **Autenticação**: O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.
 * **Cartão Protegido**: É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de "token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "Compra com 1 clique” e "Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.
 * **Antifraude**: É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.
-*  **Velocity**: 
+*  **Velocity**:
 
 ## Criando uma transação
 
@@ -486,6 +486,7 @@ curl
     }
 }
 ```
+
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
@@ -679,8 +680,8 @@ curl
     }
 }
 --verbose
-
 ```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
@@ -1081,8 +1082,8 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
         [...]
     }
 }
-
 ```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento. Atualmente somente a "Cielo" suporta esta forma de pagamento via Pagador|
@@ -1178,7 +1179,6 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
-
 
 ## Cancelando/Estornando uma transação
 
@@ -2160,7 +2160,6 @@ curl
 | `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
 | `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
 | `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
-
 
 # Pagamentos com Boleto
 
@@ -3908,7 +3907,6 @@ HTTP Status 200
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-
 ## Transação com Renova Fácil
 
 O Renova fácil é um serviço desenvolvido pela CIELO junto com os bancos emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes. 
@@ -4780,7 +4778,6 @@ curl
 |`FraudAnalysis.ReplyData.ScoreModelUsed`|Nome do modelo de score utilizado|Texto|20|Ex: default_lac|
 |`FraudAnalysis.ReplyData.CasePriority`|Caso o lojista seja assinante do Enhanced Case Management, ele recebe este valor com o nível de prioridade, sendo 1 o mais alto e 5 o mais baixo|Número|---|3|
 |`FraudAnalysis.ReplyData.ProviderTransactionId`|Identificador da transação no provedor de fraude. |Texto|100|Ex: "5206061832306553904009"| 
-
 
 ## Configuração do Fingerprint
 
