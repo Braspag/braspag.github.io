@@ -1905,313 +1905,6 @@ curl
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 
-## Criando uma transação com DCC (conversor de moedas da adquirente Global Payments)
-
-Exemplo de uma transação com DCC (Dynamic Currency Conversion), conversor de moedas da adquirente Global Payments que permite que o portador de um cartão estrangeiro escolha entre pagar em Reais ou em sua moeda Local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
-A solução é indicada para estabelecimentos que recebem pagamentos com cartões emitidos no exterior como hotéis, pousadas, polos comerciais e comércios em pontos turísticos.
-
-<aside class="notice"><strong>Autenticação:</strong> Para utilizar esta funcionalidade, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento.</aside>
-
-<aside class="warning">Esta funcionalidade não é compatível com transações com MPI Externo.</aside>
-
-### Processo de autorização com DCC
-
-Quando o estabelecimento possui o produto DCC habilitado, o processo de autorização é realizado em 3 etapas.
-
-Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, em seguida retorna as informações de conversão.
-
-Na segunda etapa, o sistema da loja deverá apresentar ao comprador as opções de pagar em Reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira, onde:
-
-* Texto apresentado em Inglês, conforme exemplo a seguir.
-* O layout do site não precisa ser alterado, desde que as opções de escolha da moeda tenham as mesmas características de fonte, cor e dimensões, como o exemplo que segue.
-
-![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
-
-Exemplo disponibilizado pela Global Payments
-
-Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. A resposta da autorização será retornada neste ponto. 
-
-**PASSO 1** - Solicitação de autorização da transação: 
-
-#### Requisição
-
-Não há diferença entre uma requisição de autorização padrão e uma de DCC.
-
-#### Resposta
-
-```json
-
-{
-    [...]
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "123412******1234",
-            "Holder": "Comprador Teste",
-            "ExpirationDate": "12/2022",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ReturnUrl": "http://www.braspag.com.br/",
-        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "ReceivedDate": "2018-08-23 10:46:25",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "GlobalPayments",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 12,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "Transação autorizada",
-        "CurrencyExchangeData": {
-            "Id": "fab6f3a752d700af1d50fdd19987b95df497652b",
-            "CurrencyExchanges": [{
-                    "Currency": "EUR",
-                    "ConvertedAmount": 31,
-                    "ConversionRate": 3.218626,
-                    "ClosingDate": "2017-03-09T00:00:00"
-                },
-                {
-                    "Currency": "BRL",
-                    "ConvertedAmount": 100
-                }
-            ]
-        },
-        [...]
-}
-
-```
-
-```shell
-
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    [...]
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "123412******1234",
-            "Holder": "Comprador Teste",
-            "ExpirationDate": "12/2022",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ReturnUrl": "http://www.braspag.com.br/",
-        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "ReceivedDate": "2018-08-23 10:46:25",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "GlobalPayments",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 12,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "Transação autorizada",
-        "CurrencyExchangeData": {
-            "Id": "fab6f3a752d700af1d50fdd19987b95df497652b",
-            "CurrencyExchanges": [{
-                    "Currency": "EUR",
-                    "ConvertedAmount": 31,
-                    "ConversionRate": 3.218626,
-                    "ClosingDate": "2017-03-09T00:00:00"
-                },
-                {
-                    "Currency": "BRL",
-                    "ConvertedAmount": 100
-                }
-            ]
-        }
-        [...]
-}
-
-```
-
-| Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
-|-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento                            | Texto | 40      | Texto alfanumérico                   |
-| `ProofOfSale`           | Número do Comprovante de Venda                                              | Texto | 20      | Texto alfanumérico                   |
-| `AuthorizationCode`     | Código de autorização                                                       | Texto | 300     | Texto alfanumérico                   |
-| `PaymentId`             | Campo Identificador do Pedido                                               | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReceivedDate`          | Data em que a transação foi recebida pela Brapag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
-| `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
-| `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
-| `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
-| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
-| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
-| `CurrencyExchangeData.Id` | Id da ação da troca de Moeda | Texto | 50     | 1b05456446c116374005602dcbaf8db8879515a0                   |
-| `CurrencyExchangeData.CurrencyExchanges.Currency` | Moeda local do comprador/cartão de crédito. | Numérico | 4     | EUR                   |
-| `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor convertido. | Numérico | 12     | 23                   |
-| `CurrencyExchangeData.CurrencyExchanges.ConversionRate` | Taxa de conversão. | Numérico | 9     | 3.218626                   |
-| `CurrencyExchangeData.CurrencyExchanges.ClosingDate` | Data de finalização da transação. | Texto | 19     | AAAA-MM-DD HH:mm:SS                  |
-| `CurrencyExchangeData.CurrencyExchanges.Currency` | Código da moeda Real | Texto | 3     | BRA                   |
-| `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor do pedido em Reais. | Numérico | 12     | 100                   |
-
-**PASSO 2** - Exibição das opções de pagamento (pagar em Reais ou na moeda do cartão):
-
-![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
-
-Exemplo disponibilizado pela Global Payments
-
-**PASSO 3** - Confirmação da transação com a moeda escolhida pelo comprador: 
-
-#### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
-
-```json
-
-{  
-  "Id":"1b05456446c116374005602dcbaf8db8879515a0",
-  "Currency":"EUR",
-  "Amount":23
-}
-
-```
-
-```shell
-
-curl
---request POST " https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-  "Id":"1b05456446c116374005602dcbaf8db8879515a0",
-  "Currency":"EUR",
-  "Amount":23
-}
---verbose
-
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|-----------|----|-------|-----------|---------|
-|`Id`|Text|50|Sim|Id da ação da troca de Moeda|
-|`Currency`|Numérico|4|Sim|Moeda selecionada pelo comprador|
-|`Amount`|Numérico|12|Sim|Valor convertido|
-
-#### Resposta
-
-```json
-
-{
-   [...]
-   "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "123412******1234",
-            "Holder": "TerteDcc",
-            "ExpirationDate": "12/2022",
-            "SecurityCode": "***",
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "20170510053219433",
-        "AcquirerTransactionId": "0510053219433",
-        "AuthorizationCode": "936403",
-        "SoftDescriptor": "Mensagem",
-        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
-        "Type": "CreditCard",
-        "Amount": 23,
-        "ReceivedDate": "2017-05-10 17:32:19",
-        "CapturedAmount": 23,
-        "CapturedDate": "2017-05-10 17:32:19",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "GlobalPayments",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 2,
-        "ProviderReturnCode": "6",
-        "ProviderReturnMessage": "Operation Successful",
-        [...]
-    }
-}
-
-```
-
-```shell
-
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-   [...]
-   "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "123412******1234",
-            "Holder": "TerteDcc",
-            "ExpirationDate": "12/2022",
-            "SecurityCode": "***",
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "20170510053219433",
-        "AcquirerTransactionId": "0510053219433",
-        "AuthorizationCode": "936403",
-        "SoftDescriptor": "Mensagem",
-        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
-        "Type": "CreditCard",
-        "Amount": 23,
-        "ReceivedDate": "2017-05-10 17:32:19",
-        "CapturedAmount": 23,
-        "CapturedDate": "2017-05-10 17:32:19",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "GlobalPayments",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 2,
-        "ProviderReturnCode": "6",
-        "ProviderReturnMessage": "Operation Successful",
-        [...]
-    }
-}
-
-```
-
-| Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
-|-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento                            | Texto | 40      | Texto alfanumérico                   |
-| `ProofOfSale`           | Número do Comprovante de Venda                                              | Texto | 20      | Texto alfanumérico                   |
-| `AuthorizationCode`     | Código de autorização                                                       | Texto | 300     | Texto alfanumérico                   |
-| `PaymentId`             | Campo Identificador do Pedido                                               | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReceivedDate`          | Data em que a transação foi recebida pela Brapag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
-| `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
-| `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
-| `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
-| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
-| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
-
 # Pagamentos com Boleto
 
 ## Boleto Registrado
@@ -6336,6 +6029,313 @@ curl
 |`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Url`|URL para a qual o comprador deverá ser redirecionado para autenticação da Transferência Eletrônica |Texto |256 |Url de Autenticação|
 |`Status`|Status da Transação|Byte|2|Ex. 1|
+
+# Pagamentos com DCC (conversor de moedas da adquirente Global Payments)
+
+Exemplo de uma transação com DCC (Dynamic Currency Conversion), conversor de moedas da adquirente Global Payments que permite que o portador de um cartão estrangeiro escolha entre pagar em Reais ou em sua moeda Local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
+A solução é indicada para estabelecimentos que recebem pagamentos com cartões emitidos no exterior como hotéis, pousadas, polos comerciais e comércios em pontos turísticos.
+
+<aside class="notice"><strong>Autenticação:</strong> Para utilizar esta funcionalidade, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento.</aside>
+
+<aside class="warning">Esta funcionalidade não é compatível com transações com MPI Externo.</aside>
+
+### Processo de autorização com DCC
+
+Quando o estabelecimento possui o produto DCC habilitado, o processo de autorização é realizado em 3 etapas.
+
+Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, em seguida retorna as informações de conversão.
+
+Na segunda etapa, o sistema da loja deverá apresentar ao comprador as opções de pagar em Reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira, onde:
+
+* Texto apresentado em Inglês, conforme exemplo a seguir.
+* O layout do site não precisa ser alterado, desde que as opções de escolha da moeda tenham as mesmas características de fonte, cor e dimensões, como o exemplo que segue.
+
+![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
+
+Exemplo disponibilizado pela Global Payments
+
+Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. A resposta da autorização será retornada neste ponto. 
+
+**PASSO 1** - Solicitação de autorização da transação: 
+
+#### Requisição
+
+Não há diferença entre uma requisição de autorização padrão e uma de DCC.
+
+#### Resposta
+
+```json
+
+{
+    [...]
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "123412******1234",
+            "Holder": "Comprador Teste",
+            "ExpirationDate": "12/2022",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ReturnUrl": "http://www.braspag.com.br/",
+        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
+        "Type": "CreditCard",
+        "Amount": 100,
+        "ReceivedDate": "2018-08-23 10:46:25",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "GlobalPayments",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 12,
+        "ProviderReturnCode": "0",
+        "ProviderReturnMessage": "Transação autorizada",
+        "CurrencyExchangeData": {
+            "Id": "fab6f3a752d700af1d50fdd19987b95df497652b",
+            "CurrencyExchanges": [{
+                    "Currency": "EUR",
+                    "ConvertedAmount": 31,
+                    "ConversionRate": 3.218626,
+                    "ClosingDate": "2017-03-09T00:00:00"
+                },
+                {
+                    "Currency": "BRL",
+                    "ConvertedAmount": 100
+                }
+            ]
+        },
+        [...]
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    [...]
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "123412******1234",
+            "Holder": "Comprador Teste",
+            "ExpirationDate": "12/2022",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ReturnUrl": "http://www.braspag.com.br/",
+        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
+        "Type": "CreditCard",
+        "Amount": 100,
+        "ReceivedDate": "2018-08-23 10:46:25",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "GlobalPayments",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 12,
+        "ProviderReturnCode": "0",
+        "ProviderReturnMessage": "Transação autorizada",
+        "CurrencyExchangeData": {
+            "Id": "fab6f3a752d700af1d50fdd19987b95df497652b",
+            "CurrencyExchanges": [{
+                    "Currency": "EUR",
+                    "ConvertedAmount": 31,
+                    "ConversionRate": 3.218626,
+                    "ClosingDate": "2017-03-09T00:00:00"
+                },
+                {
+                    "Currency": "BRL",
+                    "ConvertedAmount": 100
+                }
+            ]
+        }
+        [...]
+}
+
+```
+
+| Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
+|-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
+| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento                            | Texto | 40      | Texto alfanumérico                   |
+| `ProofOfSale`           | Número do Comprovante de Venda                                              | Texto | 20      | Texto alfanumérico                   |
+| `AuthorizationCode`     | Código de autorização                                                       | Texto | 300     | Texto alfanumérico                   |
+| `PaymentId`             | Campo Identificador do Pedido                                               | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReceivedDate`          | Data em que a transação foi recebida pela Brapag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
+| `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
+| `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
+| `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
+| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
+| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
+| `CurrencyExchangeData.Id` | Id da ação da troca de Moeda | Texto | 50     | 1b05456446c116374005602dcbaf8db8879515a0                   |
+| `CurrencyExchangeData.CurrencyExchanges.Currency` | Moeda local do comprador/cartão de crédito. | Numérico | 4     | EUR                   |
+| `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor convertido. | Numérico | 12     | 23                   |
+| `CurrencyExchangeData.CurrencyExchanges.ConversionRate` | Taxa de conversão. | Numérico | 9     | 3.218626                   |
+| `CurrencyExchangeData.CurrencyExchanges.ClosingDate` | Data de finalização da transação. | Texto | 19     | AAAA-MM-DD HH:mm:SS                  |
+| `CurrencyExchangeData.CurrencyExchanges.Currency` | Código da moeda Real | Texto | 3     | BRA                   |
+| `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor do pedido em Reais. | Numérico | 12     | 100                   |
+
+**PASSO 2** - Exibição das opções de pagamento (pagar em Reais ou na moeda do cartão):
+
+![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
+
+Exemplo disponibilizado pela Global Payments
+
+**PASSO 3** - Confirmação da transação com a moeda escolhida pelo comprador: 
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
+
+```json
+
+{  
+  "Id":"1b05456446c116374005602dcbaf8db8879515a0",
+  "Currency":"EUR",
+  "Amount":23
+}
+
+```
+
+```shell
+
+curl
+--request POST " https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+  "Id":"1b05456446c116374005602dcbaf8db8879515a0",
+  "Currency":"EUR",
+  "Amount":23
+}
+--verbose
+
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`Id`|Text|50|Sim|Id da ação da troca de Moeda|
+|`Currency`|Numérico|4|Sim|Moeda selecionada pelo comprador|
+|`Amount`|Numérico|12|Sim|Valor convertido|
+
+#### Resposta
+
+```json
+
+{
+   [...]
+   "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "123412******1234",
+            "Holder": "TerteDcc",
+            "ExpirationDate": "12/2022",
+            "SecurityCode": "***",
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "20170510053219433",
+        "AcquirerTransactionId": "0510053219433",
+        "AuthorizationCode": "936403",
+        "SoftDescriptor": "Mensagem",
+        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
+        "Type": "CreditCard",
+        "Amount": 23,
+        "ReceivedDate": "2017-05-10 17:32:19",
+        "CapturedAmount": 23,
+        "CapturedDate": "2017-05-10 17:32:19",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "GlobalPayments",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        [...]
+    }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+   [...]
+   "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "123412******1234",
+            "Holder": "TerteDcc",
+            "ExpirationDate": "12/2022",
+            "SecurityCode": "***",
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "20170510053219433",
+        "AcquirerTransactionId": "0510053219433",
+        "AuthorizationCode": "936403",
+        "SoftDescriptor": "Mensagem",
+        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
+        "Type": "CreditCard",
+        "Amount": 23,
+        "ReceivedDate": "2017-05-10 17:32:19",
+        "CapturedAmount": 23,
+        "CapturedDate": "2017-05-10 17:32:19",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "GlobalPayments",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        [...]
+    }
+}
+
+```
+
+| Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
+|-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
+| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento                            | Texto | 40      | Texto alfanumérico                   |
+| `ProofOfSale`           | Número do Comprovante de Venda                                              | Texto | 20      | Texto alfanumérico                   |
+| `AuthorizationCode`     | Código de autorização                                                       | Texto | 300     | Texto alfanumérico                   |
+| `PaymentId`             | Campo Identificador do Pedido                                               | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReceivedDate`          | Data em que a transação foi recebida pela Brapag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
+| `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
+| `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
+| `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
+| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
+| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
 
 # Consultas
 
