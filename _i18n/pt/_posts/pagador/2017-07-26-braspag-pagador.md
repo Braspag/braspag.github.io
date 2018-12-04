@@ -1558,10 +1558,10 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
         "Recurrent": false,
         "SoftDescriptor": "Mensagem",
         "CreditCard": {
-         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-         },
+            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
         [...]
     }
 }
@@ -1593,10 +1593,10 @@ curl
         "Recurrent": false,
         "SoftDescriptor": "Mensagem",
         "CreditCard": {
-         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-         },
+            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
         [...]
     }
 }
@@ -1634,10 +1634,10 @@ curl
         "Recurrent": false,
         "SoftDescriptor": "Mensagem",
         "CreditCard": {
-         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-    },
+            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
     "ProofOfSale": "124305",
     "AcquirerTransactionId": "0511030124305",
     "AuthorizationCode": "065964",
@@ -1664,19 +1664,26 @@ curl
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "SaveCard": false,
-      "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-      "Brand": "Visa"
-    },
+{  
+   [...]
+   },
+     "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Mensagem",
+        "CreditCard": {
+            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
     "ProofOfSale": "124305",
     "AcquirerTransactionId": "0511030124305",
     "AuthorizationCode": "065964",
@@ -1737,10 +1744,10 @@ Este é um exemplo de como utilizar o Alias, previamente salvo, para criar uma t
         "Recurrent": false,
         "SoftDescriptor": "Mensagem",
         "CreditCard": {
-         "Alias":"Cliente1",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-         },
+            "Alias":"Cliente1",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
         [...]
     }
 }
@@ -1772,10 +1779,10 @@ curl
         "Recurrent": false,
         "SoftDescriptor": "Mensagem",
         "CreditCard": {
-         "Alias":"Cliente1",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-         },
+            "Alias":"Cliente1",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
         [...]
     }
 }
@@ -1814,10 +1821,10 @@ curl
         "Recurrent": false,
         "SoftDescriptor": "Mensagem",
         "CreditCard": {
-         "Alias":"Cliente1",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-    },
+            "Alias":"Cliente1",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
     "ProofOfSale": "124305",
     "AcquirerTransactionId": "0511030124305",
     "AuthorizationCode": "065964",
@@ -1860,10 +1867,10 @@ curl
         "Recurrent": false,
         "SoftDescriptor": "Mensagem",
         "CreditCard": {
-         "Alias":"Cliente1",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-    },
+            "Alias":"Cliente1",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
     "ProofOfSale": "124305",
     "AcquirerTransactionId": "0511030124305",
     "AuthorizationCode": "065964",
