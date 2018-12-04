@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-03T19:07:49+00:00</updated>
+    <updated>2018-12-04T11:59:41+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -14083,11 +14083,11 @@ diferentes.&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;A disponibilidade do serviço de Estorno varia de adquirente para adquirente.&lt;/aside&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Autenticação&lt;/strong&gt;: O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.
-&lt;strong&gt;Cartão Protegido&lt;/strong&gt;: É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de “token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como “Compra com 1 clique” e “Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.
-&lt;strong&gt;Antifraude&lt;/strong&gt;: É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Autenticação&lt;/strong&gt;: O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cartão Protegido&lt;/strong&gt;: É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de “token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como “Compra com 1 clique” e “Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Antifraude&lt;/strong&gt;: É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;criando-uma-transação&quot;&gt;Criando uma transação&lt;/h2&gt;
 
