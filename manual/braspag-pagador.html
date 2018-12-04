@@ -2832,10 +2832,10 @@ curl
         </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="s2">"250e7c7c-5501-4a7c-aa42-a33d7ad61167"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-         </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="s2">"250e7c7c-5501-4a7c-aa42-a33d7ad61167"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
         </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2866,10 +2866,10 @@ curl
         <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
         <span class="s2">"SoftDescriptor"</span>: <span class="s2">"Mensagem"</span>,
         <span class="s2">"CreditCard"</span>: <span class="o">{</span>
-         <span class="s2">"CardToken"</span>:<span class="s2">"250e7c7c-5501-4a7c-aa42-a33d7ad61167"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-         <span class="o">}</span>,
+            <span class="s2">"CardToken"</span>:<span class="s2">"250e7c7c-5501-4a7c-aa42-a33d7ad61167"</span>,
+            <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+            <span class="o">}</span>,
         <span class="o">[</span>...]
     <span class="o">}</span>
 <span class="o">}</span>
@@ -2959,10 +2959,10 @@ curl
         </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="s2">"250e7c7c-5501-4a7c-aa42-a33d7ad61167"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="s2">"250e7c7c-5501-4a7c-aa42-a33d7ad61167"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
     </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"124305"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0511030124305"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"065964"</span><span class="p">,</span><span class="w">
@@ -2988,19 +2988,26 @@ curl
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
-<span class="o">{</span>
-  <span class="s2">"Payment"</span>: <span class="o">{</span>
-    <span class="s2">"ServiceTaxAmount"</span>: 0,
-    <span class="s2">"Installments"</span>: 1,
-    <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
-    <span class="s2">"Capture"</span>: <span class="nb">true</span>,
-    <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
-    <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
-    <span class="s2">"CreditCard"</span>: <span class="o">{</span>
-      <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
-      <span class="s2">"CardToken"</span>: <span class="s2">"250e7c7c-5501-4a7c-aa42-a33d7ad61167"</span>,
-      <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
-    <span class="o">}</span>,
+<span class="o">{</span>  
+   <span class="o">[</span>...]
+   <span class="o">}</span>,
+     <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+        <span class="s2">"Amount"</span>: 10000,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"Installments"</span>: 1,
+        <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
+        <span class="s2">"Capture"</span>: <span class="nb">true</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+        <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+        <span class="s2">"SoftDescriptor"</span>: <span class="s2">"Mensagem"</span>,
+        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+            <span class="s2">"CardToken"</span>:<span class="s2">"250e7c7c-5501-4a7c-aa42-a33d7ad61167"</span>,
+            <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+            <span class="o">}</span>,
     <span class="s2">"ProofOfSale"</span>: <span class="s2">"124305"</span>,
     <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0511030124305"</span>,
     <span class="s2">"AuthorizationCode"</span>: <span class="s2">"065964"</span>,
@@ -3131,10 +3138,10 @@ curl
         </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"Alias"</span><span class="p">:</span><span class="s2">"Cliente1"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-         </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"Alias"</span><span class="p">:</span><span class="s2">"Cliente1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
         </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3165,10 +3172,10 @@ curl
         <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
         <span class="s2">"SoftDescriptor"</span>: <span class="s2">"Mensagem"</span>,
         <span class="s2">"CreditCard"</span>: <span class="o">{</span>
-         <span class="s2">"Alias"</span>:<span class="s2">"Cliente1"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-         <span class="o">}</span>,
+            <span class="s2">"Alias"</span>:<span class="s2">"Cliente1"</span>,
+            <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+            <span class="o">}</span>,
         <span class="o">[</span>...]
     <span class="o">}</span>
 <span class="o">}</span>
@@ -3265,10 +3272,10 @@ curl
         </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"Alias"</span><span class="p">:</span><span class="s2">"Cliente1"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"Alias"</span><span class="p">:</span><span class="s2">"Cliente1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
     </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"124305"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0511030124305"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"065964"</span><span class="p">,</span><span class="w">
@@ -3310,10 +3317,10 @@ curl
         <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
         <span class="s2">"SoftDescriptor"</span>: <span class="s2">"Mensagem"</span>,
         <span class="s2">"CreditCard"</span>: <span class="o">{</span>
-         <span class="s2">"Alias"</span>:<span class="s2">"Cliente1"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-    <span class="o">}</span>,
+            <span class="s2">"Alias"</span>:<span class="s2">"Cliente1"</span>,
+            <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+            <span class="o">}</span>,
     <span class="s2">"ProofOfSale"</span>: <span class="s2">"124305"</span>,
     <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0511030124305"</span>,
     <span class="s2">"AuthorizationCode"</span>: <span class="s2">"065964"</span>,
