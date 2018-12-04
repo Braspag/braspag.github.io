@@ -105,7 +105,7 @@ Abaixo segue a lista de adquirentes com as quais temos integração para solicit
 
 Exemplo de uma transação para processamento de uma venda.
 
-<aside class="notice">Os parâmetros contidos nos nós `Address` e `DeliveryAddress` são obrigatórios quando a transação será submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um *</aside>
+<aside class="notice">Os parâmetros contidos nos nós **Address** e **DeliveryAddress** são obrigatórios quando a transação será submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um *</aside>
 
 ### Requisição
 
