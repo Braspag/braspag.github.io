@@ -694,7 +694,7 @@ curl
 
 #### Resposta
 
-Uma transação com autenticação padrão receberá, além do retorno padrão da transação de autorização, o parâmetro `Payment.AuthenticationUrl` como _true_.
+Uma transação com autenticação padrão receberá, além do retorno padrão da transação de autorização, o parâmetro `Payment.AuthenticationUrl`.
 
 ```json
 
@@ -1271,23 +1271,22 @@ O Velocity Check é uma ferramenta de combate à fraudes massivas, que disparam 
 
 A funcionalidade deve ser contratada à parte, e posteriormente habilitada em sua loja via painel. Quando o Velocity está ativo, a resposta da transação trará um nó específico chamado "Velocity", com os detalhes da análise.
 
-No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP171 - Rejected by fraud risk (velocity, com ReasonCode 16 - AbortedByFraud
+No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP 171 - Rejected by fraud risk (velocity, com ReasonCode 16 - AbortedByFraud).
 
 ### Resposta
 
 ```json
 {
-  [...]
+    [...]
     "VelocityAnalysis": {
-      "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
-      "ResultMessage": "Reject",
-      "Score": 100,
-      "RejectReasons": [
+        "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
+        "ResultMessage": "Reject",
+        "Score": 100,
+        "RejectReasons": [
         {
-          "RuleId": 49,
-          "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"
-        }
-      ]
+            "RuleId": 49,
+            "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"
+        }]
     [...]
   }
 }
@@ -1297,17 +1296,16 @@ No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP171 -
 ```shell
 
 {
-  [...]
+    [...]
     "VelocityAnalysis": {
-      "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
-      "ResultMessage": "Reject",
-      "Score": 100,
-      "RejectReasons": [
+        "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
+        "ResultMessage": "Reject",
+        "Score": 100,
+        "RejectReasons": [
         {
-          "RuleId": 49,
-          "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"
-        }
-      ]
+            "RuleId": 49,
+            "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"
+        }]
     [...]
   }
 }
