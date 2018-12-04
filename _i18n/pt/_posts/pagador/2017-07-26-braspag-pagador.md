@@ -103,7 +103,9 @@ Abaixo segue a lista de adquirentes com as quais temos integração para solicit
 
 ## Criando uma transação
 
-Exemplo de uma transação para processamento de uma venda. Alguns parâmetros são obrigatórios quando o Pagador é utilizado juntamente com o Antifraude (representados pelo marcador "AF Sim")
+Exemplo de uma transação para processamento de uma venda.
+
+<aside class="notice">Os parâmetros contidos nos nós `Address` e `DeliveryAddress` são obrigatórios quando a transação será submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um *</aside>
 
 ### Requisição
 
@@ -137,21 +139,20 @@ Exemplo de uma transação para processamento de uma venda. Alguns parâmetros s
          "State":"SP",
          "Country":"BRA",
          "District":"Alphaville"
-    }
-   },
-     "Payment": {
-        "Provider": "Simulado",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
-        "CreditCard": {
+    },
+      "Payment": {
+         "Provider": "Simulado",
+         "Type": "CreditCard",
+         "Amount": 10000,
+         "Currency": "BRL",
+         "Country": "BRA",
+         "Installments": 1,
+         "Interest": "ByMerchant",
+         "Capture": true,
+         "Authenticate": false,
+         "Recurrent": false,
+         "SoftDescriptor": "Mensagem",
+         "CreditCard": {
             "CardNumber": "4551870000000181",
             "Holder": "Nome do Portador",
             "ExpirationDate": "12/2021",
@@ -159,19 +160,19 @@ Exemplo de uma transação para processamento de uma venda. Alguns parâmetros s
             "Brand": "Visa",
             "SaveCard": "false",
             "Alias": ""
-        },
-        "credentials": {
+         },
+         "credentials": {
             "code": "9999999",
             "key": "D8888888",
             "password": "LOJA9999999",
             "username": "#Braspag2018@NOMEDALOJA#",
             "signature": "001"
-        },
-        "ExtraDataCollection": [{
+         },
+         "ExtraDataCollection": [{
             "Name": "NomeDoCampo",
             "Value": "ValorDoCampo"
-        }]
-    }
+         }]
+     }
 }
 
 ```
@@ -201,9 +202,9 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-       "District":"Alphaville"
+         "District":"Alphaville"
     },
-    "DeliveryAddress": {
+      "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -212,35 +213,40 @@ curl
          "State":"SP",
          "Country":"BRA",
          "District":"Alphaville"
-    }
-   },
-   "Payment":{  
-     "Provider":"Simulado",
-     "Type":"CreditCard",
-     "Amount":10000,
-     "ServiceTaxAmount":0,
-     "Currency":"BRL",
-     "Country":"BRA",
-     "Installments":1,
-     "Interest":"ByMerchant",
-     "Capture":true,
-     "Authenticate":false,    
-     "Recurrent": false,
-     "SoftDescriptor":"Mensagem",
-     "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "SaveCard":"false"
-         "Alias": ""
-     },
-     "ExtraDataCollection":[{
-         "Name":"NomeDoCampo",
-         "Value":"ValorDoCampo"
-     }]
-   }
+    },
+      "Payment": {
+         "Provider": "Simulado",
+         "Type": "CreditCard",
+         "Amount": 10000,
+         "Currency": "BRL",
+         "Country": "BRA",
+         "Installments": 1,
+         "Interest": "ByMerchant",
+         "Capture": true,
+         "Authenticate": false,
+         "Recurrent": false,
+         "SoftDescriptor": "Mensagem",
+         "CreditCard": {
+            "CardNumber": "4551870000000181",
+            "Holder": "Nome do Portador",
+            "ExpirationDate": "12/2021",
+            "SecurityCode": "123",
+            "Brand": "Visa",
+            "SaveCard": "false",
+            "Alias": ""
+         },
+         "credentials": {
+            "code": "9999999",
+            "key": "D8888888",
+            "password": "LOJA9999999",
+            "username": "#Braspag2018@NOMEDALOJA#",
+            "signature": "001"
+         },
+         "ExtraDataCollection": [{
+            "Name": "NomeDoCampo",
+            "Value": "ValorDoCampo"
+         }]
+     }
 }
 --verbose
 
@@ -257,22 +263,22 @@ curl
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
 |`Customer.Email`|Texto|255|Não|Email do comprador|
 |`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador no formato AAAA-MM-DD|
-|`Customer.Address.Street`|Texto|255|Não|Endereço de contato do comprador|
-|`Customer.Address.Number`|Texto|15|Não|Número endereço de contato do comprador|
-|`Customer.Address.Complement`|Texto|50|Não|Complemento do endereço de contato do Comprador|
-|`Customer.Address.ZipCode`|Texto|9|Não|CEP do endereço de contato do comprador|
-|`Customer.Address.City`|Texto|50|Não|Cidade do endereço de contato do comprador|
-|`Customer.Address.State`|Texto|2|Não|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Não|Pais do endereço de contato do comprador|
-|`Customer.Address.District`|Texto |50 |Não|Bairro do Comprador. |
-|`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do comprador|
-|`Customer.DeliveryAddress.Number`|Texto|15|Não|Número do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|CEP do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Country`|Texto|35|Não|Pais do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.District`|Texto |50 |Não|Bairro do Comprador. |
+|`Customer.Address.Street`|Texto|255|Não*|Endereço de contato do comprador|
+|`Customer.Address.Number`|Texto|15|Não*|Número endereço de contato do comprador|
+|`Customer.Address.Complement`|Texto|50|Não*|Complemento do endereço de contato do Comprador|
+|`Customer.Address.ZipCode`|Texto|9|Não*|CEP do endereço de contato do comprador|
+|`Customer.Address.City`|Texto|50|Não*|Cidade do endereço de contato do comprador|
+|`Customer.Address.State`|Texto|2|Não*|Estado do endereço de contato do comprador|
+|`Customer.Address.Country`|Texto|35|Não*|Pais do endereço de contato do comprador|
+|`Customer.Address.District`|Texto |50 |Não*|Bairro do Comprador. |
+|`Customer.DeliveryAddress.Street`|Texto|255|Não*|Endereço do comprador|
+|`Customer.DeliveryAddress.Number`|Texto|15|Não*|Número do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Complement`|Texto|50|Não*|Complemento do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não*|CEP do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.City`|Texto|50|Não*|Cidade do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.State`|Texto|2|Não*|Estado do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Country`|Texto|35|Não*|Pais do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.District`|Texto |50|Não*|Bairro do Comprador. |
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
@@ -331,7 +337,6 @@ curl
             "State": "SP",
             "Country": "BRA",
             "District": "Alphaville"
-        }
     },
     "Payment": {
         "ServiceTaxAmount": 0,
@@ -403,7 +408,7 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "MerchantOrderId": "2017051002",
+"MerchantOrderId": "2017051002",
     "Customer": {
         "Name": "Nome do Comprador",
         "Identity": "12345678909",
@@ -429,7 +434,6 @@ curl
             "State": "SP",
             "Country": "BRA",
             "District": "Alphaville"
-        }
     },
     "Payment": {
         "ServiceTaxAmount": 0,
