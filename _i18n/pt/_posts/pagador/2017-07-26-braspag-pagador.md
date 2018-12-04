@@ -83,20 +83,6 @@ Para que você possa desfrutar de todos os recursos disponíveis em nossa API, �
 * **Cancelamento**: O cancelamento é necessário quando, por algum motivo, não se quer mais efetivar uma venda. No caso de uma pré-autorização, o cancelamento irá liberar o limite do cartão que foi sensibilizado em uma pré-autorização. Quando a transação já estiver sido capturada, o cancelamento irá desfazer a venda, mas deve ser executado até às 23:59:59 da data da autorização/captura.
 * **Estorno**: O estorno é aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida no processo de 'chargeback' pela adquirente. 
 
-Abaixo segue a lista de adquirentes com as quais temos integração para solicitações de estorno: 
-
-|Adquirente|Prazo Máximo para Solicitação de Estorno|
-|-----------|----|
-|Cielo|300 dias|
-|Rede| Tecnologia Komerci: 90 dias; Tecnologia eRede: 60 dias|
-|Getnet|90 dias|
-|Transbank|90 dias| 
-|Banorte|30 dias|
-|First Data|90 dias|
-|Alelo|300 dias|
-
-<aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
-
 * **Autenticação**: O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.
 * **Cartão Protegido**: É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de "token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "Compra com 1 clique” e "Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.
 * **Antifraude**: É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.
@@ -1194,6 +1180,20 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 ## Cancelando/Estornando uma transação
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
+
+Abaixo segue a lista de adquirentes com as quais temos integração para solicitações de estorno: 
+
+|Adquirente|Prazo Máximo para Solicitação de Estorno|
+|-----------|----|
+|Cielo|300 dias|
+|Rede| Tecnologia Komerci: 90 dias; Tecnologia eRede: 60 dias|
+|Getnet|90 dias|
+|Transbank|90 dias| 
+|Banorte|30 dias|
+|First Data|90 dias|
+|Alelo|300 dias|
+
+<aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
 ### Requisição
 
