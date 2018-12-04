@@ -304,7 +304,9 @@
 
 <h2 id="criando-uma-transação">Criando uma transação</h2>
 
-<p>Exemplo de uma transação para processamento de uma venda. Alguns parâmetros são obrigatórios quando o Pagador é utilizado juntamente com o Antifraude (representados pelo marcador “AF Sim”)</p>
+<p>Exemplo de uma transação para processamento de uma venda.</p>
+
+<aside class="notice">Os parâmetros contidos nos nós `Address` e `DeliveryAddress` são obrigatórios quando a transação será submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um *</aside>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -337,21 +339,20 @@
          </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4551870000000181"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
@@ -359,19 +360,19 @@
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA9999999"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#Braspag2018@NOMEDALOJA#"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NomeDoCampo"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValorDoCampo"</span><span class="w">
-        </span><span class="p">}]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+         </span><span class="p">}]</span><span class="w">
+     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
@@ -400,9 +401,9 @@ curl
          <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
          <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
          <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-       <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+         <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
     <span class="o">}</span>,
-    <span class="s2">"DeliveryAddress"</span>: <span class="o">{</span>
+      <span class="s2">"DeliveryAddress"</span>: <span class="o">{</span>
          <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
          <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
          <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
@@ -411,35 +412,40 @@ curl
          <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
          <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
          <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
-    <span class="o">}</span>
-   <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>  
-     <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
-     <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-     <span class="s2">"Amount"</span>:10000,
-     <span class="s2">"ServiceTaxAmount"</span>:0,
-     <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
-     <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-     <span class="s2">"Installments"</span>:1,
-     <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
-     <span class="s2">"Capture"</span>:true,
-     <span class="s2">"Authenticate"</span>:false,    
-     <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
-     <span class="s2">"SoftDescriptor"</span>:<span class="s2">"Mensagem"</span>,
-     <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
-         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000181"</span>,
-         <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
-         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-         <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>
-         <span class="s2">"Alias"</span>: <span class="s2">""</span>
-     <span class="o">}</span>,
-     <span class="s2">"ExtraDataCollection"</span>:[<span class="o">{</span>
-         <span class="s2">"Name"</span>:<span class="s2">"NomeDoCampo"</span>,
-         <span class="s2">"Value"</span>:<span class="s2">"ValorDoCampo"</span>
-     <span class="o">}]</span>
-   <span class="o">}</span>
+    <span class="o">}</span>,
+      <span class="s2">"Payment"</span>: <span class="o">{</span>
+         <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+         <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+         <span class="s2">"Amount"</span>: 10000,
+         <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+         <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+         <span class="s2">"Installments"</span>: 1,
+         <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
+         <span class="s2">"Capture"</span>: <span class="nb">true</span>,
+         <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+         <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+         <span class="s2">"SoftDescriptor"</span>: <span class="s2">"Mensagem"</span>,
+         <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+            <span class="s2">"CardNumber"</span>: <span class="s2">"4551870000000181"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
+            <span class="s2">"SecurityCode"</span>: <span class="s2">"123"</span>,
+            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
+            <span class="s2">"SaveCard"</span>: <span class="s2">"false"</span>,
+            <span class="s2">"Alias"</span>: <span class="s2">""</span>
+         <span class="o">}</span>,
+         <span class="s2">"credentials"</span>: <span class="o">{</span>
+            <span class="s2">"code"</span>: <span class="s2">"9999999"</span>,
+            <span class="s2">"key"</span>: <span class="s2">"D8888888"</span>,
+            <span class="s2">"password"</span>: <span class="s2">"LOJA9999999"</span>,
+            <span class="s2">"username"</span>: <span class="s2">"#Braspag2018@NOMEDALOJA#"</span>,
+            <span class="s2">"signature"</span>: <span class="s2">"001"</span>
+         <span class="o">}</span>,
+         <span class="s2">"ExtraDataCollection"</span>: <span class="o">[{</span>
+            <span class="s2">"Name"</span>: <span class="s2">"NomeDoCampo"</span>,
+            <span class="s2">"Value"</span>: <span class="s2">"ValorDoCampo"</span>
+         <span class="o">}]</span>
+     <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
 
@@ -523,112 +529,112 @@ curl
       <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
       <td>Texto</td>
       <td>15</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Número endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Complemento do endereço de contato do Comprador</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td>Texto</td>
       <td>9</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>CEP do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.City</code></td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Cidade do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.State</code></td>
       <td>Texto</td>
       <td>2</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Estado do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
       <td>Texto</td>
       <td>35</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Pais do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.District</code></td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Bairro do Comprador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Endereço do comprador</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td>Texto</td>
       <td>15</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Número do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Complemento do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td>Texto</td>
       <td>9</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>CEP do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Cidade do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td>Texto</td>
       <td>2</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Estado do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td>Texto</td>
       <td>35</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Pais do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Bairro do Comprador.</td>
     </tr>
     <tr>
@@ -846,7 +852,6 @@ curl
             </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -917,7 +922,7 @@ curl
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
-    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2017051002"</span>,
+<span class="s2">"MerchantOrderId"</span>: <span class="s2">"2017051002"</span>,
     <span class="s2">"Customer"</span>: <span class="o">{</span>
         <span class="s2">"Name"</span>: <span class="s2">"Nome do Comprador"</span>,
         <span class="s2">"Identity"</span>: <span class="s2">"12345678909"</span>,
@@ -943,7 +948,6 @@ curl
             <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
             <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
             <span class="s2">"District"</span>: <span class="s2">"Alphaville"</span>
-        <span class="o">}</span>
     <span class="o">}</span>,
     <span class="s2">"Payment"</span>: <span class="o">{</span>
         <span class="s2">"ServiceTaxAmount"</span>: 0,
