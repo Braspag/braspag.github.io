@@ -103,9 +103,11 @@ Abaixo segue a lista de adquirentes com as quais temos integração para solicit
 
 ## Criando uma transação
 
-Exemplo de uma transação para processamento de uma venda.
+Para autoriazar uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó `Payment.Credentials`, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.
 
-<aside class="notice">Os parâmetros contidos nos nós **Address** e **DeliveryAddress** são obrigatórios quando a transação será submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um *</aside>
+Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliações devem ser cadastradas no nosso painel administrativo pela equipe de suporte ao cliente.
+
+<aside class="notice">Os parâmetros contidos nos nós Address e DeliveryAddress são obrigatórios quando a transação é submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um * na coluna de obrigatoriedade.</aside>
 
 ### Requisição
 
