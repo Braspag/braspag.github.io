@@ -62,7 +62,6 @@ curl
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Guid|36|Yes|Merchant ID|
 |`MerchantKey`|Text|40|Yes|Merchant Key|
-|`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
 |`Payment.Provider`|Text|15|Yes|Payment Method Provider’s name|
 |`Card.CardNumber`|Text|16|Yes|Credit Card number. In case of doing just BIN Query Service, put the first six digits of card (BIN)|
 |`Card.Holder`|Text|25|Yes|Cardholder name|
