@@ -63,7 +63,6 @@ curl
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
 |`Card.CardNumber`|Texto|16|Sim|Número do Cartão do comprador para Zero Auth e Consulta BIN. Caso seja uma somente requisição de Consulta BIN, enviar somente o BIN|
 |`Card.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
