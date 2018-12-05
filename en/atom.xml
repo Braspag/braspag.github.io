@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2018-12-05T14:01:58+00:00</updated>
+    <updated>2018-12-05T14:08:28+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -86,13 +86,6 @@
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Merchant Key&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Guid&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Request Identifier defined by merchant, applicable to any operation GET/POST/PUT&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
