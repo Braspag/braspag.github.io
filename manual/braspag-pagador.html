@@ -319,7 +319,7 @@
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
          </span><span class="p">},</span><span class="w">
-         </span><span class="s2">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"Credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA9999999"</span><span class="p">,</span><span class="w">
@@ -5426,9 +5426,17 @@ HTTP Status 200
 
 <h3 id="alterar-os-dados-de-pagamento-da-recorrência">Alterar os dados de Pagamento da recorrência</h3>
 
-<p>Para alterar os dados de pagamento de uma recorrência já existente, basta fazer um PUT conforme o exemplo.</p>
+<p>Durante o ciclo de vida de uma recorrência, é possível alterar:</p>
 
-<aside class="notice">Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
+<ul>
+  <li>Processadora (de Rede para Cielo, por exemplo)</li>
+  <li>Cartão (em caso de cartão vencido)</li>
+  <li>Meio de pagamento (de Cartão para Boleto e vice e versa)</li>
+</ul>
+
+<p>Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.</p>
+
+<aside class="notice">Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofrer alterações com os mesmos valores que já estavam salvos.</aside>
 
 <h4 id="requisição-21">Requisição</h4>
 
@@ -5448,7 +5456,14 @@ HTTP Status 200
       </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4111111111111111"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"05/2019"</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA9999999"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#Braspag2018@NOMEDALOJA#"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
@@ -5462,19 +5477,26 @@ curl
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>  
-   <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
    <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
    <span class="s2">"Amount"</span>:<span class="s2">"20000"</span>,
    <span class="s2">"Installments"</span>:3,
    <span class="s2">"Country"</span>:<span class="s2">"USA"</span>,
    <span class="s2">"Currency"</span>:<span class="s2">"USD"</span>,
    <span class="s2">"SoftDescriptor"</span>:<span class="s2">"Mensagem"</span>,
+   <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
    <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
       <span class="s2">"Brand"</span>:<span class="s2">"Master"</span>,
       <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
       <span class="s2">"CardNumber"</span>:<span class="s2">"4111111111111111"</span>,
       <span class="s2">"ExpirationDate"</span>:<span class="s2">"05/2019"</span>
-   <span class="o">}</span>
+      <span class="o">}</span>,
+   <span class="s2">"Credentials"</span>: <span class="o">{</span>
+      <span class="s2">"code"</span>: <span class="s2">"9999999"</span>,
+      <span class="s2">"key"</span>: <span class="s2">"D8888888"</span>,
+      <span class="s2">"password"</span>: <span class="s2">"LOJA9999999"</span>,
+      <span class="s2">"username"</span>: <span class="s2">"#Braspag2018@NOMEDALOJA#"</span>,
+      <span class="s2">"signature"</span>: <span class="s2">"001"</span>
+      <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
 
@@ -5588,6 +5610,41 @@ curl
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Code</code></td>
+      <td>afiliação gerada pela adquirente</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Key</code></td>
+      <td>chave de afiliação/token gerado pela adquirente</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Username</code></td>
+      <td>usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Password</code></td>
+      <td>senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Signature</code></td>
+      <td>Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
     </tr>
   </tbody>
 </table>
