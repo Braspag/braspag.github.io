@@ -150,7 +150,7 @@ Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliaçõ
             "SaveCard": "false",
             "Alias": ""
          },
-         "credentials": {
+         "Credentials": {
             "code": "9999999",
             "key": "D8888888",
             "password": "LOJA9999999",
@@ -3010,9 +3010,15 @@ Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP 
 
 ### Alterar os dados de Pagamento da recorrência
 
-Para alterar os dados de pagamento de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
+Durante o ciclo de vida de uma recorrência, é possível alterar:
 
-<aside class="notice"><strong>Atenção:</strong> Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
+* Processadora (de Rede para Cielo, por exemplo)
+* Cartão (em caso de cartão vencido)
+* Meio de pagamento (de Cartão para Boleto e vice e versa)
+ 
+Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.
+
+<aside class="notice"><strong>Atenção:</strong> Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofrer alterações com os mesmos valores que já estavam salvos.</aside>
 
 #### Requisição
 
@@ -3033,7 +3039,14 @@ Para alterar os dados de pagamento de uma recorrência já existente, basta faze
       "Holder":"Nome do Portador",
       "CardNumber":"4111111111111111",
       "ExpirationDate":"05/2019"
-   }
+      },
+   "Credentials": {
+      "code": "9999999",
+      "key": "D8888888",
+      "password": "LOJA9999999",
+      "username": "#Braspag2018@NOMEDALOJA#",
+      "signature": "001"
+      }
 }
 
 ```
@@ -3048,19 +3061,26 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   "Provider":"Simulado",
    "Type":"CreditCard",
    "Amount":"20000",
    "Installments":3,
    "Country":"USA",
    "Currency":"USD",
    "SoftDescriptor":"Mensagem",
+   "Provider":"Simulado",
    "CreditCard":{  
       "Brand":"Master",
       "Holder":"Nome do Portador",
       "CardNumber":"4111111111111111",
       "ExpirationDate":"05/2019"
-   }
+      },
+   "Credentials": {
+      "code": "9999999",
+      "key": "D8888888",
+      "password": "LOJA9999999",
+      "username": "#Braspag2018@NOMEDALOJA#",
+      "signature": "001"
+      }
 }
 --verbose
 
@@ -3082,6 +3102,11 @@ curl
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão|Texto |7 |Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão|Texto |4 |Sim|
 |`CreditCard.Brand`|Bandeira do cartão|Texto|10|Sim|
+|`Payment.Credentials.Code`|afiliação gerada pela adquirente|Texto|100|Sim|
+|`Payment.Credentials.Key`|chave de afiliação/token gerado pela adquirente|Texto|100|Sim|
+|`Payment.Credentials.Username`|usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|Texto|50|Não|
+|`Payment.Credentials.Password`|senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|Texto|50|Não|
+|`Payment.Credentials.Signature`|Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001|Texto|3|Não|
 
 #### Resposta
 
