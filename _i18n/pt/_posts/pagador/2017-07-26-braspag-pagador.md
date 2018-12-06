@@ -593,7 +593,7 @@ curl
 |`ReasonCode`|Código de retorno da adquirente. | Texto | 32 | Texto alfanumérico |
 |`ReasonMessage`|Mensagem de retorno da adquirente. | Texto | 512 | Texto alfanumérico |
 
-### Criando uma transação com autenticação
+### Transação com autenticação
 
 Quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de chargeback da transação passa a ser do emissor, ou seja, a loja não receberá contestações.
 
@@ -1013,7 +1013,7 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
 |`Payment.ExternalAuthentication.Xid`|Texto|28|Valor Xid submetido na requisição de autorização|
 |`Payment.ExternalAuthentication.Eci`|Número|1|Valor ECI submetido na requisição de autorização|
 
-### Criando uma transação com cartão de débito
+### Transação com cartão de débito
 
 Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação.
 
@@ -1321,7 +1321,7 @@ No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP 171 
 |`VelocityAnalysis.RejectReasons.RuleId`|Código da Regra que rejeitou|Número|10|
 |`VelocityAnalysis.RejectReasons.Message`|Descrição da Regra que rejeitou|Texto|512|
 
-## Pagamentos com Boleto
+## Boletos
 
 ### Boleto Registrado
 
@@ -2271,17 +2271,17 @@ curl
 |  | OBS 4: o dado é validado pelo Pagador |  |  |  |  | OBS 3: o Pagador trunca até o limite permitido e remove os caracteres especiais e acentuados |
 |  |  |  |  |  |  | OBS 4: não é enviado para banco |
 
-## Pagamentos Recorrentes
+## Recorrência
 
-Diferente dos pagamentos com cartão tradicionais, os pagamentos recorrentes se repetem automaticamente por períodos e em intervalos determinados, cobrando sempre o mesmo valor de um mesmo cartão ou conta. 
+Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os pagamentos recorrentes se repetem automaticamente por períodos e em intervalos determinados, cobrando sempre o mesmo valor de um mesmo cartão ou conta. 
 
 É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que o estabelecimento comercial do cliente esteja habilitado na processadora para receber pagamentos recorrentes.
 
 O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.
 
-Vendas recorrentes não exigem CVV.
+Vendas recorrentes com cartão de crédito não exigem CVV.
 
-### Autorizar uma transação e agendar as próximas recorrências
+### Autorizar uma transação recorrente
 
 Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrência futuras ao autorizar uma transação pela primeira vez na série de recorrências.
 
@@ -2471,7 +2471,7 @@ curl
 |`Interval`|Intervalo entre as recorrência. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
 |`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não. |Booleano |--- |true ou false |
 
-### Agendamento de uma Recorrência
+### Agendamento de uma recorrência
 
 Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura. 
 
@@ -2772,7 +2772,7 @@ HTTP Status 200
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar a data final da Recorrência
+### Alterar a data final da recorrência
 
 Para alterar a data final da recorrência já existente, basta fazer um PUT conforme o exemplo.
 
@@ -2818,7 +2818,7 @@ HTTP Status 200
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar o intervalo da Recorrência
+### Alterar o intervalo da recorrência
 
 Para alterar o Intervalo de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
 
@@ -2864,7 +2864,7 @@ HTTP Status 200
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar o dia da Recorrência
+### Alterar o dia da recorrência
 
 Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
 
@@ -2912,7 +2912,7 @@ HTTP Status 200
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar o valor da transação da Recorrência
+### Alterar o valor da transação da recorrência
 
 Para modificar o valor da transação de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
 
@@ -3008,7 +3008,7 @@ HTTP Status 200
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar os dados de Pagamento da Recorrência
+### Alterar os dados de Pagamento da recorrência
 
 Para alterar os dados de pagamento de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
 
@@ -3091,7 +3091,7 @@ HTTP Status 200
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Desabilitando um Pedido Recorrente
+### Desabilitando um Pedido recorrente
 
 Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo.
 
@@ -3125,7 +3125,7 @@ HTTP Status 200
 
 Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Reabilitando um Pedido Recorrente
+### Reabilitando um Pedido recorrente
 
 Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.
 
@@ -3163,7 +3163,7 @@ Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP 
 
 ### Transação com Renova Fácil
 
-O Renova fácil é um serviço desenvolvido pela CIELO junto com os bancos emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes. 
+O Renova fácil é um serviço desenvolvido pela CIELO junto com os bancos emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito. 
 
 Através da identificação de cartões vencidos no momento da transação, é feita a autorização com um novo cartão e é retornado o novo cartão para armazenagem.
 
@@ -3268,7 +3268,7 @@ Bancos Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamerica
 |`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão|Texto|4|
 |`NewCard.Brand`|Bandeira do novo cartão|Texto|10 |
 
-## Pagamentos com Transferência Eletrônica
+## Transferência Eletrônica
 
 Semelhante ao Pagamento com Cartão de Débito, a Transferência Eletrônica conecta o consumidor ao seu banco para autenticar uma venda à débito. A diferença entre ambos é que as Transferências não são submetidas à processadora nem dependem de dados de cartão.
 
@@ -3456,7 +3456,7 @@ curl
 |`Url`|URL para a qual o comprador deverá ser redirecionado para autenticação da Transferência Eletrônica |Texto |256 |Url de Autenticação|
 |`Status`|Status da Transação|Byte|2|Ex. 1|
 
-## Pagamentos com e-Wallets
+## E-Wallets
 
 ### O que são e-Wallets (Carteiras Digitais)
 
@@ -3466,7 +3466,7 @@ São repositórios de cartões e dados de pagamentos para consumidores do e-comm
 
 Para maiores informações, entre em contato com o provedor de sua preferência para contratar o serviço. 
 
-### e-Wallets Disponíveis
+### E-Wallets Disponíveis
 
 O Pagador possui suporte para:
 
@@ -4278,7 +4278,7 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
 }
 ```
 
-## Pagamentos com Voucher
+## Voucher
 
 ### Criando uma transação com voucher Alelo
 
@@ -4437,196 +4437,6 @@ curl
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
-
-## Pagamentos com Transferência Eletrônica
-
-A Transferência Eletrônica conecta um cliente final com o seu banco para realizar um pagamento à Débito. Diferente do Cartão de Débito, a Transferência Eletrônica não depende de um cartão nem da participação da Processadora.
-
-Diferente dos Boletos e dos Cartões, o meio de pagamento deve ser cadastrado pela equipe de suporte Braspag na sua loja. Entre em contato através do Zendesk.
-
-### Criando uma transação
-
-Assim como ocorre no processo de autenticação, um request de Transferência Eletrônica receberá, no retorno, uma URL para redirecionamento do cliente final. Nesse momento, a transação ainda não está concluída.
-
-#### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-```json
-{  
-    "MerchantOrderId":"2017051109",
-    "Customer":
-    {  
-        "Name":"Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Email": "comprador@braspag.com.br",
-        "Address":
-        {
-             "Street":"Alameda Xingu",
-             "Number":"512",
-             "Complement":"27 andar",
-             "ZipCode":"12345987",
-             "City":"São Paulo",
-             "State":"SP",
-             "Country":"BRA",
-             "District":"Alphaville"
-         }
-  },
-    "Payment":
-    {  
-        "Provider":"Bradesco",
-        "Type":"EletronicTransfer",
-        "Amount":10000,
-        "ReturnUrl":"http://www.braspag.com.br"
-    }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.braspag.com.br/v2/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-    "MerchantOrderId":"2017051109",
-    "Customer":
-    {  
-        "Name":"Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Email": "comprador@braspag.com.br",
-        "Address":
-        {
-             "Street":"Alameda Xingu",
-             "Number":"512",
-             "Complement":"27 andar",
-             "ZipCode":"12345987",
-             "City":"São Paulo",
-             "State":"SP",
-             "Country":"BRA",
-             "District":"Alphaville"
-        }
-    },
-    "Payment":
-    {  
-        "Provider":"Bradesco",
-        "Type":"EletronicTransfer",
-        "Amount":10000,
-        "ReturnUrl":"http://www.braspag.com.br"
-    }
-}
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |Guid |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API. |Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
-|`MerchantOrderId`|Numero de identificação do Pedido. |Texto |50 |Sim|
-|`Customer.Name`|Nome do comprador|Texto|255|Sim|
-|`Customer.Identity`|Número do RG, CPF ou CNPJ do Cliente| Texto |14 |Sim|
-|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ)|Texto|255|Não|
-|`Customer.Email`|Email do comprador|Texto|255|Não|
-|`Customer.Address.Street`|Endereço de contato do comprador|Texto|255|Sim|
-|`Customer.Address.Number`|Número endereço de contato do comprador|Texto|15|Sim|
-|`Customer.Address.Complement`|Complemento do endereço de contato do Comprador|Texto|50|Sim|
-|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador|Texto|9|Sim|
-|`Customer.Address.City`|Cidade do endereço de contato do comprador|Texto|50|Sim|
-|`Customer.Address.State`|Estado do endereço de contato do comprador|Texto|2|Sim|
-|`Customer.Address.Country`|Pais do endereço de contato do comprador|Texto|35|Sim|
-|`Customer.Address.District`|Bairro do endereço de contato do comprador|Texto|35|Sim|
-|`Payment.Type`|Tipo do Meio de Pagamento. |Texto |100 |Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos)|Número |15 |Sim|
-|`Payment.Provider`|Nome da provedora de Meio de Pagamento|Texto |15 |---|
-
-#### Resposta
-
-```json
-{
-    "MerchantOrderId": "2017051109",
-    "Customer": {
-        "Name":"Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Email": "comprador@braspag.com.br",
-        "Address":
-        {"Street":"Alameda Xingu",
-        "Number":"512",
-        "Complement":"27 andar",
-        "ZipCode":"12345987",
-        "City":"São Paulo",
-        "State":"SP",
-             "Country":"BRA",
-             "District":"Alphaville"
-            }
-    },
-    "Payment": {
-        "Url": "https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}",
-        "PaymentId": "765548b6-c4b8-4e2c-b9b9-6458dbd5da0a",
-        "Type": "EletronicTransfer",
-        "Amount": 10000,
-        "ReceivedDate": "2015-06-25 09:37:55",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Bradesco",
-        "ReturnUrl": "http://www.braspag.com.br",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 0,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2017051109",
-    "Customer": {
-        "Name": "Comprador Teste",
-    },
-    "Payment": {
-        "Url": "https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}",
-        "PaymentId": "765548b6-c4b8-4e2c-b9b9-6458dbd5da0a",
-        "Type": "EletronicTransfer",
-        "Amount": 10000,
-        "ReceivedDate": "2015-06-25 09:37:55",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Bradesco",
-        "ReturnUrl": "http://www.braspag.com.br",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 0,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Url`|URL para a qual o comprador deverá ser redirecionado para autenticação da Transferência Eletrônica |Texto |256 |Url de Autenticação|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
 
 ## Pagamentos com DCC (conversor de moedas da adquirente Global Payments)
 
