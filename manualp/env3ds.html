@@ -532,7 +532,7 @@
     <tr>
       <td>bpmpi_cardexpirationyear</td>
       <td>Ano do vencimento do cartão</td>
-      <td>Numérico [2 posições]</td>
+      <td>Numérico [4 posições]</td>
       <td>Sim</td>
       <td>Sim</td>
     </tr>
@@ -620,6 +620,20 @@
       <td>Não</td>
       <td>Sim</td>
     </tr>
+    <tr>
+      <td>bpmpi_transaction_mode</td>
+      <td>Identifica o canal que originou a transação</td>
+      <td>M: MOTO<br />R: Varejo<br />S: E-Commerce<br />P: Mobile<br />T: Tablet</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_merchant_url</td>
+      <td>Endereço do site do estabelcimento</td>
+      <td>Alphanumérico [100] Exemplo: http://www.exemplo.com.br</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
   </tbody>
 </table>
 
@@ -637,7 +651,7 @@
     <tr>
       <td>bpmpi_giftcard_amount</td>
       <td>O total do valor da compra para cartões-presente pré-pagos em valor arredondado</td>
-      <td>Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 125</td>
+      <td>Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 12554</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -663,7 +677,14 @@
   </thead>
   <tbody>
     <tr>
-      <td>bpmpi_billTo_Name</td>
+      <td>bpmpi_billto_customerid</td>
+      <td>Identifica o CPF/CNPJ do comprador</td>
+      <td>Numérico [11 a 14 posições]<br />99999999999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billto_contactname</td>
       <td>Nome do contato do endereço de cobrança</td>
       <td>Alfanumérico [até 120]</td>
       <td>Não</td>
@@ -672,7 +693,7 @@
     <tr>
       <td>bpmpi_billTo_phoneNumber</td>
       <td>Telefone de contato do endereço de cobrança</td>
-      <td>Alfanumérico [até 15 posições], no formato: 5511999999999</td>
+      <td>Numérico [até 15 posições], no formato: 5511999999999</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -714,7 +735,14 @@
     <tr>
       <td>bpmpi_billto_zipcode</td>
       <td>CEP do endereço de cobrança</td>
-      <td>Alfanumérico [até 10 posições], no formato: 99999999</td>
+      <td>Alfanumérico [até 8 posições], no formato: 99999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billto_country</td>
+      <td>País do endereço de cobrança</td>
+      <td>Texto [2 posições] Ex. BR</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -740,7 +768,7 @@
       <td>Sim</td>
     </tr>
     <tr>
-      <td>bpmpi_shipTo_name</td>
+      <td>bpmpi_shipto_addressee</td>
       <td>Nome do contato do endereço de entrega</td>
       <td>Alfanumérico [até 60]</td>
       <td>Não</td>
@@ -749,7 +777,7 @@
     <tr>
       <td>bpmpi_shipTo_phoneNumber</td>
       <td>Telefone de contato do endereço de entrega</td>
-      <td>Alfanumérico [até 15 posições], no formato: 5511999999999</td>
+      <td>Numérico [até 15 posições], no formato: 5511999999999</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -791,7 +819,14 @@
     <tr>
       <td>bpmpi_shipto_zipcode</td>
       <td>CEP do endereço de entrega</td>
-      <td>Alfanumérico [até 10 posições], no formato: 99999999</td>
+      <td>Alfanumérico [até 8 posições], no formato: 99999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipto_country</td>
+      <td>País do endereço de cobrança</td>
+      <td>Texto [2 posições] Ex. BR</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -917,7 +952,7 @@
     <tr>
       <td>bpmpi_useraccount_authenticationtimestamp</td>
       <td>A data e hora que o login foi efetuado na loja</td>
-      <td>Numérico [12 posições]<br />AAAAMMDDHHMM</td>
+      <td>Texto [19 posições] YYYY-MM-ddTHH:mm:SS</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -1000,14 +1035,14 @@
     </tr>
     <tr>
       <td>bpmpi_airline_passenger_#_name</td>
-      <td>Primeiro nome do passageiro</td>
+      <td>Nome do passageiro</td>
       <td>Alfanumérico [até 60 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_airline_passenger_#_ticketprice</td>
-      <td>O valor da passagem em centavos  Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 125</td>
+      <td>O valor da passagem em centavos  Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 12554</td>
       <td>Não</td>
       <td>Sim</td>
       <td> </td>
@@ -1127,7 +1162,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
        </span><span class="s2">"Xid"</span><span class="p">:</span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Version"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"RefereceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
+       </span><span class="s2">"ReferenceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1165,7 +1200,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
        <span class="s2">"Xid"</span>:<span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span>,
        <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
        <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
-       <span class="s2">"RefereceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
+       <span class="s2">"ReferenceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
      <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
