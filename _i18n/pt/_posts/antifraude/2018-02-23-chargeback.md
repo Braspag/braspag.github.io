@@ -338,7 +338,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 {
     "PageIndex": 1,
     "PageSize": 250,
-    "Total": 1
+    "Total": 1,
     "Chargebacks":
     [
         {
@@ -375,7 +375,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
                 "AntifraudTransactionId": "9f6ec028-b55d-4605-b655-164ce62aeaef",
                 "AntifraudSourceApplication": "Gateway",
                 "ProviderTransactionId": "5446494501496896403073",
-                "MarkedData": "CustomerDocumentNumber, ShippingStreet",
+                "NegativeValues": "CustomerDocumentNumber, ShippingStreet"
             }
         }
     ]
@@ -415,7 +415,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`Transaction.AntifraudTransactionId`|Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway|guid|
 |`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6]({{ site.baseurl_root }}manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
 |`Transaction.ProviderTransactionId`|Id da transação no provedor de antifraude|
-|`Transaction.MarkedData`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet|
+|`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1]({{ site.baseurl_root }}manual/chargeback#tabela-1-chargebacks[n].negativevalues)|string|
 
 **Parâmetros no cabeçalho (Header)**
 
