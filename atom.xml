@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-07T18:11:10+00:00</updated>
+    <updated>2018-12-12T20:02:06+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -23756,7 +23756,7 @@ curl
 
 &lt;h2 id=&quot;criando-uma-transação-com-análise-de-fraude-cybersource&quot;&gt;Criando uma transação com Análise de Fraude Cybersource&lt;/h2&gt;
 
-&lt;p&gt;Para que a análise de fraude via Cybersource seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.&lt;/p&gt;
+&lt;p&gt;Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cart’ao de cr[edito, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-36&quot;&gt;Requisição&lt;/h3&gt;
 
