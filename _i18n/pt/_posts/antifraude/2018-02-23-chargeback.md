@@ -579,8 +579,6 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 **Parâmetros no corpo (Body)**
 
-
-
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
