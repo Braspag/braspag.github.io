@@ -413,7 +413,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`Transaction.Brand`|Bandeira do cartão de crédito|string|
 |`Transaction.AntifraudMerchantId`|Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway|guid|
 |`Transaction.AntifraudTransactionId`|Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway|guid|
-|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
+|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6]({{ site.baseurl_root }}manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
 
 
 |`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
