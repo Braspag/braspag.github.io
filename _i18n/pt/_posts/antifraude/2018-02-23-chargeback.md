@@ -414,22 +414,8 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`Transaction.AntifraudMerchantId`|Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway|guid|
 |`Transaction.AntifraudTransactionId`|Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway|guid|
 |`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6]({{ site.baseurl_root }}manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
-
-
-|`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`TransactionAmount`|Valor da transação em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
-|`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Ex.: 2018-03-01|date|
-|`AuthorizationCode`|Código de autorização da transação na adquirente|string|
-|`AcquirerTransactionId`|Id da transação na adquirente|string|
-|`ProofOfSale`|Número sequencial único da transação na adquirente|string|
-|`CardHolder`|Nome do cartão de crédito|string|
-|`MaskedCardNumber`|Número do cartão de crédito mascarado|string|
-|`ReasonCode`|Código do motivo do chargeback|string|
-|`ReasonMessage`|Mensagem do motivo do chargeback|string|
-
-|`ReceivedDate`|Data de recebimento do chargeback na Braspag|date|
-|`BraspagTransactionId`|Id da transação na Braspag|guid|
-|`AntifraudTransactionId`|Id da transação de antifraude na Braspag|guid|
+|`Transaction.ProviderTransactionId`|Id da transação no provedor de antifraude|
+|`Transaction.MarkedData`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet|
 
 **Parâmetros no cabeçalho (Header)**
 
