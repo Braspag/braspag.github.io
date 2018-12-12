@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-12T20:02:06+00:00</updated>
+    <updated>2018-12-12T20:06:21+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9389,24 +9389,34 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -9631,24 +9641,34 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -9678,9 +9698,9 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;h1 id=&quot;aceitação&quot;&gt;Aceitação&lt;/h1&gt;
 
-&lt;h2 id=&quot;aceitando-um-chargeback-existente&quot;&gt;Aceitando um chargeback existente&lt;/h2&gt;
+&lt;h2 id=&quot;aceitando-um-chargeback&quot;&gt;Aceitando um chargeback&lt;/h2&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;PUT&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/acceptance/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/acceptance/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
 
@@ -9691,24 +9711,34 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -9736,8 +9766,8 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CaseNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;000001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StatusDescription&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AcceptedByMerchant&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StatusDescription&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AcceptedByMerchant&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -9789,7 +9819,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;h2 id=&quot;aceitando-um-chargeback-inexistente&quot;&gt;Aceitando um chargeback inexistente&lt;/h2&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;PUT&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/acceptance/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/acceptance/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-5&quot;&gt;Request&lt;/h3&gt;
 
@@ -9800,24 +9830,34 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -9882,18 +9922,18 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código do chargeback quando não encontrado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno para um chargeback não encontrado&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem do chargeback não encontrado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem de retorno chargeback não encontrado&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h2 id=&quot;aceitando-um-chargeback-aceito-anteriormente&quot;&gt;Aceitando um chargeback aceito anteriormente&lt;/h2&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;PUT&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/acceptance/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/acceptance/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-6&quot;&gt;Request&lt;/h3&gt;
 
@@ -9904,24 +9944,34 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código do estabelecimento ou afiliação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -10010,24 +10060,34 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
