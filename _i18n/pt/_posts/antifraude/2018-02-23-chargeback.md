@@ -13,7 +13,7 @@ language_tabs:
 
 # Visão Geral
 
-Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa de chargeback e acatar um chargeback.
+Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para contestação de chargeback e acatar um chargeback.
 
 A retroalimentação de chargeback ao provedor de antifraude, proporciona:
 
@@ -36,15 +36,15 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\authsandbox.braspag.com.br|
-|`Produção`|https:\\\\auth.braspag.com.br|
+|`Sandbox`|https:\\\\authsandbox.braspag.com.br\|
+|`Produção`|https:\\\\auth.braspag.com.br\|
 
 ## Chargeback API Braspag
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\chargebacksandbox.braspag.com.br|
-|`Produção`|https:\\\\chargeback.braspag.com.br|
+|`Sandbox`|https:\\\\chargebacksandbox.braspag.com.br\|
+|`Produção`|https:\\\\chargeback.braspag.com.br\|
 
 # Autenticação
 
@@ -309,7 +309,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ### Request
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">/chargeback?CaseNumber={CaseNumber}&AcquirerTransactionId={AcquirerTransactionId}&BraspagTransactionId={BraspagTransactionId}&StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">chargeback?CaseNumber={CaseNumber}&AcquirerTransactionId={AcquirerTransactionId}&BraspagTransactionId={BraspagTransactionId}&StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -422,7 +422,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ## Aceitando um chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -468,7 +468,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ## Aceitando um chargeback inexistente
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -512,7 +512,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ## Aceitando um chargeback aceito anteriormente
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -558,7 +558,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ## Contestando um chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/contestation</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -570,6 +570,12 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
 
 ### Response
 
