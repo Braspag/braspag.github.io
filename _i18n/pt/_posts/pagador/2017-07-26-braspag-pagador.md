@@ -5357,7 +5357,7 @@ curl
 
 ## Criando uma transação com Análise de Fraude Cybersource
 
-Para que a análise de fraude via Cybersource seja efetuada em tempo de transação, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
+Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cart'ao de cr[edito, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
 
 ### Requisição
 
