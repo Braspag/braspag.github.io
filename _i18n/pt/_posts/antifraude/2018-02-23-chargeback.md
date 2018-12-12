@@ -343,24 +343,40 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
     [
         {
             "Id": "fd14e3fb-cf2a-4228-b690-1338660afc54",
-            "AcquirerType": "Cielo",
-            "EstablishmentCode": "TesteAffiliationBp",
+            "CreatedDate": "2018-09-01 09:51:25",
+            "Date": "2018-08-30",
             "CaseNumber": "000001",
             "Amount": 10000,
-            "PurchaseAmount": 10000,
-            "PurchaseDate": "2018-09-13",
-            "AuthorizationCode": "384910",
-            "AcquirerTransactionId": "0913050523453",
-            "ProofOfSale": "523453",
-            "Brand": "Master",
-            "CardHolder": "José das Couves",
-            "MaskedCardNumber": "123456******7890",
             "ReasonCode": "28",
             "ReasonMessage": "Consumidor nao reconhece a compra",
             "Status": "Received",
-            "ReceivedDate": "2018-09-14",
-            "BraspagTransactionId": "f9518dd7-76a8-400b-b7cf-b8c09731d71d",
-            "AntifraudTransactionId": "4e9dd957-90b7-e811-bce7-0003ff21d4d7"
+            "Comment": "Cliente enviou documentos inválidos",
+            "AcquirerType": "Cielo",
+            "IsFraud": true,
+            "ProviderChargebackEventId": "5446495589216876903021",
+            "ProviderStatus": "ACCEPT",
+            "ProviderCode": "100",
+            "Transaction":
+            {
+                "AcquirerType": "Cielo",
+                "EstablishmentCode": "1234567890",
+                "MerchantOrderId": "abc123efg",
+                "Tid": "1234567890BA2018XPTO",
+                "Nsu": "258654",
+                "AuthorizationCode": "T85245",
+                "SaleDate": "2018-08-15",
+                "PagadorMerchantId": "a1052460-92b2-49c3-a929-fc985df0ba2f",
+                "BraspagTransactionId": "bb33b5c5-82fe-4254-9f1d-b9c97297b0d5",
+                "Amount": "10000",
+                "CardHolder": "JOAO D COUVES",
+                "MaskedCardNumber": "453906******8385",
+                "Brand": "Visa",
+                "AntifraudMerchantId": "4b1b017a-a8b5-4e83-ae36-19c69f11845e",
+                "AntifraudTransactionId": "9f6ec028-b55d-4605-b655-164ce62aeaef",
+                "AntifraudSourceApplication": "Gateway",
+                "ProviderTransactionId": "5446494501496896403073",
+                "MarkedData": "CustomerDocumentNumber, ShippingStreet",
+            }
         }
     ]
 }
@@ -369,9 +385,37 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`Id`|Id do chargeback na Chargeback API Braspag|guid|
-|`AcquirerType`|Tipo da adquirente|string|
-|`EstablishmentCode`|Código do estabelecimento|long|
+|`CreatedDate`|Data de criação do chargeback na Chargeback API Braspag <br/> Ex.: 2018-09-01 09:51:25|date|
+|`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
 |`CaseNumber`|Número do caso relacionado ao chargeback|guid|
+|`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`ReasonCode`|Código do motivo do chargeback|string|
+|`ReasonMessage`|Descrição do motivo do chargeback|string|
+|`Status`|Status do charegabck na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/chargeback#tabela-3-chargebacks[n].status)|string|
+|`EstablishmentCode`|Código do estabelecimento|long|
+|`Comment`|Comentário que deseja associar ao chargeback que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
+|`IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|
+|`ProviderChargebackEventId`|Id da transação de marcação de chargeback se transação que sofreu o chargeback for Cybersource|string|
+|`ProviderStatus`|Status da transação de marcação de chargeback se transação que sofreu o chargeback for Cybersource - [Tabela 4]({{ site.baseurl_root }}manual/chargeback#tabela-4-chargebacks[n].providerstatus)|string|
+|`ProviderCode`|Código de retorno da Cybersouce - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-5-chargebacks[n].providercode)|string|
+|`Transaction.AcquirerType`|Identificador da adquirentre|string|
+|`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
+|`Transaction.MerchantOrderId`|Número do pedido da loja|string|
+|`Transaction.Tid`|Id da transação na adquirente|string|
+|`Transaction.Nsu`|Número sequencial único da transação na adquirente|string|
+|`Transaction.AuthorizationCode`|Código de autorização da transação na adquirente|string|
+|`Transaction.SaleDate`|Data da autorização da transação da transação na adquirente <br/> Ex.: 2018-08-15|date|
+|`Transaction.PagadorMerchantId`|Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0|guid|
+|`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0|guid|
+|`Transaction.Amount`|Valor da transação em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`Transaction.CardHolder`|Nome do cartão de crédito|string|
+|`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
+|`Transaction.Brand`|Bandeira do cartão de crédito|string|
+|`Transaction.AntifraudMerchantId`|Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway|guid|
+|`Transaction.AntifraudTransactionId`|Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway|guid|
+|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
+
+
 |`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
 |`TransactionAmount`|Valor da transação em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
 |`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Ex.: 2018-03-01|date|
@@ -382,7 +426,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`MaskedCardNumber`|Número do cartão de crédito mascarado|string|
 |`ReasonCode`|Código do motivo do chargeback|string|
 |`ReasonMessage`|Mensagem do motivo do chargeback|string|
-|`Status`|Status do charegabck na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/retroalimentacaochargeback#tabela-3-chargebacks[n].status)|string|
+
 |`ReceivedDate`|Data de recebimento do chargeback na Braspag|date|
 |`BraspagTransactionId`|Id da transação na Braspag|guid|
 |`AntifraudTransactionId`|Id da transação de antifraude na Braspag|guid|
@@ -579,6 +623,8 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 **Parâmetros no corpo (Body)**
 
+
+
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
@@ -621,3 +667,27 @@ Possíveis valores do chargeback.
 |Received|Chargeback recebido da adquirente|
 |AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa|
 |ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
+
+## Tabela 4 - Chargebacks[n].ProviderStatus
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|ACCEPT|Transação aceita no provedor|Cybersource|
+|REJECT|Transação rejeitada no provedor|Cybesource|
+
+## Tabela 5 - Chargebacks[n].ProviderCode
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|100|Operação realizada com sucesso|Cybersource|
+|150|Erro interno <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
+|151|A transação foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
+|152|O pedido foi recebido, mas ocorreu time-out <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
+|234|Problema com a configuração da loja na Cybersource <br/> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração|Cybersource|
+
+## Tabela 6 - Chargebacks[n].Transaction.AntifraudSourceApplication
+
+|Valor|Descrição|Provider|
+|:-|:-|
+|Gateway|Antifraude Gateway|
+|Legacy|Antifraude Legado|
