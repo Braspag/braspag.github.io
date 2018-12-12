@@ -119,7 +119,7 @@
             <div class="post">
   <h1 id="visão-geral">Visão Geral</h1>
 
-<p>Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para disputa de chargeback e acatar um chargeback.</p>
+<p>Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para contestação de chargeback e acatar um chargeback.</p>
 
 <p>A retroalimentação de chargeback ao provedor de antifraude, proporciona:</p>
 
@@ -154,11 +154,11 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
-      <td style="text-align: left">https:\\authsandbox.braspag.com.br</td>
+      <td style="text-align: left">https:\\authsandbox.braspag.com.br|</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
-      <td style="text-align: left">https:\\auth.braspag.com.br</td>
+      <td style="text-align: left">https:\\auth.braspag.com.br|</td>
     </tr>
   </tbody>
 </table>
@@ -175,11 +175,11 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
-      <td style="text-align: left">https:\\chargebacksandbox.braspag.com.br</td>
+      <td style="text-align: left">https:\\chargebacksandbox.braspag.com.br|</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
-      <td style="text-align: left">https:\\chargeback.braspag.com.br</td>
+      <td style="text-align: left">https:\\chargeback.braspag.com.br|</td>
     </tr>
   </tbody>
 </table>
@@ -745,7 +745,7 @@
 
 <h3 id="request-2">Request</h3>
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">/chargeback?CaseNumber={CaseNumber}&amp;AcquirerTransactionId={AcquirerTransactionId}&amp;BraspagTransactionId={BraspagTransactionId}&amp;StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">chargeback?CaseNumber={CaseNumber}&amp;AcquirerTransactionId={AcquirerTransactionId}&amp;BraspagTransactionId={BraspagTransactionId}&amp;StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1063,7 +1063,7 @@
 
 <h2 id="aceitando-um-chargeback">Aceitando um chargeback</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 <h3 id="request-4">Request</h3>
 
@@ -1182,7 +1182,7 @@
 
 <h2 id="aceitando-um-chargeback-inexistente">Aceitando um chargeback inexistente</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 <h3 id="request-5">Request</h3>
 
@@ -1296,7 +1296,7 @@
 
 <h2 id="aceitando-um-chargeback-aceito-anteriormente">Aceitando um chargeback aceito anteriormente</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 <h3 id="request-6">Request</h3>
 
@@ -1412,7 +1412,7 @@
 
 <h2 id="contestando-um-chargeback">Contestando um chargeback</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/contestation</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
 <h3 id="request-7">Request</h3>
 
@@ -1451,6 +1451,25 @@
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
+      <td style="text-align: center">sim</td>
     </tr>
   </tbody>
 </table>
