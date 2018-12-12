@@ -36,15 +36,15 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\authsandbox.braspag.com.br\|
-|`Produção`|https:\\\\auth.braspag.com.br\|
+|`Sandbox`|https:\\\\authsandbox.braspag.com.br\\|
+|`Produção`|https:\\\\auth.braspag.com.br\\|
 
 ## Chargeback API Braspag
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\chargebacksandbox.braspag.com.br\|
-|`Produção`|https:\\\\chargeback.braspag.com.br\|
+|`Sandbox`|https:\\\\chargebacksandbox.braspag.com.br\\|
+|`Produção`|https:\\\\chargeback.braspag.com.br\\|
 
 # Autenticação
 
