@@ -313,12 +313,12 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 **Parâmetros no cabeçalho (Header)**
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
 
 **Parâmetros na querystring**
 
@@ -404,12 +404,12 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 **Parâmetros no cabeçalho (Header)**
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
 
 ### Response
 
@@ -422,20 +422,20 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 # Aceitação
 
-## Aceitando um chargeback existente
+## Aceitando um chargeback
 
-<aside class="request"><span class="method post">PUT</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
 **Parâmetros no cabeçalho (Header)**
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
 
 **Parâmetros na querystring**
 
@@ -448,8 +448,8 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 ``` json
 {
     "CaseNumber": "000001",
-    "StatusDescription": "AcceptedByMerchant",
-    "Status": 2
+    "Status": 2,
+    "StatusDescription": "AcceptedByMerchant"
 }
 ```
 
@@ -470,18 +470,18 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 ## Aceitando um chargeback inexistente
 
-<aside class="request"><span class="method post">PUT</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
 **Parâmetros no cabeçalho (Header)**
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
 
 **Parâmetros na querystring**
 
@@ -509,23 +509,23 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código do chargeback quando não encontrado|
-|`Message`|Mensagem do chargeback não encontrado|
+|`Code`|Código de retorno para um chargeback não encontrado|
+|`Message`|Mensagem de retorno chargeback não encontrado|
 
 ## Aceitando um chargeback aceito anteriormente
 
-<aside class="request"><span class="method post">PUT</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
 **Parâmetros no cabeçalho (Header)**
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
 
 **Parâmetros na querystring**
 
@@ -566,12 +566,12 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 **Parâmetros no cabeçalho (Header)**
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
 
 ### Response
 
