@@ -609,6 +609,11 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 **Parâmetros no corpo (Body)**
 
+|Key|Value|
+|:-|:-|
+|`Content-Type`|form-data|
+||Arquivos extensão tiff|
+
 ### Response
 
 **Parâmetros no cabeçalho (Header)**
