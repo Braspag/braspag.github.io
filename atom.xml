@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-13T16:45:46+00:00</updated>
+    <updated>2018-12-13T16:54:46+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -14299,7 +14299,7 @@ diferentes.&lt;/p&gt;
 &lt;aside class=&quot;notice&quot;&gt;A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda à sexta, das 9h às 19h, e telefone de emergência 24×7, através de ferramenta via web. Contamos com a equipe que poderá atender em português, inglês e espanhol&lt;/aside&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Atendimento Web: http://suporte.braspag.com.br/&lt;/li&gt;
+  &lt;li&gt;Atendimento Web: &lt;a href=&quot;http://suporte.braspag.com.br/&quot;&gt;Zendesk&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;características-da-solução&quot;&gt;Características da Solução&lt;/h2&gt;
