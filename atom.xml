@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-13T16:16:39+00:00</updated>
+    <updated>2018-12-13T16:27:54+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -24025,7 +24025,7 @@ curl
 
 &lt;h1 id=&quot;pagamentos-com-análise-de-fraude&quot;&gt;Pagamentos com Análise de Fraude&lt;/h1&gt;
 
-&lt;p&gt;É possível verificar se uma transação tem alto risco de se transformar em um chargeback ou não durante uma autorização. O Antifraude é contratado separadamente, e pode conversar com o Gateway de Pagamento das seguintes formas:&lt;/p&gt;
+&lt;p&gt;É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização. O Antifraude é contratado separadamente, e pode conversar com o Gateway de Pagamento das seguintes formas:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -24045,7 +24045,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Análise após a autorização&lt;/td&gt;
-      &lt;td&gt;O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora. Dessa forma, aumenta-se a conversão de transações autorizadas&lt;/td&gt;
+      &lt;td&gt;O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AuthorizeFirst&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
