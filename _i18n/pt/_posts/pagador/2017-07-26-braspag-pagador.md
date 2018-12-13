@@ -5580,7 +5580,7 @@ curl
         "ExtraDataCollection": [{
             "Name": "NomeDoCampo",
             "Value": "ValorDoCampo"
-        }]
+        }],
         "FraudAnalysis": {
             "Sequence": "AnalyseFirst",
             "SequenceCriteria": "Always",
