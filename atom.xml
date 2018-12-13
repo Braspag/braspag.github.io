@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-13T16:27:54+00:00</updated>
+    <updated>2018-12-13T16:33:22+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -24058,7 +24058,13 @@ curl
     &lt;tr&gt;
       &lt;td&gt;Análise de risco em qualquer hipótese&lt;/td&gt;
       &lt;td&gt;Independente do status da transação após a autorização, o Antifraude analisará o risco dela&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; como &lt;em&gt;Always&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AuthorizeFirst&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; como &lt;em&gt;Always&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Autorização em qualquer hipótese&lt;/td&gt;
+      &lt;td&gt;Independente do score de fraude da transação, ela sempre será enviada para autorização da processadora&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AnalyseFirst&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; como &lt;em&gt;Always&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;

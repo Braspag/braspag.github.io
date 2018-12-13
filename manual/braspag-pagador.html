@@ -9965,7 +9965,13 @@ curl
     <tr>
       <td>Análise de risco em qualquer hipótese</td>
       <td>Independente do status da transação após a autorização, o Antifraude analisará o risco dela</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>Always</em></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em> e <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>Always</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Autorização em qualquer hipótese</td>
+      <td>Independente do score de fraude da transação, ela sempre será enviada para autorização da processadora</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AnalyseFirst</em> e <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>Always</em></td>
       <td> </td>
     </tr>
     <tr>
