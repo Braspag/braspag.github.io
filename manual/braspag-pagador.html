@@ -9977,19 +9977,19 @@ curl
     <tr>
       <td>Capturar apenas se uma transação for segura</td>
       <td>Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> igual a <em>true</em>, <code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em> e <code class="highlighter-rouge">Payment.Capture</code> igual a <em>false</em></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em>, <code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> igual a <em>true</em> e <code class="highlighter-rouge">Payment.Capture</code> igual a <em>false</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Cancelar uma transação comprometida</td>
       <td>Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente estornada</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> igual a <em>true</em> e <code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em> e <code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> igual a <em>true</em></td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<p>Se não especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo <code class="highlighter-rouge">FraudAnalysis.Sequence</code> <em>AuthorizeFirst</em>, <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> <em>OnSuccess</em>, <code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> <em>false</em> e <code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> <em>true</em>.</p>
+<p>Se não for especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo <code class="highlighter-rouge">FraudAnalysis.Sequence</code> <em>AuthorizeFirst</em>, <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> <em>OnSuccess</em>, <code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> <em>false</em> e <code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> <em>false</em>.</p>
 
 <h2 id="criando-uma-transação-com-análise-de-fraude-cybersource">Criando uma transação com Análise de Fraude Cybersource</h2>
 

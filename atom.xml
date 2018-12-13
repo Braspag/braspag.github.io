@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-13T16:33:22+00:00</updated>
+    <updated>2018-12-13T16:37:52+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -24070,19 +24070,19 @@ curl
     &lt;tr&gt;
       &lt;td&gt;Capturar apenas se uma transação for segura&lt;/td&gt;
       &lt;td&gt;Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.CaptureOnLowRisk&lt;/code&gt; igual a &lt;em&gt;true&lt;/em&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AuthorizeFirst&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt; igual a &lt;em&gt;false&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AuthorizeFirst&lt;/em&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.CaptureOnLowRisk&lt;/code&gt; igual a &lt;em&gt;true&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt; igual a &lt;em&gt;false&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Cancelar uma transação comprometida&lt;/td&gt;
       &lt;td&gt;Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente estornada&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.VoidOnHighRisk&lt;/code&gt; igual a &lt;em&gt;true&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AuthorizeFirst&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AuthorizeFirst&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.VoidOnHighRisk&lt;/code&gt; igual a &lt;em&gt;true&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Se não especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; &lt;em&gt;AuthorizeFirst&lt;/em&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; &lt;em&gt;OnSuccess&lt;/em&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.VoidOnHighRisk&lt;/code&gt; &lt;em&gt;false&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.CaptureOnLowRisk&lt;/code&gt; &lt;em&gt;true&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Se não for especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; &lt;em&gt;AuthorizeFirst&lt;/em&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; &lt;em&gt;OnSuccess&lt;/em&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.VoidOnHighRisk&lt;/code&gt; &lt;em&gt;false&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.CaptureOnLowRisk&lt;/code&gt; &lt;em&gt;false&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;criando-uma-transação-com-análise-de-fraude-cybersource&quot;&gt;Criando uma transação com Análise de Fraude Cybersource&lt;/h2&gt;
 
