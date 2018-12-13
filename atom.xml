@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-13T16:38:46+00:00</updated>
+    <updated>2018-12-13T16:39:54+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -25678,7 +25678,7 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderIdentifier&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BrowserFingerprint&lt;/code&gt; que será enviado na requisição da análise. &lt;br /&gt; O resultado da concatenação entre o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; e este, deve ser atribuído ao campo &lt;code class=&quot;highlighter-rouge&quot;&gt;session_id&lt;/code&gt; do(s) script(s) que serão incluídos na página de checkout. &lt;br /&gt; Exemplo: &lt;br /&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; = braspag &lt;br /&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderIdentifier&lt;/code&gt; = 123456789 &lt;br /&gt; Resultado = braspag123456789 &lt;br /&gt;&lt;br /&gt; Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.FingerPrintId&lt;/code&gt; que será enviado na requisição da análise. &lt;br /&gt; O resultado da concatenação entre o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; e este, deve ser atribuído ao campo &lt;code class=&quot;highlighter-rouge&quot;&gt;session_id&lt;/code&gt; do(s) script(s) que serão incluídos na página de checkout. &lt;br /&gt; Exemplo: &lt;br /&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; = braspag &lt;br /&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderIdentifier&lt;/code&gt; = 123456789 &lt;br /&gt; Resultado = braspag123456789 &lt;br /&gt;&lt;br /&gt; Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
