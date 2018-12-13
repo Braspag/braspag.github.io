@@ -5396,8 +5396,8 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
          "State":"SP",
          "Country":"BR",
          "District":"Alphaville"
-    },
-      "DeliveryAddress": {
+      },
+      "DeliveryAddress":{  
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -5406,108 +5406,119 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
          "State":"SP",
          "Country":"BR",
          "District":"Alphaville"
-    },
-     "Payment": {
-        "Provider": "Simulado",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
-        "CreditCard": {
-            "CardNumber": "4551870000000181",
-            "Holder": "Nome do Portador",
-            "ExpirationDate": "12/2021",
-            "SecurityCode": "123",
-            "Brand": "Visa",
-            "SaveCard": "false",
-            "Alias": ""
-        },
-        "Credentials": {
-            "code": "9999999",
-            "key": "D8888888",
-            "password": "LOJA9999999",
-            "username": "#Braspag2018@NOMEDALOJA#",
-            "signature": "001"
-        },
-        "ExtraDataCollection": [{
-            "Name": "NomeDoCampo",
-            "Value": "ValorDoCampo"
-        }]
-        "FraudAnalysis": {
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "Always",
-            "Provider": "Cybersource",
-            "CaptureOnLowRisk": false,
-            "VoidOnHighRisk": false,
-            "TotalOrderAmount": 10000,
-            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
-            "Browser": {
-                "CookiesAccepted": false,
-                "Email": "comprador@braspag.com.br",
-                "HostName": "Teste",
-                "IpAddress": "127.0.0.1",
-                "Type": "Chrome"
-            },
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [{
-                    "GiftCategory": "Undefined",
-                    "HostHedge": "Off",
-                    "NonSensicalHedge": "Off",
-                    "ObscenitiesHedge": "Off",
-                    "PhoneHedge": "Off",
-                    "Name": "ItemTeste",
-                    "Quantity": 1,
-                    "Sku": "20170511",
-                    "UnitPrice": 10000,
-                    "Risk": "High",
-                    "TimeHedge": "Normal",
-                    "Type": "AdultContent",
-                    "VelocityHedge": "High",
-                    "Passenger": {
-                        "Email": "comprador@braspag.com.br",
-                        "Identity": "1234567890",
-                        "Name": "Nome do Comprador",
-                        "Rating": "Adult",
-                        "Phone": "999994444",
-                        "Status": "Accepted"
-                    }
-                }]
-            },
-            "MerchantDefinedFields": [{
-                "Id": 95,
-                "Value": "Dado Definido pela Loja"
-            }],
-            "Shipping": {
-                "Addressee": "Alameda Xingu, 512",
-                "Method": "LowCost",
-                "Phone": "1121840540"
-            },
-            "Travel": {
-                "JourneyType": "OneWayTrip",
-                "DepartureDateTime": "2018-01-09 18:00",
-                "Passengers": [{
-                    "Name": "Passenger Test",
-                    "Identity": "212424808",
-                    "Status": "Gold",
-                    "Rating": "Adult",
-                    "Email": "email@mail.com",
-                    "Phone": "1234567890",
-                    "TravelLegs": [{
-                        "Origin": "AMS",
-                        "Destination": "GIG"
-                    }]
-                }]
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "Credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#",
+         "signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ],
+      "FraudAnalysis":{  
+         "Sequence":"AnalyseFirst",
+         "SequenceCriteria":"Always",
+         "Provider":"Cybersource",
+         "CaptureOnLowRisk":false,
+         "VoidOnHighRisk":false,
+         "TotalOrderAmount":10000,
+         "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+         "Browser":{  
+            "CookiesAccepted":false,
+            "Email":"comprador@braspag.com.br",
+            "HostName":"Teste",
+            "IpAddress":"127.0.0.1",
+            "Type":"Chrome"
+         },
+         "Cart":{  
+            "IsGift":false,
+            "ReturnsAccepted":true,
+            "Items":[  
+               {  
+                  "GiftCategory":"Undefined",
+                  "HostHedge":"Off",
+                  "NonSensicalHedge":"Off",
+                  "ObscenitiesHedge":"Off",
+                  "PhoneHedge":"Off",
+                  "Name":"ItemTeste",
+                  "Quantity":1,
+                  "Sku":"20170511",
+                  "UnitPrice":10000,
+                  "Risk":"High",
+                  "TimeHedge":"Normal",
+                  "Type":"AdultContent",
+                  "VelocityHedge":"High",
+                  "Passenger":{  
+                     "Email":"comprador@braspag.com.br",
+                     "Identity":"1234567890",
+                     "Name":"Nome do Comprador",
+                     "Rating":"Adult",
+                     "Phone":"999994444",
+                     "Status":"Accepted"
+                  }
+               }
+            ]
+         },
+         "MerchantDefinedFields":[  
+            {  
+               "Id":95,
+               "Value":"Dado Definido pela Loja"
             }
-        }
-    }
+         ],
+         "Shipping":{  
+            "Addressee":"Alameda Xingu, 512",
+            "Method":"LowCost",
+            "Phone":"1121840540"
+         },
+         "Travel":{  
+            "JourneyType":"OneWayTrip",
+            "DepartureDateTime":"2018-01-09 18:00",
+            "Passengers":[  
+               {  
+                  "Name":"Passenger Test",
+                  "Identity":"212424808",
+                  "Status":"Gold",
+                  "Rating":"Adult",
+                  "Email":"email@mail.com",
+                  "Phone":"1234567890",
+                  "TravelLegs":[  
+                     {  
+                        "Origin":"AMS",
+                        "Destination":"GIG"
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
 }
 
 ```
@@ -5538,8 +5549,8 @@ curl
          "State":"SP",
          "Country":"BR",
          "District":"Alphaville"
-    },
-      "DeliveryAddress": {
+      },
+      "DeliveryAddress":{  
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -5548,108 +5559,119 @@ curl
          "State":"SP",
          "Country":"BR",
          "District":"Alphaville"
-    },
-     "Payment": {
-        "Provider": "Simulado",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
-        "CreditCard": {
-            "CardNumber": "4551870000000181",
-            "Holder": "Nome do Portador",
-            "ExpirationDate": "12/2021",
-            "SecurityCode": "123",
-            "Brand": "Visa",
-            "SaveCard": "false",
-            "Alias": ""
-        },
-        "credentials": {
-            "code": "9999999",
-            "key": "D8888888",
-            "password": "LOJA9999999",
-            "username": "#Braspag2018@NOMEDALOJA#",
-            "signature": "001"
-        },
-        "ExtraDataCollection": [{
-            "Name": "NomeDoCampo",
-            "Value": "ValorDoCampo"
-        }],
-        "FraudAnalysis": {
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "Always",
-            "Provider": "Cybersource",
-            "CaptureOnLowRisk": false,
-            "VoidOnHighRisk": false,
-            "TotalOrderAmount": 10000,
-            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
-            "Browser": {
-                "CookiesAccepted": false,
-                "Email": "comprador@braspag.com.br",
-                "HostName": "Teste",
-                "IpAddress": "127.0.0.1",
-                "Type": "Chrome"
-            },
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [{
-                    "GiftCategory": "Undefined",
-                    "HostHedge": "Off",
-                    "NonSensicalHedge": "Off",
-                    "ObscenitiesHedge": "Off",
-                    "PhoneHedge": "Off",
-                    "Name": "ItemTeste",
-                    "Quantity": 1,
-                    "Sku": "20170511",
-                    "UnitPrice": 10000,
-                    "Risk": "High",
-                    "TimeHedge": "Normal",
-                    "Type": "AdultContent",
-                    "VelocityHedge": "High",
-                    "Passenger": {
-                        "Email": "comprador@braspag.com.br",
-                        "Identity": "1234567890",
-                        "Name": "Nome do Comprador",
-                        "Rating": "Adult",
-                        "Phone": "999994444",
-                        "Status": "Accepted"
-                    }
-                }]
-            },
-            "MerchantDefinedFields": [{
-                "Id": 95,
-                "Value": "Dado Definido pela Loja"
-            }],
-            "Shipping": {
-                "Addressee": "Alameda Xingu, 512",
-                "Method": "LowCost",
-                "Phone": "1121840540"
-            },
-            "Travel": {
-                "JourneyType": "OneWayTrip",
-                "DepartureDateTime": "2018-01-09 18:00",
-                "Passengers": [{
-                    "Name": "Passenger Test",
-                    "Identity": "212424808",
-                    "Status": "Gold",
-                    "Rating": "Adult",
-                    "Email": "email@mail.com",
-                    "Phone": "1234567890",
-                    "TravelLegs": [{
-                        "Origin": "AMS",
-                        "Destination": "GIG"
-                    }]
-                }]
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "Credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#",
+         "signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ],
+      "FraudAnalysis":{  
+         "Sequence":"AnalyseFirst",
+         "SequenceCriteria":"Always",
+         "Provider":"Cybersource",
+         "CaptureOnLowRisk":false,
+         "VoidOnHighRisk":false,
+         "TotalOrderAmount":10000,
+         "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+         "Browser":{  
+            "CookiesAccepted":false,
+            "Email":"comprador@braspag.com.br",
+            "HostName":"Teste",
+            "IpAddress":"127.0.0.1",
+            "Type":"Chrome"
+         },
+         "Cart":{  
+            "IsGift":false,
+            "ReturnsAccepted":true,
+            "Items":[  
+               {  
+                  "GiftCategory":"Undefined",
+                  "HostHedge":"Off",
+                  "NonSensicalHedge":"Off",
+                  "ObscenitiesHedge":"Off",
+                  "PhoneHedge":"Off",
+                  "Name":"ItemTeste",
+                  "Quantity":1,
+                  "Sku":"20170511",
+                  "UnitPrice":10000,
+                  "Risk":"High",
+                  "TimeHedge":"Normal",
+                  "Type":"AdultContent",
+                  "VelocityHedge":"High",
+                  "Passenger":{  
+                     "Email":"comprador@braspag.com.br",
+                     "Identity":"1234567890",
+                     "Name":"Nome do Comprador",
+                     "Rating":"Adult",
+                     "Phone":"999994444",
+                     "Status":"Accepted"
+                  }
+               }
+            ]
+         },
+         "MerchantDefinedFields":[  
+            {  
+               "Id":95,
+               "Value":"Dado Definido pela Loja"
             }
-        }
-    }
+         ],
+         "Shipping":{  
+            "Addressee":"Alameda Xingu, 512",
+            "Method":"LowCost",
+            "Phone":"1121840540"
+         },
+         "Travel":{  
+            "JourneyType":"OneWayTrip",
+            "DepartureDateTime":"2018-01-09 18:00",
+            "Passengers":[  
+               {  
+                  "Name":"Passenger Test",
+                  "Identity":"212424808",
+                  "Status":"Gold",
+                  "Rating":"Adult",
+                  "Email":"email@mail.com",
+                  "Phone":"1234567890",
+                  "TravelLegs":[  
+                     {  
+                        "Origin":"AMS",
+                        "Destination":"GIG"
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
 }
 --verbose
 
@@ -5760,176 +5782,169 @@ curl
 ### Resposta
 
 ```json
-{
-"MerchantOrderId": "2017051002",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Email": "comprador@braspag.com.br",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        },
-        "DeliveryAddress": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "455187******0181",
-            "Holder": "Nome do Portador",
-            "ExpirationDate": "12/2021",
-            "SaveCard": false,
-            "Brand": "Visa"
-            "Alias": ""
-        },
-        "credentials": {
-            "code": "9999999",
-            "key": "D8888888",
-            "password": "LOJA9999999",
-            "username": "#Braspag2018@NOMEDALOJA#"
-        },
-        "ProofOfSale": "20170510053219433",
-        "AcquirerTransactionId": "0510053219433",
-        "AuthorizationCode": "936403",
-        "SoftDescriptor": "Mensagem",
-        "VelocityAnalysis": {
-            "Id": "c374099e-c474-4916-9f5c-f2598fec2925",
-            "ResultMessage": "Accept",
-            "Score": 0
-        },
-        "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "ReceivedDate": "2017-05-10 17:32:19",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2017-05-10 17:32:19",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Simulado",
-        "ExtraDataCollection": [{
-            "Name": "NomeDoCampo",
-            "Value": "ValorDoCampo"
-        }],
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 2,
-        "ProviderReturnCode": "6",
-        "ProviderReturnMessage": "Operation Successful",
-        "Links": [{
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
-            },
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [{
-                    "Type": "AdultContent",
-                    "Name": "ItemTeste",
-                    "Risk": "High",
-                    "Sku": "201411170235134521346",
-                    "UnitPrice": 123,
-                    "Quantity": 1,
-                    "HostHedge": "Off",
-                    "NonSensicalHedge": "Off",
-                    "ObscenitiesHedge": "Off",
-                    "PhoneHedge": "Off",
-                    "TimeHedge": "Normal",
-                    "VelocityHedge": "High",
-                    "GiftCategory": "Undefined",
-                    "Passenger": {
-                        "Name": "Comprador accept",
-                        "Identity": "1234567890",
-                        "Status": "Accepted",
-                        "Rating": "Adult",
-                        "Email": "compradorteste@live.com",
-                        "Phone": "999994444"
-                    }
-                }]
-            },
-            "Travel": {
-                "Route": "MAO-RJO",
-                "DepartureTime": "2010-01-02T00:00:00",
-                "JourneyType": "Ida",
-                "Legs": [{
-                    "Destination": "GYN",
-                    "Origin": "VCP"
-                }]
-            },
-            "Browser": {
-                "HostName": "Teste",
-                "CookiesAccepted": false,
-                "Email": "compradorteste@live.com",
-                "Type": "Chrome",
-                "IpAddress": "200.190.150.350"
-            },
-            "Shipping": {
-                "Addressee": "Sr Comprador Teste",
-                "Phone": "21114740",
-                "Method": "LowCost"
-            },
-            "Id": "0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
-            "Status": 1,
-            "CaptureOnLowRisk": false,
-            "VoidOnHighRisk": false,
-            "FraudAnalysisReasonCode": 100,
-            "ReplyData": {
-                "AddressInfoCode": "COR-BA^MM-BIN",
-                "FactorCode": "B^D^R^Z",
-                "Score": 42,
-                "BinCountry": "us",
-                "CardIssuer": "FIA CARD SERVICES, N.A.",
-                "CardScheme": "VisaCredit",
-                "HostSeverity": 1,
-                "InternetInfoCode": "FREE-EM^RISK-EM",
-                "IpRoutingMethod": "Undefined",
-                "ScoreModelUsed": "default_lac",
-                "CasePriority": 3,
-                "ProviderTransactionId": "5220688414326697303008"
+{  
+   "MerchantOrderId":"2017051002",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{  
+      "ServiceTaxAmount":0,
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "CreditCard":{  
+         "CardNumber":"455187******0181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SaveCard":false,
+         "Brand":"Visa",
+         "Alias":"Teste"
+      },
+      "credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#"
+      },
+      "ProofOfSale":"20170510053219433",
+      "AcquirerTransactionId":"0510053219433",
+      "AuthorizationCode":"936403",
+      "SoftDescriptor":"Mensagem",
+      "VelocityAnalysis":{  
+         "Id":"c374099e-c474-4916-9f5c-f2598fec2925",
+         "ResultMessage":"Accept",
+         "Score":0
+      },
+      "PaymentId":"c374099e-c474-4916-9f5c-f2598fec2925",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "ReceivedDate":"2017-05-10 17:32:19",
+      "CapturedAmount":10000,
+      "CapturedDate":"2017-05-10 17:32:19",
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Provider":"Simulado",
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ],
+      "ReasonCode":0,
+      "ReasonMessage":"Successful",
+      "Status":2,
+      "ProviderReturnCode":"6",
+      "ProviderReturnMessage":"Operation Successful",
+      "Links":[  
+         {  
+            "Method":"GET",
+            "Rel":"self",
+            "Href":"https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
+         },
+         {  
+            "Method":"PUT",
+            "Rel":"void",
+            "Href":"https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
+         }
+      ],
+      "Cart":{  
+         "IsGift":false,
+         "ReturnsAccepted":true,
+         "Items":[  
+            {  
+               "Type":"AdultContent",
+               "Name":"ItemTeste",
+               "Risk":"High",
+               "Sku":"201411170235134521346",
+               "UnitPrice":123,
+               "Quantity":1,
+               "HostHedge":"Off",
+               "NonSensicalHedge":"Off",
+               "ObscenitiesHedge":"Off",
+               "PhoneHedge":"Off",
+               "TimeHedge":"Normal",
+               "VelocityHedge":"High",
+               "GiftCategory":"Undefined",
+               "Passenger":{  
+                  "Name":"Comprador accept",
+                  "Identity":"1234567890",
+                  "Status":"Accepted",
+                  "Rating":"Adult",
+                  "Email":"compradorteste@live.com",
+                  "Phone":"999994444"
+               }
             }
-        },
-        "PaymentId": "4219584b-6d23-49f0-a24c-2b677bc60df8",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Simulado",
-        "ReasonCode": 16,
-        "ReasonMessage": "AbortedByFraud",
-        "Status": 13,
-        "Links": [{
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/4219584b-6d23-49f0-a24c-2b677bc60df8"
-        }]
-    }
+         ]
+      },
+      "Travel":{  
+         "Route":"MAO-RJO",
+         "DepartureTime":"2010-01-02T00:00:00",
+         "JourneyType":"Ida",
+         "Legs":[  
+            {  
+               "Destination":"GYN",
+               "Origin":"VCP"
+            }
+         ]
+      },
+      "Browser":{  
+         "HostName":"Teste",
+         "CookiesAccepted":false,
+         "Email":"compradorteste@live.com",
+         "Type":"Chrome",
+         "IpAddress":"200.190.150.350"
+      },
+      "Shipping":{  
+         "Addressee":"Sr Comprador Teste",
+         "Phone":"21114740",
+         "Method":"LowCost"
+      },
+      "Id":"0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
+      "Status":1,
+      "CaptureOnLowRisk":false,
+      "VoidOnHighRisk":false,
+      "FraudAnalysisReasonCode":100,
+      "ReplyData":{  
+         "AddressInfoCode":"COR-BA^MM-BIN",
+         "FactorCode":"B^D^R^Z",
+         "Score":42,
+         "BinCountry":"us",
+         "CardIssuer":"FIA CARD SERVICES, N.A.",
+         "CardScheme":"VisaCredit",
+         "HostSeverity":1,
+         "InternetInfoCode":"FREE-EM^RISK-EM",
+         "IpRoutingMethod":"Undefined",
+         "ScoreModelUsed":"default_lac",
+         "CasePriority":3,
+         "ProviderTransactionId":"5220688414326697303008"
+      }
+   }
 }
 ```
 
@@ -5937,176 +5952,169 @@ curl
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-"MerchantOrderId": "2017051002",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Email": "comprador@braspag.com.br",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        },
-        "DeliveryAddress": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "455187******0181",
-            "Holder": "Nome do Portador",
-            "ExpirationDate": "12/2021",
-            "SaveCard": false,
-            "Brand": "Visa"
-            "Alias": ""
-        },
-        "credentials": {
-            "code": "9999999",
-            "key": "D8888888",
-            "password": "LOJA9999999",
-            "username": "#Braspag2018@NOMEDALOJA#"
-        },
-        "ProofOfSale": "20170510053219433",
-        "AcquirerTransactionId": "0510053219433",
-        "AuthorizationCode": "936403",
-        "SoftDescriptor": "Mensagem",
-        "VelocityAnalysis": {
-            "Id": "c374099e-c474-4916-9f5c-f2598fec2925",
-            "ResultMessage": "Accept",
-            "Score": 0
-        },
-        "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "ReceivedDate": "2017-05-10 17:32:19",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2017-05-10 17:32:19",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Simulado",
-        "ExtraDataCollection": [{
-            "Name": "NomeDoCampo",
-            "Value": "ValorDoCampo"
-        }],
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 2,
-        "ProviderReturnCode": "6",
-        "ProviderReturnMessage": "Operation Successful",
-        "Links": [{
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
-            },
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [{
-                    "Type": "AdultContent",
-                    "Name": "ItemTeste",
-                    "Risk": "High",
-                    "Sku": "201411170235134521346",
-                    "UnitPrice": 123,
-                    "Quantity": 1,
-                    "HostHedge": "Off",
-                    "NonSensicalHedge": "Off",
-                    "ObscenitiesHedge": "Off",
-                    "PhoneHedge": "Off",
-                    "TimeHedge": "Normal",
-                    "VelocityHedge": "High",
-                    "GiftCategory": "Undefined",
-                    "Passenger": {
-                        "Name": "Comprador accept",
-                        "Identity": "1234567890",
-                        "Status": "Accepted",
-                        "Rating": "Adult",
-                        "Email": "compradorteste@live.com",
-                        "Phone": "999994444"
-                    }
-                }]
-            },
-            "Travel": {
-                "Route": "MAO-RJO",
-                "DepartureTime": "2010-01-02T00:00:00",
-                "JourneyType": "Ida",
-                "Legs": [{
-                    "Destination": "GYN",
-                    "Origin": "VCP"
-                }]
-            },
-            "Browser": {
-                "HostName": "Teste",
-                "CookiesAccepted": false,
-                "Email": "compradorteste@live.com",
-                "Type": "Chrome",
-                "IpAddress": "200.190.150.350"
-            },
-            "Shipping": {
-                "Addressee": "Sr Comprador Teste",
-                "Phone": "21114740",
-                "Method": "LowCost"
-            },
-            "Id": "0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
-            "Status": 1,
-            "CaptureOnLowRisk": false,
-            "VoidOnHighRisk": false,
-            "FraudAnalysisReasonCode": 100,
-            "ReplyData": {
-                "AddressInfoCode": "COR-BA^MM-BIN",
-                "FactorCode": "B^D^R^Z",
-                "Score": 42,
-                "BinCountry": "us",
-                "CardIssuer": "FIA CARD SERVICES, N.A.",
-                "CardScheme": "VisaCredit",
-                "HostSeverity": 1,
-                "InternetInfoCode": "FREE-EM^RISK-EM",
-                "IpRoutingMethod": "Undefined",
-                "ScoreModelUsed": "default_lac",
-                "CasePriority": 3,
-                "ProviderTransactionId": "5220688414326697303008"
+{  
+   "MerchantOrderId":"2017051002",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{  
+      "ServiceTaxAmount":0,
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "CreditCard":{  
+         "CardNumber":"455187******0181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SaveCard":false,
+         "Brand":"Visa",
+         "Alias":"Teste"
+      },
+      "credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#"
+      },
+      "ProofOfSale":"20170510053219433",
+      "AcquirerTransactionId":"0510053219433",
+      "AuthorizationCode":"936403",
+      "SoftDescriptor":"Mensagem",
+      "VelocityAnalysis":{  
+         "Id":"c374099e-c474-4916-9f5c-f2598fec2925",
+         "ResultMessage":"Accept",
+         "Score":0
+      },
+      "PaymentId":"c374099e-c474-4916-9f5c-f2598fec2925",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "ReceivedDate":"2017-05-10 17:32:19",
+      "CapturedAmount":10000,
+      "CapturedDate":"2017-05-10 17:32:19",
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Provider":"Simulado",
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ],
+      "ReasonCode":0,
+      "ReasonMessage":"Successful",
+      "Status":2,
+      "ProviderReturnCode":"6",
+      "ProviderReturnMessage":"Operation Successful",
+      "Links":[  
+         {  
+            "Method":"GET",
+            "Rel":"self",
+            "Href":"https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
+         },
+         {  
+            "Method":"PUT",
+            "Rel":"void",
+            "Href":"https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
+         }
+      ],
+      "Cart":{  
+         "IsGift":false,
+         "ReturnsAccepted":true,
+         "Items":[  
+            {  
+               "Type":"AdultContent",
+               "Name":"ItemTeste",
+               "Risk":"High",
+               "Sku":"201411170235134521346",
+               "UnitPrice":123,
+               "Quantity":1,
+               "HostHedge":"Off",
+               "NonSensicalHedge":"Off",
+               "ObscenitiesHedge":"Off",
+               "PhoneHedge":"Off",
+               "TimeHedge":"Normal",
+               "VelocityHedge":"High",
+               "GiftCategory":"Undefined",
+               "Passenger":{  
+                  "Name":"Comprador accept",
+                  "Identity":"1234567890",
+                  "Status":"Accepted",
+                  "Rating":"Adult",
+                  "Email":"compradorteste@live.com",
+                  "Phone":"999994444"
+               }
             }
-        },
-        "PaymentId": "4219584b-6d23-49f0-a24c-2b677bc60df8",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Simulado",
-        "ReasonCode": 16,
-        "ReasonMessage": "AbortedByFraud",
-        "Status": 13,
-        "Links": [{
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/4219584b-6d23-49f0-a24c-2b677bc60df8"
-        }]
-    }
+         ]
+      },
+      "Travel":{  
+         "Route":"MAO-RJO",
+         "DepartureTime":"2010-01-02T00:00:00",
+         "JourneyType":"Ida",
+         "Legs":[  
+            {  
+               "Destination":"GYN",
+               "Origin":"VCP"
+            }
+         ]
+      },
+      "Browser":{  
+         "HostName":"Teste",
+         "CookiesAccepted":false,
+         "Email":"compradorteste@live.com",
+         "Type":"Chrome",
+         "IpAddress":"200.190.150.350"
+      },
+      "Shipping":{  
+         "Addressee":"Sr Comprador Teste",
+         "Phone":"21114740",
+         "Method":"LowCost"
+      },
+      "Id":"0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
+      "Status":1,
+      "CaptureOnLowRisk":false,
+      "VoidOnHighRisk":false,
+      "FraudAnalysisReasonCode":100,
+      "ReplyData":{  
+         "AddressInfoCode":"COR-BA^MM-BIN",
+         "FactorCode":"B^D^R^Z",
+         "Score":42,
+         "BinCountry":"us",
+         "CardIssuer":"FIA CARD SERVICES, N.A.",
+         "CardScheme":"VisaCredit",
+         "HostSeverity":1,
+         "InternetInfoCode":"FREE-EM^RISK-EM",
+         "IpRoutingMethod":"Undefined",
+         "ScoreModelUsed":"default_lac",
+         "CasePriority":3,
+         "ProviderTransactionId":"5220688414326697303008"
+      }
+   }
 }
 ```
 
