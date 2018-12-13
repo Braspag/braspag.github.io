@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-13T16:54:46+00:00</updated>
+    <updated>2018-12-13T16:56:17+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -14353,7 +14353,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Para autoriazar uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials&lt;/code&gt;, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.&lt;/p&gt;
 
-&lt;p&gt;Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliações devem ser cadastradas no nosso painel administrativo pela equipe de suporte ao cliente.&lt;/p&gt;
+&lt;p&gt;Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para requisitar o cadastro de afiliações, clique &lt;a href=&quot;http://suporte.braspag.com.br/&quot;&gt;Aqui&lt;/a&gt;.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Os parâmetros contidos nos nós Address e DeliveryAddress são obrigatórios quando a transação é submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um * na coluna de obrigatoriedade.&lt;/aside&gt;
 
