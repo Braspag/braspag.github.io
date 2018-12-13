@@ -6167,7 +6167,7 @@ Se os 2 segmentos de código não forem colocados na página de checkout, os res
 |:-|:-|
 |`ProviderOrgId`|Sandbox = 1snn5n9w <br/> Produção = k8vif92e|
 |`ProviderMerchantId`|Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag|
-|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do(s) script(s) que serão incluídos na página de checkout. <br/> Exemplo: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
+|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `FraudAnalysis.FingerPrintId` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do(s) script(s) que serão incluídos na página de checkout. <br/> Exemplo: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
 
 > Javascript Code
 
