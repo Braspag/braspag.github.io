@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-13T16:56:17+00:00</updated>
+    <updated>2018-12-13T18:41:55+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -24293,7 +24293,7 @@ curl
         &lt;span class=&quot;s2&quot;&gt;&quot;ExtraDataCollection&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[{&lt;/span&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;NomeDoCampo&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ValorDoCampo&quot;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}]&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}]&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;FraudAnalysis&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;Sequence&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;AnalyseFirst&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;SequenceCriteria&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Always&quot;&lt;/span&gt;,
