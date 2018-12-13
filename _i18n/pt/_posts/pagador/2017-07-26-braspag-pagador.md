@@ -90,7 +90,7 @@ Para que você possa desfrutar de todos os recursos disponíveis em nossa API, �
 
 Para autoriazar uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó `Payment.Credentials`, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.
 
-Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliações devem ser cadastradas no nosso painel administrativo pela equipe de suporte ao cliente.
+Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para requisitar o cadastro de afiliações, clique [Aqui](http://suporte.braspag.com.br/).
 
 <aside class="notice">Os parâmetros contidos nos nós Address e DeliveryAddress são obrigatórios quando a transação é submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um * na coluna de obrigatoriedade.</aside>
 
