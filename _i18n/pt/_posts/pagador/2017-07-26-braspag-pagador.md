@@ -5355,12 +5355,12 @@ curl
 
 # Pagamentos com Análise de Fraude
 
-É possível verificar se uma transação tem alto risco de se transformar em um chargeback ou não durante uma autorização. O Antifraude é contratado separadamente, e pode conversar com o Gateway de Pagamento das seguintes formas:
+É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização. O Antifraude é contratado separadamente, e pode conversar com o Gateway de Pagamento das seguintes formas:
 
 |Tipo de Integração|Descrição|Parâmetros necessários|
 |-|-|-|
 |Análise antes da autorização|Antes da transação ser enviada para a processadora, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_|
-|Análise após a autorização|O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora. Dessa forma, aumenta-se a conversão de transações autorizadas|`FraudAnalysis.Sequence` como _AuthorizeFirst_|
+|Análise após a autorização|O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora|`FraudAnalysis.Sequence` como _AuthorizeFirst_|
 |Análise de risco somente se a transação for autorizada|O Antifraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` como _OnSuccess_|
 |Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o Antifraude analisará o risco dela|`FraudAnalysis.SequenceCriteria` como _Always_|
 |Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco|`FraudAnalysis.CaptureOnLowRisk` igual a _true_, `FraudAnalysis.Sequence` como _AuthorizeFirst_ e `Payment.Capture` igual a _false_| |
