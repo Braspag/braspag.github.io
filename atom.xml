@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-13T11:34:57+00:00</updated>
+    <updated>2018-12-13T14:17:10+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -24024,6 +24024,59 @@ curl
 &lt;/table&gt;
 
 &lt;h1 id=&quot;pagamentos-com-análise-de-fraude&quot;&gt;Pagamentos com Análise de Fraude&lt;/h1&gt;
+
+&lt;p&gt;É possível verificar se uma transação tem alto risco de se transformar em um chargeback ou não durante uma autorização. O Antifraude é contratado separadamente, e pode conversar com o Gateway de Pagamento das seguintes formas:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tipo de Integração&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Parâmetros necessários&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Análise antes da autorização&lt;/td&gt;
+      &lt;td&gt;Antes da transação ser enviada para a processadora, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AnalyseFirst&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Análise após a autorização&lt;/td&gt;
+      &lt;td&gt;O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora. Dessa forma, aumenta-se a conversão de transações autorizadas&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AuthorizeFirst&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Análise de risco somente se a transação for autorizada&lt;/td&gt;
+      &lt;td&gt;O Antifraude será acionado apenas para analisar transações com o staus &lt;em&gt;autorizada&lt;/em&gt;. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; como &lt;em&gt;OnSuccess&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Análise de risco em qualquer hipótese&lt;/td&gt;
+      &lt;td&gt;Independente do status da transação após a autorização, o Antifraude analisará o risco dela&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; como &lt;em&gt;Always&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Capturar apenas se uma transação for segura&lt;/td&gt;
+      &lt;td&gt;Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.CaptureOnLowRisk&lt;/code&gt; igual a &lt;em&gt;true&lt;/em&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AuthorizeFirst&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt; igual a &lt;em&gt;false&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cancelar uma transação comprometida&lt;/td&gt;
+      &lt;td&gt;Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente estornada&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.VoidOnHighRisk&lt;/code&gt; igual a &lt;em&gt;true&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; como &lt;em&gt;AuthorizeFirst&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Se não especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; &lt;em&gt;AuthorizeFirst&lt;/em&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; &lt;em&gt;OnSuccess&lt;/em&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.VoidOnHighRisk&lt;/code&gt; &lt;em&gt;false&lt;/em&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.CaptureOnLowRisk&lt;/code&gt; &lt;em&gt;true&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;criando-uma-transação-com-análise-de-fraude-cybersource&quot;&gt;Criando uma transação com Análise de Fraude Cybersource&lt;/h2&gt;
 

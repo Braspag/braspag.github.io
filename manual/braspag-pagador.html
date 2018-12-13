@@ -9932,6 +9932,59 @@ curl
 
 <h1 id="pagamentos-com-análise-de-fraude">Pagamentos com Análise de Fraude</h1>
 
+<p>É possível verificar se uma transação tem alto risco de se transformar em um chargeback ou não durante uma autorização. O Antifraude é contratado separadamente, e pode conversar com o Gateway de Pagamento das seguintes formas:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de Integração</th>
+      <th>Descrição</th>
+      <th>Parâmetros necessários</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Análise antes da autorização</td>
+      <td>Antes da transação ser enviada para a processadora, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AnalyseFirst</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Análise após a autorização</td>
+      <td>O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora. Dessa forma, aumenta-se a conversão de transações autorizadas</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Análise de risco somente se a transação for autorizada</td>
+      <td>O Antifraude será acionado apenas para analisar transações com o staus <em>autorizada</em>. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>OnSuccess</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Análise de risco em qualquer hipótese</td>
+      <td>Independente do status da transação após a autorização, o Antifraude analisará o risco dela</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>Always</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Capturar apenas se uma transação for segura</td>
+      <td>Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> igual a <em>true</em>, <code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em> e <code class="highlighter-rouge">Payment.Capture</code> igual a <em>false</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Cancelar uma transação comprometida</td>
+      <td>Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente estornada</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> igual a <em>true</em> e <code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Se não especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo <code class="highlighter-rouge">FraudAnalysis.Sequence</code> <em>AuthorizeFirst</em>, <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> <em>OnSuccess</em>, <code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> <em>false</em> e <code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> <em>true</em>.</p>
+
 <h2 id="criando-uma-transação-com-análise-de-fraude-cybersource">Criando uma transação com Análise de Fraude Cybersource</h2>
 
 <p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cart’ao de cr[edito, é necessário complementar a mensagem com os dados mencionados no nó “FraudAnalysis”.</p>
