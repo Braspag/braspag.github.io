@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-13T16:39:54+00:00</updated>
+    <updated>2018-12-13T16:45:46+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -24783,7 +24783,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint&lt;/td&gt;
+      &lt;td&gt;Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo &lt;code class=&quot;highlighter-rouge&quot;&gt;session_id&lt;/code&gt; do script que será incluído na página de checkout. &lt;br /&gt; Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io//manual/braspag-pagador#configuração-do-fingerprint&quot;&gt;Configuração do Fingerprint&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Browser.CookiesAccepted&lt;/code&gt;&lt;/td&gt;
