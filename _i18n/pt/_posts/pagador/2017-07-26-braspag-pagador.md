@@ -6140,6 +6140,11 @@ curl
 
 ## Configuração do Fingerprint
 
+Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
+Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja está mais protegida.
+
+<aside class="warning">A integração do Fingerprint não é obrigatória, mas a Braspag não se responsabilizará pela qualidade das análises de risco caso a funcionalidade não seja utilizada. Recomendamos fortemente que o Fingerprint seja habilitado e submetido no request de análise.</aside>
+
 Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
 
 ### Cybersource
