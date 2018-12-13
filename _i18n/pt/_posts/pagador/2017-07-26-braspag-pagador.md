@@ -5362,7 +5362,8 @@ curl
 |Análise antes da autorização|Antes da transação ser enviada para a processadora, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_|
 |Análise após a autorização|O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora|`FraudAnalysis.Sequence` como _AuthorizeFirst_|
 |Análise de risco somente se a transação for autorizada|O Antifraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` como _OnSuccess_|
-|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o Antifraude analisará o risco dela|`FraudAnalysis.SequenceCriteria` como _Always_|
+|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o Antifraude analisará o risco dela|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
+|Autorização em qualquer hipótese|Independente do score de fraude da transação, ela sempre será enviada para autorização da processadora|`FraudAnalysis.Sequence` como _AnalyseFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
 |Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco|`FraudAnalysis.CaptureOnLowRisk` igual a _true_, `FraudAnalysis.Sequence` como _AuthorizeFirst_ e `Payment.Capture` igual a _false_| |
 |Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente estornada|`FraudAnalysis.VoidOnHighRisk` igual a _true_ e `FraudAnalysis.Sequence` como _AuthorizeFirst_|
 
