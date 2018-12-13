@@ -5355,6 +5355,19 @@ curl
 
 # Pagamentos com Análise de Fraude
 
+É possível verificar se uma transação tem alto risco de se transformar em um chargeback ou não durante uma autorização. O Antifraude é contratado separadamente, e pode conversar com o Gateway de Pagamento das seguintes formas:
+
+|Tipo de Integração|Descrição|Parâmetros necessários|
+|-|-|-|
+|Análise antes da autorização|Antes da transação ser enviada para a processadora, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_|
+|Análise após a autorização|O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora. Dessa forma, aumenta-se a conversão de transações autorizadas|`FraudAnalysis.Sequence` como _AuthorizeFirst_|
+|Análise de risco somente se a transação for autorizada|O Antifraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` como _OnSuccess_|
+|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o Antifraude analisará o risco dela|`FraudAnalysis.SequenceCriteria` como _Always_|
+|Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco|`FraudAnalysis.CaptureOnLowRisk` igual a _true_, `FraudAnalysis.Sequence` como _AuthorizeFirst_ e `Payment.Capture` igual a _false_| |
+|Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente estornada|`FraudAnalysis.VoidOnHighRisk` igual a _true_ e `FraudAnalysis.Sequence` como _AuthorizeFirst_|
+
+Se não especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo `FraudAnalysis.Sequence` _AuthorizeFirst_, `FraudAnalysis.SequenceCriteria` _OnSuccess_, `FraudAnalysis.VoidOnHighRisk` _false_ e `FraudAnalysis.CaptureOnLowRisk` _true_.
+
 ## Criando uma transação com Análise de Fraude Cybersource
 
 Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cart'ao de cr[edito, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
