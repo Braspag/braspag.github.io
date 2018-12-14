@@ -116,8 +116,8 @@ Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliaçõ
          "State":"SP",
          "Country":"BRA",
          "District":"Alphaville"
-    },
-      "DeliveryAddress": {
+      },
+      "DeliveryAddress":{  
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -126,42 +126,44 @@ Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliaçõ
          "State":"SP",
          "Country":"BRA",
          "District":"Alphaville"
-    },
-      "Payment": {
-         "Provider": "Simulado",
-         "Type": "CreditCard",
-         "Amount": 10000,
-         "Currency": "BRL",
-         "Country": "BRA",
-         "Installments": 1,
-         "Interest": "ByMerchant",
-         "Capture": true,
-         "Authenticate": false,
-         "Recurrent": false,
-         "SoftDescriptor": "Mensagem",
-         "CreditCard": {
-            "CardNumber": "4551870000000181",
-            "Holder": "Nome do Portador",
-            "ExpirationDate": "12/2021",
-            "SecurityCode": "123",
-            "Brand": "Visa",
-            "SaveCard": "false",
-            "Alias": ""
-         },
-         "Credentials": {
-            "code": "9999999",
-            "key": "D8888888",
-            "password": "LOJA9999999",
-            "username": "#Braspag2018@NOMEDALOJA#",
-            "signature": "001"
-         },
-         "ExtraDataCollection": [{
-            "Name": "NomeDoCampo",
-            "Value": "ValorDoCampo"
-         }]
-     }
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "Credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#",
+         "signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
-
 ```
 
 ```shell
@@ -190,8 +192,8 @@ curl
          "State":"SP",
          "Country":"BRA",
          "District":"Alphaville"
-    },
-      "DeliveryAddress": {
+      },
+      "DeliveryAddress":{  
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -200,40 +202,43 @@ curl
          "State":"SP",
          "Country":"BRA",
          "District":"Alphaville"
-    },
-      "Payment": {
-         "Provider": "Simulado",
-         "Type": "CreditCard",
-         "Amount": 10000,
-         "Currency": "BRL",
-         "Country": "BRA",
-         "Installments": 1,
-         "Interest": "ByMerchant",
-         "Capture": true,
-         "Authenticate": false,
-         "Recurrent": false,
-         "SoftDescriptor": "Mensagem",
-         "CreditCard": {
-            "CardNumber": "4551870000000181",
-            "Holder": "Nome do Portador",
-            "ExpirationDate": "12/2021",
-            "SecurityCode": "123",
-            "Brand": "Visa",
-            "SaveCard": "false",
-            "Alias": ""
-         },
-         "credentials": {
-            "code": "9999999",
-            "key": "D8888888",
-            "password": "LOJA9999999",
-            "username": "#Braspag2018@NOMEDALOJA#",
-            "signature": "001"
-         },
-         "ExtraDataCollection": [{
-            "Name": "NomeDoCampo",
-            "Value": "ValorDoCampo"
-         }]
-     }
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "Credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#",
+         "signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
 --verbose
 
@@ -720,7 +725,6 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
             "Brand": "Visa",
             "SaveCard": "false",
             "Alias": ""
-        },
         [...]
     },
     "AuthenticationUrl": "https://qasecommerce.cielo.com.br/web/index.cbmp?id=9e61c78c0b0ca3e5db41fa7e31585eab",
@@ -771,7 +775,6 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
             "Brand": "Visa",
             "SaveCard": "false",
             "Alias": ""
-        },
         [...]
     },
     "AuthenticationUrl": "https://qasecommerce.cielo.com.br/web/index.cbmp?id=9e61c78c0b0ca3e5db41fa7e31585eab",
