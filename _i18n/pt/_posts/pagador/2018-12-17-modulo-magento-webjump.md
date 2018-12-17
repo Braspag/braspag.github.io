@@ -23,8 +23,8 @@ Quando subir o módulo na loja em produção, sempre faça um backup completo do
 
 * Extensão Ioncube Loader 8.3 ou superior (http://www.ioncube.com/loaders.php)
 
-** PHP SOAP
-** PHP cURL
+ PHP SOAP
+ PHP cURL
 
 # Instalação
 
