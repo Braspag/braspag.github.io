@@ -20,11 +20,9 @@ Quando subir o módulo na loja em produção, sempre faça um backup completo do
 # Requisitos Técnicos
 
 * Para utilizar o módulo o servidor deve conter os seguintes componentes PHP
-
 * Extensão Ioncube Loader 8.3 ou superior (http://www.ioncube.com/loaders.php)
-
- PHP SOAP
- PHP cURL
+* PHP SOAP
+* PHP cURL
 
 # Instalação
 
