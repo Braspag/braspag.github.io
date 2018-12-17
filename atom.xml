@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-17T18:40:12+00:00</updated>
+    <updated>2018-12-17T18:47:03+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -36,8 +36,8 @@ Quando subir o módulo na loja em produção, sempre faça um backup completo do
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;–&lt;em&gt;PHP SOAP
-–&lt;/em&gt;PHP cURL&lt;/p&gt;
+&lt;p&gt;…PHP SOAP
+…PHP cURL&lt;/p&gt;
 
 &lt;h1 id=&quot;instalação&quot;&gt;Instalação&lt;/h1&gt;
 
