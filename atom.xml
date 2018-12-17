@@ -5,12 +5,66 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2018-12-17T18:21:30+00:00</updated>
+    <updated>2018-12-17T18:40:12+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Módulo Magento 2.0 Webjump</title>
+        <category term="tutorial" />
+        <link href="https://braspag.github.io//tutorial/modulo-magento-webjump"/>
+        <updated>2018-12-17T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//tutorial/modulo-magento-webjump</id>
+        <content type="html">&lt;h1 id=&quot;antes-de-começar&quot;&gt;Antes de começar:&lt;/h1&gt;
+
+&lt;p&gt;Faça sempre um backup de sua loja antes de iniciar a instalação do módulo.
+Nunca realize testes em módulos no seu ambiente de produção.
+Sempre faça os testes em um ambiente de testes isolado.
+Quando subir o módulo na loja em produção, sempre faça um backup completo dos arquivos e banco de dados.&lt;/p&gt;
+
+&lt;h1 id=&quot;requisitos-técnicos&quot;&gt;Requisitos Técnicos&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Para utilizar o módulo o servidor deve conter os seguintes componentes PHP&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Extensão Ioncube Loader 8.3 ou superior (http://www.ioncube.com/loaders.php)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;–&lt;em&gt;PHP SOAP
+–&lt;/em&gt;PHP cURL&lt;/p&gt;
+
+&lt;h1 id=&quot;instalação&quot;&gt;Instalação&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Desabilite a compilação, caso esteja ativa em Sistema &amp;gt; Ferramentas &amp;gt; Compilação.&lt;/li&gt;
+  &lt;li&gt;Desabilite o Cache do Magento.&lt;/li&gt;
+  &lt;li&gt;Faça o logout do backend.&lt;/li&gt;
+  &lt;li&gt;Copie os arquivos do módulo em sua loja.&lt;/li&gt;
+  &lt;li&gt;Faça o login no backend.&lt;/li&gt;
+  &lt;li&gt;Vá em Sistema &amp;gt; Configurações.&lt;/li&gt;
+  &lt;li&gt;Clique em Braspag &amp;gt; Payment General Configuration&lt;/li&gt;
+  &lt;li&gt;Acesse o link &lt;em&gt;“click here to request”&lt;/em&gt; no campo Serial key e siga as instruções na página para solicitar o número de série.&lt;/li&gt;
+  &lt;li&gt;Cadastre o número de série enviado para o e-mail selecionado no campo apropriado.&lt;/li&gt;
+  &lt;li&gt;Acesse as abas de opções da integração que será utilizada em sua loja (Transacion, Post Index ou Post Passthrough) e faça as devidas configurações.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;importante&quot;&gt;Importante&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Não se esqueça de solicitar a liberação do endereço IP do seu servidor junto a Braspag.&lt;/li&gt;
+  &lt;li&gt;Para utilizar o recurso de confirmação automática do pagamento de boleto e cartão de débito (recurso 2.o post), é necessário solicitar a configuração da URL na Braspag. O endereço está disponível em Sistema &amp;gt; Configuração &amp;gt; Braspag by Webjump &amp;gt; Payment - General Configuratio &amp;gt;Status Update.&lt;/li&gt;
+  &lt;li&gt;Será necessário gerar um novo número de série sempre que o alterar a url, informações da loja (Sistema-&amp;gt;Configuração-&amp;gt;Geral-&amp;gt;Informações sobre a Loja) ou atualizar o módulo.&lt;/li&gt;
+  &lt;li&gt;Caso seu acesso às configurações seja negado ou em caso de erro 404, Faça o logout e depois acesse novamente o backend.&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>Manual de integração 3DS 2.0</title>

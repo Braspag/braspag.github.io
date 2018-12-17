@@ -12,7 +12,7 @@
 
     <title>
         
-        SDKs Braspag &middot; Documentações e tutoriais
+        Módulo Magento 2.0 Webjump &middot; Documentações e tutoriais
         
     </title>
 
@@ -34,11 +34,11 @@
 
     
         
-            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//tutorial/sdks-braspag" />
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//tutorial/modulo-magento-webjump" />
         
     
         
-            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/tutorial/sdks-braspag" />
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/tutorial/modulo-magento-webjump" />
         
     
 
@@ -62,14 +62,14 @@
 
                                 
                                     
-                                    <a href="https://braspag.github.io//tutorial/sdks-braspag">
+                                    <a href="https://braspag.github.io//tutorial/modulo-magento-webjump">
                                     
 
                                         <img alt="Português" src="https://braspag.github.io//assets/images/pt.png"/>
                                     </a>
                                 
                                     
-                                    <a href="https://braspag.github.io//en/tutorial/sdks-braspag">
+                                    <a href="https://braspag.github.io//en/tutorial/modulo-magento-webjump">
                                     
 
                                         <img alt="English" src="https://braspag.github.io//assets/images/en.png"/>
@@ -107,7 +107,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/sdks-braspag">SDKs Braspag</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/modulo-magento-webjump">Módulo Magento 2.0 Webjump</a></li>
                                     
                                 
                             
@@ -117,47 +117,51 @@
             </div>
 
             <div class="post">
-    <h1 id="sdks-pagador">SDKs Pagador</h1>
+    <h1 id="antes-de-começar">Antes de começar:</h1>
 
-<p>O Pagador oferece uma gama de SDks disponiveis no Repositório oficial Github:</p>
+<p>Faça sempre um backup de sua loja antes de iniciar a instalação do módulo.
+Nunca realize testes em módulos no seu ambiente de produção.
+Sempre faça os testes em um ambiente de testes isolado.
+Quando subir o módulo na loja em produção, sempre faça um backup completo dos arquivos e banco de dados.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>SDK Mobile</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="ttps://github.com/Braspag/BraspagApiAndroidSdk"><strong>Android</strong></a></td>
-    </tr>
-  </tbody>
-</table>
+<h1 id="requisitos-técnicos">Requisitos Técnicos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>SDK</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://github.com/Braspag/BraspagApiPhpSdk"><strong>PHP</strong></a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/Braspag/BraspagApiJavaSdk"><strong>JAVA</strong></a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/DeveloperCielo/API-3.0-Python"><strong>Python</strong></a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/Braspag/BraspagApiRubySdk"><strong>Ruby</strong></a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/Braspag/BraspagApiDotNetSdk"><strong>.NET</strong></a></td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <li>
+    <p>Para utilizar o módulo o servidor deve conter os seguintes componentes PHP</p>
+  </li>
+  <li>
+    <p>Extensão Ioncube Loader 8.3 ou superior (http://www.ioncube.com/loaders.php)</p>
+  </li>
+</ul>
+
+<p>–<em>PHP SOAP
+–</em>PHP cURL</p>
+
+<h1 id="instalação">Instalação</h1>
+
+<ol>
+  <li>Desabilite a compilação, caso esteja ativa em Sistema &gt; Ferramentas &gt; Compilação.</li>
+  <li>Desabilite o Cache do Magento.</li>
+  <li>Faça o logout do backend.</li>
+  <li>Copie os arquivos do módulo em sua loja.</li>
+  <li>Faça o login no backend.</li>
+  <li>Vá em Sistema &gt; Configurações.</li>
+  <li>Clique em Braspag &gt; Payment General Configuration</li>
+  <li>Acesse o link <em>“click here to request”</em> no campo Serial key e siga as instruções na página para solicitar o número de série.</li>
+  <li>Cadastre o número de série enviado para o e-mail selecionado no campo apropriado.</li>
+  <li>Acesse as abas de opções da integração que será utilizada em sua loja (Transacion, Post Index ou Post Passthrough) e faça as devidas configurações.</li>
+</ol>
+
+<h1 id="importante">Importante</h1>
+
+<ul>
+  <li>Não se esqueça de solicitar a liberação do endereço IP do seu servidor junto a Braspag.</li>
+  <li>Para utilizar o recurso de confirmação automática do pagamento de boleto e cartão de débito (recurso 2.o post), é necessário solicitar a configuração da URL na Braspag. O endereço está disponível em Sistema &gt; Configuração &gt; Braspag by Webjump &gt; Payment - General Configuratio &gt;Status Update.</li>
+  <li>Será necessário gerar um novo número de série sempre que o alterar a url, informações da loja (Sistema-&gt;Configuração-&gt;Geral-&gt;Informações sobre a Loja) ou atualizar o módulo.</li>
+  <li>Caso seu acesso às configurações seja negado ou em caso de erro 404, Faça o logout e depois acesse novamente o backend.</li>
+</ul>
+
 
 </div>
 
@@ -217,10 +221,10 @@
                 
             
                 
-                    
-                    <li><a href="https://braspag.github.io//tutorial/modulo-magento-webjump" title="Como Integrar sua loja Magento com o módulo de pagamentos Braspag na Webjump">Módulo Magento 2.0 Webjump</a></li>
-                
             
+                
+                    
+                    <li><a href="https://braspag.github.io//tutorial/sdks-braspag" title="Lista de Sdks Api Pagador">SDKs Braspag</a></li>
                 
             
             </ul>
