@@ -4303,6 +4303,7 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
   }
 }
 ```
+
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
