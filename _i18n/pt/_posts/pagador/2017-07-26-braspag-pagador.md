@@ -4315,6 +4315,7 @@ Uma transação com um Cartão Alelo se efetua de uma forma semelhante a um Cart
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
+
 {
    [...]
     "Payment": {
@@ -4332,6 +4333,7 @@ Uma transação com um Cartão Alelo se efetua de uma forma semelhante a um Cart
         [...]
     }
 }
+
 ```
 
 ```shell
@@ -4359,7 +4361,6 @@ curl
         [...]
     }
 }
---verbose
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
