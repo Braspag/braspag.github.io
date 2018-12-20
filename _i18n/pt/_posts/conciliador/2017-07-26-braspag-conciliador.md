@@ -82,7 +82,7 @@ Apenas um registro deste tipo é permitido por arquivo. O registro trailer deve 
 
 ## Formas de envio
 
-Atualmente o conciliador Braspag oferece 3 (treis) formas de envios para os arquivos de vendas:
+Atualmente o conciliador Braspag oferece 3 (três) formas de envios para os arquivos de vendas:
 
 * Upload Manual pela aplicação
 * Transferência via SFTP
