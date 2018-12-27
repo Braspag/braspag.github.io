@@ -163,7 +163,6 @@ x-www-form-urlencoded
 | `Notification.Headers[].Key`       | Chave de autenticação do endpoint de notificação do status da antecipação.               | String  | -          | Sim         |
 | `Notification.Headers[].Value`     | Valor de autenticação do endpoint de notificação do status da antecipação.               | String  | -          | Sim         |
 
-
 Para consultar várias antecipações poderá ser utilizado como filtro o PaymentDate e o MerchantId para qual a antecipação foi solicitada.
 
 #### Request
@@ -227,12 +226,11 @@ x-www-form-urlencoded
 }
 ```
 
-| Parâmetro                  | Descrição                                                                            | Tipo    | Formato    | Obrigatório |
-|----------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
-| `PageIndex`                | Página a ser consultada.	                                                            | Inteiro | -          | Sim         |
-| `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.                                   | Inteiro | -          | Sim         |
-| `PageCount`                | Quantidade de páginas                                                                | Inteiro | -          | Sim         |
-
+| Parâmetro                  | Descrição                                                     | Tipo    | Formato    | Obrigatório |
+|----------------------------|--------------------------------------------------------------------------------------|-------------|
+| `PageIndex`                | Página a ser consultada.                                      | Inteiro | -          | Sim         |
+| `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.            | Inteiro | -          | Sim         |
+| `PageCount`                | Quantidade de páginas                                         | Inteiro | -          | Sim         |
 
 ## Agenda Financeira
 
