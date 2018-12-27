@@ -174,6 +174,8 @@ x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
+#### Response
+
 ```json
 -- "200 OK"
 {
