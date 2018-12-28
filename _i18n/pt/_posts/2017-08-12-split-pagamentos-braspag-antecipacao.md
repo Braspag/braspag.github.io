@@ -50,7 +50,7 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-    "ScheduleToAnticipate": "Parcial",
+    "ScheduleToAnticipate": "Partial",
     "AmountToAnticipate": 5567890,
     "MerchantId": "0a757dc0-836f-4fdd-9220-8098b415ee03",
     "MasterCdiPercent": 187.00,
@@ -67,8 +67,8 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
 
 | Parâmetro                              | Descrição                                                                               | Tipo    | Formato    | Obrigatório |
 |----------------------------------------|-----------------------------------------------------------------------------------------|---------|------------|-------------|
-| `ScheduleToAnticipate`                 | Parte da agenda a ser antecipada [Parcial - Total].                                     | String  | -          | Sim         |
-| `AmountToAnticipate`                   | Valor, em centavos, que deseja antecipar. Obrigatório se ScheduleToAnticipate = Parcial | Inteiro | -          | Não         |
+| `ScheduleToAnticipate`                 | Parte da agenda a ser antecipada [Partial - Total].                                     | String  | -          | Sim         |
+| `AmountToAnticipate`                   | Valor, em centavos, que deseja antecipar. Obrigatório se ScheduleToAnticipate = Partial | Inteiro | -          | Não         |
 | `MerchantId`                           | Loja para a qual antecipar, podendo ser um Subordinado ou Master                        | Guid    | 36         | Sim         |
 | `MasterCdiPercent`                     | Percentual CDI cobrado pelo Master. Obrigatório se MerchantId for um Subordinado        | Decimal | -          | Não         |
 | `PaymentDate`                          | Data que se deseja antecipar, deve ser maior que data da solicitação + 2 dias úteis     | Date    | YYYY-MM-DD | Sim         |
@@ -83,7 +83,7 @@ Como Master, é possível antecipar os recebíveis de um subordinado e informar 
 {
     "Id": "1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D",
     "Status": "Created",
-    "ScheduleToAnticipate": "Parcial",
+    "ScheduleToAnticipate": "Partial",
     "AmountToAnticipate": 5567890,
     "MerchantId": "0a757dc0-836f-4fdd-9220-8098b415ee03",
     "MasterCdiPercent": 187.00,
@@ -123,7 +123,7 @@ x-www-form-urlencoded
 {
     "Id": "1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D",
     "Status": "Processed",
-    "ScheduleToAnticipate": "Parcial",
+    "ScheduleToAnticipate": "Partial",
     "AmountToAnticipate": 5567890,
     "MerchantId": "0a757dc0-836f-4fdd-9220-8098b415ee03",
     "MasterCdiPercent": 187.00,
@@ -148,8 +148,8 @@ x-www-form-urlencoded
 |------------------------------------|------------------------------------------------------------------------------------------|---------|------------|-------------|
 | `Id`                               | Identificador da antecipação.                                                            | Guid    | 36         | Sim         |
 | `Status`                           | Status da antecipação. [Created - InAnalysis - Approved - Reproved - Processed].         | String  | -          | Sim         |
-| `ScheduleToAnticipate`             | Parte da agenda a ser antecipada [Parcial - Total].                                      | String  | -          | Sim         |
-| `AmountToAnticipate`               | Valor, em centavos, que deseja antecipar. Obrigatório se ScheduleToAnticipate = Parcial. | Inteiro | -          | Não         |
+| `ScheduleToAnticipate`             | Parte da agenda a ser antecipada [Partial - Total].                                      | String  | -          | Sim         |
+| `AmountToAnticipate`               | Valor, em centavos, que deseja antecipar. Obrigatório se ScheduleToAnticipate = Partial. | Inteiro | -          | Não         |
 | `MerchantId`                       | Loja para a qual antecipar, podendo ser um Subordinado ou Master.                        | Guid    | 36         | Sim         |
 | `MasterCdiPercent`                 | Percentual CDI cobrado pelo Master. Obrigatório se MerchantId for um Subordinado.        | Decimal | -          | Não         |
 | `MasterAnticipationRate`           | Taxa efetiva da antecipação do Master (Se Status for Approved | Processed).              | Decimal | -          | Não         |
@@ -185,7 +185,7 @@ x-www-form-urlencoded
     "Anticipations": [{
         "Id": "1CC958F0-B02B-4F66-B5B1-F857AEF4BE1D",
         "Status": "Processed",
-        "ScheduleToAnticipate": "Parcial",
+        "ScheduleToAnticipate": "Partial",
         "AmountToAnticipate": 5567890,
         "MerchantId": "0a757dc0-836f-4fdd-9220-8098b415ee03",
         "MasterCdiPercent": 187.00,
