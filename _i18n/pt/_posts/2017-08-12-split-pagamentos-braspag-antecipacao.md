@@ -31,7 +31,7 @@ A antecipação dos recebíveis de vendas no Split é baseada nas seguintes regr
 * O percentual informado no momento da solicitação só é aplicável quando o Master está solicitando a antecipação para um dos seus subordinados. A Braspag irá desconsiderar este percentual caso a antecipação seja para o próprio Master.
 * A solicitação de antecipação não é aceita imediatamente. A mesma é recebida, analisada e poderá ser aceita ou recusada.
 * Ao realizar a antecipação de recebíveis de uma data, são antecipados tanto os créditos quanto os débitos.
-* A data a receber os valores referentes à antecipação deverá ser maior ou igual a data da solicitação acrescida em 3 dias.
+* A data a receber os valores referentes à antecipação deverá ser maior ou igual a data da solicitação acrescida em 2 dias úteis.
 
 ![StateDiagramAnticipation](https://braspag.github.io/images/braspag/split/state-diagram-anticipation.png)
 
