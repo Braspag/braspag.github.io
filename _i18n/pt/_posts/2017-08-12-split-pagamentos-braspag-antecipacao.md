@@ -131,8 +131,8 @@ x-www-form-urlencoded
     "BraspagCdiPercent": 128.00,
     "BraspagAnticipationRate": 0.68,
     "PaymentDate": "2018-12-28",
-    "AnticipatedScheduledAmount": 5067890,
-    "AnticipatedAmount": 5567890,
+    "AnticipatedGrossAmount": 5867890,
+    "AnticipatedNetAmount": 5567890,
     "MasterComissionAmount": 125470,
     "Notification": {
         "Url": "https://mynotification.com.br/notification",
@@ -155,8 +155,8 @@ x-www-form-urlencoded
 | `MasterAnticipationRate`           | Taxa efetiva da antecipação do Master (Se Status for Approved | Processed).              | Decimal | -          | Não         |
 | `BraspagCdiPercent`                | Percentual do CDI cobrado pela Braspag (Se Status for Approved | Processed).             | Decimal | -          | Não         |
 | `BraspagAnticipationRate`          | Taxa efetiva da antecipação da Braspag (Se Status for Approved | Processed).             | Decimal | -          | Não         |
-| `AnticipatedScheduledAmount`       | Valor da agenda antecipada (Se Status for  Processed).                                   | Decimal | -          | Não         |
-| `AnticipatedAmount`                | Valor antecipado após processamento (Se Status for  Processed).                          | Decimal | -          | Não         |
+| `AnticipatedGrossAmount`           | Valor da agenda antecipada (Se Status for  Processed).                                   | Decimal | -          | Não         |
+| `AnticipatedNetAmount`             | Valor antecipado após processamento (Se Status for  Processed).                          | Decimal | -          | Não         |
 | `MasterComissionAmount`            | Valor de comissão do master após processamento (Se Status for  Processed).               | Decimal | -          | Não         |
 | `PaymentDate`                      | Data que se deseja antecipar, deve ser maior que data da solicitação + 2 dias úteis.     | Date    | YYYY-MM-DD | Sim         |
 | `Notification.Url`                 | Url que receberá a notificação sobre a mudança de status da antecipação.                 | String  | -          | Sim         |
@@ -193,8 +193,8 @@ x-www-form-urlencoded
         "BraspagCdiPercent": 128.00,
         "BraspagAnticipationRate": 0.68,
         "PaymentDate": "2018-12-28",
-        "AnticipatedScheduledAmount": 5367890,
-        "AnticipatedAmount": 5567890,
+        "AnticipatedGrossAmount": 5867890,
+        "AnticipatedNetAmount": 5567890,
         "MasterComissionAmount": 125470,
         "Notification": {
             "Url": "https://mynotification.com.br/notification",
@@ -214,8 +214,8 @@ x-www-form-urlencoded
         "BraspagCdiPercent": 143.00,
         "BraspagAnticipationRate": 0.70,
         "PaymentDate": "2018-12-28",
-        "AnticipatedScheduledAmount": 58678,
-        "AnticipatedAmount": 59678,
+        "AnticipatedGrossAmount": 58778,
+        "AnticipatedNetAmount": 55678,
         "MasterComissionAmount": 8953,
         "Notification": {
             "Url": "https://mynotification.com.br/notification",
