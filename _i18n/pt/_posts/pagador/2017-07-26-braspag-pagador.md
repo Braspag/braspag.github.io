@@ -287,8 +287,8 @@ curl
 |`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo que será gravado o Dado Extra|
 |`Payment.Credentials.Code`|Texto|100|Sim|afiliação gerada pela adquirente|
 |`Payment.Credentials.Key`|Texto|100|Sim|chave de afiliação/token gerado pela adquirente|
-|`Payment.Credentials.Username`|Texto|50|Não|usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
-|`Payment.Credentials.Password`|Texto|50|Não|senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
+|`Payment.Credentials.Username`|Texto|50|Não|usuário gerado no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet)|
+|`Payment.Credentials.Password`|Texto|50|Não|senha gerada no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet)|
 |`Payment.Credentials.Signature`|Texto|3|Não|Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001|
 |`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
