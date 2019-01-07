@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-01-04T17:48:09+00:00</updated>
+    <updated>2019-01-07T17:26:09+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -18345,6 +18345,10 @@ curl
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h3 id=&quot;conciliação-de-boletos&quot;&gt;Conciliação de Boletos&lt;/h3&gt;
+
+&lt;p&gt;Para atualizar o status de um Boleto para Pago, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-&quot;&gt;aqui&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;tabela-de-especificação-de-quantidade-de-caracteres-do-campo-por-provider&quot;&gt;Tabela de Especificação de quantidade de caracteres do campo por Provider&lt;/h3&gt;
 
