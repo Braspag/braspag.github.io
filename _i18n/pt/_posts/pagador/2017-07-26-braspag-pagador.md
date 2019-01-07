@@ -2253,6 +2253,10 @@ curl
 |`Payment.Credentials.Code`|Texto |26 |Sim|Código do Site informado pelo Itaú. Ex.: J0557282240001060000017945|
 |`Payment.Credentials.Signature`|Texto |36 |Sim|Chave de Segurança informada pelo Itaú. Ex.: 1nomedaloja01091952|
 
+### Conciliação de Boletos
+
+Para atualizar o status de um Boleto para Pago, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito [aqui](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-)
+
 ### Tabela de Especificação de quantidade de caracteres do campo por Provider
 
 | Propriedade | Bradesco | BancoBanco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
