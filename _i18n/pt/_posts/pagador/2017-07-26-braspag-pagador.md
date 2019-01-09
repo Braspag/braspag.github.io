@@ -140,6 +140,7 @@ Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliaçõ
       "Authenticate":false,
       "Recurrent":false,
       "SoftDescriptor":"Mensagem",
+      "DoSplit":false,
       "CreditCard":{  
          "CardNumber":"4551870000000181",
          "Holder":"Nome do Portador",
@@ -216,6 +217,7 @@ curl
       "Authenticate":false,
       "Recurrent":false,
       "SoftDescriptor":"Mensagem",
+      "DoSplit":false,
       "CreditCard":{  
          "CardNumber":"4551870000000181",
          "Holder":"Nome do Portador",
@@ -283,6 +285,7 @@ curl
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Booleano que indica se a transação deve ser autenticada (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
 |`Payment.Recurrent`|Booleano|---|Não (Default false)|Booleano que indica se a transação é do tipo recorrente (true) ou não (false). Este com valor true não originará uma nova Recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações Cielo. Authenticate deve ser false quando Recurrent é true|
 |`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador|
+|`Payment.DoSplit`|Booleano|---|Não (Default false)|Booleano que indica se a transação será dividida entre várias contas (true) ou não (false)|
 |`Payment.ExtraDataCollection.Name`|Texto|50|Não|Nome do campo que será gravado o Dado Extra|
 |`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo que será gravado o Dado Extra|
 |`Payment.Credentials.Code`|Texto|100|Sim|afiliação gerada pela adquirente|
@@ -337,6 +340,7 @@ curl
         "Capture": true,
         "Authenticate": false,
         "Recurrent": false,
+        "DoSplit":false,
         "CreditCard": {
             "CardNumber": "455187******0181",
             "Holder": "Nome do Portador",
@@ -434,6 +438,7 @@ curl
         "Capture": true,
         "Authenticate": false,
         "Recurrent": false,
+        "DoSplit":false,
         "CreditCard": {
             "CardNumber": "455187******0181",
             "Holder": "Nome do Portador",
@@ -6217,6 +6222,129 @@ Se você não completar essa seção, você não receberá resultados corretos, 
 
 **Baixando o SDK**
 Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br/> [Download Deviceprint SDK iOS]({{ site.baseurl_root }}/files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip) <br/> [Download Deviceprint SDK Android]({{ site.baseurl_root }}/files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip)
+
+
+
+# Pagamentos com Split de Pagamento
+
+É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial. 
+
+## Requisição
+
+Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro `Payment.DoSplit` como _true_ e adicionar o nó `Payment.SplitPayments` conforme exemplo:
+
+```json
+{  
+   [...]
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "DoSplit":false,
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "SplitPayments":[  
+         {  
+            "SubordinateMerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+            "Amount":6000,
+            "Fares":{  
+               "Mdr":5,
+               "Fee":30
+            }
+         },
+         {  
+            "SubordinateMerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+            "Amount":4000,
+            "Fares":{  
+               "Mdr":4,
+               "Fee":15
+            }
+         }
+      ]
+   [...]
+   }
+}
+```
+
+```shell
+
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+
+{  
+   [...]
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "DoSplit":true,
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "SplitPayments":[  
+         {  
+            "SubordinateMerchantId":"7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+            "Amount":6000,
+            "Fares":{  
+               "Mdr":5,
+               "Fee":30
+            }
+         },
+         {  
+            "SubordinateMerchantId":"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+            "Amount":4000,
+            "Fares":{  
+               "Mdr":4,
+               "Fee":15
+            }
+         }
+      ]
+   [...]
+   }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`Payment.DoSplit`|Booleano|---|Não (Default false)|Booleano que indica se a transação será dividida entre várias contas (true) ou não (false)|
+|`SplitPayments.SubordinateMerchantId`|Guid|36|Sim|Identificador do Seller na Braspag|
+|`SplitPayments.Amount`|Número|15|Sim|Total da venda do Seller específico. R$ 10,00 = 1000|
+|`SplitPayments.Fares.Mdr`|Decimal|3,2|Sim|Taxa aplicada pela loja Master sobre o Seller para desconto|
+|`SplitPayments.Fares.Fee`|Número|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto
 
 # Consultas
 
