@@ -6248,7 +6248,7 @@ Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro `Pa
       "Authenticate":false,
       "Recurrent":false,
       "SoftDescriptor":"Mensagem",
-      "DoSplit":false,
+      "DoSplit":true,
       "CreditCard":{  
          "CardNumber":"4551870000000181",
          "Holder":"Nome do Portador",
@@ -6344,7 +6344,174 @@ curl
 |`SplitPayments.SubordinateMerchantId`|Guid|36|Sim|Identificador do Seller na Braspag|
 |`SplitPayments.Amount`|Número|15|Sim|Total da venda do Seller específico. R$ 10,00 = 1000|
 |`SplitPayments.Fares.Mdr`|Decimal|3,2|Sim|Taxa aplicada pela loja Master sobre o Seller para desconto|
-|`SplitPayments.Fares.Fee`|Número|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto
+|`SplitPayments.Fares.Fee`|Número|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto|
+
+## Resposta
+
+```
+{
+[...]
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 6000,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 5670
+                    },
+                    {
+                        "MerchantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                        "Amount": 330
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 4000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 3825
+                    },
+                    {
+                        "MerchantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                        "Amount": 175
+                    }
+                ]
+            }
+        ],
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "DoSplit":true,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1210031135775",
+        "ProofOfSale": "20171210031135775",
+        "AuthorizationCode": "605861",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-10 15:11:34",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-10 15:11:35",
+        "Status": 2,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "ef7a7cf9-b66b-4772-b022-052bdcf3e9b0",
+        "Currency": "BRL",
+        "Country": "BRA",
+        [...]
+    }
+}
+```
+
+```shell
+
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+
+{
+[...]
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 6000,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 5670
+                    },
+                    {
+                        "MerchantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                        "Amount": 330
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 4000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 3825
+                    },
+                    {
+                        "MerchantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                        "Amount": 175
+                    }
+                ]
+            }
+        ],
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "DoSplit":true,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1210031135775",
+        "ProofOfSale": "20171210031135775",
+        "AuthorizationCode": "605861",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-10 15:11:34",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-10 15:11:35",
+        "Status": 2,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "ef7a7cf9-b66b-4772-b022-052bdcf3e9b0",
+        "Currency": "BRL",
+        "Country": "BRA",
+        [...]
+    }
+}
+```
 
 # Consultas
 
