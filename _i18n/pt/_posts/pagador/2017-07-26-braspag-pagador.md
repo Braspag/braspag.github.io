@@ -6510,6 +6510,10 @@ curl
     }
 }
 ```
+|Propriedade|Tipo|Tamanho|Descrição|
+|-----------|----|-------|---------|
+|`SplitPayments.Splits.MerchantId`|Guid|36|Identificador das lojas Master e seller na Braspag|
+|`SplitPayments.Splits.Amount`|Número|15|Valor líquido da venda proporcional ao Master e ao seller|
 
 # Consultas
 
