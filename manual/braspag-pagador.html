@@ -11733,6 +11733,10 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 <p>É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial.</p>
 
+<p>Para conhecer mais sobre o Split, entender o relacionamento entre Loja Master e Loja subordinada etc, leia a <a href="https://braspag.github.io//manual/split-pagamentos-braspag#introdu%C3%A7%C3%A3o">documentação Split</a></p>
+
+<aside class="notice">Embora não seja necessário integrar-se com a API 3.0 da Cielo, é mandatório uma afiliação à Cielo para transacionar com o Split através do Pagador.</aside>
+
 <h2 id="requisição-37">Requisição</h2>
 
 <p>Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro <code class="highlighter-rouge">Payment.DoSplit</code> como <em>true</em> e adicionar o nó <code class="highlighter-rouge">Payment.SplitPayments</code> conforme exemplo:</p>
@@ -12052,7 +12056,33 @@ curl
         <span class="o">[</span>...]
     <span class="o">}</span>
 <span class="o">}</span>
+
 </code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Splits.MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Identificador das lojas Master e seller na Braspag</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Splits.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Valor líquido da venda proporcional ao Master e ao seller após a aplicação de taxas e tarifas</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="consultas">Consultas</h1>
 

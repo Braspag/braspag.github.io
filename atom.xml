@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-01-09T19:55:04+00:00</updated>
+    <updated>2019-01-10T13:14:52+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -26135,6 +26135,10 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 &lt;p&gt;É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial.&lt;/p&gt;
 
+&lt;p&gt;Para conhecer mais sobre o Split, entender o relacionamento entre Loja Master e Loja subordinada etc, leia a &lt;a href=&quot;https://braspag.github.io//manual/split-pagamentos-braspag#introdu%C3%A7%C3%A3o&quot;&gt;documentação Split&lt;/a&gt;&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Embora não seja necessário integrar-se com a API 3.0 da Cielo, é mandatório uma afiliação à Cielo para transacionar com o Split através do Pagador.&lt;/aside&gt;
+
 &lt;h2 id=&quot;requisição-37&quot;&gt;Requisição&lt;/h2&gt;
 
 &lt;p&gt;Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.DoSplit&lt;/code&gt; como &lt;em&gt;true&lt;/em&gt; e adicionar o nó &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.SplitPayments&lt;/code&gt; conforme exemplo:&lt;/p&gt;
@@ -26454,7 +26458,33 @@ curl
         &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;...]
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitPayments.Splits.MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Identificador das lojas Master e seller na Braspag&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitPayments.Splits.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Valor líquido da venda proporcional ao Master e ao seller após a aplicação de taxas e tarifas&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h1 id=&quot;consultas&quot;&gt;Consultas&lt;/h1&gt;
 
