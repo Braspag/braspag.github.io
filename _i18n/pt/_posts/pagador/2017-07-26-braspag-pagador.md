@@ -6225,7 +6225,11 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 # Pagamentos com Split de Pagamento
 
-É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial. 
+É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial.
+
+Para conhecer mais sobre o Split, entender o relacionamento entre Loja Master e Loja subordinada etc, leia a [documentação Split](https://braspag.github.io//manual/split-pagamentos-braspag#introdu%C3%A7%C3%A3o)
+
+<aside class="notice">Embora não seja necessário integrar-se com a API 3.0 da Cielo, é mandatório uma afiliação à Cielo para transacionar com o Split através do Pagador.</aside>
 
 ## Requisição
 
