@@ -6513,7 +6513,9 @@ curl
         [...]
     }
 }
+
 ```
+
 |Propriedade|Tipo|Tamanho|Descrição|
 |-----------|----|-------|---------|
 |`SplitPayments.Splits.MerchantId`|Guid|36|Identificador das lojas Master e seller na Braspag|
