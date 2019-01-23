@@ -5757,7 +5757,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AdditionalData.EphemeralPublicKey</code></td>
-      <td>Token retornado pela Wallet. Deve ser enviado em Integrações: <code class="highlighter-rouge">ApplePay</code>/ <code class="highlighter-rouge">AndroidPay</code></td>
+      <td>Token retornado pela Wallet. Deve ser enviado em Integrações: <code class="highlighter-rouge">ApplePay</code></td>
       <td>Texto</td>
       <td>–</td>
       <td>Ver Tabela <code class="highlighter-rouge">EphemeralPublicKey</code></td>
@@ -5768,6 +5768,13 @@ HTTP Status 200
       <td>Texto</td>
       <td>–</td>
       <td>3</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Wallet.AdditionalData.Signature</code></td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Sim</td>
+      <td>Token retornado pela Wallet. Deve ser enviado em Integrações: <code class="highlighter-rouge">AndroidPay</code></td>
     </tr>
   </tbody>
 </table>
@@ -6549,11 +6556,11 @@ HTTP Status 200
       <td>Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Wallet.AdditionalData.EphemeralPublicKey</code></td>
+      <td><code class="highlighter-rouge">Wallet.AdditionalData.Signature</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
-      <td>Token retornado pela Wallet. Deve ser enviado em Integrações: <code class="highlighter-rouge">ApplePay</code>/ <code class="highlighter-rouge">AndroidPay</code></td>
+      <td>Token retornado pela Wallet. Deve ser enviado em Integrações: <code class="highlighter-rouge">AndroidPay</code></td>
     </tr>
   </tbody>
 </table>
@@ -6584,10 +6591,10 @@ HTTP Status 200
         </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"027795"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AndroidPay"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"En6NrAzy/V9l7U9FukJTlOkXLx8lsHJ9Lp3aO16WbZuXX+dHI6fy3G8PES5Leu63x+ZSAKQTQxJC/+hFCU3N3Vzl2Eo0bhQDv9pZwU9oghS1rx0QlqNPslspQ8ufTqfDDg2IlsVh7ANh8BXC1pi4YzhUXhAB5J2xSu7ivJwWL4/9FVJ2u0mZIK6QHtuGJXdvol54HtNn9Cik9IA7xeh/gutJ/z9K8rVk1KrCBSSTE1cgxbUbpBp535IXsP//okqXIf7qlTi/sUkfIjXVWLPVP/JPcm+MHE0s/37aVyprz0xfkJjHkUExsJ2h1v7LU5nnK7uYmyUdEI42wUuzfGkwvjvfS3xllxGwqy3Of4ts5mkPLNXdLnPNGvP8RE4uYyrQM4hXdie3tTPgW6FK5ExDsKyw8Qm0ikvbb4Clo9JvALTjqJkr1VkT20UITdetra/8JUWOX/PbcxDYv2oOPLG9hDumRExuifi04cNtwzFvyFVBnV1SO3GKp+k/gGNDs7EziHNjToEq7JOWoaAlhNEUu2nxQxNiDEaRckgYd5A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"EphemeralPublicKey"</span><span class="p">:</span><span class="s2">"BG9mGFe2/kSo6PJDEoO5bRXRS4RKQ4b3jikXio0FUhZPqQe5f6SMlZQI3sfyiKteM0PRSeNDnQQ10XYeobN9avM="</span><span class="w">
+                </span><span class="s2">"Signature"</span><span class="p">:</span><span class="s2">"MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
