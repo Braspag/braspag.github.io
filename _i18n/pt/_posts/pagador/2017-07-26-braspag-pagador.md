@@ -3118,7 +3118,7 @@ Exemplo de Requisição padrão *Apple Pay*
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
 | `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
 | `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações       |
-| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
+| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                         |
 
 ##### Resposta
 
