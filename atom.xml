@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-01-24T20:23:18+00:00</updated>
+    <updated>2019-01-24T20:37:04+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9425,7 +9425,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;h1 id=&quot;consultas&quot;&gt;Consultas&lt;/h1&gt;
 
-&lt;h2 id=&quot;consultando-uma-transação&quot;&gt;Consultando uma transação&lt;/h2&gt;
+&lt;h2 id=&quot;consultando-chargebacks&quot;&gt;Consultando chargeback(s)&lt;/h2&gt;
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
@@ -9487,8 +9487,8 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
       &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AcquirerTransactionId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da transação na adquirente (TID)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Tid&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da transação na adquirente&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -9728,12 +9728,12 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Transaction.ProviderChargebackMarkingEvent.Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Status do evento de marcação da transação que chargeback. Apenas Cybersource - &lt;a href=&quot;https://braspag.github.io/manual/chargeback#tabela-4-transaction.providerchargebackmarkingevent.status&quot;&gt;Tabela 4&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Status do evento de marcação da transação que chargeback. Apenas Cybersource - &lt;a href=&quot;https://braspag.github.io/manual/chargeback#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status&quot;&gt;Tabela 4&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Transaction.ProviderChargebackMarkingEvent.Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - &lt;a href=&quot;https://braspag.github.io/manual/chargeback#tabela-5-transaction.providerchargebackmarkingevent.code&quot;&gt;Tabela 5&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - &lt;a href=&quot;https://braspag.github.io/manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code&quot;&gt;Tabela 5&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -9762,7 +9762,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
 
 &lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;consultando-uma-transação-inexistente&quot;&gt;Consultando uma transação inexistente&lt;/h2&gt;
+&lt;h2 id=&quot;consultando-chargebacks-1&quot;&gt;Consultando chargeback(s)&lt;/h2&gt;
 
 &lt;h3 id=&quot;request-3&quot;&gt;Request&lt;/h3&gt;
 
@@ -10346,7 +10346,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;NotFound&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transação na encontrada na base de dados para os valores enviados nos campos do nó &lt;code class=&quot;highlighter-rouge&quot;&gt;Transaction&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -10378,7 +10378,7 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-4---transactionproviderchargebackmarkingeventstatus&quot;&gt;Tabela 4 - Transaction.ProviderChargebackMarkingEvent.Status&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-4---chargebacksntransactionproviderchargebackmarkingeventstatus&quot;&gt;Tabela 4 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -10391,18 +10391,18 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;ACCEPT&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transação aceita no provedor&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Marcação de chargeback aceita no provedor&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;REJECT&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transação rejeitada no provedor&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Marcação de chargeback rejeitada no provedor&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybesource&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-5---transactionproviderchargebackmarkingeventcode&quot;&gt;Tabela 5 - Transaction.ProviderChargebackMarkingEvent.Code&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-5---chargebacksntransactionproviderchargebackmarkingeventcode&quot;&gt;Tabela 5 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Code&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -10420,17 +10420,17 @@ Caso tenham alguma dúvida se uma situação é um desvio aos preceitos estabele
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;150&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Erro interno &lt;br /&gt; Possível ação: Aguarde alguns minutos e tente reenviar a transação&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Erro interno &lt;br /&gt; Possível ação: Aguarde alguns minutos e tente reenviar a marcação de chargeback&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;151&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;A transação foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor &lt;br /&gt; Possível ação: Aguarde alguns minutos e tente reenviar a transação&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;A marcação de chargeback foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor &lt;br /&gt; Possível ação: Aguarde alguns minutos e tente reenviar&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;152&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;O pedido foi recebido, mas ocorreu time-out &lt;br /&gt; Possível ação: Aguarde alguns minutos e tente reenviar a transação&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;A marcação de chargeback foi recebida, mas ocorreu time-out &lt;br /&gt; Possível ação: Aguarde alguns minutos e tente reenviar&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;

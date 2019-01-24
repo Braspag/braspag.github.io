@@ -741,7 +741,7 @@
 
 <h1 id="consultas">Consultas</h1>
 
-<h2 id="consultando-uma-transação">Consultando uma transação</h2>
+<h2 id="consultando-chargebacks">Consultando chargeback(s)</h2>
 
 <h3 id="request-2">Request</h3>
 
@@ -803,8 +803,8 @@
       <td style="text-align: center">não</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">AcquirerTransactionId</code></td>
-      <td style="text-align: left">Identificador da transação na adquirente (TID)</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Tid</code></td>
+      <td style="text-align: left">Identificador da transação na adquirente</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
@@ -1044,12 +1044,12 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Status</code></td>
-      <td style="text-align: left">Status do evento de marcação da transação que chargeback. Apenas Cybersource - <a href="https://braspag.github.io/manual/chargeback#tabela-4-transaction.providerchargebackmarkingevent.status">Tabela 4</a></td>
+      <td style="text-align: left">Status do evento de marcação da transação que chargeback. Apenas Cybersource - <a href="https://braspag.github.io/manual/chargeback#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status">Tabela 4</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Code</code></td>
-      <td style="text-align: left">Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - <a href="https://braspag.github.io/manual/chargeback#tabela-5-transaction.providerchargebackmarkingevent.code">Tabela 5</a></td>
+      <td style="text-align: left">Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - <a href="https://braspag.github.io/manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code">Tabela 5</a></td>
       <td style="text-align: center">string</td>
     </tr>
   </tbody>
@@ -1078,7 +1078,7 @@
 
 <p><strong>Parâmetros no corpo (Body)</strong></p>
 
-<h2 id="consultando-uma-transação-inexistente">Consultando uma transação inexistente</h2>
+<h2 id="consultando-chargebacks-1">Consultando chargeback(s)</h2>
 
 <h3 id="request-3">Request</h3>
 
@@ -1662,7 +1662,7 @@
     </tr>
     <tr>
       <td style="text-align: left">NotFound</td>
-      <td style="text-align: left">Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction</td>
+      <td style="text-align: left">Transação na encontrada na base de dados para os valores enviados nos campos do nó <code class="highlighter-rouge">Transaction</code></td>
     </tr>
   </tbody>
 </table>
@@ -1694,7 +1694,7 @@
   </tbody>
 </table>
 
-<h2 id="tabela-4---transactionproviderchargebackmarkingeventstatus">Tabela 4 - Transaction.ProviderChargebackMarkingEvent.Status</h2>
+<h2 id="tabela-4---chargebacksntransactionproviderchargebackmarkingeventstatus">Tabela 4 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status</h2>
 
 <table>
   <thead>
@@ -1707,18 +1707,18 @@
   <tbody>
     <tr>
       <td style="text-align: left">ACCEPT</td>
-      <td style="text-align: left">Transação aceita no provedor</td>
+      <td style="text-align: left">Marcação de chargeback aceita no provedor</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">REJECT</td>
-      <td style="text-align: left">Transação rejeitada no provedor</td>
+      <td style="text-align: left">Marcação de chargeback rejeitada no provedor</td>
       <td style="text-align: left">Cybesource</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="tabela-5---transactionproviderchargebackmarkingeventcode">Tabela 5 - Transaction.ProviderChargebackMarkingEvent.Code</h2>
+<h2 id="tabela-5---chargebacksntransactionproviderchargebackmarkingeventcode">Tabela 5 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Code</h2>
 
 <table>
   <thead>
@@ -1736,17 +1736,17 @@
     </tr>
     <tr>
       <td style="text-align: left">150</td>
-      <td style="text-align: left">Erro interno <br /> Possível ação: Aguarde alguns minutos e tente reenviar a transação</td>
+      <td style="text-align: left">Erro interno <br /> Possível ação: Aguarde alguns minutos e tente reenviar a marcação de chargeback</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">151</td>
-      <td style="text-align: left">A transação foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br /> Possível ação: Aguarde alguns minutos e tente reenviar a transação</td>
+      <td style="text-align: left">A marcação de chargeback foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br /> Possível ação: Aguarde alguns minutos e tente reenviar</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">152</td>
-      <td style="text-align: left">O pedido foi recebido, mas ocorreu time-out <br /> Possível ação: Aguarde alguns minutos e tente reenviar a transação</td>
+      <td style="text-align: left">A marcação de chargeback foi recebida, mas ocorreu time-out <br /> Possível ação: Aguarde alguns minutos e tente reenviar</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
