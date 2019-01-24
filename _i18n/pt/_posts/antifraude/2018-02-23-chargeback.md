@@ -305,7 +305,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 # Consultas
 
-## Consultando uma transação
+## Consultando chargeback(s)
 
 ### Request
 
@@ -325,7 +325,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso relacionado ao chargeback|não|
-|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
+|`Tid`|Identificador da transação na adquirente|não|
 |`BraspagTransactionId`|Identificador da transação na Braspag|não|
 |`StartDate`|Data início da consulta|não|
 |`EndDate`|Data fim da consulta|não|
@@ -429,7 +429,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 **Parâmetros no corpo (Body)**
 
-## Consultando uma transação inexistente
+## Consultando chargeback(s)
 
 ### Request
 
@@ -648,7 +648,7 @@ Possíveis retornos do chargeback enviado.
 |:-|:-|
 |AlreadyExist|Transação já marcada com chargeback anteriormente|
 |Remand|Chargeback deverá ser reenviado|
-|NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó Transaction|
+|NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó `Transaction`|
 
 ## Tabela 3 - Chargebacks[n].Status
 
@@ -664,17 +664,17 @@ Possíveis valores do chargeback.
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
-|ACCEPT|Transação aceita no provedor|Cybersource|
-|REJECT|Transação rejeitada no provedor|Cybesource|
+|ACCEPT|Marcação de chargeback aceita no provedor|Cybersource|
+|REJECT|Marcação de chargeback rejeitada no provedor|Cybesource|
 
 ## Tabela 5 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Code
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |100|Operação realizada com sucesso|Cybersource|
-|150|Erro interno <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
-|151|A transação foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
-|152|O pedido foi recebido, mas ocorreu time-out <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|Cybersource|
+|150|Erro interno <br/> Possível ação: Aguarde alguns minutos e tente reenviar a marcação de chargeback|Cybersource|
+|151|A marcação de chargeback foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br/> Possível ação: Aguarde alguns minutos e tente reenviar|Cybersource|
+|152|A marcação de chargeback foi recebida, mas ocorreu time-out <br/> Possível ação: Aguarde alguns minutos e tente reenviar|Cybersource|
 |234|Problema com a configuração da loja na Cybersource <br/> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração|Cybersource|
 
 ## Tabela 6 - Chargebacks[n].Transaction.AntifraudSourceApplication
