@@ -351,11 +351,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
             "ReasonMessage": "Consumidor nao reconhece a compra",
             "Status": "Received",
             "Comment": "Cliente enviou documentos inválidos",
-            "AcquirerType": "Cielo",
             "IsFraud": true,
-            "ProviderChargebackEventId": "5446495589216876903021",
-            "ProviderStatus": "ACCEPT",
-            "ProviderCode": "100",
             "Transaction":
             {
                 "AcquirerType": "Cielo",
@@ -367,7 +363,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
                 "SaleDate": "2018-08-15",
                 "PagadorMerchantId": "a1052460-92b2-49c3-a929-fc985df0ba2f",
                 "BraspagTransactionId": "bb33b5c5-82fe-4254-9f1d-b9c97297b0d5",
-                "Amount": "10000",
+                "Amount": 10000,
                 "CardHolder": "JOAO D COUVES",
                 "MaskedCardNumber": "453906******8385",
                 "Brand": "Visa",
@@ -375,7 +371,15 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
                 "AntifraudTransactionId": "9f6ec028-b55d-4605-b655-164ce62aeaef",
                 "AntifraudSourceApplication": "Gateway",
                 "ProviderTransactionId": "5446494501496896403073",
-                "NegativeValues": "CustomerDocumentNumber, ShippingStreet"
+                "NegativeValues": [
+                    "CustomerDocumentNumber",
+                    "ShippingStreet"
+                ], 
+                "ProviderChargebackMarkingEvent": {
+                    "Id": "5446495589216876903021",
+                    "Status": "ACCEPT",
+                    "Code": "100",
+                }
             }
         }
     ]
@@ -392,12 +396,8 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`ReasonCode`|Código do motivo do chargeback|string|
 |`ReasonMessage`|Descrição do motivo do chargeback|string|
 |`Status`|Status do charegabck na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/chargeback#tabela-3-chargebacks[n].status)|string|
-|`EstablishmentCode`|Código do estabelecimento|long|
 |`Comment`|Comentário que deseja associar ao chargeback que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
 |`IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|
-|`ProviderChargebackEventId`|Id da transação de marcação de chargeback se transação que sofreu o chargeback for Cybersource|string|
-|`ProviderStatus`|Status da transação de marcação de chargeback se transação que sofreu o chargeback for Cybersource - [Tabela 4]({{ site.baseurl_root }}manual/chargeback#tabela-4-chargebacks[n].providerstatus)|string|
-|`ProviderCode`|Código de retorno da Cybersouce - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-5-chargebacks[n].providercode)|string|
 |`Transaction.AcquirerType`|Identificador da adquirentre|string|
 |`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
 |`Transaction.MerchantOrderId`|Número do pedido da loja|string|
@@ -416,6 +416,9 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6]({{ site.baseurl_root }}manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
 |`Transaction.ProviderTransactionId`|Id da transação no provedor de antifraude|
 |`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1]({{ site.baseurl_root }}manual/chargeback#tabela-1-chargebacks[n].negativevalues)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource|string|
+|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4]({{ site.baseurl_root }}manual/chargeback#tabela-4-transaction.providerchargebackmarkingevent.status)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-5-transaction.providerchargebackmarkingevent.code)|string|
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -657,14 +660,14 @@ Possíveis valores do chargeback.
 |AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa|
 |ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
 
-## Tabela 4 - Chargebacks[n].ProviderStatus
+## Tabela 4 - Transaction.ProviderChargebackMarkingEvent.Status
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |ACCEPT|Transação aceita no provedor|Cybersource|
 |REJECT|Transação rejeitada no provedor|Cybesource|
 
-## Tabela 5 - Chargebacks[n].ProviderCode
+## Tabela 5 - Transaction.ProviderChargebackMarkingEvent.Code
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
