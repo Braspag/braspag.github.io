@@ -417,8 +417,8 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`Transaction.ProviderTransactionId`|Id da transação no provedor de antifraude|
 |`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1]({{ site.baseurl_root }}manual/chargeback#tabela-1-chargebacks[n].negativevalues)|string|
 |`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource|string|
-|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4]({{ site.baseurl_root }}manual/chargeback#tabela-4-transaction.providerchargebackmarkingevent.status)|string|
-|`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-5-transaction.providerchargebackmarkingevent.code)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4]({{ site.baseurl_root }}manual/chargeback#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -660,14 +660,14 @@ Possíveis valores do chargeback.
 |AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa|
 |ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
 
-## Tabela 4 - Transaction.ProviderChargebackMarkingEvent.Status
+## Tabela 4 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |ACCEPT|Transação aceita no provedor|Cybersource|
 |REJECT|Transação rejeitada no provedor|Cybesource|
 
-## Tabela 5 - Transaction.ProviderChargebackMarkingEvent.Code
+## Tabela 5 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Code
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
