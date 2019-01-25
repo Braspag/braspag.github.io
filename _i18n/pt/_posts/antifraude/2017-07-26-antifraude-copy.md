@@ -5,7 +5,6 @@ description: Integração técnica API Antifraude Gateway Braspag
 search: true
 categories: manual
 tags:
-  - Gestão de Risco
 language_tabs:
   json: JSON    
 ---
