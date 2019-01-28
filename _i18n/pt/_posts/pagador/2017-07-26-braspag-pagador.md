@@ -4915,6 +4915,8 @@ curl
       "IdentityType":"CPF",
       "Email":"comprador@braspag.com.br",
       "Birthdate":"1991-01-02",
+      "Phone":"552121114701"
+      "IpAdress":"2481412353"
       "Address":{  
          "Street":"Alameda Xingu",
          "Number":"512",
@@ -5002,15 +5004,7 @@ curl
                   "Risk":"High",
                   "TimeHedge":"Normal",
                   "Type":"AdultContent",
-                  "VelocityHedge":"High",
-                  "Passenger":{  
-                     "Email":"comprador@braspag.com.br",
-                     "Identity":"1234567890",
-                     "Name":"Nome do Comprador",
-                     "Rating":"Adult",
-                     "Phone":"999994444",
-                     "Status":"Accepted"
-                  }
+                  "VelocityHedge":"High"
                }
             ]
          },
@@ -5054,105 +5048,102 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
-|`Customer.Name`|Texto|255|Sim|Nome do comprador|
-|`Customer.Identity`|Texto |14 |Não|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Email`|Texto|255|Não|Email do comprador|
-|`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador no formato AAAA-MM-DD|
-|`Customer.Address.Street`|Texto|255|Não|Endereço de contato do comprador|
-|`Customer.Address.Number`|Texto|15|Não|Número endereço de contato do comprador|
-|`Customer.Address.Complement`|Texto|50|Não|Complemento do endereço de contato do Comprador|
-|`Customer.Address.ZipCode`|Texto|9|Não|CEP do endereço de contato do comprador|
-|`Customer.Address.City`|Texto|50|Não|Cidade do endereço de contato do comprador|
-|`Customer.Address.State`|Texto|2|Não|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Não|Pais do endereço de contato do comprador|
-|`Customer.Address.District`|Texto |50 |Não|Bairro do Comprador. |
-|`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do comprador|
-|`Customer.DeliveryAddress.Number`|Texto|15|Não|Número do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|CEP do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Country`|Texto|35|Não|Pais do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.District`|Texto |50 |Não|Bairro do Comprador. |
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.ServiceTaxAmount`|Número|15|Sim|Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização|
-|`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP)|
-|`Payment.Country`|Texto|3|Não|País na qual o pagamento será feito|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Emissor (ByIssuer)|
-|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.Authenticate`|Booleano|---|Não (Default false)|Booleano que indica se a transação deve ser autenticada (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.Recurrent`|Booleano|---|Não (Default false)|Booleano que indica se a transação é do tipo recorrente (true) ou não (false). Este com valor true não originará uma nova Recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações Cielo. Authenticate deve ser false quando Recurrent é true|
-|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador|
-|`Payment.ExtraDataCollection.Name`|Texto|50|Não|Nome do campo que será gravado o Dado Extra|
-|`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo que será gravado o Dado Extra|
-|`Payment.Credentials.Code`|Texto|100|Sim|afiliação gerada pela adquirente|
-|`Payment.Credentials.Key`|Texto|100|Sim|chave de afiliação/token gerado pela adquirente|
-|`Payment.Credentials.Username`|Texto|50|Não|usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
-|`Payment.Credentials.Password`|Texto|50|Não|senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|
-|`Payment.Credentials.Signature`|Texto|3|Não|Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001|
-|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
-|`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
-|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
-|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
-|`CreditCard.Alias`|Texto|64|Não|Nome atribuído pelo lojista ao cartão salvo como CardToken|
-|`FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst)|
-|`FraudAnalysis.Provider`|Texto|10|Sim|Provedor de antifraude. Enviar: "Cybersource". |
-|`FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo.<BR><UL><LI>OnSuccess - Só realiza a analise se tiver sucesso na transação</LI><LI>Always - Sempre realiza a analise</LI></UL>|
-|`FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado|
-|`FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado. |
-|`FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido|
-|`FraudAnalysis.FingerPrintId`|Texto|50|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/braspag-pagador#configuração-do-fingerprint)|
-|`FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Sim|Booleano para identificar se o browser do cliente aceita cookies|
-|`FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador|
-|`FraudAnalysis.Browser.HostName`|Texto|60|Não|Nome do host onde o comprador estava antes de entrar no site da loja|
-|`FraudAnalysis.Browser.IpAddress`|Texto|15|Sim|Endereço IP do comprador. É altamente recomendável o envio deste campo|
-|`FraudAnalysis.Browser.Type`|Texto|40|Não|Nome do browser utilizado pelo comprador. Ex.: Google Chrome, Mozilla Firefox, Safari, etc. |
-|`FraudAnalysis.Cart.IsGift`|Booleano|---|Não|Booleano que indica se o pedido é para presente ou não|
-|`FraudAnalysis.Cart.ReturnsAccepted`|Booleano|---|Não|Booleano que define se devoluções são aceitas para o pedido|
-|`FraudAnalysis.Items.GiftCategory`|Texto|9|Não|Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.<BR>*"Yes"* (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)<BR>*"No"* (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)<BR>*"Off"* (Ignora a análise de risco para endereços divergentes)|
-|`FraudAnalysis.Items.HostHedge`|Texto||Não|Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. <BR>*"Low"* (Baixa importância do e-mail e endereço IP na análise de risco)<BR>*"Normal"* (Média importância do e-mail e endereço IP na análise de risco)<BR>*"High"* (Alta importância do e-mail e endereço IP na análise de risco)<BR>*"Off"* (E-mail e endereço IP não afetam a análise de risco)|
-|`FraudAnalysis.Items.NonSensicalHedge`|Texto|6|Não|Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. <BR>*"Low"* (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>*"Normal"* (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>*"High"* (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>*"Off"* (Verificação do pedido do comprador não afeta a análise de risco)|
-|`FraudAnalysis.Items.ObscenitiesHedge`|Texto|6|Não|Nível de obscenidade dos pedidos recebedidos. <BR>*"Low"* (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>*"Normal"* (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>*"High"* (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>*"Off"* (Verificação de obscenidade no pedido do comprador não afeta a análise de risco)|
-|`FraudAnalysis.Items.PhoneHedge`|Texto|6|Não|Nível dos testes realizados com os números de telefones. <BR>*"Low"* (Baixa importância nos testes realizados com números de telefone)<BR>*"Normal"* (Média importância nos testes realizados com números de telefone)<BR>*"High"* (Alta importância nos testes realizados com números de telefone)<BR>*"Off"* (Testes de números de telefone não afetam a análise de risco)|
-|`FraudAnalysis.Items.Name`|Texto|255|Sim|Nome do Produto|
-|`FraudAnalysis.Items.Quantity`|Número|15|Sim|Quantidade do produto a ser adquirido|
-|`FraudAnalysis.Items.Sku`|Texto|255|Sim|Código comerciante identificador do produto|
-|`FraudAnalysis.Items.UnitPrice`|Número|15|Sim|Preço unitário do produto|
-|`FraudAnalysis.Items.Risk`|Texto|6|Não|Nível do risco do produto. <BR>Low (O produto tem um histórico de poucos chargebacks)<BR>Normal (O produto tem um histórico de chargebacks considerado normal)<BR>High (O produto tem um histórico de chargebacks acima da média)|
-|`FraudAnalysis.Items.TimeHedge`|Texto||Não|Nível de importância da hora do dia do pedido do cliente. <BR>Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)<BR>Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)<BR>High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)<BR>Off (O horário da compra não afeta a análise de risco)|
-|`FraudAnalysis.Items.Type`|Texto||Não|Tipo do produto. <BR>AdultContent(Conteúdo adulto)<BR>Coupon(Cupon de desconto)<BR>Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)<BR>EletronicGood(Produto eletrônico)<BR>EletronicSoftware(Softwares distribuídos eletronicamente via download)<BR>GiftCertificate(Vale presente)<BR>HandlingOnly(Taxa de instalação ou manuseio)<BR>Service(Serviço)<BR>ShippingAndHandling(Frete e taxa de instalação ou manuseio)<BR>ShippingOnly(Frete)<BR>Subscription(Assinatura)|
-|`FraudAnalysis.Items.VelocityHedge`|Texto|6|Não|Nível de importância de frequência de compra do cliente. <BR>Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)|
-|`FraudAnalysis.Items.Passenger.Email`|Texto|255|Não|Email do Passageiro|
-|`FraudAnalysis.Items.Passenger.Identity`|Texto|32|Não|Id do passageiro a quem o bilheite foi emitido|
-|`FraudAnalysis.Items.Passenger.Name`|Texto|120|Não|Nome do passageiro|
-|`FraudAnalysis.Items.Passenger.Rating`|Texto||Não|Classificação do Passageiro. <BR>Adult (Passageiro adulto)<BR>Child(Passageiro criança)<BR>Infant(Passageiro infantil)<BR>Youth(Passageiro adolescente)<BR>Student(Passageiro estudante)<BR>SeniorCitizen(Passageiro idoso)<BR>Military(Passageiro militar)|
-|`FraudAnalysis.Items.Passenger.Phone`|Texto|15|Não|Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país. 552133665599 (Ex. Código do Pais 55, Código da Cidade 21, Telefone 33665599)|
-|`FraudAnalysis.Items.Passenger.Status`|Texto|32|Não|Classificação da empresa aérea. Pode-se usar valores como Gold ou Platina|
-|`FraudAnalysis.MerchantDefinedFields.Id`|Texto|---|Sim (se aplicável)|Id das informações adicionais a serem enviadas|
-|`FraudAnalysis.MerchantDefinedFields.Value`|Texto|255|Sim (se aplicável)|Valor das informações adicionais a serem enviadas|
-|`FraudAnalysis.Shipping.Addressee`|Texto|255|Não|Nome do destinatário da entrega|
-|`FraudAnalysis.Shipping.Method`|Texto||Não|Tipo de serviço de entrega do produto. <BR>"SameDay" (Serviço de entrega no mesmo dia)<BR>"OneDay" (Serviço de entrega noturna ou no dia seguint)<BR>"TwoDay" (Serviço de entrega em dois dias)<BR>"ThreeDay" (Serviço de entrega em três dias)<BR>"LowCost" (Serviço de entrega de baixo custo)<BR>"Pickup" (Produto retirado na loja)<BR>"Other" (Outro método de entrega)<BR>"None" (Sem serviço de entrega, pois é um serviço ou assinatura)|
-|`FraudAnalysis.Shipping.Phone`|Texto|15|Não|Telefone do destinatário da entrega. Ex. 552133665599 (Código do Pais 55, Código da Cidade 21, Telefone 33665599)|
-|`FraudAnalysis.Travel.JourneyType`|Texto|32|Sim, caso o nó Travel seja enviado. |Tipo de viagem. Ex. Só Ida, Só Volta, Ida e Volta. Valores:  "OneWayTrip", |
-|`FraudAnalysis.Travel.DepartureTime`|DateTime|23|Não|Data, hora e minuto de partida do vôo. Ex: "2018-01-09 18:00:00"|
-|`FraudAnalysis.Travel.Passengers.Name`|Texto|120|Sim, caso o nó Travel seja enviado. |Nome do passageiro.|
-|`FraudAnalysis.Travel.Passengers.Identity`|Texto|32|Sim, caso o nó Travel seja enviado. |Número do RG, CPF ou CNPJ do passageiro.|
-|`FraudAnalysis.Travel.Passengers.Status`|Texto|32|Sim, caso o nó Travel seja enviado. |Classificação da companhia aérea. Valores do campo: "Gold", "Platina". |
-|`FraudAnalysis.Travel.Passengers.Rating`|Texto|15|Sim, caso o nó Travel seja enviado. |Classificação do Passageiro. <BR>Valores do Campo:<BR>*"Adult"* (Passageiro adulto)<BR>*"Child"*(Passageiro criança)<BR>"*Infant"*(Passageiro infantil)<BR>"*Youth"*(Passageiro adolescente)<BR>"*Student"*(Passageiro estudante)<BR>"*SeniorCitizen*"(Passageiro idoso)<BR>"*Military*"(Passageiro militar)|
-|`FraudAnalysis.Travel.Passengers.Email`|Texto|255|Sim, caso o nó Travel seja enviado. |E-mail do passageiro. |
-|`FraudAnalysis.Travel.Passengers.Phone`|Texto|15|Não|Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país. 552133665599 (Ex. Código do Pais 55, Código da Cidade 21, Telefone 33665599)
-|`FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Sim, caso o nó Travel seja enviado. |Código do aeroporto do ponto de origem da viagem |
-|`FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Sim, caso o nó Travel seja enviado. |Código do aeroporto do ponto de destino da viagem |
+| `MerchantId` | Guid | 36 | Sim | Identificador da loja na Braspag |
+| `MerchantKey` | Texto | 40 | Sim | Chave Publica para Autenticação Dupla na Braspag |
+| `RequestId` | Guid | 36 | Não | Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT |
+| `MerchantOrderId` | Texto | 50 | Sim | Numero de identificação do Pedido |
+| `Customer.Name` | Texto | 120 | Sim | Nome do comprador (Nome e sobrenome) |
+| `Customer.Identity` | Número | 14 | Não | Número do RG, CPF ou CNPJ do Cliente |
+| `Customer.IdentityType` | Texto | 255 | Não | Tipo de documento de identificação do comprador (RG, CPF ou CNPJ) |
+| `Customer.Email` | Texto | 100 | Sim | Email do comprador |
+| `Customer.Birthdate` | Date | 10 | Não | Data de nascimento do Comprador. Ex: 1983-12-31 |
+| `Customer.Phone` | Número | 15 | Não | Número do telefone do comprador. Ex: 552121114701 (Código do Pais 55, Código da Cidade 21, Numero 21114700) |
+| `Customer.IpAddress` | Texto | 45 | Sim | IP do Comprador, podendo ser no formato IPV4 ou IPV6 |
+| `Customer.Address.Street` | Texto | 54 | Sim | Endereço de contato do comprador |
+| `Customer.Address.Number` | Número | 5 | Sim | Número endereço de contato do comprador |
+| `Customer.Address.Complement` | Texto | 14 | Sim | Complemento do endereço de contato do Comprador |
+| `Customer.Address.ZipCode` | Número | 9 | Sim | CEP do endereço de contato do comprador |
+| `Customer.Address.City` | Texto | 50 | Sim | Cidade do endereço de contato do comprador |
+| `Customer.Address.State` | Texto | 2 | Sim | Estado do endereço de contato do comprador |
+| `Customer.Address.Country` | Texto | 2 | Sim | Pais do endereço de contato do comprador |
+| `Customer.Address.District` | Texto | 45 | Sim | Bairro do Comprador. |
+| `Customer.DeliveryAddress.Street` | Texto | 54 | Não | Endereço de entrega do pedido |
+| `Customer.DeliveryAddress.Number` | Número | 5 | Não | Número do endereço de entrega do pedido |
+| `Customer.DeliveryAddress.Complement` | Texto | 14 | Não | Complemento do endereço de entrega do pedido |
+| `Customer.DeliveryAddress.ZipCode` | Número | 9 | Não | CEP do endereço de entrega do pedido |
+| `Customer.DeliveryAddress.City` | Texto | 50 | Não | Cidade do endereço de entrega do pedido |
+| `Customer.DeliveryAddress.State` | Texto | 2 | Não | Estado do endereço de entrega do pedido |
+| `Customer.DeliveryAddress.Country` | Texto | 2 | Não | Pais do endereço de entrega do pedido |
+| `Customer.DeliveryAddress.District` | Texto | 45 | Não | Bairro do Comprador. |
+| `Payment.Provider` | Texto | 15 | Sim | Nome da provedora de Meio de Pagamento |
+| `Payment.Type` | Texto | 100 | Sim | Tipo do Meio de Pagamento |
+| `Payment.Amount` | Número | 15 | Sim | Valor do Pedido (ser enviado em centavos) |
+| `Payment.ServiceTaxAmount` | Número | 15 | Sim | Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização |
+| `Payment.Currency` | Texto | 3 | Não | Moeda na qual o pagamento será feito (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP) |
+| `Payment.Country` | Texto | 2 | Não | País na qual o pagamento será feito |
+| `Payment.Installments` | Número | 2 | Sim | Número de Parcelas |
+| `Payment.Interest` | Texto | 10 | Não | Tipo de parcelamento - Loja (ByMerchant) ou Emissor (ByIssuer) |
+| `Payment.Capture` | Booleano | --- | Não (Default false) | Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade |
+| `Payment.Authenticate` | Booleano | --- | Não (Default false) | Booleano que indica se a transação deve ser autenticada (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade |
+| `Payment.Recurrent` | Booleano | --- | Não (Default false) | Booleano que indica se a transação é do tipo recorrente (true) ou não (false). Este com valor true não originará uma nova Recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações Cielo. Authenticate deve ser false quando Recurrent é true |
+| `Payment.SoftDescriptor` | Texto | 13 | Não | Texto que será impresso na fatura do portador |
+| `CreditCard.CardNumber` | Número | 16 | Sim | Número do Cartão do comprador |
+| `CreditCard.Holder` | Texto | 25 | Sim | Nome do portador impresso no cartão |
+| `CreditCard.ExpirationDate` | Texto | 7 | Sim | Data de validade impresso no cartão |
+| `CreditCard.SecurityCode` | Texto | 4 | Sim | Código de segurança impresso no verso do cartão |
+| `CreditCard.Brand` | Texto | 10 | Sim | Bandeira do cartão |
+| `CreditCard.SaveCard` | Booleano | --- | Não (Default false) | Booleano que identifica se o cartão será salvo para gerar o token (CardToken) |
+| `CreditCard.Alias` | Texto | 64 | Não | Nome atribuído pelo lojista ao cartão salvo como CardToken |
+| `Payment.Credentials.Code` | Texto | 100 | Sim | afiliação gerada pela adquirente |
+| `Payment.Credentials.Key` | Texto | 100 | Sim | chave de afiliação/token gerado pela adquirente |
+| `Payment.Credentials.Username` | Texto | 50 | Não | usuário gerado no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet) |
+| `Payment.Credentials.Password` | Texto | 50 | Não | senha gerada no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet) |
+| `Payment.Credentials.Signature` | Texto | 3 | Não | Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001 |
+| `Payment.ExtraDataCollection.Name` | Texto | 50 | Não | Nome do campo que será gravado o Dado Extra |
+| `Payment.ExtraDataCollection.Value` | Texto | 1024 | Não | Valor do campo que será gravado o Dado Extra |
+| `FraudAnalysis.Sequence` | Texto | 14 | Sim | Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst) |
+| `FraudAnalysis.SequenceCriteria` | Texto | 9 | Sim | Critério do fluxo: "OnSuccess" (Só realiza a analise se tiver sucesso na transação), "Always" (Sempre realiza a analise) |
+| `FraudAnalysis.Provider` | Texto | 10 | Sim | Provedor de antifraude. Enviar: "Cybersource". |
+| `FraudAnalysis.CaptureOnLowRisk` | Booleano | --- | Não | Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado |
+| `FraudAnalysis.VoidOnHighRisk` | Booleano | --- | Não | Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado. |
+| `FraudAnalysis.TotalOrderAmount` | Número | 15 | Sim | Valor total do pedido |
+| `FraudAnalysis.FingerPrintId` | Texto | 100 | Sim | Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<BR>Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo session_id do script que será incluído na página de checkout. Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. |
+| `FraudAnalysis.Browser.HostName` | Texto | 60 | Não | Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP |
+| `FraudAnalysis.Browser.CookiesAccepted` | Booleano | --- | Sim | Identifica se o browser do comprador aceita cookies ou não |
+| `FraudAnalysis.Browser.Email` | Texto | 100 | Não | E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(Customer.Email) |
+| `FraudAnalysis.Browser.Type` | Texto | 40 | Não | Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP. Ex.: Google Chrome, Mozilla Firefox, Safari, etc. |
+| `FraudAnalysis.Browser.IpAddress` | Texto | 45 | Sim | Endereço IP do comprador. É altamente recomendável o envio deste campo |
+| `FraudAnalysis.Cart.IsGift` | Booleano | --- | Não | Booleano que indica se o pedido é para presente ou não |
+| `FraudAnalysis.Cart.ReturnsAccepted` | Booleano | --- | Não | Booleano que define se devoluções são aceitas para o pedido |
+| `FraudAnalysis.Cart.Items.GiftCategory` | Texto | 9 | Não | Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países: "Yes" (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno), "No" (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto), "Off" (Ignora a análise de risco para endereços divergentes) |
+| `FraudAnalysis.Cart.Items.HostHedge` | Texto | 6 | Não | Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. Possíveis Valores:<BR>Low (Baixa importância do e-mail e endereço IP na análise de risco)<BR>Normal (Média importância do e-mail e endereço IP na análise de risco)<BR>High (Alta importância do e-mail e endereço IP na análise de risco)<BR>Off (E-mail e endereço IP não afetam a análise de risco) |
+| `FraudAnalysis.Cart.Items.NonSensicalHedge` | Texto | 6 | Não | Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. Possiveis Valores:<BR>Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>Off (Verificação do pedido do comprador não afeta a análise de risco) |
+| `FraudAnalysis.Cart.Items.ObscenitiesHedge` | Texto | 6 | Não | Nível de obscenidade dos pedidos recebedidos. Possiveis Valores:<BR>Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco) |
+| `FraudAnalysis.Cart.Items.PhoneHedge` | Texto | 6 | Não | Nível dos testes realizados com os números de telefones. Possiveis Valores:<BR>Low (Baixa importância nos testes realizados com números de telefone)<BR>Normal (Média importância nos testes realizados com números de telefone)<BR>High (Alta importância nos testes realizados com números de telefone)<BR>Off (Testes de números de telefone não afetam a análise de risco) |
+| `FraudAnalysis.Cart.Items.Name` | Texto | 255 | Sim | Nome do Produto |
+| `FraudAnalysis.Cart.Items.Quantity` | Número | 15 | Sim | Quantidade do produto a ser adquirido |
+| `FraudAnalysis.Cart.Items.Sku` | Texto | 255 | Sim | Código comerciante identificador do produto |
+| `FraudAnalysis.Cart.Items.UnitPrice` | Número | 15 | Sim | Preço unitário do produto. Ex.: 10950 = r$ 109,50 |
+| `FraudAnalysis.Cart.Items.Risk` | Texto | 6 | Não | Nível do risco do produto. Possiveis Valores:<BR>Low (O produto tem um histórico de poucos chargebacks)<BR>Normal (O produto tem um histórico de chargebacks considerado normal)<BR>High (O produto tem um histórico de chargebacks acima da média) |
+| `FraudAnalysis.Cart.Items.TimeHedge` | Texto | 6 | Não | Nível de importância da hora do dia do pedido do cliente. Possiveis Valores:<BR>Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)<BR>Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)<BR>High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)<BR>Off (O horário da compra não afeta a análise de risco) |
+| `FraudAnalysis.Cart.Items.Type` | Texto | 19 | Não | Tipo do produto. Possíveis Valores:<BR>AdultContent(Conteúdo adulto)<BR>Coupon(Cupon de desconto)<BR>Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)<BR>EletronicGood(Produto eletrônico)<BR>EletronicSoftware(Softwares distribuídos eletronicamente via download)<BR>GiftCertificate(Vale presente)<BR>HandlingOnly(Taxa de instalação ou manuseio)<BR>Service(Serviço)<BR>ShippingAndHandling(Frete e taxa de instalação ou manuseio)\
+<BR>ShippingOnly(Frete)<BR>Subscription(Assinatura) |
+| `FraudAnalysis.Cart.Items.VelocityHedge` | Texto | 6 | Não | Nível de importância de frequência de compra do cliente. Possiveis Valores:<BR>Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude) |
+| `FraudAnalysis.MerchantDefinedFields.Id` | Número | 2 | Sim (se aplicável) | Id das informações adicionais a serem enviadas<BR>Valores de 1 a 25, onde os disponíveis são: 4 a 8, 15 a 20, 22 e 24 |
+| `FraudAnalysis.MerchantDefinedFields.Value` | Texto | 255 | Sim (se aplicável) | Valor das informações adicionais a serem enviadas<BR>: todos com tamanho 255 |
+| `FraudAnalysis.Shipping.Addressee` | Texto | 120 | Não | Nome do destinatário da entrega (Nome e sobrenome) |
+| `FraudAnalysis.Shipping.Method` | Texto | 8 | Não | Tipo de serviço de entrega do produto. Possíveis Valores:<BR>SameDay (Meio de entrega no mesmo dia) <BR>NextDay (Meio de entrega no próximo dia) <BR>TwoDay (Meio de entrega em dois dias) <BR>ThreeDay (Meio de entrega em três dias)<BR>LowCost (Meio de entrega de baixo custo)<BR>Pickup (Retirada na loja)<BR>Other (Outro meio de entrega)<BR>None (Sem meio de entrega, pois é um serviço ou assinatura) |
+| `FraudAnalysis.Shipping.Phone` | Número | 15 | Não | Telefone do destinatário da entrega. Ex. 552133665599 (Código do Pais 55, Código da Cidade 21, Numero 33665599) |
+| `FraudAnalysis.Travel.JourneyType` | Texto | 32 | Sim, caso o nó Travel seja enviado. | Tipo de viagem. Possiveis Valores:<BR>OneWayTrip (Viagem somente de ida)<BR>RoundTrip (Viagem de ida e volta) |
+| `FraudAnalysis.Travel.DepartureDateTime` | DateTime | --- | Sim, caso o nó Travel seja enviado. | Data e hora de partida |
+| `FraudAnalysis.Travel.Passengers.Name` | Texto | 120 | Sim, caso o nó Travel seja enviado. | Nome do passageiro. |
+| `FraudAnalysis.Travel.Passengers.Identity` | Texto | 32 | Sim, caso o nó Travel seja enviado. | Número do RG, CPF ou CNPJ do passageiro. |
+| `FraudAnalysis.Travel.Passengers.Status` | Texto | 15 | Sim, caso o nó Travel seja enviado. | Classificação da empresa aérea. Possiveis Valores: Standard | Gold | Platinum |
+| `FraudAnalysis.Travel.Passengers.Rating` | Texto | 13 | Sim, caso o nó Travel seja enviado. | Classificação do Passageiro. Possiveis Valores:<BR>Adult (Passageiro adulto)<BR>Child (Passageiro criança)<BR>Infant (Passageiro infantil)<BR>Youth (Passageiro adolescente)<BR>Student (Passageiro estudante)<BR>SeniorCitizen (Passageiro idoso)<BR>Military (Passageiro militar) |
+| `FraudAnalysis.Travel.Passengers.Email` | Texto | 255 | Sim, caso o nó Travel seja enviado. | E-mail do passageiro. |
+| `FraudAnalysis.Travel.Passengers.Phone` | Número | 15 | Não | Número do telefone do passageiro. Ex.: 552133665599 (Código do Pais 55, Código da Cidade 21, Numero 33665599) |
+| `FraudAnalysis.Travel.Passengers.TravelLegs.Origin` | Texto | 3 | Sim, caso o nó "Travel" seja enviado.| Código do aeroporto de partida |
+| `FraudAnalysis.Travel.Passengers.TravelLegs.Destination` | Texto | 3 | Sim, caso o nó "Travel" seja enviado.| Código do aeroporto de chegada |
 
 ### Resposta
 
