@@ -5767,7 +5767,7 @@ curl
 }
 ```
 
-``````shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
