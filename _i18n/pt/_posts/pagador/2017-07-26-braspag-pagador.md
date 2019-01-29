@@ -5767,13 +5767,8 @@ curl
 }
 ```
 
-```shell
-
-curl
---request POST "https://apisandbox.braspag.com.br/v2/sales/"
+``````shell
 --header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 
