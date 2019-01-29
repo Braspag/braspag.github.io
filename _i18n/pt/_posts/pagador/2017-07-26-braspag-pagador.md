@@ -5689,7 +5689,7 @@ curl
 
 ## Resposta
 
-```
+```json
 {
 [...]
     },
