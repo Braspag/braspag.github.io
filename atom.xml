@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-01-28T18:53:09+00:00</updated>
+    <updated>2019-01-29T13:45:01+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -23260,92 +23260,87 @@ curl
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-curl
-&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/sales/&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;language-```shell&quot;&gt;--header &quot;Content-Type: application/json&quot;
+--header &quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;
+--data-binary
 
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;...]
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;s2&quot;&gt;&quot;SplitPayments&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;s2&quot;&gt;&quot;SubordinateMerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;7c7e5e7b-8a5d-41bf-ad91-b346e077f769&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 6000,
-                &lt;span class=&quot;s2&quot;&gt;&quot;Fares&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;s2&quot;&gt;&quot;Mdr&quot;&lt;/span&gt;: 5,
-                    &lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;: 30
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;Splits&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;7c7e5e7b-8a5d-41bf-ad91-b346e077f769&quot;&lt;/span&gt;,
-                        &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 5670
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-                    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;,
-                        &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 330
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-            &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;s2&quot;&gt;&quot;SubordinateMerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2b9f5bea-5504-40a0-8ae7-04c154b06b8b&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 4000,
-                &lt;span class=&quot;s2&quot;&gt;&quot;Fares&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;s2&quot;&gt;&quot;Mdr&quot;&lt;/span&gt;: 4,
-                    &lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;: 15
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;Splits&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2b9f5bea-5504-40a0-8ae7-04c154b06b8b&quot;&lt;/span&gt;,
-                        &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 3825
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-                    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;,
-                        &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 175
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ServiceTaxAmount&quot;&lt;/span&gt;: 0,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;: 1,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Interest&quot;&lt;/span&gt;: 0,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Capture&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Recurrent&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;DoSplit&quot;&lt;/span&gt;:true,
-        &lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;455187******0181&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Teste Holder&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;1210031135775&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;20171210031135775&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;605861&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Marketplace&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Simulado&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 10000,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2017-12-10 15:11:34&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;CapturedAmount&quot;&lt;/span&gt;: 10000,
-        &lt;span class=&quot;s2&quot;&gt;&quot;CapturedDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2017-12-10 15:11:35&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;: 2,
-        &lt;span class=&quot;s2&quot;&gt;&quot;IsSplitted&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ReturnMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Operation Successful&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ReturnCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;6&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ef7a7cf9-b66b-4772-b022-052bdcf3e9b0&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Currency&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Country&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;,
-        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;...]
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+{
+[...]
+    },
+    &quot;Payment&quot;: {
+        &quot;SplitPayments&quot;: [
+            {
+                &quot;SubordinateMerchantId&quot;: &quot;7c7e5e7b-8a5d-41bf-ad91-b346e077f769&quot;,
+                &quot;Amount&quot;: 6000,
+                &quot;Fares&quot;: {
+                    &quot;Mdr&quot;: 5,
+                    &quot;Fee&quot;: 30
+                },
+                &quot;Splits&quot;: [
+                    {
+                        &quot;MerchantId&quot;: &quot;7c7e5e7b-8a5d-41bf-ad91-b346e077f769&quot;,
+                        &quot;Amount&quot;: 5670
+                    },
+                    {
+                        &quot;MerchantId&quot;: &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;,
+                        &quot;Amount&quot;: 330
+                    }
+                ]
+            },
+            {
+                &quot;SubordinateMerchantId&quot;: &quot;2b9f5bea-5504-40a0-8ae7-04c154b06b8b&quot;,
+                &quot;Amount&quot;: 4000,
+                &quot;Fares&quot;: {
+                    &quot;Mdr&quot;: 4,
+                    &quot;Fee&quot;: 15
+                },
+                &quot;Splits&quot;: [
+                    {
+                        &quot;MerchantId&quot;: &quot;2b9f5bea-5504-40a0-8ae7-04c154b06b8b&quot;,
+                        &quot;Amount&quot;: 3825
+                    },
+                    {
+                        &quot;MerchantId&quot;: &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;,
+                        &quot;Amount&quot;: 175
+                    }
+                ]
+            }
+        ],
+        &quot;ServiceTaxAmount&quot;: 0,
+        &quot;Installments&quot;: 1,
+        &quot;Interest&quot;: 0,
+        &quot;Capture&quot;: true,
+        &quot;Authenticate&quot;: false,
+        &quot;Recurrent&quot;: false,
+        &quot;DoSplit&quot;:true,
+        &quot;CreditCard&quot;: {
+            &quot;CardNumber&quot;: &quot;455187******0181&quot;,
+            &quot;Holder&quot;: &quot;Teste Holder&quot;,
+            &quot;ExpirationDate&quot;: &quot;12/2021&quot;,
+            &quot;SaveCard&quot;: false,
+            &quot;Brand&quot;: &quot;Visa&quot;
+        },
+        &quot;Tid&quot;: &quot;1210031135775&quot;,
+        &quot;ProofOfSale&quot;: &quot;20171210031135775&quot;,
+        &quot;AuthorizationCode&quot;: &quot;605861&quot;,
+        &quot;SoftDescriptor&quot;: &quot;Marketplace&quot;,
+        &quot;Provider&quot;: &quot;Simulado&quot;,
+        &quot;Amount&quot;: 10000,
+        &quot;ReceivedDate&quot;: &quot;2017-12-10 15:11:34&quot;,
+        &quot;CapturedAmount&quot;: 10000,
+        &quot;CapturedDate&quot;: &quot;2017-12-10 15:11:35&quot;,
+        &quot;Status&quot;: 2,
+        &quot;IsSplitted&quot;: true,
+        &quot;ReturnMessage&quot;: &quot;Operation Successful&quot;,
+        &quot;ReturnCode&quot;: &quot;6&quot;,
+        &quot;PaymentId&quot;: &quot;ef7a7cf9-b66b-4772-b022-052bdcf3e9b0&quot;,
+        &quot;Currency&quot;: &quot;BRL&quot;,
+        &quot;Country&quot;: &quot;BRA&quot;,
+        [...]
+    }
+}
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;table&gt;
   &lt;thead&gt;

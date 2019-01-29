@@ -11177,92 +11177,87 @@ curl
 }
 </code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-curl
-<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
+<pre><code class="language-```shell">--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
 
-<span class="o">{</span>
-<span class="o">[</span>...]
-    <span class="o">}</span>,
-    <span class="s2">"Payment"</span>: <span class="o">{</span>
-        <span class="s2">"SplitPayments"</span>: <span class="o">[</span>
-            <span class="o">{</span>
-                <span class="s2">"SubordinateMerchantId"</span>: <span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span>,
-                <span class="s2">"Amount"</span>: 6000,
-                <span class="s2">"Fares"</span>: <span class="o">{</span>
-                    <span class="s2">"Mdr"</span>: 5,
-                    <span class="s2">"Fee"</span>: 30
-                <span class="o">}</span>,
-                <span class="s2">"Splits"</span>: <span class="o">[</span>
-                    <span class="o">{</span>
-                        <span class="s2">"MerchantId"</span>: <span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span>,
-                        <span class="s2">"Amount"</span>: 5670
-                    <span class="o">}</span>,
-                    <span class="o">{</span>
-                        <span class="s2">"MerchantId"</span>: <span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>,
-                        <span class="s2">"Amount"</span>: 330
-                    <span class="o">}</span>
-                <span class="o">]</span>
-            <span class="o">}</span>,
-            <span class="o">{</span>
-                <span class="s2">"SubordinateMerchantId"</span>: <span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span>,
-                <span class="s2">"Amount"</span>: 4000,
-                <span class="s2">"Fares"</span>: <span class="o">{</span>
-                    <span class="s2">"Mdr"</span>: 4,
-                    <span class="s2">"Fee"</span>: 15
-                <span class="o">}</span>,
-                <span class="s2">"Splits"</span>: <span class="o">[</span>
-                    <span class="o">{</span>
-                        <span class="s2">"MerchantId"</span>: <span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span>,
-                        <span class="s2">"Amount"</span>: 3825
-                    <span class="o">}</span>,
-                    <span class="o">{</span>
-                        <span class="s2">"MerchantId"</span>: <span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>,
-                        <span class="s2">"Amount"</span>: 175
-                    <span class="o">}</span>
-                <span class="o">]</span>
-            <span class="o">}</span>
-        <span class="o">]</span>,
-        <span class="s2">"ServiceTaxAmount"</span>: 0,
-        <span class="s2">"Installments"</span>: 1,
-        <span class="s2">"Interest"</span>: 0,
-        <span class="s2">"Capture"</span>: <span class="nb">true</span>,
-        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
-        <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
-        <span class="s2">"DoSplit"</span>:true,
-        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
-            <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0181"</span>,
-            <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
-            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
-            <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
-            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
-        <span class="o">}</span>,
-        <span class="s2">"Tid"</span>: <span class="s2">"1210031135775"</span>,
-        <span class="s2">"ProofOfSale"</span>: <span class="s2">"20171210031135775"</span>,
-        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"605861"</span>,
-        <span class="s2">"SoftDescriptor"</span>: <span class="s2">"Marketplace"</span>,
-        <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
-        <span class="s2">"Amount"</span>: 10000,
-        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-12-10 15:11:34"</span>,
-        <span class="s2">"CapturedAmount"</span>: 10000,
-        <span class="s2">"CapturedDate"</span>: <span class="s2">"2017-12-10 15:11:35"</span>,
-        <span class="s2">"Status"</span>: 2,
-        <span class="s2">"IsSplitted"</span>: <span class="nb">true</span>,
-        <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-        <span class="s2">"ReturnCode"</span>: <span class="s2">"6"</span>,
-        <span class="s2">"PaymentId"</span>: <span class="s2">"ef7a7cf9-b66b-4772-b022-052bdcf3e9b0"</span>,
-        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
-        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-        <span class="o">[</span>...]
-    <span class="o">}</span>
-<span class="o">}</span>
+{
+[...]
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 6000,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 5670
+                    },
+                    {
+                        "MerchantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                        "Amount": 330
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 4000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 3825
+                    },
+                    {
+                        "MerchantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                        "Amount": 175
+                    }
+                ]
+            }
+        ],
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "DoSplit":true,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1210031135775",
+        "ProofOfSale": "20171210031135775",
+        "AuthorizationCode": "605861",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-10 15:11:34",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-10 15:11:35",
+        "Status": 2,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "ef7a7cf9-b66b-4772-b022-052bdcf3e9b0",
+        "Currency": "BRL",
+        "Country": "BRA",
+        [...]
+    }
+}
 
-</code></pre></div></div>
+</code></pre>
 
 <table>
   <thead>
