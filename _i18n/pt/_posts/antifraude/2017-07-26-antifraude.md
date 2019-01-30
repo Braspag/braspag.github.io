@@ -2488,9 +2488,9 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
 |39 a 40|Reservados|-|
 |41|Tipo do documento <br/> Possíveis Valores: CPF ou CNPJ|string|
-|42|Código do ramo de atividade - MCC|string|
+|42|Código do ramo de atividade - MCC (Merchant Code Category)|string|
 |43|Faixa de rendimento do comprador <br/> Ex.: 100000 = r$ 1.000,00|long|
-|44|Tipo de conta bancária <br/> Possíveis Valores: CC -> Conta Corrente <br/> CP -> Conta Poupança <br/> PP|string|
+|44|Tipo de conta bancária <br/> Possíveis Valores: <br/> CC -> Conta Corrente <br/> CP -> Conta Poupança <br/> PP - Pré-Pago|string|
 |45|Número do documento CPF ou CNPJ|string|
 |46|Nome impresso no cartão de crédito|string|
 |47 a 95|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|
