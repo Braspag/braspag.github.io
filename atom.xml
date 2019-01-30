@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-01-30T12:08:41+00:00</updated>
+    <updated>2019-01-30T21:38:58+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -32161,28 +32161,28 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].ObscenitiesHedge&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-15-cartitem[n].obscenitieshedge&quot;&gt;Tabela 15 - CartItem{n}.ObscenitiesHedge&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-11-cartitem[n].obscenitieshedge&quot;&gt;Tabela 11 - CartItem{n}.ObscenitiesHedge&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].TimeHedge&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-16-cartitem[n].timehedge&quot;&gt;Tabela 16 - CartItem{n}.TimeHedge&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].timehedge&quot;&gt;Tabela 12 - CartItem{n}.TimeHedge&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].PhoneHedge&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].phonehedge&quot;&gt;Tabela 17 - CartItem{n}.PhoneHedge&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].phonehedge&quot;&gt;Tabela 13 - CartItem{n}.PhoneHedge&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].VelocityHedge&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-18-cartitem[n].velocityhedge&quot;&gt;Tabela 18 - CartItem{n}.VelocityHedge&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-18-cartitem[n].velocityhedge&quot;&gt;Tabela 14 - CartItem{n}.VelocityHedge&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
@@ -32280,7 +32280,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Invoice.Tender&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Forma de pagamento utilizada pelo comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-19-invoice.tender&quot;&gt;Tabela 19 - Invoice.Tender&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Forma de pagamento utilizada pelo comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-19-invoice.tender&quot;&gt;Tabela 15 - Invoice.Tender&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
@@ -32378,14 +32378,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantDefinedData[n].Key&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Chave do campo definido junto ao provedor de antifraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-37-merchantdefineddata-(cybersource)&quot;&gt;Tabela 37 - MerchantDefinedData(Cybersource)&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chave do campo definido junto ao provedor de antifraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-31-merchantdefineddata-(cybersource)&quot;&gt;Tabela 31 - MerchantDefinedData(Cybersource)&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantDefinedData[n].Value&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Valor do campo definido junto ao provedor de antifraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-37-merchantdefineddata-(cybersource)&quot;&gt;Tabela 37 - MerchantDefinedData(Cybersource)&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Valor do campo definido junto ao provedor de antifraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-31-merchantdefineddata-(cybersource)&quot;&gt;Tabela 31 - MerchantDefinedData(Cybersource)&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;var&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
@@ -32471,7 +32471,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Status da transação no Antifraude Gateway Braspag &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-20-status&quot;&gt;Tabela 20 - Status&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Status da transação no Antifraude Gateway Braspag &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-16-status&quot;&gt;Tabela 16 - Status&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -32481,12 +32481,12 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderStatus&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Status da transação na ReDShield &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-21-providerstatus&quot;&gt;Tabela 21 - ProviderStatus&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Status da transação na ReDShield &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-17-providerstatus&quot;&gt;Tabela 17 - ProviderStatus&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno da Cybersouce &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.providercode&quot;&gt;Tabela 22 - ProviderAnalysisResult.ProviderCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno da Cybersouce &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-18-provideranalysisresult.providercode&quot;&gt;Tabela 18 - ProviderAnalysisResult.ProviderCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -32506,12 +32506,12 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.AddressInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador &lt;br /&gt; Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.afsreply.addressinfocode&quot;&gt;Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador &lt;br /&gt; Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-19-provideranalysisresult.afsreply.addressinfocode&quot;&gt;Tabela 19 - ProviderAnalysisResult.AfsReply.AddressInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.AfsFactorCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que afetaram a pontuação da análise &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: F^P &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-24-provideranalysisresult.afsreply.afsfactorcode&quot;&gt;Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que afetaram a pontuação da análise &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: F^P &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-20-provideranalysisresult.afsreply.afsfactorcode&quot;&gt;Tabela 20 - ProviderAnalysisResult.AfsReply.AfsFactorCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -32526,7 +32526,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.CardAccountType&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do cartão do comprador &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-25-provideranalysisresult.afsreply.cardaccounttype&quot;&gt;Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do cartão do comprador &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-21-provideranalysisresult.afsreply.cardaccounttype&quot;&gt;Tabela 21 - ProviderAnalysisResult.AfsReply.CardAccountType&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -32551,17 +32551,17 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-26-provideranalysisresult.afsreply.hotlistinfocode&quot;&gt;Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.afsreply.hotlistinfocode&quot;&gt;Tabela 22 - ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.IdentityInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam mudanças de identidade excessivas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-27-provideranalysisresult.afsreply.identityinfocode&quot;&gt;Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam mudanças de identidade excessivas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.afsreply.identityinfocode&quot;&gt;Tabela 23 - ProviderAnalysisResult.AfsReply.IdentityInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.InternetInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-28-provideranalysisresult.afsreply.internetinfocode&quot;&gt;Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-24-provideranalysisresult.afsreply.internetinfocode&quot;&gt;Tabela 24 - ProviderAnalysisResult.AfsReply.InternetInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -32576,7 +32576,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.IpRoutingMethod&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Método de roteamento do comprador obtido a partir do endereço de IP &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod&quot;&gt;Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Método de roteamento do comprador obtido a partir do endereço de IP &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod&quot;&gt;Tabela 28 - ProviderAnalysisResult.AfsReply.IpRoutingMethod&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -32586,12 +32586,12 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.PhoneInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam um problema com o número de telefone do comprador &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-29-provideranalysisresult.afsreply.phoneinfocode&quot;&gt;Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam um problema com o número de telefone do comprador &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-25-provideranalysisresult.afsreply.phoneinfocode&quot;&gt;Tabela 25 - ProviderAnalysisResult.AfsReply.PhoneInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.ReasonCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno da Cybersouce &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.providercode&quot;&gt;Tabela 22 - ProviderAnalysisResult.ProviderCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno da Cybersouce &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-18-provideranalysisresult.providercode&quot;&gt;Tabela 18 - ProviderAnalysisResult.ProviderCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -32601,12 +32601,12 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.SuspiciousInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que o comprador forneceu potencialmente informações suspeitas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-30-provideranalysisresult.afsreply.suspiciousinfocode&quot;&gt;Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que o comprador forneceu potencialmente informações suspeitas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-26-provideranalysisresult.afsreply.suspiciousinfocode&quot;&gt;Tabela 26 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.VelocityInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que o comprador tem uma alta frequência de compras &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-31-provideranalysisresult.afsreply.velocityinfocode&quot;&gt;Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que o comprador tem uma alta frequência de compras &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-27-provideranalysisresult.afsreply.velocityinfocode&quot;&gt;Tabela 27 - ProviderAnalysisResult.AfsReply.VelocityInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -32691,12 +32691,12 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Quando modo verbose ativado, decisão tomada pela regra &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision&quot;&gt;Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Quando modo verbose ativado, decisão tomada pela regra &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-29-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision&quot;&gt;Tabela 29 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Quando modo verbose ativado, avaliação da regra &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation&quot;&gt;Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Quando modo verbose ativado, avaliação da regra &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation&quot;&gt;Tabela 30 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -33031,7 +33031,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Status da transação no Antifraude Gateway Braspag &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-20-status&quot;&gt;Tabela 20 - Status&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Status da transação no Antifraude Gateway Braspag &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-16-status&quot;&gt;Tabela 16 - Status&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33045,14 +33045,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderStatus&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Status da transação na ReDShield &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-21-providerstatus&quot;&gt;Tabela 21 - ProviderStatus&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Status da transação na ReDShield &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-17-providerstatus&quot;&gt;Tabela 17 - ProviderStatus&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno da Cybersouce &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.providercode&quot;&gt;Tabela 22 - ProviderAnalysisResult.ProviderCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno da Cybersouce &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-18-provideranalysisresult.providercode&quot;&gt;Tabela 18 - ProviderAnalysisResult.ProviderCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33080,14 +33080,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.AddressInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador &lt;br /&gt; Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.afsreply.addressinfocode&quot;&gt;Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador &lt;br /&gt; Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-19-provideranalysisresult.afsreply.addressinfocode&quot;&gt;Tabela 19 - ProviderAnalysisResult.AfsReply.AddressInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.AfsFactorCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que afetaram a pontuação da análise &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: F^P &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-24-provideranalysisresult.afsreply.afsfactorcode&quot;&gt;Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que afetaram a pontuação da análise &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: F^P &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-20-provideranalysisresult.afsreply.afsfactorcode&quot;&gt;Tabela 20 - ProviderAnalysisResult.AfsReply.AfsFactorCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33108,7 +33108,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.CardAccountType&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do cartão do comprador &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-25-provideranalysisresult.afsreply.cardaccounttype&quot;&gt;Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do cartão do comprador &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-21-provideranalysisresult.afsreply.cardaccounttype&quot;&gt;Tabela 21 - ProviderAnalysisResult.AfsReply.CardAccountType&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33143,21 +33143,21 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-26-provideranalysisresult.afsreply.hotlistinfocode&quot;&gt;Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.afsreply.hotlistinfocode&quot;&gt;Tabela 22 - ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.IdentityInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam mudanças de identidade excessivas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-27-provideranalysisresult.afsreply.identityinfocode&quot;&gt;Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam mudanças de identidade excessivas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.afsreply.identityinfocode&quot;&gt;Tabela 23 - ProviderAnalysisResult.AfsReply.IdentityInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.InternetInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-28-provideranalysisresult.afsreply.internetinfocode&quot;&gt;Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-24-provideranalysisresult.afsreply.internetinfocode&quot;&gt;Tabela 24 - ProviderAnalysisResult.AfsReply.InternetInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33178,7 +33178,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.IpRoutingMethod&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Método de roteamento do comprador obtido a partir do endereço de IP &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod&quot;&gt;Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Método de roteamento do comprador obtido a partir do endereço de IP &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod&quot;&gt;Tabela 28 - ProviderAnalysisResult.AfsReply.IpRoutingMethod&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33192,14 +33192,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.PhoneInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam um problema com o número de telefone do comprador &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-29-provideranalysisresult.afsreply.phoneinfocode&quot;&gt;Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam um problema com o número de telefone do comprador &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-25-provideranalysisresult.afsreply.phoneinfocode&quot;&gt;Tabela 25 - ProviderAnalysisResult.AfsReply.PhoneInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.ReasonCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno da Cybersouce &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.providercode&quot;&gt;Tabela 22 - ProviderAnalysisResult.ProviderCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código de retorno da Cybersouce &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-18-provideranalysisresult.providercode&quot;&gt;Tabela 18 - ProviderAnalysisResult.ProviderCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33213,14 +33213,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.SuspiciousInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que o comprador forneceu potencialmente informações suspeitas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-30-provideranalysisresult.afsreply.suspiciousinfocode&quot;&gt;Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que o comprador forneceu potencialmente informações suspeitas &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-26-provideranalysisresult.afsreply.suspiciousinfocode&quot;&gt;Tabela 26 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.AfsReply.VelocityInfoCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que o comprador tem uma alta frequência de compras &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-31-provideranalysisresult.afsreply.velocityinfocode&quot;&gt;Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Códigos que indicam que o comprador tem uma alta frequência de compras &lt;br /&gt; Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-27-provideranalysisresult.afsreply.velocityinfocode&quot;&gt;Tabela 27 - ProviderAnalysisResult.AfsReply.VelocityInfoCode&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33339,14 +33339,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Quando modo verbose ativado, decisão tomada pela regra &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision&quot;&gt;Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Quando modo verbose ativado, decisão tomada pela regra &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-29-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision&quot;&gt;Tabela 29 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Quando modo verbose ativado, avaliação da regra &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation&quot;&gt;Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Quando modo verbose ativado, avaliação da regra &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation&quot;&gt;Tabela 30 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33773,28 +33773,28 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].ObscenitiesHedge&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-15-cartitem[n].obscenitieshedge&quot;&gt;Tabela 15 - CartItem{n}.ObscenitiesHedge&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-11-cartitem[n].obscenitieshedge&quot;&gt;Tabela 11 - CartItem{n}.ObscenitiesHedge&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].TimeHedge&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-16-cartitem[n].timehedge&quot;&gt;Tabela 16 - CartItem{n}.TimeHedge&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].timehedge&quot;&gt;Tabela 12 - CartItem{n}.TimeHedge&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].PhoneHedge&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].phonehedge&quot;&gt;Tabela 17 - CartItem{n}.PhoneHedge&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].phonehedge&quot;&gt;Tabela 13 - CartItem{n}.PhoneHedge&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CartItem[n].VelocityHedge&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-18-cartitem[n].velocityhedge&quot;&gt;Tabela 18 - CartItem{n}.VelocityHedge&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-18-cartitem[n].velocityhedge&quot;&gt;Tabela 14 - CartItem{n}.VelocityHedge&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33892,7 +33892,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Invoice.Tender&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Forma de pagamento utilizada pelo comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-19-invoice.tender&quot;&gt;Tabela 19 - Invoice.Tender&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Forma de pagamento utilizada pelo comprador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-19-invoice.tender&quot;&gt;Tabela 15 - Invoice.Tender&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -33990,14 +33990,14 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantDefinedData[n].Key&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Chave do campo definido junto ao provedor de antifraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-37-merchantdefineddata-(cybersource)&quot;&gt;Tabela 37 - MerchantDefinedData(Cybersource)&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chave do campo definido junto ao provedor de antifraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-31-merchantdefineddata-(cybersource)&quot;&gt;Tabela 31 - MerchantDefinedData(Cybersource)&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;int&lt;/td&gt;
       &lt;td&gt;não&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantDefinedData[n].Value&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Valor do campo definido junto ao provedor de antifraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-37-merchantdefineddata-(cybersource)&quot;&gt;Tabela 37 - MerchantDefinedData(Cybersource)&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Valor do campo definido junto ao provedor de antifraude &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-31-merchantdefineddata-(cybersource)&quot;&gt;Tabela 31 - MerchantDefinedData(Cybersource)&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;var&lt;/td&gt;
       &lt;td&gt;não&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
@@ -35311,7 +35311,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-15---cartitemnobscenitieshedge&quot;&gt;Tabela 15 - CartItem[n].ObscenitiesHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-11---cartitemnobscenitieshedge&quot;&gt;Tabela 11 - CartItem[n].ObscenitiesHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35345,7 +35345,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-16---cartitemntimehedge&quot;&gt;Tabela 16 - CartItem[n].TimeHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-12---cartitemntimehedge&quot;&gt;Tabela 12 - CartItem[n].TimeHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35379,7 +35379,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-17---cartitemnphonehedge&quot;&gt;Tabela 17 - CartItem[n].PhoneHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-13---cartitemnphonehedge&quot;&gt;Tabela 13 - CartItem[n].PhoneHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35413,7 +35413,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-18---cartitemnvelocityhedge&quot;&gt;Tabela 18 - CartItem[n].VelocityHedge&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-14---cartitemnvelocityhedge&quot;&gt;Tabela 14 - CartItem[n].VelocityHedge&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35447,7 +35447,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-19---invoicetender&quot;&gt;Tabela 19 - Invoice.Tender&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-15---invoicetender&quot;&gt;Tabela 15 - Invoice.Tender&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35501,7 +35501,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-20---status&quot;&gt;Tabela 20 - Status&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-16---status&quot;&gt;Tabela 16 - Status&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35534,7 +35534,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Unfinished&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transação não finalizada por algum motivo, de validação de contrato ou erro interno &lt;br /&gt; Uma transação analisada na Cybersource, no response da análise o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderStatus&lt;/code&gt; for igual a &lt;strong&gt;REJECT&lt;/strong&gt; e o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderCode&lt;/code&gt; diferente de &lt;strong&gt;481&lt;/strong&gt;, o status da transação será &lt;strong&gt;Unfinished&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transação não finalizada por algum motivo de validação de contrato ou erro interno &lt;br /&gt; Uma transação analisada na Cybersource, no response da análise o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderStatus&lt;/code&gt; for igual a &lt;strong&gt;REJECT&lt;/strong&gt; e o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderCode&lt;/code&gt; diferente de &lt;strong&gt;481&lt;/strong&gt;, o status da transação será &lt;strong&gt;Unfinished&lt;/strong&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -35545,7 +35545,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-21---providerstatus&quot;&gt;Tabela 21 - ProviderStatus&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-17---providerstatus&quot;&gt;Tabela 17 - ProviderStatus&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35584,7 +35584,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-22---provideranalysisresultprovidercode&quot;&gt;Tabela 22 - ProviderAnalysisResult.ProviderCode&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-18---provideranalysisresultprovidercode&quot;&gt;Tabela 18 - ProviderAnalysisResult.ProviderCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35658,7 +35658,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-23---provideranalysisresultafsreplyaddressinfocode&quot;&gt;Tabela 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-19---provideranalysisresultafsreplyaddressinfocode&quot;&gt;Tabela 19 - ProviderAnalysisResult.AfsReply.AddressInfoCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35732,7 +35732,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-24---provideranalysisresultafsreplyafsfactorcode&quot;&gt;Tabela 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-20---provideranalysisresultafsreplyafsfactorcode&quot;&gt;Tabela 20 - ProviderAnalysisResult.AfsReply.AfsFactorCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35846,7 +35846,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-25---provideranalysisresultafsreplycardaccounttype&quot;&gt;Tabela 25 - ProviderAnalysisResult.AfsReply.CardAccountType&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-21---provideranalysisresultafsreplycardaccounttype&quot;&gt;Tabela 21 - ProviderAnalysisResult.AfsReply.CardAccountType&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35870,7 +35870,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-26---provideranalysisresultafsreplyhotlistinfocode&quot;&gt;Tabela 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-22---provideranalysisresultafsreplyhotlistinfocode&quot;&gt;Tabela 22 - ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36114,7 +36114,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-27---provideranalysisresultafsreplyidentityinfocode&quot;&gt;Tabela 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-23---provideranalysisresultafsreplyidentityinfocode&quot;&gt;Tabela 23 - ProviderAnalysisResult.AfsReply.IdentityInfoCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36158,7 +36158,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-28---provideranalysisresultafsreplyinternetinfocode&quot;&gt;Tabela 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-24---provideranalysisresultafsreplyinternetinfocode&quot;&gt;Tabela 24 - ProviderAnalysisResult.AfsReply.InternetInfoCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36232,7 +36232,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-29---provideranalysisresultafsreplyphoneinfocode&quot;&gt;Tabela 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-25---provideranalysisresultafsreplyphoneinfocode&quot;&gt;Tabela 25 - ProviderAnalysisResult.AfsReply.PhoneInfoCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36281,7 +36281,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-30---provideranalysisresultafsreplysuspiciousinfocode&quot;&gt;Tabela 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-26---provideranalysisresultafsreplysuspiciousinfocode&quot;&gt;Tabela 26 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36395,7 +36395,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-31---provideranalysisresultafsreplyvelocityinfocode&quot;&gt;Tabela 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-27---provideranalysisresultafsreplyvelocityinfocode&quot;&gt;Tabela 27 - ProviderAnalysisResult.AfsReply.VelocityInfoCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36539,7 +36539,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-32---provideranalysisresultafsreplyiproutingmethod&quot;&gt;Tabela 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-28---provideranalysisresultafsreplyiproutingmethod&quot;&gt;Tabela 28 - ProviderAnalysisResult.AfsReply.IpRoutingMethod&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36608,7 +36608,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-33---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggeredndecision&quot;&gt;Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-29---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggeredndecision&quot;&gt;Tabela 29 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36637,7 +36637,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-34---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggerednevaluation&quot;&gt;Tabela 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-30---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggerednevaluation&quot;&gt;Tabela 30 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36671,7 +36671,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-37---merchantdefineddata-cybersource&quot;&gt;Tabela 37 - MerchantDefinedData (Cybersource)&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-31---merchantdefineddata-cybersource&quot;&gt;Tabela 31 - MerchantDefinedData (Cybersource)&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
