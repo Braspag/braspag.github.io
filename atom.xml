@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-01-30T11:36:56+00:00</updated>
+    <updated>2019-01-30T11:37:39+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -46970,7 +46970,37 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;41 a 95&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;41&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do documento &lt;br /&gt; Possíveis Valores: CPF ou CNPJ&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;42&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código do ramo de atividade - MCC (Merchant Code Category)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;43&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Faixa de rendimento do comprador &lt;br /&gt; Ex.: 100000 = r$ 1.000,00&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;44&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo de conta bancária &lt;br /&gt; Possíveis Valores: &lt;br /&gt; CC -&amp;gt; Conta Corrente &lt;br /&gt; CP -&amp;gt; Conta Poupança &lt;br /&gt; PP - Pré-Pago&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;45&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Número do documento CPF ou CNPJ&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;46&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nome impresso no cartão de crédito&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;47 a 95&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
