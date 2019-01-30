@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-01-29T21:20:25+00:00</updated>
+    <updated>2019-01-30T11:36:56+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -39155,7 +39155,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;42&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código do ramo de atividade - MCC&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Código do ramo de atividade - MCC (Merchant Code Category)&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -39165,7 +39165,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;44&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo de conta bancária &lt;br /&gt; Possíveis Valores: CC -&amp;gt; Conta Corrente &lt;br /&gt; CP -&amp;gt; Conta Poupança &lt;br /&gt; PP&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tipo de conta bancária &lt;br /&gt; Possíveis Valores: &lt;br /&gt; CC -&amp;gt; Conta Corrente &lt;br /&gt; CP -&amp;gt; Conta Poupança &lt;br /&gt; PP - Pré-Pago&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;string&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
