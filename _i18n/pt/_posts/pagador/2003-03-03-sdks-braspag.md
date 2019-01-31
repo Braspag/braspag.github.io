@@ -7,7 +7,6 @@ categories: tutorial
 translated: true
 sort_order: 5
 tags:
-    - Pagador
 ---
 
 # SDKs Pagador
