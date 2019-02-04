@@ -276,7 +276,7 @@ curl
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.ServiceTaxAmount`|Número|15|Sim|Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização|
+|`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização|
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP)|
 |`Payment.Country`|Texto|3|Não|País na qual o pagamento será feito|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas|
