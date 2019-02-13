@@ -5513,7 +5513,7 @@ curl
 |`FraudAnalysis.ReplyData.CasePriority`|Caso o lojista seja assinante do Enhanced Case Management, ele recebe este valor com o nível de prioridade, sendo 1 o mais alto e 5 o mais baixo|Número|---|3|
 |`FraudAnalysis.ReplyData.ProviderTransactionId`|Identificador da transação no provedor de fraude. |Texto|100|Ex: "5206061832306553904009"| 
 
-## Tabela de MDDs (_merchant defined fields_)
+## Tabela de MDDs (_merchant defined data_)
 
 |ID|Valor|Tipo|
 |:-|:-|:-|
