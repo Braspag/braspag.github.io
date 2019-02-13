@@ -5130,7 +5130,7 @@ curl
 <BR>ShippingOnly(Frete)<BR>Subscription(Assinatura) |
 | `FraudAnalysis.Cart.Items.VelocityHedge` | Texto | 6 | Não | Nível de importância de frequência de compra do cliente. Possiveis Valores:<BR>Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude) |
 | `FraudAnalysis.MerchantDefinedFields.Id` | Número | 2 | Sim (se aplicável) | Id das informações adicionais a serem enviadas<BR>Valores de 1 a 25, onde os disponíveis são: 4 a 8, 15 a 20, 22 e 24 |
-| `FraudAnalysis.MerchantDefinedFields.Value` | Texto | 255 | Sim (se aplicável) | Valor das informações adicionais a serem enviadas<BR>: todos com tamanho 255 |
+| `FraudAnalysis.MerchantDefinedFields.Value` | Texto | 255 | Sim (se aplicável) | Valor das informações adicionais a serem enviadas: vide tabela abaixo|
 | `FraudAnalysis.Shipping.Addressee` | Texto | 120 | Não | Nome do destinatário da entrega (Nome e sobrenome) |
 | `FraudAnalysis.Shipping.Method` | Texto | 8 | Não | Tipo de serviço de entrega do produto. Possíveis Valores:<BR>SameDay (Meio de entrega no mesmo dia) <BR>NextDay (Meio de entrega no próximo dia) <BR>TwoDay (Meio de entrega em dois dias) <BR>ThreeDay (Meio de entrega em três dias)<BR>LowCost (Meio de entrega de baixo custo)<BR>Pickup (Retirada na loja)<BR>Other (Outro meio de entrega)<BR>None (Sem meio de entrega, pois é um serviço ou assinatura) |
 | `FraudAnalysis.Shipping.Phone` | Número | 15 | Não | Telefone do destinatário da entrega. Ex. 552133665599 (Código do Pais 55, Código da Cidade 21, Numero 33665599) |
@@ -5512,6 +5512,48 @@ curl
 |`FraudAnalysis.ReplyData.ScoreModelUsed`|Nome do modelo de score utilizado|Texto|20|Ex: default_lac|
 |`FraudAnalysis.ReplyData.CasePriority`|Caso o lojista seja assinante do Enhanced Case Management, ele recebe este valor com o nível de prioridade, sendo 1 o mais alto e 5 o mais baixo|Número|---|3|
 |`FraudAnalysis.ReplyData.ProviderTransactionId`|Identificador da transação no provedor de fraude. |Texto|100|Ex: "5206061832306553904009"| 
+
+## Tabela de MDDs (_merchant defined fields_)
+
+|ID|Valor|Tipo|
+|:-|:-|:-|
+|1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|
+|2|Quantidade em dias que o cliente é seu cliente|int|
+|3|Quantidade de parcelas do pedido|int|
+|4|Canal de Venda <br/> Possíveis valores: <br/> Call Center -> compra pelo telefone <br/> Web -> compra pela web <br/> Portal -> um agente fazendo a compra para o cliente <br/> Quiosque -> compras em quiosques <br/> Movel -> compras feitas em celulares ou tablets|string|
+|5|Enviar o código do cupom/desconto caso o cliente utilize na compra|string|
+|6|Data da última compra realizada pelo cliente <br/> Formato: MM-DD-AAAA - Ex.: 12-15-2017|date|
+|7|Código ou nome do seller (vendedor)|string|
+|8|Tentativas realizada pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|
+|9|Identifica se cliente irá retirar o produto na loja <br/> Possíveis valores: SIM ou NAO|string|
+|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br/> Possíveis valores: SIM ou NAO|string|
+|11|Categoria do hotel (quantas estrelas) <br/> Possíveis valores: <br/> 1 -> Simples <br/> 2 -> Econômico <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|
+|12|Data de checkin no hotel <br/> Formato: MM-DD-AAAA - Ex.: 12-05-2018|date|
+|13|Data de checkout no hotel <br/> Formato: MM-DD-AAAA - Ex.: 19-05-2018|date|
+|14|Categoria da viagem ou pacote <br> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|
+|15|Nome da companhia aérea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|
+|16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|
+|17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string
+|18-25|Reservados para novos campos de turismo|-|
+|26|Bin (6 primeiros dígitos) do cartão de crédito|string|
+|27-30|Reservados para campos interno|-|
+|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|
+|32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
+|33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
+|34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possível valor: SIM <br/> Caso não tenha sido confirmado ou não exista um processo de ativação de conta com confiração de e-mail, não enviar o campo|string|
+|35|Identifica o tipo de cliente <br/> Possíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
+|36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
+|37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
+|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
+|39 a 40|Reservados|-|
+|41|Tipo do documento <br/> Possíveis Valores: CPF ou CNPJ|string|
+|42|Código do ramo de atividade - MCC (Merchant Code Category)|string|
+|43|Faixa de rendimento do comprador <br/> Ex.: 100000 = r$ 1.000,00|long|
+|44|Tipo de conta bancária <br/> Possíveis Valores: <br/> CC -> Conta Corrente <br/> CP -> Conta Poupança <br/> PP - Pré-Pago|string|
+|45|Número do documento CPF ou CNPJ|string|
+|46|Nome impresso no cartão de crédito|string|
+|47 a 95|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|
+|96 a 100|Reservados|-|
 
 ## Configuração do Fingerprint
 
