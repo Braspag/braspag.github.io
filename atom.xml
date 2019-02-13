@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-02-13T20:48:28+00:00</updated>
+    <updated>2019-02-13T20:53:00+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -22935,7 +22935,7 @@ curl
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;tabela-de-mdds-merchant-defined-fields&quot;&gt;Tabela de MDDs (&lt;em&gt;merchant defined fields&lt;/em&gt;)&lt;/h2&gt;
+&lt;h2 id=&quot;tabela-de-mdds-merchant-defined-data&quot;&gt;Tabela de MDDs (&lt;em&gt;merchant defined data&lt;/em&gt;)&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
