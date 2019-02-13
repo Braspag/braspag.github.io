@@ -6,8 +6,8 @@ toc_footers: true
 categories: tutorial
 translated: true
 sort_order: 5
+hub_visible: false
 tags:
-    - Pagador
 ---
 
 # SDKs Pagador
