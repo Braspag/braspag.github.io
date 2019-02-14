@@ -4746,7 +4746,7 @@ Se não for especificado o contrário durante a autorização, A Braspag process
 
 ## Criando uma transação com Análise de Fraude Cybersource
 
-Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cart'ao de cr[edito, é necessário complementar a mensagem com os dados mencionados no nó "FraudAnalysis".
+Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e (somente para venda de passagens aéreas) "Travel".
 
 ### Requisição
 
@@ -4755,68 +4755,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 ```json
 
 {  
-   "MerchantOrderId":"2017051002",
-   "Customer":{  
-      "Name":"Nome do Comprador",
-      "Identity":"12345678909",
-      "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      },
-      "DeliveryAddress":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      }
-   },
-   "Payment":{  
-      "Provider":"Simulado",
-      "Type":"CreditCard",
-      "Amount":10000,
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Installments":1,
-      "Interest":"ByMerchant",
-      "Capture":true,
-      "Authenticate":false,
-      "Recurrent":false,
-      "SoftDescriptor":"Mensagem",
-      "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "SaveCard":"false",
-         "Alias":""
-      },
-      "Credentials":{  
-         "code":"9999999",
-         "key":"D8888888",
-         "password":"LOJA9999999",
-         "username":"#Braspag2018@NOMEDALOJA#",
-         "signature":"001"
-      },
-      "ExtraDataCollection":[  
-         {  
-            "Name":"NomeDoCampo",
-            "Value":"ValorDoCampo"
-         }
-      ],
+   [...]
       "FraudAnalysis":{  
          "Sequence":"AnalyseFirst",
          "SequenceCriteria":"Always",
@@ -4908,70 +4847,7 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   "MerchantOrderId":"2017051002",
-   "Customer":{  
-      "Name":"Nome do Comprador",
-      "Identity":"12345678909",
-      "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
-      "Birthdate":"1991-01-02",
-      "Phone":"552121114701"
-      "IpAdress":"2481412353"
-      "Address":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      },
-      "DeliveryAddress":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      }
-   },
-   "Payment":{  
-      "Provider":"Simulado",
-      "Type":"CreditCard",
-      "Amount":10000,
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Installments":1,
-      "Interest":"ByMerchant",
-      "Capture":true,
-      "Authenticate":false,
-      "Recurrent":false,
-      "SoftDescriptor":"Mensagem",
-      "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "SaveCard":"false",
-         "Alias":""
-      },
-      "Credentials":{  
-         "code":"9999999",
-         "key":"D8888888",
-         "password":"LOJA9999999",
-         "username":"#Braspag2018@NOMEDALOJA#",
-         "signature":"001"
-      },
-      "ExtraDataCollection":[  
-         {  
-            "Name":"NomeDoCampo",
-            "Value":"ValorDoCampo"
-         }
-      ],
+   [...]
       "FraudAnalysis":{  
          "Sequence":"AnalyseFirst",
          "SequenceCriteria":"Always",
@@ -5048,59 +4924,6 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-| `MerchantId` | Guid | 36 | Sim | Identificador da loja na Braspag |
-| `MerchantKey` | Texto | 40 | Sim | Chave Publica para Autenticação Dupla na Braspag |
-| `RequestId` | Guid | 36 | Não | Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT |
-| `MerchantOrderId` | Texto | 50 | Sim | Numero de identificação do Pedido |
-| `Customer.Name` | Texto | 120 | Sim | Nome do comprador (Nome e sobrenome) |
-| `Customer.Identity` | Número | 14 | Não | Número do RG, CPF ou CNPJ do Cliente |
-| `Customer.IdentityType` | Texto | 255 | Não | Tipo de documento de identificação do comprador (RG, CPF ou CNPJ) |
-| `Customer.Email` | Texto | 100 | Sim | Email do comprador |
-| `Customer.Birthdate` | Date | 10 | Não | Data de nascimento do Comprador. Ex: 1983-12-31 |
-| `Customer.Phone` | Número | 15 | Não | Número do telefone do comprador. Ex: 552121114701 (Código do Pais 55, Código da Cidade 21, Numero 21114700) |
-| `Customer.IpAddress` | Texto | 45 | Sim | IP do Comprador, podendo ser no formato IPV4 ou IPV6 |
-| `Customer.Address.Street` | Texto | 54 | Sim | Endereço de contato do comprador |
-| `Customer.Address.Number` | Número | 5 | Sim | Número endereço de contato do comprador |
-| `Customer.Address.Complement` | Texto | 14 | Sim | Complemento do endereço de contato do Comprador |
-| `Customer.Address.ZipCode` | Número | 9 | Sim | CEP do endereço de contato do comprador |
-| `Customer.Address.City` | Texto | 50 | Sim | Cidade do endereço de contato do comprador |
-| `Customer.Address.State` | Texto | 2 | Sim | Estado do endereço de contato do comprador |
-| `Customer.Address.Country` | Texto | 2 | Sim | Pais do endereço de contato do comprador |
-| `Customer.Address.District` | Texto | 45 | Sim | Bairro do Comprador. |
-| `Customer.DeliveryAddress.Street` | Texto | 54 | Não | Endereço de entrega do pedido |
-| `Customer.DeliveryAddress.Number` | Número | 5 | Não | Número do endereço de entrega do pedido |
-| `Customer.DeliveryAddress.Complement` | Texto | 14 | Não | Complemento do endereço de entrega do pedido |
-| `Customer.DeliveryAddress.ZipCode` | Número | 9 | Não | CEP do endereço de entrega do pedido |
-| `Customer.DeliveryAddress.City` | Texto | 50 | Não | Cidade do endereço de entrega do pedido |
-| `Customer.DeliveryAddress.State` | Texto | 2 | Não | Estado do endereço de entrega do pedido |
-| `Customer.DeliveryAddress.Country` | Texto | 2 | Não | Pais do endereço de entrega do pedido |
-| `Customer.DeliveryAddress.District` | Texto | 45 | Não | Bairro do Comprador. |
-| `Payment.Provider` | Texto | 15 | Sim | Nome da provedora de Meio de Pagamento |
-| `Payment.Type` | Texto | 100 | Sim | Tipo do Meio de Pagamento |
-| `Payment.Amount` | Número | 15 | Sim | Valor do Pedido (ser enviado em centavos) |
-| `Payment.ServiceTaxAmount` | Número | 15 | Sim | Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização |
-| `Payment.Currency` | Texto | 3 | Não | Moeda na qual o pagamento será feito (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP) |
-| `Payment.Country` | Texto | 2 | Não | País na qual o pagamento será feito |
-| `Payment.Installments` | Número | 2 | Sim | Número de Parcelas |
-| `Payment.Interest` | Texto | 10 | Não | Tipo de parcelamento - Loja (ByMerchant) ou Emissor (ByIssuer) |
-| `Payment.Capture` | Booleano | --- | Não (Default false) | Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade |
-| `Payment.Authenticate` | Booleano | --- | Não (Default false) | Booleano que indica se a transação deve ser autenticada (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade |
-| `Payment.Recurrent` | Booleano | --- | Não (Default false) | Booleano que indica se a transação é do tipo recorrente (true) ou não (false). Este com valor true não originará uma nova Recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações Cielo. Authenticate deve ser false quando Recurrent é true |
-| `Payment.SoftDescriptor` | Texto | 13 | Não | Texto que será impresso na fatura do portador |
-| `CreditCard.CardNumber` | Número | 16 | Sim | Número do Cartão do comprador |
-| `CreditCard.Holder` | Texto | 25 | Sim | Nome do portador impresso no cartão |
-| `CreditCard.ExpirationDate` | Texto | 7 | Sim | Data de validade impresso no cartão |
-| `CreditCard.SecurityCode` | Texto | 4 | Sim | Código de segurança impresso no verso do cartão |
-| `CreditCard.Brand` | Texto | 10 | Sim | Bandeira do cartão |
-| `CreditCard.SaveCard` | Booleano | --- | Não (Default false) | Booleano que identifica se o cartão será salvo para gerar o token (CardToken) |
-| `CreditCard.Alias` | Texto | 64 | Não | Nome atribuído pelo lojista ao cartão salvo como CardToken |
-| `Payment.Credentials.Code` | Texto | 100 | Sim | afiliação gerada pela adquirente |
-| `Payment.Credentials.Key` | Texto | 100 | Sim | chave de afiliação/token gerado pela adquirente |
-| `Payment.Credentials.Username` | Texto | 50 | Não | usuário gerado no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet) |
-| `Payment.Credentials.Password` | Texto | 50 | Não | senha gerada no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet) |
-| `Payment.Credentials.Signature` | Texto | 3 | Não | Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001 |
-| `Payment.ExtraDataCollection.Name` | Texto | 50 | Não | Nome do campo que será gravado o Dado Extra |
-| `Payment.ExtraDataCollection.Value` | Texto | 1024 | Não | Valor do campo que será gravado o Dado Extra |
 | `FraudAnalysis.Sequence` | Texto | 14 | Sim | Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst) |
 | `FraudAnalysis.SequenceCriteria` | Texto | 9 | Sim | Critério do fluxo: "OnSuccess" (Só realiza a analise se tiver sucesso na transação), "Always" (Sempre realiza a analise) |
 | `FraudAnalysis.Provider` | Texto | 10 | Sim | Provedor de antifraude. Enviar: "Cybersource". |
@@ -5129,8 +4952,8 @@ curl
 | `FraudAnalysis.Cart.Items.Type` | Texto | 19 | Não | Tipo do produto. Possíveis Valores:<BR>AdultContent(Conteúdo adulto)<BR>Coupon(Cupon de desconto)<BR>Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)<BR>EletronicGood(Produto eletrônico)<BR>EletronicSoftware(Softwares distribuídos eletronicamente via download)<BR>GiftCertificate(Vale presente)<BR>HandlingOnly(Taxa de instalação ou manuseio)<BR>Service(Serviço)<BR>ShippingAndHandling(Frete e taxa de instalação ou manuseio)\
 <BR>ShippingOnly(Frete)<BR>Subscription(Assinatura) |
 | `FraudAnalysis.Cart.Items.VelocityHedge` | Texto | 6 | Não | Nível de importância de frequência de compra do cliente. Possiveis Valores:<BR>Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude) |
-| `FraudAnalysis.MerchantDefinedFields.Id` | Número | 2 | Sim (se aplicável) | Id das informações adicionais a serem enviadas<BR>Valores de 1 a 25, onde os disponíveis são: 4 a 8, 15 a 20, 22 e 24 |
-| `FraudAnalysis.MerchantDefinedFields.Value` | Texto | 255 | Sim (se aplicável) | Valor das informações adicionais a serem enviadas: vide tabela abaixo|
+| `FraudAnalysis.MerchantDefinedFields.Id` | Número | 2 | Sim | ID das informações adicionais a serem enviadas: vide **Tabela de MDDs** na seção Anexos|
+| `FraudAnalysis.MerchantDefinedFields.Value` | Texto | 255 | Sim | Valor das informações adicionais a serem enviadas: vide **Tabela de MDDs** na seção Anexos|
 | `FraudAnalysis.Shipping.Addressee` | Texto | 120 | Não | Nome do destinatário da entrega (Nome e sobrenome) |
 | `FraudAnalysis.Shipping.Method` | Texto | 8 | Não | Tipo de serviço de entrega do produto. Possíveis Valores:<BR>SameDay (Meio de entrega no mesmo dia) <BR>NextDay (Meio de entrega no próximo dia) <BR>TwoDay (Meio de entrega em dois dias) <BR>ThreeDay (Meio de entrega em três dias)<BR>LowCost (Meio de entrega de baixo custo)<BR>Pickup (Retirada na loja)<BR>Other (Outro meio de entrega)<BR>None (Sem meio de entrega, pois é um serviço ou assinatura) |
 | `FraudAnalysis.Shipping.Phone` | Número | 15 | Não | Telefone do destinatário da entrega. Ex. 552133665599 (Código do Pais 55, Código da Cidade 21, Numero 33665599) |
@@ -5149,96 +4972,7 @@ curl
 
 ```json
 {  
-   "MerchantOrderId":"2017051002",
-   "Customer":{  
-      "Name":"Nome do Comprador",
-      "Identity":"12345678909",
-      "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      },
-      "DeliveryAddress":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      }
-   },
-   "Payment":{  
-      "ServiceTaxAmount":0,
-      "Installments":1,
-      "Interest":"ByMerchant",
-      "Capture":true,
-      "Authenticate":false,
-      "Recurrent":false,
-      "CreditCard":{  
-         "CardNumber":"455187******0181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SaveCard":false,
-         "Brand":"Visa",
-         "Alias":"Teste"
-      },
-      "credentials":{  
-         "code":"9999999",
-         "key":"D8888888",
-         "password":"LOJA9999999",
-         "username":"#Braspag2018@NOMEDALOJA#"
-      },
-      "ProofOfSale":"20170510053219433",
-      "AcquirerTransactionId":"0510053219433",
-      "AuthorizationCode":"936403",
-      "SoftDescriptor":"Mensagem",
-      "VelocityAnalysis":{  
-         "Id":"c374099e-c474-4916-9f5c-f2598fec2925",
-         "ResultMessage":"Accept",
-         "Score":0
-      },
-      "PaymentId":"c374099e-c474-4916-9f5c-f2598fec2925",
-      "Type":"CreditCard",
-      "Amount":10000,
-      "ReceivedDate":"2017-05-10 17:32:19",
-      "CapturedAmount":10000,
-      "CapturedDate":"2017-05-10 17:32:19",
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Provider":"Simulado",
-      "ExtraDataCollection":[  
-         {  
-            "Name":"NomeDoCampo",
-            "Value":"ValorDoCampo"
-         }
-      ],
-      "ReasonCode":0,
-      "ReasonMessage":"Successful",
-      "Status":2,
-      "ProviderReturnCode":"6",
-      "ProviderReturnMessage":"Operation Successful",
-      "Links":[  
-         {  
-            "Method":"GET",
-            "Rel":"self",
-            "Href":"https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
-         },
-         {  
-            "Method":"PUT",
-            "Rel":"void",
-            "Href":"https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
-         }
-      ],
+   [...]
       "Cart":{  
          "IsGift":false,
          "ReturnsAccepted":true,
@@ -5319,96 +5053,7 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   "MerchantOrderId":"2017051002",
-   "Customer":{  
-      "Name":"Nome do Comprador",
-      "Identity":"12345678909",
-      "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      },
-      "DeliveryAddress":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      }
-   },
-   "Payment":{  
-      "ServiceTaxAmount":0,
-      "Installments":1,
-      "Interest":"ByMerchant",
-      "Capture":true,
-      "Authenticate":false,
-      "Recurrent":false,
-      "CreditCard":{  
-         "CardNumber":"455187******0181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SaveCard":false,
-         "Brand":"Visa",
-         "Alias":"Teste"
-      },
-      "credentials":{  
-         "code":"9999999",
-         "key":"D8888888",
-         "password":"LOJA9999999",
-         "username":"#Braspag2018@NOMEDALOJA#"
-      },
-      "ProofOfSale":"20170510053219433",
-      "AcquirerTransactionId":"0510053219433",
-      "AuthorizationCode":"936403",
-      "SoftDescriptor":"Mensagem",
-      "VelocityAnalysis":{  
-         "Id":"c374099e-c474-4916-9f5c-f2598fec2925",
-         "ResultMessage":"Accept",
-         "Score":0
-      },
-      "PaymentId":"c374099e-c474-4916-9f5c-f2598fec2925",
-      "Type":"CreditCard",
-      "Amount":10000,
-      "ReceivedDate":"2017-05-10 17:32:19",
-      "CapturedAmount":10000,
-      "CapturedDate":"2017-05-10 17:32:19",
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Provider":"Simulado",
-      "ExtraDataCollection":[  
-         {  
-            "Name":"NomeDoCampo",
-            "Value":"ValorDoCampo"
-         }
-      ],
-      "ReasonCode":0,
-      "ReasonMessage":"Successful",
-      "Status":2,
-      "ProviderReturnCode":"6",
-      "ProviderReturnMessage":"Operation Successful",
-      "Links":[  
-         {  
-            "Method":"GET",
-            "Rel":"self",
-            "Href":"https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
-         },
-         {  
-            "Method":"PUT",
-            "Rel":"void",
-            "Href":"https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
-         }
-      ],
+   [...]
       "Cart":{  
          "IsGift":false,
          "ReturnsAccepted":true,
@@ -5486,17 +5131,6 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura do portador|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Texto|300|Texto alfanumérico|
 |`FraudAnalysis.Status`|Status da Transação|Byte|1|Ex. 1|
 |`FraudAnalysis.FraudAnalysisReasonCode`|Resultado da análise|Byte|---|<ul><li>100 - Operação bem sucedida.</li><li>101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.</li><li>102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.</li><li>150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.</li><li>202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.</li><li>400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.</li><li>480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.</li><li>481 - O pedido foi rejeitado pelo Gerenciador de Decisão</li></ul>|
@@ -5513,48 +5147,6 @@ curl
 |`FraudAnalysis.ReplyData.CasePriority`|Caso o lojista seja assinante do Enhanced Case Management, ele recebe este valor com o nível de prioridade, sendo 1 o mais alto e 5 o mais baixo|Número|---|3|
 |`FraudAnalysis.ReplyData.ProviderTransactionId`|Identificador da transação no provedor de fraude. |Texto|100|Ex: "5206061832306553904009"| 
 
-## Tabela de MDDs (_merchant defined data_)
-
-|ID|Valor|Tipo|
-|:-|:-|:-|
-|1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|
-|2|Quantidade em dias que o cliente é seu cliente|int|
-|3|Quantidade de parcelas do pedido|int|
-|4|Canal de Venda <br/> Possíveis valores: <br/> Call Center -> compra pelo telefone <br/> Web -> compra pela web <br/> Portal -> um agente fazendo a compra para o cliente <br/> Quiosque -> compras em quiosques <br/> Movel -> compras feitas em celulares ou tablets|string|
-|5|Enviar o código do cupom/desconto caso o cliente utilize na compra|string|
-|6|Data da última compra realizada pelo cliente <br/> Formato: MM-DD-AAAA - Ex.: 12-15-2017|date|
-|7|Código ou nome do seller (vendedor)|string|
-|8|Tentativas realizada pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|
-|9|Identifica se cliente irá retirar o produto na loja <br/> Possíveis valores: SIM ou NAO|string|
-|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br/> Possíveis valores: SIM ou NAO|string|
-|11|Categoria do hotel (quantas estrelas) <br/> Possíveis valores: <br/> 1 -> Simples <br/> 2 -> Econômico <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|
-|12|Data de checkin no hotel <br/> Formato: MM-DD-AAAA - Ex.: 12-05-2018|date|
-|13|Data de checkout no hotel <br/> Formato: MM-DD-AAAA - Ex.: 19-05-2018|date|
-|14|Categoria da viagem ou pacote <br> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|
-|15|Nome da companhia aérea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|
-|16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|
-|17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string
-|18-25|Reservados para novos campos de turismo|-|
-|26|Bin (6 primeiros dígitos) do cartão de crédito|string|
-|27-30|Reservados para campos interno|-|
-|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|
-|32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
-|33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
-|34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possível valor: SIM <br/> Caso não tenha sido confirmado ou não exista um processo de ativação de conta com confiração de e-mail, não enviar o campo|string|
-|35|Identifica o tipo de cliente <br/> Possíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
-|36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
-|37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
-|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
-|39 a 40|Reservados|-|
-|41|Tipo do documento <br/> Possíveis Valores: CPF ou CNPJ|string|
-|42|Código do ramo de atividade - MCC (Merchant Code Category)|string|
-|43|Faixa de rendimento do comprador <br/> Ex.: 100000 = r$ 1.000,00|long|
-|44|Tipo de conta bancária <br/> Possíveis Valores: <br/> CC -> Conta Corrente <br/> CP -> Conta Poupança <br/> PP - Pré-Pago|string|
-|45|Número do documento CPF ou CNPJ|string|
-|46|Nome impresso no cartão de crédito|string|
-|47 a 95|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|
-|96 a 100|Reservados|-|
-
 ## Configuração do Fingerprint
 
 Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
@@ -5566,9 +5158,7 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
-**IMPORTANTE!**
-
-Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
+<aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
 **Domain**
 
@@ -6673,6 +6263,48 @@ Status retornados pela API
 | 3      | Review     |
 | 4      | Aborted    |
 | 5      | Unfinished |
+
+## Tabela de MDDs (_merchant defined data_)
+
+|ID|Valor|Tipo|
+|:-|:-|:-|
+|1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|
+|2|Quantidade em dias que o cliente é seu cliente|int|
+|3|Quantidade de parcelas do pedido|int|
+|4|Canal de Venda <br/> Possíveis valores: <br/> Call Center -> compra pelo telefone <br/> Web -> compra pela web <br/> Portal -> um agente fazendo a compra para o cliente <br/> Quiosque -> compras em quiosques <br/> Movel -> compras feitas em celulares ou tablets|string|
+|5|Enviar o código do cupom/desconto caso o cliente utilize na compra|string|
+|6|Data da última compra realizada pelo cliente <br/> Formato: MM-DD-AAAA - Ex.: 12-15-2017|date|
+|7|Código ou nome do seller (vendedor)|string|
+|8|Tentativas realizada pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|
+|9|Identifica se cliente irá retirar o produto na loja <br/> Possíveis valores: SIM ou NAO|string|
+|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br/> Possíveis valores: SIM ou NAO|string|
+|11|Categoria do hotel (quantas estrelas) <br/> Possíveis valores: <br/> 1 -> Simples <br/> 2 -> Econômico <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|
+|12|Data de checkin no hotel <br/> Formato: MM-DD-AAAA - Ex.: 12-05-2018|date|
+|13|Data de checkout no hotel <br/> Formato: MM-DD-AAAA - Ex.: 19-05-2018|date|
+|14|Categoria da viagem ou pacote <br> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|
+|15|Nome da companhia aérea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|
+|16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|
+|17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string
+|18-25|Reservados para novos campos de turismo|-|
+|26|Bin (6 primeiros dígitos) do cartão de crédito|string|
+|27-30|Reservados para campos interno|-|
+|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|
+|32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
+|33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
+|34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possível valor: SIM <br/> Caso não tenha sido confirmado ou não exista um processo de ativação de conta com confiração de e-mail, não enviar o campo|string|
+|35|Identifica o tipo de cliente <br/> Possíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
+|36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
+|37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
+|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
+|39 a 40|Reservados|-|
+|41|Tipo do documento <br/> Possíveis Valores: CPF ou CNPJ|string|
+|42|Código do ramo de atividade - MCC (Merchant Code Category)|string|
+|43|Faixa de rendimento do comprador <br/> Ex.: 100000 = r$ 1.000,00|long|
+|44|Tipo de conta bancária <br/> Possíveis Valores: <br/> CC -> Conta Corrente <br/> CP -> Conta Poupança <br/> PP - Pré-Pago|string|
+|45|Número do documento CPF ou CNPJ|string|
+|46|Nome impresso no cartão de crédito|string|
+|47 a 95|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|
+|96 a 100|Reservados|-|
 
 ## Lista de HTTP Status Code
 
