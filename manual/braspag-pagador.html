@@ -9396,7 +9396,7 @@ curl
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<br />Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo session_id do script que será incluído na página de checkout. Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
+      <td>Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<br />Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -10030,7 +10030,8 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
   </tbody>
 </table>
 
-<p><strong>Variáveis</strong></p>
+<p><strong>Variáveis</strong>
+Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class="highlighter-rouge">org_id</code> e o <code class="highlighter-rouge">session_id</code>. O <code class="highlighter-rouge">org_id</code> é um valor predefinido conforme tabela abaixo, já o <code class="highlighter-rouge">session_id</code> é composto pela concatenação dos parâmetros <code class="highlighter-rouge">ProviderMerchantId</code> e <code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code>, conforme exemplo abaixo:</p>
 
 <table>
   <thead>
@@ -10041,35 +10042,31 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderOrgId</code></td>
-      <td style="text-align: left">Sandbox = 1snn5n9w <br /> Produção = k8vif92e</td>
+      <td style="text-align: left"><code class="highlighter-rouge">org_id</code></td>
+      <td style="text-align: left">para Sandbox = 1snn5n9w <br /> para Produção = k8vif92e</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderMerchantId</code></td>
-      <td style="text-align: left">Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderIdentifier</code></td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo <code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code> que será enviado na requisição da análise. <br /> O resultado da concatenação entre o campo <code class="highlighter-rouge">ProviderMerchantId</code> e este, deve ser atribuído ao campo <code class="highlighter-rouge">session_id</code> do(s) script(s) que serão incluídos na página de checkout. <br /> Exemplo: <br /> <code class="highlighter-rouge">ProviderMerchantId</code> = braspag <br /> <code class="highlighter-rouge">ProviderIdentifier</code> = 123456789 <br /> Resultado = braspag123456789 <br /><br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
+      <td style="text-align: left"><code class="highlighter-rouge">session_id</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderMerchantId</code> = Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag <br /> <code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code> = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
     </tr>
   </tbody>
 </table>
 
-<blockquote>
-  <p>Javascript Code</p>
-</blockquote>
+<p><strong>Aplicação</strong></p>
+
+<p>O modelo do Javascript é o seguinte:</p>
 
 <p><img src="https://braspag.github.io//images/braspag/af/exemploscriptdfp.png" alt="Exemplo Código" /></p>
 
-<p><strong>IMPORTANTE!</strong>
-Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</p>
+<p>As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:</p>
+
+<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 
 <p><strong>Configurando seu Servidor Web</strong></p>
 
 <p>Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.</p>
 
-<p><strong>IMPORTANTE!</strong>
-Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</p>
+<aside class="warning">Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</aside>
 
 <h3 id="integração-em-aplicativos-mobile">Integração em aplicativos mobile</h3>
 
