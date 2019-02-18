@@ -5183,8 +5183,6 @@ O modelo do Javascript é o seguinte:
 
 As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
 
-![Exemplo URL](braspag.github.io/images/braspag/af/urldfp.jpg)
-
 <aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 
 **Configurando seu Servidor Web**
