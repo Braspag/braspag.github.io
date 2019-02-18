@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-02-18T18:25:56+00:00</updated>
+    <updated>2019-02-18T18:34:48+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -22143,7 +22143,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O &lt;code cla
 
 &lt;p&gt;As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/urldfp.png&quot; alt=&quot;Exemplo Url&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/af/urldfp.png&quot; alt=&quot;Exemplo Url&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.&lt;/aside&gt;
 
