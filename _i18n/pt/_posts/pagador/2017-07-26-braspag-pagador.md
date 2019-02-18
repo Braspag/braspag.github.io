@@ -4930,7 +4930,7 @@ curl
 | `FraudAnalysis.CaptureOnLowRisk` | Booleano | --- | Não | Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado |
 | `FraudAnalysis.VoidOnHighRisk` | Booleano | --- | Não | Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado. |
 | `FraudAnalysis.TotalOrderAmount` | Número | 15 | Sim | Valor total do pedido |
-| `FraudAnalysis.FingerPrintId` | Texto | 100 | Sim | Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<BR>Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo session_id do script que será incluído na página de checkout. Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. |
+| `FraudAnalysis.FingerPrintId` | Texto | 100 | Sim | Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<BR>Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. |
 | `FraudAnalysis.Browser.HostName` | Texto | 60 | Não | Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP |
 | `FraudAnalysis.Browser.CookiesAccepted` | Booleano | --- | Sim | Identifica se o browser do comprador aceita cookies ou não |
 | `FraudAnalysis.Browser.Email` | Texto | 100 | Não | E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(Customer.Email) |
@@ -5168,26 +5168,30 @@ Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma 
 |`Production`|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|
 
 **Variáveis**
+Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o `session_id`. O `org_id` é um valor predefinido conforme tabela abaixo, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `FraudAnalysis.FingerPrintId`, conforme exemplo abaixo:
 
 |Variável|Descrição|
 |:-|:-|
-|`ProviderOrgId`|Sandbox = 1snn5n9w <br/> Produção = k8vif92e|
-|`ProviderMerchantId`|Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag|
-|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `FraudAnalysis.FingerPrintId` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do(s) script(s) que serão incluídos na página de checkout. <br/> Exemplo: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
+|`org_id`|para Sandbox = 1snn5n9w <br/> para Produção = k8vif92e|
+|`session_id`|`ProviderMerchantId` = Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag <br/> `FraudAnalysis.FingerPrintId` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
 
-> Javascript Code
+**Aplicação**
+
+O modelo do Javascript é o seguinte:
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
-**IMPORTANTE!**
-Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.
+As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
+
+![Exemplo URL](braspag.github.io/images/braspag/af/URLdfp.jpg)
+
+<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 
 **Configurando seu Servidor Web**
 
 Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.
 
-**IMPORTANTE!**
-Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.
+<aside class="warning">Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</aside>
 
 ### Integração em aplicativos mobile
 
