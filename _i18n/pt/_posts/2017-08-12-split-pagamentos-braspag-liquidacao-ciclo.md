@@ -33,10 +33,13 @@ Na liquidação em ciclo, o **Split de Pagamentos** aplica um fator percentual s
 Supondo uma transação de R$1.000,00, em 4 parcelas, e os seguintes parâmetros:
 
 **Mdr Braspag:** 3%
+
 **Mdr Master / Subordinado A:** 20%
+
 **Mdr Master / Subordinado B:** 5%
 
 **Participação Subordinado A:** R$600,00
+
 **Participação Subordinado B:** R$400,00
 
 O cáculo ocorre da seguinte forma:
@@ -44,23 +47,30 @@ O cáculo ocorre da seguinte forma:
 **Mdr Braspag:** R$1.000,00 * 3% = R$30,00
 
 **[Bruto] Master / Subordinado A:** R$600,00 * 20% = R$120,00
+
 **[Bruto][Líquido] Subordinado A:** R$600,00 - R$120,00 = R$480,00
 
 **[Bruto] Master / Subordinado B:** R$400,00 * 5% = R$20,00
-**[Bruto][Líquido] Subordinado B:** R$400,00 - R$20,00 = R$380,00
 
-**[Bruto] Master:** R$120,00 + R$20,00 = R$140,00 
+**[Bruto][Líquido] Subordinado B:** R$400,00 - R$20,00 = R$380,00
+=
+
 **[Líquido] Master:** R$140,00 - R$30,00 = R$110,00
 
 Considerando que o Subordinado A tenha optado por receber no ciclo e com um fator de 1% por parcela, todas as parcelas serão liquidadas na data fixa escolhida. Considerando os novos parâmetros abaixo o cálculo se dará conforme abaixo:
 
 **Mdr Braspag:** 3%
+
 **Fator por Parcela:** 1%
+
 **Fator Total:** 4% (fator x parcelas)
+
 **Mdr Master / Subordinado A:** 30%
+
 **Mdr Master / Subordinado B:** 5%
 
 **Participação Subordinado A:** R$600,00
+
 **Participação Subordinado B:** R$400,00
 
 O cáculo ocorre da seguinte forma:
@@ -68,14 +78,19 @@ O cáculo ocorre da seguinte forma:
 **Mdr Braspag:** R$1.000,00 * 3% = R$30,00
 
 **[Bruto] Master / Subordinado A:** R$600,00 * 30% = R$180,00
+
 **[Bruto][Líquido] Subordinado A:** R$600,00 - R$180,00 = R$420,00
+
 **Braspag / Valor Subordinado A:** R$600,00 * 4% = R$24,00
 
 **[Bruto] Master / Subordinado B:** R$400,00 * 5% = R$20,00
+
 **[Bruto][Líquido] Subordinado B:** R$400,00 - R$20,00 = R$380,00
 
 **Braspag Total:** R$30,00 + R$24,00 = R$54,00
-**[Bruto] Master:** R$180,00 + R$20,00 = R$200,00 
+
+**[Bruto] Master:** R$180,00 + R$20,00 = R$200,00
+
 **[Líquido] Master:** R$200,00 - R$54,00 = R$146,00
 
 ## Regras
