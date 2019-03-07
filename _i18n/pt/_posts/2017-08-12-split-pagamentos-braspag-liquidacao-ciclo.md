@@ -49,39 +49,25 @@ O cáculo ocorrerá da seguinte forma:
 
 Considerando que o Subordinado A tenha optado por receber no ciclo e com um fator de 1% por parcela, todas as parcelas serão liquidadas na data fixa escolhida. Considerando os novos parâmetros abaixo o cálculo se dará conforme abaixo:
 
-**Mdr Braspag:** 3%
-
-**Fator por Parcela:** 1%
-
-**Fator Total:** 4% (fator x parcelas)
-
-**Mdr Master / Subordinado A:** 30%
-
-**Mdr Master / Subordinado B:** 5%
-
-**Participação Subordinado A:** R$600,00
-
-**Participação Subordinado B:** R$400,00
+**Mdr Braspag:** 3%  
+**Fator por Parcela:** 1%  
+**Fator Total:** 4% (fator x parcelas)  
+**Mdr Master / Subordinado A:** 30%  
+**Mdr Master / Subordinado B:** 5%  
+**Participação Subordinado A:** R$600,00  
+**Participação Subordinado B:** R$400,00  
 
 O cáculo ocorre da seguinte forma:
 
-**Mdr Braspag:** R$1.000,00 * 3% = R$30,00
-
-**[Bruto] Master / Subordinado A:** R$600,00 * 30% = R$180,00
-
-**[Bruto][Líquido] Subordinado A:** R$600,00 - R$180,00 = R$420,00
-
-**Braspag / Valor Subordinado A:** R$600,00 * 4% = R$24,00
-
-**[Bruto] Master / Subordinado B:** R$400,00 * 5% = R$20,00
-
-**[Bruto][Líquido] Subordinado B:** R$400,00 - R$20,00 = R$380,00
-
-**Braspag Total:** R$30,00 + R$24,00 = R$54,00
-
-**[Bruto] Master:** R$180,00 + R$20,00 = R$200,00
-
-**[Líquido] Master:** R$200,00 - R$54,00 = R$146,00
+**Mdr Braspag:** R$1.000,00 * 3% = R$30,00  
+**[Bruto] Master / Subordinado A:** R$600,00 * 30% = R$180,00  
+**[Bruto][Líquido] Subordinado A:** R$600,00 - R$180,00 = R$420,00  
+**Braspag / Valor Subordinado A:** R$600,00 * 4% = R$24,00  
+**[Bruto] Master / Subordinado B:** R$400,00 * 5% = R$20,00  
+**[Bruto][Líquido] Subordinado B:** R$400,00 - R$20,00 = R$380,00  
+**Braspag Total:** R$30,00 + R$24,00 = R$54,00  
+**[Bruto] Master:** R$180,00 + R$20,00 = R$200,00  
+**[Líquido] Master:** R$200,00 - R$54,00 = R$146,00  
 
 ## Regras
 
@@ -92,8 +78,8 @@ A liquidação em ciclo de vendas no Split é baseada nas seguintes regras:
 * É possível escolher até duas datas fixas para liquidação.
 * Serão liquidadas nas datas escolhidas as transações que forem capturadas em até 2 dias antes da data fixa escolhida.
 * Transações que, por algum motivo, sofrerem atraso e não puderem ser liquidadas nas datas escolhidas, serão liquidadas no dia útil imediatamente após o processamento da mesma.
-* A liquidação é realizada com base na data de captura da transação.
-
+* A liquidação é realizada com base na data de captura da transação.  
+  
 Supondo que um subordinado deseje receber em dois fixos no mês, 15 e 25, e que a adoção da liquidação em ciclo tenha sido realizada no dia 18:
 
 Todas as transações que ocorrerem do dia 19 ao 23 serão liquidadas no dia 25.
