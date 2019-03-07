@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Split de Pagamentos - Antecipação
-description: Split de Pagamentos - Antecipação
+title: Split de Pagamentos - Liquicação em Ciclo
+description: Split de Pagamentos - Liquicação em Ciclo
 search: true
 toc_footers: false
 categories: manual
@@ -10,7 +10,7 @@ hub_visible: false
 tags:
 ---
 
-# Split de Pagamentos - Antecipação
+# Split de Pagamentos - Liquicação em Ciclo
 
 ## Introdução
 
@@ -18,9 +18,17 @@ O **Split de Pagamentos** liquida os valores referentes a cada participante de u
 
 Como exemplo, para uma transação de crédito realizada em 3x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referentes a cada parcela da transação citada em 30, 60 e 90 dias.
 
-Com a Antecipação, é possível que o Master antecipe os seus recebíveis e/ou dos seus subordinados.
+Com a Liquidação em Ciclo, é possível que o Master solicite que um ou mais subordinados recebam em ciclo, podendo escolher até duas datas fixas no mês.
 
 Para consultar a agenda financeira com a previsão dos recebíveis futuros, consulte o manual [Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag#agenda-financeira){:target="_blank"}.
+
+## Cálculo
+
+Na liquidação em ciclo, o **Split de Pagamentos** aplica um fator percentual sobre a participação do subordinado na venda.
+
+O cáculo ocorre da seguinte forma:
+
+
 
 ## Regras
 
