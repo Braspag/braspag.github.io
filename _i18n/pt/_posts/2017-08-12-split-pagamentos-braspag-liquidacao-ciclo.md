@@ -51,7 +51,7 @@ Considerando que o Subordinado A tenha optado por receber no ciclo e com um fato
 
 **Mdr Braspag:** 3%  
 **Fator por Parcela:** 1%  
-**Fator Total:** 4% (fator x parcelas)  
+**Fator Total:** 4% (fator x número de parcelas)  
 **Mdr Master / Subordinado A:** 30%  
 **Mdr Master / Subordinado B:** 5%  
 **Participação Subordinado A:** R$600,00  
