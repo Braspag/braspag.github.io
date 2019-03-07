@@ -53,7 +53,6 @@ O cáculo ocorre da seguinte forma:
 **[Bruto] Master / Subordinado B:** R$400,00 * 5% = R$20,00
 
 **[Bruto][Líquido] Subordinado B:** R$400,00 - R$20,00 = R$380,00
-=
 
 **[Líquido] Master:** R$140,00 - R$30,00 = R$110,00
 
@@ -111,8 +110,3 @@ As transação que ocorrerem do dia 24 ao 13 do mês subsequente serão liquidad
 O ciclo se repete com as liquidações realizadas do dia 14 ao 23 sendo liquidadas no dia 25.
 
 Caso ocorra atraso na liquidação de alguma transação, a mesma será liquidada no dia útil imediatamente após ter seu processamento concluído.
-
-
-
-
-
