@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Split de Pagamentos - Liquicação em Ciclo
-description: Split de Pagamentos - Liquicação em Ciclo
+title: Split de Pagamentos - Liquidação em Ciclo
+description: Split de Pagamentos - Liquidação em Ciclo
 search: true
 toc_footers: false
 categories: manual
@@ -10,7 +10,7 @@ hub_visible: false
 tags:
 ---
 
-# Split de Pagamentos - Liquicação em Ciclo
+# Split de Pagamentos - Liquidação em Ciclo
 
 ## Introdução
 
