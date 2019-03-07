@@ -16,7 +16,7 @@ tags:
 
 O **Split de Pagamentos** liquida os valores referentes a cada participante de uma transação de acordo com o regime padrão de cada arranjo de pagamento.
 
-Como exemplo, para uma transação de crédito realizada em 3x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referentes a cada parcela da transação citada em 30, 60 e 90 dias.
+Como exemplo, para uma transação de crédito realizada em 4x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referentes a cada parcela da transação citada em 30, 60, 90 e 120 dias.
 
 ![RegimeLiquidacaoPadrao](https://braspag.github.io/images/braspag/split/regime-pagamento-padrao.png)
 
