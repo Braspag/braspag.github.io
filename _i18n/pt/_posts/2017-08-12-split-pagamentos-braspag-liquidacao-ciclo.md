@@ -32,15 +32,15 @@ Na liquidação em ciclo, o **Split de Pagamentos** aplica um fator percentual s
 
 Supondo uma transação de R$1.000,00, em 4 parcelas, e os seguintes parâmetros:
 
-**Mdr Braspag:** 3%
-
-**Mdr Master / Subordinado A:** 20%
-
-**Mdr Master / Subordinado B:** 5%
-
-**Participação Subordinado A:** R$600,00
-
-**Participação Subordinado B:** R$400,00
+>**Mdr Braspag:** 3%
+>
+>**Mdr Master / Subordinado A:** 20%
+>
+>**Mdr Master / Subordinado B:** 5%
+>
+>**Participação Subordinado A:** R$600,00
+>
+>**Participação Subordinado B:** R$400,00
 
 O cáculo ocorre da seguinte forma:
 
