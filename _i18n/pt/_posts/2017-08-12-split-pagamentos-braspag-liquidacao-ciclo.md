@@ -32,29 +32,20 @@ Na liquidação em ciclo, o **Split de Pagamentos** aplica um fator percentual s
 
 Supondo uma transação de R$1.000,00, em 4 parcelas, e os seguintes parâmetros:
 
->**Mdr Braspag:** 3%
->
->**Mdr Master / Subordinado A:** 20%
->
->**Mdr Master / Subordinado B:** 5%
->
->**Participação Subordinado A:** R$600,00
->
->**Participação Subordinado B:** R$400,00
+**Mdr Braspag:** 3%  
+**Mdr Master / Subordinado A:** 20%  
+**Mdr Master / Subordinado B:** 5%  
+**Participação Subordinado A:** R$600,00  
+**Participação Subordinado B:** R$400,00  
 
-O cáculo ocorre da seguinte forma:
+O cáculo ocorrerá da seguinte forma:
 
-**Mdr Braspag:** R$1.000,00 * 3% = R$30,00
-
-**[Bruto] Master / Subordinado A:** R$600,00 * 20% = R$120,00
-
-**[Bruto][Líquido] Subordinado A:** R$600,00 - R$120,00 = R$480,00
-
-**[Bruto] Master / Subordinado B:** R$400,00 * 5% = R$20,00
-
-**[Bruto][Líquido] Subordinado B:** R$400,00 - R$20,00 = R$380,00
-
-**[Líquido] Master:** R$140,00 - R$30,00 = R$110,00
+**Mdr Braspag:** R$1.000,00 * 3% = R$30,00  
+**[Bruto] Master / Subordinado A:** R$600,00 * 20% = R$120,00  
+**[Bruto][Líquido] Subordinado A:** R$600,00 - R$120,00 = R$480,00  
+**[Bruto] Master / Subordinado B:** R$400,00 * 5% = R$20,00  
+**[Bruto][Líquido] Subordinado B:** R$400,00 - R$20,00 = R$380,00  
+**[Líquido] Master:** R$140,00 - R$30,00 = R$110,00  
 
 Considerando que o Subordinado A tenha optado por receber no ciclo e com um fator de 1% por parcela, todas as parcelas serão liquidadas na data fixa escolhida. Considerando os novos parâmetros abaixo o cálculo se dará conforme abaixo:
 
