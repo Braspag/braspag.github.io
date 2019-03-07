@@ -127,51 +127,65 @@
 
 <p>Supondo uma transação de R$1.000,00, em 4 parcelas, e os seguintes parâmetros:</p>
 
-<p><strong>Mdr Braspag:</strong> 3%
-<strong>Mdr Master / Subordinado A:</strong> 20%
-<strong>Mdr Master / Subordinado B:</strong> 5%</p>
+<p><strong>Mdr Braspag:</strong> 3%</p>
 
-<p><strong>Participação Subordinado A:</strong> R$600,00
-<strong>Participação Subordinado B:</strong> R$400,00</p>
+<p><strong>Mdr Master / Subordinado A:</strong> 20%</p>
+
+<p><strong>Mdr Master / Subordinado B:</strong> 5%</p>
+
+<p><strong>Participação Subordinado A:</strong> R$600,00</p>
+
+<p><strong>Participação Subordinado B:</strong> R$400,00</p>
 
 <p>O cáculo ocorre da seguinte forma:</p>
 
 <p><strong>Mdr Braspag:</strong> R$1.000,00 * 3% = R$30,00</p>
 
-<p><strong>[Bruto] Master / Subordinado A:</strong> R$600,00 * 20% = R$120,00
-<strong>[Bruto][Líquido] Subordinado A:</strong> R$600,00 - R$120,00 = R$480,00</p>
+<p><strong>[Bruto] Master / Subordinado A:</strong> R$600,00 * 20% = R$120,00</p>
 
-<p><strong>[Bruto] Master / Subordinado B:</strong> R$400,00 * 5% = R$20,00
-<strong>[Bruto][Líquido] Subordinado B:</strong> R$400,00 - R$20,00 = R$380,00</p>
+<p><strong>[Bruto][Líquido] Subordinado A:</strong> R$600,00 - R$120,00 = R$480,00</p>
 
-<p><strong>[Bruto] Master:</strong> R$120,00 + R$20,00 = R$140,00 
-<strong>[Líquido] Master:</strong> R$140,00 - R$30,00 = R$110,00</p>
+<p><strong>[Bruto] Master / Subordinado B:</strong> R$400,00 * 5% = R$20,00</p>
+
+<p><strong>[Bruto][Líquido] Subordinado B:</strong> R$400,00 - R$20,00 = R$380,00</p>
+
+<p><strong>[Líquido] Master:</strong> R$140,00 - R$30,00 = R$110,00</p>
 
 <p>Considerando que o Subordinado A tenha optado por receber no ciclo e com um fator de 1% por parcela, todas as parcelas serão liquidadas na data fixa escolhida. Considerando os novos parâmetros abaixo o cálculo se dará conforme abaixo:</p>
 
-<p><strong>Mdr Braspag:</strong> 3%
-<strong>Fator por Parcela:</strong> 1%
-<strong>Fator Total:</strong> 4% (fator x parcelas)
-<strong>Mdr Master / Subordinado A:</strong> 30%
-<strong>Mdr Master / Subordinado B:</strong> 5%</p>
+<p><strong>Mdr Braspag:</strong> 3%</p>
 
-<p><strong>Participação Subordinado A:</strong> R$600,00
-<strong>Participação Subordinado B:</strong> R$400,00</p>
+<p><strong>Fator por Parcela:</strong> 1%</p>
+
+<p><strong>Fator Total:</strong> 4% (fator x parcelas)</p>
+
+<p><strong>Mdr Master / Subordinado A:</strong> 30%</p>
+
+<p><strong>Mdr Master / Subordinado B:</strong> 5%</p>
+
+<p><strong>Participação Subordinado A:</strong> R$600,00</p>
+
+<p><strong>Participação Subordinado B:</strong> R$400,00</p>
 
 <p>O cáculo ocorre da seguinte forma:</p>
 
 <p><strong>Mdr Braspag:</strong> R$1.000,00 * 3% = R$30,00</p>
 
-<p><strong>[Bruto] Master / Subordinado A:</strong> R$600,00 * 30% = R$180,00
-<strong>[Bruto][Líquido] Subordinado A:</strong> R$600,00 - R$180,00 = R$420,00
-<strong>Braspag / Valor Subordinado A:</strong> R$600,00 * 4% = R$24,00</p>
+<p><strong>[Bruto] Master / Subordinado A:</strong> R$600,00 * 30% = R$180,00</p>
 
-<p><strong>[Bruto] Master / Subordinado B:</strong> R$400,00 * 5% = R$20,00
-<strong>[Bruto][Líquido] Subordinado B:</strong> R$400,00 - R$20,00 = R$380,00</p>
+<p><strong>[Bruto][Líquido] Subordinado A:</strong> R$600,00 - R$180,00 = R$420,00</p>
 
-<p><strong>Braspag Total:</strong> R$30,00 + R$24,00 = R$54,00
-<strong>[Bruto] Master:</strong> R$180,00 + R$20,00 = R$200,00 
-<strong>[Líquido] Master:</strong> R$200,00 - R$54,00 = R$146,00</p>
+<p><strong>Braspag / Valor Subordinado A:</strong> R$600,00 * 4% = R$24,00</p>
+
+<p><strong>[Bruto] Master / Subordinado B:</strong> R$400,00 * 5% = R$20,00</p>
+
+<p><strong>[Bruto][Líquido] Subordinado B:</strong> R$400,00 - R$20,00 = R$380,00</p>
+
+<p><strong>Braspag Total:</strong> R$30,00 + R$24,00 = R$54,00</p>
+
+<p><strong>[Bruto] Master:</strong> R$180,00 + R$20,00 = R$200,00</p>
+
+<p><strong>[Líquido] Master:</strong> R$200,00 - R$54,00 = R$146,00</p>
 
 <h2 id="regras">Regras</h2>
 
@@ -193,7 +207,6 @@ As transação que ocorrerem do dia 24 ao 13 do mês subsequente serão liquidad
 O ciclo se repete com as liquidações realizadas do dia 14 ao 23 sendo liquidadas no dia 25.</p>
 
 <p>Caso ocorra atraso na liquidação de alguma transação, a mesma será liquidada no dia útil imediatamente após ter seu processamento concluído.</p>
-
 
 </div>
 
