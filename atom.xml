@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-03-07T19:06:24+00:00</updated>
+    <updated>2019-03-07T19:09:28+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10674,15 +10674,17 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;Supondo uma transação de R$1.000,00, em 4 parcelas, e os seguintes parâmetros:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Mdr Braspag:&lt;/strong&gt; 3%&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Mdr Braspag:&lt;/strong&gt; 3%&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Mdr Master / Subordinado A:&lt;/strong&gt; 20%&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Mdr Master / Subordinado A:&lt;/strong&gt; 20%&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Mdr Master / Subordinado B:&lt;/strong&gt; 5%&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Mdr Master / Subordinado B:&lt;/strong&gt; 5%&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Participação Subordinado A:&lt;/strong&gt; R$600,00&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Participação Subordinado A:&lt;/strong&gt; R$600,00&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Participação Subordinado B:&lt;/strong&gt; R$400,00&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Participação Subordinado B:&lt;/strong&gt; R$400,00&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;O cáculo ocorre da seguinte forma:&lt;/p&gt;
 
