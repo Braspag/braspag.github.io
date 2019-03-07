@@ -57,7 +57,7 @@ Considerando que o Subordinado A tenha optado por receber no ciclo e com um fato
 **Participação Subordinado A:** R$600,00  
 **Participação Subordinado B:** R$400,00  
 
-O cáculo ocorre da seguinte forma:
+O cáculo ocorrerá da seguinte forma:
 
 **Mdr Braspag:** R$1.000,00 * 3% = R$30,00  
 **[Bruto] Master / Subordinado A:** R$600,00 * 30% = R$180,00  
