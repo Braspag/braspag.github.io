@@ -18,7 +18,7 @@ O **Split de Pagamentos** liquida os valores referentes a cada participante de u
 
 Como exemplo, para uma transação de crédito realizada em 4x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referentes a cada parcela da transação citada em 30, 60, 90 e 120 dias.
 
-![RegimeLiquidacaoPadrao](https://braspag.github.io/images/braspag/split/regime-pagamento-padrao.png)
+![RegimeLiquidacaoPadrao](https://braspag.github.io/images/braspag/split/regime-pagamento-padrao.png =250x)
 
 Com a Liquidação em Ciclo, é possível que o Master solicite que um ou mais subordinados recebam em ciclo, podendo escolher até duas datas fixas no mês.
 
