@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-03-07T19:42:10+00:00</updated>
+    <updated>2019-03-07T19:48:37+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10693,13 +10693,13 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Mdr Braspag:&lt;/strong&gt; 3%&lt;br /&gt;
 &lt;strong&gt;Fator por Parcela:&lt;/strong&gt; 1%&lt;br /&gt;
-&lt;strong&gt;Fator Total:&lt;/strong&gt; 4% (fator x parcelas)&lt;br /&gt;
+&lt;strong&gt;Fator Total:&lt;/strong&gt; 4% (fator x número de parcelas)&lt;br /&gt;
 &lt;strong&gt;Mdr Master / Subordinado A:&lt;/strong&gt; 30%&lt;br /&gt;
 &lt;strong&gt;Mdr Master / Subordinado B:&lt;/strong&gt; 5%&lt;br /&gt;
 &lt;strong&gt;Participação Subordinado A:&lt;/strong&gt; R$600,00&lt;br /&gt;
 &lt;strong&gt;Participação Subordinado B:&lt;/strong&gt; R$400,00&lt;/p&gt;
 
-&lt;p&gt;O cáculo ocorre da seguinte forma:&lt;/p&gt;
+&lt;p&gt;O cáculo ocorrerá da seguinte forma:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Mdr Braspag:&lt;/strong&gt; R$1.000,00 * 3% = R$30,00&lt;br /&gt;
 &lt;strong&gt;[Bruto] Master / Subordinado A:&lt;/strong&gt; R$600,00 * 30% = R$180,00&lt;br /&gt;
