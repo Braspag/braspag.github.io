@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-03-07T19:01:39+00:00</updated>
+    <updated>2019-03-07T19:02:16+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10660,7 +10660,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;Como exemplo, para uma transação de crédito realizada em 4x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referentes a cada parcela da transação citada em 30, 60, 90 e 120 dias.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/split/regime-pagamento-padrao.png&quot; alt=&quot;RegimeLiquidacaoPadrao&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/split/regime-pagamento-padrao.png =250x&quot; alt=&quot;RegimeLiquidacaoPadrao&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Com a Liquidação em Ciclo, é possível que o Master solicite que um ou mais subordinados recebam em ciclo, podendo escolher até duas datas fixas no mês.&lt;/p&gt;
 
