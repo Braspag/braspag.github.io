@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-03-11T20:58:35+00:00</updated>
+    <updated>2019-03-11T21:04:12+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10697,7 +10697,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Mdr Master / Subordinado A:&lt;/strong&gt; 20%&lt;br /&gt;
 &lt;strong&gt;Fator por Parcela Master:&lt;/strong&gt; 2.5%&lt;br /&gt;
-&lt;strong&gt;Fator Total Master:&lt;/strong&gt; 10% (fator x número de parcelas)
+&lt;strong&gt;Fator Total Master:&lt;/strong&gt; 10% (fator x número de parcelas)&lt;br /&gt;
 &lt;strong&gt;Desconto Total Master / Subordinado A:&lt;/strong&gt; 20% + 10% = 30%&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Mdr Master / Subordinado B:&lt;/strong&gt; 5%&lt;/p&gt;
@@ -10732,9 +10732,11 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;Supondo que um subordinado deseje receber em dois fixos no mês, 15 e 25, e que a adoção da liquidação em ciclo tenha sido realizada no dia 18:&lt;/p&gt;
 
-&lt;p&gt;Todas as transações que ocorrerem do dia 19 ao 23 serão liquidadas no dia 25.&lt;br /&gt;
-As transação que ocorrerem do dia 24 ao 13 do mês subsequente serão liquidadas no dia 15. &lt;br /&gt;
-O ciclo se repete com as liquidações realizadas do dia 14 ao 23 sendo liquidadas no dia 25.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Todas as transações que ocorrerem do dia 19 ao 23 serão liquidadas no dia 25.&lt;/li&gt;
+  &lt;li&gt;As transação que ocorrerem do dia 24 ao 13 do mês subsequente serão liquidadas no dia 15.&lt;/li&gt;
+  &lt;li&gt;O ciclo se repete com as liquidações realizadas do dia 14 ao 23 sendo liquidadas no dia 25.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Caso ocorra atraso na liquidação de alguma transação, a mesma será liquidada no dia útil imediatamente após ter seu processamento concluído.&lt;/p&gt;
 </content>
