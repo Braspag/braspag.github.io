@@ -55,8 +55,8 @@ Considerando que o Subordinado A tenha optado por receber no ciclo e com um fato
   
 **Mdr Master / Subordinado A:** 20%  
 **Fator por Parcela Master:** 2.5%  
-**Fator Total Master:** 10% (fator x número de parcelas)
-**Desconto Total Master / Subordinado A:** 20% + 10% = 30% 
+**Fator Total Master:** 10% (fator x número de parcelas)  
+**Desconto Total Master / Subordinado A:** 20% + 10% = 30%  
   
 **Mdr Master / Subordinado B:** 5%  
   
@@ -64,7 +64,7 @@ Considerando que o Subordinado A tenha optado por receber no ciclo e com um fato
 **Participação Subordinado B:** R$400,00  
 
 O cáculo ocorrerá da seguinte forma:
-
+  
 **Mdr Braspag:** R$1.000,00 * 3% = R$30,00  
 **[Bruto] Master / Subordinado A:** R$600,00 * 30% = R$180,00  
 **[Bruto][Líquido] Subordinado A:** R$600,00 - R$180,00 = R$420,00   
@@ -88,8 +88,8 @@ A liquidação em ciclo de vendas no Split é baseada nas seguintes regras:
   
 Supondo que um subordinado deseje receber em dois fixos no mês, 15 e 25, e que a adoção da liquidação em ciclo tenha sido realizada no dia 18:
 
-Todas as transações que ocorrerem do dia 19 ao 23 serão liquidadas no dia 25.  
-As transação que ocorrerem do dia 24 ao 13 do mês subsequente serão liquidadas no dia 15.   
-O ciclo se repete com as liquidações realizadas do dia 14 ao 23 sendo liquidadas no dia 25.  
-
+* Todas as transações que ocorrerem do dia 19 ao 23 serão liquidadas no dia 25.  
+* As transação que ocorrerem do dia 24 ao 13 do mês subsequente serão liquidadas no dia 15.   
+* O ciclo se repete com as liquidações realizadas do dia 14 ao 23 sendo liquidadas no dia 25.  
+  
 Caso ocorra atraso na liquidação de alguma transação, a mesma será liquidada no dia útil imediatamente após ter seu processamento concluído.
