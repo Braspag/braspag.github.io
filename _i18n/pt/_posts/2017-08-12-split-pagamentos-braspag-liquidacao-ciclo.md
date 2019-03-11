@@ -50,10 +50,16 @@ O cáculo ocorrerá da seguinte forma:
 Considerando que o Subordinado A tenha optado por receber no ciclo e com um fator de 1% por parcela, todas as parcelas serão liquidadas na data fixa escolhida. Considerando os novos parâmetros abaixo o cálculo se dará conforme abaixo:
 
 **Mdr Braspag:** 3%  
-**Fator por Parcela:** 1%  
-**Fator Total:** 4% (fator x número de parcelas)  
-**Mdr Master / Subordinado A:** 30%  
+**Fator por Parcela Braspag:** 1%  
+**Fator Total Braspag:** 4% (fator x número de parcelas)  
+  
+**Mdr Master / Subordinado A:** 20%  
+**Fator por Parcela Master:** 2.5%  
+**Fator Total Master:** 10% (fator x número de parcelas)
+**Desconto Total Master / Subordinado A:** 20% + 10% = 30% 
+  
 **Mdr Master / Subordinado B:** 5%  
+  
 **Participação Subordinado A:** R$600,00  
 **Participação Subordinado B:** R$400,00  
 
@@ -61,7 +67,7 @@ O cáculo ocorrerá da seguinte forma:
 
 **Mdr Braspag:** R$1.000,00 * 3% = R$30,00  
 **[Bruto] Master / Subordinado A:** R$600,00 * 30% = R$180,00  
-**[Bruto][Líquido] Subordinado A:** R$600,00 - R$180,00 = R$420,00  
+**[Bruto][Líquido] Subordinado A:** R$600,00 - R$180,00 = R$420,00   
 **Braspag / Valor Subordinado A:** R$600,00 * 4% = R$24,00  
 **[Bruto] Master / Subordinado B:** R$400,00 * 5% = R$20,00  
 **[Bruto][Líquido] Subordinado B:** R$400,00 - R$20,00 = R$380,00  
