@@ -1473,7 +1473,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 | `FinalPaymentDate`         | Data de pagamento final a ser consultada.                                            | Data    | YYYY-MM-DD | Não         | InitialPaymentDate    |
 | `PageIndex`                | Página a ser consultada.                                                             | Inteiro | -          | Não         | 1                     |
 | `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.                                   | Inteiro | -          | Não         | 25                    |
-| `EventStatus`              | Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit].| String  | -          | Não         | Todos                 |
+| `EventStatus`              | Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit - Anticipated].| String  | -          | Não         | Todos                 |
 | `IncludeAllSubordinates`   | Inclui todos os subordinados na consulta.                                            | Boolean | -          | Não         | false                 | 
 | `MerchantIds`              | Lojas a serem consideradas na consulta.                                              | Guid    | -          | Não         | -                     |
 
@@ -1605,7 +1605,7 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 | `FinalCaptureDate`      | Data final a ser consultada, considerando a data de captura das transações.   | Data    | YYYY-MM-DD | Não         | InitialCaptureDate |
 | `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1                  |
 | `PageSize`              | Tamanho da página.  Valores possíveis: 25, 50, 100.                           | Inteiro | -          | Não         | 25                 |
-| `EventStatus`           | Status do evento [Scheduled - Pending - Settled - Error].                     | String  | -          | Não         | Todos              |
+| `EventStatus`           | Status do evento [Scheduled - Pending - Settled - Error - Anticipated].                     | String  | -          | Não         | Todos              |
 | `IncludeAllSubordinates`| Inclui todos os subordinados na consulta.                                     | Boolean | -          | Não         | false              |
 | `MerchantIds`           | Lojas a serem consideradas na consulta.                                       | Guid    | -          | Não         | -                  |
 
@@ -1690,7 +1690,7 @@ x-www-form-urlencoded
 | `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
 | `Transactions[].Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
 | `Transactions[].Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
-| `Transactions[].Schedules[].EventStatus`         | Status do evento. [Scheduled - Pending - Settled - Error]                                               | String  | -       |
+| `Transactions[].Schedules[].EventStatus`         | Status do evento. [Scheduled - Pending - Settled - Error - Anticipated]                                               | String  | -       |
 
 Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.
 
