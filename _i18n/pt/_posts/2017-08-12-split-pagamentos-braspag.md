@@ -1432,8 +1432,8 @@ Eventos de Crédito:
 | 13 | `AntiFraudFeeWithReviewCredit` | Lançamento de crédito referente à transação de antifraude com revisão manual.                           |
 | 15 | `AdjustmentCredit`             | Lançamento de um crédito como ajuste.                                                                   |
 | 17 | `ChargebackReversalCredit`     | Lançamento de crédito referente a reversão de um chargeback.                                            |
-| 17 | `AnticipationCredit`           | Lançamento de crédito referente a antecipação.                                                          |
-| 17 | `AnticipationCommissionCredit` | Lançamento de crédito referente a comissão de uma antecipação.                                          |
+| 19 | `AnticipationCredit`           | Lançamento de crédito referente a antecipação.                                                          |
+| 20 | `AnticipationCommissionCredit` | Lançamento de crédito referente a comissão de uma antecipação.                                          |
 
 Eventos de Débito:
 
@@ -1447,7 +1447,8 @@ Eventos de Débito:
 | 12 | `AntiFraudFeeDebit`           | Lançamento de débito referente à transação de antifraude.                                               |
 | 14 | `AntiFraudFeeWithReviewDebit` | Lançamento de débito referente à transação de antifraude com revisão manual.                            |
 | 16 | `AdjustmentDebit`             | Lançamento de um débito como ajuste.                                                                    |
-| 18 | `ChargebackReversalCredit`    | Lançamento de débito referente a reversão de um chargeback.                                            |
+| 18 | `ChargebackReversalCredit`    | Lançamento de débito referente a reversão de um chargeback.                                             |
+| 22 | `AnticipationCommissionDebit` | Lançamento de débito referente a comissão de uma antecipação.                                           |
 
 Um evento poderá estar em um dos seguintes status na agenda financeira:
 
