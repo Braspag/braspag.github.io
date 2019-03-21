@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-03-21T21:18:19+00:00</updated>
+    <updated>2019-03-21T21:22:10+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -9838,6 +9838,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
   &lt;li&gt;&lt;strong&gt;Settled&lt;/strong&gt;: Liquidado.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Error&lt;/strong&gt;: Erro de liquidação na instituição financeira.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;WaitingForAdjustementDebit&lt;/strong&gt;: Aguardando liquidação do ajuste de débito associado.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Anticipated&lt;/strong&gt;: Evento antecipado.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;consultar-eventos&quot;&gt;Consultar Eventos&lt;/h3&gt;
@@ -9908,7 +9909,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EventStatus&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit].&lt;/td&gt;
+      &lt;td&gt;Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit - Anticipated].&lt;/td&gt;
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -10164,7 +10165,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EventStatus&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Status do evento [Scheduled - Pending - Settled - Error].&lt;/td&gt;
+      &lt;td&gt;Status do evento [Scheduled - Pending - Settled - Error - Anticipated].&lt;/td&gt;
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -10328,7 +10329,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Transactions[].Schedules[].EventStatus&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Status do evento. [Scheduled - Pending - Settled - Error]&lt;/td&gt;
+      &lt;td&gt;Status do evento. [Scheduled - Pending - Settled - Error - Anticipated]&lt;/td&gt;
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
     &lt;/tr&gt;

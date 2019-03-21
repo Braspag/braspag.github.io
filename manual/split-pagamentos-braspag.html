@@ -1784,6 +1784,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   <li><strong>Settled</strong>: Liquidado.</li>
   <li><strong>Error</strong>: Erro de liquidação na instituição financeira.</li>
   <li><strong>WaitingForAdjustementDebit</strong>: Aguardando liquidação do ajuste de débito associado.</li>
+  <li><strong>Anticipated</strong>: Evento antecipado.</li>
 </ul>
 
 <h3 id="consultar-eventos">Consultar Eventos</h3>
@@ -1854,7 +1855,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">EventStatus</code></td>
-      <td>Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit].</td>
+      <td>Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit - Anticipated].</td>
       <td>String</td>
       <td>-</td>
       <td>Não</td>
@@ -2110,7 +2111,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">EventStatus</code></td>
-      <td>Status do evento [Scheduled - Pending - Settled - Error].</td>
+      <td>Status do evento [Scheduled - Pending - Settled - Error - Anticipated].</td>
       <td>String</td>
       <td>-</td>
       <td>Não</td>
@@ -2274,7 +2275,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].EventStatus</code></td>
-      <td>Status do evento. [Scheduled - Pending - Settled - Error]</td>
+      <td>Status do evento. [Scheduled - Pending - Settled - Error - Anticipated]</td>
       <td>String</td>
       <td>-</td>
     </tr>
