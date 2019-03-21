@@ -1447,7 +1447,7 @@ Eventos de Débito:
 | 12 | `AntiFraudFeeDebit`           | Lançamento de débito referente à transação de antifraude.                                               |
 | 14 | `AntiFraudFeeWithReviewDebit` | Lançamento de débito referente à transação de antifraude com revisão manual.                            |
 | 16 | `AdjustmentDebit`             | Lançamento de um débito como ajuste.                                                                    |
-| 18 | `ChargebackReversalCredit`    | Lançamento de débito referente a reversão de um chargeback.                                             |
+| 18 | `ChargebackReversalDebit`    | Lançamento de débito referente a reversão de um chargeback.                                             |
 | 22 | `AnticipationCommissionDebit` | Lançamento de débito referente a comissão de uma antecipação.                                           |
 
 Um evento poderá estar em um dos seguintes status na agenda financeira:
