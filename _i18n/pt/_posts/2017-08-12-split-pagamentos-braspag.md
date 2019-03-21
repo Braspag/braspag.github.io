@@ -1457,6 +1457,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 * **Settled**: Liquidado.
 * **Error**: Erro de liquidação na instituição financeira.
 * **WaitingForAdjustementDebit**: Aguardando liquidação do ajuste de débito associado.
+* **Anticipated**: Evento antecipado.
 
 ### Consultar Eventos
 
