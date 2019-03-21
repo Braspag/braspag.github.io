@@ -1432,6 +1432,8 @@ Eventos de Crédito:
 | 13 | `AntiFraudFeeWithReviewCredit` | Lançamento de crédito referente à transação de antifraude com revisão manual.                           |
 | 15 | `AdjustmentCredit`             | Lançamento de um crédito como ajuste.                                                                   |
 | 17 | `ChargebackReversalCredit`     | Lançamento de crédito referente a reversão de um chargeback.                                            |
+| 17 | `AnticipationCredit`           | Lançamento de crédito referente a antecipação.                                                          |
+| 17 | `AnticipationCommissionCredit` | Lançamento de crédito referente a comissão de uma antecipação.                                          |
 
 Eventos de Débito:
 
