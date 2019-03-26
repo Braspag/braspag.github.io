@@ -84,7 +84,9 @@ A liquidação em ciclo de vendas no Split é baseada nas seguintes regras:
 * É possível escolher até duas datas fixas para liquidação.
 * Serão liquidadas nas datas escolhidas as transações que forem capturadas em até 2 dias antes da data fixa escolhida.
 * Transações que, por algum motivo, sofrerem atraso e não puderem ser liquidadas nas datas escolhidas, serão liquidadas no dia útil imediatamente após o processamento da mesma.
-* A liquidação é realizada com base na data de captura da transação.  
+* A liquidação é realizada com base na data de captura da transação.
+* Transações que tenham participantes no ciclo poderão ter sua divisão alterada em 1 dia após a data de captura.
+* Transações que não tenham participantes no ciclo poderão ter sua divisão alterada, incluindo um participante no ciclo, em até 1 dia após a data de captura.
 
 <br></br>
 Supondo que um subordinado deseje receber em dois fixos no mês, 15 e 25, e que a adoção da liquidação em ciclo tenha sido realizada no dia 18:
