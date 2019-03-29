@@ -471,6 +471,13 @@
       <td>Sim</td>
     </tr>
     <tr>
+      <td>bpmpi_auth_notifyonly</td>
+      <td>Booleano que indica se a transação com cartão será submetida no modo “somente notificação”. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. <strong>VÁLIDO SOMENTE PARA CARTÕES MASTERCARD</strong></td>
+      <td>Booleano: <br />true – modo somente notificação; <br />false – modo com autenticação</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
       <td>bpmpi_accesstoken</td>
       <td>Token gerado pela API de Token de Acesso (etapa 1)</td>
       <td>Alfanumérico [varivável]</td>
@@ -1161,7 +1168,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
      </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.loja.com.br"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000183"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4000000000001000"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
@@ -1199,7 +1206,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
      <span class="s2">"Authenticate"</span>:true,
      <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.loja.com.br"</span>,
      <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
-         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
+         <span class="s2">"CardNumber"</span>:<span class="s2">"4000000000001000"</span>,
          <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
@@ -1263,6 +1270,50 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 <h3 id="response-1">Response</h3>
 
 <p>Vide https://braspag.github.io/manual/braspag-pagador</p>
+
+<h2 id="cartões-de-teste">Cartões de Teste</h2>
+
+<p>Utilize os cartões de <strong>teste</strong> abaixo para simular diversos cenários no ambiente de <strong>SANDBOX</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Cartão</strong></td>
+      <td><strong>Resultado</strong></td>
+      <td><strong>Descrição</strong></td>
+    </tr>
+    <tr>
+      <td>4000000000001000</td>
+      <td>SUCCESS</td>
+      <td>Autenticação Silenciosa e portador autenticou com sucesso</td>
+    </tr>
+    <tr>
+      <td>4000000000001018</td>
+      <td>FAILURE</td>
+      <td>Autenticação Silenciosa e portador finalizou com falha</td>
+    </tr>
+    <tr>
+      <td>4000000000001034</td>
+      <td>UNENROLLED</td>
+      <td>Cartão não elegível para autenticação</td>
+    </tr>
+    <tr>
+      <td>4000000000001091</td>
+      <td>SUCCESS</td>
+      <td>Autenticação com desafio e portador autenticou com sucesso</td>
+    </tr>
+    <tr>
+      <td>4000000000001117</td>
+      <td>UNENROLLED</td>
+      <td>Autenticação com desafio e Cartão não elegível</td>
+    </tr>
+    <tr>
+      <td>4000000000001109</td>
+      <td>FAILURE</td>
+      <td>Autenticação com desafio e portador falhou na autenticação</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
