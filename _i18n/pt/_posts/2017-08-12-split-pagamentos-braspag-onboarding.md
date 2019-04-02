@@ -14,7 +14,6 @@ tags:
 
 ## Introdução
 
-
 ## Ambientes
 
 **API Onboarding**: https://splitonboarding.braspag.com.br
