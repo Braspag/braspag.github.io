@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-03-29T18:53:39+00:00</updated>
+    <updated>2019-04-02T14:42:55+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -31364,7 +31364,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bandeira do cartão de crédito &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/antifraude#tabela-2-card.brand&quot;&gt;Tabela 2 - Card.Brand&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;enum&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -31399,7 +31399,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Billing.Number&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Número do endereço de cobrança&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -31413,7 +31413,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Billing.Neighborhood&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bairro do endereço de cobrança&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;45&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -31427,7 +31427,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Billing.State&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Estado do endereço de cobrança&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -31441,7 +31441,7 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Billing.ZipCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Código postal do endereço de cobrança&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;9&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -31565,16 +31565,16 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Ip&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Endereço de IP do comprador&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Endereço de IP do comprador. Formato IPv4 ou IPv6&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;45&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phone&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Número do telefone do comprador &lt;br /&gt; Ex.: 552121114700&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
