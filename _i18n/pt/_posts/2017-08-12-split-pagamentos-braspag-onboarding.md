@@ -12,5 +12,15 @@ tags:
 
 # Split de Pagamentos - Onboarding
 
+## Introdução
+
+
+## Ambientes
+
+**API Onboarding**: https://splitonboarding.braspag.com.br
+
 ## Cadastro de Subordinados
 
+A solicitação de cadastro deve ser realizada através de uma requisição pelo **Master** informandos os dados do subordinado.
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/masters/{master-merchant-id}/subordinates</span></aside>
