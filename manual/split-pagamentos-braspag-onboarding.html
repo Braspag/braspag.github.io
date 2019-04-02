@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Split de Pagamentos - Liquidação em Ciclo &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/split-pagamentos-braspag-onboarding" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/split-pagamentos-braspag-onboarding" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="http://www.braspag.com.br/suporte/" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-pagamentos-braspag-onboarding">Split de Pagamentos - Liquidação em Ciclo</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="split-de-pagamentos---liquidação-em-ciclo">Split de Pagamentos - Liquidação em Ciclo</h1>
+
+<h2 id="introdução">Introdução</h2>
+
+<p>O <strong>Split de Pagamentos</strong> liquida os valores referentes a cada participante de uma transação de acordo com o regime padrão de cada arranjo de pagamento.</p>
+
+<p>Como exemplo, para uma transação de crédito realizada em 4x e envolvendo 2 Subordinados, cada participante, inclusive o Master, receberá os valores referentes a cada parcela da transação citada em 30, 60, 90 e 120 dias.</p>
+
+<p><img src="https://braspag.github.io/images/braspag/split/regime-pagamento-padrao.png" alt="RegimeLiquidacaoPadrao" /></p>
+
+<p>Com a Liquidação em Ciclo, é possível que o Master solicite que um ou mais subordinados recebam em ciclo, podendo escolher até duas datas fixas no mês.</p>
+
+<p><img src="https://braspag.github.io/images/braspag/split/regime-pagamento-ciclo.png" alt="RegimeLiquidacaoCiclo" /></p>
+
+<p>Para consultar a agenda financeira com a previsão dos recebíveis futuros, consulte o manual <a href="https://braspag.github.io//manual/split-pagamentos-braspag#agenda-financeira" target="_blank">Split de Pagamentos</a>.</p>
+
+<h2 id="cálculo">Cálculo</h2>
+
+<p>Na liquidação em ciclo, o <strong>Split de Pagamentos</strong> aplica um fator percentual sobre a participação do subordinado na venda.</p>
+
+<p>Supondo uma transação de R$1.000,00, em 4 parcelas, e os seguintes parâmetros:</p>
+
+<p><strong>Mdr Braspag:</strong> 3.00%<br />
+<strong>Mdr Master / Subordinado A:</strong> 20.00%<br />
+<strong>Mdr Master / Subordinado B:</strong> 5.00%<br />
+<strong>Participação Subordinado A:</strong> R$600,00<br />
+<strong>Participação Subordinado B:</strong> R$400,00</p>
+
+<p>O cáculo ocorrerá da seguinte forma:</p>
+
+<p><strong>Mdr Braspag:</strong> R$1.000,00 * 3.00% = R$30,00<br />
+<strong>[Bruto] Master / Subordinado A:</strong> R$600,00 * 20.00% = R$120,00<br />
+<strong>[Bruto][Líquido] Subordinado A:</strong> R$600,00 - R$120,00 = R$480,00<br />
+<strong>[Bruto] Master / Subordinado B:</strong> R$400,00 * 5.00% = R$20,00<br />
+<strong>[Bruto][Líquido] Subordinado B:</strong> R$400,00 - R$20,00 = R$380,00<br />
+<strong>[Líquido] Master:</strong> R$140,00 - R$30,00 = R$110,00</p>
+
+<p>Considerando que o Subordinado A tenha optado por receber, todas as parcelas serão liquidadas na data fixa escolhida. Com isso, considerando os novos parâmetros abaixo o cálculo ocorrerá da seguinte forma:</p>
+
+<p><strong>Mdr Braspag:</strong> 3.00%<br />
+<strong>Fator por Parcela Braspag:</strong> 1.00%<br />
+<strong>Fator Total Braspag:</strong> 4.00% (fator x número de parcelas)</p>
+
+<p><strong>Mdr Master / Subordinado A:</strong> 20.00%<br />
+<strong>Fator por Parcela Master:</strong> 2.50%<br />
+<strong>Fator Total Master:</strong> 10.00% (fator x número de parcelas)<br />
+<strong>Desconto Total Master / Subordinado A:</strong> 20.00% + 10.00% = 30.00%</p>
+
+<p><strong>Mdr Master / Subordinado B:</strong> 5.00%</p>
+
+<p><strong>Participação Subordinado A:</strong> R$600,00<br />
+<strong>Participação Subordinado B:</strong> R$400,00</p>
+
+<p>O cáculo ocorrerá da seguinte forma:</p>
+
+<p><strong>Mdr Braspag:</strong> R$1.000,00 * 3.00% = R$30,00<br />
+<strong>[Bruto] Master / Subordinado A:</strong> R$600,00 * 30.00% = R$180,00<br />
+<strong>[Bruto][Líquido] Subordinado A:</strong> R$600,00 - R$180,00 = R$420,00 <br />
+<strong>Braspag / Valor Subordinado A:</strong> R$600,00 * 4.00% = R$24,00<br />
+<strong>[Bruto] Master / Subordinado B:</strong> R$400,00 * 5.00% = R$20,00<br />
+<strong>[Bruto][Líquido] Subordinado B:</strong> R$400,00 - R$20,00 = R$380,00<br />
+<strong>Braspag Total:</strong> R$30,00 + R$24,00 = R$54,00<br />
+<strong>[Bruto] Master:</strong> R$180,00 + R$20,00 = R$200,00<br />
+<strong>[Líquido] Master:</strong> R$200,00 - R$54,00 = R$146,00</p>
+
+<h2 id="regras">Regras</h2>
+
+<p>A liquidação em ciclo de vendas no Split é baseada nas seguintes regras:</p>
+
+<ul>
+  <li>Somente os subordinados podem receber em ciclos.</li>
+  <li>Somente o Master pode solicitar que um subordinado passe a receber no ciclo.</li>
+  <li>É possível escolher até duas datas fixas para liquidação.</li>
+  <li>Serão liquidadas nas datas escolhidas as transações que forem capturadas em até 2 dias antes da data fixa escolhida.</li>
+  <li>Transações que, por algum motivo, sofrerem atraso e não puderem ser liquidadas nas datas escolhidas, serão liquidadas no dia útil imediatamente após o processamento da mesma.</li>
+  <li>A liquidação é realizada com base na data de captura da transação.</li>
+  <li>Transações que tenham participantes no ciclo poderão ter sua divisão alterada em 1 dia após a data de captura.</li>
+  <li>Transações que não tenham participantes no ciclo poderão ter sua divisão alterada, incluindo um participante no ciclo, em até 1 dia após a data de captura.</li>
+</ul>
+
+<p>Supondo que um subordinado deseje receber em dois fixos no mês, 15 e 25, e que a adoção da liquidação em ciclo tenha sido realizada no dia 18:</p>
+
+<ul>
+  <li>Todas as transações que ocorrerem do dia 19 ao 23 serão liquidadas no dia 25.</li>
+  <li>As transação que ocorrerem do dia 24 ao 13 do mês subsequente serão liquidadas no dia 15.</li>
+  <li>O ciclo se repete com as liquidações realizadas do dia 14 ao 23 sendo liquidadas no dia 25.</li>
+</ul>
+
+<p>Caso ocorra atraso na liquidação de alguma transação, a mesma será liquidada no dia útil imediatamente após ter seu processamento concluído.</p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="http://www.braspag.com.br/fale-conosco/">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//assets/js/search.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:715256,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
