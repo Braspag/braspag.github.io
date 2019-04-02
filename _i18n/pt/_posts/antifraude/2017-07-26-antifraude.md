@@ -286,18 +286,18 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Card.Number`|Número do cartão de crédito|string|sim|20|
 |`Card.Holder`|Nome do cartão de crédito|string|sim|50|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 2 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-2-card.brand)|enum|-|-|
+|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 2 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-2-card.brand)|enum|sim|-|
 |`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|
 |`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|
 |`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|não|64|
 |`Billing.Street`|Logradouro do endereço de cobrança|string|sim|54|
-|`Billing.Number`|Número do endereço de cobrança|string|não|5|
+|`Billing.Number`|Número do endereço de cobrança|string|sim|5|
 |`Billing.Complement`|Complemento do endereço de cobrança|string|não|14|
-|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|não|45|
+|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|sim|45|
 |`Billing.City`|Cidade do endereço de cobrança|string|sim|50|
-|`Billing.State`|Estado do endereço de cobrança|string|não|2|
+|`Billing.State`|Estado do endereço de cobrança|string|sim|2|
 |`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|sim|2|
-|`Billing.ZipCode`|Código postal do endereço de cobrança|string|não|9|
+|`Billing.ZipCode`|Código postal do endereço de cobrança|string|sim|9|
 |`Shipping.Street`|Logradouro do endereço de entrega|string|não|54|
 |`Shipping.Number`|Número do endereço de entrega|string|não|5|
 |`Shipping.Complement`|Complemento do endereço de entrega|string|não|14|
@@ -315,8 +315,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.LastName`|Último nome do comprador|string|sim|60|
 |`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
 |`Customer.Email`|E-mail do comprador|string|sim|100|
-|`Customer.Ip`|Endereço de IP do comprador|string|não|15|
-|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|não|15|
+|`Customer.Ip`|Endereço de IP do comprador. Formato IPv4 ou IPv6|string|sim|45|
+|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|sim|15|
 |`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|não|60|
 |`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|-|-|
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|string|não|100|
