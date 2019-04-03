@@ -138,13 +138,13 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"DocumentNumber"</span><span class="p">:</span><span class="s2">"01131432000190"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -234,13 +234,13 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665a33c5-0022-4a40-a0bd-daad04eb3236"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"DocumentNumber"</span><span class="p">:</span><span class="s2">"01131432000190"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -331,6 +331,174 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MasterMerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do master do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CorporateName</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FancyName</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentNumber</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentType</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantCategoryCode</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactName</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactPhone</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MailAddress</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Website</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Blocked</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.Status</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Bank</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.BankAccountType</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Number</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Operation</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.VerifierDigit</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyNumber</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyDigit</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentNumber</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentType</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação subordinado</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="consulta-de-subordinados">Consulta de Subordinados</h2>
 
 <p>A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.</p>
@@ -342,13 +510,13 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665a33c5-0022-4a40-a0bd-daad04eb3236"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"DocumentNumber"</span><span class="p">:</span><span class="s2">"01131432000190"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
