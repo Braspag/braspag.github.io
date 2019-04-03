@@ -34,16 +34,16 @@ O Master receberá a notificação com as informações do subordinado ao final 
 --header "Authorization: Bearer {access_token}"
 {
     "Merchant": {
-		"ContactName":"Nome do Contato do Subordinado",
-		"ContactPhone":"11987654321",
-		"CorporateName":"Subordinado Corporativo Ltda",
-		"DocumentNumber":"01131432000190",
-		"DocumentType":"CNPJ",
-		"FancyName":"Subordinado Nome Fantasia",
-		"MerchantCategoryCode":"5719",
-		"MailAddress":"addres@email.mail.com",
-		"Website":"https://www.website.com.br",
-		"BankAccount": {
+        "ContactName":"Nome do Contato do Subordinado",
+        "ContactPhone":"11987654321",
+        "CorporateName":"Subordinado Corporativo Ltda",
+        "DocumentNumber":"01131432000190",
+        "DocumentType":"CNPJ",
+        "FancyName":"Subordinado Nome Fantasia",
+        "MerchantCategoryCode":"5719",
+        "MailAddress":"addres@email.mail.com",
+        "Website":"https://www.website.com.br",
+        "BankAccount": {
 			"Bank":"001",
 			"BankAccountType":"CheckingAccount",
 			"Number":"0002",
@@ -116,8 +116,7 @@ O Master receberá a notificação com as informações do subordinado ao final 
 			}
 		]
 	},
-	"Attachments": [
-		{
+	"Attachments": [{
 			"Type": "ProofOfBankDomicile",
 			"File": {
 				"Name": "comprovante_bancario",
