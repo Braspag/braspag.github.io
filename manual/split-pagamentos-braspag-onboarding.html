@@ -109,6 +109,20 @@
 
 <h2 id="introdução">Introdução</h2>
 
+<p>O <strong>Split de Pagamentos</strong> fornece uma API de Onboarding para possibilitar ao Master o gerenciamento de seus subordinados na plataforma.
+O Master deverá coletar as informações do subordinado, para utilizar no processo de Onboarding.</p>
+
+<p>Assim como o Master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de indentificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.
+O processo de KYC é uma medida obrigatória exigida pelas instituições de reguladoras de pagamento.</p>
+
+<p>O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:</p>
+
+<ol>
+  <li>O Master solicita o cadastro do subordinado.</li>
+  <li>O subordinado será criado com status “Em análise” e estará bloqueado para participar transação, até que o processo de KYC seja finalizado.</li>
+  <li>Ao final da análise, o Master será notificado com o resultado do processo de KYC, jutamento com a identificação do subordinado.</li>
+</ol>
+
 <h2 id="ambientes">Ambientes</h2>
 
 <p><strong>API Onboarding</strong>: https://splitonboarding.braspag.com.br</p>
@@ -116,10 +130,6 @@
 <h2 id="cadastro-de-subordinados">Cadastro de Subordinados</h2>
 
 <p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>Master</strong> informando os dados do subordinado.</p>
-
-<p>O subordinado será criado com status “Em análise” e estará bloqueado para participar transação, até que o processo de sua análise seja finalizado.</p>
-
-<p>O Master receberá a notificação com o resultado da análise, juntamente com as informações do subordinado, ao final do processo.</p>
 
 <p><strong>Request</strong></p>
 
@@ -333,13 +343,15 @@
 
 <p><strong>Response</strong></p>
 
-<h2 id="consultando-único-subordinado">Consultando único subordinado</h2>
+<h3 id="consultando-único-subordinado">Consultando único subordinado</h3>
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/masters/{master-merchant-id}/subordinates/{subordinate-merchant-id}</span></aside>
 
 <p><strong>Request</strong></p>
 
 <p><strong>Response</strong></p>
+
+<h2 id="notificação">Notificação</h2>
 
 
 </div>

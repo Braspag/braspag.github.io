@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-04-03T17:54:32+00:00</updated>
+    <updated>2019-04-03T18:45:29+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10723,6 +10723,20 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
 
+&lt;p&gt;O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; fornece uma API de Onboarding para possibilitar ao Master o gerenciamento de seus subordinados na plataforma.
+O Master deverá coletar as informações do subordinado, para utilizar no processo de Onboarding.&lt;/p&gt;
+
+&lt;p&gt;Assim como o Master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de indentificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.
+O processo de KYC é uma medida obrigatória exigida pelas instituições de reguladoras de pagamento.&lt;/p&gt;
+
+&lt;p&gt;O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O Master solicita o cadastro do subordinado.&lt;/li&gt;
+  &lt;li&gt;O subordinado será criado com status “Em análise” e estará bloqueado para participar transação, até que o processo de KYC seja finalizado.&lt;/li&gt;
+  &lt;li&gt;Ao final da análise, o Master será notificado com o resultado do processo de KYC, jutamento com a identificação do subordinado.&lt;/li&gt;
+&lt;/ol&gt;
+
 &lt;h2 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;API Onboarding&lt;/strong&gt;: https://splitonboarding.braspag.com.br&lt;/p&gt;
@@ -10730,10 +10744,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 &lt;h2 id=&quot;cadastro-de-subordinados&quot;&gt;Cadastro de Subordinados&lt;/h2&gt;
 
 &lt;p&gt;A solicitação de cadastro deve ser realizada através de uma requisição pelo &lt;strong&gt;Master&lt;/strong&gt; informando os dados do subordinado.&lt;/p&gt;
-
-&lt;p&gt;O subordinado será criado com status “Em análise” e estará bloqueado para participar transação, até que o processo de sua análise seja finalizado.&lt;/p&gt;
-
-&lt;p&gt;O Master receberá a notificação com o resultado da análise, juntamente com as informações do subordinado, ao final do processo.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
@@ -10947,13 +10957,15 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Response&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;consultando-único-subordinado&quot;&gt;Consultando único subordinado&lt;/h2&gt;
+&lt;h3 id=&quot;consultando-único-subordinado&quot;&gt;Consultando único subordinado&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{split-onboarding-api}/api/masters/{master-merchant-id}/subordinates/{subordinate-merchant-id}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Response&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;notificação&quot;&gt;Notificação&lt;/h2&gt;
 
 </content>
     </entry>
