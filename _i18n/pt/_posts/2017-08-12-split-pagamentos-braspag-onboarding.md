@@ -126,6 +126,7 @@ O Master receberá a notificação com o resultado da análise, juntamente com a
 ```
 
 **Response**
+
 ```json
 --header "Authorization: Bearer {access_token}"
 {
