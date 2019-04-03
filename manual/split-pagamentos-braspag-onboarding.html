@@ -115,11 +115,11 @@
 
 <h2 id="cadastro-de-subordinados">Cadastro de Subordinados</h2>
 
-<p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>Master</strong> informandos os dados do subordinado.</p>
+<p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>Master</strong> informando os dados do subordinado.</p>
 
 <p>O subordinado será criado com status “Em análise” e estará bloqueado para participar transação, até que o processo de sua análise seja finalizado.</p>
 
-<p>O Master receberá a notificação com as informações do subordinado ao final do processo.</p>
+<p>O Master receberá a notificação com o resultado da análise, juntamente com as informações do subordinado, ao final do processo.</p>
 
 <p><strong>Request</strong></p>
 
@@ -218,6 +218,105 @@
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<p><strong>Response</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665a33c5-0022-4a40-a0bd-daad04eb3236"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Merchant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DocumentNumber"</span><span class="p">:</span><span class="s2">"01131432000190"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Bank"</span><span class="p">:</span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"BankAccountType"</span><span class="p">:</span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Operation"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VerifierDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AgencyNumber"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"AgencyDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"DocumentNumber"</span><span class="p">:</span><span class="s2">"01131432000190"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Address"</span><span class="p">:{</span><span class="w">  
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"AP 255"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345687"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Agreement"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Fee"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MerchantDiscountRates"</span><span class="p">:[{</span><span class="w">
+                </span><span class="s2">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="w">
+            </span><span class="p">}]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://site.com.br/api/subordinados"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProofOfBankDomicile"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprovante_bancario"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 
 </div>
 
