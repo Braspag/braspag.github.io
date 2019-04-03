@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//"/>
     <logo>https://braspag.github.io//assets/images/logo.png</logo>
     <icon>https://braspag.github.io//assets/favicon.ico</icon>
-    <updated>2019-04-03T17:49:21+00:00</updated>
+    <updated>2019-04-03T17:54:32+00:00</updated>
     <id>https://braspag.github.io//</id>
     <author>
         <name>João Batista Neto</name>
@@ -10937,7 +10937,23 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;h2 id=&quot;consulta-de-subordinados&quot;&gt;Consulta de Subordinados&lt;/h2&gt;
 
-&lt;p&gt;A API de Onboarding do Split de Pagamentos permite a consulta vários subordinados ou de um subordinado específico através de sua identificação;&lt;/p&gt;
+&lt;p&gt;A API de Onboarding do Split de Pagamentos permite a consulta vários subordinados ou de um subordinado específico através de sua identificação.&lt;/p&gt;
+
+&lt;h3 id=&quot;consultando-vários-subordinados&quot;&gt;Consultando vários subordinados&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{split-onboarding-api}/api/masters/{master-merchant-id}/subordinates&lt;/span&gt;&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Response&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;consultando-único-subordinado&quot;&gt;Consultando único subordinado&lt;/h2&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{split-onboarding-api}/api/masters/{master-merchant-id}/subordinates/{subordinate-merchant-id}&lt;/span&gt;&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Response&lt;/strong&gt;&lt;/p&gt;
 
 </content>
     </entry>
