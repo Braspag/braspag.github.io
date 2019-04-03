@@ -44,12 +44,12 @@ O Master receberá a notificação com as informações do subordinado ao final 
         "MailAddress":"addres@email.mail.com",
         "Website":"https://www.website.com.br",
         "BankAccount": {
-			"Bank":"001",
-			"BankAccountType":"CheckingAccount",
-			"Number":"0002",
-			"Operation":"2",
-			"VerifierDigit":"2",
-			"AgencyNumber":"0002",
+            "Bank":"001",
+            "BankAccountType":"CheckingAccount",
+            "Number":"0002",
+            "Operation":"2",
+            "VerifierDigit":"2",
+            "AgencyNumber":"0002",
 			"AgencyDigit":"2",
 			"DocumentNumber":"01131432000190",
 			"DocumentType":"CNPJ"
