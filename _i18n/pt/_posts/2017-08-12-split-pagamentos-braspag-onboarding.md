@@ -166,6 +166,7 @@ O Master receberá a notificação com o resultado da análise, juntamente com a
         "Agreement":{
             "Fee" : 10,
             "MerchantDiscountRates":[{
+                "MerchantDiscountRateId": "662e340f-07f2-4827-816d-b1878eb03eae",
                 "PaymentArrangement": {
                     "Product": "DebitCard",
                     "Brand": "Master"
@@ -175,6 +176,7 @@ O Master receberá a notificação com o resultado da análise, juntamente com a
                 "Percent" : 1.5
             },
             {
+                "MerchantDiscountRateId": "eb9d6357-7ad1-4fe0-90fe-364cff7ff0fd",
                 "PaymentArrangement": {
                     "Product": "CreditCard",
                     "Brand": "Master"
@@ -184,6 +186,7 @@ O Master receberá a notificação com o resultado da análise, juntamente com a
                 "Percent" : 2.0
             },
             {
+                "MerchantDiscountRateId": "d09fe9d3-98c7-4c37-9bd3-7c1c91ee15de",
                 "PaymentArrangement": {
                     "Product": "CreditCard",
                     "Brand": "Master"
@@ -193,6 +196,7 @@ O Master receberá a notificação com o resultado da análise, juntamente com a
                 "Percent" : 3.0
             },
             {
+                "MerchantDiscountRateId": "e2515c24-fd73-4b8e-92ad-cfe2b95239de",
                 "PaymentArrangement": {
                     "Product": "CreditCard",
                     "Brand": "Master"
