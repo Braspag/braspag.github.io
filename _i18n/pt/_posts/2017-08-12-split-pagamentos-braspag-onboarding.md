@@ -50,80 +50,77 @@ O Master receberá a notificação com as informações do subordinado ao final 
             "Operation":"2",
             "VerifierDigit":"2",
             "AgencyNumber":"0002",
-			"AgencyDigit":"2",
-			"DocumentNumber":"01131432000190",
-			"DocumentType":"CNPJ"
-		},
-		"Address":{  
-			"Street":"Rua Teste",
-			"Number":"50",
-			"Complement":"AP 255",
-			"Neighborhood":"Centro",
-			"City":"São Paulo",
-			"State" : "SP",
-			"ZipCode": "12345687"
-		},
-		"Agreement":{
-			"Fee" : 10,
-			"MerchantDiscountRates":[{
-			    "PaymentArrangement": {
-				    "Product": "DebitCard",
-					"Brand": "Master"
-				},
-				"InitialInstallmentNumber" : 1,
-				"FinalInstallmentNumber" : 1,
-				"Percent" : 1.5
-			},
-			{
-			    "PaymentArrangement": {
-				    "Product": "CreditCard",
-					"Brand": "Master"
-				},
-				"InitialInstallmentNumber" : 1,
-				"FinalInstallmentNumber" : 1,
-				"Percent" : 2.0
-			},
-			{
-			    "PaymentArrangement": {
-				    "Product": "CreditCard",
-					"Brand": "Master"
-				},
-				"InitialInstallmentNumber" : 2,
-				"FinalInstallmentNumber" : 6,
-				"Percent" : 3.0
-			},
-			{
-			    "PaymentArrangement": {
-				    "Product": "CreditCard",
-					"Brand": "Master"
-				},
-				"InitialInstallmentNumber" : 7,
-				"FinalInstallmentNumber" : 12,
-				"Percent" : 4.0
-			}]
-		}
-	},
-	"Notification": {
-		"Url": "https://site.com.br/api/subordinados",
-		"Headers": [
-			{
-				"Key": "key1",
-				"Value": "value1"
-			},
-			{
-				"Key": "key2",
-				"Value": "value2"
-			}
-		]
-	},
-	"Attachments": [{
-			"Type": "ProofOfBankDomicile",
-			"File": {
-				"Name": "comprovante_bancario",
-                "Type": "jpg",
-                "Data": "ZWZxZWZxd2VmcXdlZnF3ZWZxd2VmcXdlZnF3ZWZxd2VmcXdlZnF3ZWZxdzM0ZndlZndlcXdlZnF3ZWZxd2VmcXdlZnF3ZWZ3cQ=="
-			}
-		}
-	]
+            "AgencyDigit":"2",
+            "DocumentNumber":"01131432000190",
+            "DocumentType":"CNPJ"
+        },
+        "Address":{  
+            "Street":"Rua Teste",
+            "Number":"50",
+            "Complement":"AP 255",
+            "Neighborhood":"Centro",
+            "City":"São Paulo",
+            "State" : "SP",
+            "ZipCode": "12345687"
+        },
+        "Agreement":{
+            "Fee" : 10,
+            "MerchantDiscountRates":[{
+                "PaymentArrangement": {
+                    "Product": "DebitCard",
+                    "Brand": "Master"
+                },
+                "InitialInstallmentNumber" : 1,
+                "FinalInstallmentNumber" : 1,
+                "Percent" : 1.5
+            },
+            {
+                "PaymentArrangement": {
+                    "Product": "CreditCard",
+                    "Brand": "Master"
+                },
+                "InitialInstallmentNumber" : 1,
+                "FinalInstallmentNumber" : 1,
+                "Percent" : 2.0
+            },
+            {
+                "PaymentArrangement": {
+                    "Product": "CreditCard",
+                    "Brand": "Master"
+                },
+                "InitialInstallmentNumber" : 2,
+                "FinalInstallmentNumber" : 6,
+                "Percent" : 3.0
+            },
+            {
+                "PaymentArrangement": {
+                    "Product": "CreditCard",
+                    "Brand": "Master"
+                },
+                "InitialInstallmentNumber" : 7,
+                "FinalInstallmentNumber" : 12,
+                "Percent" : 4.0
+            }]
+        }
+    },
+    "Notification": {
+        "Url": "https://site.com.br/api/subordinados",
+        "Headers": [{
+            "Key": "key1",
+            "Value": "value1"
+        },
+        {
+            "Key": "key2",
+            "Value": "value2"
+        }]
+    },
+    "Attachments": [{
+        "Type": "ProofOfBankDomicile",
+        "File": {
+            "Name": "comprovante_bancario",
+            "Type": "jpg",
+            "Data": "ZWZxZWZxd2VmcXdlZnF3ZWZxd2VmcXdlZnF3ZWZxd2VmcXdlZnF3ZWZxdzM0ZndlZndlcXdlZnF3ZWZxd2VmcXdlZnF3ZWZ3cQ=="
+        }
+    }]
 }
 ```
