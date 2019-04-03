@@ -122,10 +122,10 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
         }]
     },
     "Attachments": [{
-        "Type": "ProofOfBankDomicile",
+        "AttachmentType": "ProofOfBankDomicile",
         "File": {
             "Name": "comprovante_bancario",
-            "Type": "jpg",
+            "FileType": "jpg",
             "Data": "ZWZxZWZxd2VmcXdlZnF3ZWZxd2VmcXdlZnF3ZWZxd2VmcXdlZnF3ZWZxdzM0ZndlZndlcXdlZnF3ZWZxd2VmcXdlZnF3ZWZ3cQ=="
         }
     }]
@@ -227,10 +227,10 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
         }]
     },
     "Attachments": [{
-        "Type": "ProofOfBankDomicile",
+        "AttachmentType": "ProofOfBankDomicile",
         "File": {
             "Name": "comprovante_bancario",
-            "Type": "jpg"
+            "FileType": "jpg"
         }
     }]
 }
@@ -338,10 +338,10 @@ A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado 
         }]
     },
     "Attachments": [{
-        "Type": "ProofOfBankDomicile",
+        "AttachmentType": "ProofOfBankDomicile",
         "File": {
             "Name": "comprovante_bancario",
-            "Type": "jpg"
+            "FileType": "jpg"
         }
     }]
 }
