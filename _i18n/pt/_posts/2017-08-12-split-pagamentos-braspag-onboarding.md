@@ -42,13 +42,13 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-    "ContactName":"Nome do Contato do Subordinado",
-    "ContactPhone":"11987654321",
     "CorporateName":"Subordinado Corporativo Ltda",
+    "FancyName":"Subordinado Nome Fantasia",
     "DocumentNumber":"01131432000190",
     "DocumentType":"CNPJ",
-    "FancyName":"Subordinado Nome Fantasia",
     "MerchantCategoryCode":"5719",
+    "ContactName":"Nome do Contato do Subordinado",
+    "ContactPhone":"11987654321",
     "MailAddress":"addres@email.mail.com",
     "Website":"https://www.website.com.br",
     "BankAccount": {
@@ -139,13 +139,13 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
 {
     "MasterMerchantId": "665a33c5-0022-4a40-a0bd-daad04eb3236",
     "MerchantId": "b8ccc729-a874-4b51-a5a9-ffeb5bd98878",
-    "ContactName":"Nome do Contato do Subordinado",
-    "ContactPhone":"11987654321",
     "CorporateName":"Subordinado Corporativo Ltda",
+    "FancyName":"Subordinado Nome Fantasia",
     "DocumentNumber":"01131432000190",
     "DocumentType":"CNPJ",
-    "FancyName":"Subordinado Nome Fantasia",
     "MerchantCategoryCode":"5719",
+    "ContactName":"Nome do Contato do Subordinado",
+    "ContactPhone":"11987654321",
     "MailAddress":"addres@email.mail.com",
     "Website":"https://www.website.com.br",
     "Blocked": true,
@@ -236,6 +236,31 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
 }
 ```
 
+| Propriedade                             | Tipo    | Tamanho | Obrigatório | Descrição                                                                           |
+|-----------------------------------------|-------------------------------------------------------------------------------------|---------|---------|-------------|
+| `MasterMerchantId`                      | Guid    | 36      | Sim         | Identificação do master do subordinado                                              |
+| `MerchantId`                            | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `CorporateName`                         | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `FancyName`                             | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `DocumentNumber`                        | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `DocumentType`                          | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `MerchantCategoryCode`                  | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `ContactName`                           | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `ContactPhone`                          | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `MailAddress`                           | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `Website`                               | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `Blocked`                               | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `Analysis.Status`                       | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `BankAccount.Bank`                      | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `BankAccount.BankAccountType`           | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `BankAccount.Number`                    | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `BankAccount.Operation`                 | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `BankAccount.VerifierDigit`             | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `BankAccount.AgencyNumber`              | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `BankAccount.AgencyDigit`               | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `BankAccount.DocumentNumber`            | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+| `BankAccount.DocumentType`              | Guid    | 36      | Sim         | Identificação subordinado                                                           |
+
 ## Consulta de Subordinados
 
 A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.
@@ -248,13 +273,13 @@ A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado 
 {
     "MasterMerchantId": "665a33c5-0022-4a40-a0bd-daad04eb3236",
     "MerchantId": "b8ccc729-a874-4b51-a5a9-ffeb5bd98878",
-    "ContactName":"Nome do Contato do Subordinado",
-    "ContactPhone":"11987654321",
     "CorporateName":"Subordinado Corporativo Ltda",
+    "FancyName":"Subordinado Nome Fantasia",
     "DocumentNumber":"01131432000190",
     "DocumentType":"CNPJ",
-    "FancyName":"Subordinado Nome Fantasia",
     "MerchantCategoryCode":"5719",
+    "ContactName":"Nome do Contato do Subordinado",
+    "ContactPhone":"11987654321",
     "MailAddress":"addres@email.mail.com",
     "Website":"https://www.website.com.br",
     "Blocked": false,
