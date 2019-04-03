@@ -230,7 +230,24 @@ O Master receberá a notificação com o resultado da análise, juntamente com a
 
 ## Consulta de Subordinados
 
-A API de Onboarding do Split de Pagamentos permite a consulta vários subordinados ou de um subordinado específico através de sua identificação;
+A API de Onboarding do Split de Pagamentos permite a consulta vários subordinados ou de um subordinado específico através de sua identificação.
+
+### Consultando vários subordinados
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/masters/{master-merchant-id}/subordinates</span></aside>
+
+**Request**
+
+**Response**
+
+## Consultando único subordinado
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/masters/{master-merchant-id}/subordinates/{subordinate-merchant-id}</span></aside>
+
+**Request**
+
+**Response**
+
 
 
 
