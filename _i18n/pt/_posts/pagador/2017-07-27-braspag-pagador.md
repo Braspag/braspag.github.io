@@ -4999,6 +4999,7 @@ curl
 --verbose
 
 ```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
