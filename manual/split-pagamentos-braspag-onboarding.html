@@ -228,6 +228,321 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MasterMerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do master do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CorporateName</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Razão social</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FancyName</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantCategoryCode</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Nome do contato responsável</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactPhone</code></td>
+      <td>String</td>
+      <td>11</td>
+      <td>Sim</td>
+      <td>Número do telefone do contato responsável (Sem formatação)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MailAddress</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Endereço de e-mail</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Website</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Não</td>
+      <td>Endereço do website</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Blocked</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.Status</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Bank</code></td>
+      <td>String</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Código de compensação do banco</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.BankAccountType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Number</code></td>
+      <td>String</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>Número da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Operation</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Operação da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.VerifierDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito verificador da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyNumber</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número da agência</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito da agência</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Rua do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>80</td>
+      <td>Não</td>
+      <td>Complemento do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Neighborhood</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Bairro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Cidade</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Sigla do estado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.Fee</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Taxa fixa por transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].MerchantDiscountRateId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].Percent</code></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Porcentagem da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Url</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Sim</td>
+      <td>Url de notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Key</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Value</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].AttachmentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento em anexo do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.Name</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome do arquivo do documento em anexo do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.FileType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do arquivo do documento em anexo do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.Data</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Documento convertido para <strong>Base64</strong></td>
+    </tr>
+  </tbody>
+</table>
+
 <p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
