@@ -4745,7 +4745,6 @@ Neste fluxo a transação será enviada para análise de risco e posteriomente p
 
 ### Autorizar independente do resultado da análise
 
-
 É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização. O possíveis fluxos são:
 
 |Tipo de Integração|Descrição|Parâmetros necessários|
