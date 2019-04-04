@@ -173,6 +173,55 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
 | `Attachments[].File.FileType`                                   | String  | -       | Sim         | Tipo do arquivo do documento em anexo do subordinado                                                                                                   |
 | `Attachments[].File.Data`                                       | String  | -       | Sim         | Documento convertido para **Base64**                                                                                                                   |
 
+### Tipos de documento
+
+| Valor  | Descrição                             |
+-------------------------------------------------|
+| `Cpf`  | Cadastro de Pessoa Física             |
+| `Cnpj` | Cadastro Nacional de Pessoa Jurídica  |
+
+### Tipos de conta bancária
+
+| Valor              | Descrição             |
+---------------------------------------------|
+| `CheckingAccount`  | Conta corrente        |
+| `SavingAccount`    | Conta poupança        |
+
+### Produtos
+
+| Valor         | Descrição          |
+-------------------------------------|
+| `CreditCard`  | Cartão de crédito  |
+| `DebitCard`   | Conta de débito    |
+
+### Bandeiras
+
+| Valor         |
+----------------|
+| `Visa`        |
+| `Master`      |
+| `Amex`        |
+| `Elo`         |
+| `Diners`      |
+| `Discover`    |
+| `Hipercard`   |
+
+### Tipos de Anexos
+
+| Valor         | Descrição                                   |
+--------------------------------------------------------------|
+| `ProofOfBankDomicile`  | Comprovante de domicílio bancário  |
+| `ModelOfAdhesionTerm`  | Modelo de termo de adesão          |
+
+### Tipos de arquivos no anexo suportados
+
+| Valor   |
+----------|
+| `pdf`   |
+| `png`   |     
+| `jpg`   |
+| `jpeg`  |
+
 **Response**
 
 ```json
