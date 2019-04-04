@@ -258,21 +258,21 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>14</td>
       <td>Sim</td>
-      <td>Número do documento</td>
+      <td>Número do documento (Sem formatação)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">DocumentType</code></td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo do documento</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantCategoryCode</code></td>
       <td>String</td>
       <td>4</td>
       <td>Sim</td>
-      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços</td>
+      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. <a href="https://oauth.net/2/" target="_blank">Lista de Merchant Category Codes</a></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ContactName</code></td>
@@ -314,7 +314,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo da conta</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">BankAccount.Number</code></td>
@@ -356,14 +356,14 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>14</td>
       <td>Sim</td>
-      <td>Número do documento da conta</td>
+      <td>Número do documento da conta (Sem formatação)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">BankAccount.DocumentType</code></td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo do documento da conta</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Address.Street</code></td>
@@ -412,7 +412,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>9</td>
       <td>Sim</td>
-      <td>CEP</td>
+      <td>CEP (Sem formatação)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Agreement.Fee</code></td>
@@ -426,14 +426,14 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="highlighter-rouge">CreditCard</code> e <code class="highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="highlighter-rouge">Visa</code>, <code class="highlighter-rouge">Master</code>, <code class="highlighter-rouge">Amex</code>, <code class="highlighter-rouge">Elo</code>, <code class="highlighter-rouge">Diners</code>, <code class="highlighter-rouge">Discover</code> e <code class="highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
@@ -482,7 +482,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo do documento em anexo do subordinado</td>
+      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Attachments[].File.Name</code></td>
@@ -496,7 +496,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo do arquivo do documento em anexo do subordinado</td>
+      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="highlighter-rouge">pdf</code>, <code class="highlighter-rouge">png</code>, <code class="highlighter-rouge">jpg</code> e <code class="highlighter-rouge">jpeg</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Attachments[].File.Data</code></td>
@@ -504,147 +504,6 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>-</td>
       <td>Sim</td>
       <td>Documento convertido para <strong>Base64</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="tipos-de-documento">Tipos de documento</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">Cpf</code></td>
-      <td>Cadastro de Pessoa Física</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Cnpj</code></td>
-      <td>Cadastro Nacional de Pessoa Jurídica</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="tipos-de-conta-bancária">Tipos de conta bancária</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">CheckingAccount</code></td>
-      <td>Conta corrente</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">SavingAccount</code></td>
-      <td>Conta poupança</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="produtos">Produtos</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard</code></td>
-      <td>Cartão de crédito</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">DebitCard</code></td>
-      <td>Conta de débito</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="bandeiras">Bandeiras</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">Visa</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Master</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Amex</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Elo</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Diners</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Discover</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Hipercard</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="tipos-de-anexos">Tipos de Anexos</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">ProofOfBankDomicile</code></td>
-      <td>Comprovante de domicílio bancário</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ModelOfAdhesionTerm</code></td>
-      <td>Modelo de termo de adesão</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="tipos-de-arquivos-no-anexo-suportados">Tipos de arquivos no anexo suportados</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">pdf</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">png</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jpg</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jpeg</code></td>
     </tr>
   </tbody>
 </table>
@@ -803,14 +662,14 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo do documento</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantCategoryCode</code></td>
       <td>String</td>
       <td>4</td>
       <td>Sim</td>
-      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços</td>
+      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. <a href="https://oauth.net/2/" target="_blank">Lista de Merchant Category Codes</a></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ContactName</code></td>
@@ -866,7 +725,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo da conta</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">BankAccount.Number</code></td>
@@ -915,7 +774,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo do documento da conta</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Address.Street</code></td>
@@ -985,14 +844,14 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="highlighter-rouge">CreditCard</code> e <code class="highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="highlighter-rouge">Visa</code>, <code class="highlighter-rouge">Master</code>, <code class="highlighter-rouge">Amex</code>, <code class="highlighter-rouge">Elo</code>, <code class="highlighter-rouge">Diners</code>, <code class="highlighter-rouge">Discover</code> e <code class="highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
@@ -1041,7 +900,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo do documento em anexo do subordinado</td>
+      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Attachments[].File.Name</code></td>
@@ -1055,7 +914,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo do arquivo do documento em anexo do subordinado</td>
+      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="highlighter-rouge">pdf</code>, <code class="highlighter-rouge">png</code>, <code class="highlighter-rouge">jpg</code> e <code class="highlighter-rouge">jpeg</code></td>
     </tr>
   </tbody>
 </table>
