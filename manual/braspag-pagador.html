@@ -9089,7 +9089,42 @@ curl
 
 <h1 id="pagamentos-com-análise-de-fraude">Pagamentos com Análise de Fraude</h1>
 
-<p>É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização. O Antifraude é contratado separadamente, e pode conversar com o Gateway de Pagamento das seguintes formas:</p>
+<p>Nesta opção de pagamento é possível realizar a análise de risco da transação antes ou após a autorização. Com isso abaixo temos os possíveis fluxos:</p>
+
+<h2 id="análise-de-fraude-antes-da-autorização">Análise de fraude antes da autorização</h2>
+
+<p>Neste fluxo a transação será enviada para análise de risco e posteriomente para a autorização, se desejado. Você poderá optar pela melhor estratégia de acordo com o seu negócio. Para isso temos as seguintes opções:</p>
+
+<h3 id="autorizar-somente-se-resultado-da-análise-for-aceita-ou-rejeita">Autorizar somente se resultado da análise for aceita ou rejeita</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Parêmetro</td>
+      <td>Valor</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code></td>
+      <td>AnalyseFirst</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code></td>
+      <td>OnSuccess</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="autorizar-independente-do-resultado-da-análise">Autorizar independente do resultado da análise</h3>
+
+<p>É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização. O possíveis fluxos são:</p>
 
 <table>
   <thead>
