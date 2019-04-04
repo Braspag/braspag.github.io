@@ -9089,42 +9089,7 @@ curl
 
 <h1 id="pagamentos-com-análise-de-fraude">Pagamentos com Análise de Fraude</h1>
 
-<p>Nesta opção de pagamento é possível realizar a análise de risco da transação antes ou após a autorização. Com isso abaixo temos os possíveis fluxos:</p>
-
-<h2 id="análise-de-fraude-antes-da-autorização">Análise de fraude antes da autorização</h2>
-
-<p>Neste fluxo a transação será enviada para análise de risco e posteriomente para a autorização, se desejado. Você poderá optar pela melhor estratégia de acordo com o seu negócio. Para isso temos as seguintes opções:</p>
-
-<h3 id="autorizar-somente-se-resultado-da-análise-for-aceita-ou-rejeita">Autorizar somente se resultado da análise for aceita ou rejeita</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Parêmetro</td>
-      <td>Valor</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code></td>
-      <td>AnalyseFirst</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code></td>
-      <td>OnSuccess</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="autorizar-independente-do-resultado-da-análise">Autorizar independente do resultado da análise</h3>
-
-<p>É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização. O possíveis fluxos são:</p>
+<p>É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.</p>
 
 <table>
   <thead>
@@ -9138,43 +9103,43 @@ curl
   <tbody>
     <tr>
       <td>Análise antes da autorização</td>
-      <td>Antes da transação ser enviada para a processadora, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AnalyseFirst</em></td>
+      <td>Antes da transação ser enviada para a autorização, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AnalyseFirst</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Análise após a autorização</td>
-      <td>O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em></td>
+      <td>Antes da transação ser enviada para o Antifraude, a mesma será enviada para a autorização</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Análise de risco somente se a transação for autorizada</td>
       <td>O Antifraude será acionado apenas para analisar transações com o staus <em>autorizada</em>. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>OnSuccess</em></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a <em>OnSuccess</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Análise de risco em qualquer hipótese</td>
-      <td>Independente do status da transação após a autorização, o Antifraude analisará o risco dela</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em> e <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>Always</em></td>
+      <td>Independente do status da transação após a autorização, o Antifraude analisará o risco</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em> e <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>Always</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Autorização em qualquer hipótese</td>
-      <td>Independente do score de fraude da transação, ela sempre será enviada para autorização da processadora</td>
+      <td>Independente do score de fraude da transação, ela sempre será enviada para a autorização</td>
       <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AnalyseFirst</em> e <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>Always</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Capturar apenas se uma transação for segura</td>
-      <td>Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em>, <code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> igual a <em>true</em> e <code class="highlighter-rouge">Payment.Capture</code> igual a <em>false</em></td>
+      <td>Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente</td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em>, <code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> igual a <em>true</em> e <code class="highlighter-rouge">Payment.Capture</code> igual a <em>false</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Cancelar uma transação comprometida</td>
-      <td>Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente estornada</td>
+      <td>Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a rejeitada, a transação será cancelada ou estornada automaticamente</td>
       <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em> e <code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> igual a <em>true</em></td>
       <td> </td>
     </tr>
@@ -9185,15 +9150,77 @@ curl
 
 <h2 id="criando-uma-transação-com-análise-de-fraude-cybersource">Criando uma transação com Análise de Fraude Cybersource</h2>
 
-<p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós “FraudAnalysis”, “Cart”, “MerchantDefinedFields” e (somente para venda de passagens aéreas) “Travel”.</p>
+<p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós “FraudAnalysis”, “Cart”, “MerchantDefinedFields” e “Travel somente para venda de passagens aéreas)”.</p>
 
 <h3 id="requisição-29">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">  
-   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Identity"</span><span class="p">:</span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521976781114"</span><span class="w">
+      </span><span class="s2">"Address"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"DeliveryAddress"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DoSplit"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000181"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Alias"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Credentials"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"key"</span><span class="p">:</span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"password"</span><span class="p">:</span><span class="s2">"LOJA9999999"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"#Braspag2018@NOMEDALOJA#"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"001"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ExtraDataCollection"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"NomeDoCampo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="s2">"ValorDoCampo"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
       </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">  
          </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="s2">"AnalyseFirst"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"Always"</span><span class="p">,</span><span class="w">
@@ -9219,30 +9246,47 @@ curl
                   </span><span class="s2">"NonSensicalHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"ObscenitiesHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"PhoneHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"ItemTeste"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"ItemTeste1"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"Sku"</span><span class="p">:</span><span class="s2">"20170511"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"Risk"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"TimeHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
                   </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"AdultContent"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"VelocityHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"Passenger"</span><span class="p">:{</span><span class="w">  
-                     </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
-                     </span><span class="s2">"Identity"</span><span class="p">:</span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
-                     </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
-                     </span><span class="s2">"Rating"</span><span class="p">:</span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
-                     </span><span class="s2">"Phone"</span><span class="p">:</span><span class="s2">"999994444"</span><span class="p">,</span><span class="w">
-                     </span><span class="s2">"Status"</span><span class="p">:</span><span class="s2">"Accepted"</span><span class="w">
-                  </span><span class="p">}</span><span class="w">
+                  </span><span class="s2">"VelocityHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">  
+               </span><span class="p">{</span><span class="w">  
+                  </span><span class="s2">"GiftCategory"</span><span class="p">:</span><span class="s2">"Undefined"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"HostHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"NonSensicalHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"ObscenitiesHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"PhoneHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"ItemTeste2"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"Sku"</span><span class="p">:</span><span class="s2">"20170512"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"TimeHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"AdultContent"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"VelocityHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="w">
                </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
          </span><span class="p">},</span><span class="w">
          </span><span class="s2">"MerchantDefinedFields"</span><span class="p">:[</span><span class="w">  
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"Id"</span><span class="p">:</span><span class="mi">95</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Value"</span><span class="p">:</span><span class="s2">"Dado Definido pela Loja"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+               </span><span class="s2">"Id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"Value"</span><span class="p">:</span><span class="s2">"100"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="s2">"Id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"Value"</span><span class="p">:</span><span class="s2">"Web"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">  
+               </span><span class="s2">"Id"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"Value"</span><span class="p">:</span><span class="s2">"SIM"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
          </span><span class="p">],</span><span class="w">
          </span><span class="s2">"Shipping"</span><span class="p">:{</span><span class="w">  
             </span><span class="s2">"Addressee"</span><span class="p">:</span><span class="s2">"Alameda Xingu, 512"</span><span class="p">,</span><span class="w">
@@ -9373,11 +9417,479 @@ curl
   </thead>
   <tbody>
     <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificador da loja na Braspag</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+      <td>Chave pública para autenticação dupla na Braspag</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Não</td>
+      <td>Identificador do request definido pela loja</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Número do pedido da loja</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Texto</td>
+      <td>119</td>
+      <td>Sim</td>
+      <td>Nome do comprador</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td>Número do documento de identificação do comprador</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Tipo de documento de identificação do comprador <br /> Possíveis valores: CPF ou CNPJ</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>E-mail do comprador</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Birthdate</code></td>
+      <td>Date</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Data de nascimento do comprador. <br /> Ex.: 1991-01-10</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Texto</td>
+      <td>54</td>
+      <td>Sim</td>
+      <td>Logradouro do endereço de cobrança</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Texto</td>
+      <td>5</td>
+      <td>Sim</td>
+      <td>Número do endereço de cobrança</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>Complemento do endereço de cobrança</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>Código do endereço de cobrança</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Cidade do endereço de cobrança</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Estado do endereço de cobrança</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td>Texto</td>
+      <td>45</td>
+      <td>Sim</td>
+      <td>Bairro do endereço de cobrança</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Texto</td>
+      <td>54</td>
+      <td>Não</td>
+      <td>Logradouro do endereço de entrega</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Texto</td>
+      <td>5</td>
+      <td>Não</td>
+      <td>Número do endereço de entrega</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>Complemento do endereço de entrega</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+      <td>Código do endereço de entrega</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço de entrega</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço de entrega</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td>Texto</td>
+      <td>45</td>
+      <td>Não</td>
+      <td>Bairro do endereço de entrega</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Nome da provedora da autorização</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do meio de magamento. <br /> Obs.: Somente o tipo <em>CreditCard</em> funciona com análise de fraude</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor da transação financeira em centavos <br /> Ex: 150000 = r$ 1.500,00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço <br /> Obs.: Esse valor não é adicionado ao valor da autorização</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Currency</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Moeda na qual o pagamento será feito <br /> Possíveis valores: BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Country</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>País na qual o pagamento será realizado</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de parcelas</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Interest</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Tipo de parcelamento <br /> Possíveis valores: ByMerchant / ByIssuer</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Indica se a autorização deverá ser com captura automática <br /> Possíveis valores: true / false (default) <br /> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade <br /> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Indica se a transação deve ser autenticada <br /> Possíveis valores: true / false (default) <br /> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Recurrent</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Indica se a transação é do tipo recorrente <br /> Possíveis valores: true / false (default) <br /> Obs.: Este campo igual a <em>true</em> não irá criar uma recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV e servindo de indicação para a adquirente que é a cobrança de uma transação de uma recorrência <br /> Obs2.: Somente para transações Cielo <br /> Obs3.: O campo <code class="highlighter-rouge">Payment.Authenticate</code> deve ser igual a <em>false</em> quando este for igual a <em>true</em></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Não</td>
+      <td>Texto que será impresso na fatura do portador <br /> Obs.: O valor deste campo tem que ser claro e fácil de identificar pelo portador o estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.DoSplit</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Indica se a transação será dividida entre vários participantes <br /> Possíveis valores: true / false (default) <br /> Para utilizar a funcionalidade de split de pagamentos, é necessário a contratação da solução junto a Braspag</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Identificador do campo extra que será enviado</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Texto</td>
+      <td>1024</td>
+      <td>Não</td>
+      <td>Valor do campo extra que será enviado</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Code</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Afiliação gerada pela adquirente</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Key</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Chave de afiliação/token gerado pela adquirente</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Username</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Usuário gerado no credenciamento com a adquirente GetnNet <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Password</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Senha gerada no credenciamento com a adquirente GetnNet <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Credentials.Signature</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>ID do terminal no credenciamento com a adquirente Global Payments <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Global Payments</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td>Número do cartão de crédito</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Sim</td>
+      <td>Nome do portador impresso no cartão de crédito</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Data de validade do cartão de crédito</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Código de segurança no verso do cartão de crédito</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão de crédito</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Alias</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Não</td>
+      <td>Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code></td>
       <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
-      <td>Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst)</td>
+      <td>Tipo de fluxo da análise de fraude <br /> Possíveis valores: AnalyseFirst / AuthorizeFirst</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9386,7 +9898,7 @@ curl
       <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
-      <td>Critério do fluxo: “OnSuccess” (Só realiza a analise se tiver sucesso na transação), “Always” (Sempre realiza a analise)</td>
+      <td>Critério do fluxo da análise de fraude <br /> Possíveis valores: OnSuccess / Always</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9395,7 +9907,7 @@ curl
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Provedor de antifraude. Enviar: “Cybersource”.</td>
+      <td>Provedor de antifraude <br /> Possíveis valores: Cybersource</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9404,7 +9916,7 @@ curl
       <td>Booleano</td>
       <td>—</td>
       <td>Não</td>
-      <td>Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro “Capture”. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente “AuthorizeFirst”. Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado</td>
+      <td>Indica se a transação após a análise de fraude será capturada <br /> Possíveis valores: true / false (default) <br /> Obs.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br /> Obs2.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br /> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente <em>AuthorizeFirst</em></td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9413,7 +9925,7 @@ curl
       <td>Booleano</td>
       <td>—</td>
       <td>Não</td>
-      <td>Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente “AuthorizeFirst”. Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado.</td>
+      <td>Indica se a transação após a análise de fraude será cancelada <br /> Possíveis valores: true / false (default) <br /> Obs.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for de alto risco (Reject) a transação anteriormente autorizada será cancelada <br /> Obs2.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será cancelada após a Braspag receber a notificação da alteração de status e esta for alto risco (Reject) <br /> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente <em>AuthorizeFirst</em></td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9422,7 +9934,7 @@ curl
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Valor total do pedido</td>
+      <td>Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9431,7 +9943,7 @@ curl
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<br />Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
+      <td>Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9449,7 +9961,7 @@ curl
       <td>Booleano</td>
       <td>—</td>
       <td>Sim</td>
-      <td>Identifica se o browser do comprador aceita cookies ou não</td>
+      <td>Identifica se o browser do comprador aceita cookies <br /> Possíveis valores: true / false (default)</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9458,7 +9970,7 @@ curl
       <td>Texto</td>
       <td>100</td>
       <td>Não</td>
-      <td>E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(Customer.Email)</td>
+      <td>E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(<code class="highlighter-rouge">Customer.Email</code>)</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9467,7 +9979,7 @@ curl
       <td>Texto</td>
       <td>40</td>
       <td>Não</td>
-      <td>Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP. Ex.: Google Chrome, Mozilla Firefox, Safari, etc.</td>
+      <td>Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br /> Ex.: Google Chrome, Mozilla Firefox, Safari, etc</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9476,7 +9988,7 @@ curl
       <td>Texto</td>
       <td>45</td>
       <td>Sim</td>
-      <td>Endereço IP do comprador. É altamente recomendável o envio deste campo</td>
+      <td>Endereço de IP do comprador. Formato IPv4 ou IPv6</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -9503,7 +10015,7 @@ curl
       <td>Texto</td>
       <td>9</td>
       <td>Não</td>
-      <td>Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países: “Yes” (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno), “No” (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto), “Off” (Ignora a análise de risco para endereços divergentes)</td>
+      <td>Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br /> Possíveis valores: <br /> Yes: Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno <br /> No: Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto <br /> Off: Ignora a análise de risco para endereços divergentes</td>
       <td> </td>
       <td> </td>
     </tr>
