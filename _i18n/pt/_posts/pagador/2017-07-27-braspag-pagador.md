@@ -4729,48 +4729,94 @@ curl
 
 # Pagamentos com Análise de Fraude
 
-Nesta opção de pagamento é possível realizar a análise de risco da transação antes ou após a autorização. Com isso abaixo temos os possíveis fluxos:
-
-## Análise de fraude antes da autorização
-
-Neste fluxo a transação será enviada para análise de risco e posteriomente para a autorização, se desejado. Você poderá optar pela melhor estratégia de acordo com o seu negócio. Para isso temos as seguintes opções:
-
-### Autorizar somente se resultado da análise for aceita ou rejeita
-
-|Parêmetro|Valor|
-|`FraudAnalysis.Sequence`|AnalyseFirst|
-|`FraudAnalysis.SequenceCriteria`|OnSuccess|
-|`FraudAnalysis.CaptureOnLowRisk`||
-|`FraudAnalysis.VoidOnHighRisk`||
-
-### Autorizar independente do resultado da análise
-
-É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização. O possíveis fluxos são:
+É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.
 
 |Tipo de Integração|Descrição|Parâmetros necessários|
 |-|-|-|
-|Análise antes da autorização|Antes da transação ser enviada para a processadora, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_|
-|Análise após a autorização|O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora|`FraudAnalysis.Sequence` como _AuthorizeFirst_|
-|Análise de risco somente se a transação for autorizada|O Antifraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` como _OnSuccess_|
-|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o Antifraude analisará o risco dela|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
-|Autorização em qualquer hipótese|Independente do score de fraude da transação, ela sempre será enviada para autorização da processadora|`FraudAnalysis.Sequence` como _AnalyseFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
-|Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco|`FraudAnalysis.Sequence` como _AuthorizeFirst_, `FraudAnalysis.CaptureOnLowRisk` igual a _true_ e `Payment.Capture` igual a _false_| |
-|Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente estornada|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.VoidOnHighRisk` igual a _true_|
+|Análise antes da autorização|Antes da transação ser enviada para a autorização, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` igual a _AnalyseFirst_|
+|Análise após a autorização|Antes da transação ser enviada para o Antifraude, a mesma será enviada para a autorização|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_|
+|Análise de risco somente se a transação for autorizada|O Antifraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` igual a _OnSuccess_|
+|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o Antifraude analisará o risco|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
+|Autorização em qualquer hipótese|Independente do score de fraude da transação, ela sempre será enviada para a autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
+|Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_, `FraudAnalysis.CaptureOnLowRisk` igual a _true_ e `Payment.Capture` igual a _false_| |
+|Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a rejeitada, a transação será cancelada ou estornada automaticamente|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.VoidOnHighRisk` igual a _true_|
 
 Se não for especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo `FraudAnalysis.Sequence` _AuthorizeFirst_, `FraudAnalysis.SequenceCriteria` _OnSuccess_, `FraudAnalysis.VoidOnHighRisk` _false_ e `FraudAnalysis.CaptureOnLowRisk` _false_.
 
 ## Criando uma transação com Análise de Fraude Cybersource
 
-Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e (somente para venda de passagens aéreas) "Travel".
+Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e "Travel somente para venda de passagens aéreas)".
 
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {  
-   [...]
+   "MerchantOrderId":"2017051002",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678910",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "Phone": "5521976781114"
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "DoSplit":false,
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "Credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#",
+         "signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ],
       "FraudAnalysis":{  
          "Sequence":"AnalyseFirst",
          "SequenceCriteria":"Always",
@@ -4796,30 +4842,47 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
                   "NonSensicalHedge":"Off",
                   "ObscenitiesHedge":"Off",
                   "PhoneHedge":"Off",
-                  "Name":"ItemTeste",
+                  "Name":"ItemTeste1",
                   "Quantity":1,
                   "Sku":"20170511",
                   "UnitPrice":10000,
                   "Risk":"High",
                   "TimeHedge":"Normal",
                   "Type":"AdultContent",
-                  "VelocityHedge":"High",
-                  "Passenger":{  
-                     "Email":"comprador@braspag.com.br",
-                     "Identity":"1234567890",
-                     "Name":"Nome do Comprador",
-                     "Rating":"Adult",
-                     "Phone":"999994444",
-                     "Status":"Accepted"
-                  }
+                  "VelocityHedge":"High"
+               }
+            ],
+            [  
+               {  
+                  "GiftCategory":"Undefined",
+                  "HostHedge":"Off",
+                  "NonSensicalHedge":"Off",
+                  "ObscenitiesHedge":"Off",
+                  "PhoneHedge":"Off",
+                  "Name":"ItemTeste2",
+                  "Quantity":1,
+                  "Sku":"20170512",
+                  "UnitPrice":10000,
+                  "Risk":"High",
+                  "TimeHedge":"Normal",
+                  "Type":"AdultContent",
+                  "VelocityHedge":"High"
                }
             ]
          },
          "MerchantDefinedFields":[  
             {  
-               "Id":95,
-               "Value":"Dado Definido pela Loja"
-            }
+               "Id":2,
+               "Value":"100"
+            },
+            {  
+               "Id":4,
+               "Value":"Web"
+            },
+            {  
+               "Id":9,
+               "Value":"SIM"
+            },
          ],
          "Shipping":{  
             "Addressee":"Alameda Xingu, 512",
@@ -4936,24 +4999,75 @@ curl
 --verbose
 
 ```
-
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-| `FraudAnalysis.Sequence` | Texto | 14 | Sim | Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst) |
-| `FraudAnalysis.SequenceCriteria` | Texto | 9 | Sim | Critério do fluxo: "OnSuccess" (Só realiza a analise se tiver sucesso na transação), "Always" (Sempre realiza a analise) |
-| `FraudAnalysis.Provider` | Texto | 10 | Sim | Provedor de antifraude. Enviar: "Cybersource". |
-| `FraudAnalysis.CaptureOnLowRisk` | Booleano | --- | Não | Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado |
-| `FraudAnalysis.VoidOnHighRisk` | Booleano | --- | Não | Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado. |
-| `FraudAnalysis.TotalOrderAmount` | Número | 15 | Sim | Valor total do pedido |
-| `FraudAnalysis.FingerPrintId` | Texto | 100 | Sim | Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<BR>Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. |
-| `FraudAnalysis.Browser.HostName` | Texto | 60 | Não | Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP |
-| `FraudAnalysis.Browser.CookiesAccepted` | Booleano | --- | Sim | Identifica se o browser do comprador aceita cookies ou não |
-| `FraudAnalysis.Browser.Email` | Texto | 100 | Não | E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(Customer.Email) |
-| `FraudAnalysis.Browser.Type` | Texto | 40 | Não | Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP. Ex.: Google Chrome, Mozilla Firefox, Safari, etc. |
-| `FraudAnalysis.Browser.IpAddress` | Texto | 45 | Sim | Endereço IP do comprador. É altamente recomendável o envio deste campo |
-| `FraudAnalysis.Cart.IsGift` | Booleano | --- | Não | Booleano que indica se o pedido é para presente ou não |
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantKey`|Texto|40|Sim|Chave pública para autenticação dupla na Braspag|
+|`RequestId`|Guid|36|Não|Identificador do request definido pela loja|
+|`MerchantOrderId`|Texto|50|Sim|Número do pedido da loja|
+|`Customer.Name`|Texto|119|Sim|Nome do comprador|
+|`Customer.Identity`|Texto|16|Sim|Número do documento de identificação do comprador| 
+|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador <br/> Possíveis valores: CPF ou CNPJ|
+|`Customer.Email`|Texto|100|Sim|E-mail do comprador|
+|`Customer.Birthdate`|Date|10|Sim|Data de nascimento do comprador. <br/> Ex.: 1991-01-10|
+|`Customer.Address.Street`|Texto|54|Sim|Logradouro do endereço de cobrança|
+|`Customer.Address.Number`|Texto|5|Sim|Número do endereço de cobrança|
+|`Customer.Address.Complement`|Texto|14|Não|Complemento do endereço de cobrança|
+|`Customer.Address.ZipCode`|Texto|9|Sim|Código do endereço de cobrança|
+|`Customer.Address.City`|Texto|50|Sim|Cidade do endereço de cobrança|
+|`Customer.Address.State`|Texto|2|Sim|Estado do endereço de cobrança|
+|`Customer.Address.Country`|Texto|2|Sim|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Customer.Address.District`|Texto|45|Sim|Bairro do endereço de cobrança|
+|`Customer.DeliveryAddress.Street`|Texto|54|Não|Logradouro do endereço de entrega|
+|`Customer.DeliveryAddress.Number`|Texto|5|Não|Número do endereço de entrega|
+|`Customer.DeliveryAddress.Complement`|Texto|14|Não|Complemento do endereço de entrega|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|Código do endereço de entrega|
+|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço de entrega|
+|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega|
+|`Customer.DeliveryAddress.Country`|Texto|2|Não|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Customer.DeliveryAddress.District`|Texto|45|Não|Bairro do endereço de entrega|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora da autorização|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de magamento. <br/> Obs.: Somente o tipo _CreditCard_ funciona com análise de fraude|
+|`Payment.Amount`|Número|15|Sim|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|
+|`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço <br/> Obs.: Esse valor não é adicionado ao valor da autorização|
+|`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito <br/> Possíveis valores: BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Country`|Texto|3|Não|País na qual o pagamento será realizado|
+|`Payment.Installments`|Número|2|Sim|Número de parcelas|
+|`Payment.Interest`|Texto|10|Não|Tipo de parcelamento <br/> Possíveis valores: ByMerchant / ByIssuer|
+|`Payment.Capture`|Booleano|---|Não|Indica se a autorização deverá ser com captura automática <br/> Possíveis valores: true / false (default) <br/> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade <br/> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude|
+|`Payment.Authenticate`|Booleano|---|Não|Indica se a transação deve ser autenticada <br/> Possíveis valores: true / false (default) <br/> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
+|`Payment.Recurrent`|Booleano|---|Não|Indica se a transação é do tipo recorrente <br/> Possíveis valores: true / false (default) <br/> Obs.: Este campo igual a _true_ não irá criar uma recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV e servindo de indicação para a adquirente que é a cobrança de uma transação de uma recorrência <br/> Obs2.: Somente para transações Cielo <br/> Obs3.: O campo `Payment.Authenticate` deve ser igual a _false_ quando este for igual a _true_|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador <br/> Obs.: O valor deste campo tem que ser claro e fácil de identificar pelo portador o estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback|
+|`Payment.DoSplit`|Booleano|---|Não|Indica se a transação será dividida entre vários participantes <br/> Possíveis valores: true / false (default) <br/> Para utilizar a funcionalidade de split de pagamentos, é necessário a contratação da solução junto a Braspag|
+|`Payment.ExtraDataCollection.Name`|Texto|50|Não|Identificador do campo extra que será enviado|
+|`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo extra que será enviado|
+|`Payment.Credentials.Code`|Texto|100|Sim|Afiliação gerada pela adquirente|
+|`Payment.Credentials.Key`|Texto|100|Sim|Chave de afiliação/token gerado pela adquirente|
+|`Payment.Credentials.Username`|Texto|50|Não|Usuário gerado no credenciamento com a adquirente GetnNet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet|
+|`Payment.Credentials.Password`|Texto|50|Não|Senha gerada no credenciamento com a adquirente GetnNet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet|
+|`Payment.Credentials.Signature`|Texto|3|Não|ID do terminal no credenciamento com a adquirente Global Payments <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Global Payments|
+|`CreditCard.CardNumber`|Texto|16|Sim|Número do cartão de crédito|
+|`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão de crédito|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade do cartão de crédito|
+|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança no verso do cartão de crédito|
+|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão de crédito|
+|`CreditCard.SaveCard`|Booleano|---|Não|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|
+|`CreditCard.Alias`|Texto|64|Não|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|
+|`FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de fluxo da análise de fraude <br/> Possíveis valores: AnalyseFirst / AuthorizeFirst|
+|`FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo da análise de fraude <br/> Possíveis valores: OnSuccess / Always|
+|`FraudAnalysis.Provider`|Texto|10|Sim|Provedor de antifraude <br/> Possíveis valores: Cybersource|
+|`FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será capturada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
+|`FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será cancelada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de alto risco (Reject) a transação anteriormente autorizada será cancelada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será cancelada após a Braspag receber a notificação da alteração de status e esta for alto risco (Reject) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
+|`FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|
+|`FraudAnalysis.FingerPrintId`|Texto|100|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas|
+|`FraudAnalysis.Browser.HostName`|Texto|60|Não|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|
+|`FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Sim|Identifica se o browser do comprador aceita cookies <br/> Possíveis valores: true / false (default)|
+|`FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|
+|`FraudAnalysis.Browser.Type`|Texto|40|Não|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br/> Ex.: Google Chrome, Mozilla Firefox, Safari, etc|
+|`FraudAnalysis.Browser.IpAddress`|Texto|45|Sim|Endereço de IP do comprador. Formato IPv4 ou IPv6|
+| `FraudAnalysis.Cart.IsGift`|Booleano|---|Não| Booleano que indica se o pedido é para presente ou não |
 | `FraudAnalysis.Cart.ReturnsAccepted` | Booleano | --- | Não | Booleano que define se devoluções são aceitas para o pedido |
-| `FraudAnalysis.Cart.Items.GiftCategory` | Texto | 9 | Não | Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países: "Yes" (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno), "No" (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto), "Off" (Ignora a análise de risco para endereços divergentes) |
+|`FraudAnalysis.Cart.Items.GiftCategory`|Texto|9|Não|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> Possíveis valores: <br/> Yes: Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno <br/> No: Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto <br/> Off: Ignora a análise de risco para endereços divergentes|
 | `FraudAnalysis.Cart.Items.HostHedge` | Texto | 6 | Não | Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. Possíveis Valores:<BR>Low (Baixa importância do e-mail e endereço IP na análise de risco)<BR>Normal (Média importância do e-mail e endereço IP na análise de risco)<BR>High (Alta importância do e-mail e endereço IP na análise de risco)<BR>Off (E-mail e endereço IP não afetam a análise de risco) |
 | `FraudAnalysis.Cart.Items.NonSensicalHedge` | Texto | 6 | Não | Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. Possiveis Valores:<BR>Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>Off (Verificação do pedido do comprador não afeta a análise de risco) |
 | `FraudAnalysis.Cart.Items.ObscenitiesHedge` | Texto | 6 | Não | Nível de obscenidade dos pedidos recebedidos. Possiveis Valores:<BR>Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco) |
