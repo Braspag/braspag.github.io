@@ -331,6 +331,7 @@ A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado 
 **Response**
 
 ```json
+--header "Authorization: Bearer {access_token}"
 {
     "MasterMerchantId": "665a33c5-0022-4a40-a0bd-daad04eb3236",
     "MerchantId": "b8ccc729-a874-4b51-a5a9-ffeb5bd98878",
