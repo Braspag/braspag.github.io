@@ -369,6 +369,7 @@
   </span><span class="s2">"CartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mouse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EletronicGood"</span><span class="w">
       </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -383,6 +384,7 @@
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teclado"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EletronicGood"</span><span class="w">
       </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96385"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"MerchantItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc456"</span><span class="p">,</span><span class="w">
@@ -848,6 +850,13 @@
       <td style="text-align: right">255</td>
     </tr>
     <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Category</code></td>
+      <td style="text-align: left">Categoria do produto <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-32-cartitem[n].category">Tabela 32 - CartItem{n}.Category</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Risk</code></td>
       <td style="text-align: left">Nível de risco do produto associado a quantidade de chargebacks <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-7-cartitem[n].risk">Tabela 7 - CartItem{n}.Risk</a></td>
       <td style="text-align: center">enum</td>
@@ -863,7 +872,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Sku</code></td>
-      <td style="text-align: left">Sku do produto</td>
+      <td style="text-align: left">SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">255</td>
@@ -1613,6 +1622,7 @@
   </span><span class="s2">"CartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mouse"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EletronicGood"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1627,6 +1637,7 @@
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teclado"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EletronicGood"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96385"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"MerchantItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc456"</span><span class="p">,</span><span class="w">
@@ -2456,6 +2467,13 @@
       <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].ProductName</code></td>
       <td style="text-align: left">Nome do produto</td>
       <td style="text-align: center">string</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CartItem[n].Category</code></td>
+      <td style="text-align: left">Categoria do produto <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-32-cartitem[n].category">Tabela 32 - CartItem{n}.Category</a></td>
+      <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -5603,6 +5621,87 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
       <td style="text-align: left">96 a 100</td>
       <td style="text-align: left">Reservados</td>
       <td style="text-align: left">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-32---cartitemncategory">Tabela 32 - CartItem[n].Category</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">AdultContent</td>
+      <td style="text-align: left">Conteúdo adulto</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Coupon</td>
+      <td style="text-align: left">Cupom aplicado para todo o pedido</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Default</td>
+      <td style="text-align: left">Valor default para o tipo do produto. Quando não enviado nenhum outro valor, assume-se o tipo sendo este</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">EletronicGood</td>
+      <td style="text-align: left">Produto eletônico diferente de software</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">EletronicSoftware</td>
+      <td style="text-align: left">Softwares distribuídos eletronicamente via download</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">GiftCertificate</td>
+      <td style="text-align: left">Vale presente</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">HandlingOnly</td>
+      <td style="text-align: left">Taxa que você cobra do seu cliente para cobrir os seus custos administrativos de venda. Ex.: Taxa de conveniência / Taxa de instalação</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Service</td>
+      <td style="text-align: left">Serviço que será realizado para o cliente</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">ShippingAndHandling</td>
+      <td style="text-align: left">Valor do frete e e taxa que você cobra do seu cliente para cobrir os seus custos administrativos de venda</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">ShippingOnly</td>
+      <td style="text-align: left">Valor do frete</td>
+      <td>Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Subscription</td>
+      <td style="text-align: left">Assinatura. Ex.: Streaming de vídeos / Assinatura de notícias</td>
+      <td>Cybersource</td>
     </tr>
   </tbody>
 </table>
