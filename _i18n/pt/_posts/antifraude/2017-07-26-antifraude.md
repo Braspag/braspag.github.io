@@ -180,6 +180,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
   "CartItems": [
     {
       "ProductName": "Mouse",
+      "Category": "EletronicGood"
       "UnitPrice": "12000",
       "Sku": "abc123",
       "Quantity": 1,
@@ -194,6 +195,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
     },
     {
       "ProductName": "Teclado",
+      "Category": "EletronicGood"
       "UnitPrice": "96385",
       "MerchantItemId": "3",
       "Sku": "abc456",
@@ -323,9 +325,10 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br/> Ex.: Google Chrome, Mozilla Firefox, Safari, etc|string|não|40|
 |`Customer.BrowserFingerprint`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|sim|100|
 |`CartItem[n].ProductName`|Nome do produto|string|sim|255|
+|`CartItem[n].Category`|Categoria do produto <br/> [Tabela 32 - CartItem{n}.Category]({{ site.baseurl_root }}manual/antifraude#tabela-32-cartitem[n].category)|enum|-|-|
 |`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 7 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-7-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
-|`CartItem[n].Sku`|Sku do produto|string|não|255|
+|`CartItem[n].Sku`|SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto|string|não|255|
 |`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
 |`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 8 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}manual/antifraude#tabela-8-cartitem[n].addressriskverify)|enum|-|-|
 |`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 9 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-9-cartitem[n].hosthedge)|enum|-|-|
@@ -596,6 +599,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
   "CartItems": [
     {
       "ProductName": "Mouse",
+      "Category": "EletronicGood",
       "UnitPrice": "12000",
       "Sku": "abc123",
       "Quantity": 1,
@@ -610,6 +614,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
     },
     {
       "ProductName": "Teclado",
+      "Category": "EletronicGood",
       "UnitPrice": "96385",
       "MerchantItemId": "3",
       "Sku": "abc456",
@@ -799,6 +804,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|
 |`CartItem[n].ProductName`|Nome do produto|string|
+|`CartItem[n].Category`|Categoria do produto <br/> [Tabela 32 - CartItem{n}.Category]({{ site.baseurl_root }}manual/antifraude#tabela-32-cartitem[n].category)|enum|
 |`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 7 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-7-cartitem[n].risk)|enum|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
 |`CartItem[n].Sku`|Sku do produto|string|
@@ -1695,3 +1701,19 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |46|Nome impresso no cartão de crédito|string|
 |47 a 95|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|
 |96 a 100|Reservados|-|
+
+## Tabela 32 - CartItem[n].Category
+
+Valor|Descrição|Provider|
+|:-|:-|:-|
+|AdultContent|Conteúdo adulto|Cybersource|
+|Coupon|Cupom aplicado para todo o pedido|Cybersource|
+|Default|Valor default para o tipo do produto. Quando não enviado nenhum outro valor, assume-se o tipo sendo este|Cybersource|
+|EletronicGood|Produto eletônico diferente de software|Cybersource|
+|EletronicSoftware|Softwares distribuídos eletronicamente via download|Cybersource|
+|GiftCertificate|Vale presente|Cybersource|
+|HandlingOnly|Taxa que você cobra do seu cliente para cobrir os seus custos administrativos de venda. Ex.: Taxa de conveniência / Taxa de instalação|Cybersource|
+|Service|Serviço que será realizado para o cliente|Cybersource|
+|ShippingAndHandling|Valor do frete e e taxa que você cobra do seu cliente para cobrir os seus custos administrativos de venda|Cybersource|
+|ShippingOnly|Valor do frete|Cybersource|
+|Subscription|Assinatura. Ex.: Streaming de vídeos / Assinatura de notícias|Cybersource|
