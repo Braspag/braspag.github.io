@@ -1708,7 +1708,7 @@ Valor|Descrição|Provider|
 |:-|:-|:-|
 |AdultContent|Conteúdo adulto|Cybersource|
 |Coupon|Cupom aplicado para todo o pedido|Cybersource|
-|Default|Valor default para o tipo do produto. Quando não enviado nenhum outro valor, assume-se o tipo sendo este|Cybersource|
+|Default|Valor default para o tipo do produto. Quando não enviado nenhum outro valor, assume-se o a categoria senda esta|Cybersource|
 |EletronicGood|Produto eletônico diferente de software|Cybersource|
 |EletronicSoftware|Softwares distribuídos eletronicamente via download|Cybersource|
 |GiftCertificate|Vale presente|Cybersource|
