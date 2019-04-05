@@ -5683,14 +5683,14 @@ curl
 |`Payment.FraudAnalysis.Shipping.Phone`|Número|Número do telefone do responsável a receber o produto no endereço de entrega|
 |`Payment.FraudAnalysis.Travel.JourneyType`|Texto|Tipo de viagem|
 |`Payment.FraudAnalysis.Travel.DepartureDateTime`|DateTime|Data e hora de partida|
-|`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto||Nome completo do passageiro|
+|`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto|Nome completo do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Identity`|Texto|Número do documento do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Status`|Texto|Classificação da empresa aérea|
 |`Payment.FraudAnalysis.Travel.Passengers.Rating`|Texto|Tipo do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Email`|Texto|E-mail do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Número|Telefone do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|Código do aeroporto de partida|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|Código do aeroporto de chegada|
 |`Payment.FraudAnalysis.Id`|Guid|Id da transação no Antifraude Braspag|
 |`Payment.FraudAnalysis.Status`|Número|Status da transação no Antifraude Braspag <br/> [Lista de Vaores - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status)|
 |`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Número|Código de retorno da Cybersouce <br/> [Lista de Valores - Payment.FraudAnalysis.FraudAnalysisReasonCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode)|
@@ -5711,7 +5711,7 @@ curl
 |`Payment.ProofOfSale`|Texto|Número do comprovante de venda na adquirente (NSU - Número sequencial único da transação)|
 |`Payment.AuthorizationCode`|Texto|Código de autorização na adquirente|
 |`Payment.ReceivedDate`|Datetime|Data em que a transação foi recebida no Pagador Brapag <br/> Ex.: 2018-01-16 16:38:19|
-|`Payment.CapturedDate`|Datetime|Data em que a transação foi capturada na adquirente|<br/> Ex.: 2018-01-16 16:38:20|
+|`Payment.CapturedDate`|Datetime|Data em que a transação foi capturada na adquirente <br/> Ex.: 2018-01-16 16:38:20|
 |`Payment.CapturedAmount`|Número|Valor capturado da transação <br/> Ex.: 123456 = r$ 1.234,56|
 |`Payment.ECI`|Texto|Eletronic Commerce Indicator. Código gerado em uma transação de crédito com autenticação externa|
 |`Payment.ReasonCode`|Texto|Código de retorno da operação|
