@@ -421,7 +421,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 16 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-16-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 17 - ProviderStatus]({{ site.baseurl_root }}manual/antifraude#tabela-17-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource <br/> [Tabela 17 - ProviderStatus]({{ site.baseurl_root }}manual/antifraude#tabela-17-providerstatus)|enum|
 |`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 18 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}manual/antifraude#tabela-18-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
 |`ProviderAnalysisResult.Missing`|Campos faltantes na requisição enviada a Cybersource|string|
@@ -437,10 +437,10 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
 |`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 22 - ProviderAnalysisResult.AfsReply.HotListInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-22-provideranalysisresult.afsreply.hotlistinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 23 - ProviderAnalysisResult.AfsReply.IdentityInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-23-provideranalysisresult.afsreply.identityinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 24 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-24-provideranalysisresult.afsreply.internetinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: FREE-EM^RISK-EM <br/> [Tabela 24 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-24-provideranalysisresult.afsreply.internetinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.IpCity`|Nome da cidade do comprador obtido a partir do endereço de IP|string|
 |`ProviderAnalysisResult.AfsReply.IpCountry`|Nome do país do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.IpRoutingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod)|string|
+|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.IpRoutingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-28-provideranalysisresult.afsreply.iproutingmethod)|string|
 |`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
 |`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador <br/> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br/> [Tabela 25 - ProviderAnalysisResult.AfsReply.PhoneInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-25-provideranalysisresult.afsreply.phoneinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.ReasonCode`|Código de retorno da Cybersouce <br/> [Tabela 18 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}manual/antifraude#tabela-18-provideranalysisresult.providercode)|int|
@@ -466,7 +466,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra <br/> [Tabela 29 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision]({{ site.baseurl_root }}manual/antifraude#tabela-29-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision)|enum|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra <br/> [Tabela 30 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation]({{ site.baseurl_root }}manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|Quando modo verbose ativado, nome da regra|string|
-|`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
+|`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|int|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
 
 ## Indicando erros de integração
@@ -707,7 +707,7 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 16 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-16-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ReDShield <br/> [Tabela 17 - ProviderStatus]({{ site.baseurl_root }}manual/antifraude#tabela-17-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource <br/> [Tabela 17 - ProviderStatus]({{ site.baseurl_root }}manual/antifraude#tabela-17-providerstatus)|enum|
 |`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 18 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}manual/antifraude#tabela-18-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
 |`ProviderAnalysisResult.Missing`|Campos faltantes na requisição enviada a Cybersource|string|
@@ -1426,7 +1426,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |202|Transação recusada pois o cartão expirou ou a data de validade não coincide com a correta <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|Cybersource|
 |231|Transação recusada pois o cartão é inválido <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|Cybersource|
 |234|Problema com a configuração da loja na Cybersource <br/> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração|Cybersource|
-|400|A pontuação de fraude ultrapassa o seu limite <br> Possível ação: Reveja a transação do comprador|Cybersource|
+|400|A pontuação de fraude ultrapassa o seu limite <br/> Possível ação: Reveja a transação do comprador|Cybersource|
 |480|A transação foi marcada como revisão pelo DM (Decision Manager)|Cybersource|
 |481|A transação foi rejeitada pelo DM (Decision Manager)|Cybersource|
 
