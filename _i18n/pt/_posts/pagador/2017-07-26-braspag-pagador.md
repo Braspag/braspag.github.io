@@ -4730,32 +4730,94 @@ curl
 
 # Pagamentos com Análise de Fraude
 
-É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização. O Antifraude é contratado separadamente, e pode conversar com o Gateway de Pagamento das seguintes formas:
+É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.
 
 |Tipo de Integração|Descrição|Parâmetros necessários|
 |-|-|-|
-|Análise antes da autorização|Antes da transação ser enviada para a processadora, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_|
-|Análise após a autorização|O Antifraude analisa o risco da transação antes da captura, após o envio para autorização da processadora|`FraudAnalysis.Sequence` como _AuthorizeFirst_|
-|Análise de risco somente se a transação for autorizada|O Antifraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` como _OnSuccess_|
-|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o Antifraude analisará o risco dela|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
-|Autorização em qualquer hipótese|Independente do score de fraude da transação, ela sempre será enviada para autorização da processadora|`FraudAnalysis.Sequence` como _AnalyseFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
-|Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco|`FraudAnalysis.Sequence` como _AuthorizeFirst_, `FraudAnalysis.CaptureOnLowRisk` igual a _true_ e `Payment.Capture` igual a _false_| |
-|Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente estornada|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.VoidOnHighRisk` igual a _true_|
+|Análise antes da autorização|Antes da transação ser enviada para a autorização, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` igual a _AnalyseFirst_|
+|Análise após a autorização|Antes da transação ser enviada para o Antifraude, a mesma será enviada para a autorização|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_|
+|Análise de risco somente se a transação for autorizada|O Antifraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` igual a _OnSuccess_|
+|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o Antifraude analisará o risco|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
+|Autorização em qualquer hipótese|Independente do score de fraude da transação, ela sempre será enviada para a autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
+|Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_, `FraudAnalysis.CaptureOnLowRisk` igual a _true_ e `Payment.Capture` igual a _false_| |
+|Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a rejeitada, a transação será cancelada ou estornada automaticamente|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.VoidOnHighRisk` igual a _true_|
 
 Se não for especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo `FraudAnalysis.Sequence` _AuthorizeFirst_, `FraudAnalysis.SequenceCriteria` _OnSuccess_, `FraudAnalysis.VoidOnHighRisk` _false_ e `FraudAnalysis.CaptureOnLowRisk` _false_.
 
 ## Criando uma transação com Análise de Fraude Cybersource
 
-Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e (somente para venda de passagens aéreas) "Travel".
+Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e "Travel somente para venda de passagens aéreas)".
 
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {  
-   [...]
+   "MerchantOrderId":"2017051002",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678910",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "Phone": "5521976781114"
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "DoSplit":false,
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "Credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#",
+         "signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ],
       "FraudAnalysis":{  
          "Sequence":"AnalyseFirst",
          "SequenceCriteria":"Always",
@@ -4781,30 +4843,47 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
                   "NonSensicalHedge":"Off",
                   "ObscenitiesHedge":"Off",
                   "PhoneHedge":"Off",
-                  "Name":"ItemTeste",
+                  "Name":"ItemTeste1",
                   "Quantity":1,
                   "Sku":"20170511",
                   "UnitPrice":10000,
                   "Risk":"High",
                   "TimeHedge":"Normal",
                   "Type":"AdultContent",
-                  "VelocityHedge":"High",
-                  "Passenger":{  
-                     "Email":"comprador@braspag.com.br",
-                     "Identity":"1234567890",
-                     "Name":"Nome do Comprador",
-                     "Rating":"Adult",
-                     "Phone":"999994444",
-                     "Status":"Accepted"
-                  }
+                  "VelocityHedge":"High"
+               }
+            ],
+            [  
+               {  
+                  "GiftCategory":"Undefined",
+                  "HostHedge":"Off",
+                  "NonSensicalHedge":"Off",
+                  "ObscenitiesHedge":"Off",
+                  "PhoneHedge":"Off",
+                  "Name":"ItemTeste2",
+                  "Quantity":1,
+                  "Sku":"20170512",
+                  "UnitPrice":10000,
+                  "Risk":"High",
+                  "TimeHedge":"Normal",
+                  "Type":"AdultContent",
+                  "VelocityHedge":"High"
                }
             ]
          },
          "MerchantDefinedFields":[  
             {  
-               "Id":95,
-               "Value":"Dado Definido pela Loja"
-            }
+               "Id":2,
+               "Value":"100"
+            },
+            {  
+               "Id":4,
+               "Value":"Web"
+            },
+            {  
+               "Id":9,
+               "Value":"SIM"
+            },
          ],
          "Shipping":{  
             "Addressee":"Alameda Xingu, 512",
@@ -4847,7 +4926,70 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   [...]
+   "MerchantOrderId":"2017051002",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678910",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "Phone": "5521976781114"
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "DoSplit":false,
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "Credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#",
+         "signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ],
       "FraudAnalysis":{  
          "Sequence":"AnalyseFirst",
          "SequenceCriteria":"Always",
@@ -4873,9 +5015,26 @@ curl
                   "NonSensicalHedge":"Off",
                   "ObscenitiesHedge":"Off",
                   "PhoneHedge":"Off",
-                  "Name":"ItemTeste",
+                  "Name":"ItemTeste1",
                   "Quantity":1,
                   "Sku":"20170511",
+                  "UnitPrice":10000,
+                  "Risk":"High",
+                  "TimeHedge":"Normal",
+                  "Type":"AdultContent",
+                  "VelocityHedge":"High"
+               }
+            ],
+            [  
+               {  
+                  "GiftCategory":"Undefined",
+                  "HostHedge":"Off",
+                  "NonSensicalHedge":"Off",
+                  "ObscenitiesHedge":"Off",
+                  "PhoneHedge":"Off",
+                  "Name":"ItemTeste2",
+                  "Quantity":1,
+                  "Sku":"20170512",
                   "UnitPrice":10000,
                   "Risk":"High",
                   "TimeHedge":"Normal",
@@ -4886,9 +5045,17 @@ curl
          },
          "MerchantDefinedFields":[  
             {  
-               "Id":95,
-               "Value":"Dado Definido pela Loja"
-            }
+               "Id":2,
+               "Value":"100"
+            },
+            {  
+               "Id":4,
+               "Value":"Web"
+            },
+            {  
+               "Id":9,
+               "Value":"SIM"
+            },
          ],
          "Shipping":{  
             "Addressee":"Alameda Xingu, 512",
@@ -4924,126 +5091,303 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-| `FraudAnalysis.Sequence` | Texto | 14 | Sim | Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst) |
-| `FraudAnalysis.SequenceCriteria` | Texto | 9 | Sim | Critério do fluxo: "OnSuccess" (Só realiza a analise se tiver sucesso na transação), "Always" (Sempre realiza a analise) |
-| `FraudAnalysis.Provider` | Texto | 10 | Sim | Provedor de antifraude. Enviar: "Cybersource". |
-| `FraudAnalysis.CaptureOnLowRisk` | Booleano | --- | Não | Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado |
-| `FraudAnalysis.VoidOnHighRisk` | Booleano | --- | Não | Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado. |
-| `FraudAnalysis.TotalOrderAmount` | Número | 15 | Sim | Valor total do pedido |
-| `FraudAnalysis.FingerPrintId` | Texto | 100 | Sim | Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<BR>Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. |
-| `FraudAnalysis.Browser.HostName` | Texto | 60 | Não | Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP |
-| `FraudAnalysis.Browser.CookiesAccepted` | Booleano | --- | Sim | Identifica se o browser do comprador aceita cookies ou não |
-| `FraudAnalysis.Browser.Email` | Texto | 100 | Não | E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(Customer.Email) |
-| `FraudAnalysis.Browser.Type` | Texto | 40 | Não | Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP. Ex.: Google Chrome, Mozilla Firefox, Safari, etc. |
-| `FraudAnalysis.Browser.IpAddress` | Texto | 45 | Sim | Endereço IP do comprador. É altamente recomendável o envio deste campo |
-| `FraudAnalysis.Cart.IsGift` | Booleano | --- | Não | Booleano que indica se o pedido é para presente ou não |
-| `FraudAnalysis.Cart.ReturnsAccepted` | Booleano | --- | Não | Booleano que define se devoluções são aceitas para o pedido |
-| `FraudAnalysis.Cart.Items.GiftCategory` | Texto | 9 | Não | Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países: "Yes" (Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno), "No" (Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto), "Off" (Ignora a análise de risco para endereços divergentes) |
-| `FraudAnalysis.Cart.Items.HostHedge` | Texto | 6 | Não | Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. Possíveis Valores:<BR>Low (Baixa importância do e-mail e endereço IP na análise de risco)<BR>Normal (Média importância do e-mail e endereço IP na análise de risco)<BR>High (Alta importância do e-mail e endereço IP na análise de risco)<BR>Off (E-mail e endereço IP não afetam a análise de risco) |
-| `FraudAnalysis.Cart.Items.NonSensicalHedge` | Texto | 6 | Não | Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. Possiveis Valores:<BR>Low (Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>Normal (Média importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>High (Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)<BR>Off (Verificação do pedido do comprador não afeta a análise de risco) |
-| `FraudAnalysis.Cart.Items.ObscenitiesHedge` | Texto | 6 | Não | Nível de obscenidade dos pedidos recebedidos. Possiveis Valores:<BR>Low (Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>Normal (Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>High (Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<BR>Off (Verificação de obscenidade no pedido do comprador não afeta a análise de risco) |
-| `FraudAnalysis.Cart.Items.PhoneHedge` | Texto | 6 | Não | Nível dos testes realizados com os números de telefones. Possiveis Valores:<BR>Low (Baixa importância nos testes realizados com números de telefone)<BR>Normal (Média importância nos testes realizados com números de telefone)<BR>High (Alta importância nos testes realizados com números de telefone)<BR>Off (Testes de números de telefone não afetam a análise de risco) |
-| `FraudAnalysis.Cart.Items.Name` | Texto | 255 | Sim | Nome do Produto |
-| `FraudAnalysis.Cart.Items.Quantity` | Número | 15 | Sim | Quantidade do produto a ser adquirido |
-| `FraudAnalysis.Cart.Items.Sku` | Texto | 255 | Sim | Código comerciante identificador do produto |
-| `FraudAnalysis.Cart.Items.UnitPrice` | Número | 15 | Sim | Preço unitário do produto. Ex.: 10950 = r$ 109,50 |
-| `FraudAnalysis.Cart.Items.Risk` | Texto | 6 | Não | Nível do risco do produto. Possiveis Valores:<BR>Low (O produto tem um histórico de poucos chargebacks)<BR>Normal (O produto tem um histórico de chargebacks considerado normal)<BR>High (O produto tem um histórico de chargebacks acima da média) |
-| `FraudAnalysis.Cart.Items.TimeHedge` | Texto | 6 | Não | Nível de importância da hora do dia do pedido do cliente. Possiveis Valores:<BR>Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)<BR>Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)<BR>High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)<BR>Off (O horário da compra não afeta a análise de risco) |
-| `FraudAnalysis.Cart.Items.Type` | Texto | 19 | Não | Tipo do produto. Possíveis Valores:<BR>AdultContent(Conteúdo adulto)<BR>Coupon(Cupon de desconto)<BR>Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)<BR>EletronicGood(Produto eletrônico)<BR>EletronicSoftware(Softwares distribuídos eletronicamente via download)<BR>GiftCertificate(Vale presente)<BR>HandlingOnly(Taxa de instalação ou manuseio)<BR>Service(Serviço)<BR>ShippingAndHandling(Frete e taxa de instalação ou manuseio)\
-<BR>ShippingOnly(Frete)<BR>Subscription(Assinatura) |
-| `FraudAnalysis.Cart.Items.VelocityHedge` | Texto | 6 | Não | Nível de importância de frequência de compra do cliente. Possiveis Valores:<BR>Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<BR>Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude) |
-| `FraudAnalysis.MerchantDefinedFields.Id` | Número | 2 | Sim | ID das informações adicionais a serem enviadas: vide **Tabela de MDDs** na seção Anexos|
-| `FraudAnalysis.MerchantDefinedFields.Value` | Texto | 255 | Sim | Valor das informações adicionais a serem enviadas: vide **Tabela de MDDs** na seção Anexos|
-| `FraudAnalysis.Shipping.Addressee` | Texto | 120 | Não | Nome do destinatário da entrega (Nome e sobrenome) |
-| `FraudAnalysis.Shipping.Method` | Texto | 8 | Não | Tipo de serviço de entrega do produto. Possíveis Valores:<BR>SameDay (Meio de entrega no mesmo dia) <BR>NextDay (Meio de entrega no próximo dia) <BR>TwoDay (Meio de entrega em dois dias) <BR>ThreeDay (Meio de entrega em três dias)<BR>LowCost (Meio de entrega de baixo custo)<BR>Pickup (Retirada na loja)<BR>Other (Outro meio de entrega)<BR>None (Sem meio de entrega, pois é um serviço ou assinatura) |
-| `FraudAnalysis.Shipping.Phone` | Número | 15 | Não | Telefone do destinatário da entrega. Ex. 552133665599 (Código do Pais 55, Código da Cidade 21, Numero 33665599) |
-| `FraudAnalysis.Travel.JourneyType` | Texto | 32 | Sim, caso o nó Travel seja enviado. | Tipo de viagem. Possiveis Valores:<BR>OneWayTrip (Viagem somente de ida)<BR>RoundTrip (Viagem de ida e volta) |
-| `FraudAnalysis.Travel.DepartureDateTime` | DateTime | --- | Sim, caso o nó Travel seja enviado. | Data e hora de partida |
-| `FraudAnalysis.Travel.Passengers.Name` | Texto | 120 | Sim, caso o nó Travel seja enviado. | Nome do passageiro. |
-| `FraudAnalysis.Travel.Passengers.Identity` | Texto | 32 | Sim, caso o nó Travel seja enviado. | Número do RG, CPF ou CNPJ do passageiro. |
-| `FraudAnalysis.Travel.Passengers.Status` | Texto | 15 | Sim, caso o nó Travel seja enviado. | Classificação da empresa aérea. Possiveis Valores: Standard | Gold | Platinum |
-| `FraudAnalysis.Travel.Passengers.Rating` | Texto | 13 | Sim, caso o nó Travel seja enviado. | Classificação do Passageiro. Possiveis Valores:<BR>Adult (Passageiro adulto)<BR>Child (Passageiro criança)<BR>Infant (Passageiro infantil)<BR>Youth (Passageiro adolescente)<BR>Student (Passageiro estudante)<BR>SeniorCitizen (Passageiro idoso)<BR>Military (Passageiro militar) |
-| `FraudAnalysis.Travel.Passengers.Email` | Texto | 255 | Sim, caso o nó Travel seja enviado. | E-mail do passageiro. |
-| `FraudAnalysis.Travel.Passengers.Phone` | Número | 15 | Não | Número do telefone do passageiro. Ex.: 552133665599 (Código do Pais 55, Código da Cidade 21, Numero 33665599) |
-| `FraudAnalysis.Travel.Passengers.TravelLegs.Origin` | Texto | 3 | Sim, caso o nó "Travel" seja enviado.| Código do aeroporto de partida |
-| `FraudAnalysis.Travel.Passengers.TravelLegs.Destination` | Texto | 3 | Sim, caso o nó "Travel" seja enviado.| Código do aeroporto de chegada |
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantKey`|Texto|40|Sim|Chave pública para autenticação dupla na Braspag|
+|`RequestId`|Guid|36|Não|Identificador do request definido pela loja|
+|`MerchantOrderId`|Texto|50|Sim|Número do pedido da loja|
+|`Customer.Name`|Texto|120|Sim|Nome completo do comprador|
+|`Customer.Identity`|Texto|16|Sim|Número do documento de identificação do comprador| 
+|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador <br/> Possíveis valores: CPF ou CNPJ|
+|`Customer.Email`|Texto|100|Sim|E-mail do comprador|
+|`Customer.Birthdate`|Date|10|Sim|Data de nascimento do comprador. <br/> Ex.: 1991-01-10|
+|`Customer.Address.Street`|Texto|54|Sim|Logradouro do endereço de cobrança|
+|`Customer.Address.Number`|Texto|5|Sim|Número do endereço de cobrança|
+|`Customer.Address.Complement`|Texto|14|Não|Complemento do endereço de cobrança|
+|`Customer.Address.ZipCode`|Texto|9|Sim|Código postal do endereço de cobrança|
+|`Customer.Address.City`|Texto|50|Sim|Cidade do endereço de cobrança|
+|`Customer.Address.State`|Texto|2|Sim|Estado do endereço de cobrança|
+|`Customer.Address.Country`|Texto|2|Sim|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Customer.Address.District`|Texto|45|Sim|Bairro do endereço de cobrança|
+|`Customer.DeliveryAddress.Street`|Texto|54|Não|Logradouro do endereço de entrega|
+|`Customer.DeliveryAddress.Number`|Texto|5|Não|Número do endereço de entrega|
+|`Customer.DeliveryAddress.Complement`|Texto|14|Não|Complemento do endereço de entrega|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|Código postal do endereço de entrega|
+|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço de entrega|
+|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega|
+|`Customer.DeliveryAddress.Country`|Texto|2|Não|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Customer.DeliveryAddress.District`|Texto|45|Não|Bairro do endereço de entrega|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora da autorização|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de magamento. <br/> Obs.: Somente o tipo _CreditCard_ funciona com análise de fraude|
+|`Payment.Amount`|Número|15|Sim|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|
+|`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço <br/> Obs.: Esse valor não é adicionado ao valor da autorização|
+|`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito <br/> Possíveis valores: BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Country`|Texto|3|Não|País na qual o pagamento será realizado|
+|`Payment.Installments`|Número|2|Sim|Número de parcelas|
+|`Payment.Interest`|Texto|10|Não|Tipo de parcelamento <br/> Possíveis valores: ByMerchant / ByIssuer|
+|`Payment.Capture`|Booleano|---|Não|Indica se a autorização deverá ser com captura automática <br/> Possíveis valores: true / false (default) <br/> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade <br/> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude|
+|`Payment.Authenticate`|Booleano|---|Não|Indica se a transação deve ser autenticada <br/> Possíveis valores: true / false (default) <br/> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
+|`Payment.Recurrent`|Booleano|---|Não|Indica se a transação é do tipo recorrente <br/> Possíveis valores: true / false (default) <br/> Obs.: Este campo igual a _true_ não irá criar uma recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV e servindo de indicação para a adquirente que é a cobrança de uma transação de uma recorrência <br/> Obs2.: Somente para transações Cielo <br/> Obs3.: O campo `Payment.Authenticate` deve ser igual a _false_ quando este for igual a _true_|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador <br/> Obs.: O valor deste campo tem que ser claro e fácil de identificar pelo portador o estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback|
+|`Payment.DoSplit`|Booleano|---|Não|Indica se a transação será dividida entre vários participantes <br/> Possíveis valores: true / false (default) <br/> Para utilizar a funcionalidade de split de pagamentos, é necessário a contratação da solução junto a Braspag|
+|`Payment.ExtraDataCollection.Name`|Texto|50|Não|Identificador do campo extra que será enviado|
+|`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo extra que será enviado|
+|`Payment.Credentials.Code`|Texto|100|Sim|Afiliação gerada pela adquirente|
+|`Payment.Credentials.Key`|Texto|100|Sim|Chave de afiliação/token gerado pela adquirente|
+|`Payment.Credentials.Username`|Texto|50|Não|Usuário gerado no credenciamento com a adquirente GetnNet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet|
+|`Payment.Credentials.Password`|Texto|50|Não|Senha gerada no credenciamento com a adquirente GetnNet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet|
+|`Payment.Credentials.Signature`|Texto|3|Não|ID do terminal no credenciamento com a adquirente Global Payments <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Global Payments|
+|`Payment.CreditCard.CardNumber`|Texto|16|Sim|Número do cartão de crédito|
+|`Payment.CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão de crédito|
+|`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade do cartão de crédito|
+|`Payment.CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança no verso do cartão de crédito|
+|`Payment.CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão de crédito|
+|`Payment.CreditCard.SaveCard`|Booleano|---|Não|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|
+|`Payment.CreditCard.Alias`|Texto|64|Não|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|
+|`Payment.FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de fluxo da análise de fraude <br/> Possíveis valores: AnalyseFirst / AuthorizeFirst|
+|`Payment.FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo da análise de fraude <br/> Possíveis valores: OnSuccess / Always|
+|`Payment.FraudAnalysis.Provider`|Texto|10|Sim|Provedor de antifraude <br/> Possíveis valores: Cybersource|
+|`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será capturada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
+|`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será cancelada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de alto risco (Reject) a transação anteriormente autorizada será cancelada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será cancelada após a Braspag receber a notificação da alteração de status e esta for alto risco (Reject) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
+|`Payment.FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|
+|`Payment.FraudAnalysis.FingerPrintId`|Texto|100|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas|
+|`Payment.FraudAnalysis.Browser.HostName`|Texto|60|Não|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|
+|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Sim|Identifica se o browser do comprador aceita cookies <br/> Possíveis valores: true / false (default)|
+|`Payment.FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|
+|`Payment.FraudAnalysis.Browser.Type`|Texto|40|Não|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br/> Ex.: Google Chrome, Mozilla Firefox, Safari, etc|
+|`Payment.FraudAnalysis.Browser.IpAddress`|Texto|45|Sim|Endereço de IP do comprador. Formato IPv4 ou IPv6|
+|`Payment.FraudAnalysis.Cart.IsGift`|Booleano|---|Não|Indica se o pedido realizado pelo comprador é para presente|
+|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Booleano|---|Não|Indica se o pedido realizado pelo comprador pode ser devolvido a loja <br/> Possíveis valores: true / false (default)|
+|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Texto|9|Não|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.GiftCategory]({{ site.baseurl_root }}manual/antifraude#tabela-8-cartitem[n].addressriskverify)|
+|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Texto|6|Não|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.HostHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge)|
+|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Texto|6|Não|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Lista de Valores - Cart.Items{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge)|
+|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Texto|6|Não|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge)|
+|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Texto|6|Não|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.PhoneHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge)|
+|`Payment.FraudAnalysis.Cart.Items.Name`|Texto|255|Sim|Nome do Produto|
+|`Payment.FraudAnalysis.Cart.Items.Quantity`|Número|15|Sim|Quantidade do produto|
+|`Payment.FraudAnalysis.Cart.Items.Sku`|Texto|255|Sim|SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto|
+|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Número|15|Sim|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|
+|`Payment.FraudAnalysis.Cart.Items.Risk`|Texto|6|Não|Nível de risco do produto associado a quantidade de chargebacks <br/> [Lista de Valores - Payment.Fraudanalysis.CartI.tems{n}.Risk]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].risk)|
+|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Texto|6|Não|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.TimeHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge)|
+|`Payment.FraudAnalysis.Cart.Items.Type`|Texto|19|Não|Categoria do produto <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.Type]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type)|
+|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Texto|6|Não|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.VelocityHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge)|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Número|2|Sim|ID das informações adicionais a serem enviadas <br/> [Tabela de MDDs]({{ site.baseurl_root }}manual/braspag-pagador#tabela-de-mdds)|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Texto|255|Sim|Valor das informações adicionais a serem enviadas <br/> [Tabela de MDDs]({{ site.baseurl_root }}manual/braspag-pagador#tabela-de-mdds)|
+|`Payment.FraudAnalysis.Shipping.Addressee`|Texto|120|Não|Nome completo do responsável a receber o produto no endereço de entrega|
+|`Payment.FraudAnalysis.Shipping.Method`|Texto|8|Não|Meio de entrega do pedido <br/> [Lista de Valores - Payment.Fraudanalysis.ShippingMethod.Shipping]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.shippingmethod)|
+|`Payment.FraudAnalysis.Shipping.Phone`|Número|15|Não|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|
+|`Payment.FraudAnalysis.Travel.JourneyType`|Texto|32|Não|Tipo de viagem <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.JourneyType]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype)|
+|`Payment.FraudAnalysis.Travel.DepartureDateTime`|DateTime|---|Não|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|
+|`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto|120|Não|Nome completo do passageiro|
+|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Texto|32|Não|Número do documento do passageiro|
+|`Payment.FraudAnalysis.Travel.Passengers.Status`|Texto|15|Não|Classificação da empresa aérea <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.Passengers{n}.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status)|
+|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Texto|13|Não|Tipo do passageiro <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating)|
+|`Payment.FraudAnalysis.Travel.Passengers.Email`|Texto|255|Não|E-mail do passageiro|
+|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Número|15|Não|Telefone do passageiro <br/> Ex.: 552121114700|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Não|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
+
+> Os campos do nó `FraudAnalysis.Travel` se tornam obrigatórios caso o segmento do seu negócios seja aéreas.
 
 ### Resposta
 
 ```json
 {  
-   [...]
-      "Cart":{  
-         "IsGift":false,
-         "ReturnsAccepted":true,
-         "Items":[  
-            {  
-               "Type":"AdultContent",
-               "Name":"ItemTeste",
-               "Risk":"High",
-               "Sku":"201411170235134521346",
-               "UnitPrice":123,
-               "Quantity":1,
-               "HostHedge":"Off",
-               "NonSensicalHedge":"Off",
-               "ObscenitiesHedge":"Off",
-               "PhoneHedge":"Off",
-               "TimeHedge":"Normal",
-               "VelocityHedge":"High",
-               "GiftCategory":"Undefined",
-               "Passenger":{  
-                  "Name":"Comprador accept",
-                  "Identity":"1234567890",
-                  "Status":"Accepted",
-                  "Rating":"Adult",
-                  "Email":"compradorteste@live.com",
-                  "Phone":"999994444"
-               }
-            }
-         ]
+   "MerchantOrderId":"2017051002",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678910",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "Phone": "5521976781114"
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
       },
-      "Travel":{  
-         "Route":"MAO-RJO",
-         "DepartureTime":"2010-01-02T00:00:00",
-         "JourneyType":"Ida",
-         "Legs":[  
-            {  
-               "Destination":"GYN",
-               "Origin":"VCP"
-            }
-         ]
-      },
-      "Browser":{  
-         "HostName":"Teste",
-         "CookiesAccepted":false,
-         "Email":"compradorteste@live.com",
-         "Type":"Chrome",
-         "IpAddress":"200.190.150.350"
-      },
-      "Shipping":{  
-         "Addressee":"Sr Comprador Teste",
-         "Phone":"21114740",
-         "Method":"LowCost"
-      },
-      "Id":"0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
-      "Status":1,
-      "CaptureOnLowRisk":false,
-      "VoidOnHighRisk":false,
-      "FraudAnalysisReasonCode":100,
-      "ReplyData":{  
-         "AddressInfoCode":"COR-BA^MM-BIN",
-         "FactorCode":"B^D^R^Z",
-         "Score":42,
-         "BinCountry":"us",
-         "CardIssuer":"FIA CARD SERVICES, N.A.",
-         "CardScheme":"VisaCredit",
-         "HostSeverity":1,
-         "InternetInfoCode":"FREE-EM^RISK-EM",
-         "IpRoutingMethod":"Undefined",
-         "ScoreModelUsed":"default_lac",
-         "CasePriority":3,
-         "ProviderTransactionId":"5220688414326697303008"
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
       }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "DoSplit":false,
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "Credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#",
+         "signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ],
+      "FraudAnalysis":{  
+         "Sequence":"AnalyseFirst",
+         "SequenceCriteria":"Always",
+         "Provider":"Cybersource",
+         "CaptureOnLowRisk":false,
+         "VoidOnHighRisk":false,
+         "TotalOrderAmount":10000,
+         "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+         "Browser":{  
+            "CookiesAccepted":false,
+            "Email":"comprador@braspag.com.br",
+            "HostName":"Teste",
+            "IpAddress":"127.0.0.1",
+            "Type":"Chrome"
+         },
+         "Cart":{  
+            "IsGift":false,
+            "ReturnsAccepted":true,
+            "Items":[  
+               {  
+                  "GiftCategory":"Undefined",
+                  "HostHedge":"Off",
+                  "NonSensicalHedge":"Off",
+                  "ObscenitiesHedge":"Off",
+                  "PhoneHedge":"Off",
+                  "Name":"ItemTeste1",
+                  "Quantity":1,
+                  "Sku":"20170511",
+                  "UnitPrice":10000,
+                  "Risk":"High",
+                  "TimeHedge":"Normal",
+                  "Type":"AdultContent",
+                  "VelocityHedge":"High"
+               }
+            ],
+            [  
+               {  
+                  "GiftCategory":"Undefined",
+                  "HostHedge":"Off",
+                  "NonSensicalHedge":"Off",
+                  "ObscenitiesHedge":"Off",
+                  "PhoneHedge":"Off",
+                  "Name":"ItemTeste2",
+                  "Quantity":1,
+                  "Sku":"20170512",
+                  "UnitPrice":10000,
+                  "Risk":"High",
+                  "TimeHedge":"Normal",
+                  "Type":"AdultContent",
+                  "VelocityHedge":"High"
+               }
+            ]
+         },
+         "MerchantDefinedFields":[  
+            {  
+               "Id":2,
+               "Value":"100"
+            },
+            {  
+               "Id":4,
+               "Value":"Web"
+            },
+            {  
+               "Id":9,
+               "Value":"SIM"
+            },
+         ],
+         "Shipping":{  
+            "Addressee":"Alameda Xingu, 512",
+            "Method":"LowCost",
+            "Phone":"1121840540"
+         },
+         "Travel":{  
+            "JourneyType":"OneWayTrip",
+            "DepartureDateTime":"2018-01-09 18:00",
+            "Passengers":[  
+               {  
+                  "Name":"Passenger Test",
+                  "Identity":"212424808",
+                  "Status":"Gold",
+                  "Rating":"Adult",
+                  "Email":"email@mail.com",
+                  "Phone":"1234567890",
+                  "TravelLegs":[  
+                     {  
+                        "Origin":"AMS",
+                        "Destination":"GIG"
+                     }
+                  ]
+               }
+            ]
+        },
+        "Id":"0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
+        "Status":1,
+        "FraudAnalysisReasonCode":100,
+        "ReplyData":{  
+            "AddressInfoCode":"COR-BA^MM-BIN",
+            "FactorCode":"B^D^R^Z",
+            "Score":42,
+            "BinCountry":"us",
+            "CardIssuer":"FIA CARD SERVICES, N.A.",
+            "CardScheme":"VisaCredit",
+            "HostSeverity":1,
+            "InternetInfoCode":"FREE-EM^RISK-EM",
+            "IpRoutingMethod":"Undefined",
+            "ScoreModelUsed":"default_lac",
+            "CasePriority":3,
+            "ProviderTransactionId":"5220688414326697303008"
+         }
+      },
+      "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
+      "ProofOfSale": "20170510053219433",
+      "AcquirerTransactionId": "0510053219433",
+      "AuthorizationCode": "936403",
+      "ReceivedDate": "2017-05-10 17:32:19",
+      "CapturedAmount": 10000,
+      "CapturedDate": "2017-05-10 17:32:19",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "Status": 2,
+      "ProviderReturnCode": "6",
+      "ProviderReturnMessage": "Operation Successful",
+      "Links": [{
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
+      }]
    }
 }
 ```
@@ -5053,99 +5397,328 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   [...]
-      "Cart":{  
-         "IsGift":false,
-         "ReturnsAccepted":true,
-         "Items":[  
-            {  
-               "Type":"AdultContent",
-               "Name":"ItemTeste",
-               "Risk":"High",
-               "Sku":"201411170235134521346",
-               "UnitPrice":123,
-               "Quantity":1,
-               "HostHedge":"Off",
-               "NonSensicalHedge":"Off",
-               "ObscenitiesHedge":"Off",
-               "PhoneHedge":"Off",
-               "TimeHedge":"Normal",
-               "VelocityHedge":"High",
-               "GiftCategory":"Undefined",
-               "Passenger":{  
-                  "Name":"Comprador accept",
-                  "Identity":"1234567890",
-                  "Status":"Accepted",
-                  "Rating":"Adult",
-                  "Email":"compradorteste@live.com",
-                  "Phone":"999994444"
-               }
-            }
-         ]
+   "MerchantOrderId":"2017051002",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678910",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "Phone": "5521976781114"
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
       },
-      "Travel":{  
-         "Route":"MAO-RJO",
-         "DepartureTime":"2010-01-02T00:00:00",
-         "JourneyType":"Ida",
-         "Legs":[  
-            {  
-               "Destination":"GYN",
-               "Origin":"VCP"
-            }
-         ]
-      },
-      "Browser":{  
-         "HostName":"Teste",
-         "CookiesAccepted":false,
-         "Email":"compradorteste@live.com",
-         "Type":"Chrome",
-         "IpAddress":"200.190.150.350"
-      },
-      "Shipping":{  
-         "Addressee":"Sr Comprador Teste",
-         "Phone":"21114740",
-         "Method":"LowCost"
-      },
-      "Id":"0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
-      "Status":1,
-      "CaptureOnLowRisk":false,
-      "VoidOnHighRisk":false,
-      "FraudAnalysisReasonCode":100,
-      "ReplyData":{  
-         "AddressInfoCode":"COR-BA^MM-BIN",
-         "FactorCode":"B^D^R^Z",
-         "Score":42,
-         "BinCountry":"us",
-         "CardIssuer":"FIA CARD SERVICES, N.A.",
-         "CardScheme":"VisaCredit",
-         "HostSeverity":1,
-         "InternetInfoCode":"FREE-EM^RISK-EM",
-         "IpRoutingMethod":"Undefined",
-         "ScoreModelUsed":"default_lac",
-         "CasePriority":3,
-         "ProviderTransactionId":"5220688414326697303008"
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BR",
+         "District":"Alphaville"
       }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "DoSplit":false,
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false",
+         "Alias":""
+      },
+      "Credentials":{  
+         "code":"9999999",
+         "key":"D8888888",
+         "password":"LOJA9999999",
+         "username":"#Braspag2018@NOMEDALOJA#",
+         "signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ],
+      "FraudAnalysis":{  
+         "Sequence":"AnalyseFirst",
+         "SequenceCriteria":"Always",
+         "Provider":"Cybersource",
+         "CaptureOnLowRisk":false,
+         "VoidOnHighRisk":false,
+         "TotalOrderAmount":10000,
+         "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+         "Browser":{  
+            "CookiesAccepted":false,
+            "Email":"comprador@braspag.com.br",
+            "HostName":"Teste",
+            "IpAddress":"127.0.0.1",
+            "Type":"Chrome"
+         },
+         "Cart":{  
+            "IsGift":false,
+            "ReturnsAccepted":true,
+            "Items":[  
+               {  
+                  "GiftCategory":"Undefined",
+                  "HostHedge":"Off",
+                  "NonSensicalHedge":"Off",
+                  "ObscenitiesHedge":"Off",
+                  "PhoneHedge":"Off",
+                  "Name":"ItemTeste1",
+                  "Quantity":1,
+                  "Sku":"20170511",
+                  "UnitPrice":10000,
+                  "Risk":"High",
+                  "TimeHedge":"Normal",
+                  "Type":"AdultContent",
+                  "VelocityHedge":"High"
+               }
+            ],
+            [  
+               {  
+                  "GiftCategory":"Undefined",
+                  "HostHedge":"Off",
+                  "NonSensicalHedge":"Off",
+                  "ObscenitiesHedge":"Off",
+                  "PhoneHedge":"Off",
+                  "Name":"ItemTeste2",
+                  "Quantity":1,
+                  "Sku":"20170512",
+                  "UnitPrice":10000,
+                  "Risk":"High",
+                  "TimeHedge":"Normal",
+                  "Type":"AdultContent",
+                  "VelocityHedge":"High"
+               }
+            ]
+         },
+         "MerchantDefinedFields":[  
+            {  
+               "Id":2,
+               "Value":"100"
+            },
+            {  
+               "Id":4,
+               "Value":"Web"
+            },
+            {  
+               "Id":9,
+               "Value":"SIM"
+            },
+         ],
+         "Shipping":{  
+            "Addressee":"Alameda Xingu, 512",
+            "Method":"LowCost",
+            "Phone":"1121840540"
+         },
+         "Travel":{  
+            "JourneyType":"OneWayTrip",
+            "DepartureDateTime":"2018-01-09 18:00",
+            "Passengers":[  
+               {  
+                  "Name":"Passenger Test",
+                  "Identity":"212424808",
+                  "Status":"Gold",
+                  "Rating":"Adult",
+                  "Email":"email@mail.com",
+                  "Phone":"1234567890",
+                  "TravelLegs":[  
+                     {  
+                        "Origin":"AMS",
+                        "Destination":"GIG"
+                     }
+                  ]
+               }
+            ]
+        },
+        "Id":"0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
+        "Status":1,
+        "FraudAnalysisReasonCode":100,
+        "ReplyData":{  
+            "AddressInfoCode":"COR-BA^MM-BIN",
+            "FactorCode":"B^D^R^Z",
+            "Score":42,
+            "BinCountry":"us",
+            "CardIssuer":"FIA CARD SERVICES, N.A.",
+            "CardScheme":"VisaCredit",
+            "HostSeverity":1,
+            "InternetInfoCode":"FREE-EM^RISK-EM",
+            "IpRoutingMethod":"Undefined",
+            "ScoreModelUsed":"default_lac",
+            "CasePriority":3,
+            "ProviderTransactionId":"5220688414326697303008"
+         }
+      },
+      "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
+      "ProofOfSale": "20170510053219433",
+      "AcquirerTransactionId": "0510053219433",
+      "AuthorizationCode": "936403",
+      "ReceivedDate": "2017-05-10 17:32:19",
+      "CapturedAmount": 10000,
+      "CapturedDate": "2017-05-10 17:32:19",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "Status": 2,
+      "ProviderReturnCode": "6",
+      "ProviderReturnMessage": "Operation Successful",
+      "Links": [{
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
+      }]
    }
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Texto|300|Texto alfanumérico|
-|`FraudAnalysis.Status`|Status da Transação|Byte|1|Ex. 1|
-|`FraudAnalysis.FraudAnalysisReasonCode`|Resultado da análise|Byte|---|<ul><li>100 - Operação bem sucedida.</li><li>101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.</li><li>102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.</li><li>150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.</li><li>202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.</li><li>400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.</li><li>480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.</li><li>481 - O pedido foi rejeitado pelo Gerenciador de Decisão</li></ul>|
-|`FraudAnalysis.ReplyData.AddressInfoCode`|Combinação de códigos que indicam erro no endereço de cobrança e/ou entrega. Os códigos são concatenados usando o caractere ^|Texto|255|Ex: COR-BA^MM-BIN<br /><ul><li>COR-BA - O endereço de cobrança pode ser normalizado.</li><li>COR-SA - O endereço de entrega pode ser normalizado.</li><li>INTL-BA - O país de cobrança é fora dos U.S.</li><li>INTL-SA - O país de entrega é fora dos U.S.</li><li>MIL-USA - Este é um endereço militar nos U.S.</li><li>MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.</li><li>MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.</li><li>MM-C - Os endereços de cobrança e entrega usam cidades diferentes.</li><li>MM-CO - Os endereços de cobrança e entrega usam países diferentes.</li><li>MM-ST - Os endereços de cobrança e entrega usam estados diferentes.</li><li>MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.</li><li>UNV-ADDR - O endereço é inverificável.</li></ul>|
-|`FraudAnalysis.ReplyData.FactorCode`|Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^|Texto|100|Ex: B^D^R^Z<br /><ul><li>A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.</li><li>B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.</li><li>C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.</li><li>D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.</li><li>E - Lista positiva. O cliente está na sua lista positiva.</li><li>F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.</li><li>G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.</li><li>H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.</li><li>I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.</li><li>N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.</li><li>O - Obscenidades. Dados do cliente contém palavras obscenas.</li><li>P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.</li><li>Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.</li><li>R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.</li><li>T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.</li><li>U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.</li><li>V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.</li><li>W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.</li><li>Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.</li><li>Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</li></ul>|
-|`FraudAnalysis.ReplyData.Score`|Score total calculado para o pedido|Número|---|Número|
-|`FraudAnalysis.ReplyData.BinCountry`|Sigla do país de origem da compra|Texto|2|us|
-|`FraudAnalysis.ReplyData.CardIssuer`|Nome do banco ou entidade emissora do cartão|Texto|128|Bradesco|
-|`FraudAnalysis.ReplyData.CardScheme`|Tipo da bandeira|Texto|20|<ul><li>MaestroInternational - Maestro International</li><li>MaestroUkDomestic - Maestro UK Domestic</li><li>MastercardCredit - MasterCard Credit</li><li>MastercardDebit - MasterCard Debit</li><li>VisaCredit - Visa Credit</li><li>VisaDebit - Visa Debit</li><li>VisaElectron - Visa Electron</li></ul>|
-|`FraudAnalysis.ReplyData.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|Número|---|5|
-|`FraudAnalysis.ReplyData.InternetInfoCode`|Sequência de códigos que indicam que existe uma excessiva alteração de identidades do comprador. Os códigos são concatenados usando o caractere ^|Texto|255|Ex: <br /><ul><li>MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.</li><li>MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.</li><li>MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.</li><li>MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.</li><li>MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.</li></ul>|
-|`FraudAnalysis.ReplyData.IpRoutingMethod`|Tipo de roteamento de IP utilizado pelo computador|Texto|---|<ul><li>Anonymizer</li><li>AolBased</li><li>CacheProxy</li><li>Fixed</li><li>InternationalProxy</li><li>MobileGateway</li><li>Pop</li><li>RegionalProxy</li><li>Satellite</li><li>SuperPop</li></ul>|
-|`FraudAnalysis.ReplyData.ScoreModelUsed`|Nome do modelo de score utilizado|Texto|20|Ex: default_lac|
-|`FraudAnalysis.ReplyData.CasePriority`|Caso o lojista seja assinante do Enhanced Case Management, ele recebe este valor com o nível de prioridade, sendo 1 o mais alto e 5 o mais baixo|Número|---|3|
-|`FraudAnalysis.ReplyData.ProviderTransactionId`|Identificador da transação no provedor de fraude. |Texto|100|Ex: "5206061832306553904009"| 
+|Propriedade|Tipo|Descrição
+|:-|:-|:-|
+|`MerchantOrderId`|Texto|Número do pedido da loja|
+|`Customer.Name`|Texto|Nome completo do comprador|
+|`Customer.Identity`|Texto|Número do documento de identificação do comprador| 
+|`Customer.IdentityType`|Texto|Tipo de documento de identificação do comprador|
+|`Customer.Email`|Texto|E-mail do comprador|
+|`Customer.Birthdate`|Date|Data de nascimento do comprador|
+|`Customer.Address.Street`|Texto|Logradouro do endereço de cobrança|
+|`Customer.Address.Number`|Texto|Número do endereço de cobrança|
+|`Customer.Address.Complement`|Texto|Complemento do endereço de cobrança|
+|`Customer.Address.ZipCode`|Texto|Código postal do endereço de cobrança|
+|`Customer.Address.City`|Texto|Cidade do endereço de cobrança|
+|`Customer.Address.State`|Texto|Estado do endereço de cobrança|
+|`Customer.Address.Country`|Texto|País do endereço de cobrança|
+|`Customer.Address.District`|Texto|Bairro do endereço de cobrança|
+|`Customer.DeliveryAddress.Street`|Texto|Logradouro do endereço de entrega|
+|`Customer.DeliveryAddress.Number`|Texto|Número do endereço de entrega|
+|`Customer.DeliveryAddress.Complement`|Texto|Complemento do endereço de entrega|
+|`Customer.DeliveryAddress.ZipCode`|Texto|Código do endereço de entrega|
+|`Customer.DeliveryAddress.City`|Texto|Cidade do endereço de entrega|
+|`Customer.DeliveryAddress.State`|Texto|Estado do endereço de entrega|
+|`Customer.DeliveryAddress.Country`|Texto|País do endereço de entrega|
+|`Customer.DeliveryAddress.District`|Texto|Bairro do endereço de entrega|
+|`Payment.Provider`|Texto|Nome da provedora da autorização|
+|`Payment.Type`|Texto|Tipo do meio de magamento|
+|`Payment.Amount`|Número|Valor da transação financeira em centavos|
+|`Payment.ServiceTaxAmount`|Número|Montante do valor da autorização que deve ser destinado à taxa de serviço|
+|`Payment.Currency`|Texto|Moeda na qual o pagamento será feito|
+|`Payment.Country`|Texto|País na qual o pagamento será realizado|
+|`Payment.Installments`|Número|Número de parcelas|
+|`Payment.Interest`|Texto|Tipo de parcelamento|
+|`Payment.Capture`|Booleano|Indica se a autorização deverá ser com captura automática|
+|`Payment.Authenticate`|Booleano|Indica se a transação deve ser autenticada|
+|`Payment.Recurrent`|Booleano|Indica se a transação é do tipo recorrente|
+|`Payment.SoftDescriptor`|Texto|Texto que será impresso na fatura do portador|
+|`Payment.DoSplit`|Booleano|Indica se a transação será dividida entre vários participantes|
+|`Payment.ExtraDataCollection.Name`|Texto|Identificador do campo extra que será enviado|
+|`Payment.ExtraDataCollection.Value`|Texto|Valor do campo extra que será enviado|
+|`Payment.Credentials.Code`|Texto|Afiliação gerada pela adquirente|
+|`Payment.Credentials.Key`|Texto|Chave de afiliação/token gerado pela adquirente|
+|`Payment.Credentials.Username`|Texto|Usuário gerado no credenciamento com a adquirente GetnNet|
+|`Payment.Credentials.Password`|Texto|Senha gerada no credenciamento com a adquirente GetnNet|
+|`Payment.Credentials.Signature`|Texto|ID do terminal no credenciamento com a adquirente Global Payments|
+|`Payment.CreditCard.CardNumber`|Texto|Número do cartão de crédito truncado|
+|`Payment.CreditCard.Holder`|Texto|Nome do portador impresso no cartão de crédito|
+|`Payment.CreditCard.ExpirationDate`|Texto|Data de validade do cartão de crédito|
+|`Payment.CreditCard.SecurityCode`|Texto|Código de segurança no verso do cartão de crédito|
+|`Payment.CreditCard.Brand`|Texto|Bandeira do cartão de crédito|
+|`Payment.CreditCard.SaveCard`|Booleano|Indica se os dados do cartão de crédito foram armazenados no Cartão Protegido|
+|`Payment.CreditCard.Alias`|Texto|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|
+|`Payment.CreditCard.CardToken`|Identificador do cartão de crédito salvo no Cartão Protegido|
+|`Payment.FraudAnalysis.Sequence`|Texto|Tipo de fluxo da análise de fraude|
+|`Payment.FraudAnalysis.SequenceCriteria`|Texto|Critério do fluxo da análise de fraude|
+|`Payment.FraudAnalysis.Provider`|Texto|10|Sim|Provedor de antifraude|
+|`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|Indica se a transação após a análise de fraude será capturada|
+|`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|Indica se a transação após a análise de fraude será cancelada|
+|`Payment.FraudAnalysis.TotalOrderAmount`|Número|Valor total do pedido em centavos|
+|`Payment.FraudAnalysis.FingerPrintId`|Texto|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador|
+|`Payment.FraudAnalysis.Browser.HostName`|Texto|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|
+|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Booleano|Identifica se o browser do comprador aceita cookies|
+|`Payment.FraudAnalysis.Browser.Email`|Texto|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|
+|`Payment.FraudAnalysis.Browser.Type`|Texto|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|
+|`Payment.FraudAnalysis.Browser.IpAddress`|Texto|Endereço de IP do comprador. Formato IPv4 ou IPv6|
+|`Payment.FraudAnalysis.Cart.IsGift`|Booleano|Indica se o pedido realizado pelo comprador é para presente|
+|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Booleano|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|
+|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Texto|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países|
+|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Texto|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude|
+|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Texto|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude|
+|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Texto|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude|
+|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Texto|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude|
+|`Payment.FraudAnalysis.Cart.Items.Name`|Texto|Nome do Produto|
+|`Payment.FraudAnalysis.Cart.Items.Quantity`|Número|Quantidade do produto|
+|`Payment.FraudAnalysis.Cart.Items.Sku`|Texto|SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto|
+|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Número|Preço unitário do produto|
+|`Payment.FraudAnalysis.Cart.Items.Risk`|Texto|Nível de risco do produto associado a quantidade de chargebacks|
+|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Texto|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido|
+|`Payment.FraudAnalysis.Cart.Items.Type`|Texto|Categoria do produto|
+|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Texto|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Número|ID das informações adicionais a serem enviadas|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Texto|Valor das informações adicionais a serem enviadas|
+|`Payment.FraudAnalysis.Shipping.Addressee`|Texto|Nome completo do responsável a receber o produto no endereço de entrega|
+|`Payment.FraudAnalysis.Shipping.Method`|Texto|Meio de entrega do pedido|
+|`Payment.FraudAnalysis.Shipping.Phone`|Número|Número do telefone do responsável a receber o produto no endereço de entrega|
+|`Payment.FraudAnalysis.Travel.JourneyType`|Texto|Tipo de viagem|
+|`Payment.FraudAnalysis.Travel.DepartureDateTime`|DateTime|Data e hora de partida|
+|`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto||Nome completo do passageiro|
+|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Texto|Número do documento do passageiro|
+|`Payment.FraudAnalysis.Travel.Passengers.Status`|Texto|Classificação da empresa aérea|
+|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Texto|Tipo do passageiro|
+|`Payment.FraudAnalysis.Travel.Passengers.Email`|Texto|E-mail do passageiro|
+|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Número|Telefone do passageiro|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|Código do aeroporto de partida|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada|
+|`Payment.FraudAnalysis.Id`|Guid|Id da transação no Antifraude Braspag|
+|`Payment.FraudAnalysis.Status`|Número|Status da transação no Antifraude Braspag <br/> [Lista de Vaores - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status)|
+|`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Número|Código de retorno da Cybersouce <br/> [Lista de Valores - Payment.FraudAnalysis.FraudAnalysisReasonCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode)|
+|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Texto|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: COR-BA^MM-BIN <br/> [Lista de Valores - Payment.FraudAnalysis.ReplyData.AddressInfoCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode)|
+|`Payment.FraudAnalysis.ReplyData.FactorCode`|Texto|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: B^D^R^Z <br/>[Lista de Valores - ProviderAnalysisResult.AfsReply.FactorCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode)|
+|`Payment.FraudAnalysis.ReplyData.Score`|Número|Score da análise de fraude. Valor entre 0 e 100|
+|`Payment.FraudAnalysis.ReplyData.BinCountry`|Texto|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Payment.FraudAnalysis.ReplyData.CardIssuer`|Texto|Nome do banco ou entidade emissora do cartão de crédito|
+|`Payment.FraudAnalysis.ReplyData.CardScheme`|Texto|Bandeira do cartão|
+|`Payment.FraudAnalysis.ReplyData.HostSeverity`|Número|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|
+|`Payment.FraudAnalysis.ReplyData.InternetInfoCode`|Texto|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: FREE-EM^RISK-EM <br/> [Lista de Valores - Payment.FraudAnalysis.ReplyData.InternetInfoCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode)|
+|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Texto|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Lista de Valores - Payment.FraudAnalysis.ReplyData.IpRoutingMethod]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod)|
+|`Payment.FraudAnalysis.ReplyData.ScoreModelUsed`|Texto|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|
+|`Payment.FraudAnalysis.ReplyData.CasePriority`|Número|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|
+|`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Texto|Id da transação na Cybersource| 
+|`Payment.PaymentId`|Guid|Identificador da transação no Pagador Braspag|
+|`Payment.AcquirerTransactionId`|Texto|Identificador da transação na adquirente|
+|`Payment.ProofOfSale`|Texto|Número do comprovante de venda na adquirente (NSU - Número sequencial único da transação)|
+|`Payment.AuthorizationCode`|Texto|Código de autorização na adquirente|
+|`Payment.ReceivedDate`|Datetime|Data em que a transação foi recebida no Pagador Brapag <br/> Ex.: 2018-01-16 16:38:19|
+|`Payment.CapturedDate`|Datetime|Data em que a transação foi capturada na adquirente|<br/> Ex.: 2018-01-16 16:38:20|
+|`Payment.CapturedAmount`|Número|Valor capturado da transação <br/> Ex.: 123456 = r$ 1.234,56|
+|`Payment.ECI`|Texto|Eletronic Commerce Indicator. Código gerado em uma transação de crédito com autenticação externa|
+|`Payment.ReasonCode`|Texto|Código de retorno da operação|
+|`Payment.ReasonMessage`|Texto|Mensagem de retorno da operação|
+|`Payment.Status`|Número|Status da transação no Pagador <br/> [Lista de Status da Transação]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-status-transação)|
+|`Payment.ProviderReturnCode`|Texto|Código retornado pela adquirente ou banco|
+|`Payment.ProviderReturnMessage`|Texto|Mensagem retornada pela adquirente ou banco|
 
 ## Configuração do Fingerprint
 
@@ -6195,7 +6768,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |SantanderSitef|Visa, Master|Provider para transações na plataforma GetNet com tecnologia TEF|
 |DMCard|---|---|
 
-### Providers pra Débito
+### Providers para Débito
 
 |Provider|Brand|Descrição|
 |--------|-----|---------|
