@@ -114,14 +114,14 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 <p>Assim como o Master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de indentificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.</p>
 
-<p>O processo de KYC é uma medida obrigatória exigida pelas instituições de reguladoras de pagamento.</p>
+<p>O processo de KYC é uma medida obrigatória exigida pelas instituições reguladoras de pagamento.</p>
 
 <p>O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:</p>
 
 <ol>
   <li>O Master solicita o cadastro do subordinado.</li>
-  <li>O subordinado será criado com status “Em análise” e estará bloqueado para participar transação, até que o processo de KYC seja finalizado.</li>
-  <li>Ao final da análise, o Master será notificado com o resultado do processo de KYC, jutamento com a identificação do subordinado.</li>
+  <li>O subordinado será criado com status “Em análise” e estará bloqueado para participar da transação, até que o processo de KYC seja finalizado.</li>
+  <li>Ao final da análise, o Master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.</li>
 </ol>
 
 <h2 id="ambientes">Ambientes</h2>
@@ -134,7 +134,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/v2/masters/{master-merchant-id}/subordinates</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/v2/subordinates</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -923,7 +923,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 <p>A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.</p>
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/masters/{master-merchant-id}/subordinates/{subordinate-merchant-id}</span></aside>
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/v2/subordinates/{subordinate-merchant-id}</span></aside>
 
 <p><strong>Response</strong></p>
 
