@@ -19,13 +19,13 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 Assim como o Master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de indentificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.
 
-O processo de KYC é uma medida obrigatória exigida pelas instituições de reguladoras de pagamento.
+O processo de KYC é uma medida obrigatória exigida pelas instituições reguladoras de pagamento.
 
 O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 
 1. O Master solicita o cadastro do subordinado.
-2. O subordinado será criado com status "Em análise" e estará bloqueado para participar transação, até que o processo de KYC seja finalizado.
-3. Ao final da análise, o Master será notificado com o resultado do processo de KYC, jutamento com a identificação do subordinado.
+2. O subordinado será criado com status "Em análise" e estará bloqueado para participar da transação, até que o processo de KYC seja finalizado.
+3. Ao final da análise, o Master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.
 
 ## Ambientes
 
@@ -37,7 +37,7 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/v2/masters/{master-merchant-id}/subordinates</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/v2/subordinates</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -326,7 +326,7 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
 
 A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/masters/{master-merchant-id}/subordinates/{subordinate-merchant-id}</span></aside>
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/v2/subordinates/{subordinate-merchant-id}</span></aside>
 
 **Response**
 
