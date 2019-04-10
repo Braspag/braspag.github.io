@@ -17,7 +17,7 @@ tags:
 O **Split de Pagamentos** fornece uma API de Onboarding para possibilitar ao Master o gerenciamento de seus subordinados na plataforma.
 O Master deverá coletar as informações do subordinado, para utilizar no processo de Onboarding.
 
-Assim como o Master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de indentificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.
+Assim como o Master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de identificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.
 
 O processo de KYC é uma medida obrigatória exigida pelas instituições reguladoras de pagamento.
 
