@@ -37,7 +37,7 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/v2/subordinates</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -326,7 +326,7 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
 
 A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/v2/subordinates/{subordinate-merchant-id}</span></aside>
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/subordinates/{subordinate-merchant-id}</span></aside>
 
 **Response**
 
