@@ -124,7 +124,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   <li>Ao final da análise, o Master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.</li>
 </ol>
 
-<h2 id="ambientes">Ambientes</h2>
+<h2 id="url">URL</h2>
 
 <p><strong>API Onboarding</strong>: https://splitonboarding.braspag.com.br</p>
 
@@ -169,7 +169,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Agreement"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"Fee"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"MerchantDiscountRates"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"MerchantDiscountRates"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
@@ -258,7 +258,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>14</td>
       <td>Sim</td>
-      <td>Número do documento (Sem formatação)</td>
+      <td>Número do documento (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">DocumentType</code></td>
@@ -286,7 +286,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>11</td>
       <td>Sim</td>
-      <td>Número do telefone do contato responsável (Sem formatação)</td>
+      <td>Número do telefone do contato responsável (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MailAddress</code></td>
@@ -314,7 +314,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingAccount</code> (Conta poupança)</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">BankAccount.Number</code></td>
@@ -356,7 +356,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>14</td>
       <td>Sim</td>
-      <td>Número do documento da conta (Sem formatação)</td>
+      <td>Número do documento da conta (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">BankAccount.DocumentType</code></td>
@@ -412,14 +412,14 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>9</td>
       <td>Sim</td>
-      <td>CEP (Sem formatação)</td>
+      <td>CEP (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Agreement.Fee</code></td>
       <td>Int</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Taxa fixa por transação</td>
+      <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="highlighter-rouge">"Fee" : 100</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
@@ -549,7 +549,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Agreement"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"Fee"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"MerchantDiscountRates"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"MerchantDiscountRates"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"662e340f-07f2-4827-816d-b1878eb03eae"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
@@ -683,7 +683,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>11</td>
       <td>Sim</td>
-      <td>Número do telefone do contato responsável (Sem formatação)</td>
+      <td>Número do telefone do contato responsável (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MailAddress</code></td>
@@ -725,7 +725,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingAccount</code> (Conta poupança)</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">BankAccount.Number</code></td>
@@ -830,7 +830,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>Int</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Taxa fixa por transação</td>
+      <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="highlighter-rouge">"Fee" : 100</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].MerchantDiscountRateId</code></td>
@@ -968,7 +968,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Agreement"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"Fee"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"MerchantDiscountRates"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"MerchantDiscountRates"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"662e340f-07f2-4827-816d-b1878eb03eae"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
@@ -1102,7 +1102,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>11</td>
       <td>Sim</td>
-      <td>Número do telefone do contato responsável (Sem formatação)</td>
+      <td>Número do telefone do contato responsável (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MailAddress</code></td>
@@ -1158,7 +1158,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingAccount</code> (Conta poupança)</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">BankAccount.Number</code></td>
@@ -1263,7 +1263,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>Int</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Taxa fixa por transação</td>
+      <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="highlighter-rouge">"Fee" : 100</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].MerchantDiscountRateId</code></td>
