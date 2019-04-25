@@ -138,6 +138,142 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 <p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>Master</strong> informando os dados do subordinado.</p>
 
+<p>Para a definição de acordos entre o Master e seus subordinados, o <strong>Split de Pagamentos</strong> dispõe de duas possibilidades:</p>
+
+<ol>
+  <li>É possível definir a porcentagem do MDR (Merchant Discount Rate) cobrado por transação por Arranjos de Pagamento e intervalo de parcelas.</li>
+  <li>Caso o Master não queira definir a porcetagem do MDR para cada Arranjo de Pagamento e intervalor de parcelas, o <strong>Split de Pagamentos</strong> irá replicar os mesmos acordos do Master com a Subadquirente, para o Master com o Subordinado. Dessa forma, o Master deverá informar apenas um MDR único, que erá aplicado para todos os acordos.
+<strong>Exemplo:</strong></li>
+</ol>
+
+<p>MDR do Master com Subordinado: 4%</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>TAXAS SUBADQUIRENTE - MASTER</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Visa</td>
+      <td>Master</td>
+      <td>Elo</td>
+      <td>Diners</td>
+      <td>Amex</td>
+      <td>Hiper</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Débito</td>
+      <td>2.00%</td>
+      <td>2.00%</td>
+      <td>2.00%</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Crédito a Vista</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+    </tr>
+    <tr>
+      <td>Crédito 2x a 6x</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+    </tr>
+    <tr>
+      <td>Crédito 7x a 12x</td>
+      <td>2.00%</td>
+      <td>3.50%</td>
+      <td>3.50%</td>
+      <td>3.50%</td>
+      <td>3.50%</td>
+      <td>3.50%</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>TAXAS MASTER - SUBORDINADO</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Visa</td>
+      <td>Master</td>
+      <td>Elo</td>
+      <td>Diners</td>
+      <td>Amex</td>
+      <td>Hiper</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Débito</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>2.00%</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Crédito a Vista</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+    </tr>
+    <tr>
+      <td>Crédito 2x a 6x</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>3.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+    </tr>
+    <tr>
+      <td>Crédito 7x a 12x</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+    </tr>
+  </tbody>
+</table>
+
 <p><strong>Request</strong></p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
