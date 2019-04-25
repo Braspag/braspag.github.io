@@ -27,7 +27,13 @@ O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 2. O subordinado será criado com status "Em análise" e estará bloqueado para participar da transação, até que o processo de KYC seja finalizado.
 3. Ao final da análise, o Master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.
 
-## URL
+## Ambientes
+
+### Sandbox
+
+**API Onboarding**: https://splitonboardingsandox.braspag.com.br
+
+### Produção
 
 **API Onboarding**: https://splitonboarding.braspag.com.br
 
