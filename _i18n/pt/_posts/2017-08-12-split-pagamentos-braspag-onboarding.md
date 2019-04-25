@@ -49,7 +49,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 
 MDR do Master com Subordinado: 4%
 
-| TAXAS SUBADQUIRENTE - MASTER 						                   |
+| TAXAS SUBADQUIRENTE - MASTER                                         |
 |----------------------------------------------------------------------|
 |                   | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
 |-------------------|--------------------------------------------------|
@@ -58,7 +58,7 @@ MDR do Master com Subordinado: 4%
 | Crédito 2x a 6x   | 3.00% | 3.00%  | 3.00% | 3.00%  | 3.00% |  3.00% |
 | Crédito 7x a 12x  | 2.00% | 3.50%  | 3.50% | 3.50%  | 3.50% |  3.50% |
 
-| TAXAS MASTER - SUBORDINADO						                   |
+| TAXAS MASTER - SUBORDINADO                                           |
 |----------------------------------------------------------------------|
 |                   | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
 |-------------------|--------------------------------------------------|
@@ -67,7 +67,6 @@ MDR do Master com Subordinado: 4%
 | Crédito 2x a 6x   | 4.00% | 4.00%  | 3.00% | 4.00%  | 4.00% |  4.00% |
 | Crédito 7x a 12x  | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
                                                     
-
 **Request**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
