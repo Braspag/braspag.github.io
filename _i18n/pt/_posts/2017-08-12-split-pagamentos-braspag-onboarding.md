@@ -54,7 +54,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | Débito                       | 2.00% | 2.00%  | 2.00% |        |       |        |  
 | Crédito a Vista              | 2.50% | 2.50%  | 2.50% | 2.50%  | 2.50% |  2.50% |
 | Crédito 2x a 6x              | 3.00% | 3.00%  | 3.00% | 3.00%  | 3.00% |  3.00% |
-| Crédito 7x a 12x             | 2.00% | 3.50%  | 3.50% | 3.50%  | 3.50% |  3.50% |
+| Crédito 7x a 12x             | 3.50% | 3.50%  | 3.50% | 3.50%  | 3.50% |  3.50% |
 
 | TAXAS MASTER - SUBORDINADO | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
 |----------------------------|--------------------------------------------------|
