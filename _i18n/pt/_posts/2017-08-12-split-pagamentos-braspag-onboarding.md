@@ -47,7 +47,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 2. Caso o Master não queira definir a porcetagem do MDR para cada Arranjo de Pagamento e intervalor de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do Master com a Subadquirente, para o Master com o Subordinado. Dessa forma, o Master deverá informar apenas um MDR único, que erá aplicado para todos os acordos.
 **Exemplo:**
 
-MDR do Master com Subordinado: 4%
+**MDR do Master com Subordinado: 4%**
 
 | TAXAS SUBADQUIRENTE - MASTER | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
 |------------------------------|--------------------------------------------------|
