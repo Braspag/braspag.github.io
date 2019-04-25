@@ -41,6 +41,33 @@ O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 
 A solicitação de cadastro deve ser realizada através de uma requisição pelo **Master** informando os dados do subordinado.
 
+Para a definição de acordos entre o Master e seus subordinados, o **Split de Pagamentos** dispõe de duas possibilidades:
+
+1. É possível definir a porcentagem do MDR (Merchant Discount Rate) cobrado por transação por Arranjos de Pagamento e intervalo de parcelas.
+2. Caso o Master não queira definir a porcetagem do MDR para cada Arranjo de Pagamento e intervalor de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do Master com a Subadquirente, para o Master com o Subordinado. Dessa forma, o Master deverá informar apenas um MDR único, que erá aplicado para todos os acordos.
+**Exemplo:**
+
+MDR do Master com Subordinado: 4%
+
+| TAXAS SUBADQUIRENTE - MASTER 						                   |
+|----------------------------------------------------------------------|
+|                   | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
+|-------------------|--------------------------------------------------|
+| Débito            | 2.00% | 2.00%  | 2.00% |        |       |        |  
+| Crédito a Vista   | 2.50% | 2.50%  | 2.50% | 2.50%  | 2.50% |  2.50% |
+| Crédito 2x a 6x   | 3.00% | 3.00%  | 3.00% | 3.00%  | 3.00% |  3.00% |
+| Crédito 7x a 12x  | 2.00% | 3.50%  | 3.50% | 3.50%  | 3.50% |  3.50% |
+
+| TAXAS MASTER - SUBORDINADO						                   |
+|----------------------------------------------------------------------|
+|                   | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
+|-------------------|--------------------------------------------------|
+| Débito            | 4.00% | 4.00%  | 2.00% |        |       |        |  
+| Crédito a Vista   | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
+| Crédito 2x a 6x   | 4.00% | 4.00%  | 3.00% | 4.00%  | 4.00% |  4.00% |
+| Crédito 7x a 12x  | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
+                                                    
+
 **Request**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
