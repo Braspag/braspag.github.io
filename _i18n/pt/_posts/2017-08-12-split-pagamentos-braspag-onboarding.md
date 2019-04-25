@@ -31,7 +31,7 @@ O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 
 ### Sandbox
 
-**API Onboarding**: https://splitonboardingsandox.braspag.com.br
+**API Onboarding**: https://splitonboardingsandbox.braspag.com.br
 
 ### Produção
 
