@@ -62,10 +62,12 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | Crédito a Vista            | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
 | Crédito 2x a 6x            | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
 | Crédito 7x a 12x           | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
-                                                    
+
 **Request**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
+
+### Informando a porcentagem do MDR por Arranjos de Pagamento  e intervalo de parcelas
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -349,7 +351,251 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | `Attachments[].AttachmentType`                                  | String  | -       | Sim         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
 | `Attachments[].File.Name`                                       | String  | 50      | Sim         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
 | `Attachments[].File.FileType`                                   | String  | -       | Sim         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
+### Informando a porcentagem do MDR único aplicado para todos os acordos
 
+```json
+--header "Authorization: Bearer {access_token}"
+{
+    "CorporateName":"Subordinado Corporativo Ltda",
+    "FancyName":"Subordinado Nome Fantasia",
+    "DocumentNumber":"01131432000190",
+    "DocumentType":"CNPJ",
+    "MerchantCategoryCode":"5719",
+    "ContactName":"Nome do Contato do Subordinado",
+    "ContactPhone":"11987654321",
+    "MailAddress":"addres@email.mail.com",
+    "Website":"https://www.website.com.br",
+    "BankAccount": {
+        "Bank":"001",
+        "BankAccountType":"CheckingAccount",
+        "Number":"0002",
+        "Operation":"2",
+        "VerifierDigit":"2",
+        "AgencyNumber":"0002",
+        "AgencyDigit":"2",
+        "DocumentNumber":"01131432000190",
+        "DocumentType":"CNPJ"
+    },
+    "Address":{  
+        "Street":"Rua Teste",
+        "Number":"50",
+        "Complement":"AP 255",
+        "Neighborhood":"Centro",
+        "City":"São Paulo",
+        "State" : "SP",
+        "ZipCode": "12345687"
+    },
+    "Agreement":{
+        "Fee" : 10,
+        "MdrPercentage": 4.00
+    },
+    "Notification": {
+        "Url": "https://site.com.br/api/subordinados",
+        "Headers": [{
+            "Key": "key1",
+            "Value": "value1"
+        },
+        {
+            "Key": "key2",
+            "Value": "value2"
+        }]
+    },
+    "Attachments": [{
+        "AttachmentType": "ProofOfBankDomicile",
+        "File": {
+            "Name": "comprovante_bancario",
+            "FileType": "jpg",
+            "Data": "ZWZxZWZxd2VmcXdlZnF3ZWZxd2VmcXdlZnF3ZWZxd2VmcXdlZnF3ZWZxdzM0ZndlZndlcXdlZnF3ZWZxd2VmcXdlZnF3ZWZ3cQ=="
+        }
+    }]
+}
+```
+
+| Propriedade                                                     | Tipo    | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                            |
+|-----------------------------------------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `CorporateName`                                                 | Guid    | 36      | Sim         | Razão social                                                                                                                                                                                                                         |
+| `FancyName`                                                     | String  | 50      | Sim         | Nome fantasia                                                                                                                                                                                                                        |
+| `DocumentNumber`                                                | String  | 14      | Sim         | Número do documento (Apenas números)                                                                                                                                                                                                 |     
+| `DocumentType`                                                  | String  | -       | Sim         | Tipo do documento. Os tipos válidos são `Cpf`, `Cnpj`                                                                                                                                                                                |
+| `MerchantCategoryCode`                                          | String  | 4       | Sim         | (MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. [Lista de Merchant Category Codes](https://www.web-payment-software.com/online-merchant-accounts/mcc-codes/){:target="_blank"} |
+| `ContactName`                                                   | String  | 100     | Sim         | Nome do contato responsável                                                                                                                                                                                                          |
+| `ContactPhone`                                                  | String  | 11      | Sim         | Número do telefone do contato responsável (Apenas números)                                                                                                                                                                           |
+| `MailAddress`                                                   | String  | 50      | Sim         | Endereço de e-mail                                                                                                                                                                                                                   |
+| `Website`                                                       | String  | 200     | Não         | Endereço do website                                                                                                                                                                                                                  |
+| `BankAccount.Bank`                                              | String  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf){:target="_blank"}                                                                                                  |
+| `BankAccount.BankAccountType`                                   | String  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)                                                                                                                  |
+| `BankAccount.Number`                                            | String  | 20      | Sim         | Número da conta                                                                                                                                                                                                                      |
+| `BankAccount.Operation`                                         | String  | 10      | Não         | Operação da conta                                                                                                                                                                                                                    |
+| `BankAccount.VerifierDigit`                                     | Char    | 1       | Sim         | Dígito verificador da conta                                                                                                                                                                                                          |
+| `BankAccount.AgencyNumber`                                      | String  | 15      | Sim         | Número da agência                                                                                                                                                                                                                    |
+| `BankAccount.AgencyDigit`                                       | Char    | 1       | Sim         | Dígito da agência. Caso a agência não tenha dígito, informar o numeral 0                                                                                                                                                             |
+| `BankAccount.DocumentNumber`                                    | String  | 14      | Sim         | Número do documento da conta (Apenas números)                                                                                                                                                                                        |
+| `BankAccount.DocumentType`                                      | String  | -       | Sim         | Tipo do documento. Os tipos válidos são `Cpf`, `Cnpj`                                                                                                                                                                                | 
+| `Address.Street`                                                | String  | 100     | Sim         | Rua do endereço                                                                                                                                                                                                                      |
+| `Address.Number`                                                | String  | 15      | Sim         | Número do endereço                                                                                                                                                                                                                   |
+| `Address.Complement`                                            | String  | 80      | Não         | Complemento do endereço                                                                                                                                                                                                              |
+| `Address.Neighborhood`                                          | String  | 50      | Sim         | Bairro                                                                                                                                                                                                                               |
+| `Address.City`                                                  | String  | 50      | Sim         | Cidade                                                                                                                                                                                                                               |
+| `Address.State`                                                 | String  | 2       | Sim         | Sigla do estado                                                                                                                                                                                                                      |
+| `Address.ZipCode`                                               | String  | 9       | Sim         | CEP (Apenas números)                                                                                                                                                                                                                 |
+| `Agreement.Fee`                                                 | Int     | -       | Sim         | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `"Fee" : 100`                                                                                                                                                              |
+| `Agreement.MdrPercentage`                                       | Decimal | -       | Sim         | Porcentagem da taxa de desconto única que será aplicada para todos os acordos entre Master e Subordinado. Valor com até duas casas decimais                                                                                        |
+| `Notification.Url`                                              | String  | 200     | Sim         | Url de notificação de mudança de status da análise do processo de KYC                                                                                                                                                                |
+| `Notification.Headers[].Key`                                    | String  | 100     | Sim         | Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
+| `Notification.Headers[].Value`                                  | String  | 100     | Sim         | Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
+| `Attachments[].AttachmentType`                                  | String  | -       | Sim         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
+| `Attachments[].File.Name`                                       | String  | 50      | Sim         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
+| `Attachments[].File.FileType`                                   | String  | -       | Sim         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
+| `Attachments[].File.Data`                                       | String  | -       | Sim         | Documento convertido para **Base64**                                                                                                                                                                                                 |
+
+**Response**
+
+```json
+--header "Authorization: Bearer {access_token}"
+{
+    "MasterMerchantId": "665a33c5-0022-4a40-a0bd-daad04eb3236",
+    "MerchantId": "b8ccc729-a874-4b51-a5a9-ffeb5bd98878",
+    "CorporateName":"Subordinado Corporativo Ltda",
+    "FancyName":"Subordinado Nome Fantasia",
+    "DocumentNumber":"01131432000190",
+    "DocumentType":"CNPJ",
+    "MerchantCategoryCode":"5719",
+    "ContactName":"Nome do Contato do Subordinado",
+    "ContactPhone":"11987654321",
+    "MailAddress":"addres@email.mail.com",
+    "Website":"https://www.website.com.br",
+    "Blocked": true,
+    "Analysis": {
+        "Status": "UnderAnalysis"
+    },
+    "BankAccount": {
+        "Bank":"001",
+        "BankAccountType":"CheckingAccount",
+        "Number":"0002",
+        "Operation":"2",
+        "VerifierDigit":"2",
+        "AgencyNumber":"0002",
+        "AgencyDigit":"2",
+        "DocumentNumber":"01131432000190",
+        "DocumentType":"CNPJ"
+    },
+    "Address":{  
+        "Street":"Rua Teste",
+        "Number":"50",
+        "Complement":"AP 255",
+        "Neighborhood":"Centro",
+        "City":"São Paulo",
+        "State" : "SP",
+        "ZipCode": "12345687"
+    },
+    "Agreement":{
+        "Fee" : 10,
+        "MerchantDiscountRates": [{
+            "MerchantDiscountRateId": "662e340f-07f2-4827-816d-b1878eb03eae",
+            "PaymentArrangement": {
+                "Product": "DebitCard",
+                "Brand": "Master"
+            },
+            "InitialInstallmentNumber" : 1,
+            "FinalInstallmentNumber" : 1,
+            "Percent" : 4
+        },
+        {
+            "MerchantDiscountRateId": "eb9d6357-7ad1-4fe0-90fe-364cff7ff0fd",
+            "PaymentArrangement": {
+                "Product": "CreditCard",
+                "Brand": "Master"
+            },
+            "InitialInstallmentNumber" : 1,
+            "FinalInstallmentNumber" : 1,
+            "Percent" : 4
+        },
+        {
+            "MerchantDiscountRateId": "d09fe9d3-98c7-4c37-9bd3-7c1c91ee15de",
+            "PaymentArrangement": {
+                "Product": "CreditCard",
+                "Brand": "Master"
+            },
+            "InitialInstallmentNumber" : 2,
+            "FinalInstallmentNumber" : 6,
+            "Percent" : 4
+        },
+        {
+            "MerchantDiscountRateId": "e2515c24-fd73-4b8e-92ad-cfe2b95239de",
+            "PaymentArrangement": {
+                "Product": "CreditCard",
+                "Brand": "Master"
+            },
+            "InitialInstallmentNumber" : 7,
+            "FinalInstallmentNumber" : 12,
+            "Percent" : 4
+        }]
+    },
+    "Notification": {
+        "Url": "https://site.com.br/api/subordinados",
+        "Headers": [{
+            "Key": "key1",
+            "Value": "value1"
+        },
+        {
+            "Key": "key2",
+            "Value": "value2"
+        }]
+    },
+    "Attachments": [{
+        "AttachmentType": "ProofOfBankDomicile",
+        "File": {
+            "Name": "comprovante_bancario",
+            "FileType": "jpg"
+        }
+    }]
+}
+```
+
+| Propriedade                                                     | Tipo    | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                            |
+|-----------------------------------------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MasterMerchantId`                                              | Guid    | 36      | Sim         | Identificação do master do subordinado                                                                                                                                                                                               |
+| `MerchantId`                                                    | Guid    | 36      | Sim         | Identificação do subordinado                                                                                                                                                                                                         |
+| `CorporateName`                                                 | Guid    | 36      | Sim         | Razão social                                                                                                                                                                                                                         |
+| `FancyName`                                                     | String  | 50      | Sim         | Nome fantasia                                                                                                                                                                                                                        |
+| `DocumentNumber`                                                | String  | 14      | Sim         | Número do documento                                                                                                                                                                                                                  |
+| `DocumentType`                                                  | String  | -       | Sim         | Tipo do documento. Os tipos válidos são `Cpf`, `Cnpj`                                                                                                                                                                                |
+| `MerchantCategoryCode`                                          | String  | 4       | Sim         | (MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. [Lista de Merchant Category Codes](https://www.web-payment-software.com/online-merchant-accounts/mcc-codes/){:target="_blank"} |
+| `ContactName`                                                   | String  | 100     | Sim         | Nome do contato responsável                                                                                                                                                                                                          |
+| `ContactPhone`                                                  | String  | 11      | Sim         | Número do telefone do contato responsável (Apenas números)                                                                                                                                                                           |
+| `MailAddress`                                                   | String  | 50      | Sim         | Endereço de e-mail                                                                                                                                                                                                                   |
+| `Website`                                                       | String  | 200     | Não         | Endereço do website                                                                                                                                                                                                                  |
+| `Blocked`                                                       | Boolean | -       | Sim         | Flag para indicar se o subordinado está bloqueado para participar da transação                                                                                                                                                       |
+| `Analysis.Status`                                               | String  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`                                                                                                                       |
+| `BankAccount.Bank`                                              | String  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf){:target="_blank"}                                                                                                  |
+| `BankAccount.BankAccountType`                                   | String  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)                                                                                                                  |
+| `BankAccount.Number`                                            | String  | 20      | Sim         | Número da conta                                                                                                                                                                                                                      |
+| `BankAccount.Operation`                                         | String  | 10      | Não         | Operação da conta                                                                                                                                                                                                                    |
+| `BankAccount.VerifierDigit`                                     | Char    | 1       | Sim         | Dígito verificador da conta                                                                                                                                                                                                          |
+| `BankAccount.AgencyNumber`                                      | String  | 15      | Sim         | Número da agência                                                                                                                                                                                                                    |
+| `BankAccount.AgencyDigit`                                       | Char    | 1       | Sim         | Dígito da agência. Caso a agência não tenha dígito, informar o numeral 0                                                                                                                                                             |
+| `BankAccount.DocumentNumber`                                    | String  | 14      | Sim         | Número do documento da conta                                                                                                                                                                                                         |
+| `BankAccount.DocumentType`                                      | String  | -       | Sim         | Tipo do documento. Os tipos válidos são `Cpf`, `Cnpj`                                                                                                                                                                                | 
+| `Address.Street`                                                | String  | 100     | Sim         | Rua do endereço                                                                                                                                                                                                                      |
+| `Address.Number`                                                | String  | 15      | Sim         | Número do endereço                                                                                                                                                                                                                   |
+| `Address.Complement`                                            | String  | 80      | Não         | Complemento do endereço                                                                                                                                                                                                              |
+| `Address.Neighborhood`                                          | String  | 50      | Sim         | Bairro                                                                                                                                                                                                                               |
+| `Address.City`                                                  | String  | 50      | Sim         | Cidade                                                                                                                                                                                                                               |
+| `Address.State`                                                 | String  | 2       | Sim         | Sigla do estado                                                                                                                                                                                                                      |
+| `Address.ZipCode`                                               | String  | 9       | Sim         | CEP                                                                                                                                                                                                                                  |
+| `Agreement.Fee`                                                 | Int     | -       | Sim         | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `"Fee" : 100`                                                                                                                                                              |
+| `Agreement.MerchantDiscountRates[].MerchantDiscountRateId`      | Guid    | 36      | Sim         | Identificação da taxa de desconto do subordinado                                                                                                                                                                                     |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | String  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são `CreditCard` e `DebitCard`                                                                                                               |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | String  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners`, `Discover` e `Hipercard`                                                                    |
+| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Int     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                 |
+| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Int     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                   |
+| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais                                                                                                                                                    |
+| `Notification.Url`                                              | String  | 200     | Sim         | Url de notificação de mudança de status da análise do processo de KYC                                                                                                                                                                |
+| `Notification.Headers[].Key`                                    | String  | 100     | Sim         | Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
+| `Notification.Headers[].Value`                                  | String  | 100     | Sim         | Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
+| `Attachments[].AttachmentType`                                  | String  | -       | Sim         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
+| `Attachments[].File.Name`                                       | String  | 50      | Sim         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
+| `Attachments[].File.FileType`                                   | String  | -       | Sim         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 ## Consulta de Subordinados
 
 A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.
