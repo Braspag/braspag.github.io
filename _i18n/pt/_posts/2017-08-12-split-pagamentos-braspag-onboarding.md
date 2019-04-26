@@ -351,6 +351,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | `Attachments[].AttachmentType`                                  | String  | -       | Sim         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
 | `Attachments[].File.Name`                                       | String  | 50      | Sim         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
 | `Attachments[].File.FileType`                                   | String  | -       | Sim         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
+
 ### Informando a porcentagem do MDR único aplicado para todos os acordos
 
 ```json
@@ -596,6 +597,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | `Attachments[].AttachmentType`                                  | String  | -       | Sim         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
 | `Attachments[].File.Name`                                       | String  | 50      | Sim         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
 | `Attachments[].File.FileType`                                   | String  | -       | Sim         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
+
 ## Consulta de Subordinados
 
 A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.
