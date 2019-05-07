@@ -4745,7 +4745,7 @@ Se não for especificado o contrário durante a autorização, A Braspag process
 
 ## Criando uma transação com Análise de Fraude Cybersource
 
-Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e "Travel somente para venda de passagens aéreas)".
+Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e "Travel (somente para venda de passagens aéreas)".
 
 ### Requisição
 
