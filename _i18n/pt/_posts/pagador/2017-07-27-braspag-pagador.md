@@ -4760,7 +4760,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
       "IdentityType":"CPF",
       "Email":"comprador@braspag.com.br",
       "Birthdate":"1991-01-02",
-      "Phone": "5521976781114"
+      "Phone": "5521976781114",
       "Address":{  
          "Street":"Alameda Xingu",
          "Number":"512",
@@ -4801,8 +4801,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "SaveCard":"false",
-         "Alias":""
+         "SaveCard":"false"
       },
       "Credentials":{  
          "code":"9999999",
@@ -4850,9 +4849,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
                   "TimeHedge":"Normal",
                   "Type":"AdultContent",
                   "VelocityHedge":"High"
-               }
-            ],
-            [  
+               },
                {  
                   "GiftCategory":"Undefined",
                   "HostHedge":"Off",
@@ -4882,12 +4879,12 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
             {  
                "Id":9,
                "Value":"SIM"
-            },
+            }
          ],
          "Shipping":{  
-            "Addressee":"Alameda Xingu, 512",
+            "Addressee":"João das Couves",
             "Method":"LowCost",
-            "Phone":"1121840540"
+            "Phone":"551121840540"
          },
          "Travel":{  
             "JourneyType":"OneWayTrip",
@@ -4899,7 +4896,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
                   "Status":"Gold",
                   "Rating":"Adult",
                   "Email":"email@mail.com",
-                  "Phone":"1234567890",
+                  "Phone":"5564991681074",
                   "TravelLegs":[  
                      {  
                         "Origin":"AMS",
@@ -4932,7 +4929,7 @@ curl
       "IdentityType":"CPF",
       "Email":"comprador@braspag.com.br",
       "Birthdate":"1991-01-02",
-      "Phone": "5521976781114"
+      "Phone": "5521976781114",
       "Address":{  
          "Street":"Alameda Xingu",
          "Number":"512",
@@ -4973,8 +4970,7 @@ curl
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "SaveCard":"false",
-         "Alias":""
+         "SaveCard":"false"
       },
       "Credentials":{  
          "code":"9999999",
@@ -5022,9 +5018,7 @@ curl
                   "TimeHedge":"Normal",
                   "Type":"AdultContent",
                   "VelocityHedge":"High"
-               }
-            ],
-            [  
+               },
                {  
                   "GiftCategory":"Undefined",
                   "HostHedge":"Off",
@@ -5054,12 +5048,12 @@ curl
             {  
                "Id":9,
                "Value":"SIM"
-            },
+            }
          ],
          "Shipping":{  
-            "Addressee":"Alameda Xingu, 512",
+            "Addressee":"João das Couves",
             "Method":"LowCost",
-            "Phone":"1121840540"
+            "Phone":"551121840540"
          },
          "Travel":{  
             "JourneyType":"OneWayTrip",
@@ -5071,7 +5065,7 @@ curl
                   "Status":"Gold",
                   "Rating":"Adult",
                   "Email":"email@mail.com",
-                  "Phone":"1234567890",
+                  "Phone":"5564991681074",
                   "TravelLegs":[  
                      {  
                         "Origin":"AMS",
@@ -5098,7 +5092,8 @@ curl
 |`Customer.Identity`|Texto|16|Sim|Número do documento de identificação do comprador| 
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador <br/> Possíveis valores: CPF ou CNPJ|
 |`Customer.Email`|Texto|100|Sim|E-mail do comprador|
-|`Customer.Birthdate`|Date|10|Sim|Data de nascimento do comprador. <br/> Ex.: 1991-01-10|
+|`Customer.Birthdate`|Date|10|Sim|Data de nascimento do comprador <br/> Ex.: 1991-01-10|
+|`Customer.Phone`|Texto|15|Sim|Número do telefone do comprador <br/> Ex.: 5521976781114|
 |`Customer.Address.Street`|Texto|54|Sim|Logradouro do endereço de cobrança|
 |`Customer.Address.Number`|Texto|5|Sim|Número do endereço de cobrança|
 |`Customer.Address.Complement`|Texto|14|Não|Complemento do endereço de cobrança|
@@ -5173,7 +5168,7 @@ curl
 |`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Texto|255|Sim|Valor das informações adicionais a serem enviadas <br/> [Tabela de MDDs]({{ site.baseurl_root }}manual/braspag-pagador#tabela-de-mdds)|
 |`Payment.FraudAnalysis.Shipping.Addressee`|Texto|120|Não|Nome completo do responsável a receber o produto no endereço de entrega|
 |`Payment.FraudAnalysis.Shipping.Method`|Texto|8|Não|Meio de entrega do pedido <br/> [Lista de Valores - Payment.Fraudanalysis.ShippingMethod.Shipping]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.shippingmethod)|
-|`Payment.FraudAnalysis.Shipping.Phone`|Número|15|Não|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|
+|`Payment.FraudAnalysis.Shipping.Phone`|Texto|15|Não|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|
 |`Payment.FraudAnalysis.Travel.JourneyType`|Texto|32|Não|Tipo de viagem <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.JourneyType]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype)|
 |`Payment.FraudAnalysis.Travel.DepartureDateTime`|DateTime|---|Não|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|
 |`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto|120|Não|Nome completo do passageiro|
@@ -5181,7 +5176,7 @@ curl
 |`Payment.FraudAnalysis.Travel.Passengers.Status`|Texto|15|Não|Classificação da empresa aérea <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.Passengers{n}.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status)|
 |`Payment.FraudAnalysis.Travel.Passengers.Rating`|Texto|13|Não|Tipo do passageiro <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating)|
 |`Payment.FraudAnalysis.Travel.Passengers.Email`|Texto|255|Não|E-mail do passageiro|
-|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Número|15|Não|Telefone do passageiro <br/> Ex.: 552121114700|
+|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Texto|15|Não|Telefone do passageiro <br/> Ex.: 552121114700|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Não|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
 
@@ -5239,8 +5234,7 @@ curl
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "SaveCard":"false",
-         "Alias":""
+         "SaveCard":"false"
       },
       "Credentials":{  
          "code":"9999999",
@@ -5288,9 +5282,7 @@ curl
                   "TimeHedge":"Normal",
                   "Type":"AdultContent",
                   "VelocityHedge":"High"
-               }
-            ],
-            [  
+               },
                {  
                   "GiftCategory":"Undefined",
                   "HostHedge":"Off",
@@ -5320,12 +5312,12 @@ curl
             {  
                "Id":9,
                "Value":"SIM"
-            },
+            }
          ],
          "Shipping":{  
-            "Addressee":"Alameda Xingu, 512",
+            "Addressee":"João das Couves",
             "Method":"LowCost",
-            "Phone":"1121840540"
+            "Phone":"551121840540"
          },
          "Travel":{  
             "JourneyType":"OneWayTrip",
@@ -5337,7 +5329,7 @@ curl
                   "Status":"Gold",
                   "Rating":"Adult",
                   "Email":"email@mail.com",
-                  "Phone":"1234567890",
+                  "Phone":"5564991681074",
                   "TravelLegs":[  
                      {  
                         "Origin":"AMS",
@@ -5444,8 +5436,7 @@ curl
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "SaveCard":"false",
-         "Alias":""
+         "SaveCard":"false"
       },
       "Credentials":{  
          "code":"9999999",
@@ -5493,9 +5484,7 @@ curl
                   "TimeHedge":"Normal",
                   "Type":"AdultContent",
                   "VelocityHedge":"High"
-               }
-            ],
-            [  
+               },
                {  
                   "GiftCategory":"Undefined",
                   "HostHedge":"Off",
@@ -5525,12 +5514,12 @@ curl
             {  
                "Id":9,
                "Value":"SIM"
-            },
+            }
          ],
          "Shipping":{  
-            "Addressee":"Alameda Xingu, 512",
+            "Addressee":"João das Couves",
             "Method":"LowCost",
-            "Phone":"1121840540"
+            "Phone":"551121840540"
          },
          "Travel":{  
             "JourneyType":"OneWayTrip",
@@ -5542,7 +5531,7 @@ curl
                   "Status":"Gold",
                   "Rating":"Adult",
                   "Email":"email@mail.com",
-                  "Phone":"1234567890",
+                  "Phone":"5564991681074",
                   "TravelLegs":[  
                      {  
                         "Origin":"AMS",
@@ -5604,6 +5593,7 @@ curl
 |`Customer.IdentityType`|Texto|Tipo de documento de identificação do comprador|
 |`Customer.Email`|Texto|E-mail do comprador|
 |`Customer.Birthdate`|Date|Data de nascimento do comprador|
+|`Customer.Phone`|Número do telefone do comprador|
 |`Customer.Address.Street`|Texto|Logradouro do endereço de cobrança|
 |`Customer.Address.Number`|Texto|Número do endereço de cobrança|
 |`Customer.Address.Complement`|Texto|Complemento do endereço de cobrança|
