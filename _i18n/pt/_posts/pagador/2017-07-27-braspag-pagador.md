@@ -7252,7 +7252,7 @@ Valor|Descrição|
 
 ## Lista de Valores - Payment.FraudAnalysis.ReplyData.FactorCode
 
-|Valor|Descrição|Provider|
+|Valor|Descrição|
 |:-|:-|
 |A|Mudança de endereço excessiva. O comprador mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses|
 |B|BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão|
@@ -7280,8 +7280,8 @@ Valor|Descrição|
 |Valor|Descrição|
 |:-|:-|
 |FREE-EM|O endereço de e-mail do comprador é de um provedor de e-mail gratuito|
-|INTL-IPCO|O país do endereço de e-mail do comprador está fora dos EUA|C
-|INV-EM|O endereço de e-mail do comprador é inválido|C
+|INTL-IPCO|O país do endereço de e-mail do comprador está fora dos EUA|
+|INV-EM|O endereço de e-mail do comprador é inválido|
 |MM-EMBCO|O domínio do endereço de e-mail do comprador não é consistente com o país do endereço de cobrança|
 |MM-IPBC|O endereço de e-mail do comprador não é consistente com a cidade do endereço de cobrança|
 |MM-IPBCO|O endereço de e-mail do comprador não é consistente com o país do endereço de cobrança|
