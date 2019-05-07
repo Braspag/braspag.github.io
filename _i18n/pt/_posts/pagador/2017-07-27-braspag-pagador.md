@@ -7155,7 +7155,7 @@ As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mant
 
 ## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].Type
 
-Valor|Descrição|
+|Valor|Descrição|
 |:-|:-|
 |AdultContent|Conteúdo adulto|
 |Coupon|Cupom aplicado para todo o pedido|
