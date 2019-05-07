@@ -1224,6 +1224,8 @@ Se os 2 segmentos de código não forem colocados na página de checkout, os res
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
+> Exemplo URL com Variáveis Preenchidas
+
 ![Exemplo Código com Variáveis Preenchidas]({{ site.baseurl_root }}/images/braspag/af/exemplodfp.png)
 
 **IMPORTANTE**
