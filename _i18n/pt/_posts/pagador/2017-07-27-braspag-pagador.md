@@ -5637,10 +5637,10 @@ curl
 |`Payment.CreditCard.Brand`|Texto|Bandeira do cartão de crédito|
 |`Payment.CreditCard.SaveCard`|Booleano|Indica se os dados do cartão de crédito foram armazenados no Cartão Protegido|
 |`Payment.CreditCard.Alias`|Texto|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|
-|`Payment.CreditCard.CardToken`|Identificador do cartão de crédito salvo no Cartão Protegido|
+|`Payment.CreditCard.CardToken`|Guid|Identificador do cartão de crédito salvo no Cartão Protegido|
 |`Payment.FraudAnalysis.Sequence`|Texto|Tipo de fluxo da análise de fraude|
 |`Payment.FraudAnalysis.SequenceCriteria`|Texto|Critério do fluxo da análise de fraude|
-|`Payment.FraudAnalysis.Provider`|Texto|10|Sim|Provedor de antifraude|
+|`Payment.FraudAnalysis.Provider`|Texto|Provedor de antifraude|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|Indica se a transação após a análise de fraude será capturada|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|Indica se a transação após a análise de fraude será cancelada|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Número|Valor total do pedido em centavos|
