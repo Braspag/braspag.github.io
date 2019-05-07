@@ -5593,7 +5593,7 @@ curl
 |`Customer.IdentityType`|Texto|Tipo de documento de identificação do comprador|
 |`Customer.Email`|Texto|E-mail do comprador|
 |`Customer.Birthdate`|Date|Data de nascimento do comprador|
-|`Customer.Phone`|Número do telefone do comprador|
+|`Customer.Phone`|Texto|Número do telefone do comprador|
 |`Customer.Address.Street`|Texto|Logradouro do endereço de cobrança|
 |`Customer.Address.Number`|Texto|Número do endereço de cobrança|
 |`Customer.Address.Complement`|Texto|Complemento do endereço de cobrança|
