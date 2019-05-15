@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de integração Google Pay via Braspag
+title: Manual de integração Google Pay
 description: Integração técnica Gateway Braspag
 search: true
 translated: true
