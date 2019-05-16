@@ -31,11 +31,11 @@ The Subordinate's onboarding process has the following steps:
 
 ### Sandbox
 
-**Onboarding API**: https://splitonboardingsandbox.braspag.com.br
+**Onboarding API**: https://splitonboardingsandbox.cieloecommerce.cielo.com.br
 
 ### Production
 
-**Onboarding API**: https://splitonboarding.braspag.com.br
+**Onboarding API**: https://splitonboarding.cieloecommerce.cielo.com.br
 
 ## Subordinate's Enrollment
 
@@ -44,13 +44,13 @@ To enroll a Subordinate, **Master** should make a request with the Subordinate's
 There are two ways to establish agreements between Master and its Subordinates with **Split Payments**:
 
 1. Setting the MDR (Merchant Discount Rate) to be charged for each transaction by Payment Arrangements and installments range.
-2. If Master do not set the MDR for each Payment Arrangement and installments range, **Split Payments** will get the same agreements between Master and Subacquirer and copy the values to the agreements between Master and Subordinate.
+2. If Master do not set the MDR for each Payment Arrangement and installments range, **Split Payments** will get the same agreements between Master and Acquirer and copy the values to the agreements between Master and Subordinate.
 
 **Example:**
 
 **MDR from Master to Subordinate: 4%**
 
-| Agreement Subacquirer vs. Master | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
+| Agreement Acquirer vs. Master | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
 |----------------------------------|-------|--------|-------|--------|-------|--------|
 | Debit                            | 2.00% | 2.00%  | 2.00% |        |       |        |  
 | Credit 1x                        | 2.50% | 2.50%  | 2.50% | 2.50%  | 2.50% |  2.50% |
