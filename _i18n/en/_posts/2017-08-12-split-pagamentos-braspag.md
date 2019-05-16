@@ -1747,7 +1747,6 @@ In the example below there was a Partial Chargeback of BRL 60.00 on a transactio
 |--------------------------------------------|---------------------------------------------------------------|---------|---------|
 | `ChargebackSplitPayments.ChargebackSplits` | List containing the split of chargeback for each participant. | Guid    | 36      |
 
-
 ## Notification
 
 To be notified about the status of a transaction, use the Cielo E-Commerce API [notification service](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação).
