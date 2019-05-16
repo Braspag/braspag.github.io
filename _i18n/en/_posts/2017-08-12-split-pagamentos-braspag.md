@@ -72,7 +72,7 @@ The Marketplace is responsible for establishing the rates that will be charged f
 
 A transaction of **BRL 100.00**, made by a **Marketplace** with the participation of **Subordinate 01**.
 
-![SplitSample001](https://developercielo.github.io/images/split/split001.png)
+![SplitSample001](https://braspag.github.io/images/braspag/split/ensplit001.png)
 
 In this example, assume the following agreements:
 
@@ -340,7 +340,7 @@ Transaction of **BRL 100.00**, with automatic capture, without the split rules n
 
 In this case, Marketplace receives the amount of the transaction, deducting the MDR agreed with Mediator. As previously stated, the fixed fee agreed between Marketplace and Mediator is computed directly on the schedule of both parties.
 
-![SplitSample002](https://developercielo.github.io/images/split/split002.png)
+![SplitSample002](https://braspag.github.io/images/braspag/split/ensplit002.png)
 
 **Example 2)**  
 
@@ -479,7 +479,7 @@ Transaction of **BRL 100.00**, with the split rules node.
 
 These are how the splits happened and how the schedules of each participant were set.
 
-![SplitSample003](https://developercielo.github.io/images/split/split003.png)
+![SplitSample003](https://braspag.github.io/images/braspag/split/ensplit003.png)
 
 ### Split Models
 
@@ -701,7 +701,7 @@ Transaction with a total amount of **BRL 100.00** with split rules node and Mark
 
 In the example, the Marketplace is a participant in the sale, hence its not necessary to inform the rates to be discounted from the Marketplace's part in the transaction. The Split Payments system identifies the Marketplace's part using its MerchantId (identifier) and perform the calculations utilizing the agreed rates and fees.
 
-![SplitSample004](https://developercielo.github.io/images/split/split004.png)
+![SplitSample004](https://braspag.github.io/images/braspag/split/ensplit004.png)
 
 #### Post-Transactional
 
