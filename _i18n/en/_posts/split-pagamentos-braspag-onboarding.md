@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Split de Pagamentos - Onboarding
-description: Split de Pagamentos - Onboarding
+title: Split Payments - Onboarding
+description: Split Payments - Onboarding
 search: true
 toc_footers: false
 categories: manual
