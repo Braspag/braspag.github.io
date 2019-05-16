@@ -15,7 +15,7 @@ tags:
 
 ## Introduction
 
-**Split Payments** enables transaction division of a transaction between different participants of a sale.
+**Split Payments** enables transaction division of a transaction between different participants of a sale. 
 
 Frequently used on Marketplaces, where **the cart is composed of products from different suppliers, and the total amount of the sale must be shared**.
 
