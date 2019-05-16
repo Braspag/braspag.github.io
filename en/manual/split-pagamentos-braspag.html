@@ -178,7 +178,7 @@
 <p>The fixed fee agreed between Marketplace and Mediator is not deducted from the total amount of the transaction. That fee is deducted directly from the total amount the Marketplace will receive from the Mediator. The MDR, on the other hand, is part of the transaction split calculation since the MDR between Marketplace and its Subordinates includes the MDR between Marketplace and Mediator.</p>
 
 <blockquote>
-  <p><strong>Cost to the Marketplace:</strong> MDR of Mediator(%) + Fixed Fee(R$)</p>
+  <p><strong>Cost to the Marketplace:</strong> MDR of Mediator(%) + Fixed Fee(BRL)</p>
 </blockquote>
 
 <h4 id="marketplace">Marketplace</h4>
@@ -186,32 +186,32 @@
 <p>The Marketplace is responsible for establishing the rates that will be charged from its Subordinates. That established MRD must be greater than or equal to the MDR agreed between Mediator and Marketplace. Optionally, a fixed fee can also be defined.</p>
 
 <blockquote>
-  <p><strong>Cost to the Subordinate:</strong> MDR of Marketplace(%) + Fixed Fee(R$), where MDR of Marketplace(%) includes MDR of Mediator(%).</p>
+  <p><strong>Cost to the Subordinate:</strong> MDR of Marketplace(%) + Fixed Fee(BRL), where MDR of Marketplace(%) includes MDR of Mediator(%).</p>
 </blockquote>
 
 <h4 id="example">Example</h4>
 
-<p>A transaction of <strong>R$100.00</strong>, made by a <strong>Marketplace</strong> with the participation of <strong>Subordinate 01</strong>.</p>
+<p>A transaction of <strong>BRL 100.00</strong>, made by a <strong>Marketplace</strong> with the participation of <strong>Subordinate 01</strong>.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split001.png" alt="SplitSample001" /></p>
 
 <p>In this example, assume the following agreements:</p>
 
-<p><strong>Mediator rates</strong>: 2% MDR + R$0.10 fixed fee.<br />
+<p><strong>Mediator rates</strong>: 2% MDR + BRL 0.10 fixed fee.<br />
 <strong>Marketplace rates</strong>: 3.5% MDR (2% from MDR of Mediator) + 0.30 fixed fee.</p>
 
 <p>After the split, the following schedule events will happen:</p>
 
 <p><strong>Subordinate</strong>:<br />
-Credit: R$96.20 [Deducting the MDR and the fixed fee agreed with Marketplace]</p>
+Credit: BRL 96.20 [Deducting the MDR and the fixed fee agreed with Marketplace]</p>
 
 <p><strong>Marketplace</strong>:<br />
-Credit: R$1.80 [MDR applied on Subordinate’s amount deducting the MDR of Mediator]
-Deductions: R$0.10 [Fixed fee agreed with Mediator]</p>
+Credit: BRL 1.80 [MDR applied on Subordinate’s amount deducting the MDR of Mediator]
+Deductions: BRL 0.10 [Fixed fee agreed with Mediator]</p>
 
 <p><strong>Mediator</strong>:<br />
-Credit: R$2.00 [MDR applied on the trasaction total amount]
-Credit: R$0.10 [Fixed fee agreed with Marketplace]</p>
+Credit: BRL 2.00 [MDR applied on the trasaction total amount]
+Credit: BRL 0.10 [Fixed fee agreed with Marketplace]</p>
 
 <h3 id="brands">Brands</h3>
 
@@ -391,9 +391,9 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
 
 <p><strong>Example 1)</strong></p>
 
-<p>Transaction of <strong>R$100.00</strong>, with automatic capture, without the split rules node.</p>
+<p>Transaction of <strong>BRL 100.00</strong>, with automatic capture, without the split rules node.</p>
 
-<p><strong>Mediator Rates</strong>: 2% MDR + R$0.10 of Fixed fee.</p>
+<p><strong>Mediator Rates</strong>: 2% MDR + BRL 0.10 of Fixed fee.</p>
 
 <p><strong>Request</strong></p>
 
@@ -486,9 +486,9 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
 
 <p><strong>Example 2)</strong></p>
 
-<p>Transaction of <strong>R$100.00</strong>, with the split rules node.</p>
+<p>Transaction of <strong>BRL 100.00</strong>, with the split rules node.</p>
 
-<p><strong>Mediator Rates</strong>: 2% MDR + R$0.10 of fixed fee.<br />
+<p><strong>Mediator Rates</strong>: 2% MDR + BRL 0.10 of fixed fee.<br />
 <strong>Marketplace Rates to Subordinate 01</strong>: 5% MDR (2% from MDR of Mediator included) + 0.30 of fixed fee.
 <strong>Marketplace Rates to Subordinate 02</strong>: 4% MDR (2% from MDR of Mediator included) + 0.15 of fixed fee.</p>
 
@@ -2192,7 +2192,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
 
 <p>The amounts ​​up to 10/16/2018 were normally settled.</p>
 
-<p>Since the subordinate had BRL150.00 to receive on 10/17/2018, the adjustment was posted to the financial schedule on the stated date informed, and the Subordinate will receive BRL 50.00 due to the adjustment debit.</p>
+<p>Since the subordinate had BRL 150.00 to receive on 10/17/2018, the adjustment was posted to the financial schedule on the stated date informed, and the Subordinate will receive BRL 50.00 due to the adjustment debit.</p>
 
 <p>The participant to be credited will have the credit on the same date of the debit confirmation, that is, it will receive BRL 150.00 on 10/17/2018.</p>
 
@@ -2435,10 +2435,6 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
     </tr>
   </tbody>
 </table>
-
-<h2 id="settlement">Settlement</h2>
-
-<h3 id="escrow">Escrow</h3>
 
 <h2 id="notification">Notification</h2>
 
