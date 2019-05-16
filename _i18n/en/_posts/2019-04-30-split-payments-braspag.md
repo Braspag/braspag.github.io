@@ -1,104 +1,100 @@
 ---
 layout: manual
-title: Split de Pagamentos
-description: Manual integração do Split de Pagamentos
+title: Split Payments
+description: Split Payments Integration Manual
 search: true
 toc_footers: false
 categories: manual
 sort_order: 3
 hub_visible: false
 tags:
-  - Soluções para Marketplace
+  - Marketplace Solutions
 ---
 
-# Split de Pagamentos
+# Split Payments
 
-## Introdução
+## Introduction
 
-O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
+**Split Payments** enables transaction division of a transaction between different participants of a sale.
 
-Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
+Frequently used on Marketplaces, where **the cart is composed of products from different suppliers, and the total amount of the sale must be shared**.
 
-| **Participantes** | **Descrição** |
+| **Participants** | **Description** |
 |-----------|---------- |
-| **Marketplace** | Responsável pelo carrinho. <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
-| **Subordinado** | Fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Marketplace**.|
-| **Braspag (Facilitador)** | Responsável pelo fluxo transacional.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Marketplace**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Marketplace**.|
+| **Marketplace** | Responsible for the cart.<br> Has agreement with **Subordinates**, that supply cart products.<br> Establish the rates to be discounted on the sale of each **Subordinate**.<br> It may participate in a sale providing its products. |
+| **Subordinate** | It is the supplier of products in the cart.<br> Receives part of the amount of the sale, less the rates agreed with the **Marketplace**. |
+| **Cielo** | Responsible for the transaction flow.<br> Establishes the rates discounted on the total amount of the sale.<br> Is in charge of settling payments to **Subordinates** and **Marketplace**.|
 
-No Split de Pagamentos o responsável pelo fluxo transacional é o facilitador.
+The Marketplace integrates with Cielo, informing the transaction and how it should split between the participants. This split can happen at the moment of capture or later (known as post transactional split), as long as it happens within a pre-established time limit.
 
-O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.
+Once the transaction has captured, Cielo computes and pays the amount intended to each participant, within the established time limit for each product (payment scheme\*).
 
-Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação.
+> **Payment Scheme**: Settlement time-limit according to product (credit or debit) and brand. <br>
+> **Credit**: First installment in up to 31 days, remaining installments in each 30 days <br>
+> **Debit**: In up to 2 business days.
 
-> **Regime de Pagamento**: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
-> <br>
-> **Crédito**: Em até 31 dias. <br>
-> **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30.
-> **Débito**: Em até 2 dias úteis.
+To be able to use Split Payments, the Marketplace and its Subordinates must enroll at Cielo. After this process, both Marketplace and its Subordinates will have a unique identifier, known as **MerchantId (MID)** and must be used on transaction split requests.
 
-Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
+Must be provided on the transaction split request:
 
-Na divisão de uma transação, devem ser informados:
+* The **Subordinates' IDs**.
+* The **participation amount ​​of each Subordinate**. The sum must be equal to the total amount of the transaction.
+* **Rates** applied on the amount of each Subordinate. These rates must be negotiated in advance between the Marketplace and the Subordinate.
 
-* Os **identificadores dos Subordinados**.
-* Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação.
-* **Taxas** a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.
+The Marketplace can also be a participant on transaction split. Informing the Marketplace ID gives it the role of Subordinate. It may happen when the Marketplace has its products on cart.
 
-O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
+### Rates
 
-### Taxas
+The rates are established between the participants. It may be a **MDR(%)** and/or a **Fixed Fee(BRL)** and must be defined during the onboarding process.
 
-As taxas acordadas entre os participantes, podendo ser um **MDR(%)** e/ou uma **Taxa Fixa(R$)**, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto à Braspag (Facilitador).
+These rates may be sent at transactional (capture) or post-transactional time. Otherwise, the rates agreed in advance between the participants will be used.
 
-As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.
+> **MDR (*Merchant Discount Rate*):** Percentage to be deducted from the amount of a transaction, defined by product (Credit / Debit), brand and installment range. <br>
+> **Fixed Fee:** The amount, in cents, to be charged for each captured transaction. 
 
-> **MDR (*Merchant Discount Rate*):** Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento. <br>
-> **Tarifa Fixa:** Valor em centavos a ser cobrado por transação capturada.
+#### Cielo
 
-#### Braspag (Facilitador)
+The mediator and Marketplace will agree on an MDR and a Fixed Fee to deduct from the total value of each transaction.
 
-A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.
+The Marketplace, knowing these rates, will also negotiate an MDR and a Fixed Fee with each Subordinate. These values must include the MDR and fee agreed with Mediator.
 
-O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).
+The fixed fee agreed between Marketplace and Mediator is not deducted from the total amount of the transaction. That fee is deducted directly from the total amount the Marketplace will receive from the Mediator. The MDR, on the other hand, is part of the transaction split calculation since the MDR between Marketplace and its Subordinates includes the MDR between Marketplace and Mediator.
 
-O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.
-
-> **Custo Marketplace:** MDR Braspag(%) + Tarifa Fixa(R$)
+> **Cost to the Marketplace:** MDR of Mediator(%) + Fixed Fee(R$)
 
 #### Marketplace
 
-O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.
+The Marketplace is responsible for establishing the rates that will be charged from its Subordinates. That established MRD must be greater than or equal to the MDR agreed between Mediator and Marketplace. Optionally, a fixed fee can also be defined.
 
-> **Custo Subordinado:** MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).
+> **Cost to the Subordinate:** MDR of Marketplace(%) + Fixed Fee(R$), where MDR of Marketplace(%) includes MDR of Mediator(%).
 
-#### Exemplo
+#### Example
 
-Uma transação de **R$100,00**, realizada por um **Marketplace** com participação do **Subordinado 01**.
+A transaction of **R$100.00**, made by a **Marketplace** with the participation of **Subordinate 01**.
 
 ![SplitSample001](https://developercielo.github.io/images/split/split001.png)
 
-Neste exemplo, foram assumidos os seguintes acordos:
+In this example, assume the following agreements:
 
-**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
-**Taxa Marketplace**: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.
+**Mediator rates**: 2% MDR + R$0.10 fixed fee.  
+**Marketplace rates**: 3.5% MDR (2% from MDR of Mediator) + 0.30 fixed fee.
 
-Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:
+After the split, the following schedule events will happen:
 
-**Subordinado**:  
-Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]
+**Subordinate**:  
+Credit: R$96.20 [Deducting the MDR and the fixed fee agreed with Marketplace]
 
 **Marketplace**:  
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
-Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
+Credit: R$1.80 [MDR applied on Subordinate's amount deducting the MDR of Mediator]
+Deductions: R$0.10 [Fixed fee agreed with Mediator]
 
-**Braspag (Facilitador)**:  
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
-Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
+**Mediator**:  
+Credit: R$2.00 [MDR applied on the trasaction total amount]
+Credit: R$0.10 [Fixed fee agreed with Marketplace]
 
-### Bandeiras
+### Brands
 
-As bandeiras suportadas pelo Split são:
+Split Payments supports the following brands:
 
 * Visa
 * MasterCard 
@@ -108,41 +104,38 @@ As bandeiras suportadas pelo Split são:
 * Diners
 * Discover
 
-## Ambientes
+## Environments
 
-O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.
-
-Para mais informações sobre a API Cielo E-Commerce, consulte o [Manual de Integração](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"} da Plataforma.
-
-OBS: Neste manual serão apresentados os contratos de integração da API Cielo E-Commerce, porém o foco da análise será nas operações referentes ao Split de Pagamentos.
+Split Payments is part of Cielo e-commerce API. Transactional operations still are performed by Cielo API. Only a few changes are required to use the Split Payments.
+For more information about the Cielo E-Commerce API, see the [Integration Guide](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"} of the platform.
 
 ### Sandbox
 
-* **API Cielo E-Commerce**: https://apisandbox.cieloecommerce.cielo.com.br/
-* **API Cielo E-Commerce (Consultas)**: https://apiquerysandbox.cieloecommerce.cielo.com.br/
-* **API Split**: https://splitsandbox.braspag.com.br/
-* **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
+* **Cielo e-commerce API**: https://apisandbox.cieloecommerce.cielo.com.br/
+* **Cielo e-commerce query API**: https://apiquerysandbox.cieloecommerce.cielo.com.br/
+* **Split API**: https://splitsandbox.cieloecommerce.cielo.com.br/
+* **Cielo OAUTH2 Server**: https://authsandbox.cieloecommerce.cielo.com.br/
 
-### Produção
+### Production
 
-* **API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/
-* **API Cielo E-Commerce (Consultas)**: https://apiquery.cieloecommerce.cielo.com.br/
-* **API Split**: https://split.braspag.com.br/
-* **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
+* **Cielo e-commerce API**: https://api.cieloecommerce.cielo.com.br/
+* **Cielo e-commerce query API**: https://apiquery.cieloecommerce.cielo.com.br/
+* **Split API**: https://split.cieloecommerce.cielo.com.br/
+* **Cielo OAUTH2 Server**: https://auth.cieloecommerce.cielo.com.br/
 
-## Autenticação
+## Authentication
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API Cielo e-Commerce e à API do Split.
+The Split Payments uses as security the [OAUTH2](https://oauth.net/2/){: target="_blank"} protocol. Because of that, Cielo e-Commerce API and the Split API require an access token.
 
-Para obter um token de acesso:
+To get an access token:
 
-1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
-2. Codifique o resultado da concatenação em Base64.  
-3. Realize uma requisição ao servidor de autorização:  
+1. Concatenate the ClientId and ClientSecret: `ClientId:ClientSecret`.
+2. Encode the concatenation result in Base64.
+3. Perform a request to the authorization server:
 
 **Request**  
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{oauth2-server}/oauth2/token</span></aside>
 
 ``` shell
 x-www-form-urlencoded
@@ -161,39 +154,35 @@ grant_type=client_credentials
 }
 ```
 
-> O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
+> ClientId is the same used in integration with the Cielo E-Commerce API, known as MerchantId. The Mediator provides the ClientSecret.
 
-O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
+The token in the response body (access_token) must be used in any request to the Cielo e-Commerce API or the Split API as an authorization key. It is valid for 20 minutes. A new token must be created when it expires.
 
-## Integração
+## Integration
 
-### Autorização  
+### Authorization  
 
-A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.
+The authorization of a transaction in Split Payments must be performed through the Cielo E-Commerce API following the same contracts described in the platform docs.
 
-Porém, para indentificar que a transação enviada se trata de uma transação de Split de Pagamentos, deve-se modificar o tipo de pagamento utilizado, conforme abaixo:
+However, to indicate that the transaction sent is a Split Payments transaction, you must modify the payment type used, as follows:
 
-|                     | **Cartão de Crédito**  | **Cartão de Débito**  |
-|---------------------|------------------------|-----------------------|
-| **Transação Comum** | CreditCard             | DebitCard             |
-| **Transação Split** | SplittedCreditCard     | SplittedDebitCard     |
+|                         | **Credit Card**        | **Debit Card**        |
+|-------------------------|------------------------|-----------------------|
+| **Regular Transaction** | CreditCard             | DebitCard             |
+| **Split Transaction**   | SplittedCreditCard     | SplittedDebitCard     |
 
-> **Em breve estarão disponíveis**:
->
-> Boleto
-
-Exemplo:
+Example:
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{cielo-ecommerce-api}/1/sales/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
 {
    "MerchantOrderId":"2014111703",
    "Customer":{
-      "Name":"Comprador"
+      "Name":"Buyer"
    },
    "Payment":{
      "Type":"SplittedCreditCard",
@@ -202,7 +191,7 @@ Exemplo:
      "SoftDescriptor":"Marketplace",
      "CreditCard":{
          "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
+         "Holder":"Test Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa"
@@ -217,7 +206,7 @@ Exemplo:
 {
     "MerchantOrderId": "2014111703",
     "Customer": {
-        "Name": "Comprador"
+        "Name": "Buyer"
     },
     "Payment": {
         "ServiceTaxAmount": 0,
@@ -228,7 +217,7 @@ Exemplo:
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "123412******1231",
-            "Holder": "Teste Holder",
+            "Holder": "Test Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa"
@@ -247,48 +236,31 @@ Exemplo:
         "PaymentId": "56b0abb3-c3e8-4383-bffd-d99ef81b13a5",
         "Type": "SplittedCreditCard",
         "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/56b0abb3-c3e8-4383-bffd-d99ef81b13a5"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/56b0abb3-c3e8-4383-bffd-d99ef81b13a5/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/56b0abb3-c3e8-4383-bffd-d99ef81b13a5/void"
-            }
-        ]
+        "Country": "BRA"
     }
 }
 ```
 
-Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
+By informing a payment type related to Split, the Cielo e-Commerce API automatically identifies the transaction as referring to the Split Payments and performs its transactional flow.
 
-Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
+If the transaction sent is set for automatic capture, the node containing the split rules must also be sent. Otherwise, the transaction will be split between Mediator and Marketplace. Subsequently, Marketplace can send new split rules to the transaction through Split API, as long as it is within the allowed time period.
 
-**Exemplo 1)**  
+**Example 1)**  
 
-Transação no valor de **R$100,00**, com captura automática, sem o nó contendo as regras de divisão.
+Transaction of **R$100.00**, with automatic capture, without the split rules node.
 
-**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.
+**Mediator Rates**: 2% MDR + R$0.10 of Fixed fee.
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{cielo-ecommerce-api}/1/sales/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
 {
    "MerchantOrderId":"2014111703",
    "Customer":{
-      "Name":"Comprador"
+      "Name":"Buyer"
    },
    "Payment":{
      "Type":"SplittedCreditCard",
@@ -298,7 +270,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
      "SoftDescriptor":"Marketplace",
      "CreditCard":{
          "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
+         "Holder":"Test Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa"
@@ -313,7 +285,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 {
     "MerchantOrderId": "2014111703",
     "Customer": {
-        "Name": "Comprador"
+        "Name": "Buyer"
     },
     "Payment": {
         "SplitPayments": [
@@ -340,7 +312,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "123412******1231",
-            "Holder": "Teste Holder",
+            "Holder": "Test Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa"
@@ -361,50 +333,33 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
         "PaymentId": "728e4d86-1806-4a1d-89b1-8139ff0769aa",
         "Type": "SplittedCreditCard",
         "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/728e4d86-1806-4a1d-89b1-8139ff0769aa/split"
-            },
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/728e4d86-1806-4a1d-89b1-8139ff0769aa"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/728e4d86-1806-4a1d-89b1-8139ff0769aa/void"
-            }
-        ]
+        "Country": "BRA"
     }
 }
 ```
 
-Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
+In this case, Marketplace receives the amount of the transaction, deducting the MDR agreed with Mediator. As previously stated, the fixed fee agreed between Marketplace and Mediator is computed directly on the schedule of both parties.
 
 ![SplitSample002](https://developercielo.github.io/images/split/split002.png)
 
-**Exemplo 2)**  
+**Example 2)**  
 
-Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
+Transaction of **R$100.00**, with the split rules node.
 
-**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
+**Mediator Rates**: 2% MDR + R$0.10 of fixed fee.  
+**Marketplace Rates to Subordinate 01**: 5% MDR (2% from MDR of Mediator included) + 0.30 of fixed fee.
+**Marketplace Rates to Subordinate 02**: 4% MDR (2% from MDR of Mediator included) + 0.15 of fixed fee. 
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{cielo-ecommerce-api}/1/sales/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
 {
   "MerchantOrderId":"2014111701",
   "Customer":{
-      "Name":"Comprador"
+      "Name":"Buyer"
    },
   "Payment":{
       "Type":"SplittedCreditCard",
@@ -414,7 +369,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
       "Capture": true,
       "CreditCard":{
           "CardNumber":"4551870000000181",
-          "Holder":"Teste Holder",
+          "Holder":"Test Holder",
           "ExpirationDate":"12/2021",
           "SecurityCode":"123",
           "Brand":"Visa"
@@ -447,7 +402,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 {
     "MerchantOrderId": "2014111701",
     "Customer": {
-        "Name": "Comprador"
+        "Name": "Buyer"
     },
     "Payment": {
         "SplitPayments": [
@@ -496,7 +451,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "455187******0181",
-            "Holder": "Teste Holder",
+            "Holder": "Test Holder",
             "ExpirationDate": "12/2021",
             "SaveCard": false,
             "Brand": "Visa"
@@ -517,46 +472,29 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
         "PaymentId": "ef7a7cf9-b66b-4772-b022-052bdcf3e9b0",
         "Type": "SplittedCreditCard",
         "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/ef7a7cf9-b66b-4772-b022-052bdcf3e9b0/split"
-            },
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ef7a7cf9-b66b-4772-b022-052bdcf3e9b0"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ef7a7cf9-b66b-4772-b022-052bdcf3e9b0/void"
-            }
-        ]
+        "Country": "BRA"
     }
 }
 ```
 
-Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada participante.
+These are how the splits happened and how the schedules of each participant were set.
 
 ![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
-### Modelos de Split
+### Split Models
 
-O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
+Split Payments provides two models for dividing the transaction between the participants:
 
-| Tipo                       | Descrição                                                                                                                          |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Split Transacional**     | O **Marketplace** envia na autorização (captura automática) ou no momento de captura as regras de divisão.                         |
-| **Split Pós-Transacional** | O **Marketplace** envia as regras de divisão após a captura da transação.
+| Type                         | Description                                                                                                                        |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| **Transactional Split**      | The **Marketplace** sends the split rules on capture or on authorization (when capture is automatic).                              |
+| **Post-transactional Split** | The **Marketplace** sends the split rules after the transaction capture.
 
-> No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
+> In Split Payments, the split is performed only for captured transactions. The split rules are only considered for authorizations with automatic capture or during the transaction capture. If informed at the time of authorization without automatic capture, the split rules will be ignored.
 
-#### Transacional
+#### Transactional
 
-No Split Transacional é necessário que o Marketplace envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
+At Transactional Split is required that the Marketplace sends an additional node at the Cielo E-Commerce API integration with the transaction division rules, according with previous examples.
 
 ```json
 "SplitPayments":[
@@ -571,19 +509,19 @@ No Split Transacional é necessário que o Marketplace envie um "nó" adicional 
 ]
 ```
 
-| Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
+| Property                             | Description                                                                                               | Type    | Size | Required |
 |-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
-| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
-| `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.             | Inteiro | -       | Sim         |
-| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
-| `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
+| `SplitPayments.SubordinateMerchantId`   | **Subordinate** **MerchantId** (Identifier).                                                      | Guid    | 36      | Yes         |
+| `SplitPayments.Amount`                  | **Subordinate**'s part of transaction, in cents (BRL).             | Integer | -       | Yes         |
+| `SplitPayments.Fares.Mdr`               | **Marketplace MDR(%)** to be discounted from **Subordinate**'s part of transaction..     | Decimal | -       | No         |
+| `SplitPayments.Fares.Fee`               | **Fixed Fee (BRL)**, in cents, to be discounted from **Subordinate**'s part of transaction. | Integer | -       | No         |
 
-Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:
+As response, Cielo E-Commerce API returns a node containing the transaction split rules used and the amounts to be paid to Marketplace and its Subordinates:
 
 ```json
 "SplitPayments": [
     {
-        "SubordinateMerchantId": "MID Subordinate 01",
+        "SubordinateMerchantId": "Subordinate 01 MID",
         "Amount": 10000,
         "Fares": {
             "Mdr": 5,
@@ -591,11 +529,11 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
         },
         "Splits": [                
             {
-                "MerchantId": "MID do Marketplace",
+                "MerchantId": "Marketplace MID",
                 "Amount": 500,
             },
             {
-                "MerchantId": "MID Subordinate 01",
+                "MerchantId": "Subordinate 01 MID",
                 "Amount": 9500,
             }
         ]
@@ -603,18 +541,18 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
 ]
 ```
 
-| Propriedade                                  | Descrição                                                                                   | Tipo   | Tamanho | Obrigatório |
+| Property                                  | Description                                                                                   | Type   | Size | Required |
 |----------------------------------------------|---------------------------------------------------------------------------------------------|--------|---------|-------------|
-| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
-| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
+| `SplitPayments.Splits.SubordinateMerchantId` | **Subordinate**'s or **Marketplace**'s **MerchantId** (Identifier).                       | Guid   | 36      | Yes         |
+| `SplitPayments.Splits.Amount`                | Result of the calculation of the transaction part to be paid to the **Subordinate** or **Marketplace**, with fares already discounted (MDR and Fixed Fees) | Integer | -      | Yes         |
 
-**Exemplo 3)**  
+**Example 3)**  
 
-Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
+Transaction with a total amount of **BRL 100.00** with split rules node and Marketplace as part of the sale.
 
-**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.  
+**Cielo Fees**: 2% MDR + BRL 0.30 of Fixed Fee.  
+**Marketplace Fees agreed with Subordinate 01**: 5% MDR (2% from MDR of Cielo included) + 0.30 of fixed fee.  
+**Marketplace Fees agreed with Subordinate 02**: 4% MDR (2% from MDR of Cielo included) + 0.15 of fixed fee.  
 
 **Request**
 
@@ -625,7 +563,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 {
   "MerchantOrderId":"2014111701",
   "Customer":{
-      "Name":"Comprador"
+      "Name":"Buyer"
    },
   "Payment":{
       "Type":"SplittedCreditCard",
@@ -635,7 +573,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
       "Capture": true,
       "CreditCard":{
           "CardNumber":"4551870000000181",
-          "Holder":"Teste Holder",
+          "Holder":"Test Holder",
           "ExpirationDate":"12/2021",
           "SecurityCode":"123",
           "Brand":"Visa"
@@ -672,7 +610,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 {
     "MerchantOrderId": "2014111701",
     "Customer": {
-        "Name": "Comprador"
+        "Name": "Buyer"
     },
     "Payment": {
         "SplitPayments": [
@@ -735,7 +673,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "455187******0181",
-            "Holder": "Teste Holder",
+            "Holder": "Test Holder",
             "ExpirationDate": "12/2021",
             "SaveCard": false,
             "Brand": "Visa"
@@ -756,41 +694,24 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
         "PaymentId": "34895364-e269-47ad-b779-7e122ed40a9a",
         "Type": "SplittedCreditCard",
         "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/34895364-e269-47ad-b779-7e122ed40a9a/split"
-            },
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a/void"
-            }
-        ]
+        "Country": "BRA"
     }
 }
 ```
 
-Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cálculos corretamente.
+In the example, the Marketplace is a participant in the sale, hence its not necessary to inform the rates to be discounted from the Marketplace's part in the transaction. The Split Payments system identifies the Marketplace's part using its MerchantId (identifier) and perform the calculations utilizing the agreed rates and fees.
 
 ![SplitSample004](https://developercielo.github.io/images/split/split004.png)
 
-#### Pós-Transacional
+#### Post-Transactional
 
-Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.
+In this model the Marketplace can send the transaction split rules after it is captured.
 
-A divisão pós-transacional é possível somente para transações com **Cartão de Crédito** e poderá ser realizada dentro de um intervalo de tempo determinado a partir da data de captura da transação.
+For transactions made with **Credit Card**, when the Marketplace has a standard payout scheme, the post-transactional split can be made within a period of **20 days** after the transaction. In the case the Marketplace owns a personalized scheme, the period must be negotiated between the Marketplace and Cielo.
 
-Para transações com **Cartão de Crédito**, este período é de **20 dias** se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
+For transactions made with **Debit Card**, if the Marketplace chooses, the post-transactional split can be made within a period of **1 day**.
 
-> O período para redividir uma transação poderá ser alterado pela Braspag(Facilitador).
+> The period of post-transactional split can be changed by Cielo.
 
 **Request**  
 
@@ -864,13 +785,13 @@ Para transações com **Cartão de Crédito**, este período é de **20 dias** s
 }
 ```
 
-O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
+Post-Transactional Split node at the contract, both in the request and in the response, is the same as the Transactional Split, previously presented.
 
-> O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para Cartão de Crédito se estiver enquadrado no regime de pagamento padrão. Para transações com Cartão de Débito a divisão poderá ser realizada somente no momento transacional.
+> The Marketplace can split the transaction more than once, since it is in the allowed period.
 
-### Consulta
+### Query
 
-Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
+To query a transaction, use the API Cielo E-Commerce query service.
 
 **Request**
 
@@ -889,7 +810,7 @@ x-www-form-urlencoded
     "MerchantOrderId": "2014111701",
     "IsSplitted": true,
     "Customer": {
-        "Name": "Comprador",
+        "Name": "Buyer",
         "Address": {}
     },
     "Payment": {
@@ -900,7 +821,7 @@ x-www-form-urlencoded
         "Authenticate": false,
         "CreditCard": {
             "CardNumber": "455187******0181",
-            "Holder": "Teste Holder",
+            "Holder": "Test Holder",
             "ExpirationDate": "12/2021",
             "Brand": "Visa"
         },
@@ -917,23 +838,6 @@ x-www-form-urlencoded
         "Country": "BRA",
         "Provider": "Simulado",
         "Status": 2,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/507821c5-7067-49ff-928f-a3eb1e256148"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/507821c5-7067-49ff-928f-a3eb1e256148/void"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "sales.split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions507821c5-7067-49ff-928f-a3eb1e256148/split"
-            }
-        ],
         "SplitPayments": [
             {
                 "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
@@ -976,13 +880,13 @@ x-www-form-urlencoded
 }
 ```
 
-### Captura
+### Capture
 
-Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace.
+At capturing a Split Payments transaction, the transaction split rules must be informed. If the rules are not informed, it is assumed that all the transaction amount is from the Marketplace.
 
-#### Captura Total
+#### Total Capture
 
-Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
+When performing a total capture of a transaction, the sum of all the amounts of each participant must equals the total amount of the transaction that was sent at the moment of authorization.
 
 **Request**
 
@@ -1060,25 +964,13 @@ Na captura total de uma transação, o somatório dos valores de participação 
                 }
             ]
         }
-    ],
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/db14bf98-5ebd-43b5-8ba6-205c30ec1c16"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/db14bf98-5ebd-43b5-8ba6-205c30ec1c16/void"
-        }
     ]
 }
 ```
 
-#### Captura Parcial
+#### Partial Capture
 
-Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.
+When performing a partial capture of a transaction, the sum of the amount of each participant should equals the total amount captured.
 
 **Request**
 
@@ -1089,7 +981,7 @@ x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
-O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00.
+The following example captures partially the amount of BRL 80.00 of a transaction with the authorized value of BRL 100.00.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
@@ -1165,23 +1057,11 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
                 }
             ]
         }
-    ],
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/7bd7fc3a-4385-45cf-8a45-ec0349716b68"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/7bd7fc3a-4385-45cf-8a45-ec0349716b68/void"
-        }
     ]
 }
 ```
 
-Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
+As previously explained, if a full or partial capture is performed without informing the split rules, Split interprets that the entire amount is destined for the Marketplace itself.
 
 **Request**
 
@@ -1218,29 +1098,17 @@ x-www-form-urlencoded
                 }
             ]
         }
-    ],
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec/void"
-        }
     ]
 }
 ```
 
-### Cancelamento
+### Void
 
-Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
+To void a Split Payments transaction, the Marketplace must inform, to a partial void, what is the amount to be voided to each transaction participant. To perform a total void, this information is not required, because, in this case, the total amount of each participant will be voided.
 
-#### Cancelamento Total
+#### Total Void
 
-No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
+When performing a total void of a transaction, the total amount of the transaction will be voided and, thereafter, each amount and commission of each participant.
 
 **Request**
 
@@ -1262,13 +1130,6 @@ x-www-form-urlencoded
     "ProviderReturnMessage": "Operation Successful",
     "ReturnCode": "0",
     "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/019efd18-c69a-4107-b5d7-e86564460cc4"
-        }
-    ],
     "VoidSplitPayments": [
         {
             "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
@@ -1302,9 +1163,9 @@ x-www-form-urlencoded
 }
 ```
 
-#### Cancelamento Parcial
+#### Partial Void
 
-No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.
+In the partial void, the sum of the voided amounts for each subordinate shall be equal to the amount of the partial void.
 
 **Request**
 
@@ -1315,7 +1176,7 @@ x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
-No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.
+In the following example the amount to be voided is BRL 25.00 of a transaction with a total amount of BRL 100.00.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
@@ -1335,10 +1196,10 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 }
 ```
 
-| Propriedade                                 | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
+| Property                                 | Description                                                                                               | Type    | Size | Required |
 |---------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
-| `VoidSplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
-| `VoidedAmount.Amount`                       | Total ou parte do valor destinado ao **Subordinado** a ser cancelado, em centavos.                      | Inteiro | -       | Sim         |
+| `VoidSplitPayments.SubordinateMerchantId`   | **Subordinate MerchantId** (Identifier).                                                      | Guid    | 36      | Yes         |
+| `VoidedAmount.Amount`                       | Total or part of the **Subordinate**'s amount to be voided, in cents.                      | Integer | -       | Yes         |
 
 **Response**
 
@@ -1351,18 +1212,6 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
     "ProviderReturnMessage": "Operation Successful",
     "ReturnCode": "0",
     "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3/void"
-        }
-    ],
     "VoidSplitPayments": [
         {
             "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
@@ -1396,7 +1245,7 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 }
 ```
 
-Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado, conforme exemplo abaixo:
+It is not required to inform all Subordinates in the partial void. It is possible to inform only the subordinates that there if the intention to void the total amount ou just a partial amount. In the example before, the second subordinate could be informed, as shown below:
 
 ```json
 {
@@ -1409,83 +1258,83 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 }
 ```
 
-> Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
+> By partially voiding the part of a subordinate, the Fixed Fee the Marketplace charges is voided proportionally.
 
-## Agenda Financeira
+## Financial Schedule
 
-No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).
+In the Split Payments, the Mediator is responsible for transferring the payout amounts (settlement) to each participant of a sale.
 
-A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
+The Mediator will generate a financial schedule that can be consulted at any time by Marketplace and Subordinates.
 
-A agenda é composta por eventos de Crédito e Débito que são gerados de acordo com as operações efetuadas e o regime de pagamento acordado.
+The schedule is composed of Credit and Debit events generated according to the operations performed and the agreed payment scheme.
 
-Eventos de Crédito:
+Credit events:
 
-| Id | Evento                         | Descrição                                                                                               |
+| Id | Event                          | Description                                                                                             |
 |----|--------------------------------|---------------------------------------------------------------------------------------------------------|
-| 1  | `Credit`                       | Lançamento de crédito das parcelas de uma transação.                                                    |
-| 3  | `FeeCredit`                    | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
-| 5  | `RefundCredit`                 | Lançamento de crédito devido a um cancelamento.                                                         |
-| 7  | `ChargebackCredit`             | Lançamento de crédito devido a um chargeback.                                                           |
-| 9  | `UndoChargebackCredit`         | Lançamento de crédito para reversão de um chargeback.                                                   |
-| 11 | `AntiFraudFeeCredit`           | Lançamento de crédito referente à transação de antifraude.                                              |
-| 13 | `AntiFraudFeeWithReviewCredit` | Lançamento de crédito referente à transação de antifraude com revisão manual.                           |
-| 15 | `AdjustmentCredit`             | Lançamento de um crédito como ajuste.                                                                   |
-| 17 | `ChargebackReversalCredit`     | Lançamento de crédito referente a reversão de um chargeback.                                            |
-| 19 | `AnticipationCredit`           | Lançamento de crédito referente a antecipação.                                                          |
-| 20 | `AnticipationCommissionCredit` | Lançamento de crédito referente a comissão de uma antecipação.                                          |
+| 1  | `Credit`                       | Credit of installments of a transaction.                                                                |
+| 3  | `FeeCredit`                    | Fixed Rate credit agreed between Marketplace and Mediator.                                              |
+| 5  | `RefundCredit`                 | Credit caused by a cancellation.                                                                        |
+| 7  | `ChargebackCredit`             | Credit caused by a chargeback.                                                                          |
+| 9  | `UndoChargebackCredit`         | Credit to undo a chargeback.                                                                            |
+| 11 | `AntiFraudFeeCredit`           | Credit related to an anti-fraud transaction.                                                            |
+| 13 | `AntiFraudFeeWithReviewCredit` | Credit related to an anti-fraud transaction with a manual review.                                       |
+| 15 | `AdjustmentCredit`             | Credit as an adjustment.                                                                                |
+| 17 | `ChargebackReversalCredit`     | Credit related to a chargeback reversion.                                                               |
+| 19 | `AnticipationCredit`           | Credit related to anticipation.                                                                         |
+| 20 | `AnticipationCommissionCredit` | Credit related to an anticipation commission.                                                           |
 
-Eventos de Débito:
+Debit events:
 
-| Id | Evento                        | Descrição                                                                                               |
+| Id | Event                         | Description                                                                                             |
 |----|-------------------------------|---------------------------------------------------------------------------------------------------------|
-| 2  | `Debit`                       | Lançamento de débito das parcelas de uma transação.                                                     |
-| 4  | `FeeDebit`                    | Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).             |
-| 6  | `RefundDebit`                 | Lançamento de débito devido a um cancelamento.                                                          |
-| 8  | `ChargebackDebit`             | Lançamento de débito devido a um chargeback.                                                            |
-| 10 | `UndoChargebackDebit`         | Lançamento de débito para reversão de um chargeback.                                                    |
-| 12 | `AntiFraudFeeDebit`           | Lançamento de débito referente à transação de antifraude.                                               |
-| 14 | `AntiFraudFeeWithReviewDebit` | Lançamento de débito referente à transação de antifraude com revisão manual.                            |
-| 16 | `AdjustmentDebit`             | Lançamento de um débito como ajuste.                                                                    |
-| 18 | `ChargebackReversalDebit`    | Lançamento de débito referente a reversão de um chargeback.                                             |
-| 22 | `AnticipationCommissionDebit` | Lançamento de débito referente a comissão de uma antecipação.                                           |
+| 2  | `Debit`                       | Debit of installments of a transaction.                                                                 |
+| 4  | `FeeDebit`                    | Fixed Rate debit agreed between Marketplace and Mediator.                                               |
+| 6  | `RefundDebit`                 | Debit caused by a cancellation.                                                                         |
+| 8  | `ChargebackDebit`             | Debit caused by a chargeback.                                                                           |
+| 10 | `UndoChargebackDebit`         | Debit to undo a chargeback.                                                                             |
+| 12 | `AntiFraudFeeDebit`           | Debit related to an anti-fraud transaction.                                                             |
+| 14 | `AntiFraudFeeWithReviewDebit` | Debit related to an anti-fraud transaction with a manual review.                                        |
+| 16 | `AdjustmentDebit`             | Debit as an adjustment.                                                                                 |
+| 18 | `ChargebackReversalDebit`     | Debit related to a chargeback reversion.                                                                |
+| 22 | `AnticipationCommissionDebit` | Debit related to an anticipation commission.                                                            |
 
-Um evento poderá estar em um dos seguintes status na agenda financeira:
+An event may be in one of the following statuses in the financial schedule:
 
-* **Scheduled**: Agendado.
-* **Pending**: Aguardando confirmação de liquidação.
-* **Settled**: Liquidado.
-* **Error**: Erro de liquidação na instituição financeira.
-* **WaitingForAdjustementDebit**: Aguardando liquidação do ajuste de débito associado.
-* **Anticipated**: Evento antecipado.
+* **Scheduled**
+* **Pending**: Waiting for settlement confirmation.
+* **Settled**
+* **Error**: Settlement error at Financial Institution.
+* **WaitingForAdjustementDebit**: Waiting for associated debit adjustment settlement.
+* **Anticipated**: Anticipated event.
 
-### Consultar Eventos
+### Event Search
 
-A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.
+Split API provides an endpoint to discover the pending amount a merchant has to receive within a period.
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate={initialDate}&finalForecastedDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/events?initialForecastedDate={initialDate}&finalForecastedDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
 
-| Parâmetro                  | Descrição                                                                            | Tipo    | Formato    | Obrigatório | Valor Padrão          |
-|----------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|-----------------------|
-| `InitialForecastedDate`    | Data de pagamento prevista inicial a ser consultada.                                 | Data    | YYYY-MM-DD | Não         | CurrentDate           |
-| `FinalForecastedDate`      | Data de pagamento prevista final a ser consultada.                                   | Data    | YYYY-MM-DD | Não         | InitialForecastedDate |
-| `InitialPaymentDate`       | Data de pagamento inicial a ser consultada.                                          | Data    | YYYY-MM-DD | Não         | -                     |
-| `FinalPaymentDate`         | Data de pagamento final a ser consultada.                                            | Data    | YYYY-MM-DD | Não         | InitialPaymentDate    |
-| `PageIndex`                | Página a ser consultada.                                                             | Inteiro | -          | Não         | 1                     |
-| `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.                                   | Inteiro | -          | Não         | 25                    |
-| `EventStatus`              | Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit - Anticipated].| String  | -          | Não         | Todos                 |
-| `IncludeAllSubordinates`   | Inclui todos os subordinados na consulta.                                            | Boolean | -          | Não         | false                 | 
-| `MerchantIds`              | Lojas a serem consideradas na consulta.                                              | Guid    | -          | Não         | -                     |
+| Parameter                  | Description                                                                                                | Type    | Format     | Required    | Default value         |
+|----------------------------|----------------------------------------------------------------------------------------------------------- |---------|------------|-------------|-----------------------|
+| `InitialForecastedDate`    | Filters by the forecasted initial payment date.                                                            | Date    | YYYY-MM-DD | No          | CurrentDate           |
+| `FinalForecastedDate`      | Filters by the forecasted final payment date.                                                              | Date    | YYYY-MM-DD | No          | InitialForecastedDate |
+| `InitialPaymentDate`       | Filters by the initial payment date.                                                                       | Date    | YYYY-MM-DD | No          | -                     |
+| `FinalPaymentDate`         | Filters by the final payment date.                                                                         | Date    | YYYY-MM-DD | No          | InitialPaymentDate    |
+| `PageIndex`                | Selected page.                                                                                             | Int     | -          | No          | 1                     |
+| `PageSize`                 | Page size. Accepted values: 25, 50, 100.                                                                   | Int     | -          | No          | 25                    |
+| `EventStatus`              | Filters by event status [Scheduled - Pending - Settled - Error - WaitingForAdjustmentDebit - Anticipated]. | String  | -          | No          | All statuses          |
+| `IncludeAllSubordinates`   | Includes all subordinates in the response.                                                                 | Boolean | -          | No          | false                 | 
+| `MerchantIds`              | Filters by Merchant IDs.                                                                                   | Guid    | -          | No          | -                     |
 
 **Resquest**
 
-**Por Data Prevista de Pagamento**
+**By forecasted payment date**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate=2017-12-01&finalForecastedDate=2018-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/events?initialForecastedDate=2017-12-01&finalForecastedDate=2018-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-**Por Data de Pagamento**
+**Por payment date**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialPaymentDate=2018-08-22&finalPaymentDate=2018-08-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/events?initialPaymentDate=2018-08-22&finalPaymentDate=2018-08-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -1579,41 +1428,41 @@ x-www-form-urlencoded
 }
 ```
 
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho |
+| Property                          | Description                                                                                             | Type    | Size    |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `Schedules[].Id`                  | Identificador do evento na agenda financiera.                                                           | Guid    | 36      |
-| `Schedules[].PaymentId`           | Identificador da transação.                                                                             | Guid    | 36      |
-| `Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
-| `Schedules[].PaymentDate`         | Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)                | Data    | -       |
-| `Schedules[].ForecastedDate`      | Data de liquidação prevista.                                                                            | Data    | -       |
-| `Schedules[].Installments`        | Número de parcelas da transação.                                                                        | Inteiro | -       |
-| `Schedules[].InstallmentAmount`   | Valor, em centavos, da parcela a liquidar.                                                              | Inteiro | -       |
-| `Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
-| `Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
-| `Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
-| `Schedules[].EventStatus`         | Status do evento. [Scheduled - Pending - Settled - Error - WaitingForAdjustementDebit]                  | String  | -       |
+| `Schedules[].Id`                  | Event ID on financial schedule.                                                                         | Guid    | 36      |
+| `Schedules[].PaymentId`           | Transaction ID.                                                                                         | Guid    | 36      |
+| `Schedules[].MerchantId`          | Merchant ID.                                                                                            | Guid    | 36      |
+| `Schedules[].PaymentDate`         | Settlement date. This property is available only when the payment has finished (EventStatus = Settled). | Date    | -       |
+| `Schedules[].ForecastedDate`      | Forecasted settlement date.                                                                             | Date    | -       |
+| `Schedules[].Installments`        | Number of installments of a transaction.                                                                | Int     | -       |
+| `Schedules[].InstallmentAmount`   | Value in cents of the installment to be settled.                                                        | Int     | -       |
+| `Schedules[].InstallmentNumber`   | Installment to be settled.                                                                              | Int     | -       |
+| `Schedules[].Event`               | Event ID.                                                                                               | Int     | -       |
+| `Schedules[].EventDescription`    | Event description.                                                                                      | String  | -       |
+| `Schedules[].EventStatus`         | Event status. [Scheduled - Pending - Settled - Error - WaitingForAdjustementDebit]                      | String  | -       |
 
-### Consultar Transações
+### Fetching Transaction
 
-O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
+Split Payments provides an interface to query the financial schedule of multiple or a specific transaction.
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate={initialDate}&finalCaptureDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/transactions?initialCaptureDate={initialDate}&finalCaptureDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
 
-| Parâmetro               | Descrição                                                                     | Tipo    | Formato    | Obrigatório | Valor Padrão       |
-|-------------------------|-------------------------------------------------------------------------------|---------|------------|-------------|--------------------|
-| `InitialCaptureDate`    | Data inicial a ser consultada, considerando a data de captura das transações. | Data    | YYYY-MM-DD | Não         | CurrentDate        |
-| `FinalCaptureDate`      | Data final a ser consultada, considerando a data de captura das transações.   | Data    | YYYY-MM-DD | Não         | InitialCaptureDate |
-| `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1                  |
-| `PageSize`              | Tamanho da página.  Valores possíveis: 25, 50, 100.                           | Inteiro | -          | Não         | 25                 |
-| `EventStatus`           | Status do evento [Scheduled - Pending - Settled - Error - Anticipated].                     | String  | -          | Não         | Todos              |
-| `IncludeAllSubordinates`| Inclui todos os subordinados na consulta.                                     | Boolean | -          | Não         | false              |
-| `MerchantIds`           | Lojas a serem consideradas na consulta.                                       | Guid    | -          | Não         | -                  |
+| Parameter                  | Description                                                                    | Type    | Format     | Required    | Default value         |
+|----------------------------|--------------------------------------------------------------------------------|---------|------------|-------------|-----------------------|
+| `InitialCaptureDate`       | Filters by the initial capture date.                                           | Date    | YYYY-MM-DD | No          | -                     |
+| `FinalCaptureDate`         | Filters by the final capture date.                                             | Date    | YYYY-MM-DD | No          | InitialCaptureDate    |
+| `PageIndex`                | Selected page.                                                                 | Int     | -          | No          | 1                     |
+| `PageSize`                 | Page size. Accepted values: 25, 50, 100.                                       | Int     | -          | No          | 25                    |
+| `EventStatus`              | Filters by event status [Scheduled - Pending - Settled - Error - Anticipated]. | String  | -          | No          | All statuses          |
+| `IncludeAllSubordinates`   | Includes all subordinates in the response.                                     | Boolean | -          | No          | false                 | 
+| `MerchantIds`              | Filters by Merchant IDs.                                                       | Guid    | -          | No          | -                     |
 
-Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds". Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
+To search for multiple merchants, repeat the "merchantIds" parameter. If this parameter is no set, it will be considered the merchant used for authentication to the Split API.
 
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate=2017-12-01&finalCaptureDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/transactions?initialCaptureDate=2017-12-01&finalCaptureDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -1678,27 +1527,27 @@ x-www-form-urlencoded
 }
 ```
 
-| Propriedade                                      | Descrição                                                                                               | Tipo    | Tamanho |
+| Property                                         | Description                                                                                             | Type    | Size    |
 |--------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `Transactions[].PaymentId`                       | Identificador da transação.                                                                             | Guid    | 36      |
-| `Transactions[].CaptureDate`                     | Data de captura da transação.                                                                           | Data    | -       |
-| `Transactions[].Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
-| `Transactions[].Schedules[].PaymentDate`         | Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)                | Data    | -       |
-| `Transactions[].Schedules[].ForecastedDate`      | Data de liquidação prevista.                                                                            | Data    | -       |
-| `Transactions[].Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | -       |
-| `Transactions[].Schedules[].InstallmentsAmount`  | Valor, em centavos, da parcela a liquidar.                                                              | Inteiro | -       |
-| `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
-| `Transactions[].Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
-| `Transactions[].Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
-| `Transactions[].Schedules[].EventStatus`         | Status do evento. [Scheduled - Pending - Settled - Error - Anticipated]                                               | String  | -       |
+| `Transactions[].PaymentId`                       | Transaction ID.                                                                                         | Guid    | 36      |
+| `Transactions[].CaptureDate`                     | Capture date.                                                                                           | Date    | -       |
+| `Transactions[].Schedules[].MerchantId`          | Merchant ID.                                                                                            | Guid    | 36      |
+| `Transactions[].Schedules[].PaymentDate`         | Settlement date. This property is available only when the payment has finished (EventStatus = Settled). | Date    | -       |
+| `Transactions[].Schedules[].ForecastedDate`      | Forecasted settlement date.                                                                             | Date    | -       |
+| `Transactions[].Schedules[].Installments`        | Number of installments of a transaction.                                                                | Int     | -       |
+| `Transactions[].Schedules[].InstallmentsAmount`  | Value in cents of the installment to be settled.                                                        | Int     | -       |
+| `Transactions[].Schedules[].InstallmentNumber`   | Installment to be settled.                                                                              | Int     | -       |
+| `Transactions[].Schedules[].Event`               | Event ID.                                                                                               | Int     | -       |
+| `Transactions[].Schedules[].EventDescription`    | Event description.                                                                                      | String  | -       |
+| `Transactions[].Schedules[].EventStatus`         | Event status. [Scheduled - Pending - Settled - Error - Anticipated]                                     | String  | -       |
 
-Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.
+To search for the schedule of a specific transaction, use the transaction ID in the request.
 
-Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.
+In this case, the MerchantIds and EventStatus filters can be used.
 
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -1743,39 +1592,39 @@ x-www-form-urlencoded
 }
 ```
 
-### Ajustes
+### Adjustments
 
-O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
+Split Payments allows credit and debit adjustments on the Subordinates' schedules.
 
-Um ajuste somente será efetivamente liquidado para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.
+An adjustment will only be settled if the participant being debited has a positive balance on the date scheduled for performing the adjustment. Otherwise, the adjustment settlement will be postponed for both parties until the participant being debited has a positive balance to cover the adjustment amount.
 
-**Ex:** Marketplace lança um ajuste a débito de R$100,00 para o Subordinado A com data prevista de cobrança em 17/10/2018.
+**Example:** The Marketplace makes an adjustment to debit BRL 100.00 from Subordinate A, with a forecasted date of collection on 10/17/2018.
 
-**Caso 1)** Subordinado possui saldo positivo na data prevista informada.
+**Case 1)** Subordinate has positive balance on the forecasted date provided.
 
 ![SplitSampleadjustment001](https://braspag.github.io/images/braspag/split/adjustment001.png)
 
-Os valores até o dia 16/10/2018 foram liquidados normalmente.
+The amounts ​​up to 10/16/2018 were normally settled.
 
-Como o subordinado tinha R$150,00 para receber no dia 17/10/2018, o ajuste foi lançado na agenda financeira na data prevista informada e o mesmo receberá R$50,00 devido ao débito do ajuste.
+Since the subordinate had BRL150.00 to receive on 10/17/2018, the adjustment was posted to the financial schedule on the stated date informed, and the Subordinate will receive BRL 50.00 due to the adjustment debit.
 
-O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 17/10/2018.
+The participant to be credited will have the credit on the same date of the debit confirmation, that is, it will receive BRL 150.00 on 10/17/2018.
 
-**Caso 2)** Subordinado não possui saldo positivo na data prevista informada.
+**Caso 2)** Subordinate does not have positive balance on the forecasted date provided.
 
 ![SplitSampleadjustment002](https://braspag.github.io/images/braspag/split/adjustment002.png)
 
-Os valores até o dia 16/10/2018 foram liquidados normalmente.
+The amounts ​​up to 10/16/2018 were normally settled.
 
-O Subordinado tinha a receber apenas R$60,00 no dia 17/10/2018, o que não cobre o valore do ajuste a ser debitado do mesmo.
+The Subordinate had to receive only BRL 60.00 on 10/17/2018, and it does not cover the value of the adjustment to be debited from it.
 
-Neste cenário, os pagamentos do subordinado serão retidos até que o mesmo tenha saldo para cobrir o ajuste, o que ocorre no dia 19/10/2018, onde o acumulado retido é de R$130,00. Com isso, o subordinado receberá R$30,00.
+In this case, subordinate payments will be withheld until it has enough balance to cover the adjustment, which occurs on 10/19/2018, where the accumulated retained amount is BRL 130.00. The subordinate will receive BRL 30.00 then.
 
-O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 19/10/2018.
+The participant to be credited will have the credit on the same date of the debit confirmation, that is, it will receive BRL 150.00 on 10/19/2018.
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/adjustment-api/adjustments/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/adjustment-api/adjustments/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -1785,21 +1634,21 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
     "merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
     "forecastedDate": "2018-09-17",
     "amount": 1000,
-    "description": "Multa por não cumprimento do prazo de entrega no pedido XYZ",
+    "description": "Penalty for failure to comply with the estimated shipping date for order XYZ",
     "transactionId": "717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"
 }
 ```
 
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------| 
-| `merchantIdToDebit`               | Merchant do qual o valor será debitado.                                                                 | Guid    | 36      | Sim         |
-| `merchantIdToCredit`              | Merchant para o qual o valor será creditado.                                                            | Inteiro | -       | Sim         |
-| `forecastedDate`                  | Data prevista para lançamento do ajuste na agenda financeira.                                           | String  | -       | Sim         |
-| `amount`                          | Valor em centavos do ajuste.                                                                            | Inteiro | -       | Sim         |
-| `description`                     | Decrição do ajuste.                                                                                     | String  | 500     | Sim         |
-| `transactionId`                   | Identificador da transação para qual o ajuste está sendo lançado.                                       | Guid    | -       | Não         |
+| Property             | Description                                                       | Type    | Size | Required |
+|----------------------|-------------------------------------------------------------------|---------|------|----------| 
+| `merchantIdToDebit`  | Merchant where the amount will be debited.                        | Guid    | 36   | Yes      |
+| `merchantIdToCredit` | Merchant where the amount will be credited.                       | Int     | -    | Yes      |
+| `forecastedDate`     | Forecasted date to post the adjustment on the financial schedule. | String  | -    | Yes      |
+| `amount`             | Adjustment amount, in cents.                                      | Int     | -    | Yes      |
+| `description`        | Adjustment description.                                           | String  | 500  | Yes      |
+| `transactionId`      | Transaction ID where the adjustment is being posted.              | Guid    | -    | No       |
 
-<aside class="warning">Ao associar o ajuste a uma transação, os envolvidos devem ser participantes da transação.</aside>
+<aside class="warning">The merchants provided on properties `merchantIdToDebit` `merchantIdToCredit` must be participants of the transaction.</aside>
 
 **Response**
 
@@ -1811,30 +1660,30 @@ O participante a ser creditado terá a efetivação do crédito na mesma data de
     "merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
     "forecastedDate": "2018-09-19",
     "amount": 1000,
-    "description": "Multa por não cumprimento do prazo de entrega no pedido",
+    "description": "Penalty for failure to comply with the estimated shipping date for order XYZ",
     "transactionId": "717A0BD0-3D92-43DB-9D1E-9B82DFAFA392",
     "status": "Created"
 }
 ```
 
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------| 
-| `id`                              | Identificador do ajuste.                                                                                | Guid    | 36      | -           |
-| `status`                          | Status do ajustes [Created - Scheduled - Processed - Canceled ].                                        | String  | -       | -           |
+| Property | Description                                                      | Type    | Size    | Required    |
+|----------|------------------------------------------------------------------|---------|---------|-------------| 
+| `id`     | Adjustment ID                                                    | Guid    | 36      | -           |
+| `status` | Adjustment status [Created - Scheduled - Processed - Canceled ]. | String  | -       | -           |
 
 ## Chargeback
 
-No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.
+In Split Payments, the Marketplace can choose whether it will assume the chargeback or pass it on to its Subordinates, as long as it has previously agreed between the participants.
 
-Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é sensibilizado automaticamente na agenda dos mesmos. Caso contrário o chargeback será sensibilizado automaticamente na agenda do Marketplace, como acontece com um Charback Parcial.
+If the Marketplace chooses to pass it on to the Subordinates, the Total Chargeback is automatically posted on their schedule. Otherwise, it will be posted on the Marketplace schedule,  like a partial chargeback.
 
-O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso A API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.  
+The Split API provides an endpoint where the Marketplace can define how to split the chargeback amount among subordinates, case it is a Partial Chargeback.
 
-No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.
+In the example below there was a Partial Chargeback of BRL 60.00 on a transaction with a captured amount of BRL 100.00.
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/chargebacks/{ChargebackId}/splits</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/api/chargebacks/{ChargebackId}/splits</span></aside>
 
 ```json
 [
@@ -1850,10 +1699,10 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 
 ```
 
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `SubordinateMerchantId`           | Identificador do Subordinado.                                                                           | Guid    | 36      |
-| `ChargebackAmount`                | Valor do chargeback que deverá ser repassado ao Subordinado, em centavos.                               | Inteiro | -       |
+| Property                | Description                                                         | Type    | Size    |
+|-------------------------|---------------------------------------------------------------------|---------|---------|
+| `SubordinateMerchantId` | Subordinate ID.                                                     | Guid    | 36      |
+| `ChargebackAmount`      | Chargeback amount that must be passed to the Subordinate, in cents. | Int | -       |
 
 **Response**
 
@@ -1892,23 +1741,16 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 }
 ```
 
-> O Marketplace tem 1 dia, contado a partir da data de efetivação do chargeback, para informar como deseja repassar os valores aos subordinados.
+> The Marketplace has one day, from the date of the chargeback confirmation, to inform how it wants to split the chargeback amounts to the subordinates.
 
-| Propriedade                                | Descrição                                                                                               | Tipo    | Tamanho |
-|--------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `ChargebackSplitPayments.ChargebackSplits` | Lista contendo a divisão do chargeback para cada participante.                                          | Guid    | 36      |
+| Property                                   | Description                                                   | Type    | Size    |
+|--------------------------------------------|---------------------------------------------------------------|---------|---------|
+| `ChargebackSplitPayments.ChargebackSplits` | List containing the split of chargeback for each participant. | Guid    | 36      |
 
-## Liquidação
+## Settlement
 
-### Trava
+### Escrow
 
-## Notificação
+## Notification
 
-**Em breve** será disponibilizado o serviço de notificação que informará os eventos que ocorrerem em uma transação de Split:
-
-* Geração de agenda
-* Pré-chargeback
-* Chargeback
-* Liquidação
-
-Para ser notificado com relação ao status de uma transação, utilize o [serviço de notificação](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação) da API Cielo E-Commerce.
+To be notified about the status of a transaction, use the Cielo E-Commerce API [notification service](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação).
