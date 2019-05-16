@@ -12,7 +12,7 @@
 
     <title>
         
-        Split de Pagamentos &middot; Documentações e tutoriais
+        Split Payments &middot; Documentações e tutoriais
         
     </title>
 
@@ -95,7 +95,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/split-payments-braspag">Split de Pagamentos</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/split-payments-braspag">Split Payments</a></li>
                                     
                                 
                             
@@ -105,121 +105,117 @@
             </div>
 
             <div class="post">
-  <h1 id="split-de-pagamentos">Split de Pagamentos</h1>
+  <h1 id="split-payments">Split Payments</h1>
 
-<h2 id="introdução">Introdução</h2>
+<h2 id="introduction">Introduction</h2>
 
-<p>O <strong>Split de Pagamentos</strong> permite a divisão de uma transação entre diferentes participantes de uma venda.</p>
+<p><strong>Split Payments</strong> enables transaction division of a transaction between different participants of a sale.</p>
 
-<p>Muito utilizado em Marketplaces, onde <strong>o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes</strong>.</p>
+<p>Frequently used on Marketplaces, where <strong>the cart is composed of products from different suppliers, and the total amount of the sale must be shared</strong>.</p>
 
 <table>
   <thead>
     <tr>
-      <th><strong>Participantes</strong></th>
-      <th><strong>Descrição</strong></th>
+      <th><strong>Participants</strong></th>
+      <th><strong>Description</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Marketplace</strong></td>
-      <td>Responsável pelo carrinho. <br /> Possui acordos com <strong>Subordinados</strong> que fornecem os produtos presentes no carrinho.<br /> Define as taxas a serem descontadas sobre a venda de cada <strong>Subordinado</strong>.<br /> Pode participar de uma venda fornecendo seus próprios produtos.</td>
+      <td>Responsible for the cart.<br /> Has agreement with <strong>Subordinates</strong>, that supply cart products.<br /> Establish the rates to be discounted on the sale of each <strong>Subordinate</strong>.<br /> It may participate in a sale providing its products.</td>
     </tr>
     <tr>
-      <td><strong>Subordinado</strong></td>
-      <td>Fornecedor dos produtos que compõem o carrinho.<br />Recebe parte do valor da venda, descontadas as taxas acordadas com o <strong>Marketplace</strong>.</td>
+      <td><strong>Subordinate</strong></td>
+      <td>It is the supplier of products in the cart.<br /> Receives part of the amount of the sale, less the rates agreed with the <strong>Marketplace</strong>.</td>
     </tr>
     <tr>
-      <td><strong>Braspag (Facilitador)</strong></td>
-      <td>Responsável pelo fluxo transacional.<br /> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo <strong>Marketplace</strong>.<br /> Responsável pela liquidação dos pagamentos para os <strong>Subordinados</strong> e <strong>Marketplace</strong>.</td>
+      <td><strong>Cielo</strong></td>
+      <td>Responsible for the transaction flow.<br /> Establishes the rates discounted on the total amount of the sale.<br /> Is in charge of settling payments to <strong>Subordinates</strong> and <strong>Marketplace</strong>.</td>
     </tr>
   </tbody>
 </table>
 
-<p>No Split de Pagamentos o responsável pelo fluxo transacional é o facilitador.</p>
+<p>The Marketplace integrates with Cielo, informing the transaction and how it should split between the participants. This split can happen at the moment of capture or later (known as post transactional split), as long as it happens within a pre-established time limit.</p>
 
-<p>O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.</p>
-
-<p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.</p>
+<p>Once the transaction has captured, Cielo computes and pays the amount intended to each participant, within the established time limit for each product (payment scheme*).</p>
 
 <blockquote>
-  <p><strong>Regime de Pagamento</strong>: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
-<br />
-<strong>Crédito</strong>: Em até 31 dias. <br />
-<strong>Crédito Parcelado</strong>: 1º parcela em até 31 dias, demais a cada 30.
-<strong>Débito</strong>: Em até 2 dias úteis.</p>
+  <p><strong>Payment Scheme</strong>: Settlement time-limit according to product (credit or debit) and brand. <br />
+<strong>Credit</strong>: First installment in up to 31 days, remaining installments in each 30 days <br />
+<strong>Debit</strong>: In up to 2 business days.</p>
 </blockquote>
 
-<p>Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como <strong>MerchantId (MID)</strong>, que deverá ser utlizado ao informar as regras de divisão de uma transação.</p>
+<p>To be able to use Split Payments, the Marketplace and its Subordinates must enroll at Cielo. After this process, both Marketplace and its Subordinates will have a unique identifier, known as <strong>MerchantId (MID)</strong> and must be used on transaction split requests.</p>
 
-<p>Na divisão de uma transação, devem ser informados:</p>
+<p>Must be provided on the transaction split request:</p>
 
 <ul>
-  <li>Os <strong>identificadores dos Subordinados</strong>.</li>
-  <li>Os <strong>valores de participação de cada Subordinado</strong>. O somatório deverá ser igual ao valor total da transação.</li>
-  <li><strong>Taxas</strong> a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.</li>
+  <li>The <strong>Subordinates’ IDs</strong>.</li>
+  <li>The <strong>participation amount ​​of each Subordinate</strong>. The sum must be equal to the total amount of the transaction.</li>
+  <li><strong>Rates</strong> applied on the amount of each Subordinate. These rates must be negotiated in advance between the Marketplace and the Subordinate.</li>
 </ul>
 
-<p>O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de <strong>Subordinado</strong> e ter seus próprios produtos no carrinho.</p>
+<p>The Marketplace can also be a participant on transaction split. Informing the Marketplace ID gives it the role of Subordinate. It may happen when the Marketplace has its products on cart.</p>
 
-<h3 id="taxas">Taxas</h3>
+<h3 id="rates">Rates</h3>
 
-<p>As taxas acordadas entre os participantes, podendo ser um <strong>MDR(%)</strong> e/ou uma <strong>Taxa Fixa(R$)</strong>, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto à Braspag (Facilitador).</p>
+<p>The rates are established between the participants. It may be a <strong>MDR(%)</strong> and/or a <strong>Fixed Fee(BRL)</strong> and must be defined during the onboarding process.</p>
 
-<p>As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.</p>
+<p>These rates may be sent at transactional (capture) or post-transactional time. Otherwise, the rates agreed in advance between the participants will be used.</p>
 
 <blockquote>
-  <p><strong>MDR (<em>Merchant Discount Rate</em>):</strong> Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento. <br />
-<strong>Tarifa Fixa:</strong> Valor em centavos a ser cobrado por transação capturada.</p>
+  <p><strong>MDR (<em>Merchant Discount Rate</em>):</strong> Percentage to be deducted from the amount of a transaction, defined by product (Credit / Debit), brand and installment range. <br />
+<strong>Fixed Fee:</strong> The amount, in cents, to be charged for each captured transaction.</p>
 </blockquote>
 
-<h4 id="braspag-facilitador">Braspag (Facilitador)</h4>
+<h4 id="cielo">Cielo</h4>
 
-<p>A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.</p>
+<p>The mediator and Marketplace will agree on an MDR and a Fixed Fee to deduct from the total value of each transaction.</p>
 
-<p>O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).</p>
+<p>The Marketplace, knowing these rates, will also negotiate an MDR and a Fixed Fee with each Subordinate. These values must include the MDR and fee agreed with Mediator.</p>
 
-<p>O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.</p>
+<p>The fixed fee agreed between Marketplace and Mediator is not deducted from the total amount of the transaction. That fee is deducted directly from the total amount the Marketplace will receive from the Mediator. The MDR, on the other hand, is part of the transaction split calculation since the MDR between Marketplace and its Subordinates includes the MDR between Marketplace and Mediator.</p>
 
 <blockquote>
-  <p><strong>Custo Marketplace:</strong> MDR Braspag(%) + Tarifa Fixa(R$)</p>
+  <p><strong>Cost to the Marketplace:</strong> MDR of Mediator(%) + Fixed Fee(R$)</p>
 </blockquote>
 
 <h4 id="marketplace">Marketplace</h4>
 
-<p>O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.</p>
+<p>The Marketplace is responsible for establishing the rates that will be charged from its Subordinates. That established MRD must be greater than or equal to the MDR agreed between Mediator and Marketplace. Optionally, a fixed fee can also be defined.</p>
 
 <blockquote>
-  <p><strong>Custo Subordinado:</strong> MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).</p>
+  <p><strong>Cost to the Subordinate:</strong> MDR of Marketplace(%) + Fixed Fee(R$), where MDR of Marketplace(%) includes MDR of Mediator(%).</p>
 </blockquote>
 
-<h4 id="exemplo">Exemplo</h4>
+<h4 id="example">Example</h4>
 
-<p>Uma transação de <strong>R$100,00</strong>, realizada por um <strong>Marketplace</strong> com participação do <strong>Subordinado 01</strong>.</p>
+<p>A transaction of <strong>R$100.00</strong>, made by a <strong>Marketplace</strong> with the participation of <strong>Subordinate 01</strong>.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split001.png" alt="SplitSample001" /></p>
 
-<p>Neste exemplo, foram assumidos os seguintes acordos:</p>
+<p>In this example, assume the following agreements:</p>
 
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
-<strong>Taxa Marketplace</strong>: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.</p>
+<p><strong>Mediator rates</strong>: 2% MDR + R$0.10 fixed fee.<br />
+<strong>Marketplace rates</strong>: 3.5% MDR (2% from MDR of Mediator) + 0.30 fixed fee.</p>
 
-<p>Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
+<p>After the split, the following schedule events will happen:</p>
 
-<p><strong>Subordinado</strong>:<br />
-Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]</p>
+<p><strong>Subordinate</strong>:<br />
+Credit: R$96.20 [Deducting the MDR and the fixed fee agreed with Marketplace]</p>
 
 <p><strong>Marketplace</strong>:<br />
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
-Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]</p>
+Credit: R$1.80 [MDR applied on Subordinate’s amount deducting the MDR of Mediator]
+Deductions: R$0.10 [Fixed fee agreed with Mediator]</p>
 
-<p><strong>Braspag (Facilitador)</strong>:<br />
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
-Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
+<p><strong>Mediator</strong>:<br />
+Credit: R$2.00 [MDR applied on the trasaction total amount]
+Credit: R$0.10 [Fixed fee agreed with Marketplace]</p>
 
-<h3 id="bandeiras">Bandeiras</h3>
+<h3 id="brands">Brands</h3>
 
-<p>As bandeiras suportadas pelo Split são:</p>
+<p>Split Payments supports the following brands:</p>
 
 <ul>
   <li>Visa</li>
@@ -231,47 +227,44 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   <li>Discover</li>
 </ul>
 
-<h2 id="ambientes">Ambientes</h2>
+<h2 id="environments">Environments</h2>
 
-<p>O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.</p>
-
-<p>Para mais informações sobre a API Cielo E-Commerce, consulte o <a href="https://developercielo.github.io/manual/cielo-ecommerce" target="_blank">Manual de Integração</a> da Plataforma.</p>
-
-<p>OBS: Neste manual serão apresentados os contratos de integração da API Cielo E-Commerce, porém o foco da análise será nas operações referentes ao Split de Pagamentos.</p>
+<p>Split Payments is part of Cielo e-commerce API. Transactional operations still are performed by Cielo API. Only a few changes are required to use the Split Payments.
+For more information about the Cielo E-Commerce API, see the <a href="https://developercielo.github.io/manual/cielo-ecommerce" target="_blank">Integration Guide</a> of the platform.</p>
 
 <h3 id="sandbox">Sandbox</h3>
 
 <ul>
-  <li><strong>API Cielo E-Commerce</strong>: https://apisandbox.cieloecommerce.cielo.com.br/</li>
-  <li><strong>API Cielo E-Commerce (Consultas)</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br/</li>
-  <li><strong>API Split</strong>: https://splitsandbox.braspag.com.br/</li>
-  <li><strong>Braspag OAUTH2 Server</strong>: https://authsandbox.braspag.com.br/</li>
+  <li><strong>Cielo e-commerce API</strong>: https://apisandbox.cieloecommerce.cielo.com.br/</li>
+  <li><strong>Cielo e-commerce query API</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br/</li>
+  <li><strong>Split API</strong>: https://splitsandbox.cieloecommerce.cielo.com.br/</li>
+  <li><strong>Cielo OAUTH2 Server</strong>: https://authsandbox.cieloecommerce.cielo.com.br/</li>
 </ul>
 
-<h3 id="produção">Produção</h3>
+<h3 id="production">Production</h3>
 
 <ul>
-  <li><strong>API Cielo E-Commerce</strong>: https://api.cieloecommerce.cielo.com.br/</li>
-  <li><strong>API Cielo E-Commerce (Consultas)</strong>: https://apiquery.cieloecommerce.cielo.com.br/</li>
-  <li><strong>API Split</strong>: https://split.braspag.com.br/</li>
-  <li><strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/</li>
+  <li><strong>Cielo e-commerce API</strong>: https://api.cieloecommerce.cielo.com.br/</li>
+  <li><strong>Cielo e-commerce query API</strong>: https://apiquery.cieloecommerce.cielo.com.br/</li>
+  <li><strong>Split API</strong>: https://split.cieloecommerce.cielo.com.br/</li>
+  <li><strong>Cielo OAUTH2 Server</strong>: https://auth.cieloecommerce.cielo.com.br/</li>
 </ul>
 
-<h2 id="autenticação">Autenticação</h2>
+<h2 id="authentication">Authentication</h2>
 
-<p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API Cielo e-Commerce e à API do Split.</p>
+<p>The Split Payments uses as security the <a href="https://oauth.net/2/" target="_blank">OAUTH2</a> protocol. Because of that, Cielo e-Commerce API and the Split API require an access token.</p>
 
-<p>Para obter um token de acesso:</p>
+<p>To get an access token:</p>
 
 <ol>
-  <li>Concatene o ClientId e ClientSecret: <code class="highlighter-rouge">ClientId:ClientSecret</code>.</li>
-  <li>Codifique o resultado da concatenação em Base64.</li>
-  <li>Realize uma requisição ao servidor de autorização:</li>
+  <li>Concatenate the ClientId and ClientSecret: <code class="highlighter-rouge">ClientId:ClientSecret</code>.</li>
+  <li>Encode the concatenation result in Base64.</li>
+  <li>Perform a request to the authorization server:</li>
 </ol>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{oauth2-server}/oauth2/token</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>  
@@ -289,58 +282,52 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.</p>
+  <p>ClientId is the same used in integration with the Cielo E-Commerce API, known as MerchantId. The Mediator provides the ClientSecret.</p>
 </blockquote>
 
-<p>O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.</p>
+<p>The token in the response body (access_token) must be used in any request to the Cielo e-Commerce API or the Split API as an authorization key. It is valid for 20 minutes. A new token must be created when it expires.</p>
 
-<h2 id="integração">Integração</h2>
+<h2 id="integration">Integration</h2>
 
-<h3 id="autorização">Autorização</h3>
+<h3 id="authorization">Authorization</h3>
 
-<p>A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.</p>
+<p>The authorization of a transaction in Split Payments must be performed through the Cielo E-Commerce API following the same contracts described in the platform docs.</p>
 
-<p>Porém, para indentificar que a transação enviada se trata de uma transação de Split de Pagamentos, deve-se modificar o tipo de pagamento utilizado, conforme abaixo:</p>
+<p>However, to indicate that the transaction sent is a Split Payments transaction, you must modify the payment type used, as follows:</p>
 
 <table>
   <thead>
     <tr>
       <th> </th>
-      <th><strong>Cartão de Crédito</strong></th>
-      <th><strong>Cartão de Débito</strong></th>
+      <th><strong>Credit Card</strong></th>
+      <th><strong>Debit Card</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Transação Comum</strong></td>
+      <td><strong>Regular Transaction</strong></td>
       <td>CreditCard</td>
       <td>DebitCard</td>
     </tr>
     <tr>
-      <td><strong>Transação Split</strong></td>
+      <td><strong>Split Transaction</strong></td>
       <td>SplittedCreditCard</td>
       <td>SplittedDebitCard</td>
     </tr>
   </tbody>
 </table>
 
-<blockquote>
-  <p><strong>Em breve estarão disponíveis</strong>:</p>
-
-  <p>Boleto</p>
-</blockquote>
-
-<p>Exemplo:</p>
+<p>Example:</p>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{cielo-ecommerce-api}/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador"</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Buyer"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
@@ -349,7 +336,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
      </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Marketplace"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
@@ -363,7 +350,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador"</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buyer"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -374,7 +361,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1231"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
@@ -393,47 +380,30 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b0abb3-c3e8-4383-bffd-d99ef81b13a5"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/56b0abb3-c3e8-4383-bffd-d99ef81b13a5"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/56b0abb3-c3e8-4383-bffd-d99ef81b13a5/capture"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/56b0abb3-c3e8-4383-bffd-d99ef81b13a5/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).</p>
+<p>By informing a payment type related to Split, the Cielo e-Commerce API automatically identifies the transaction as referring to the Split Payments and performs its transactional flow.</p>
 
-<p>Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
+<p>If the transaction sent is set for automatic capture, the node containing the split rules must also be sent. Otherwise, the transaction will be split between Mediator and Marketplace. Subsequently, Marketplace can send new split rules to the transaction through Split API, as long as it is within the allowed time period.</p>
 
-<p><strong>Exemplo 1)</strong></p>
+<p><strong>Example 1)</strong></p>
 
-<p>Transação no valor de <strong>R$100,00</strong>, com captura automática, sem o nó contendo as regras de divisão.</p>
+<p>Transaction of <strong>R$100.00</strong>, with automatic capture, without the split rules node.</p>
 
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.</p>
+<p><strong>Mediator Rates</strong>: 2% MDR + R$0.10 of Fixed fee.</p>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{cielo-ecommerce-api}/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador"</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Buyer"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
@@ -443,7 +413,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
      </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Marketplace"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
@@ -457,7 +427,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador"</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buyer"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -484,7 +454,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1231"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
@@ -505,49 +475,32 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"728e4d86-1806-4a1d-89b1-8139ff0769aa"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"split"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://splitsandbox.braspag.com.br/api/transactions/728e4d86-1806-4a1d-89b1-8139ff0769aa/split"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/728e4d86-1806-4a1d-89b1-8139ff0769aa"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/728e4d86-1806-4a1d-89b1-8139ff0769aa/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
+<p>In this case, Marketplace receives the amount of the transaction, deducting the MDR agreed with Mediator. As previously stated, the fixed fee agreed between Marketplace and Mediator is computed directly on the schedule of both parties.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split002.png" alt="SplitSample002" /></p>
 
-<p><strong>Exemplo 2)</strong></p>
+<p><strong>Example 2)</strong></p>
 
-<p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão.</p>
+<p>Transaction of <strong>R$100.00</strong>, with the split rules node.</p>
 
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.</p>
+<p><strong>Mediator Rates</strong>: 2% MDR + R$0.10 of fixed fee.<br />
+<strong>Marketplace Rates to Subordinate 01</strong>: 5% MDR (2% from MDR of Mediator included) + 0.30 of fixed fee.
+<strong>Marketplace Rates to Subordinate 02</strong>: 4% MDR (2% from MDR of Mediator included) + 0.15 of fixed fee.</p>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{cielo-ecommerce-api}/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador"</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Buyer"</span><span class="w">
    </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
@@ -557,7 +510,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
           </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000181"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
@@ -589,7 +542,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador"</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buyer"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -638,7 +591,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
@@ -659,62 +612,45 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef7a7cf9-b66b-4772-b022-052bdcf3e9b0"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"split"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://splitsandbox.braspag.com.br/api/transactions/ef7a7cf9-b66b-4772-b022-052bdcf3e9b0/split"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ef7a7cf9-b66b-4772-b022-052bdcf3e9b0"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ef7a7cf9-b66b-4772-b022-052bdcf3e9b0/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada participante.</p>
+<p>These are how the splits happened and how the schedules of each participant were set.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split003.png" alt="SplitSample003" /></p>
 
-<h3 id="modelos-de-split">Modelos de Split</h3>
+<h3 id="split-models">Split Models</h3>
 
-<p>O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:</p>
+<p>Split Payments provides two models for dividing the transaction between the participants:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Tipo</th>
-      <th>Descrição</th>
+      <th>Type</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Split Transacional</strong></td>
-      <td>O <strong>Marketplace</strong> envia na autorização (captura automática) ou no momento de captura as regras de divisão.</td>
+      <td><strong>Transactional Split</strong></td>
+      <td>The <strong>Marketplace</strong> sends the split rules on capture or on authorization (when capture is automatic).</td>
     </tr>
     <tr>
-      <td><strong>Split Pós-Transacional</strong></td>
-      <td>O <strong>Marketplace</strong> envia as regras de divisão após a captura da transação.</td>
+      <td><strong>Post-transactional Split</strong></td>
+      <td>The <strong>Marketplace</strong> sends the split rules after the transaction capture.</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p>No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.</p>
+  <p>In Split Payments, the split is performed only for captured transactions. The split rules are only considered for authorizations with automatic capture or during the transaction capture. If informed at the time of authorization without automatic capture, the split rules will be ignored.</p>
 </blockquote>
 
-<h4 id="transacional">Transacional</h4>
+<h4 id="transactional">Transactional</h4>
 
-<p>No Split Transacional é necessário que o Marketplace envie um “nó” adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
+<p>At Transactional Split is required that the Marketplace sends an additional node at the Cielo E-Commerce API integration with the transaction division rules, according with previous examples.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -731,50 +667,50 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong>.</td>
+      <td><strong>Subordinate</strong> <strong>MerchantId</strong> (Identifier).</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">SplitPayments.Amount</code></td>
-      <td>Parte do valor total da transação referente a participação do <strong>Subordinado</strong>, em centavos.</td>
-      <td>Inteiro</td>
+      <td><strong>Subordinate</strong>’s part of transaction, in cents (BRL).</td>
+      <td>Integer</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
-      <td><strong>MDR(%)</strong> do <strong>Marketplace</strong> a ser descontado do valor referente a participação do <strong>Subordinado</strong></td>
+      <td><strong>Marketplace MDR(%)</strong> to be discounted from <strong>Subordinate</strong>’s part of transaction..</td>
       <td>Decimal</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">SplitPayments.Fares.Fee</code></td>
-      <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>Subordinado</strong>, em centavos.</td>
-      <td>Inteiro</td>
+      <td><strong>Fixed Fee (BRL)</strong>, in cents, to be discounted from <strong>Subordinate</strong>’s part of transaction.</td>
+      <td>Integer</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
-<p>Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:</p>
+<p>As response, Cielo E-Commerce API returns a node containing the transaction split rules used and the amounts to be paid to Marketplace and its Subordinates:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MID Subordinate 01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate 01 MID"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -782,11 +718,11 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">                
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MID do Marketplace"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marketplace MID"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MID Subordinate 01"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate 01 MID"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9500</span><span class="p">,</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -797,38 +733,38 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong> ou <strong>Marketplace</strong>.</td>
+      <td><strong>Subordinate</strong>’s or <strong>Marketplace</strong>’s <strong>MerchantId</strong> (Identifier).</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">SplitPayments.Splits.Amount</code></td>
-      <td>Parte do valor calculado da transação a ser recebido pelo <strong>Subordinado</strong> ou <strong>Marketplace</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
-      <td>Inteiro</td>
+      <td>Result of the calculation of the transaction part to be paid to the <strong>Subordinate</strong> or <strong>Marketplace</strong>, with fares already discounted (MDR and Fixed Fees)</td>
+      <td>Integer</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Exemplo 3)</strong></p>
+<p><strong>Example 3)</strong></p>
 
-<p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão e o Marketplace participando da venda.</p>
+<p>Transaction with a total amount of <strong>BRL 100.00</strong> with split rules node and Marketplace as part of the sale.</p>
 
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
+<p><strong>Cielo Fees</strong>: 2% MDR + BRL 0.30 of Fixed Fee.<br />
+<strong>Marketplace Fees agreed with Subordinate 01</strong>: 5% MDR (2% from MDR of Cielo included) + 0.30 of fixed fee.<br />
+<strong>Marketplace Fees agreed with Subordinate 02</strong>: 4% MDR (2% from MDR of Cielo included) + 0.15 of fixed fee.</p>
 
 <p><strong>Request</strong></p>
 
@@ -838,7 +774,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador"</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Buyer"</span><span class="w">
    </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
@@ -848,7 +784,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
           </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000181"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
@@ -884,7 +820,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador"</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buyer"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -947,7 +883,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
@@ -968,42 +904,25 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34895364-e269-47ad-b779-7e122ed40a9a"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"split"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://splitsandbox.braspag.com.br/api/transactions/34895364-e269-47ad-b779-7e122ed40a9a/split"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cálculos corretamente.</p>
+<p>In the example, the Marketplace is a participant in the sale, hence its not necessary to inform the rates to be discounted from the Marketplace’s part in the transaction. The Split Payments system identifies the Marketplace’s part using its MerchantId (identifier) and perform the calculations utilizing the agreed rates and fees.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split004.png" alt="SplitSample004" /></p>
 
-<h4 id="pós-transacional">Pós-Transacional</h4>
+<h4 id="post-transactional">Post-Transactional</h4>
 
-<p>Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.</p>
+<p>In this model the Marketplace can send the transaction split rules after it is captured.</p>
 
-<p>A divisão pós-transacional é possível somente para transações com <strong>Cartão de Crédito</strong> e poderá ser realizada dentro de um intervalo de tempo determinado a partir da data de captura da transação.</p>
+<p>For transactions made with <strong>Credit Card</strong>, when the Marketplace has a standard payout scheme, the post-transactional split can be made within a period of <strong>20 days</strong> after the transaction. In the case the Marketplace owns a personalized scheme, the period must be negotiated between the Marketplace and Cielo.</p>
 
-<p>Para transações com <strong>Cartão de Crédito</strong>, este período é de <strong>20 dias</strong> se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).</p>
+<p>For transactions made with <strong>Debit Card</strong>, if the Marketplace chooses, the post-transactional split can be made within a period of <strong>1 day</strong>.</p>
 
 <blockquote>
-  <p>O período para redividir uma transação poderá ser alterado pela Braspag(Facilitador).</p>
+  <p>The period of post-transactional split can be changed by Cielo.</p>
 </blockquote>
 
 <p><strong>Request</strong></p>
@@ -1076,15 +995,15 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.</p>
+<p>Post-Transactional Split node at the contract, both in the request and in the response, is the same as the Transactional Split, previously presented.</p>
 
 <blockquote>
-  <p>O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de <strong>20 dias</strong> para Cartão de Crédito se estiver enquadrado no regime de pagamento padrão. Para transações com Cartão de Débito a divisão poderá ser realizada somente no momento transacional.</p>
+  <p>The Marketplace can split the transaction more than once, since it is in the allowed period.</p>
 </blockquote>
 
-<h3 id="consulta">Consulta</h3>
+<h3 id="query">Query</h3>
 
-<p>Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.</p>
+<p>To query a transaction, use the API Cielo E-Commerce query service.</p>
 
 <p><strong>Request</strong></p>
 
@@ -1101,7 +1020,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buyer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1112,7 +1031,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -1129,23 +1048,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
         </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/507821c5-7067-49ff-928f-a3eb1e256148"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/507821c5-7067-49ff-928f-a3eb1e256148/void"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales.split"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://splitsandbox.braspag.com.br/api/transactions507821c5-7067-49ff-928f-a3eb1e256148/split"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
@@ -1188,13 +1090,13 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="captura">Captura</h3>
+<h3 id="capture">Capture</h3>
 
-<p>Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace.</p>
+<p>At capturing a Split Payments transaction, the transaction split rules must be informed. If the rules are not informed, it is assumed that all the transaction amount is from the Marketplace.</p>
 
-<h4 id="captura-total">Captura Total</h4>
+<h4 id="total-capture">Total Capture</h4>
 
-<p>Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
+<p>When performing a total capture of a transaction, the sum of all the amounts of each participant must equals the total amount of the transaction that was sent at the moment of authorization.</p>
 
 <p><strong>Request</strong></p>
 
@@ -1270,25 +1172,13 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/db14bf98-5ebd-43b5-8ba6-205c30ec1c16"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/db14bf98-5ebd-43b5-8ba6-205c30ec1c16/void"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="captura-parcial">Captura Parcial</h4>
+<h4 id="partial-capture">Partial Capture</h4>
 
-<p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.</p>
+<p>When performing a partial capture of a transaction, the sum of the amount of each participant should equals the total amount captured.</p>
 
 <p><strong>Request</strong></p>
 
@@ -1298,7 +1188,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
 </code></pre></div></div>
 
-<p>O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00.</p>
+<p>The following example captures partially the amount of BRL 80.00 of a transaction with the authorized value of BRL 100.00.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
@@ -1372,23 +1262,11 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/7bd7fc3a-4385-45cf-8a45-ec0349716b68"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/7bd7fc3a-4385-45cf-8a45-ec0349716b68/void"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.</p>
+<p>As previously explained, if a full or partial capture is performed without informing the split rules, Split interprets that the entire amount is destined for the Marketplace itself.</p>
 
 <p><strong>Request</strong></p>
 
@@ -1423,29 +1301,17 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec/void"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="cancelamento">Cancelamento</h3>
+<h3 id="void">Void</h3>
 
-<p>Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.</p>
+<p>To void a Split Payments transaction, the Marketplace must inform, to a partial void, what is the amount to be voided to each transaction participant. To perform a total void, this information is not required, because, in this case, the total amount of each participant will be voided.</p>
 
-<h4 id="cancelamento-total">Cancelamento Total</h4>
+<h4 id="total-void">Total Void</h4>
 
-<p>No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.</p>
+<p>When performing a total void of a transaction, the total amount of the transaction will be voided and, thereafter, each amount and commission of each participant.</p>
 
 <p><strong>Request</strong></p>
 
@@ -1465,13 +1331,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/019efd18-c69a-4107-b5d7-e86564460cc4"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"VoidSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
@@ -1505,9 +1364,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="cancelamento-parcial">Cancelamento Parcial</h4>
+<h4 id="partial-void">Partial Void</h4>
 
-<p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.</p>
+<p>In the partial void, the sum of the voided amounts for each subordinate shall be equal to the amount of the partial void.</p>
 
 <p><strong>Request</strong></p>
 
@@ -1517,7 +1376,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
 </code></pre></div></div>
 
-<p>No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.</p>
+<p>In the following example the amount to be voided is BRL 25.00 of a transaction with a total amount of BRL 100.00.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
@@ -1539,27 +1398,27 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">VoidSplitPayments.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong>.</td>
+      <td><strong>Subordinate MerchantId</strong> (Identifier).</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">VoidedAmount.Amount</code></td>
-      <td>Total ou parte do valor destinado ao <strong>Subordinado</strong> a ser cancelado, em centavos.</td>
-      <td>Inteiro</td>
+      <td>Total or part of the <strong>Subordinate</strong>’s amount to be voided, in cents.</td>
+      <td>Integer</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -1574,18 +1433,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3/void"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"VoidSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
@@ -1619,7 +1466,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado, conforme exemplo abaixo:</p>
+<p>It is not required to inform all Subordinates in the partial void. It is possible to inform only the subordinates that there if the intention to void the total amount ou just a partial amount. In the example before, the second subordinate could be informed, as shown below:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
@@ -1632,249 +1479,249 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.</p>
+  <p>By partially voiding the part of a subordinate, the Fixed Fee the Marketplace charges is voided proportionally.</p>
 </blockquote>
 
-<h2 id="agenda-financeira">Agenda Financeira</h2>
+<h2 id="financial-schedule">Financial Schedule</h2>
 
-<p>No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).</p>
+<p>In the Split Payments, the Mediator is responsible for transferring the payout amounts (settlement) to each participant of a sale.</p>
 
-<p>A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.</p>
+<p>The Mediator will generate a financial schedule that can be consulted at any time by Marketplace and Subordinates.</p>
 
-<p>A agenda é composta por eventos de Crédito e Débito que são gerados de acordo com as operações efetuadas e o regime de pagamento acordado.</p>
+<p>The schedule is composed of Credit and Debit events generated according to the operations performed and the agreed payment scheme.</p>
 
-<p>Eventos de Crédito:</p>
+<p>Credit events:</p>
 
 <table>
   <thead>
     <tr>
       <th>Id</th>
-      <th>Evento</th>
-      <th>Descrição</th>
+      <th>Event</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
       <td><code class="highlighter-rouge">Credit</code></td>
-      <td>Lançamento de crédito das parcelas de uma transação.</td>
+      <td>Credit of installments of a transaction.</td>
     </tr>
     <tr>
       <td>3</td>
       <td><code class="highlighter-rouge">FeeCredit</code></td>
-      <td>Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
+      <td>Fixed Rate credit agreed between Marketplace and Mediator.</td>
     </tr>
     <tr>
       <td>5</td>
       <td><code class="highlighter-rouge">RefundCredit</code></td>
-      <td>Lançamento de crédito devido a um cancelamento.</td>
+      <td>Credit caused by a cancellation.</td>
     </tr>
     <tr>
       <td>7</td>
       <td><code class="highlighter-rouge">ChargebackCredit</code></td>
-      <td>Lançamento de crédito devido a um chargeback.</td>
+      <td>Credit caused by a chargeback.</td>
     </tr>
     <tr>
       <td>9</td>
       <td><code class="highlighter-rouge">UndoChargebackCredit</code></td>
-      <td>Lançamento de crédito para reversão de um chargeback.</td>
+      <td>Credit to undo a chargeback.</td>
     </tr>
     <tr>
       <td>11</td>
       <td><code class="highlighter-rouge">AntiFraudFeeCredit</code></td>
-      <td>Lançamento de crédito referente à transação de antifraude.</td>
+      <td>Credit related to an anti-fraud transaction.</td>
     </tr>
     <tr>
       <td>13</td>
       <td><code class="highlighter-rouge">AntiFraudFeeWithReviewCredit</code></td>
-      <td>Lançamento de crédito referente à transação de antifraude com revisão manual.</td>
+      <td>Credit related to an anti-fraud transaction with a manual review.</td>
     </tr>
     <tr>
       <td>15</td>
       <td><code class="highlighter-rouge">AdjustmentCredit</code></td>
-      <td>Lançamento de um crédito como ajuste.</td>
+      <td>Credit as an adjustment.</td>
     </tr>
     <tr>
       <td>17</td>
       <td><code class="highlighter-rouge">ChargebackReversalCredit</code></td>
-      <td>Lançamento de crédito referente a reversão de um chargeback.</td>
+      <td>Credit related to a chargeback reversion.</td>
     </tr>
     <tr>
       <td>19</td>
       <td><code class="highlighter-rouge">AnticipationCredit</code></td>
-      <td>Lançamento de crédito referente a antecipação.</td>
+      <td>Credit related to anticipation.</td>
     </tr>
     <tr>
       <td>20</td>
       <td><code class="highlighter-rouge">AnticipationCommissionCredit</code></td>
-      <td>Lançamento de crédito referente a comissão de uma antecipação.</td>
+      <td>Credit related to an anticipation commission.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Eventos de Débito:</p>
+<p>Debit events:</p>
 
 <table>
   <thead>
     <tr>
       <th>Id</th>
-      <th>Evento</th>
-      <th>Descrição</th>
+      <th>Event</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>2</td>
       <td><code class="highlighter-rouge">Debit</code></td>
-      <td>Lançamento de débito das parcelas de uma transação.</td>
+      <td>Debit of installments of a transaction.</td>
     </tr>
     <tr>
       <td>4</td>
       <td><code class="highlighter-rouge">FeeDebit</code></td>
-      <td>Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
+      <td>Fixed Rate debit agreed between Marketplace and Mediator.</td>
     </tr>
     <tr>
       <td>6</td>
       <td><code class="highlighter-rouge">RefundDebit</code></td>
-      <td>Lançamento de débito devido a um cancelamento.</td>
+      <td>Debit caused by a cancellation.</td>
     </tr>
     <tr>
       <td>8</td>
       <td><code class="highlighter-rouge">ChargebackDebit</code></td>
-      <td>Lançamento de débito devido a um chargeback.</td>
+      <td>Debit caused by a chargeback.</td>
     </tr>
     <tr>
       <td>10</td>
       <td><code class="highlighter-rouge">UndoChargebackDebit</code></td>
-      <td>Lançamento de débito para reversão de um chargeback.</td>
+      <td>Debit to undo a chargeback.</td>
     </tr>
     <tr>
       <td>12</td>
       <td><code class="highlighter-rouge">AntiFraudFeeDebit</code></td>
-      <td>Lançamento de débito referente à transação de antifraude.</td>
+      <td>Debit related to an anti-fraud transaction.</td>
     </tr>
     <tr>
       <td>14</td>
       <td><code class="highlighter-rouge">AntiFraudFeeWithReviewDebit</code></td>
-      <td>Lançamento de débito referente à transação de antifraude com revisão manual.</td>
+      <td>Debit related to an anti-fraud transaction with a manual review.</td>
     </tr>
     <tr>
       <td>16</td>
       <td><code class="highlighter-rouge">AdjustmentDebit</code></td>
-      <td>Lançamento de um débito como ajuste.</td>
+      <td>Debit as an adjustment.</td>
     </tr>
     <tr>
       <td>18</td>
       <td><code class="highlighter-rouge">ChargebackReversalDebit</code></td>
-      <td>Lançamento de débito referente a reversão de um chargeback.</td>
+      <td>Debit related to a chargeback reversion.</td>
     </tr>
     <tr>
       <td>22</td>
       <td><code class="highlighter-rouge">AnticipationCommissionDebit</code></td>
-      <td>Lançamento de débito referente a comissão de uma antecipação.</td>
+      <td>Debit related to an anticipation commission.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Um evento poderá estar em um dos seguintes status na agenda financeira:</p>
+<p>An event may be in one of the following statuses in the financial schedule:</p>
 
 <ul>
-  <li><strong>Scheduled</strong>: Agendado.</li>
-  <li><strong>Pending</strong>: Aguardando confirmação de liquidação.</li>
-  <li><strong>Settled</strong>: Liquidado.</li>
-  <li><strong>Error</strong>: Erro de liquidação na instituição financeira.</li>
-  <li><strong>WaitingForAdjustementDebit</strong>: Aguardando liquidação do ajuste de débito associado.</li>
-  <li><strong>Anticipated</strong>: Evento antecipado.</li>
+  <li><strong>Scheduled</strong></li>
+  <li><strong>Pending</strong>: Waiting for settlement confirmation.</li>
+  <li><strong>Settled</strong></li>
+  <li><strong>Error</strong>: Settlement error at Financial Institution.</li>
+  <li><strong>WaitingForAdjustementDebit</strong>: Waiting for associated debit adjustment settlement.</li>
+  <li><strong>Anticipated</strong>: Anticipated event.</li>
 </ul>
 
-<h3 id="consultar-eventos">Consultar Eventos</h3>
+<h3 id="event-search">Event Search</h3>
 
-<p>A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.</p>
+<p>Split API provides an endpoint to discover the pending amount a merchant has to receive within a period.</p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate={initialDate}&amp;finalForecastedDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/events?initialForecastedDate={initialDate}&amp;finalForecastedDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
 
 <table>
   <thead>
     <tr>
-      <th>Parâmetro</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Formato</th>
-      <th>Obrigatório</th>
-      <th>Valor Padrão</th>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+      <th>Default value</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">InitialForecastedDate</code></td>
-      <td>Data de pagamento prevista inicial a ser consultada.</td>
-      <td>Data</td>
+      <td>Filters by the forecasted initial payment date.</td>
+      <td>Date</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>No</td>
       <td>CurrentDate</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FinalForecastedDate</code></td>
-      <td>Data de pagamento prevista final a ser consultada.</td>
-      <td>Data</td>
+      <td>Filters by the forecasted final payment date.</td>
+      <td>Date</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>No</td>
       <td>InitialForecastedDate</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">InitialPaymentDate</code></td>
-      <td>Data de pagamento inicial a ser consultada.</td>
-      <td>Data</td>
+      <td>Filters by the initial payment date.</td>
+      <td>Date</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>No</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FinalPaymentDate</code></td>
-      <td>Data de pagamento final a ser consultada.</td>
-      <td>Data</td>
+      <td>Filters by the final payment date.</td>
+      <td>Date</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>No</td>
       <td>InitialPaymentDate</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PageIndex</code></td>
-      <td>Página a ser consultada.</td>
-      <td>Inteiro</td>
+      <td>Selected page.</td>
+      <td>Int</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
       <td>1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PageSize</code></td>
-      <td>Tamanho da página. Valores possíveis: 25, 50, 100.</td>
-      <td>Inteiro</td>
+      <td>Page size. Accepted values: 25, 50, 100.</td>
+      <td>Int</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
       <td>25</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">EventStatus</code></td>
-      <td>Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit - Anticipated].</td>
+      <td>Filters by event status [Scheduled - Pending - Settled - Error - WaitingForAdjustmentDebit - Anticipated].</td>
       <td>String</td>
       <td>-</td>
-      <td>Não</td>
-      <td>Todos</td>
+      <td>No</td>
+      <td>All statuses</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IncludeAllSubordinates</code></td>
-      <td>Inclui todos os subordinados na consulta.</td>
+      <td>Includes all subordinates in the response.</td>
       <td>Boolean</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
       <td>false</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantIds</code></td>
-      <td>Lojas a serem consideradas na consulta.</td>
+      <td>Filters by Merchant IDs.</td>
       <td>Guid</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
       <td>-</td>
     </tr>
   </tbody>
@@ -1882,13 +1729,13 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <p><strong>Resquest</strong></p>
 
-<p><strong>Por Data Prevista de Pagamento</strong></p>
+<p><strong>By forecasted payment date</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate=2017-12-01&amp;finalForecastedDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/events?initialForecastedDate=2017-12-01&amp;finalForecastedDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-<p><strong>Por Data de Pagamento</strong></p>
+<p><strong>Por payment date</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialPaymentDate=2018-08-22&amp;finalPaymentDate=2018-08-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/events?initialPaymentDate=2018-08-22&amp;finalPaymentDate=2018-08-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
@@ -1983,164 +1830,164 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].Id</code></td>
-      <td>Identificador do evento na agenda financiera.</td>
+      <td>Event ID on financial schedule.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].PaymentId</code></td>
-      <td>Identificador da transação.</td>
+      <td>Transaction ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].MerchantId</code></td>
-      <td>Identificador da loja.</td>
+      <td>Merchant ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].PaymentDate</code></td>
-      <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)</td>
-      <td>Data</td>
+      <td>Settlement date. This property is available only when the payment has finished (EventStatus = Settled).</td>
+      <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].ForecastedDate</code></td>
-      <td>Data de liquidação prevista.</td>
-      <td>Data</td>
+      <td>Forecasted settlement date.</td>
+      <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].Installments</code></td>
-      <td>Número de parcelas da transação.</td>
-      <td>Inteiro</td>
+      <td>Number of installments of a transaction.</td>
+      <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].InstallmentAmount</code></td>
-      <td>Valor, em centavos, da parcela a liquidar.</td>
-      <td>Inteiro</td>
+      <td>Value in cents of the installment to be settled.</td>
+      <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].InstallmentNumber</code></td>
-      <td>Número da parcela a liquidar.</td>
-      <td>Inteiro</td>
+      <td>Installment to be settled.</td>
+      <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].Event</code></td>
-      <td>Identificador do evento.</td>
-      <td>Inteiro</td>
+      <td>Event ID.</td>
+      <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].EventDescription</code></td>
-      <td>Descrição do evento.</td>
+      <td>Event description.</td>
       <td>String</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Schedules[].EventStatus</code></td>
-      <td>Status do evento. [Scheduled - Pending - Settled - Error - WaitingForAdjustementDebit]</td>
+      <td>Event status. [Scheduled - Pending - Settled - Error - WaitingForAdjustementDebit]</td>
       <td>String</td>
       <td>-</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="consultar-transações">Consultar Transações</h3>
+<h3 id="fetching-transaction">Fetching Transaction</h3>
 
-<p>O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.</p>
+<p>Split Payments provides an interface to query the financial schedule of multiple or a specific transaction.</p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate={initialDate}&amp;finalCaptureDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/transactions?initialCaptureDate={initialDate}&amp;finalCaptureDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
 
 <table>
   <thead>
     <tr>
-      <th>Parâmetro</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Formato</th>
-      <th>Obrigatório</th>
-      <th>Valor Padrão</th>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+      <th>Default value</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">InitialCaptureDate</code></td>
-      <td>Data inicial a ser consultada, considerando a data de captura das transações.</td>
-      <td>Data</td>
+      <td>Filters by the initial capture date.</td>
+      <td>Date</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
-      <td>CurrentDate</td>
+      <td>No</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FinalCaptureDate</code></td>
-      <td>Data final a ser consultada, considerando a data de captura das transações.</td>
-      <td>Data</td>
+      <td>Filters by the final capture date.</td>
+      <td>Date</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>No</td>
       <td>InitialCaptureDate</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PageIndex</code></td>
-      <td>Página a ser consultada.</td>
-      <td>Inteiro</td>
+      <td>Selected page.</td>
+      <td>Int</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
       <td>1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PageSize</code></td>
-      <td>Tamanho da página.  Valores possíveis: 25, 50, 100.</td>
-      <td>Inteiro</td>
+      <td>Page size. Accepted values: 25, 50, 100.</td>
+      <td>Int</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
       <td>25</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">EventStatus</code></td>
-      <td>Status do evento [Scheduled - Pending - Settled - Error - Anticipated].</td>
+      <td>Filters by event status [Scheduled - Pending - Settled - Error - Anticipated].</td>
       <td>String</td>
       <td>-</td>
-      <td>Não</td>
-      <td>Todos</td>
+      <td>No</td>
+      <td>All statuses</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IncludeAllSubordinates</code></td>
-      <td>Inclui todos os subordinados na consulta.</td>
+      <td>Includes all subordinates in the response.</td>
       <td>Boolean</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
       <td>false</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantIds</code></td>
-      <td>Lojas a serem consideradas na consulta.</td>
+      <td>Filters by Merchant IDs.</td>
       <td>Guid</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
       <td>-</td>
     </tr>
   </tbody>
 </table>
 
-<p>Para informar várias lojas na consulta, basta repetir o parâmetro “merchantIds”. Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.</p>
+<p>To search for multiple merchants, repeat the “merchantIds” parameter. If this parameter is no set, it will be considered the merchant used for authentication to the Split API.</p>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate=2017-12-01&amp;finalCaptureDate=2017-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/transactions?initialCaptureDate=2017-12-01&amp;finalCaptureDate=2017-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
@@ -2206,89 +2053,89 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].PaymentId</code></td>
-      <td>Identificador da transação.</td>
+      <td>Transaction ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].CaptureDate</code></td>
-      <td>Data de captura da transação.</td>
-      <td>Data</td>
+      <td>Capture date.</td>
+      <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].MerchantId</code></td>
-      <td>Identificador da loja.</td>
+      <td>Merchant ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].PaymentDate</code></td>
-      <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)</td>
-      <td>Data</td>
+      <td>Settlement date. This property is available only when the payment has finished (EventStatus = Settled).</td>
+      <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].ForecastedDate</code></td>
-      <td>Data de liquidação prevista.</td>
-      <td>Data</td>
+      <td>Forecasted settlement date.</td>
+      <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].Installments</code></td>
-      <td>Número de parcelas a liquidar.</td>
-      <td>Inteiro</td>
+      <td>Number of installments of a transaction.</td>
+      <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].InstallmentsAmount</code></td>
-      <td>Valor, em centavos, da parcela a liquidar.</td>
-      <td>Inteiro</td>
+      <td>Value in cents of the installment to be settled.</td>
+      <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].InstallmentNumber</code></td>
-      <td>Número da parcela a liquidar.</td>
-      <td>Inteiro</td>
+      <td>Installment to be settled.</td>
+      <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].Event</code></td>
-      <td>Identificador do evento.</td>
-      <td>Inteiro</td>
+      <td>Event ID.</td>
+      <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].EventDescription</code></td>
-      <td>Descrição do evento.</td>
+      <td>Event description.</td>
       <td>String</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].EventStatus</code></td>
-      <td>Status do evento. [Scheduled - Pending - Settled - Error - Anticipated]</td>
+      <td>Event status. [Scheduled - Pending - Settled - Error - Anticipated]</td>
       <td>String</td>
       <td>-</td>
     </tr>
   </tbody>
 </table>
 
-<p>Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.</p>
+<p>To search for the schedule of a specific transaction, use the transaction ID in the request.</p>
 
-<p>Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.</p>
+<p>In this case, the MerchantIds and EventStatus filters can be used.</p>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
@@ -2331,39 +2178,39 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="ajustes">Ajustes</h3>
+<h3 id="adjustments">Adjustments</h3>
 
-<p>O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.</p>
+<p>Split Payments allows credit and debit adjustments on the Subordinates’ schedules.</p>
 
-<p>Um ajuste somente será efetivamente liquidado para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.</p>
+<p>An adjustment will only be settled if the participant being debited has a positive balance on the date scheduled for performing the adjustment. Otherwise, the adjustment settlement will be postponed for both parties until the participant being debited has a positive balance to cover the adjustment amount.</p>
 
-<p><strong>Ex:</strong> Marketplace lança um ajuste a débito de R$100,00 para o Subordinado A com data prevista de cobrança em 17/10/2018.</p>
+<p><strong>Example:</strong> The Marketplace makes an adjustment to debit BRL 100.00 from Subordinate A, with a forecasted date of collection on 10/17/2018.</p>
 
-<p><strong>Caso 1)</strong> Subordinado possui saldo positivo na data prevista informada.</p>
+<p><strong>Case 1)</strong> Subordinate has positive balance on the forecasted date provided.</p>
 
 <p><img src="https://braspag.github.io/images/braspag/split/adjustment001.png" alt="SplitSampleadjustment001" /></p>
 
-<p>Os valores até o dia 16/10/2018 foram liquidados normalmente.</p>
+<p>The amounts ​​up to 10/16/2018 were normally settled.</p>
 
-<p>Como o subordinado tinha R$150,00 para receber no dia 17/10/2018, o ajuste foi lançado na agenda financeira na data prevista informada e o mesmo receberá R$50,00 devido ao débito do ajuste.</p>
+<p>Since the subordinate had BRL150.00 to receive on 10/17/2018, the adjustment was posted to the financial schedule on the stated date informed, and the Subordinate will receive BRL 50.00 due to the adjustment debit.</p>
 
-<p>O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 17/10/2018.</p>
+<p>The participant to be credited will have the credit on the same date of the debit confirmation, that is, it will receive BRL 150.00 on 10/17/2018.</p>
 
-<p><strong>Caso 2)</strong> Subordinado não possui saldo positivo na data prevista informada.</p>
+<p><strong>Caso 2)</strong> Subordinate does not have positive balance on the forecasted date provided.</p>
 
 <p><img src="https://braspag.github.io/images/braspag/split/adjustment002.png" alt="SplitSampleadjustment002" /></p>
 
-<p>Os valores até o dia 16/10/2018 foram liquidados normalmente.</p>
+<p>The amounts ​​up to 10/16/2018 were normally settled.</p>
 
-<p>O Subordinado tinha a receber apenas R$60,00 no dia 17/10/2018, o que não cobre o valore do ajuste a ser debitado do mesmo.</p>
+<p>The Subordinate had to receive only BRL 60.00 on 10/17/2018, and it does not cover the value of the adjustment to be debited from it.</p>
 
-<p>Neste cenário, os pagamentos do subordinado serão retidos até que o mesmo tenha saldo para cobrir o ajuste, o que ocorre no dia 19/10/2018, onde o acumulado retido é de R$130,00. Com isso, o subordinado receberá R$30,00.</p>
+<p>In this case, subordinate payments will be withheld until it has enough balance to cover the adjustment, which occurs on 10/19/2018, where the accumulated retained amount is BRL 130.00. The subordinate will receive BRL 30.00 then.</p>
 
-<p>O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 19/10/2018.</p>
+<p>The participant to be credited will have the credit on the same date of the debit confirmation, that is, it will receive BRL 150.00 on 10/19/2018.</p>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/adjustment-api/adjustments/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/adjustment-api/adjustments/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="err">--header</span><span class="w"> </span><span class="s2">"Accept: application/json"</span><span class="w">
@@ -2372,7 +2219,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </span><span class="s2">"merchantIdToCredit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44F68284-27CF-43CB-9D14-1B1EE3F36838"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"forecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-17"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multa por não cumprimento do prazo de entrega no pedido XYZ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Penalty for failure to comply with the estimated shipping date for order XYZ"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -2380,60 +2227,60 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">merchantIdToDebit</code></td>
-      <td>Merchant do qual o valor será debitado.</td>
+      <td>Merchant where the amount will be debited.</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">merchantIdToCredit</code></td>
-      <td>Merchant para o qual o valor será creditado.</td>
-      <td>Inteiro</td>
+      <td>Merchant where the amount will be credited.</td>
+      <td>Int</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">forecastedDate</code></td>
-      <td>Data prevista para lançamento do ajuste na agenda financeira.</td>
+      <td>Forecasted date to post the adjustment on the financial schedule.</td>
       <td>String</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">amount</code></td>
-      <td>Valor em centavos do ajuste.</td>
-      <td>Inteiro</td>
+      <td>Adjustment amount, in cents.</td>
+      <td>Int</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">description</code></td>
-      <td>Decrição do ajuste.</td>
+      <td>Adjustment description.</td>
       <td>String</td>
       <td>500</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">transactionId</code></td>
-      <td>Identificador da transação para qual o ajuste está sendo lançado.</td>
+      <td>Transaction ID where the adjustment is being posted.</td>
       <td>Guid</td>
       <td>-</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
-<aside class="warning">Ao associar o ajuste a uma transação, os envolvidos devem ser participantes da transação.</aside>
+<aside class="warning">The merchants provided on properties `merchantIdToDebit` `merchantIdToCredit` must be participants of the transaction.</aside>
 
 <p><strong>Response</strong></p>
 
@@ -2444,7 +2291,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
     </span><span class="s2">"merchantIdToCredit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44F68284-27CF-43CB-9D14-1B1EE3F36838"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"forecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-19"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multa por não cumprimento do prazo de entrega no pedido"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Penalty for failure to comply with the estimated shipping date for order XYZ"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Created"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2453,24 +2300,24 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">id</code></td>
-      <td>Identificador do ajuste.</td>
+      <td>Adjustment ID</td>
       <td>Guid</td>
       <td>36</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">status</code></td>
-      <td>Status do ajustes [Created - Scheduled - Processed - Canceled ].</td>
+      <td>Adjustment status [Created - Scheduled - Processed - Canceled ].</td>
       <td>String</td>
       <td>-</td>
       <td>-</td>
@@ -2480,17 +2327,17 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <h2 id="chargeback">Chargeback</h2>
 
-<p>No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.</p>
+<p>In Split Payments, the Marketplace can choose whether it will assume the chargeback or pass it on to its Subordinates, as long as it has previously agreed between the participants.</p>
 
-<p>Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é sensibilizado automaticamente na agenda dos mesmos. Caso contrário o chargeback será sensibilizado automaticamente na agenda do Marketplace, como acontece com um Charback Parcial.</p>
+<p>If the Marketplace chooses to pass it on to the Subordinates, the Total Chargeback is automatically posted on their schedule. Otherwise, it will be posted on the Marketplace schedule,  like a partial chargeback.</p>
 
-<p>O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso A API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.</p>
+<p>The Split API provides an endpoint where the Marketplace can define how to split the chargeback amount among subordinates, case it is a Partial Chargeback.</p>
 
-<p>No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.</p>
+<p>In the example below there was a Partial Chargeback of BRL 60.00 on a transaction with a captured amount of BRL 100.00.</p>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/chargebacks/{ChargebackId}/splits</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-api}/api/chargebacks/{ChargebackId}/splits</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -2508,23 +2355,23 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">SubordinateMerchantId</code></td>
-      <td>Identificador do Subordinado.</td>
+      <td>Subordinate ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ChargebackAmount</code></td>
-      <td>Valor do chargeback que deverá ser repassado ao Subordinado, em centavos.</td>
-      <td>Inteiro</td>
+      <td>Chargeback amount that must be passed to the Subordinate, in cents.</td>
+      <td>Int</td>
       <td>-</td>
     </tr>
   </tbody>
@@ -2567,44 +2414,35 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>O Marketplace tem 1 dia, contado a partir da data de efetivação do chargeback, para informar como deseja repassar os valores aos subordinados.</p>
+  <p>The Marketplace has one day, from the date of the chargeback confirmation, to inform how it wants to split the chargeback amounts to the subordinates.</p>
 </blockquote>
 
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ChargebackSplitPayments.ChargebackSplits</code></td>
-      <td>Lista contendo a divisão do chargeback para cada participante.</td>
+      <td>List containing the split of chargeback for each participant.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="liquidação">Liquidação</h2>
+<h2 id="settlement">Settlement</h2>
 
-<h3 id="trava">Trava</h3>
+<h3 id="escrow">Escrow</h3>
 
-<h2 id="notificação">Notificação</h2>
+<h2 id="notification">Notification</h2>
 
-<p><strong>Em breve</strong> será disponibilizado o serviço de notificação que informará os eventos que ocorrerem em uma transação de Split:</p>
-
-<ul>
-  <li>Geração de agenda</li>
-  <li>Pré-chargeback</li>
-  <li>Chargeback</li>
-  <li>Liquidação</li>
-</ul>
-
-<p>Para ser notificado com relação ao status de uma transação, utilize o <a href="https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação">serviço de notificação</a> da API Cielo E-Commerce.</p>
+<p>To be notified about the status of a transaction, use the Cielo E-Commerce API <a href="https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação">notification service</a>.</p>
 
 </div>
 
