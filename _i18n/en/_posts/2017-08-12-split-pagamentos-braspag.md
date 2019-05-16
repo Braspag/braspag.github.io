@@ -60,37 +60,37 @@ The Marketplace, knowing these rates, will also negotiate an MDR and a Fixed Fee
 
 The fixed fee agreed between Marketplace and Mediator is not deducted from the total amount of the transaction. That fee is deducted directly from the total amount the Marketplace will receive from the Mediator. The MDR, on the other hand, is part of the transaction split calculation since the MDR between Marketplace and its Subordinates includes the MDR between Marketplace and Mediator.
 
-> **Cost to the Marketplace:** MDR of Mediator(%) + Fixed Fee(R$)
+> **Cost to the Marketplace:** MDR of Mediator(%) + Fixed Fee(BRL)
 
 #### Marketplace
 
 The Marketplace is responsible for establishing the rates that will be charged from its Subordinates. That established MRD must be greater than or equal to the MDR agreed between Mediator and Marketplace. Optionally, a fixed fee can also be defined.
 
-> **Cost to the Subordinate:** MDR of Marketplace(%) + Fixed Fee(R$), where MDR of Marketplace(%) includes MDR of Mediator(%).
+> **Cost to the Subordinate:** MDR of Marketplace(%) + Fixed Fee(BRL), where MDR of Marketplace(%) includes MDR of Mediator(%).
 
 #### Example
 
-A transaction of **R$100.00**, made by a **Marketplace** with the participation of **Subordinate 01**.
+A transaction of **BRL 100.00**, made by a **Marketplace** with the participation of **Subordinate 01**.
 
 ![SplitSample001](https://developercielo.github.io/images/split/split001.png)
 
 In this example, assume the following agreements:
 
-**Mediator rates**: 2% MDR + R$0.10 fixed fee.  
+**Mediator rates**: 2% MDR + BRL 0.10 fixed fee.  
 **Marketplace rates**: 3.5% MDR (2% from MDR of Mediator) + 0.30 fixed fee.
 
 After the split, the following schedule events will happen:
 
 **Subordinate**:  
-Credit: R$96.20 [Deducting the MDR and the fixed fee agreed with Marketplace]
+Credit: BRL 96.20 [Deducting the MDR and the fixed fee agreed with Marketplace]
 
 **Marketplace**:  
-Credit: R$1.80 [MDR applied on Subordinate's amount deducting the MDR of Mediator]
-Deductions: R$0.10 [Fixed fee agreed with Mediator]
+Credit: BRL 1.80 [MDR applied on Subordinate's amount deducting the MDR of Mediator]
+Deductions: BRL 0.10 [Fixed fee agreed with Mediator]
 
 **Mediator**:  
-Credit: R$2.00 [MDR applied on the trasaction total amount]
-Credit: R$0.10 [Fixed fee agreed with Marketplace]
+Credit: BRL 2.00 [MDR applied on the trasaction total amount]
+Credit: BRL 0.10 [Fixed fee agreed with Marketplace]
 
 ### Brands
 
@@ -247,9 +247,9 @@ If the transaction sent is set for automatic capture, the node containing the sp
 
 **Example 1)**  
 
-Transaction of **R$100.00**, with automatic capture, without the split rules node.
+Transaction of **BRL 100.00**, with automatic capture, without the split rules node.
 
-**Mediator Rates**: 2% MDR + R$0.10 of Fixed fee.
+**Mediator Rates**: 2% MDR + BRL 0.10 of Fixed fee.
 
 **Request**
 
@@ -344,9 +344,9 @@ In this case, Marketplace receives the amount of the transaction, deducting the 
 
 **Example 2)**  
 
-Transaction of **R$100.00**, with the split rules node.
+Transaction of **BRL 100.00**, with the split rules node.
 
-**Mediator Rates**: 2% MDR + R$0.10 of fixed fee.  
+**Mediator Rates**: 2% MDR + BRL 0.10 of fixed fee.  
 **Marketplace Rates to Subordinate 01**: 5% MDR (2% from MDR of Mediator included) + 0.30 of fixed fee.
 **Marketplace Rates to Subordinate 02**: 4% MDR (2% from MDR of Mediator included) + 0.15 of fixed fee. 
 
@@ -1606,7 +1606,7 @@ An adjustment will only be settled if the participant being debited has a positi
 
 The amounts ​​up to 10/16/2018 were normally settled.
 
-Since the subordinate had BRL150.00 to receive on 10/17/2018, the adjustment was posted to the financial schedule on the stated date informed, and the Subordinate will receive BRL 50.00 due to the adjustment debit.
+Since the subordinate had BRL 150.00 to receive on 10/17/2018, the adjustment was posted to the financial schedule on the stated date informed, and the Subordinate will receive BRL 50.00 due to the adjustment debit.
 
 The participant to be credited will have the credit on the same date of the debit confirmation, that is, it will receive BRL 150.00 on 10/17/2018.
 
@@ -1747,9 +1747,6 @@ In the example below there was a Partial Chargeback of BRL 60.00 on a transactio
 |--------------------------------------------|---------------------------------------------------------------|---------|---------|
 | `ChargebackSplitPayments.ChargebackSplits` | List containing the split of chargeback for each participant. | Guid    | 36      |
 
-## Settlement
-
-### Escrow
 
 ## Notification
 
