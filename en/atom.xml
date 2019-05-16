@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-05-16T15:16:44+00:00</updated>
+    <updated>2019-05-16T15:38:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13,11 +13,616 @@
     </author>
     
     <entry>
+        <title>Google Pay integration spec</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//en/manual/google-pay"/>
+        <updated>2018-10-09T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//en/manual/google-pay</id>
+        <content type="html">&lt;h1 id=&quot;google-pay&quot;&gt;Google Pay&lt;/h1&gt;
+
+&lt;p&gt;Google Pay is a e-wallet. It allows shoppers to make payments in e-commerce stores and apps using their credit and debit cards stored in their Google Account and Android devices in a safe and easy way.&lt;/p&gt;
+
+&lt;h1 id=&quot;requirements&quot;&gt;Requirements&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Agree to Google’s terms of service&lt;/li&gt;
+  &lt;li&gt;Integrate Google Pay into your app (&lt;a href=&quot;https://developers.google.com/pay/api/android/overview&quot;&gt;https://developers.google.com/pay/api/android/overview&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Contrat the Braspag’s payment gateway service (API REST)&lt;/li&gt;
+  &lt;li&gt;Contrat the Cielo 3.0 as payment acquier&lt;/li&gt;
+  &lt;li&gt;Integrate Braspag’s payment gateway Pagador API REST (&lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador&quot;&gt;https://braspag.github.io/manual/braspag-pagador&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;step-1-integrating-google-pay-into-you-android-app&quot;&gt;Step 1: Integrating Google Pay into you Android app&lt;/h1&gt;
+
+&lt;h2 id=&quot;action-1---configure-your-project&quot;&gt;Action 1 - Configure your project&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/setup&quot;&gt;https://developers.google.com/pay/api/android/guides/setup&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In these steps, the following points should be observed:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Project Configuration&lt;/li&gt;
+  &lt;li&gt;Modify your &lt;em&gt;Manifest&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;action-2---google-pay-implementation&quot;&gt;Action 2 - Google Pay Implementation&lt;/h2&gt;
+
+&lt;p&gt;To integrate Google Play into your app, follow all the steps in the Google Pay documentation:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/tutorial&quot;&gt;https://developers.google.com/pay/api/android/guides/tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the correct integration of Google Play using Braspag’s payment gateway, it is necessary to observe the following points:&lt;/p&gt;
+
+&lt;h3 id=&quot;gateway-definition&quot;&gt;Gateway Definition&lt;/h3&gt;
+
+&lt;p&gt;In the “&lt;em&gt;Step 2: Choose a payment tokenization method&lt;/em&gt;”, follow the “GATEWAY” integration model and send the “type” as “ &lt;strong&gt;PAYMENT_GATEWAY&lt;/strong&gt;” and “ &lt;strong&gt;gateway&lt;/strong&gt;” as “ &lt;strong&gt;cielo&lt;/strong&gt;”, according to the example:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;getTokenizationSpecification()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject();&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PAYMENT&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;GATEWAY&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parameters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gateway&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cielo&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gatewayMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;exampleMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To the field “ &lt;strong&gt;gatewayMerchantId&lt;/strong&gt;”, send your application code registered at Google Pay. To test purpose, use “18045945416119260263”&lt;/p&gt;
+
+&lt;h3 id=&quot;definition-of-brands&quot;&gt;Definition of brands&lt;/h3&gt;
+
+&lt;p&gt;In the “&lt;em&gt;Step 3: Define supported payment card networks&lt;/em&gt;”, use these brands: “VISA”, “MASTERCARD”, “AMEX”, “DISCOVER” E “JCB”&lt;/p&gt;
+
+&lt;h3 id=&quot;definition-of-environment&quot;&gt;Definition of environment&lt;/h3&gt;
+
+&lt;p&gt;In the “&lt;em&gt;Step 5: Create a PaymentsClient instance&lt;/em&gt;”, use the vaue “WalletConstants.ENVIRONMENT_TEST” for test purpose.&lt;/p&gt;
+
+&lt;h3 id=&quot;definition-of-shopping-data&quot;&gt;Definition of shopping data&lt;/h3&gt;
+
+&lt;p&gt;In the “&lt;em&gt;Step 7: Create a PaymentDataRequest object&lt;/em&gt;”, use the value “BRL” for “ &lt;strong&gt;currencyCode&lt;/strong&gt;”. The field “ &lt;strong&gt;merchantName&lt;/strong&gt;” is the name that shopper will see during Google Pay payment process, then, the recomendation is the use of friendly name.&lt;/p&gt;
+
+&lt;h3 id=&quot;payment-data-recovery&quot;&gt;Payment Data Recovery&lt;/h3&gt;
+
+&lt;p&gt;In the “&lt;em&gt;Step 9: Handle the response object&lt;/em&gt;”, the “Activity.RESULT_OK” event is described, which is returned a object with all the payment data, including payment tokens.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;PaymentData&lt;/em&gt; contains the object &lt;em&gt;PaymentMethodToken&lt;/em&gt;. To get this object, use the &lt;strong&gt;getPaymentMethodToken()&lt;/strong&gt; method.&lt;/p&gt;
+
+&lt;p&gt;(to see more details: &lt;a href=&quot;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData&quot;&gt;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;After getting the PaymentMethodToken, you shold get the &lt;em&gt;string&lt;/em&gt; that contains the payment tokens. To get the string, use the &lt;strong&gt;GetToken()&lt;/strong&gt; method from &lt;em&gt;PaymentMethodToken&lt;/em&gt; object.&lt;/p&gt;
+
+&lt;p&gt;(to see more details: &lt;a href=&quot;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken&quot;&gt;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;The string obtained will be similar as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;protocolVersion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ECv1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;signature&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;signedMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;encryptedMessage&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:
+  &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ZW5jcnlwdGVkTWVzc2FnZQ==&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ephemeralPublicKey&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:
+  &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ZXBoZW1lcmFsUHVibGljS2V5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c2lnbmF0dXJl&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Parâmetro&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;encryptedMessage&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Base64-encoded encrypted message containing payment information and some additional security fields.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ephemeralPublicKey&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Base64-encoded ephemeral public key associated with the private key to encrypt the message in uncompressed point format.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;(to see more details: &lt;a href=&quot;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&quot;&gt;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Keep the values “&lt;em&gt;encryptedMessage&lt;/em&gt;” and “&lt;em&gt;ephemeralPublicKey&lt;/em&gt;”. They will be requested in the Braspag’s authorization process in the next step (Step 2: Authorization with Google Pay)&lt;/p&gt;
+
+&lt;h1 id=&quot;step-2-authorization-with-google-pay&quot;&gt;Step 2: Authorization with Google Pay&lt;/h1&gt;
+
+&lt;p&gt;The authorization with the Google Pay token must be performed as the same way as a standard authorization for a credit card, but providing token in place of the open card data, as following example:&lt;/p&gt;
+
+&lt;h2 id=&quot;request&quot;&gt;Request&lt;/h2&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Wallet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AndroidPay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZW5jcnlwdGVkTWVzc2FnZQ==&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AdditionalData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EphemeralPublicKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZXBoZW1lcmFsUHVibGljS2V5&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Parâmetro&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantOrderId&lt;/td&gt;
+      &lt;td&gt;String (50)&lt;/td&gt;
+      &lt;td&gt;Order identification number&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Customer&lt;/td&gt;
+      &lt;td&gt;Node with shopper data&lt;/td&gt;
+      &lt;td&gt;See &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador?json#criando-uma-transa%C3%A7%C3%A3o-com-dados-do-comprador&quot;&gt;https://braspag.github.io/manual/braspag-pagador?json#criando-uma-transa%C3%A7%C3%A3o-com-dados-do-comprador&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Type&lt;/td&gt;
+      &lt;td&gt;String (100)&lt;/td&gt;
+      &lt;td&gt;Payment method type. Possible values: “CreditCard” ou “DebitCard”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Amount&lt;/td&gt;
+      &lt;td&gt;Número (15)&lt;/td&gt;
+      &lt;td&gt;Transaction amount in cents&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Provider&lt;/td&gt;
+      &lt;td&gt;String (15)&lt;/td&gt;
+      &lt;td&gt;Payment method provider name. For Google Pay, use “Cielo30”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Installments&lt;/td&gt;
+      &lt;td&gt;Número (2)&lt;/td&gt;
+      &lt;td&gt;Number of installments&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Wallet.Type&lt;/td&gt;
+      &lt;td&gt;String (15)&lt;/td&gt;
+      &lt;td&gt;Wallet provider name. For Google Pay, use “AndroidPay”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Wallet.WalletKey&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;Provide the “encryptedMessage” received from Google Pay&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Wallet.AdditionalData. EphemeralPublicKey&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;Provide the “ephemeralPublicKey” received from Google Pay&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;For more information: &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador&quot;&gt;https://braspag.github.io/manual/braspag-pagador&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
+
+&lt;p&gt;Vide &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador?json#resposta&quot;&gt;https://braspag.github.io/manual/braspag-pagador?json#resposta&lt;/a&gt;&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Integration Manual Verify Card</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//en/manual/braspag-verify-card"/>
+        <updated>2018-07-23T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//en/manual/braspag-verify-card</id>
+        <content type="html">&lt;h1 id=&quot;querying-data-from-a-card-via-zero-auth-and-bin-query-service&quot;&gt;Querying data from a card via Zero Auth and BIN Query Service&lt;/h1&gt;
+
+&lt;p&gt;To query card data, a POST request is required on the VerifyCard service. The VerifyCard consists of two services: Zero Auth and BIN Query Service. Zero Auth is a service that identifies if a card is valid or not, through an operation similar to an authorization, but sending zero as transaction amount. The BIN Query Service is a service available for merchats that use Cielo 3.0 and it returns card BIN information such as brand and card type. Both services can be consumed simultaneously through the VerifyCard, as shown in the example below. It is also possible that the authorization process is automatically conditioned to a successful return of ZeroAuth. To enable this feature, please contact our support team.&lt;/p&gt;
+
+&lt;h2 id=&quot;request&quot;&gt;Request&lt;/h2&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/verifycard&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Card&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;999999******9999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Joao da Silva&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;03/2026&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;***&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/verifycard&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Card&quot;&lt;/span&gt; :
+   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;999999******9999&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Joao da Silva&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;03/2026&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;***&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Merchant ID&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Merchant Key&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Payment Method Provider’s name&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.CardNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;16&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Credit Card number. In case of doing just BIN Query Service, put the first six digits of card (BIN)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Holder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Cardholder name&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.ExpirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Expiration Date (MM/YYYY)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.SecurityCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Security Code (CVV2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Brand&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Card’s Brand&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;CreditCard ou DebitCard&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Identify the cart type to be queried. This information is relevant for multiple function card.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Transacao autorizada&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BinData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Master&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Crédito&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ForeignCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Analise autorizada&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;: 1,
+    &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Transacao autorizada&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;BinData&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Master&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;CardType&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Crédito&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ForeignCard&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Code&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Message&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Analise autorizada&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Format&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Zero Auth status&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0-Failed Zero Auth response; 1-Success Zero Auth response; 99-The query was succeeded but the card status is inconclusive;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Zero Auth query response code returned by the provider.&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;The same code returned by the provider upon authorization. Ex: provider Cielo30 code 82-cartão invalido&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnMessage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Zero Auth query response message returned by the provider.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;512&lt;/td&gt;
+      &lt;td&gt;Ex. “Transacao Autorizada”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Service provider&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Ex. Cielo30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.CardType&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Card Type&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Ex. Crédito, Débito, Múltiplo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.ForeignCard&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identify if the card was issues in Brazil or not&lt;/td&gt;
+      &lt;td&gt;booleano&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Ex. true ou false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Code&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;BIN query service return code&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Ex. For provider Cielo30, 00 means that the query was succeeded&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Message&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;query service return message&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;512&lt;/td&gt;
+      &lt;td&gt;Ex. For provider Cielo30, “Analise autorizada” means that the query was succeeded.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Integration Manual Silent Order Post</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//en/manual/braspag-silent-order-post"/>
+        <updated>2018-07-19T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//en/manual/braspag-silent-order-post</id>
+        <content type="html">&lt;h1 id=&quot;silent-order-post&quot;&gt;Silent Order Post&lt;/h1&gt;
+
+&lt;p&gt;The main objective of this document is to guide your implementation with the PagadorButton, for Pagador platform.&lt;/p&gt;
+
+&lt;p&gt;The PagadorButton is another way to implement the Authorization process with Pagador platform. Using the JavaScript© as a script to do this and show a button in your checkout, you only needs to set-up the next steps in your checkout.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-to&quot;&gt;How To&lt;/h1&gt;
+
+&lt;p&gt;Follow below the way to implement the Silent Order Post:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/fluxo-silent-order-post-en.jpg&quot; alt=&quot;Fluxo Silent Order Post&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The customer finishes to checkout, and go to payment process.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a) The merchant must request a ticket (server to server) sending a POST to the following URL:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For example: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&lt;/p&gt;
+
+&lt;h2 id=&quot;request&quot;&gt;Request&lt;/h2&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v1/accesstoken?merchantid={mid_loja}&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;PROPERTY&lt;/th&gt;
+      &lt;th&gt;DESCRIPTION&lt;/th&gt;
+      &lt;th&gt;TYPE&lt;/th&gt;
+      &lt;th&gt;SIZE&lt;/th&gt;
+      &lt;th&gt;MANDATORY&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mid_loja&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;API store identifier&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;{5ed36d2f-65f2-e411-9408-000af7120b62}&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;AccessToken&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Issued&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-07-23T11:09:32&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;ExpiresIn&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-07-23T11:29:32&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;PROPERTY&lt;/th&gt;
+      &lt;th&gt;DESCRIPTION&lt;/th&gt;
+      &lt;th&gt;TYPE&lt;/th&gt;
+      &lt;th&gt;SIZE&lt;/th&gt;
+      &lt;th&gt;MANDATORY&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;API store identifier&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AccessToken&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Access Token&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Issued&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Date and time of the generation&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DDTHH:MM:SS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExpiresIn&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Date and time of the expiration&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DDTHH:MM:SS&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;b) In order to use this resource, for security reasons, it will be mandatory for Braspag to require, &lt;strong&gt;at least a valid IP of the establishment&lt;/strong&gt;. Otherwise the requisition will not be authorized (&lt;strong&gt;HTTP 401 NotAuthorized&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a) As answer the establishment will receive a json (HTTP 201 Created) having among other information the ticket (AccessToken), as for example:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/response-ticket.jpg&quot; alt=&quot;Response Ticket&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For matters of safety, this ticket will give permissions to the establishment to save only 1 card in the deadline already established on the answer, through the attribute Expiresln (for default 20 minutes). What happens first will invalidate this same ticket for future usage.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEPS 4 ao 6&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a) The establishment will have to download a script provided by Braspag and attach it on the checkout page. This script will allow Braspag to process all of the card information without the establishment intervention&lt;/p&gt;
+
+&lt;p&gt;The download may be made from the following URL: &lt;strong&gt;https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;b) The establishment will have to decorate the inputs from the form with the following classes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;For the credit/debit card holder: &lt;strong&gt;bp-sop-cardholdername&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;For credit/debit card number: &lt;strong&gt;bp-sop-cardnumber&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;For credit/debit card expiration date: &lt;strong&gt;bp-sop-cardexpirationdate&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;For the credit/debit card security code: &lt;strong&gt;bp-sop-cardcvvc&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;c) The script provided by Braspag present three events for the establishment’s manipulation and treatment which are: &lt;strong&gt;onSuccess&lt;/strong&gt; (where will be returned the &lt;strong&gt;PaymentToken&lt;/strong&gt; after the card data is processed), &lt;strong&gt;onError&lt;/strong&gt; (in case there is any error in the consumption of Braspag services) and &lt;strong&gt;onInvalid&lt;/strong&gt; (where the result of the validation of the inputs will be returned).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the input validation, the establishment may use the entire card data validation layer realized by Braspag in order to simplify the treatment on the checkout form. The returned messages on the validation result are available on the following languages: Portuguese (default) English and Spanish.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;strong&gt;PaymentToken&lt;/strong&gt; will be the token that will represent every card data provided by the buyer. It will be utilized by the establishment so there will not be the necessity of treating and processing the card data on your side. This token may be used both in transactions using Hosted Page or SOAP / REST implementations of Pagador.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;For matters of safety this PaymentToken may be used for only 1 authorization on Braspag. After the token processing, it will be invalid.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Example of setup to be carried out by the establishment on the checkout page:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/pagina-checkout.jpg&quot; alt=&quot;Pagina Checkout&quot; /&gt;&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
         <title>Split Payments</title>
         <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/split-payments-braspag"/>
-        <updated>2019-04-30T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/split-payments-braspag</id>
+        <link href="https://braspag.github.io//en/manual/split-pagamentos-braspag"/>
+        <updated>2018-05-13T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//en/manual/split-pagamentos-braspag</id>
         <content type="html">&lt;h1 id=&quot;split-payments&quot;&gt;Split Payments&lt;/h1&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -2356,611 +2961,6 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
 &lt;h2 id=&quot;notification&quot;&gt;Notification&lt;/h2&gt;
 
 &lt;p&gt;To be notified about the status of a transaction, use the Cielo E-Commerce API &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação&quot;&gt;notification service&lt;/a&gt;.&lt;/p&gt;
-</content>
-    </entry>
-    
-    <entry>
-        <title>Google Pay integration spec</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/google-pay"/>
-        <updated>2018-10-09T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/google-pay</id>
-        <content type="html">&lt;h1 id=&quot;google-pay&quot;&gt;Google Pay&lt;/h1&gt;
-
-&lt;p&gt;Google Pay is a e-wallet. It allows shoppers to make payments in e-commerce stores and apps using their credit and debit cards stored in their Google Account and Android devices in a safe and easy way.&lt;/p&gt;
-
-&lt;h1 id=&quot;requirements&quot;&gt;Requirements&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Agree to Google’s terms of service&lt;/li&gt;
-  &lt;li&gt;Integrate Google Pay into your app (&lt;a href=&quot;https://developers.google.com/pay/api/android/overview&quot;&gt;https://developers.google.com/pay/api/android/overview&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Contrat the Braspag’s payment gateway service (API REST)&lt;/li&gt;
-  &lt;li&gt;Contrat the Cielo 3.0 as payment acquier&lt;/li&gt;
-  &lt;li&gt;Integrate Braspag’s payment gateway Pagador API REST (&lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador&quot;&gt;https://braspag.github.io/manual/braspag-pagador&lt;/a&gt;)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;step-1-integrating-google-pay-into-you-android-app&quot;&gt;Step 1: Integrating Google Pay into you Android app&lt;/h1&gt;
-
-&lt;h2 id=&quot;action-1---configure-your-project&quot;&gt;Action 1 - Configure your project&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/setup&quot;&gt;https://developers.google.com/pay/api/android/guides/setup&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In these steps, the following points should be observed:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Project Configuration&lt;/li&gt;
-  &lt;li&gt;Modify your &lt;em&gt;Manifest&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;action-2---google-pay-implementation&quot;&gt;Action 2 - Google Pay Implementation&lt;/h2&gt;
-
-&lt;p&gt;To integrate Google Play into your app, follow all the steps in the Google Pay documentation:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/tutorial&quot;&gt;https://developers.google.com/pay/api/android/guides/tutorial&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;For the correct integration of Google Play using Braspag’s payment gateway, it is necessary to observe the following points:&lt;/p&gt;
-
-&lt;h3 id=&quot;gateway-definition&quot;&gt;Gateway Definition&lt;/h3&gt;
-
-&lt;p&gt;In the “&lt;em&gt;Step 2: Choose a payment tokenization method&lt;/em&gt;”, follow the “GATEWAY” integration model and send the “type” as “ &lt;strong&gt;PAYMENT_GATEWAY&lt;/strong&gt;” and “ &lt;strong&gt;gateway&lt;/strong&gt;” as “ &lt;strong&gt;cielo&lt;/strong&gt;”, according to the example:&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;getTokenizationSpecification()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject();&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PAYMENT&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;GATEWAY&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parameters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gateway&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cielo&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gatewayMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;exampleMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To the field “ &lt;strong&gt;gatewayMerchantId&lt;/strong&gt;”, send your application code registered at Google Pay. To test purpose, use “18045945416119260263”&lt;/p&gt;
-
-&lt;h3 id=&quot;definition-of-brands&quot;&gt;Definition of brands&lt;/h3&gt;
-
-&lt;p&gt;In the “&lt;em&gt;Step 3: Define supported payment card networks&lt;/em&gt;”, use these brands: “VISA”, “MASTERCARD”, “AMEX”, “DISCOVER” E “JCB”&lt;/p&gt;
-
-&lt;h3 id=&quot;definition-of-environment&quot;&gt;Definition of environment&lt;/h3&gt;
-
-&lt;p&gt;In the “&lt;em&gt;Step 5: Create a PaymentsClient instance&lt;/em&gt;”, use the vaue “WalletConstants.ENVIRONMENT_TEST” for test purpose.&lt;/p&gt;
-
-&lt;h3 id=&quot;definition-of-shopping-data&quot;&gt;Definition of shopping data&lt;/h3&gt;
-
-&lt;p&gt;In the “&lt;em&gt;Step 7: Create a PaymentDataRequest object&lt;/em&gt;”, use the value “BRL” for “ &lt;strong&gt;currencyCode&lt;/strong&gt;”. The field “ &lt;strong&gt;merchantName&lt;/strong&gt;” is the name that shopper will see during Google Pay payment process, then, the recomendation is the use of friendly name.&lt;/p&gt;
-
-&lt;h3 id=&quot;payment-data-recovery&quot;&gt;Payment Data Recovery&lt;/h3&gt;
-
-&lt;p&gt;In the “&lt;em&gt;Step 9: Handle the response object&lt;/em&gt;”, the “Activity.RESULT_OK” event is described, which is returned a object with all the payment data, including payment tokens.&lt;/p&gt;
-
-&lt;p&gt;The &lt;em&gt;PaymentData&lt;/em&gt; contains the object &lt;em&gt;PaymentMethodToken&lt;/em&gt;. To get this object, use the &lt;strong&gt;getPaymentMethodToken()&lt;/strong&gt; method.&lt;/p&gt;
-
-&lt;p&gt;(to see more details: &lt;a href=&quot;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData&quot;&gt;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData&lt;/a&gt;)&lt;/p&gt;
-
-&lt;p&gt;After getting the PaymentMethodToken, you shold get the &lt;em&gt;string&lt;/em&gt; that contains the payment tokens. To get the string, use the &lt;strong&gt;GetToken()&lt;/strong&gt; method from &lt;em&gt;PaymentMethodToken&lt;/em&gt; object.&lt;/p&gt;
-
-&lt;p&gt;(to see more details: &lt;a href=&quot;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken&quot;&gt;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken&lt;/a&gt;)&lt;/p&gt;
-
-&lt;p&gt;The string obtained will be similar as follows:&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;protocolVersion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ECv1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;signature&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;signedMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;encryptedMessage&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:
-  &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ZW5jcnlwdGVkTWVzc2FnZQ==&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ephemeralPublicKey&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:
-  &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ZXBoZW1lcmFsUHVibGljS2V5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c2lnbmF0dXJl&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;&lt;strong&gt;Parâmetro&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;encryptedMessage&lt;/td&gt;
-      &lt;td&gt;string&lt;/td&gt;
-      &lt;td&gt;Base64-encoded encrypted message containing payment information and some additional security fields.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ephemeralPublicKey&lt;/td&gt;
-      &lt;td&gt;string&lt;/td&gt;
-      &lt;td&gt;Base64-encoded ephemeral public key associated with the private key to encrypt the message in uncompressed point format.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;(to see more details: &lt;a href=&quot;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&quot;&gt;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&lt;/a&gt;)&lt;/p&gt;
-
-&lt;p&gt;Keep the values “&lt;em&gt;encryptedMessage&lt;/em&gt;” and “&lt;em&gt;ephemeralPublicKey&lt;/em&gt;”. They will be requested in the Braspag’s authorization process in the next step (Step 2: Authorization with Google Pay)&lt;/p&gt;
-
-&lt;h1 id=&quot;step-2-authorization-with-google-pay&quot;&gt;Step 2: Authorization with Google Pay&lt;/h1&gt;
-
-&lt;p&gt;The authorization with the Google Pay token must be performed as the same way as a standard authorization for a credit card, but providing token in place of the open card data, as following example:&lt;/p&gt;
-
-&lt;h2 id=&quot;request&quot;&gt;Request&lt;/h2&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Wallet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AndroidPay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZW5jcnlwdGVkTWVzc2FnZQ==&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AdditionalData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EphemeralPublicKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZXBoZW1lcmFsUHVibGljS2V5&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;&lt;strong&gt;Parâmetro&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;MerchantOrderId&lt;/td&gt;
-      &lt;td&gt;String (50)&lt;/td&gt;
-      &lt;td&gt;Order identification number&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Customer&lt;/td&gt;
-      &lt;td&gt;Node with shopper data&lt;/td&gt;
-      &lt;td&gt;See &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador?json#criando-uma-transa%C3%A7%C3%A3o-com-dados-do-comprador&quot;&gt;https://braspag.github.io/manual/braspag-pagador?json#criando-uma-transa%C3%A7%C3%A3o-com-dados-do-comprador&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Payment.Type&lt;/td&gt;
-      &lt;td&gt;String (100)&lt;/td&gt;
-      &lt;td&gt;Payment method type. Possible values: “CreditCard” ou “DebitCard”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Payment.Amount&lt;/td&gt;
-      &lt;td&gt;Número (15)&lt;/td&gt;
-      &lt;td&gt;Transaction amount in cents&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Payment.Provider&lt;/td&gt;
-      &lt;td&gt;String (15)&lt;/td&gt;
-      &lt;td&gt;Payment method provider name. For Google Pay, use “Cielo30”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Payment.Installments&lt;/td&gt;
-      &lt;td&gt;Número (2)&lt;/td&gt;
-      &lt;td&gt;Number of installments&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Payment.Wallet.Type&lt;/td&gt;
-      &lt;td&gt;String (15)&lt;/td&gt;
-      &lt;td&gt;Wallet provider name. For Google Pay, use “AndroidPay”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Payment.Wallet.WalletKey&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
-      &lt;td&gt;Provide the “encryptedMessage” received from Google Pay&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Payment.Wallet.AdditionalData. EphemeralPublicKey&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
-      &lt;td&gt;Provide the “ephemeralPublicKey” received from Google Pay&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;For more information: &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador&quot;&gt;https://braspag.github.io/manual/braspag-pagador&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
-
-&lt;p&gt;Vide &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador?json#resposta&quot;&gt;https://braspag.github.io/manual/braspag-pagador?json#resposta&lt;/a&gt;&lt;/p&gt;
-</content>
-    </entry>
-    
-    <entry>
-        <title>Integration Manual Verify Card</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/braspag-verify-card"/>
-        <updated>2018-07-23T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/braspag-verify-card</id>
-        <content type="html">&lt;h1 id=&quot;querying-data-from-a-card-via-zero-auth-and-bin-query-service&quot;&gt;Querying data from a card via Zero Auth and BIN Query Service&lt;/h1&gt;
-
-&lt;p&gt;To query card data, a POST request is required on the VerifyCard service. The VerifyCard consists of two services: Zero Auth and BIN Query Service. Zero Auth is a service that identifies if a card is valid or not, through an operation similar to an authorization, but sending zero as transaction amount. The BIN Query Service is a service available for merchats that use Cielo 3.0 and it returns card BIN information such as brand and card type. Both services can be consumed simultaneously through the VerifyCard, as shown in the example below. It is also possible that the authorization process is automatically conditioned to a successful return of ZeroAuth. To enable this feature, please contact our support team.&lt;/p&gt;
-
-&lt;h2 id=&quot;request&quot;&gt;Request&lt;/h2&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/verifycard&lt;/span&gt;&lt;/aside&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Card&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;999999******9999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Joao da Silva&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;03/2026&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;***&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
-&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/verifycard&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;,
-   &lt;span class=&quot;s2&quot;&gt;&quot;Card&quot;&lt;/span&gt; :
-   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-       &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;999999******9999&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Joao da Silva&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;03/2026&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;***&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;
-   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Property&lt;/th&gt;
-      &lt;th&gt;Type&lt;/th&gt;
-      &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Guid&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Merchant ID&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;40&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Merchant Key&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;15&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Payment Method Provider’s name&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.CardNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;16&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Credit Card number. In case of doing just BIN Query Service, put the first six digits of card (BIN)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Holder&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;25&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Cardholder name&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.ExpirationDate&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Expiration Date (MM/YYYY)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.SecurityCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Security Code (CVV2)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Brand&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card’s Brand&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;CreditCard ou DebitCard&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Identify the cart type to be queried. This information is relevant for multiple function card.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Transacao autorizada&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BinData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Master&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Crédito&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ForeignCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Analise autorizada&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;: 1,
-    &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Transacao autorizada&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;BinData&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Master&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;CardType&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Crédito&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ForeignCard&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Code&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Message&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Analise autorizada&quot;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Property&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Type&lt;/th&gt;
-      &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Format&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Zero Auth status&lt;/td&gt;
-      &lt;td&gt;Number&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0-Failed Zero Auth response; 1-Success Zero Auth response; 99-The query was succeeded but the card status is inconclusive;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Zero Auth query response code returned by the provider.&lt;/td&gt;
-      &lt;td&gt;Number&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;The same code returned by the provider upon authorization. Ex: provider Cielo30 code 82-cartão invalido&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnMessage&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Zero Auth query response message returned by the provider.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;512&lt;/td&gt;
-      &lt;td&gt;Ex. “Transacao Autorizada”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Service provider&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;15&lt;/td&gt;
-      &lt;td&gt;Ex. Cielo30&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.CardType&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Card Type&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;15&lt;/td&gt;
-      &lt;td&gt;Ex. Crédito, Débito, Múltiplo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.ForeignCard&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Identify if the card was issues in Brazil or not&lt;/td&gt;
-      &lt;td&gt;booleano&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Ex. true ou false&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;BIN query service return code&lt;/td&gt;
-      &lt;td&gt;Number&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. For provider Cielo30, 00 means that the query was succeeded&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;query service return message&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;512&lt;/td&gt;
-      &lt;td&gt;Ex. For provider Cielo30, “Analise autorizada” means that the query was succeeded.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</content>
-    </entry>
-    
-    <entry>
-        <title>Integration Manual Silent Order Post</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/braspag-silent-order-post"/>
-        <updated>2018-07-19T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/braspag-silent-order-post</id>
-        <content type="html">&lt;h1 id=&quot;silent-order-post&quot;&gt;Silent Order Post&lt;/h1&gt;
-
-&lt;p&gt;The main objective of this document is to guide your implementation with the PagadorButton, for Pagador platform.&lt;/p&gt;
-
-&lt;p&gt;The PagadorButton is another way to implement the Authorization process with Pagador platform. Using the JavaScript© as a script to do this and show a button in your checkout, you only needs to set-up the next steps in your checkout.&lt;/p&gt;
-
-&lt;h1 id=&quot;how-to&quot;&gt;How To&lt;/h1&gt;
-
-&lt;p&gt;Follow below the way to implement the Silent Order Post:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/fluxo-silent-order-post-en.jpg&quot; alt=&quot;Fluxo Silent Order Post&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;STEP 1&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The customer finishes to checkout, and go to payment process.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;STEP 2&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;a) The merchant must request a ticket (server to server) sending a POST to the following URL:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;For example: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&lt;/p&gt;
-
-&lt;h2 id=&quot;request&quot;&gt;Request&lt;/h2&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v1/accesstoken?merchantid={mid_loja}&lt;/span&gt;&lt;/aside&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
-&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;PROPERTY&lt;/th&gt;
-      &lt;th&gt;DESCRIPTION&lt;/th&gt;
-      &lt;th&gt;TYPE&lt;/th&gt;
-      &lt;th&gt;SIZE&lt;/th&gt;
-      &lt;th&gt;MANDATORY&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mid_loja&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;API store identifier&lt;/td&gt;
-      &lt;td&gt;Guid&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;{5ed36d2f-65f2-e411-9408-000af7120b62}&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;AccessToken&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;Issued&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-07-23T11:09:32&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;ExpiresIn&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-07-23T11:29:32&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;PROPERTY&lt;/th&gt;
-      &lt;th&gt;DESCRIPTION&lt;/th&gt;
-      &lt;th&gt;TYPE&lt;/th&gt;
-      &lt;th&gt;SIZE&lt;/th&gt;
-      &lt;th&gt;MANDATORY&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;API store identifier&lt;/td&gt;
-      &lt;td&gt;Guid&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AccessToken&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Access Token&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
-      &lt;td&gt;NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Issued&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Date and time of the generation&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
-      &lt;td&gt;AAAA-MM-DDTHH:MM:SS&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExpiresIn&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Date and time of the expiration&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
-      &lt;td&gt;AAAA-MM-DDTHH:MM:SS&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;b) In order to use this resource, for security reasons, it will be mandatory for Braspag to require, &lt;strong&gt;at least a valid IP of the establishment&lt;/strong&gt;. Otherwise the requisition will not be authorized (&lt;strong&gt;HTTP 401 NotAuthorized&lt;/strong&gt;).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;STEP 3&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;a) As answer the establishment will receive a json (HTTP 201 Created) having among other information the ticket (AccessToken), as for example:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/response-ticket.jpg&quot; alt=&quot;Response Ticket&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;For matters of safety, this ticket will give permissions to the establishment to save only 1 card in the deadline already established on the answer, through the attribute Expiresln (for default 20 minutes). What happens first will invalidate this same ticket for future usage.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;STEPS 4 ao 6&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;a) The establishment will have to download a script provided by Braspag and attach it on the checkout page. This script will allow Braspag to process all of the card information without the establishment intervention&lt;/p&gt;
-
-&lt;p&gt;The download may be made from the following URL: &lt;strong&gt;https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;b) The establishment will have to decorate the inputs from the form with the following classes:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;For the credit/debit card holder: &lt;strong&gt;bp-sop-cardholdername&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;For credit/debit card number: &lt;strong&gt;bp-sop-cardnumber&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;For credit/debit card expiration date: &lt;strong&gt;bp-sop-cardexpirationdate&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;For the credit/debit card security code: &lt;strong&gt;bp-sop-cardcvvc&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;c) The script provided by Braspag present three events for the establishment’s manipulation and treatment which are: &lt;strong&gt;onSuccess&lt;/strong&gt; (where will be returned the &lt;strong&gt;PaymentToken&lt;/strong&gt; after the card data is processed), &lt;strong&gt;onError&lt;/strong&gt; (in case there is any error in the consumption of Braspag services) and &lt;strong&gt;onInvalid&lt;/strong&gt; (where the result of the validation of the inputs will be returned).&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;On the input validation, the establishment may use the entire card data validation layer realized by Braspag in order to simplify the treatment on the checkout form. The returned messages on the validation result are available on the following languages: Portuguese (default) English and Spanish.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The &lt;strong&gt;PaymentToken&lt;/strong&gt; will be the token that will represent every card data provided by the buyer. It will be utilized by the establishment so there will not be the necessity of treating and processing the card data on your side. This token may be used both in transactions using Hosted Page or SOAP / REST implementations of Pagador.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;For matters of safety this PaymentToken may be used for only 1 authorization on Braspag. After the token processing, it will be invalid.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Example of setup to be carried out by the establishment on the checkout page:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/pagina-checkout.jpg&quot; alt=&quot;Pagina Checkout&quot; /&gt;&lt;/p&gt;
 </content>
     </entry>
     
