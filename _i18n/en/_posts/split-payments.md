@@ -1701,7 +1701,7 @@ In the example below there was a Partial Chargeback of BRL 60.00 on a transactio
 
 | Property                | Description                                                         | Type    | Size    |
 |-------------------------|---------------------------------------------------------------------|---------|---------|
-| `SubordinateMerchantId` | Subordinate ID.                                                     | Guid    | 36      |
+| `SubordinateMerchantId` | Subordinate Identifier.                                                     | Guid    | 36      |
 | `ChargebackAmount`      | Chargeback amount that must be passed to the Subordinate, in cents. | Int | -       |
 
 **Response**
