@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-05-16T16:51:02+00:00</updated>
+    <updated>2019-05-16T16:53:19+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -711,7 +711,7 @@
 
 &lt;p&gt;A transaction of &lt;strong&gt;BRL 100.00&lt;/strong&gt;, made by a &lt;strong&gt;Marketplace&lt;/strong&gt; with the participation of &lt;strong&gt;Subordinate 01&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/split/split001.png&quot; alt=&quot;SplitSample001&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/split/ensplit001.png&quot; alt=&quot;SplitSample001&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this example, assume the following agreements:&lt;/p&gt;
 
@@ -1000,7 +1000,7 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
 
 &lt;p&gt;In this case, Marketplace receives the amount of the transaction, deducting the MDR agreed with Mediator. As previously stated, the fixed fee agreed between Marketplace and Mediator is computed directly on the schedule of both parties.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/split/split002.png&quot; alt=&quot;SplitSample002&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/split/ensplit002.png&quot; alt=&quot;SplitSample002&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Example 2)&lt;/strong&gt;&lt;/p&gt;
 
@@ -1137,7 +1137,7 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
 
 &lt;p&gt;These are how the splits happened and how the schedules of each participant were set.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/split/split003.png&quot; alt=&quot;SplitSample003&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/split/ensplit003.png&quot; alt=&quot;SplitSample003&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;split-models&quot;&gt;Split Models&lt;/h3&gt;
 
@@ -1429,7 +1429,7 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
 
 &lt;p&gt;In the example, the Marketplace is a participant in the sale, hence its not necessary to inform the rates to be discounted from the Marketplace’s part in the transaction. The Split Payments system identifies the Marketplace’s part using its MerchantId (identifier) and perform the calculations utilizing the agreed rates and fees.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/split/split004.png&quot; alt=&quot;SplitSample004&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/split/ensplit004.png&quot; alt=&quot;SplitSample004&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;post-transactional&quot;&gt;Post-Transactional&lt;/h4&gt;
 
