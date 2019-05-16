@@ -46,7 +46,7 @@ There are two ways to establish agreements between Master and its Subordinates w
 1. Setting the MDR (Merchant Discount Rate) to be charged for each transaction by Payment Arrangements and installments range.
 2. If Master do not set the MDR for each Payment Arrangement and installments range, **Split Payments** will get the same agreements between Master and Acquirer and copy the values to the agreements between Master and Subordinate.
 
-**Example:**
+**Example: **
 
 **MDR from Master to Subordinate: 4%**
 
