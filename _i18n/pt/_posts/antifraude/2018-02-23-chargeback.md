@@ -305,8 +305,6 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 # Consultas
 
-## Consultando chargeback(s)
-
 ### Request
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">chargeback?CaseNumber={CaseNumber}&AcquirerTransactionId={AcquirerTransactionId}&BraspagTransactionId={BraspagTransactionId}&StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
@@ -325,12 +323,14 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso relacionado ao chargeback|não|
-|`Tid`|Identificador da transação na adquirente|não|
-|`BraspagTransactionId`|Identificador da transação na Braspag|não|
+|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
+|`BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|não|
+|`ProviderTransactionId`|Identificador da transação no provedor de Antifraude|não|
+|`AntifraudeTransactionId`|Identificador da transação no Antifraude Braspag|não|
 |`StartDate`|Data início da consulta|não|
 |`EndDate`|Data fim da consulta|não|
 |`PageIndex`|Número da página desejada|sim|
-|`PageSize`|Quantidade de itens desejado na página|sim|
+|`PageSize`|Quantidade de itens desejado na página. Máximo 250 itens.|sim|
 
 ### Response
 
@@ -338,7 +338,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 {
     "PageIndex": 1,
     "PageSize": 250,
-    "Total": 1,
+    "Total": 500,
     "Chargebacks":
     [
         {
@@ -396,17 +396,17 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`ReasonCode`|Código do motivo do chargeback|string|
 |`ReasonMessage`|Descrição do motivo do chargeback|string|
 |`Status`|Status do charegabck na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/chargeback#tabela-3-chargebacks[n].status)|string|
-|`Comment`|Comentário que deseja associar ao chargeback que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
-|`IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|
+|`Comment`|Comentário que deseja associar ao chargeback e que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
+|`IsFraud`|Identifica se o chargeback é de fraude|bool|
 |`Transaction.AcquirerType`|Identificador da adquirentre|string|
 |`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
 |`Transaction.MerchantOrderId`|Número do pedido da loja|string|
 |`Transaction.Tid`|Id da transação na adquirente|string|
 |`Transaction.Nsu`|Número sequencial único da transação na adquirente|string|
 |`Transaction.AuthorizationCode`|Código de autorização da transação na adquirente|string|
-|`Transaction.SaleDate`|Data da autorização da transação da transação na adquirente <br/> Ex.: 2018-08-15|date|
+|`Transaction.SaleDate`|Data da autorização da transação na adquirente <br/> Ex.: 2018-08-15|date|
 |`Transaction.PagadorMerchantId`|Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0|guid|
-|`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0|guid|
+|`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|guid|
 |`Transaction.Amount`|Valor da transação em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
 |`Transaction.CardHolder`|Nome do cartão de crédito|string|
 |`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
@@ -419,37 +419,6 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource|string|
 |`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4]({{ site.baseurl_root }}manual/chargeback#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
 |`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
-
-**Parâmetros no corpo (Body)**
-
-## Consultando chargeback(s)
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-### Response
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
 
 # Aceitação
 
@@ -615,7 +584,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|form-data|
-||Arquivos extensão tiff|
+||Arquivos extensão tif|
 
 ### Response
 
