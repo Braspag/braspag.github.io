@@ -741,8 +741,6 @@
 
 <h1 id="consultas">Consultas</h1>
 
-<h2 id="consultando-chargebacks">Consultando chargeback(s)</h2>
-
 <h3 id="request-2">Request</h3>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">chargeback?CaseNumber={CaseNumber}&amp;AcquirerTransactionId={AcquirerTransactionId}&amp;BraspagTransactionId={BraspagTransactionId}&amp;StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
@@ -803,13 +801,23 @@
       <td style="text-align: center">não</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Tid</code></td>
-      <td style="text-align: left">Identificador da transação na adquirente</td>
+      <td style="text-align: left"><code class="highlighter-rouge">AcquirerTransactionId</code></td>
+      <td style="text-align: left">Identificador da transação na adquirente (TID)</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
-      <td style="text-align: left">Identificador da transação na Braspag</td>
+      <td style="text-align: left">Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderTransactionId</code></td>
+      <td style="text-align: left">Identificador da transação no provedor de Antifraude</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AntifraudeTransactionId</code></td>
+      <td style="text-align: left">Identificador da transação no Antifraude Braspag</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
@@ -829,7 +837,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">PageSize</code></td>
-      <td style="text-align: left">Quantidade de itens desejado na página</td>
+      <td style="text-align: left">Quantidade de itens desejado na página. Máximo 250 itens.</td>
       <td style="text-align: center">sim</td>
     </tr>
   </tbody>
@@ -840,7 +848,7 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Total"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
     </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -939,12 +947,12 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Comment</code></td>
-      <td style="text-align: left">Comentário que deseja associar ao chargeback que ficará visível no Backoffice Braspag <br /> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource</td>
+      <td style="text-align: left">Comentário que deseja associar ao chargeback e que ficará visível no Backoffice Braspag <br /> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">IsFraud</code></td>
-      <td style="text-align: left">Identifica se o chargeback foi por motivo de fraude</td>
+      <td style="text-align: left">Identifica se o chargeback é de fraude</td>
       <td style="text-align: center">bool</td>
     </tr>
     <tr>
@@ -979,7 +987,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.SaleDate</code></td>
-      <td style="text-align: left">Data da autorização da transação da transação na adquirente <br /> Ex.: 2018-08-15</td>
+      <td style="text-align: left">Data da autorização da transação na adquirente <br /> Ex.: 2018-08-15</td>
       <td style="text-align: center">date</td>
     </tr>
     <tr>
@@ -989,7 +997,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.BraspagTransactionId</code></td>
-      <td style="text-align: left">Id da transação na plataforma Pagador Braspag ou Cielo 3.0</td>
+      <td style="text-align: left">Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)</td>
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
@@ -1055,30 +1063,11 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<h1 id="aceitação">Aceitação</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">200 OK</td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="aceitando-um-chargeback">Aceitando um chargeback</h2>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
-
-<h2 id="consultando-chargebacks-1">Consultando chargeback(s)</h2>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 <h3 id="request-3">Request</h3>
 
@@ -1121,7 +1110,33 @@
   </tbody>
 </table>
 
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="response-3">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedByMerchant"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1139,14 +1154,37 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">404 Not Found</td>
+      <td style="text-align: left">200 OK</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="aceitação">Aceitação</h1>
+<p><strong>Parâmetros no body (Corpo)</strong></p>
 
-<h2 id="aceitando-um-chargeback">Aceitando um chargeback</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Status da aceitação do chargeback - Tabela 4</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">StatusDescription</code></td>
+      <td style="text-align: left">Descrição do status da aceitação do chargeback</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="aceitando-um-chargeback-inexistente">Aceitando um chargeback inexistente</h2>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
@@ -1213,125 +1251,6 @@
 <h3 id="response-4">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedByMerchant"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">200 OK</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status da aceitação do chargeback - Tabela 4</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">StatusDescription</code></td>
-      <td style="text-align: left">Descrição do status da aceitação do chargeback</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="aceitando-um-chargeback-inexistente">Aceitando um chargeback inexistente</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
-
-<h3 id="request-5">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-5">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1383,7 +1302,7 @@
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
-<h3 id="request-6">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1443,7 +1362,7 @@
   </tbody>
 </table>
 
-<h3 id="response-6">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
@@ -1499,7 +1418,7 @@
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-<h3 id="request-7">Request</h3>
+<h3 id="request-6">Request</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1575,12 +1494,12 @@
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left">Arquivos extensão tiff</td>
+      <td style="text-align: left">Arquivos extensão tif</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="response-7">Response</h3>
+<h3 id="response-6">Response</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
