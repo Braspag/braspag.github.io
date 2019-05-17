@@ -920,6 +920,7 @@ Possíveis valores do chargeback.
 # Matriz
 
 ## Matriz 1 - Documentos
+
 |Segmento\Motivo|Documentos Padrão|Portador não Reconhece a Transação|Mercadoria não Recebida|Serviços não Prestados|Mercadoria com Defeito/Não Confere|Crédito Não Processado|Processamento Duplicado/Pagamentos por Outros Meios|
 |Locadora de Veículos|:-|:-|:-|:-|:-|:-|:-|
 |Hotéis|:-|:-|:-|:-|:-|:-|:-|
