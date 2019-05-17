@@ -584,7 +584,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |Key|Value|Obrigatório|
 |:-|:-|:-|
 |`Content-Type`|form-data||
-||Arquivos extensão tif <br/> O arquivo deve possuir como nome o número do caso relacionado ao chargeback. Ex.: CaseNumber = 0000001 - File = 0000001.tif <br/> O arquivo deverá ser multi-page de no máximo 7mb de tamanho|Sim|
+||Arquivo extensão tif <br/> Obs.: O arquivo deve possuir como nome o número do caso relacionado ao chargeback <br/> Ex.: `CaseNumber` = 0000001 -> `File` = 0000001.tif <br/> Obs2.: O arquivo deverá ser multi-page de no máximo 7mb de tamanho|Sim|
 
 ### Response
 
