@@ -503,14 +503,14 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
-|`Status`|200 OK|
+|`Status`|404 Not Found|
 
 **Parâmetros no body (Corpo)**
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código de retorno para um chargeback não encontrado|
-|`Message`|Mensagem de retorno chargeback não encontrado|
+|`Code`|Código que o chargeback não foi encontrado|
+|`Message`|Mensagem que o chargeback não foi encontrado|
 
 ## Aceitando um chargeback aceito anteriormente
 
@@ -547,14 +547,14 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
-|`Status`|200 OK|
+|`Status`|400 Bad Request|
 
 **Parâmetros no body (Corpo)**
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código do chargeback aceito anteriormente|
-|`Message`|Mensagem do chargeback aceito anteriormente|
+|`Code`|Código que o chargeback foi aceito ou contestado anteriomente|
+|`Message`|Mensagem que o chargeback foi aceito ou contestado anteriormente|
 
 # Contestação
 
@@ -594,6 +594,270 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
+
+## Contestando um chargeback inexistente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "ChargebackNotFounded",
+    "Message": "Chargeback not found"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback não foi encontrado|
+|`Message`|Mensagem que o chargeback não foi encontrado|
+
+## Contestando um chargeback contestado anteriormente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "ChargebackAlreadyUpdated",
+    "Message": "Chargeback already updated"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback foi contestado ou aceito anteriomente|
+|`Message`|Mensagem que o chargeback foi contestado ou aceito anteriormente|
+
+## Contestando um chargeback com nome do arquivo diferente do CaseNumber
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "InvalidFileName",
+    "Message": "Invalid file name"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback está com nome inválido, diferente do CaseNumber|
+|`Message`|Mensagem que o chargeback está com nome inválido, diferente do CaseNumber|
+
+## Contestando um chargeback e não enviando o arquivo de contestação
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "FileNotFound",
+    "Message": "File not found"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback não foi enviado o arquivo de contestação|
+|`Message`|Mensagem que o chargeback não foi enviado o arquivo de contestação|
+
+## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de tif
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "InvalidFileExtension",
+    "Message": "Invalid file extension"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback foi enviado o arquivo de contestação com extensão inválida, diferente de tif|
+|`Message`|Mensagem que o chargeback foi enviado o arquivo de contestação com extensão inválida, diferente de tif|
+
+## Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "InvalidFileLength",
+    "Message": "Invalid file length"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback foi enviado o arquivo de contestação com tamanho superior a 7mb|
+|`Message`|Mensagem que o chargeback foi enviado o arquivo de contestação com tamanho superior a 7mb|
 
 # Tabelas
 
