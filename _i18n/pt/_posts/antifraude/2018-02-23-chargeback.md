@@ -584,7 +584,7 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |Key|Value|Obrigatório|
 |:-|:-|:-|
 |`Content-Type`|form-data||
-||Arquivo extensão tif <br/> Obs.: O arquivo deve possuir como nome o número do caso relacionado ao chargeback <br/> Ex.: `CaseNumber` = 0000001 -> `File` = 0000001.tif <br/> Obs2.: O arquivo deverá ser multi-page de no máximo 7mb de tamanho|Sim|
+||Arquivo extensão tif <br/> Obs.: O arquivo deve possuir como nome o número do caso relacionado ao chargeback <br/> Ex.: `CaseNumber` = 0000001 -> `File` = 0000001.tif <br/> Obs2.: O arquivo deverá ser multi-page com extensão tif de no máximo 7mb de tamanho <br/> Obs3.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019|Sim|
 
 ### Response
 
@@ -768,8 +768,8 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback não foi enviado o arquivo de contestação|
-|`Message`|Mensagem que o chargeback não foi enviado o arquivo de contestação|
+|`Code`|Código que o chargeback não foi enviado com o arquivo de contestação|
+|`Message`|Mensagem que o chargeback não foi enviado com o arquivo de contestação|
 
 ## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de tif
 
@@ -812,8 +812,8 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback foi enviado o arquivo de contestação com extensão inválida, diferente de tif|
-|`Message`|Mensagem que o chargeback foi enviado o arquivo de contestação com extensão inválida, diferente de tif|
+|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
+|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
 
 ## Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb
 
@@ -856,8 +856,8 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback foi enviado o arquivo de contestação com tamanho superior a 7mb|
-|`Message`|Mensagem que o chargeback foi enviado o arquivo de contestação com tamanho superior a 7mb|
+|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
+|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
 
 # Tabelas
 
