@@ -6723,13 +6723,14 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |`ChangeType`|Especifica o tipo de notificação. Vide tabela abaixo | Número | 1 |Sim|
 
 |ChangeType|Descrição|
-|----------|---------|
+|:-|:-|
 |1|Mudança de status do pagamento|
 |2|Recorrência criada|
 |3|Mudança de status do Antifraude|
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|Estorno negado (aplicável para Rede)|
 |6|Boleto registrado pago a menor|
+|7|Notificação de chargeback <br/> Para mais detalhes, consultar manual [Chargeback API](https://braspag.github.io//manual/chargeback)|
 
 # Anexos
 
