@@ -5180,7 +5180,7 @@ curl
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Não|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
 
-> Os campos do nó `FraudAnalysis.Travel` se tornam obrigatórios caso o segmento do seu negócios seja aéreas.
+> Os campos do nó `FraudAnalysis.Travel` se tornam obrigatórios caso o segmento do seu negócio seja aéreas.
 
 ### Resposta
 
