@@ -1692,7 +1692,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |19|Identifica se o pacote refere-se a cruzeiro <br/> Possíveis valores: SIM ou NAO|string|2|Turismo|
 |20|Decisão da análise de fraude referente a última compra <br/> Possíveis valores: ACEITA ou REJEITADA|string|3|Todos|
 |21|Valor do frete <br/> Ex.: 10599 = r$ 105,99|long|1|Varejo ou Cosméticos|
-|22|Código da loja onde o produto será retirado <br/> Este campo deverá ser enviado quando o campo 9 for enviado igual a SIM|3|Varejo ou Cosméticos|
+|22|Código da loja onde o produto será retirado <br/> Este campo deverá ser enviado quando o campo 9 for enviado igual a SIM|string|3|Varejo ou Cosméticos|
 |23|Sufixo (4 últimos dígitos) do cartão de crédito|int|1|Todos|
 |24|Quantidade de dias desde a primeira compra realizada pelo cliente <br/> Ex.: 150|int|3|Todos|
 |25|Sexo do cliente <br/> Possíveis valores: <br/> F -> Feminino <br/> M -> Masculino|string|2|Todos|
@@ -1715,7 +1715,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |42|Idade do cliente|int|2|Todos|
 |43|Faixa de rendimento do cliente <br/> Ex.: 100000 = r$ 1.000,00|long|2|Todos|
 |44|Quantidade histórica de compras realizadas pelo cliente|int|3|Todos| 
-|45|Identifica se é uma compra realizada por funcionário| <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
+|45|Identifica se é uma compra realizada por funcionário <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
 |46|Nome impresso (portador) no cartão de crédito|string|3|Todos|
 |47|Identifica se o cartão é private label <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
 |48|Quantidade de meios de pagamentos utilizados para efetuar a compra|int|2|Todos|
