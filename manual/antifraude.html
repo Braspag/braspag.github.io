@@ -5435,7 +5435,8 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 <h2 id="tabela-31---merchantdefineddata-cybersource">Tabela 31 - MerchantDefinedData (Cybersource)</h2>
 
 <blockquote>
-  <p>Nível de Relevância <br /> 1 - Relevante <br /> 2 - Muito Relevante <br /> 3 - Extremamente Relevante</p>
+  <p>Nível de Relevância <br /> 1 - Relevante <br /> 2 - Muito Relevante <br /> 3 - Extremamente Relevante
+Conforme nível de importância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.</p>
 </blockquote>
 
 <table>
@@ -5444,8 +5445,9 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
       <th style="text-align: left">Key</th>
       <th style="text-align: left">Value</th>
       <th style="text-align: left">Tipo</th>
-      <th style="text-align: left">Nível de Relevância</th>
+      <th style="text-align: center">Nível de Relevância</th>
       <th style="text-align: left">Segmento</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -5453,260 +5455,681 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
       <td style="text-align: left">1</td>
       <td style="text-align: left">Cliente efetuou Login <br /> Se o cliente final logou no site para comprar, enviar: o login dele <br /> Se fez compra como visitante, enviar: Guest <br /> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">2</td>
+      <td style="text-align: center">2</td>
       <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">2</td>
       <td style="text-align: left">Quantidade em dias que o cliente é seu cliente <br /> Ex.: 314</td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left">3</td>
+      <td style="text-align: center">3</td>
       <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">3</td>
       <td style="text-align: left">Quantidade de parcelas do pedido</td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left">3</td>
+      <td style="text-align: center">3</td>
       <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">4</td>
       <td style="text-align: left">Canal de Venda <br /> Possíveis valores: <br /> Call Center -&gt; compra pelo telefone <br /> Web -&gt; compra pela web <br /> Portal -&gt; um agente fazendo a compra para o cliente <br /> Quiosque -&gt; compras em quiosques <br /> Movel -&gt; compras feitas em celulares ou tablets</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">3</td>
+      <td style="text-align: center">3</td>
       <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">5</td>
       <td style="text-align: left">Enviar o código do cupom/desconto caso o cliente utilize na compra</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">1</td>
+      <td style="text-align: center">1</td>
       <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">6</td>
       <td style="text-align: left">Quantidade em dias desde a última compra realizada pelo cliente <br /> Ex.: 55</td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left">3</td>
+      <td style="text-align: center">3</td>
       <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">7</td>
       <td style="text-align: left">Código ou nome do seller (vendedor)</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">1</td>
+      <td style="text-align: center">1</td>
       <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">8</td>
       <td style="text-align: left">Tentativas realizadas pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos</td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left">2</td>
+      <td style="text-align: center">2</td>
       <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">9</td>
       <td style="text-align: left">Identifica se cliente irá retirar o produto na loja <br /> Possíveis valores: SIM ou NAO</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">3</td>
+      <td style="text-align: center">3</td>
       <td style="text-align: left">Varejo ou Cosméticos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">10</td>
       <td style="text-align: left">Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br /> Possíveis valores: SIM ou NAO</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">3</td>
-      <td style="text-align: left">Aérea ou Turismo</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Aéreo ou Turismo</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">11</td>
       <td style="text-align: left">Categoria do hotel (quantas estrelas) <br /> Possíveis valores: <br /> 1 -&gt; Simples <br /> 2 -&gt; Econômico <br /> 3 -&gt; Turismo <br /> 4 -&gt; Superior <br /> 5 -&gt; Luxo</td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left">3</td>
+      <td style="text-align: center">3</td>
       <td style="text-align: left">Turismo</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">12</td>
       <td style="text-align: left">Quantidade em dias desde a data da compra até a data do checkin no hotel <br /> Ex.: 123</td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left">3</td>
+      <td style="text-align: center">3</td>
       <td style="text-align: left">Turismo</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">13</td>
       <td style="text-align: left">Quantidade de diárias no hotel <br /> Ex.: 5</td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left">3</td>
+      <td style="text-align: center">3</td>
       <td style="text-align: left">Turismo</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">14</td>
       <td style="text-align: left">Categoria da viagem ou pacote <br /> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">3</td>
-      <td style="text-align: left">Aérea ou Turismo</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Aéreo ou Turismo</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">15</td>
-      <td style="text-align: left">Nome da companhia aérea / locadora de carro / hotel <br /> Enviar o nome de cada uma das empresas, separado por /</td>
+      <td style="text-align: left">Nome da companhia áerea / locadora de carro / hotel <br /> Enviar o nome de cada uma das empresas, separado por /</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo ou Turismo</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">16</td>
       <td style="text-align: left">Código PNR da reserva <br /> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Aérea</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">17</td>
       <td style="text-align: left">Identifica se houve antecipação de reserva <br /> Possíveis valores: SIM ou NAO <br /> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">18-25</td>
-      <td style="text-align: left">Reservados para novos campos de turismo</td>
-      <td style="text-align: left">-</td>
+      <td style="text-align: left">18</td>
+      <td style="text-align: left">Categoria do veículo alugado <br /> Possíveis valores: <br /> 1 - Básico <br /> 2 - Esportivo <br /> 3 - Prime <br /> 4 - Utilitário <br /> 5 - Blindado</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: center">Tursimo</td>
       <td style="text-align: left"> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">19</td>
+      <td style="text-align: left">Identifica se o pacote refere-se a cruzeiro <br /> Possíveis valores: SIM ou NAO</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Turismo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">Decisão da análise de fraude referente a última compra <br /> Possíveis valores: ACEITA ou REJEITADA</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">21</td>
+      <td style="text-align: left">Valor do frete <br /> Ex.: 10599 = r$ 105,99</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Varejo ou Cosméticos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">22</td>
+      <td style="text-align: left">Código da loja onde o produto será retirado <br /> Este campo deverá ser enviado quando o campo 9 for enviado igual a SIM</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: center">Varejo ou Cosméticos</td>
       <td style="text-align: left"> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">23</td>
+      <td style="text-align: left">Sufixo (4 últimos dígitos) do cartão de crédito</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">24</td>
+      <td style="text-align: left">Quantidade de dias desde a primeira compra realizada pelo cliente <br /> Ex.: 150</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">Sexo do cliente <br /> Possíveis valores: <br /> F -&gt; Feminino <br /> M -&gt; Masculino</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">26</td>
       <td style="text-align: left">Bin (6 primeiros dígitos) do cartão de crédito</td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">27-30</td>
-      <td style="text-align: left">Reservados para campos interno</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">27</td>
+      <td style="text-align: left">Tipo do logradouro do endereço de entrega <br /> Possíveis valores: <br /> R -&gt; Residencial <br /> C -&gt; Comercial</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">28</td>
+      <td style="text-align: left">Tempo médio em minutos que o cliente levou para realizar a compra</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">29</td>
+      <td style="text-align: left">Quantidade de tentativas que o cliente realizou para efetuar login</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">30</td>
+      <td style="text-align: left">Quantidade de páginas web que o cliente visitou anteriormente a compra referente a 30 minutos passados</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">31</td>
       <td style="text-align: left">Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido</td>
       <td style="text-align: left">int</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">32</td>
       <td style="text-align: left">Identifica se o e-mail foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">33</td>
       <td style="text-align: left">Identifica se o número do cartão de crédito foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">34</td>
-      <td style="text-align: left">Identifica se o e-mail foi confirmado para ativação de conta <br /> Possível valor: SIM <br /> Caso não tenha sido confirmado ou não exista um processo de ativação de conta com confiração de e-mail, não enviar o campo</td>
+      <td style="text-align: left">Identifica se o e-mail foi confirmado para ativação de conta <br /> Possíveis valores: SIM ou NAO</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">35</td>
-      <td style="text-align: left">Identifica o tipo de cliente <br /> Possíveis valores: Local ou Turista <br /> Caso não possua esta informação, não enviar o campo</td>
+      <td style="text-align: left">Identifica o tipo de cliente <br /> Possíveis valores: Local ou Turista</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Turismo</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">36</td>
-      <td style="text-align: left">Identifica se foi utilizado cartão presente (GiftCard) na compra <br /> Possíveis valor: SIM <br /> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo</td>
+      <td style="text-align: left">Identifica se foi utilizado cartão presente (GiftCard) na compra como forma de pagamento <br /> Possíveis valores: SIM ou NAO</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">37</td>
-      <td style="text-align: left">Meio de envio do pedido <br /> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br /> Caso não tenha meio de envio, não enviar o campo</td>
+      <td style="text-align: left">Meio de envio do pedido <br /> Possíveis valores: Sedex <br /> Sedex 10 <br /> 1 Dia <br /> 2 Dias <br /> Motoboy <br /> Mesmo Dia <br /></td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Varejo ou Cosméticos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">38</td>
-      <td style="text-align: left">Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br /> Formato: DDDNúmero - Ex.: 2121114720</td>
+      <td style="text-align: left">Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br /> Formato: DDIDDDNúmero - Ex.: 552121114720</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">39 a 40</td>
-      <td style="text-align: left">Reservados</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">39</td>
+      <td style="text-align: left">Nome de usuário do Call Center <br /> Este campo deverá ser enviado quando campo 4 for enviado igual a Call Center</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">Comentários inseridos quando pedido for presente</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">41</td>
-      <td style="text-align: left">Tipo do documento <br /> Possíveis Valores: CPF ou CNPJ</td>
+      <td style="text-align: left">Tipo do documento <br /> Possíveis valores: CPF ou CNPJ ou Passaporte</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">42</td>
-      <td style="text-align: left">Código do ramo de atividade - MCC (Merchant Code Category)</td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">Idade do cliente</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">43</td>
-      <td style="text-align: left">Faixa de rendimento do comprador <br /> Ex.: 100000 = r$ 1.000,00</td>
+      <td style="text-align: left">Faixa de rendimento do cliente <br /> Ex.: 100000 = r$ 1.000,00</td>
       <td style="text-align: left">long</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">44</td>
-      <td style="text-align: left">Tipo de conta bancária <br /> Possíveis Valores: <br /> CC -&gt; Conta Corrente <br /> CP -&gt; Conta Poupança <br /> PP - Pré-Pago</td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">Quantidade histórica de compras realizadas pelo cliente</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">45</td>
-      <td style="text-align: left">Número do documento CPF ou CNPJ</td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">Identifica se é uma compra realizada por funcionário</td>
+      <td style="text-align: left"><br /> Possíveis valores: SIM ou NAO</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: left">2</td>
+      <td>Todos</td>
     </tr>
     <tr>
       <td style="text-align: left">46</td>
-      <td style="text-align: left">Nome impresso no cartão de crédito</td>
+      <td style="text-align: left">Nome impresso (portador) no cartão de crédito</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">47 a 95</td>
+      <td style="text-align: left">47</td>
+      <td style="text-align: left">Identifica se o cartão é private label <br /> Possíveis valores: SIM ou NAO</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">48</td>
+      <td style="text-align: left">Quantidade de meios de pagamentos utilizados para efetuar a compra</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">49</td>
+      <td style="text-align: left">Média das compras realizadas nos últimos 6 meses <br /> Ex.: 159050 = r$ 1.590,99</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50</td>
+      <td style="text-align: left">Fator de desvio de valor da compra atual sobre a média dos últimos 6 meses</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: center">Todos</td>
+      <td style="text-align: left"> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">51</td>
+      <td style="text-align: left">Identifica se é um cliente VIP com tratamento de risco diferenciado ou lista positiva <br /> Possíveis valores: SIM ou NAO</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">52</td>
+      <td style="text-align: left">Categoria do produto <br /> Possíveis valores: <br /> Animais e Bichos de Estimação <br /> Roupas e Acessórios <br /> Negócios e Indústria <br /> Câmeras e Óticas <br /> Eletrônicos <br /> Comidas, Bebidas e Cigarro <br /> Móveis <br /> Ferramentas <br /> Saúde e Beleza <br /> Casa e Jardim <br /> Malas e Bagagens <br /> Adulto <br /> Armas e Munição <br /> Materiais de Escritório <br /> Religião e Cerimoniais <br /> Software <br /> Equipamentos de Esporte <br /> Brinquedos e Jogos <br /> Veículos e Peças <br /> Livros <br /> DVDs e Vídeos <br /> Revistas e Jornais <br /> Música <br /> Outras Categorias Não Especificadas</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">53</td>
+      <td style="text-align: left">Identifica se existe rotina de confirmação de celular por SMS <br /> Possíveis valores: SIM ou NAO</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">54</td>
+      <td style="text-align: left">Qual a 2ª forma de pagamento</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">55</td>
+      <td style="text-align: left">Qual a 3ª forma de pagamento</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">56</td>
+      <td style="text-align: left">Se 2ª forma de pagamento for cartão de crédito, enviar a bandeira</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">57</td>
+      <td style="text-align: left">Se 3ª forma de pagamento for cartão de crédito, enviar a bandeira</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">58</td>
+      <td style="text-align: left">Se 2ª forma de pagamento, informar o valor pago <br /> Ex.: 128599 = r$ 1.285,99</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">59</td>
+      <td style="text-align: left">Se 3ª forma de pagamento, informar o valor pago <br /> Ex.: 59089 = r$ 590,89</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">60</td>
+      <td style="text-align: left">Quantidade em dias desde a data da última alteração <br /> Ex.: 57</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">61</td>
+      <td style="text-align: left">Identifica se houve alteração cadastral</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">62</td>
+      <td style="text-align: left">Quantidade de pontos trocados na última compra</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Fidelidade</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">63</td>
+      <td style="text-align: left">Quantidade de pontos restantes no saldo</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Fidelidade</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">64</td>
+      <td style="text-align: left">Quantidade de dias desde a última troca de pontos</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Fidelidade</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">65</td>
+      <td style="text-align: left">Identificador do cliente no programa de fidelidade</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Fidelidade</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">66</td>
+      <td style="text-align: left">Quantidade de minutos recarregados nos últimos 30 dias</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Digital Goods</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">67</td>
+      <td style="text-align: left">Quantidade de recargas realizadas nos últimos 30 dias</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Digital Goods</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">68</td>
+      <td style="text-align: left">Quantidade em dias entre a data de partida e a data de retorno</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">69</td>
+      <td style="text-align: left">Quantidade de passageiros viajando independente da faixa etária</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">70</td>
+      <td style="text-align: left">Identificador do voô</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">71</td>
+      <td style="text-align: left">Número de infants viajando</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">72</td>
+      <td style="text-align: left">Número de crianças viajando</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">73</td>
+      <td style="text-align: left">Número de adultos viajando</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">74</td>
+      <td style="text-align: left">Identifica se é um passageiro frequente (Frequently Flyer) <br /> Possíveis valores: SIM ou NAO</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">75</td>
+      <td style="text-align: left">Identificar do passageiro frequente (Frequently Flyer Number)</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">76</td>
+      <td style="text-align: left">Categoria do passageiro frequente (Frequently Flyer) <br /> Esta categoria pode variar de acordo com a companhia aérea</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">77</td>
+      <td style="text-align: left">Dia da semana do embarque <br /> Possíveis valores: Sunday (Domingo) <br /> Monday (Segunda-feira) <br /> Tuesday (Terça-feira) <br /> Wednesday (Quarta-feira) <br /> Thursday (Quinta-feira) <br /> Friday (Sexta-feira) <br /> Saturday (Sábado)</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">78</td>
+      <td style="text-align: left">Código da companhia aérea <br /> Ex.: JJ ou LA ou AA ou UA ou G3 e etc</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">79</td>
+      <td style="text-align: left">Classe tarifária da passagem <br /> Ex.: W ou Y ou N e etc</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">80</td>
+      <td style="text-align: left">Número do celular do passageiro <br /> Ex.: Formato: DDIDDDNúmero - Ex.: 5521976781114</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">81</td>
+      <td style="text-align: left">Identifica se o dono do cartão de crédito irá viajar <br /> Possíveis valores: SIM ou NAO</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Aéreo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">82 a 93</td>
       <td style="text-align: left">Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio</td>
       <td style="text-align: left">-</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">94</td>
+      <td style="text-align: left">Segmento de negócio <br /> Ex.: Varejo</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">95</td>
+      <td style="text-align: left">Nome da plataforma integrada a API Antifraude Gateway Braspag <br /> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Todos</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left">96 a 100</td>
       <td style="text-align: left">Reservados</td>
       <td style="text-align: left">-</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
