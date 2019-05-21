@@ -1667,9 +1667,10 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 ## Tabela 31 - MerchantDefinedData (Cybersource)
 
 > Nível de Relevância <br/> 1 - Relevante <br/> 2 - Muito Relevante <br/> 3 - Extremamente Relevante
+> Conforme nível de importância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.
 
 |Key|Value|Tipo|Nível de Relevância|Segmento|
-|:-|:-|:-|:-|:-|
+|:-|:-|:-|:-:|:-|
 |1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|2|Todos|
 |2|Quantidade em dias que o cliente é seu cliente <br/> Ex.: 314|int|3|Todos|
 |3|Quantidade de parcelas do pedido|int|3|Todos|
@@ -1679,34 +1680,82 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 |7|Código ou nome do seller (vendedor)|string|1|Todos|
 |8|Tentativas realizadas pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|2|Todos|
 |9|Identifica se cliente irá retirar o produto na loja <br/> Possíveis valores: SIM ou NAO|string|3|Varejo ou Cosméticos|
-|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br/> Possíveis valores: SIM ou NAO|string|3|Aérea ou Turismo|
+|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br/> Possíveis valores: SIM ou NAO|string|3|Aéreo ou Turismo|
 |11|Categoria do hotel (quantas estrelas) <br/> Possíveis valores: <br/> 1 -> Simples <br/> 2 -> Econômico <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|3|Turismo|
 |12|Quantidade em dias desde a data da compra até a data do checkin no hotel <br/> Ex.: 123|int|3|Turismo|
 |13|Quantidade de diárias no hotel <br/> Ex.: 5|int|3|Turismo|
-|14|Categoria da viagem ou pacote <br> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|3|Aérea ou Turismo|
-|15|Nome da companhia aérea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|
-|16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|
-|17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string
-|18-25|Reservados para novos campos de turismo|-|
-|26|Bin (6 primeiros dígitos) do cartão de crédito|string|
-|27-30|Reservados para campos interno|-|
-|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|
-|32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
-|33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|
-|34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possível valor: SIM <br/> Caso não tenha sido confirmado ou não exista um processo de ativação de conta com confiração de e-mail, não enviar o campo|string|
-|35|Identifica o tipo de cliente <br/> Possíveis valores: Local ou Turista <br/> Caso não possua esta informação, não enviar o campo|string|
-|36|Identifica se foi utilizado cartão presente (GiftCard) na compra <br/> Possíveis valor: SIM <br/> Caso não tenho sido utilizado cartão presente na compra, não enviar o campo|string|
-|37|Meio de envio do pedido <br/> Possíveis valores: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> Caso não tenha meio de envio, não enviar o campo|string|
-|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDDNúmero - Ex.: 2121114720|string|
-|39 a 40|Reservados|-|
-|41|Tipo do documento <br/> Possíveis Valores: CPF ou CNPJ|string|
-|42|Código do ramo de atividade - MCC (Merchant Code Category)|string|
-|43|Faixa de rendimento do comprador <br/> Ex.: 100000 = r$ 1.000,00|long|
-|44|Tipo de conta bancária <br/> Possíveis Valores: <br/> CC -> Conta Corrente <br/> CP -> Conta Poupança <br/> PP - Pré-Pago|string|
-|45|Número do documento CPF ou CNPJ|string|
-|46|Nome impresso no cartão de crédito|string|
-|47 a 95|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|
-|96 a 100|Reservados|-|
+|14|Categoria da viagem ou pacote <br> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|3|Aéreo ou Turismo|
+|15|Nome da companhia áerea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|2|Aéreo ou Turismo|
+|16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|3|Aérea|
+|17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string|3|Aéreo|
+|18|Categoria do veículo alugado <br/> Possíveis valores: <br/> 1 - Básico <br/> 2 - Esportivo <br/> 3 - Prime <br/> 4 - Utilitário <br/> 5 - Blindado|3|Tursimo| 
+|19|Identifica se o pacote refere-se a cruzeiro <br/> Possíveis valores: SIM ou NAO|string|2|Turismo|
+|20|Decisão da análise de fraude referente a última compra <br/> Possíveis valores: ACEITA ou REJEITADA|string|3|Todos|
+|21|Valor do frete <br/> Ex.: 10599 = r$ 105,99|long|1|Varejo ou Cosméticos|
+|22|Código da loja onde o produto será retirado <br/> Este campo deverá ser enviado quando o campo 9 for enviado igual a SIM|3|Varejo ou Cosméticos|
+|23|Sufixo (4 últimos dígitos) do cartão de crédito|int|1|Todos|
+|24|Quantidade de dias desde a primeira compra realizada pelo cliente <br/> Ex.: 150|int|3|Todos|
+|25|Sexo do cliente <br/> Possíveis valores: <br/> F -> Feminino <br/> M -> Masculino|string|2|Todos|
+|26|Bin (6 primeiros dígitos) do cartão de crédito|int|1|Todos|
+|27|Tipo do logradouro do endereço de entrega <br/> Possíveis valores: <br/> R -> Residencial <br/> C -> Comercial|string|2|Todos|
+|28|Tempo médio em minutos que o cliente levou para realizar a compra|int|2|Todos|
+|29|Quantidade de tentativas que o cliente realizou para efetuar login|int|2|Todos|
+|30|Quantidade de páginas web que o cliente visitou anteriormente a compra referente a 30 minutos passados|int|2|Todos|
+|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|2|Todos|
+|32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|3|Todos|
+|33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|3|Todos|
+|34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
+|35|Identifica o tipo de cliente <br/> Possíveis valores: Local ou Turista|string|2|Turismo|
+|36|Identifica se foi utilizado cartão presente (GiftCard) na compra como forma de pagamento <br/> Possíveis valores: SIM ou NAO|string|1|Todos|
+|37|Meio de envio do pedido <br/> Possíveis valores: Sedex <br/> Sedex 10 <br/> 1 Dia <br/> 2 Dias <br/> Motoboy <br/> Mesmo Dia <br/>|string|3|Varejo ou Cosméticos|
+|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDIDDDNúmero - Ex.: 552121114720|string|3|Todos|
+|39|Nome de usuário do Call Center <br/> Este campo deverá ser enviado quando campo 4 for enviado igual a Call Center|string|1|Todos|
+|40|Comentários inseridos quando pedido for presente|string|1|Todos|
+|41|Tipo do documento <br/> Possíveis valores: CPF ou CNPJ ou Passaporte|string|2|Todos|
+|42|Idade do cliente|int|2|Todos|
+|43|Faixa de rendimento do cliente <br/> Ex.: 100000 = r$ 1.000,00|long|2|Todos|
+|44|Quantidade histórica de compras realizadas pelo cliente|int|3|Todos| 
+|45|Identifica se é uma compra realizada por funcionário| <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
+|46|Nome impresso (portador) no cartão de crédito|string|3|Todos|
+|47|Identifica se o cartão é private label <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
+|48|Quantidade de meios de pagamentos utilizados para efetuar a compra|int|2|Todos|
+|49|Média das compras realizadas nos últimos 6 meses <br/> Ex.: 159050 = r$ 1.590,99|long|3|Todos|
+|50|Fator de desvio de valor da compra atual sobre a média dos últimos 6 meses|3|Todos|
+|51|Identifica se é um cliente VIP com tratamento de risco diferenciado ou lista positiva <br/> Possíveis valores: SIM ou NAO|string|3|Todos|
+|52|Categoria do produto <br/> Possíveis valores: <br/> Animais e Bichos de Estimação <br/> Roupas e Acessórios <br/> Negócios e Indústria <br/> Câmeras e Óticas <br/> Eletrônicos <br/> Comidas, Bebidas e Cigarro <br/> Móveis <br/> Ferramentas <br/> Saúde e Beleza <br/> Casa e Jardim <br/> Malas e Bagagens <br/> Adulto <br/> Armas e Munição <br/> Materiais de Escritório <br/> Religião e Cerimoniais <br/> Software <br/> Equipamentos de Esporte <br/> Brinquedos e Jogos <br/> Veículos e Peças <br/> Livros <br/> DVDs e Vídeos <br/> Revistas e Jornais <br/> Música <br/> Outras Categorias Não Especificadas|string|2|Todos|
+|53|Identifica se existe rotina de confirmação de celular por SMS <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
+|54|Qual a 2ª forma de pagamento|string|2|Todos|
+|55|Qual a 3ª forma de pagamento|string|2|Todos|
+|56|Se 2ª forma de pagamento for cartão de crédito, enviar a bandeira|string|1|Todos|
+|57|Se 3ª forma de pagamento for cartão de crédito, enviar a bandeira|string|1|Todos|
+|58|Se 2ª forma de pagamento, informar o valor pago <br/> Ex.: 128599 = r$ 1.285,99|long|2|Todos|
+|59|Se 3ª forma de pagamento, informar o valor pago <br/> Ex.: 59089 = r$ 590,89|long|2|Todos|
+|60|Quantidade em dias desde a data da última alteração <br/> Ex.: 57|int|3|Todos|
+|61|Identifica se houve alteração cadastral|string|1|Todos|
+|62|Quantidade de pontos trocados na última compra|long|3|Fidelidade|
+|63|Quantidade de pontos restantes no saldo|long|2|Fidelidade|
+|64|Quantidade de dias desde a última troca de pontos|long|2|Fidelidade|
+|65|Identificador do cliente no programa de fidelidade|string|2|Fidelidade|
+|66|Quantidade de minutos recarregados nos últimos 30 dias|long|2|Digital Goods|
+|67|Quantidade de recargas realizadas nos últimos 30 dias|long|2|Digital Goods|
+|68|Quantidade em dias entre a data de partida e a data de retorno|int|2|Aéreo|
+|69|Quantidade de passageiros viajando independente da faixa etária|int|2|Aéreo|
+|70|Identificador do voô|string|1|Aéreo|
+|71|Número de infants viajando|int|2|Aéreo|
+|72|Número de crianças viajando|int|2|Aéreo|
+|73|Número de adultos viajando|int|2|Aéreo|
+|74|Identifica se é um passageiro frequente (Frequently Flyer) <br/> Possíveis valores: SIM ou NAO|string|2|Aéreo|
+|75|Identificar do passageiro frequente (Frequently Flyer Number)|string|2|Aéreo|
+|76|Categoria do passageiro frequente (Frequently Flyer) <br/> Esta categoria pode variar de acordo com a companhia aérea|int|2|Aéreo|
+|77|Dia da semana do embarque <br/> Possíveis valores: Sunday (Domingo) <br/> Monday (Segunda-feira) <br/> Tuesday (Terça-feira) <br/> Wednesday (Quarta-feira) <br/> Thursday (Quinta-feira) <br/> Friday (Sexta-feira) <br/> Saturday (Sábado)|string|2|Aéreo|
+|78|Código da companhia aérea <br/> Ex.: JJ ou LA ou AA ou UA ou G3 e etc|string|1|Aéreo|
+|79|Classe tarifária da passagem <br/> Ex.: W ou Y ou N e etc|string|2|Aéreo|
+|80|Número do celular do passageiro <br/> Ex.: Formato: DDIDDDNúmero - Ex.: 5521976781114|string|2|Aéreo|
+|81|Identifica se o dono do cartão de crédito irá viajar <br/> Possíveis valores: SIM ou NAO|string|3|Aéreo|
+|82 a 93|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|-|-|
+|94|Segmento de negócio <br/> Ex.: Varejo|string|2|Todos|
+|95|Nome da plataforma integrada a API Antifraude Gateway Braspag <br/> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA|string|3|Todos|
+|96 a 100|Reservados|-|-|-|
 
 ## Tabela 32 - CartItem[n].Category
 
