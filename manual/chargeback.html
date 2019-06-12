@@ -119,14 +119,7 @@
             <div class="post">
   <h1 id="visão-geral">Visão Geral</h1>
 
-<p>Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para contestação de chargeback e acatar um chargeback.</p>
-
-<p>A retroalimentação de chargeback ao provedor de antifraude, proporciona:</p>
-
-<ul>
-  <li>Melhoria na performance das decisões automáticas - Uma vez que dados marcados na transação em que ocorreu o chargeback são adicionados à lista negativa, é possível realizar regras mais rigorosas provendo um ganho na estratégia;</li>
-  <li>Maior assertividade para equipes de revisão manual - Quando uma transação é marcada como chargeback, ela recebe um rótulo que fica visível para pesquisas posteriores que incluem pesquisas por “transações similares” (recurso bastante utilizado por equipes de revisão manual de transações tanto da Cybersource quanto próprias).</li>
-</ul>
+<p>Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes consultar chargebacks, realizar envio de arquivos para contestação de chargebacks e acatar chargebacks.</p>
 
 <p>A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.</p>
 
@@ -308,442 +301,13 @@
   </tbody>
 </table>
 
-<h1 id="retroalimentação">Retroalimentação</h1>
+<h1 id="aceitação">Aceitação</h1>
 
-<h2 id="via-api">Via API</h2>
+<h2 id="aceitando-um-chargeback">Aceitando um chargeback</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 <h3 id="request-1">Request</h3>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">chargebacknotification</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
-   </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão."</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEB NAO REC DE COMPRA"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-         </span><span class="s2">"NegativeValues"</span><span class="p">:</span><span class="w">
-         </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"CustomerIpAddress"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"CustomerDocumentNumber"</span><span class="w">
-         </span><span class="p">],</span><span class="w">
-         </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345678AB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
-      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no corpo (Body)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Tipo</th>
-      <th style="text-align: center">Obrigatório</th>
-      <th style="text-align: right">Tamanho</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Amount</code></td>
-      <td style="text-align: left">Valor do chargeback <br /> Ex.: 150000 Ex: 123456 = r$ 1.234,56</td>
-      <td style="text-align: center">long</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Date</code></td>
-      <td style="text-align: left">Data da confirmação do chargeback <br /> Ex.: 2017-12-02</td>
-      <td style="text-align: center">date</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Comment</code></td>
-      <td style="text-align: left">Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br /> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">512</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ReasonCode</code></td>
-      <td style="text-align: left">Código do motivo do chargeback</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">8</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ReasonMessage</code></td>
-      <td style="text-align: left">Mensagem do motivo do chargeback</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">128</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].IsFraud</code></td>
-      <td style="text-align: left">Identifica se o chargeback foi por motivo de fraude</td>
-      <td style="text-align: center">bool</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].NegativeValues</code></td>
-      <td style="text-align: left">Parâmetros que deseja incluir na lista negativa <br /> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - <a href="https://braspag.github.io/manual/chargeback#tabela-1">Tabela 1</a></td>
-      <td style="text-align: center">enum</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Id</code></td>
-      <td style="text-align: left">Id da transação no Antifraude <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">BraspagTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados <br /><br /> <strong>IMPORTANTE</strong> <br /> <strong>SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO <code class="highlighter-rouge">Id</code> SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">BraspagTransactionId</code></strong><br /></td>
-      <td style="text-align: center">Guid</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Tid</code></td>
-      <td style="text-align: left">Identificador da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">20</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Nsu</code></td>
-      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">10</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.AuthorizationCode</code></td>
-      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">10</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.SaleDate</code></td>
-      <td style="text-align: left">Data da venda da transação <br /> Ex.: 2017-10-15 <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">AuthorizationCode</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
-      <td style="text-align: center">date</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.BraspagTransactionId</code></td>
-      <td style="text-align: left">Id da transação no Pagador Braspag <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">AntifraudTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
-      <td style="text-align: center">Guid</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-1">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
-   </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão."</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEB NAO REC DE COMPRA"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-         </span><span class="s2">"NegativeValues"</span><span class="p">:</span><span class="w">
-         </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"CustomerIpAddress"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"CustomerDocumentNumber"</span><span class="w">
-         </span><span class="p">],</span><span class="w">
-         </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345678AB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="s2">"Result"</span><span class="p">:</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"ProcessingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NotFound"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ErrorMessages"</span><span class="p">:</span><span class="w">
-            </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"Could not find any transaction."</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">300 Multiple Choices</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no corpo (Body)</strong></p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Parâmetro</td>
-      <td>Descrição</td>
-      <td>Tipo</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Result.ProcessingStatus</code></td>
-      <td>Status do processamento do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-2-result.processingstatus">Tabela 2</a></td>
-      <td>enum</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Result.ErrorMessages</code></td>
-      <td>Mensagens de erro para chargebacks não processados</td>
-      <td>string</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="via-admin-braspag">Via Admin Braspag</h2>
-
-<p>Nesta seção será explicado passo a passo como realizar o upload do arquivo de chargeback via Admin Braspag.</p>
-
-<h3 id="passo-1---acessando-o-admin-braspag">Passo 1 - Acessando o Admin Braspag</h3>
-
-<p>Para acessar o Admin Braspag, digitar no browser de sua preferência a URL de acordo com o ambiente desejado, conforme abaixo:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Ambiente</td>
-      <td>URL</td>
-    </tr>
-    <tr>
-      <td>Sandbox</td>
-      <td>https://adminsandbox.braspag.com.br</td>
-    </tr>
-    <tr>
-      <td>Produção</td>
-      <td>https://admin.braspag.com.br</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Caso não possua um usuário para o ambiente desejado, solicite a criação do mesmo através da nossa ferramenta de suporte.
-<a href="https://suporte.braspag.com.br/hc/pt-br">Suporte Braspag</a></p>
-</blockquote>
-
-<h3 id="passo-2---acessando-a-tela-de-upload-de-arquivo-de-chargeback">Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback</h3>
-
-<p>Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: <code class="highlighter-rouge">Configurações -&gt; Upload de Arquivo de Chargeback</code></p>
-
-<p><img src="https://braspag.github.io//images/braspag/af/acesso.png" alt="Upload de Arquivo de Chargeback" class="centerimg" title="Acessando a tela de Upload de Arquivo de Chargeback" /></p>
-
-<h3 id="passo-3---construindo-o-arquivo-de-chargeback-no-formato-csv">Passo 3 - Construindo o arquivo de chargeback no formato CSV</h3>
-
-<p>Neste passo será explicado como construir um arquivo no formato CSV (Comma-separated values - Valores separados por vírgula) com os dados do chargeback.</p>
-
-<p>CSV é um formato de arquivo que contém valores separados por algum delimitador, vígula (,) por exemplo. Pode ser criado em qualquer editor de texto e lido em uma planilha de textos, como por exemplo, o excel. A planilha eletrônica irá dividir em linha/coluna cada item do arquivo separados por vírgula (,).</p>
-
-<p>Você poderá realizar o download de um arquivo de template através da opção disponibilizada na tela de Upload de Arquivo de Chargeback, conforme print abaixo:
-<img src="https://braspag.github.io//images/braspag/af/teladownloadtemplatecbk.png" alt="Upload de Arquivo de Chargeback" class="centerimg" title="Download template arquivo CSV" /></p>
-
-<p>O CSV que será construído com dos dados de chargeback deverá ter o layout abaixo, seguindo o tipo e obrigatoriedade de cada campo.</p>
-<blockquote>
-  <p>Amount,Date,Comment,ReasonCode,ReasonMessage,IsFraud,Id,Tid,Nsu,AuthorizationCode,SaleDate,BraspagTransactionId,NegativeValues</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Tipo</th>
-      <th style="text-align: center">Obrigatório</th>
-      <th style="text-align: right">Tamanho</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Amount</code></td>
-      <td style="text-align: left">Valor do chargeback <br /> Ex.: 150000 Ex: 123456 = r$ 1.234,56</td>
-      <td style="text-align: center">long</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Date</code></td>
-      <td style="text-align: left">Data da confirmação do chargeback <br /> Ex.: 2017-12-02</td>
-      <td style="text-align: center">date</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Comment</code></td>
-      <td style="text-align: left">Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br /> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">512</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ReasonCode</code></td>
-      <td style="text-align: left">Código do motivo do chargeback</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">8</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ReasonMessage</code></td>
-      <td style="text-align: left">Mensagem do motivo do chargeback</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
-      <td style="text-align: right">128</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">IsFraud</code></td>
-      <td style="text-align: left">Identifica se o chargeback foi por motivo de fraude</td>
-      <td style="text-align: center">bool</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">NegativeValues</code></td>
-      <td style="text-align: left">Parâmetros que deseja incluir na lista negativa <br /> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - <a href="https://braspag.github.io/manual/chargeback#tabela-1-chargebacks[n].negativevalues">Tabela 1</a></td>
-      <td style="text-align: center">enum</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
-      <td style="text-align: left">Id da transação no Antifraude <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">BraspagTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados <br /><br /> <strong>IMPORTANTE</strong> <br /> <strong>SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO <code class="highlighter-rouge">Id</code> SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">BraspagTransactionId</code></strong><br /></td>
-      <td style="text-align: center">Guid</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Tid</code></td>
-      <td style="text-align: left">Identificador da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">20</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Nsu</code></td>
-      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">10</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">AuthorizationCode</code></td>
-      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">10</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">SaleDate</code></td>
-      <td style="text-align: left">Data da venda da transação <br /> Ex.: 2017-10-15 <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">AuthorizationCode</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
-      <td style="text-align: center">date</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
-      <td style="text-align: left">Id da transação no Pagador Braspag <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">AntifraudTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
-      <td style="text-align: center">Guid</td>
-      <td style="text-align: center">não</td>
-      <td style="text-align: right">-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="passo-4---enviando-o-arquivo-de-chargeback">Passo 4 - Enviando o arquivo de chargeback</h3>
-
-<p>Com o arquivo já construído, e realizando os passos 1 e 2, agora é selecionar o arquivo e enviá-lo, conforme print abaixo:</p>
-
-<p><img src="https://braspag.github.io//images/braspag/af/tela.png" alt="Upload de Arquivo de Chargeback" class="centerimg" title="Tela de Upload de Arquivo de Chargeback" /></p>
-
-<p>1 - Clique no botão <code class="highlighter-rouge">Choose File</code> para selecionar o arquivo na máquina local.<br />
-2 - Com o arquivo selecionado, clique no botão <code class="highlighter-rouge">Enviar</code> para realizar o upload do arquivo.</p>
-
-<h3 id="passo-5---verificando-o-resultado-do-envio-do-arquivo-de-chargeback">Passo 5 - Verificando o resultado do envio do arquivo de chargeback</h3>
-
-<p>Após realizar todos os passos acima, o arquivo será processado e através da seção Resultado será possível verificar o resultado do processamento.</p>
-
-<p>Em caso de sucesso, será apresentada a mensagem de <strong>Operação realizada com sucesso</strong> e um ID que é o comprovante do upload do arquivo.</p>
-
-<p>Em caso de alguma falha, será apresentada a mensagem de <strong>Operação parciamente concluída. Favor verificar a seção Resultado</strong> e também um ID que é o comprovante do upload do arquivo, conforme print abaixo:</p>
-
-<p><img src="https://braspag.github.io//images/braspag/af/uploadparcial.png" alt="Upload de Arquivo de Chargeback" class="centerimg" title="Upload parcialmente processado" /></p>
-
-<p>Neste caso, é possível verificar os erros encontrados em cada linha, tratar e reenviar o arquivo.</p>
-
-<h1 id="consultas">Consultas</h1>
-
-<h3 id="request-2">Request</h3>
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">chargeback?CaseNumber={CaseNumber}&amp;AcquirerTransactionId={AcquirerTransactionId}&amp;BraspagTransactionId={BraspagTransactionId}&amp;StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -772,12 +336,18 @@
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
@@ -798,6 +368,1228 @@
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-1">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedByMerchant"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Status do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-4-status">Tabela 3 - Chargebacks{n}.Status</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">StatusDescription</code></td>
+      <td style="text-align: left">Descrição do status do chargeback</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="aceitando-um-chargeback-inexistente">Aceitando um chargeback inexistente</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+
+<h3 id="request-2">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-2">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Código que o chargeback não foi encontrado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem que o chargeback não foi encontrado</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="aceitando-um-chargeback-aceito-anteriormente">Aceitando um chargeback aceito anteriormente</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+
+<h3 id="request-3">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-3">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Código que o chargeback foi aceito ou contestado anteriomente</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem que o chargeback foi aceito ou contestado anteriormente</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="contestação">Contestação</h1>
+
+<h2 id="contestando-um-chargeback">Contestando um chargeback</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-4">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">form-data</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Arquivo extensão tif <br /> Obs.: O arquivo deve possuir como nome o número do caso do chargeback <br /> Ex.: <code class="highlighter-rouge">CaseNumber</code> = 0000001 -&gt; <code class="highlighter-rouge">File</code> = 0000001.tif <br /> Obs2.: O arquivo deverá ser multi-page com extensão tif de no máximo 7mb de tamanho <br /> Obs3.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019</td>
+      <td style="text-align: left">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-4">Response</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contestando-um-chargeback-inexistente">Contestando um chargeback inexistente</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-5">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-5">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Código que o chargeback não foi encontrado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem que o chargeback não foi encontrado</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contestando-um-chargeback-contestado-anteriormente">Contestando um chargeback contestado anteriormente</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-6">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-6">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Código que o chargeback foi contestado ou aceito anteriomente</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem que o chargeback foi contestado ou aceito anteriormente</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contestando-um-chargeback-com-nome-do-arquivo-diferente-do-casenumber">Contestando um chargeback com nome do arquivo diferente do CaseNumber</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-7">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-7">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileName"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file name"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Código que o chargeback está com nome inválido, diferente do CaseNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem que o chargeback está com nome inválido, diferente do CaseNumber</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contestando-um-chargeback-e-não-enviando-o-arquivo-de-contestação">Contestando um chargeback e não enviando o arquivo de contestação</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-8">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-8">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FileNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Código que o chargeback não foi enviado com o arquivo de contestação</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem que o chargeback não foi enviado com o arquivo de contestação</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-extensão-diferente-de-tif">Contestando um chargeback enviando o arquivo de contestação com extensão diferente de tif</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-9">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-9">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileExtension"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file extension"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Código que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-tamanho-maior-que-7mb">Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-10">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-10">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileLength"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file length"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Código que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="consultas">Consultas</h1>
+
+<h3 id="request-11">Request</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">StartDate</code></td>
+      <td style="text-align: left">Data início da consulta</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EndDate</code></td>
+      <td style="text-align: left">Data fim da consulta</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">PageIndex</code></td>
+      <td style="text-align: left">Número da página desejada</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">PageSize</code></td>
+      <td style="text-align: left">Quantidade de itens desejado na página. Máximo 250 itens.</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantIds</code></td>
+      <td style="text-align: left">Id(s) da(s) loja(s) a ser utilizado na consulta <br /> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCodes</code></td>
+      <td style="text-align: left">Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br /> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
@@ -810,40 +1602,10 @@
       <td style="text-align: left">Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)</td>
       <td style="text-align: center">não</td>
     </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderTransactionId</code></td>
-      <td style="text-align: left">Identificador da transação no provedor de Antifraude</td>
-      <td style="text-align: center">não</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">AntifraudeTransactionId</code></td>
-      <td style="text-align: left">Identificador da transação no Antifraude Braspag</td>
-      <td style="text-align: center">não</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">StartDate</code></td>
-      <td style="text-align: left">Data início da consulta</td>
-      <td style="text-align: center">não</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EndDate</code></td>
-      <td style="text-align: left">Data fim da consulta</td>
-      <td style="text-align: center">não</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">PageIndex</code></td>
-      <td style="text-align: left">Número da página desejada</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">PageSize</code></td>
-      <td style="text-align: left">Quantidade de itens desejado na página. Máximo 250 itens.</td>
-      <td style="text-align: center">sim</td>
-    </tr>
   </tbody>
 </table>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-11">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1059,1152 +1821,6 @@
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Code</code></td>
       <td style="text-align: left">Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - <a href="https://braspag.github.io/manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code">Tabela 5</a></td>
       <td style="text-align: center">string</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="aceitação">Aceitação</h1>
-
-<h2 id="aceitando-um-chargeback">Aceitando um chargeback</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
-
-<h3 id="request-3">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-3">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedByMerchant"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">200 OK</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status da aceitação do chargeback - Tabela 4</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">StatusDescription</code></td>
-      <td style="text-align: left">Descrição do status da aceitação do chargeback</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="aceitando-um-chargeback-inexistente">Aceitando um chargeback inexistente</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
-
-<h3 id="request-4">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-4">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">404 Not Found</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback não foi encontrado</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback não foi encontrado</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="aceitando-um-chargeback-aceito-anteriormente">Aceitando um chargeback aceito anteriormente</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
-
-<h3 id="request-5">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-5">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback foi aceito ou contestado anteriomente</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback foi aceito ou contestado anteriormente</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="contestação">Contestação</h1>
-
-<h2 id="contestando-um-chargeback">Contestando um chargeback</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-<h3 id="request-6">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no corpo (Body)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">form-data</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">Arquivo extensão tif <br /> Obs.: O arquivo deve possuir como nome o número do caso relacionado ao chargeback <br /> Ex.: <code class="highlighter-rouge">CaseNumber</code> = 0000001 -&gt; <code class="highlighter-rouge">File</code> = 0000001.tif <br /> Obs2.: O arquivo deverá ser multi-page com extensão tif de no máximo 7mb de tamanho <br /> Obs3.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019</td>
-      <td style="text-align: left">Sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-6">Response</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">200 OK</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="contestando-um-chargeback-inexistente">Contestando um chargeback inexistente</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-<h3 id="request-7">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-7">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">404 Not Found</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback não foi encontrado</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback não foi encontrado</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="contestando-um-chargeback-contestado-anteriormente">Contestando um chargeback contestado anteriormente</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-<h3 id="request-8">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-8">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback foi contestado ou aceito anteriomente</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback foi contestado ou aceito anteriormente</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="contestando-um-chargeback-com-nome-do-arquivo-diferente-do-casenumber">Contestando um chargeback com nome do arquivo diferente do CaseNumber</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-<h3 id="request-9">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-9">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileName"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file name"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback está com nome inválido, diferente do CaseNumber</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback está com nome inválido, diferente do CaseNumber</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="contestando-um-chargeback-e-não-enviando-o-arquivo-de-contestação">Contestando um chargeback e não enviando o arquivo de contestação</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-<h3 id="request-10">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-10">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FileNotFound"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File not found"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback não foi enviado com o arquivo de contestação</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback não foi enviado com o arquivo de contestação</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-extensão-diferente-de-tif">Contestando um chargeback enviando o arquivo de contestação com extensão diferente de tif</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-<h3 id="request-11">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-11">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileExtension"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file extension"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-tamanho-maior-que-7mb">Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-<h3 id="request-12">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-12">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileLength"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file length"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb</td>
     </tr>
   </tbody>
 </table>
