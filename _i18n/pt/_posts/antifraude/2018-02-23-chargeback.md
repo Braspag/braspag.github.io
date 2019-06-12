@@ -13,12 +13,7 @@ language_tabs:
 
 # Visão Geral
 
-Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes informarem os chargebacks de transações analisadas pelo antifraude, consultar chargeback, realizar envio de arquivos para contestação de chargeback e acatar um chargeback.
-
-A retroalimentação de chargeback ao provedor de antifraude, proporciona:
-
-- Melhoria na performance das decisões automáticas - Uma vez que dados marcados na transação em que ocorreu o chargeback são adicionados à lista negativa, é possível realizar regras mais rigorosas provendo um ganho na estratégia;
-- Maior assertividade para equipes de revisão manual - Quando uma transação é marcada como chargeback, ela recebe um rótulo que fica visível para pesquisas posteriores que incluem pesquisas por “transações similares” (recurso bastante utilizado por equipes de revisão manual de transações tanto da Cybersource quanto próprias).  
+Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes consultar chargebacks, realizar envio de arquivos para contestação de chargebacks e acatar chargebacks.
 
 A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
 
@@ -115,199 +110,13 @@ Exemplo:
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
 
-# Retroalimentação
+# Aceitação
 
-## Via API
+## Aceitando um chargeback
 
-### Request
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">chargebacknotification</span></aside>
-
-``` json
-{
-   "Chargebacks":
-   [
-      {
-         "Amount": 1000,
-         "Date": "2017-12-02",
-         "Comment": "Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão.",
-         "ReasonCode": "123",
-         "ReasonMessage": "DEB NAO REC DE COMPRA",
-         "IsFraud": "true"
-         "NegativeValues":
-         [
-            "CustomerIpAddress",
-            "CustomerDocumentNumber"
-         ],
-         "Transaction":
-         {
-            "Id": "fb647240-824f-e711-93ff-000d3ac03bed",
-            "Tid": "123456789012345678AB",
-            "Nsu": "12345678",
-            "AuthorizationCode": "123456",
-            "SaleDate": "2017-10-15",
-            "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b"
-         }
-      }
-   ]
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
-
-**Parâmetros no corpo (Body)**
-
-|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
-|:-|:-|:-:|:-:|-:|
-|`Chargebacks[n].Amount`|Valor do chargeback <br/> Ex.: 150000 Ex: 123456 = r$ 1.234,56|long|sim|-|
-|`Chargebacks[n].Date`|Data da confirmação do chargeback <br/> Ex.: 2017-12-02|date|sim|-|
-|`Chargebacks[n].Comment`|Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|não|512|
-|`Chargebacks[n].ReasonCode`|Código do motivo do chargeback|string|sim|8|
-|`Chargebacks[n].ReasonMessage`|Mensagem do motivo do chargeback|string|sim|128|
-|`Chargebacks[n].IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|não|-|
-|`Chargebacks[n].NegativeValues`|Parâmetros que deseja incluir na lista negativa <br/> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - [Tabela 1]({{ site.baseurl_root }}manual/chargeback#tabela-1)|enum|não|-|
-|`Chargebacks[n].Transaction.Id`|Id da transação no Antifraude <br/> Este campo se torna obrigatório se o campo `BraspagTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados <br/><br/> **IMPORTANTE** <br/> **SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO `Id` SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: `Tid`, `Nsu`, `AuthorizationCode` e `BraspagTransactionId`**<br/>|Guid|não|-|
-|`Chargebacks[n].Transaction.Tid`|Identificador da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Nsu`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|20|
-|`Chargebacks[n].Transaction.Nsu`|Número sequencial único da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
-|`Chargebacks[n].Transaction.AuthorizationCode`|Código de autorização da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
-|`Chargebacks[n].Transaction.SaleDate`|Data da venda da transação <br/> Ex.: 2017-10-15 <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `AuthorizationCode` se os campos `Id` e `BraspagTransactionId` não forem enviados|date|não|-|
-|`Chargebacks[n].Transaction.BraspagTransactionId`|Id da transação no Pagador Braspag <br/> Este campo se torna obrigatório se o campo `AntifraudTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados|Guid|não|-|
-
-### Response
-
-``` json
-{
-   "Chargebacks":
-   [
-      {
-         "Amount": 1000,
-         "Date": "2017-12-02",
-         "Comment": "Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão.",
-         "ReasonCode": "123",
-         "ReasonMessage": "DEB NAO REC DE COMPRA",
-         "IsFraud": "true"
-         "NegativeValues":
-         [
-            "CustomerIpAddress",
-            "CustomerDocumentNumber"
-         ],
-         "Transaction":
-         {
-            "Id": "fb647240-824f-e711-93ff-000d3ac03bed",
-            "Tid": "123456789012345678AB",
-            "Nsu": "12345678",
-            "AuthorizationCode": "123456",
-            "SaleDate": "2017-10-15",
-            "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b"
-         },
-         "Result":
-         {
-            "ProcessingStatus": "NotFound",
-            "ErrorMessages":
-            [
-                "Could not find any transaction."
-            ]
-         }
-      }
-   ]
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|300 Multiple Choices|
-
-**Parâmetros no corpo (Body)**
-
-|Parâmetro|Descrição|Tipo|
-|`Result.ProcessingStatus`|Status do processamento do chargeback - [Tabela 2]({{ site.baseurl_root }}manual/chargeback#tabela-2-result.processingstatus)|enum|
-|`Result.ErrorMessages`|Mensagens de erro para chargebacks não processados|string|
-
-## Via Admin Braspag
-
-Nesta seção será explicado passo a passo como realizar o upload do arquivo de chargeback via Admin Braspag.
-
-### Passo 1 - Acessando o Admin Braspag
-
-Para acessar o Admin Braspag, digitar no browser de sua preferência a URL de acordo com o ambiente desejado, conforme abaixo:
-
-|Ambiente|URL|
-|Sandbox|https://adminsandbox.braspag.com.br|
-|Produção|https://admin.braspag.com.br|
-
-> Caso não possua um usuário para o ambiente desejado, solicite a criação do mesmo através da nossa ferramenta de suporte.
-[Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
-
-### Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback
-
-Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: `Configurações -> Upload de Arquivo de Chargeback`
-
-![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/acesso.png){: .centerimg }{:title="Acessando a tela de Upload de Arquivo de Chargeback"}  
-
-### Passo 3 - Construindo o arquivo de chargeback no formato CSV
-
-Neste passo será explicado como construir um arquivo no formato CSV (Comma-separated values - Valores separados por vírgula) com os dados do chargeback.
-
-CSV é um formato de arquivo que contém valores separados por algum delimitador, vígula (,) por exemplo. Pode ser criado em qualquer editor de texto e lido em uma planilha de textos, como por exemplo, o excel. A planilha eletrônica irá dividir em linha/coluna cada item do arquivo separados por vírgula (,).
-
-Você poderá realizar o download de um arquivo de template através da opção disponibilizada na tela de Upload de Arquivo de Chargeback, conforme print abaixo:
-![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/teladownloadtemplatecbk.png){: .centerimg }{:title="Download template arquivo CSV"}
-
-O CSV que será construído com dos dados de chargeback deverá ter o layout abaixo, seguindo o tipo e obrigatoriedade de cada campo.
-> Amount,Date,Comment,ReasonCode,ReasonMessage,IsFraud,Id,Tid,Nsu,AuthorizationCode,SaleDate,BraspagTransactionId,NegativeValues
-
-|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
-|:-|:-|:-:|:-:|-:|
-|`Amount`|Valor do chargeback <br/> Ex.: 150000 Ex: 123456 = r$ 1.234,56|long|sim|-|
-|`Date`|Data da confirmação do chargeback <br/> Ex.: 2017-12-02|date|sim|-|
-|`Comment`|Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|não|512|
-|`ReasonCode`|Código do motivo do chargeback|string|sim|8|
-|`ReasonMessage`|Mensagem do motivo do chargeback|string|sim|128|
-|`IsFraud`|Identifica se o chargeback foi por motivo de fraude|bool|não|-|
-|`NegativeValues`|Parâmetros que deseja incluir na lista negativa <br/> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - [Tabela 1]({{ site.baseurl_root }}manual/chargeback#tabela-1-chargebacks[n].negativevalues)|enum|não|-|
-|`Id`|Id da transação no Antifraude <br/> Este campo se torna obrigatório se o campo `BraspagTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados <br/><br/> **IMPORTANTE** <br/> **SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO `Id` SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: `Tid`, `Nsu`, `AuthorizationCode` e `BraspagTransactionId`**<br/>|Guid|não|-|
-|`Tid`|Identificador da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Nsu`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|20|
-|`Nsu`|Número sequencial único da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `AuthorizationCode` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
-|`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `SaleDate` se os campos `Id` e `BraspagTransactionId` não forem enviados|string|não|10|
-|`SaleDate`|Data da venda da transação <br/> Ex.: 2017-10-15 <br/> Este campo se torna obrigatório juntamente com `Tid`, `Nsu` e `AuthorizationCode` se os campos `Id` e `BraspagTransactionId` não forem enviados|date|não|-|
-|`BraspagTransactionId`|Id da transação no Pagador Braspag <br/> Este campo se torna obrigatório se o campo `AntifraudTransactionId` não for enviado e se os campos `Tid`, `Nsu`, `AuthorizationCode` e `SaleDate` (todos juntos) não forem enviados|Guid|não|-|
-
-### Passo 4 - Enviando o arquivo de chargeback
-
-Com o arquivo já construído, e realizando os passos 1 e 2, agora é selecionar o arquivo e enviá-lo, conforme print abaixo:
-
-![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/tela.png){: .centerimg }{:title="Tela de Upload de Arquivo de Chargeback"}  
-
-1 - Clique no botão `Choose File` para selecionar o arquivo na máquina local.  
-2 - Com o arquivo selecionado, clique no botão `Enviar` para realizar o upload do arquivo.
-
-### Passo 5 - Verificando o resultado do envio do arquivo de chargeback
-
-Após realizar todos os passos acima, o arquivo será processado e através da seção Resultado será possível verificar o resultado do processamento.  
-
-Em caso de sucesso, será apresentada a mensagem de **Operação realizada com sucesso** e um ID que é o comprovante do upload do arquivo.  
-
-Em caso de alguma falha, será apresentada a mensagem de **Operação parciamente concluída. Favor verificar a seção Resultado** e também um ID que é o comprovante do upload do arquivo, conforme print abaixo:
-
-![Upload de Arquivo de Chargeback]({{ site.baseurl_root }}/images/braspag/af/uploadparcial.png){: .centerimg }{:title="Upload parcialmente processado"}  
-
-Neste caso, é possível verificar os erros encontrados em cada linha, tratar e reenviar o arquivo.
-
-# Consultas
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 ### Request
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">chargeback?CaseNumber={CaseNumber}&AcquirerTransactionId={AcquirerTransactionId}&BraspagTransactionId={BraspagTransactionId}&StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -315,22 +124,468 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
 |`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
 **Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|não|
-|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
-|`BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|não|
-|`ProviderTransactionId`|Identificador da transação no provedor de Antifraude|não|
-|`AntifraudeTransactionId`|Identificador da transação no Antifraude Braspag|não|
-|`StartDate`|Data início da consulta|não|
-|`EndDate`|Data fim da consulta|não|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+``` json
+{
+    "CaseNumber": "000001",
+    "Status": 2,
+    "StatusDescription": "AcceptedByMerchant"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`CaseNumber`|Número do caso do chargeback|
+|`Status`|Status do chargeback - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/chargeback#tabela-4-status)|
+|`StatusDescription`|Descrição do status do chargeback|
+
+## Aceitando um chargeback inexistente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "ChargebackNotFounded",
+    "Message": "Chargeback not found"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback não foi encontrado|
+|`Message`|Mensagem que o chargeback não foi encontrado|
+
+## Aceitando um chargeback aceito anteriormente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "ChargebackAlreadyUpdated",
+    "Message": "Chargeback already updated"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback foi aceito ou contestado anteriomente|
+|`Message`|Mensagem que o chargeback foi aceito ou contestado anteriormente|
+
+# Contestação
+
+## Contestando um chargeback
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+**Parâmetros no corpo (Body)**
+
+|Key|Value|Obrigatório|
+|:-|:-|:-|
+|`Content-Type`|form-data||
+||Arquivo extensão tif <br/> Obs.: O arquivo deve possuir como nome o número do caso do chargeback <br/> Ex.: `CaseNumber` = 0000001 -> `File` = 0000001.tif <br/> Obs2.: O arquivo deverá ser multi-page com extensão tif de no máximo 7mb de tamanho <br/> Obs3.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019|Sim|
+
+### Response
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+## Contestando um chargeback inexistente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "ChargebackNotFounded",
+    "Message": "Chargeback not found"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback não foi encontrado|
+|`Message`|Mensagem que o chargeback não foi encontrado|
+
+## Contestando um chargeback contestado anteriormente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "ChargebackAlreadyUpdated",
+    "Message": "Chargeback already updated"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback foi contestado ou aceito anteriomente|
+|`Message`|Mensagem que o chargeback foi contestado ou aceito anteriormente|
+
+## Contestando um chargeback com nome do arquivo diferente do CaseNumber
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "InvalidFileName",
+    "Message": "Invalid file name"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback está com nome inválido, diferente do CaseNumber|
+|`Message`|Mensagem que o chargeback está com nome inválido, diferente do CaseNumber|
+
+## Contestando um chargeback e não enviando o arquivo de contestação
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "FileNotFound",
+    "Message": "File not found"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback não foi enviado com o arquivo de contestação|
+|`Message`|Mensagem que o chargeback não foi enviado com o arquivo de contestação|
+
+## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de tif
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "InvalidFileExtension",
+    "Message": "Invalid file extension"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
+|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
+
+## Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+### Response
+
+``` json
+{
+    "Code": "InvalidFileLength",
+    "Message": "Invalid file length"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
+|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
+
+# Consultas
+
+### Request
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`StartDate`|Data início da consulta|sim|
+|`EndDate`|Data fim da consulta|sim|
 |`PageIndex`|Número da página desejada|sim|
 |`PageSize`|Quantidade de itens desejado na página. Máximo 250 itens.|sim|
+|`MerchantIds`|Id(s) da(s) loja(s) a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId|não|
+|`EstablishmentCodes`|Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId|não|
+|`CaseNumber`|Número do caso do chargeback|não|
+|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
+|`BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|não|
 
 ### Response
 
@@ -419,445 +674,6 @@ Neste caso, é possível verificar os erros encontrados em cada linha, tratar e 
 |`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource|string|
 |`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4]({{ site.baseurl_root }}manual/chargeback#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
 |`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
-
-# Aceitação
-
-## Aceitando um chargeback
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "CaseNumber": "000001",
-    "Status": 2,
-    "StatusDescription": "AcceptedByMerchant"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`CaseNumber`|Número do caso relacionado ao chargeback|
-|`Status`|Status da aceitação do chargeback - Tabela 4|
-|`StatusDescription`|Descrição do status da aceitação do chargeback|
-
-## Aceitando um chargeback inexistente
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "ChargebackNotFounded",
-    "Message": "Chargeback not found"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback não foi encontrado|
-|`Message`|Mensagem que o chargeback não foi encontrado|
-
-## Aceitando um chargeback aceito anteriormente
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "ChargebackAlreadyUpdated",
-    "Message": "Chargeback already updated"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback foi aceito ou contestado anteriomente|
-|`Message`|Mensagem que o chargeback foi aceito ou contestado anteriormente|
-
-# Contestação
-
-## Contestando um chargeback
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-**Parâmetros no corpo (Body)**
-
-|Key|Value|Obrigatório|
-|:-|:-|:-|
-|`Content-Type`|form-data||
-||Arquivo extensão tif <br/> Obs.: O arquivo deve possuir como nome o número do caso relacionado ao chargeback <br/> Ex.: `CaseNumber` = 0000001 -> `File` = 0000001.tif <br/> Obs2.: O arquivo deverá ser multi-page com extensão tif de no máximo 7mb de tamanho <br/> Obs3.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019|Sim|
-
-### Response
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
-
-## Contestando um chargeback inexistente
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "ChargebackNotFounded",
-    "Message": "Chargeback not found"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback não foi encontrado|
-|`Message`|Mensagem que o chargeback não foi encontrado|
-
-## Contestando um chargeback contestado anteriormente
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "ChargebackAlreadyUpdated",
-    "Message": "Chargeback already updated"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback foi contestado ou aceito anteriomente|
-|`Message`|Mensagem que o chargeback foi contestado ou aceito anteriormente|
-
-## Contestando um chargeback com nome do arquivo diferente do CaseNumber
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "InvalidFileName",
-    "Message": "Invalid file name"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback está com nome inválido, diferente do CaseNumber|
-|`Message`|Mensagem que o chargeback está com nome inválido, diferente do CaseNumber|
-
-## Contestando um chargeback e não enviando o arquivo de contestação
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "FileNotFound",
-    "Message": "File not found"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback não foi enviado com o arquivo de contestação|
-|`Message`|Mensagem que o chargeback não foi enviado com o arquivo de contestação|
-
-## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de tif
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "InvalidFileExtension",
-    "Message": "Invalid file extension"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
-|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
-
-## Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Código do estabelecimento ou afiliação na adquirente|sim|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "InvalidFileLength",
-    "Message": "Invalid file length"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
-|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
 
 # Tabelas
 
