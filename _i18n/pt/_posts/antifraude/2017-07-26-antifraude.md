@@ -1193,14 +1193,10 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 |`Message`|Mensagem informando que o request é inválido|
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo, domínio ou tamanho conforme especificado no manual|
 
-## Configuração do Fingerprint
+# Configuração do Fingerprint
 
 Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja está mais protegida.
-
-Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
-
-### Cybersource
 
 Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
