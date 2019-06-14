@@ -1193,17 +1193,18 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 |`Message`|Mensagem informando que o request é inválido|
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo, domínio ou tamanho conforme especificado no manual|
 
-# Configuração do Fingerprint
+## Configuração do Fingerprint
 
-Esta sessão descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
+Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
+Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja está mais protegida.
 
-## Cybersource
+Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
 
-Será necessário adicionar duas tags, a **&lt;script&gt;** dentro da tag **&lt;head&gt;** para uma performance correta e a **&lt;noscript&gt;** dentro da tag **&lt;body&gt;**, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
+### Cybersource
 
-**IMPORTANTE**
+Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
-Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
+<aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
 **Domain**
 
@@ -1213,30 +1214,30 @@ Se os 2 segmentos de código não forem colocados na página de checkout, os res
 |`Production`|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|
 
 **Variáveis**
+Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o `session_id`. O `org_id` é um valor predefinido conforme tabela abaixo, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `Customer.BrowserFingerprint`, conforme exemplo abaixo:
 
 |Variável|Descrição|
 |:-|:-|
-|`ProviderOrgId`|Sandbox = 1snn5n9w <br/> Produção = k8vif92e|
-|`ProviderMerchantId`|Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag|
-|`ProviderIdentifier`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise. <br/> O resultado da concatenação entre o campo `ProviderMerchantId` e este, deve ser atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Exemplo: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Resultado = braspag123456789 <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
+|`org_id`|para Sandbox = 1snn5n9w <br/> para Produção = k8vif92e|
+|`session_id`|Concatenação das variáveis `ProviderMerchantId` e `Customer.BrowserFingerprint` <br/> `ProviderMerchantId` = Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag <br/> `Customer.BrowserFingerprint` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
 
-> Javascript Code
+**Aplicação**
+
+O modelo do Javascript é o seguinte:
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
-> Exemplo URL com Variáveis Preenchidas
+As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
 
-![Exemplo Código com Variáveis Preenchidas]({{ site.baseurl_root }}/images/braspag/af/exemplodfp.png)
+![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp.png)
 
-**IMPORTANTE**
-Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.
+<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 
 **Configurando seu Servidor Web**
 
 Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.
 
-**IMPORTANTE**
-Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.
+<aside class="warning">Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</aside>
 
 ## Integração em aplicativos mobile
 
