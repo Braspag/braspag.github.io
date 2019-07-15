@@ -1,353 +1,633 @@
 ---
-layout: tutorial
-title: Manual de integração
-description: Integração técnica Tokenização Braspag
+layout: manual
+title: Manual de integração Cartão Protegido
+description: Integração técnica Tokenização via REST API Braspag
 search: true
-categories: tutorial
 translated: true
+categories: manual
 tags:
   - Cartão Protegido
+language_tabs:
+  json: JSON
+  shell: cURL
 ---
 
-# Introdução ao Cartão Protegido
+# O que é Cartão Protegido?
 
-A plataforma do **CARTÃO PROTEGIDO** é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
-<br><br>
-O gateway PAGADOR (BRASPAG) está integrado ao **CARTÃO PROTEGIDO**, facilitando o envio e processamento de transações de cartão de crédito via token.
+O **Cartão Protegido** é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança PCI Security Standards Council, que assegura que a Braspag segue plenamente os rígidos requisitos e normas determinadas pelo mesmo.
 
-## Sobre o Produto
+A plataforma é compatível com o gateway Pagador, também da Braspag, facilitando o processamento de transações de cartão de crédito e débito via token.
 
-Enquanto produto, o CARTÃO PROTEGIDO, por ser uma solução para resolver o problema de armazenamento seguro de dados de cartão de crédito, pode ser utilizado para diversos fins, como:
+## Principais benefícios
 
-* **Compra com 1 clique**: A “compra com 1 clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.
-* **Cobrança Recorrente**: Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)
-* **Re-tentativa de envio de transação (venda)**: Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.
-* Ou para qualquer outra finalidade, onde se faça necessário armazenar dados de um cartão de crédito de forma segura, mesmo que temporariamente
+* **Braspag Atualiza**: a plataforma conta com _Braspag Atualiza_, que é uma funcionalidade bastante interessante principalmente para quem trabalha no modelo de recorrência. Através da tecnologia das bandeiras, qualquer atualização no número de cartõe que sofreu bloqueio ou cancelamento por parte do emissor, é automaticamente informado à Braspag que por sua vez associa o novo cartão ao token já existente, tudo isso de forma totalmente transparente para os estabelecimentos e portadores. Esta feature está disponível para para cartões Mastercard e deve solicitar a habilitação da mesma através do canal de suporte da Braspsag.
 
-## Sobre este manual
+* **Maior taxa de conversão**: as transações tokenizadas e processadas na Braspag via Pagador podem resultar em uma taxa de conversão maior que a média do mercado. Isso é porque os cartões tokenizados nas bandeiras são autorizadas junto com o criptograma, que provê maior segurança no processo, com isso, os emissores tendem a aprovar mais facilmente. Esta feature está disponível para para cartões Mastercard processando via Cielo 3.0. Solicitar a habilitação da mesma através do canal de suporte da Braspsag.
 
-Este manual tem como objetivo orientar o desenvolvedor da loja sobre a integração com a plataforma **CARTÃO PROTEGIDO**, descrevendo as funcionalidades existentes e os métodos a serem utilizados, listando informações a serem enviadas e recebidas e provendo exemplos.
+* **Ambiente Seguro PCI DSS**: a Braspag conta com ambiente certificado PCI DSS, que assegura a integridade e segurança de dados sensíveis como os de cartão de crédito.
 
-## Ambientes
+## Casos de Uso
 
-### Ambiente Sandbox
+A plataforma tem como propósito ajudar os estabelecimentos que possuem diversos casos de usos, entre eles:
 
-Experimente as nossas APIs sem compromisso!
+* **Cobrança Recorrente Agendada (Scheduled Recurring Payments)**: Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma para armazenar os dados de cartão de crédito e processar através de tokens de pagamento. Exmeplo: assinatura de serviços. 
 
-|Informação|Descrição|
+* **Cobrança Recorrente não Agendada (Unscheduled Recurring Payments)**: Estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida. Exemplo: aplicativos de transporte. 
+
+* **Compra com um clique (Just Click Payments)**: A “compra com um clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.
+
+* **Recuperação de vendas**: Estabelecimentos podem entrar novamente em contato com os clientes que eventualmente tiveram problemas na compra, oferecer uma nova tentativa de cobrança. 
+
+## Arquitetura
+
+A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Através do endpoint https://cartaoprotegidoapisandbox.braspag.com.br/v1/ serão enviadas todas as requisições relativas à esse serviço. Essa URL recebera as mensagens HTTP através dos métodos POST, GET ou Del. Cada tipo de mensagem deve ser enviada para um endereço identificado através do "path".
+
+* **POST** - O método HTTP POST é utilizado na criação do token.
+* **DEL** - O método HTTP DEL é utilizado para remoção de token.
+* **GET** - O método HTTP GET é utilizado para consultas de recursos já existentes. Por exemplo, consulta de tokens já criados.
+
+# Como se integra?
+
+## Coleção do Postman
+
+Para quem quiser experimentar as APIs diretamente via Postman, segue o link para baixar a coleção:
+
+* Coleção do Postman: https://bit.ly/2YX3YwE[https://bit.ly/2YX3YwE]
+* Variáveis do Sandbox: https://bit.ly/2YX3YwE[https://bit.ly/2YX3YwE]
+
+## Etapa de Autenticação
+
+Para consumir os métodos da API, é necessário obter o AccessToken no padrão OAuth 2.0
+
+|Ambiente | Endpoint | Authorization |
+|---|---|---|
+| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | **Basic _(Authorization)_**<br><br>O valor do Authorization deve ser obtido concatenando-se o valor do "ClientID", sinal de dois-pontos (":") e "ClientSecret"<br><br>Ex. b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br><br>e na sequência, codificar o resultado na base 64. <br>Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br><br>ClientID: **b4c14ad4-5184-4ca0-8d1a-d3a7276cead9**<br>ClientSecret: **qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**|
+| --- | --- |
+| **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token | Solicite os dados "ClientID" e "ClientSecret" à equipe de suporte após concluir o desenvolvimento em sandbox. |
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
+
+``` shell
+--request POST "https://authsandbox.braspag.com.br/oauth2/token"
+--header "Authorization: Basic _(Authorization)_"
+--header "Content-Type: application/x-www-form-urlencoded" 
+--body "grant_type=client_credentials"
+```
+
+|Parâmetros|Descrição|
 |---|---|
-|Credenciais de Acesso à API|Acesse o [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/) e crie uma conta de testes.<BR>Ao fim do cadastro você receberá um `MerchantId` e um `MerchantKey`,<BR> que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API|
-|Endpoint Transacional|**https://apisandbox.braspag.com.br/**|
+|`Authorization`|Basic _(Authorization)_|
+|`Content-Type`|application/x-www-form-urlencoded|
+|`grant_type`|client_credentials|
 
-<aside class="warning">Para receber a URL de Produção, solicite à nossa equipe de implantação através da ferramenta Suporte.</aside>
+### Response
 
-## Sobre a Integração
+``` json
+{
+  "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
+  "token_type": "bearer",
+  "expires_in": 599
+}
+```
+```shell
+curl
+{
+  "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
+  "token_type": "bearer",
+  "expires_in": 599
+}
+```
 
-Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:
+|Propriedades do Response|Descrição|
+|---|---|
+|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido|
+|`token_type`|Indica o valor do tipo de token|
+|`expires_in`|Expiração do o token de acesso, em segundos <br/> O token quando expirar, é necessário obter um novo|
 
-* Diretamente pela plataforma do CARTÃO PROTEGIDO;
-* Via plataforma PAGADOR, utilizando Webservice;
-* Via plataforma PAGADOR, utilizando Post de Dados.
+## Create Token Reference
 
-Os dados necessários para armazenar um cartão de crédito na plataforma são: CPF do Cliente, Nome do Cliente, Nome do Portador, Número do Cartão e Data de Validade. O código de segurança não é armazenado (vide seção Código de
-Segurança).
+O objetivo deste método é salvar um cartão e obter como resposta a referência do token (Token Reference).
 
-<aside class="notice">A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.</aside>
+### Request
 
-<aside class="warning">Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/Token</span></aside>
 
-<aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
+```json
+{
+    "Alias":"5R2O4042YP",
+    "Card": {
+        "Number": "4551870000000183",
+        "Holder": "Joao da Silva",
+        "ExpirationDate": "12/2021",
+        "SecurityCode": "123"
+    }
+}
+```
+```shell
+curl
+--request POST "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "Authorization: Barear {access_token}"
+--data-binary
+{
+    "Alias":"5R2O4042YP",
+    "Card": {
+        "Number": "4551870000000183",
+        "Holder": "Joao da Silva",
+        "ExpirationDate": "12/2021",
+        "SecurityCode": "123"
+    }
+}
+```
 
-# **PARÂMETRO** JustClickAlias
+|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
+|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Content-Type`|Texto|-|Sim|application/json|
+|`Alias`|Texto|64|Não |Alias do cartão. O valor desta informação deve ser único (não pode repetir).|
+|`Card.Number`|Número|16|Sim|Número do Cartão do comprador|
+|`Card.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
+|`Card.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
+|`Card.SecurityCode`|Número|4|Sim|Código de segurança impresso no verso do cartão|
 
-Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. O cliente poderá, no momento do salvamento do cartão, criar um Alias (apelido) que identificará esse cartão na Plataforma CARTÃO PROTEGIDO. Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. Para isso, o lojista deveria indicar que o JustClickKey está desabilitado. Dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.
+### Response
 
-## Forma Correta de Associação
+```json
+{
+    "Alias": "5R2O4042YP",
+    "TokenReference": "c2e0d46e-6a78-409b-9ad4-75bcb3985762",
+    "ExpirationDate": "2021-12-31",
+    "Card": {
+        "Number": "************0183",
+        "ExpirationDate": "12/2021",
+        "Holder": "Joao da Silva",
+        "SecurityCode": "***"
+    },
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762"
+        },
+        {
+            "Method": "DELETE",
+            "Rel": "remove",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "suspend",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762/suspend"
+        }
+    ]
+}
+```
+```shell
+curl
+--request POST "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
+--header "Content-Type: application/json"
+--data-binary
+{
+    "Alias": "5R2O4042YP",
+    "TokenReference": "c2e0d46e-6a78-409b-9ad4-75bcb3985762",
+    "ExpirationDate": "2021-12-31",
+    "Card": {
+        "Number": "************0183",
+        "ExpirationDate": "12/2021",
+        "Holder": "Joao da Silva",
+        "SecurityCode": "***"
+    },
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762"
+        },
+        {
+            "Method": "DELETE",
+            "Rel": "remove",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "suspend",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762/suspend"
+        }
+    ]
+}
+```
 
-Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:
+|Propriedades|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`Alias`|Alias do cartão de crédito|Texto|64|Qualquer texto, que seja único na base de tokens do estabelecimento|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ExpirationDate`|Data de expiração do token, no formato MM/AAAA|Texto|7|MM/AAAA|
+|`Card.Number`|Número|16|Sim|Número do cartão mascarado|
+|`Card.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
+|`Card.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
+|`Card.SecurityCode`|Número|4|Sim|Código de segurança impresso no verso do cartão mascarado|
 
-|Merchant Id|JustClickKey (Token)|Alias|Enabled|
-|-----------|--------------------|-----|-------|
-|LOJA A|Token 1|XPTO|0|
-|LOJA A|Token 2|XPTO|0|
-|LOJA A|Token 3|XPTO|1|
+## Get Token Reference Information
 
-<aside class="notice">Obs.: A desassociação ocorrerá após a execução do método InvalidateCreditCard </aside>
+O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como Status, Cartão Mascarado, Data de Validade e Nome do Portador.
 
-## Forma de Associação Não Aceita
+### Request
 
-Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
-desde que esteja desvinculado de um determinado Token:
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
-|Merchant Id|JustClickKey (Token)|Alias|Enabled|
-|-----------|--------------------|-----|-------|
-|LOJA A|Token 1|XPTO|1|
-|LOJA A|Token 2|XPTO|1|
-|LOJA A|Token 3|XPTO|1|
+```shell
+curl
+--request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "Authorization: Barear {access_token}"
+--data-binary
+```
 
-# FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO
+|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
+|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Content-Type`|Texto|-|Sim|application/json|
+|`TokenReference`|GUID|36|Sim|Token no Cartão Protegido que representa os dados do cartão|
 
-Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.
+### Response
 
-Com a permissão do cliente para salvar seu cartão, o estabelecimento deve:
+```json
+{
+    "TokenReference": "1fdb4ef8-17f3-4f26-87e9-3a5f34bca8a0",
+    "Status": "Active",
+    "Provider": "Braspag",
+    "Account": {
+        "Number": "************0183",
+        "ExpirationDate": "12/2021",
+        "Holder": "Runscope Teste"
+    }
+}
+```
+```shell
+curl
+--request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
+--header "Content-Type: application/json"
+--data-binary
+{
+    "TokenReference": "1fdb4ef8-17f3-4f26-87e9-3a5f34bca8a0",
+    "Status": "Active",
+    "Provider": "Braspag",
+    "Account": {
+        "Number": "************0183",
+        "ExpirationDate": "12/2021",
+        "Holder": "Runscope Teste"
+    }
+}
+```
 
-1. Enviar a tentativa de autorização da compra em questão via Gateway. Processo padrão que já acontece hoje
-2. Receber o resultado da autorização
-3. Enviar os dados do cartão para armazenamento no CARTÃO PROTEGIDO
-4. Receber a “JustClickKey”, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.
+|Propriedades|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Status atual do token no Cartão Protegido.|-|Valores possíveis: Active, Removed, Suspended|Texto|
+|`Provider`|Indica o provedor que armazenou o cartão.|-|Valores possíveis: Braspag ou Master|Texto|
+|`Account.Number`|Número do Cartão do comprador mascarado|Texto|16|-|
+|`Account.Holder`|Nome do Comprador impresso no cartão, sem caraceteres acentuados|Texto|25|Exemplo: Jose da Silva|
+|`Account.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA|Texto|7|Exemplo: 12/2021|
 
-Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site pode apresentar a opção de “compra com 1 clique”, e o fluxo será:
+## Get Token Reference
 
-1. Chamar a autorização da transação direto pela plataforma do CARTÃO PROTEGIDO, passando a “JustClickKey” e/ou “JustClickAlias” do cliente e, opcionalmente, o CVV (vide seção Código de Segurança)
-2. Receber o resultado da autorização
+O objetivo deste método é obter a referência de token a partir de um alias previamente informado.
 
-![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/autorizacaocomopcaosalvarcartao.png)
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Alias/_{Alias}_/TokenReference</span></aside>
 
-# FLUXO DE AUTORIZAÇÃO VIA PAGADOR
+### Request
 
-Abaixo estão representados os fluxos de uma requisição para salvar um cartão de um cliente durante uma venda e de uma compra via CARTÃO PROTEGIDO, ambas utilizando a integração PAGADOR/CARTÃO PROTEGIDO
+```shell
+curl
+--request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "Authorization: Barear {access_token}"
+--data-binary
+```
 
-## AUTORIZAÇÃO COM OPÇÃO SALVAR CARTÃO
+|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
+|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Content-Type`|Texto|-|Sim|application/json|
+|`Alias`|Texto|64|Não |Alias (Apelido) do cartão de crédito utilizado anteriormente no método Create Token|
 
-![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/pgautorizacaocomopcaosalvarcartao.png)
+### Response
 
-1. Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro SaveCreditCard;
-2. O PAGADOR envia os dados de cartão de crédito para a plataforma CARTÃO PROTEGIDO, à fim de armazenar esses dados;
-3. CARTÃO PROTEGIDO envia resposta do armazenamento dos dados do cartão ao PAGADOR;
-4. Como resultado, o PAGADOR envia resposta da autorização e do armazenamento, ao cliente;
+```json
+{
+    "TokenReference": "a36ffc37-e472-4d85-af2a-6f64c52bcccf"
+}
+```
+```shell
+curl
+--request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"
+--header "Content-Type: application/json"
+--data-binary
+{
+    "TokenReference": "a36ffc37-e472-4d85-af2a-6f64c52bcccf"
+}
+```
 
-## AUTORIZAÇÃO COM CARTÃO JÁ SALVO
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/pgautorizacaocomcartaosalvo.png)
+## Delete Token Reference
 
-1. Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro CredicardToken;
-2. O PAGADOR envia os dados de cartão de crédito para a plataforma CARTÃO PROTEGIDO, à fim de recuperar os dados previamente salvos do cartão;
-3. CARTÃO PROTEGIDO envia resposta dos dados do cartão ao PAGADOR;
-4. Como resultado, o PAGADOR envia resposta da autorização ao cliente;
+O objetivo deste método é remover a referência do token da base definitivamente. O Token Reference removido através deste método não permite que seja recuperado futuramente.
 
-<aside class="notice">Note que toda a comunicação é feita pelo estabelecimento através da plataforma PAGADOR. Para obter todas as informações sobre os métodos dos Webserivces e seus parâmetros, assim como aqueles da integração via Post, solicite os devidos manuais da plataforma PAGADOR.</aside>
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
-## AUTORIZAÇÃO VIA POST
+### Request
 
-Abaixo, fluxo de autorização via Post. Mostrando uma transação onde o cliente possui a chave gerada pelo Cartão Protegido e outra onde essa chave ainda irá ser criada e enviada ao cliente (CredicardToken).
+```json
+{
+	"RemovedBy":"Merchant",
+	"Reason":"Other"
+}
+```
+```shell
+curl
+--request DELETE "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "Authorization: Barear {access_token}"
+--data-binary
+{
+	"RemovedBy":"Merchant",
+	"Reason":"Other"
+}
+```
 
-![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/pgautorizacaopost.png)
+|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
+|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Content-Type`|Texto|-|Sim|application/json|
+|`RemovedBy`|Texto|10|Sim|Quem solicitou a remoção. Valores possíveis: 'Merchant' ou 'CardHolder'|
+|`Reason`|Texto|10|Sim|Motivo da remoção do token. Valores possíveis: 'FraudSuspicion' ou 'Other'|
 
-<aside class="warning">O parâmetro “CreditCardToken” retornado pelo PAGADOR é a própria “JustClickKey” do CARTÃO PROTEGIDO.</aside>
+### Response
 
-# CÓDIGO DE SEGURANÇA (CVV)
+```json
+{
+    "TokenReference": "26eb7cb4-c2b4-4409-8d2e-810215c42eee",
+    "Status": "Removed",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/26eb7cb4-c2b4-4409-8d2e-810215c42eee"
+        }
+    ]
+}
+```
+```shell
+curl
+--request DELETE "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
+--header "Content-Type: application/json"
+--data-binary
+{
+    "TokenReference": "26eb7cb4-c2b4-4409-8d2e-810215c42eee",
+    "Status": "Removed",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/26eb7cb4-c2b4-4409-8d2e-810215c42eee"
+        }
+    ]
+}
+```
 
-O código de segurança é obrigatório para que uma autorização, em compras não presenciais, seja aceita pelo banco emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. Por isso, as regras da indústria de cartões (PCI) permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança. Este deve ser sempre solicitado no ato da compra para validação. Sendo a BRASPAG uma empresa PCI compliance, ela não armazena o código de segurança, que deverá ser solicitado pelo estabelecimento no ato da confirmação da venda via CARTÃO PROTEGIDO, caso seja obrigatório o uso da Adquirente em questão.
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Texto|10|Não |Status atual do token no Cartão Protegido|
 
-Estabelecimentos que possuem o modelo de negócio baseado em recorrência, como, por exemplo, assinaturas de serviços, já possuem afiliação liberada para uso sem CVV.
+## Suspend Token Reference
 
-<aside class="notice">Esta condição de recorrência é concedida exclusivamente pelas Adquirentes, não dependendo da BRASPAG.</aside>
+O objetivo deste método é suspender uma referência do token temporariamente. O Token Reference suspenso através deste método pode ser reativado via método Unsuspend Token Reference.
 
-# DICAS DE IMPLEMENTAÇÃO
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
 
-## IMPLEMENTANDO JUSTCLICKSHOP (COMPRA COM 1 CLIQUE)
+### Request
 
-Para fazer uma venda através de um clique, é necessário que o estabelecimento já possua uma autorização, fornecida pelo cliente, para poder armazenar os dados de seu cartão de crédito. Desta forma, nas próximas compras ele pode optar por fazer o pagamento com o cartão de crédito previamente salvo. Concedida a autorização para o armazenamento, basta que o estabelecimento envie os dados do cartão para a plataforma do CARTÃO PROTEGIDO, recebendo como resposta uma chave que representa a dupla “cartão de crédito-cliente”. Para cada cartão distinto que o cliente autorize o armazenamento, o CARTÃO PROTEGIDO fornecerá uma chave também distinta.
+```json
+{
+	"RemovedBy":"Merchant",
+	"Reason":"FraudSuspicion"
+}
+```
+```shell
+curl
+--request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "Authorization: Barear {access_token}"
+--data-binary
+{
+	"RemovedBy":"Merchant",
+	"Reason":"FraudSuspicion"
+}
+```
 
-Nas próximas vendas para este cliente, o estabelecimento poderá oferecer a “compra com 1 clique” como forma de pagamento. Isto pode ser feito através de um botão de “comprar com um clique” no produto/ serviço selecionado, ou como mais um meio de pagamento no processo de finalização do carrinho de compras. Para processar uma venda via “compra com 1 clique”, basta que seja passado para a plataforma do CARTÃO PROTEGIDO a chave previamente fornecida que identifique o “cartão de crédito-cliente” e, dependendo de qual serviço do CARTÃO PROTEGIDO o estabelecimento opte por utilizar, a plataforma irá:
+|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
+|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Content-Type`|Texto|-|Sim|application/json|
+|`RemovedBy`|Texto|10|Sim|Quem solicitou a remoção. Valores possíveis: 'Merchant' ou 'CardHolder'|
+|`Reason`|Texto|10|Sim|Motivo da remoção do token. Valores possíveis: 'FraudSuspicion' ou 'Other'|
 
-* Devolver os dados do cartão para o estabelecimento autorizar a transação;
-* Autorizar direto a transação na Operadora via PAGADOR (sendo este o mais indicado, por garantir maior segurança dos dados).
+### Response
 
-### BOAS PRÁTICAS
+```json
+{
+    "TokenReference": "0a69a878-e50a-4252-bccc-24942a6225a9",
+    "Status": "Suspended",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"
+        },
+        {
+            "Method": "DELETE",
+            "Rel": "remove",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"
+        }
+    ]
+}
+```
+```shell
+curl
+--request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"
+--header "Content-Type: application/json"
+--data-binary
+{
+    "TokenReference": "0a69a878-e50a-4252-bccc-24942a6225a9",
+    "Status": "Suspended",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"
+        },
+        {
+            "Method": "DELETE",
+            "Rel": "remove",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"
+        }
+    ]
+}
+```
 
-Salvar o número do cartão mascarado para apresentar ao cliente qual cartão ele tem habilitado para “a compra com 1 clique” no site;
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Texto|10|Não |Status atual do token no Cartão Protegido|
+
+## Unsuspend Token Reference
+
+O objetivo deste método é reativar uma referência do token.
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/unsuspend</span></aside>
+
+### Request
+
+```shell
+curl
+--request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "Authorization: Barear {access_token}"
+--data-binary
+```
+
+|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|
+|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
+|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Content-Type`|Texto|-|Sim|application/json|
+
+### Response
+
+```json
+{
+    "TokenReference": "0a69a878-e50a-4252-bccc-24942a6225a9",
+    "Status": "Active",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"
+        },
+        {
+            "Method": "DELETE",
+            "Rel": "remove",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "suspend",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9/suspend"
+        }
+    ]
+}
+```
+```shell
+curl
+--request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"
+--header "Content-Type: application/json"
+--data-binary
+{
+    "TokenReference": "0a69a878-e50a-4252-bccc-24942a6225a9",
+    "Status": "Active",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"
+        },
+        {
+            "Method": "DELETE",
+            "Rel": "remove",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "suspend",
+            "HRef": "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9/suspend"
+        }
+    ]
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Texto|10|Não |Status atual do token no Cartão Protegido.|
+
+# Códigos de erro
+
+Em casos de erro na requisição, serão informados os códos de erro e sua descrição, conforme o exemplo.
+
+### Response
+
+```json
+{
+    "Errors": [
+        {
+            "Code": "CP903",
+            "Message": "Token alias already exists"
+        }
+    ]
+}
+```
+```shell
+curl
+--request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
+--header "Content-Type: application/json"
+--data-binary
+{
+    "Errors": [
+        {
+            "Code": "CP903",
+            "Message": "Token alias already exists"
+        }
+    ]
+}
+```
+
+|Code|Message|Descrição|
+|------|--------|---------|
+|CP903|Token alias already exists|Acontece quando o Alias já foi utilizado anteriormente.|
+|CP990|'XXXXX' must not be empty.|Acontece quando algum campo está inválido.|
+
+# Dicas de implementação
+
+## Código de segurança do cartão
+
+O código de segurança é obrigatório para que uma autorização seja aceita pelo banco emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. 
+Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo a Braspag, certificada PCI.
+A recomendação é que o CVV seja sempre solicitado no ato da compra. 
+
+<aside class="notice">Estabelecimentos que possuem o modelo de negócio baseado em recorrência, como, por exemplo, assinaturas de serviços, devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
+
+## Compra com um clique
+
+Uma dica para melhorar sua conversão é salvar o número do cartão mascarado para apresentar ao cliente qual cartão ele tem habilitado para “a compra com 1 clique” no site;
 
 * Opcionalmente, também salvar a data de validade, para ativamente comunicar ao cliente que o cartão que ele tem armazenado expirou e sugerir a troca;
-* Apenas salvar o cartão na plataforma do CARTÃO PROTEGIDO caso ele tenha sido autorizado com sucesso na última compra do cliente;
+* Sempre perguntar se o comprador deseja armazenar os dados do cartão para próxima compra;
 * Segurança do login e senha dos usuarios do site – senhas muito fracas são facilmente descobertas e o fraudador consegue fazer uma compra mesmo sem ter o cartão (no caso de não solicitação do CVV pelo site);
 * Controlar variáveis de sessão para evitar que o usuário (login do cliente) permaneça logado no site e outra pessoa acesse depois fazendo “compras via 1 clique” com este login (ex: usuários conectados em lan houses).
-
-## IMPLEMENTANDO COBRANÇA RECORRENTE
-
-Para cada pedido a ser cobrado com recorrência de cartão de crédito, o estabelecimento deve salvar os dados do cartão de crédito na plataforma do Cartão Protegido e receber a chave (JustClickKey) que representa aquele “pedido-cartão”. Chegado o dia da cobrança da recorrência, basta que o método de autorização de cartão seja chamado, passando os dados para pagamento e, ao invés dos dados do cartão (número + data de validade), a chave que o representa (JustClickKey ou JustClickAlias).
-
-Se houver necessidade de troca de cartão para determinado pedido, basta que este novo cartão seja salvo no CARTÃO PROTEGIDO, e a nova chave gerada seja associada ao pedido na plataforma do estabelecimento. Não há necessidade de cancelamento/ exclusão do cartão na plataforma.
-
-Se houver a necessidade de associar um Alias já existente a um novo JustClickKey, basta desabilitar o JustClickKey antigo para deixar o Alias associado a ele, liberado para uma nova associação.
-
-Se o estabelecimento optar por não processar a autorização da transação pela integração PAGADOR/CARTÃO PROTEGIDO, é fundamental que em nenhum momento o número do cartão seja gravado (persistido em banco ou em seção do browser) para que a segurança das informações seja mantida.
-
-# MÉTODOS DO CARTÃO PROTEGIDO
-
-Abaixo estão representados os fluxos dos webmethods da plataforma do CARTÃO PROTEGIDO, para execução dos procedimentos via webservice descritos nas seções anteriores.
-
-## SALVANDO um cartão de crédito
-
-O método SaveCreditCard recebe o objeto SaveCreditCardRequest e deve ser chamado para salvar os dados de uma cartão de crédito e receber a chave identificadora (token) da dupla “cartão de crédito-cliente” para futuras autorizações via “compra com 1 clique”. Não se deve informar RequestId repetidos para essa operação, pois essa informação será necessária para recuperar o JustClickKey na utilização do método GetJustClickKey().
-
-![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/savecreditcard.png)
-
-### Requisição
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|MerchantKey|Guid|Chave da loja JustClick|Sim|
-|CustomerIdentification|string| CPF do comprador|Não|
-|CustomerName|string|Nome do comprador|Sim|
-|CardHolder|string|Nome do Portador do cartão de crédito|Sim|
-|CardNumber|string|Número do cartão de crédito|Sim|
-|CardExpiration|string|Validade do cartão de crédito. Formato: mm/yyyy|Sim|
-|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
-|RequestId|Guid|Identificador da requisição enviada|Sim|
-|Version|string|Versão do método. Padrão: 2.0|Não|
-
-### Resposta
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|JustClickKey|Guid|Token (Chave identificadora) que representa o cartão de crédito|Sim|
-|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Sim|
-|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
-|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
-
-## RECUPERAÇÃO do número do Cartão de Crédito, com retorno Mascarado
-
-O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito de forma PCI Compliance, ou seja, apenas o número mascarado do cartão é retornado no método GetMaskedCreditCardResponse, juntamente com as demais informações não sensíveis.
-
-![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/getcreditcard.png)
-
-### Requisição
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|MerchantKey|Guid|Chave da loja JustClick|Sim|
-|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
-|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
-|RequestId|Guid|Identificador da requisição enviada|Não|
-|Version|string|Versão do método. Padrão: 2.0|Não|
-
-### Resposta
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|CardHolder|string|Portador do cartão de crédito|Sim|
-|CardExpiration|string|Validade do cartão de crédito. Formato: mm/yyyy|Sim|
-|MaskedCardNumber|string|Número do cartão de crédito mascarado|Sim|
-|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio|Não|
-|RequestId|Guid|enviado no objeto de request|Não|
-|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
-|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
-
-## RECUPERANDO informações sobre o Cartão de Crédito
-
-O método GetCreditCard recebe o objeto GetCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito, incluindo o número aberto do cartão. Em geral, esse método será utilizado apenas quando se desejar autorizar a transação via outra plataforma que não o PAGADOR. Este método deve ser usado com muito cuidado por ter informações sensíveis.
-
-![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/getcreditcardraw.png)
-
-### Requisição
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|MerchantKey|Guid|Chave da loja JustClick|Sim|
-|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
-|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
-|RequestId|Guid|Identificador da requisição enviada|Não|
-|Version|string|Versão do método. Padrão: 2.0|Não|
-
-### Resposta
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|CardHolder|string|Portador do cartão de crédito|Sim|
-|CardNumber|string|Número do cartão de crédito aberto|Sim|
-|CardExpiration|string|Validade do cartão de crédito. Formato: mm/yyyy|Sim|
-|MaskedCardNumber|string|Número do cartão de crédito mascarado|Sim|
-|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Não|
-|RequestId|Guid|enviado no objeto de request|Não|
-|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
-|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
-
-## RECUPERANDO uma JustClickKey
-
-O método GetJustClickKey recebe o objeto GetJustClickKeyRequest, e deve ser chamado para consultar uma JustClickKey. Em geral, esse método será utilizado apenas quando o lojista, por algum motivo, perder a JustClickKey
-de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) vezes consecutivas passando um ‘SaveCreditCardRequestId’ inválido, a loja ficará impossibilitada de utilizar o método até que entre em contato com o suporte da Braspag para efetuar a liberação.
-
-![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/getjustclickkey.png)
-
-### Requisição
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|MerchantKey|Guid|Chave da loja JustClick|Sim|
-|SaveCreditCardRequestId|Guid|Identificador da requisição ao método SaveCreditCard (parâmetro “RequestId”) que resultou no armazenamento do cartão de crédito na plataforma do Cartão Protegido.|Sim|
-|RequestId|Guid|Identificador da requisição enviada|Não|
-|Version|string|Versão do método. Padrão: 2.0|Não|
-
-### Resposta
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
-|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Não|
-|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
-|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
-
-## Invalidando um Cartão de Crédito
-
-O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR
-
-![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/invalidatecreditcard.png)
-
-### Requisição
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|MerchantKey|Guid|Chave da loja JustClick|Sim|
-|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
-|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
-|RequestId|Guid|Identificador da requisição enviada|Não|
-|Version|string|Versão do método. Padrão: 2.0|Não|
-
-### Resposta
-
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Não|
-|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
-|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
-
-## Detalhes importantes no consumo dos métodos
-
-* **“RequestID”/ “CorrelationID”**: No envio do objeto de Request, deve ser enviado no parâmetro “RequestID” um guid qualquer que funcionará como uma chave identificadora daquela requisição. Após processamento do Request em questão, o objeto de Response será montado com o devido resultado e o parâmetro “CorrelationID” conterá o mesmo guid enviado no Request (“RequestID”). Desta forma é possível se certificar de qual Request o objeto Response é
-proveniente;
-
-* **“Success”**: Todo objeto de Response possui o parâmetro “Success” que indica se a requisição foi processada com sucesso ou não pela aplicação. Quando o retorno do “Sucess” for FALSE significa que houve falha no recebimento e/ou processamento, ou seja, o método não conseguiu executar a função a qual ele se propõe. Assim, este deve ser o primeiro parâmetro a ser checado no retorno de uma requisição. Sendo FALSE, todo o processamento subsequente
-deve ser abortado e o erro analisado e tratado.
-
-* **“ErrorReportCollection”**: Todo objeto de Response possui o parâmetro “ErrorReportCollection” que conterá o(s) erro(s) ocorrido(s) no processamento, ou seja, quando o parâmetro “Sucess” for FALSE. Erro de processamento pode ser devido a um parâmetro incorreto ou a falta de um parâmetro esperado.
-
-# MAPA DE ERROS
-
-Abaixo segue a lista dos possíveis erros retornado pelos métodos no campo “ErrorReportCollection”
-
-|Código|Mensagem|
-|------|--------|
-|701|Merchant key can not be null|
-|702|Merchant key is not valid|
-|703|JustClick key can not be null|
-|704|JustClick key is not valid|
-|705|Customer name can not be null|
-|706|Card holder can not be null|
-|707|Card number can not be null|
-|709|Card expiration can not be null|
-|710|Card expiration is not valid (Format: MM/yyyy)|
-|720|Merchant JustClick not found|
-|724|Credit card not exists for merchant|
-|731|Invalid IP address|
-|732|SaveCreditCardRequestId can not be null|
-|733|SaveCreditCardRequestId not found for this Merchant|
-|734|Numbers of attempts to Recovery JustClickKey exceeded|
-|735|Save Credit Card Request Id Already Exists|
-|747|Empty Request|
-|749|JustClickAlias Already Exists|
-|750|Extra Data Name Is Not Valid|
-|751|JustClickAlias Is Not Filled|
-|752|Data Collection Can Not Be Empty|
-|753|JustClickAlias Is Mandatory|
-|799|Undefined error|
