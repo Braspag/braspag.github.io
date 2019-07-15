@@ -91,6 +91,7 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
   "expires_in": 599
 }
 ```
+
 ```shell
 curl
 {
@@ -125,6 +126,7 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
     }
 }
 ```
+
 ```shell
 curl
 --request POST "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
@@ -186,6 +188,7 @@ curl
     ]
 }
 ```
+
 ```shell
 curl
 --request POST "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
@@ -269,6 +272,7 @@ curl
     }
 }
 ```
+
 ```shell
 curl
 --request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
@@ -326,6 +330,7 @@ curl
     "TokenReference": "a36ffc37-e472-4d85-af2a-6f64c52bcccf"
 }
 ```
+
 ```shell
 curl
 --request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"
@@ -350,10 +355,11 @@ O objetivo deste método é remover a referência do token da base definitivamen
 
 ```json
 {
-	"RemovedBy":"Merchant",
-	"Reason":"Other"
+     "RemovedBy":"Merchant",
+     "Reason":"Other"
 }
 ```
+
 ```shell
 curl
 --request DELETE "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
@@ -362,8 +368,8 @@ curl
 --header "Authorization: Barear {access_token}"
 --data-binary
 {
-	"RemovedBy":"Merchant",
-	"Reason":"Other"
+     "RemovedBy":"Merchant",
+     "Reason":"Other"
 }
 ```
 
@@ -390,6 +396,7 @@ curl
     ]
 }
 ```
+
 ```shell
 curl
 --request DELETE "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
@@ -423,10 +430,11 @@ O objetivo deste método é suspender uma referência do token temporariamente. 
 
 ```json
 {
-	"RemovedBy":"Merchant",
-	"Reason":"FraudSuspicion"
+     "RemovedBy":"Merchant",
+     "Reason":"FraudSuspicion"
 }
 ```
+
 ```shell
 curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"
@@ -435,8 +443,8 @@ curl
 --header "Authorization: Barear {access_token}"
 --data-binary
 {
-	"RemovedBy":"Merchant",
-	"Reason":"FraudSuspicion"
+     "RemovedBy":"Merchant",
+     "Reason":"FraudSuspicion"
 }
 ```
 
@@ -468,6 +476,7 @@ curl
     ]
 }
 ```
+
 ```shell
 curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"
@@ -544,6 +553,7 @@ curl
     ]
 }
 ```
+
 ```shell
 curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"
@@ -593,6 +603,7 @@ Em casos de erro na requisição, serão informados os códos de erro e sua desc
     ]
 }
 ```
+
 ```shell
 curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
