@@ -145,32 +145,32 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">  
-   </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1010101010"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="mi">123456</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"654321"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
+   </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1010101010"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="mi">123456</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">  
+   </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">  
       </span><span class="p">{</span><span class="w">  
-         </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">  
-            </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+         </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">  
-         </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">  
-            </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+         </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">]</span><span class="w">
@@ -306,52 +306,52 @@
 <p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-   </span><span class="s2">"Id"</span><span class="p">:</span><span class="s2">"e718dc1e-fe8e-497e-9019-6aa48dee6306"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1010101010"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"654321"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
+   </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"e718dc1e-fe8e-497e-9019-6aa48dee6306"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1010101010"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">  
+   </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">  
       </span><span class="p">{</span><span class="w">  
-         </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">  
-            </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+         </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
          </span><span class="p">},</span><span class="w">
-         </span><span class="s2">"Splits"</span><span class="p">:[</span><span class="w">  
+         </span><span class="nl">"Splits"</span><span class="p">:[</span><span class="w">  
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">5670</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">5670</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">330</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">330</span><span class="w">
             </span><span class="p">}</span><span class="w">
          </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">  
-         </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">  
-            </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+         </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
          </span><span class="p">},</span><span class="w">
-         </span><span class="s2">"Splits"</span><span class="p">:[</span><span class="w">  
+         </span><span class="nl">"Splits"</span><span class="p">:[</span><span class="w">  
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">3825</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">3825</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">175</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">175</span><span class="w">
             </span><span class="p">}</span><span class="w">
          </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -410,32 +410,32 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">  
-   </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1010101010"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"654321"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
+   </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1010101010"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">  
+   </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">  
       </span><span class="p">{</span><span class="w">  
-         </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">  
-            </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+         </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">  
-         </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">  
-            </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+         </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">]</span><span class="w">
@@ -449,34 +449,34 @@
 </blockquote>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-   </span><span class="s2">"Id"</span><span class="p">:</span><span class="s2">"e718dc1e-fe8e-497e-9019-6aa48dee6306"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1010101010"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="mi">123456</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"654321"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
+   </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"e718dc1e-fe8e-497e-9019-6aa48dee6306"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1010101010"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="mi">123456</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">  
+   </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">  
       </span><span class="p">{</span><span class="w">  
-         </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">  
-            </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+         </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
          </span><span class="p">},</span><span class="w">
-         </span><span class="s2">"Splits"</span><span class="p">:[</span><span class="w">  
+         </span><span class="nl">"Splits"</span><span class="p">:[</span><span class="w">  
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">9470</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">9470</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">530</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">530</span><span class="w">
             </span><span class="p">}</span><span class="w">
          </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -498,52 +498,52 @@
 <p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-   </span><span class="s2">"Id"</span><span class="p">:</span><span class="s2">"e718dc1e-fe8e-497e-9019-6aa48dee6306"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1101505998"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="mi">1234567891</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"78350767"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
+   </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"e718dc1e-fe8e-497e-9019-6aa48dee6306"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Product"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"PaymentDetails"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"AffiliationCode"</span><span class="p">:</span><span class="s2">"1101505998"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="mi">1234567891</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"78350767"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">  
+   </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">  
       </span><span class="p">{</span><span class="w">  
-         </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">  
-            </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+         </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
          </span><span class="p">},</span><span class="w">
-         </span><span class="s2">"Splits"</span><span class="p">:[</span><span class="w">  
+         </span><span class="nl">"Splits"</span><span class="p">:[</span><span class="w">  
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">5670</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">5670</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">330</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">330</span><span class="w">
             </span><span class="p">}</span><span class="w">
          </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">  
-         </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">  
-            </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+         </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
          </span><span class="p">},</span><span class="w">
-         </span><span class="s2">"Splits"</span><span class="p">:[</span><span class="w">  
+         </span><span class="nl">"Splits"</span><span class="p">:[</span><span class="w">  
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">3825</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">3825</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">  
-               </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">175</span><span class="w">
+               </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">175</span><span class="w">
             </span><span class="p">}</span><span class="w">
          </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">

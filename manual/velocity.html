@@ -399,9 +399,9 @@
 <h3 id="response">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -450,64 +450,64 @@
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02 13:51:56.854"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">96385</span><span class="w">
+  </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02 13:51:56.854"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">96385</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao C Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="w">
+  </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao C Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21114700"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4720"</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21114700"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4720"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workphone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25899600"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9612"</span><span class="w"> 
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workphone"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25899600"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9612"</span><span class="w"> 
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellphone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654321"</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellphone"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654321"</span><span class="w">
     </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Escorrega"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 71"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piratininga"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Niterói"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-350"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
+    </span><span class="nl">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Escorrega"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 71"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piratininga"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Niterói"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-350"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Equilibra"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 2"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-351"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
+    </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Equilibra"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-351"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -794,32 +794,32 @@
 <h3 id="response-1">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"AnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"AnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
+                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
+                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"RejectByBlackList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="nl">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RejectByBlackList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://velocitysandbox.braspag.com.br/Analysis/v2/80832037-97b4-4952-8ae7-c37be13cce7a"</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://velocitysandbox.braspag.com.br/Analysis/v2/80832037-97b4-4952-8ae7-c37be13cce7a"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b88a8b60-9e7d-4064-8413-059e0a896aef"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="w">
+    </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b88a8b60-9e7d-4064-8413-059e0a896aef"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -904,64 +904,64 @@
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02 13:51:56.854"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">96385</span><span class="w">
+  </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02 13:51:56.854"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">96385</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao C Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="w">
+  </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao C Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21114700"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4720"</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21114700"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4720"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workphone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25899600"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9612"</span><span class="w"> 
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workphone"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25899600"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9612"</span><span class="w"> 
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellphone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654321"</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellphone"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654321"</span><span class="w">
     </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Escorrega"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 71"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piratininga"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Niterói"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-350"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
+    </span><span class="nl">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Escorrega"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 71"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piratininga"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Niterói"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-350"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Equilibra"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 2"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-351"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
+    </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Equilibra"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-351"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1248,42 +1248,42 @@
 <h3 id="response-2">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"AnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"AnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
+                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
+                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"RejectByBlackList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="nl">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RejectByBlackList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://velocitysandbox.braspag.com.br/Analysis/v2/80832037-97b4-4952-8ae7-c37be13cce7a"</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://velocitysandbox.braspag.com.br/Analysis/v2/80832037-97b4-4952-8ae7-c37be13cce7a"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b88a8b60-9e7d-4064-8413-059e0a896aef"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="w">
+    </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b88a8b60-9e7d-4064-8413-059e0a896aef"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"EmailageResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"EmailExist"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"FirstVerificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2010-07-31T19:21:07Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ScoreDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"050 Very Low"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReasonId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReasonDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good Level 1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"RiskBandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"RiskBandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fraud Score 1 to 100"</span><span class="w">
+    </span><span class="nl">"EmailageResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"EmailExist"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FirstVerificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2010-07-31T19:21:07Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ScoreDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"050 Very Low"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good Level 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RiskBandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RiskBandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fraud Score 1 to 100"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1408,64 +1408,64 @@
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02 13:51:56.854"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">96385</span><span class="w">
+  </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789AB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02 13:51:56.854"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">96385</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao C Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="w">
+  </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao C Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao Couves da Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joaocouvessilva@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21114700"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4720"</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21114700"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4720"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workphone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25899600"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9612"</span><span class="w"> 
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Workphone"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25899600"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9612"</span><span class="w"> 
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellphone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654321"</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellphone"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DDD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654321"</span><span class="w">
     </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Escorrega"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 71"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piratininga"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Niterói"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-350"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
+    </span><span class="nl">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Escorrega"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 71"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piratininga"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Niterói"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-350"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Equilibra"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 2"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-351"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
+    </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua do Equilibra"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"171"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa 2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24355-351"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1752,36 +1752,36 @@
 <h3 id="response-3">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"AnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"AnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
+                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
+                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"RejectByBlackList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="nl">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RejectByBlackList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://velocitysandbox.braspag.com.br/Analysis/v2/80832037-97b4-4952-8ae7-c37be13cce7a"</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://velocitysandbox.braspag.com.br/Analysis/v2/80832037-97b4-4952-8ae7-c37be13cce7a"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b88a8b60-9e7d-4064-8413-059e0a896aef"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="w">
+    </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b88a8b60-9e7d-4064-8413-059e0a896aef"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-02T13:51:56.854"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"CredilinkResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"IdentityIsValid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="w">
+    </span><span class="nl">"CredilinkResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"IdentityIsValid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>

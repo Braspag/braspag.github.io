@@ -277,9 +277,9 @@
 <h3 id="response">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -317,28 +317,28 @@
 <aside class="request"><span class="method post">POST</span><span class="endpoint">chargebacknotification</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
+   </span><span class="nl">"Chargebacks"</span><span class="p">:</span><span class="w">
    </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão."</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEB NAO REC DE COMPRA"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-         </span><span class="s2">"NegativeValues"</span><span class="p">:</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão."</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEB NAO REC DE COMPRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+         </span><span class="nl">"NegativeValues"</span><span class="p">:</span><span class="w">
          </span><span class="p">[</span><span class="w">
             </span><span class="s2">"CustomerIpAddress"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"CustomerDocumentNumber"</span><span class="w">
          </span><span class="p">],</span><span class="w">
-         </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w">
+         </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w">
          </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345678AB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
+            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345678AB"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-15"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">]</span><span class="w">
@@ -484,33 +484,33 @@
 <h3 id="response-1">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
+   </span><span class="nl">"Chargebacks"</span><span class="p">:</span><span class="w">
    </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão."</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEB NAO REC DE COMPRA"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-         </span><span class="s2">"NegativeValues"</span><span class="p">:</span><span class="w">
+         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-02"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esta transação sofreu chargeback relacionada a não reconhecimento de compra por parte do portador do cartão."</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEB NAO REC DE COMPRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+         </span><span class="nl">"NegativeValues"</span><span class="p">:</span><span class="w">
          </span><span class="p">[</span><span class="w">
             </span><span class="s2">"CustomerIpAddress"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"CustomerDocumentNumber"</span><span class="w">
          </span><span class="p">],</span><span class="w">
-         </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w">
+         </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w">
          </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345678AB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
+            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb647240-824f-e711-93ff-000d3ac03bed"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345678AB"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-15"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
          </span><span class="p">},</span><span class="w">
-         </span><span class="s2">"Result"</span><span class="p">:</span><span class="w">
+         </span><span class="nl">"Result"</span><span class="p">:</span><span class="w">
          </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"ProcessingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NotFound"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ErrorMessages"</span><span class="p">:</span><span class="w">
+            </span><span class="nl">"ProcessingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NotFound"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ErrorMessages"</span><span class="p">:</span><span class="w">
             </span><span class="p">[</span><span class="w">
                 </span><span class="s2">"Could not find any transaction."</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -846,49 +846,49 @@
 <h3 id="response-2">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Total"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Chargebacks"</span><span class="p">:</span><span class="w">
+    </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Total"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Chargebacks"</span><span class="p">:</span><span class="w">
     </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd14e3fb-cf2a-4228-b690-1338660afc54"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-01 09:51:25"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-30"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumidor nao reconhece a compra"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cliente enviou documentos inválidos"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w">
+            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd14e3fb-cf2a-4228-b690-1338660afc54"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-01 09:51:25"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumidor nao reconhece a compra"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cliente enviou documentos inválidos"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"AcquirerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123efg"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890BA2018XPTO"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"258654"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T85245"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-15"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"PagadorMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1052460-92b2-49c3-a929-fc985df0ba2f"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bb33b5c5-82fe-4254-9f1d-b9c97297b0d5"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"CardHolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOAO D COUVES"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"MaskedCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453906******8385"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"AntifraudMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b1b017a-a8b5-4e83-ae36-19c69f11845e"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"AntifraudTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9f6ec028-b55d-4605-b655-164ce62aeaef"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"AntifraudSourceApplication"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gateway"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5446494501496896403073"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"NegativeValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="nl">"AcquirerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123efg"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890BA2018XPTO"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"258654"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T85245"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-15"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PagadorMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1052460-92b2-49c3-a929-fc985df0ba2f"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bb33b5c5-82fe-4254-9f1d-b9c97297b0d5"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"CardHolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOAO D COUVES"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"MaskedCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453906******8385"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AntifraudMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b1b017a-a8b5-4e83-ae36-19c69f11845e"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AntifraudTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9f6ec028-b55d-4605-b655-164ce62aeaef"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AntifraudSourceApplication"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gateway"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5446494501496896403073"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"NegativeValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="s2">"CustomerDocumentNumber"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"ShippingStreet"</span><span class="w">
                 </span><span class="p">],</span><span class="w"> 
-                </span><span class="s2">"ProviderChargebackMarkingEvent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5446495589216876903021"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ProviderChargebackMarkingEvent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5446495589216876903021"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1132,9 +1132,9 @@
 <h3 id="response-3">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedByMerchant"</span><span class="w">
+    </span><span class="nl">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedByMerchant"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1251,8 +1251,8 @@
 <h3 id="response-4">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1365,8 +1365,8 @@
 <h3 id="response-5">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1592,8 +1592,8 @@
 <h3 id="response-7">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1706,8 +1706,8 @@
 <h3 id="response-8">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1820,8 +1820,8 @@
 <h3 id="response-9">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileName"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file name"</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileName"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file name"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1934,8 +1934,8 @@
 <h3 id="response-10">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FileNotFound"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File not found"</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FileNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -2048,8 +2048,8 @@
 <h3 id="response-11">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileExtension"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file extension"</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileExtension"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file extension"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -2162,8 +2162,8 @@
 <h3 id="response-12">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileLength"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file length"</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileLength"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file length"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
