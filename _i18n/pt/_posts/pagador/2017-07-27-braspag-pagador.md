@@ -6920,10 +6920,11 @@ Status retornados pela API
 |79|Classe tarifária da passagem <br/> Ex.: W ou Y ou N e etc|string|2|Aéreo|
 |80|Número do celular do passageiro <br/> Ex.: Formato: DDIDDDNúmero - Ex.: 5521976781114|string|2|Aéreo|
 |81|Identifica se o dono do cartão de crédito irá viajar <br/> Possíveis valores: SIM ou NAO|string|3|Aéreo|
-|82 a 93|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|-|-|
-|94|Segmento de negócio <br/> Ex.: Varejo|string|2|Todos|
-|95|Nome da plataforma integrada a API Antifraude Gateway Braspag <br/> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA|string|3|Todos|
-|96 a 100|Reservados|-|-|-|
+|82|Identifica se o seller (vendedor) irá trabalhar com revisão manual ou não <br/> Possíveis valores: SIM ou NAO|string|1|Todos|
+|83|Segmento de negócio <br/> Ex.: Varejo|string|2|Todos|
+|84|Nome da plataforma integrada a API Antifraude Gateway Braspag <br/> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA|string|3|Todos|
+|85 a 89|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|-|-|
+|90 a 100|Reservados|-|-|-|
 
 ## Lista de HTTP Status Code
 
