@@ -26,6 +26,8 @@ A plataforma é compatível com o gateway Pagador, também da Braspag, facilitan
 
 * **Ambiente Seguro PCI DSS**: a Braspag conta com ambiente certificado PCI DSS, que assegura a integridade e segurança de dados sensíveis como os de cartão de crédito.
 
+* **Garantia da utilização de cartões válidos**: o Cartão Protegido só aceitará salvar cartões que passarem pela checagem do Algorítimo de Luhn, também conhecido como "mod10". Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade.
+
 ## Casos de Uso
 
 A plataforma tem como propósito ajudar os estabelecimentos que possuem diversos casos de usos, entre eles:
@@ -119,7 +121,7 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
 {
     "Alias":"5R2O4042YP",
     "Card": {
-        "Number": "4551870000000183",
+        "Number": "4009595716706157",
         "Holder": "Joao da Silva",
         "ExpirationDate": "12/2021",
         "SecurityCode": "123"
@@ -137,7 +139,7 @@ curl
 {
     "Alias":"5R2O4042YP",
     "Card": {
-        "Number": "4551870000000183",
+        "Number": "4009595716706157",
         "Holder": "Joao da Silva",
         "ExpirationDate": "12/2021",
         "SecurityCode": "123"
