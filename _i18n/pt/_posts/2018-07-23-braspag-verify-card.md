@@ -83,7 +83,10 @@ curl
         "CardType": "Crédito",
         "ForeignCard": false,
         "Code": "00",
-        "Message": "Analise autorizada"
+        "Message": "Analise autorizada",
+        "CorporateCard": false,
+        "Issuer": "Banco da Praça",
+        "IssuerCode": "001"
     }
 }
 ```
@@ -101,7 +104,10 @@ curl
         "CardType": "Crédito",
         "ForeignCard": false,
         "Code": "00",
-        "Message": "Analise autorizada"
+        "Message": "Analise autorizada",
+        "CorporateCard": false,
+        "Issuer": "Banco da Praça",
+        "IssuerCode": "000"
     }
 }
 ```
@@ -116,3 +122,6 @@ curl
 |`BinData.ForeignCard`|Indicação se é um cartão emitido fora do Brasil|booleano|- |Ex. true ou false |
 |`BinData.Code`|Código de retorno da Consulta BIN|Número|2 |Ex. Para provedor Cielo30, 00 significa consulta realizada com sucesso.  |
 |`BinData.Message`|Mensagem de retorno da Consulta BIN |Texto|512 |Ex. Para provedor Cielo30, "Analise autorizada" significa consulta realizada com sucesso. |
+|`BinData.CorporateCard`|Indicação se o cartão é corporativo |booleano|- |Ex. true ou false|
+|`BinData.Issuer`|Nome do emissor do cartão |Texto|512 |Ex. "Banco da Praça" (Sujeito à mapeamento do adquirente) |
+|`BinData.IssuerCode`|Código do emissor do cartão |Número|3 |Ex. 000 (Sujeito à mapeamento do adquirente) |
