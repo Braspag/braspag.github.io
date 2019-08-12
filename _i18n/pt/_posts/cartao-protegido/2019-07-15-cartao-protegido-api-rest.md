@@ -121,7 +121,7 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
 {
     "Alias":"5R2O4042YP",
     "Card": {
-        "Number": "4009595716706157",
+        "Number": "4551870000000183",
         "Holder": "Joao da Silva",
         "ExpirationDate": "12/2021",
         "SecurityCode": "123"
@@ -139,7 +139,7 @@ curl
 {
     "Alias":"5R2O4042YP",
     "Card": {
-        "Number": "4009595716706157",
+        "Number": "4551870000000183",
         "Holder": "Joao da Silva",
         "ExpirationDate": "12/2021",
         "SecurityCode": "123"
