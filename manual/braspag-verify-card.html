@@ -271,7 +271,10 @@
         </span><span class="nl">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crédito"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Analise autorizada"</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Analise autorizada"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco da Praça"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -288,7 +291,10 @@
         <span class="s2">"CardType"</span>: <span class="s2">"Crédito"</span>,
         <span class="s2">"ForeignCard"</span>: <span class="nb">false</span>,
         <span class="s2">"Code"</span>: <span class="s2">"00"</span>,
-        <span class="s2">"Message"</span>: <span class="s2">"Analise autorizada"</span>
+        <span class="s2">"Message"</span>: <span class="s2">"Analise autorizada"</span>,
+        <span class="s2">"CorporateCard"</span>: <span class="nb">false</span>,
+        <span class="s2">"Issuer"</span>: <span class="s2">"Banco da Praça"</span>,
+        <span class="s2">"IssuerCode"</span>: <span class="s2">"000"</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -359,6 +365,27 @@
       <td>Texto</td>
       <td>512</td>
       <td>Ex. Para provedor Cielo30, “Analise autorizada” significa consulta realizada com sucesso.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BinData.CorporateCard</code></td>
+      <td>Indicação se o cartão é corporativo</td>
+      <td>booleano</td>
+      <td>-</td>
+      <td>Ex. true ou false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BinData.Issuer</code></td>
+      <td>Nome do emissor do cartão</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Ex. “Banco da Praça” (Sujeito à mapeamento do adquirente)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BinData.IssuerCode</code></td>
+      <td>Código do emissor do cartão</td>
+      <td>Número</td>
+      <td>3</td>
+      <td>Ex. 000 (Sujeito à mapeamento do adquirente)</td>
     </tr>
   </tbody>
 </table>
