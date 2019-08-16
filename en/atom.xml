@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-08-16T15:17:12+00:00</updated>
+    <updated>2019-08-16T16:06:29+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3853,30 +3853,30 @@ The Master must provide Subordinate information in order to use it during the On
     </entry>
     
     <entry>
-        <title>Chargeback API - Manual de integração</title>
+        <title>Risk Notification - Integration Manual</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/chargeback"/>
         <updated>2018-02-23T00:00:00+00:00</updated>
         <id>https://braspag.github.io//en/manual/chargeback</id>
-        <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
 
-&lt;p&gt;Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes consultar chargebacks, realizar envio de arquivos para contestação de chargebacks e acatar chargebacks.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Risk Notification API&lt;/strong&gt; was developed by Braspag’s Risk team for clients to consult fraud alerts, chargebacks, submit files for chargeback contestation and accept chargebacks.&lt;/p&gt;
 
-&lt;p&gt;A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.&lt;/p&gt;
+&lt;p&gt;The API is based on REST architecture, which exchange data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the industry and supported by the technical communities.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Para saber mais sobre OAuth 2, consulte &lt;a href=&quot;https://oauth.net/2/&quot;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;To learn more about OAuth 2, see &lt;a href=&quot;https://oauth.net/2/&quot;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1 id=&quot;objetivo&quot;&gt;Objetivo&lt;/h1&gt;
+&lt;h1 id=&quot;objective&quot;&gt;Objective&lt;/h1&gt;
 
-&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a Chargeback API Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.&lt;/p&gt;
+&lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with the Risk Notification API by describing the operations available with examples of requests and responses.&lt;/p&gt;
 
-&lt;p&gt;Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.&lt;/p&gt;
+&lt;p&gt;To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send using the HTTP VERB as described in the operation.&lt;/p&gt;
 
 &lt;h1 id=&quot;hosts&quot;&gt;Hosts&lt;/h1&gt;
 
-&lt;h2 id=&quot;api-braspagauth&quot;&gt;API BraspagAuth&lt;/h2&gt;
+&lt;h2 id=&quot;braspagauth-api&quot;&gt;BraspagAuth API&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -3909,57 +3909,57 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\chargebacksandbox.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\risknotificationsandbox.braspag.com.br\|&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\chargeback.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\risknotification.braspag.com.br\|&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h1&gt;
+&lt;h1 id=&quot;authentication&quot;&gt;Authentication&lt;/h1&gt;
 
-&lt;h2 id=&quot;tokens-de-acesso&quot;&gt;Tokens de Acesso&lt;/h2&gt;
+&lt;h2 id=&quot;access-token&quot;&gt;Access Token&lt;/h2&gt;
 
-&lt;p&gt;A Charegabck API Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: &lt;strong&gt;Sandbox&lt;/strong&gt; e &lt;strong&gt;Produção&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Risk Notification API Braspag uses the industry standard OAuth 2.0 protocol to authorize access to its environment-specific resources, which are: &lt;strong&gt;Sandbox&lt;/strong&gt; and &lt;strong&gt;Production&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.&lt;/p&gt;
+&lt;p&gt;This session describes the flow required for client applications to obtain valid access tokens for use in the API.&lt;/p&gt;
 
-&lt;h2 id=&quot;obtenção-do-token-de-acesso&quot;&gt;Obtenção do token de acesso&lt;/h2&gt;
+&lt;h2 id=&quot;obtaining-the-access-token&quot;&gt;Obtaining the access token&lt;/h2&gt;
 
-&lt;p&gt;O token de acesso é obtido através do fluxo oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, a &lt;strong&gt;API BraspagAuth&lt;/strong&gt; e a &lt;strong&gt;Chargeback API&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The access token is obtained through the oauth &lt;strong&gt;client_credentials&lt;/strong&gt;. The diagram below illustrates, in chronological order, the communication between &lt;strong&gt;Client Application&lt;/strong&gt;, &lt;strong&gt;BraspagAuth API&lt;/strong&gt; and &lt;strong&gt;Risk Notification API&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;, informa à API &lt;strong&gt;BraspagAuth&lt;/strong&gt; sua credencial.&lt;/p&gt;
+    &lt;p&gt;The &lt;strong&gt;Client Application&lt;/strong&gt;, informs the &lt;strong&gt;BraspagAuth API&lt;/strong&gt; your credential.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;O &lt;strong&gt;BraspagAuth&lt;/strong&gt; valida a credencial recebida. Se for válida, retorna o token de acesso para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;The &lt;strong&gt;BraspagAuth API&lt;/strong&gt; validates the credential received. If valid, returns the access token for &lt;strong&gt;Client Application&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;A &lt;strong&gt;Aplicação Cliente&lt;/strong&gt; informa o token de acesso no cabeçalho das requisições HTTP feitas à &lt;strong&gt;Chargeback API&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;The &lt;strong&gt;Client Application&lt;/strong&gt; informs the access token in the header of the HTTP requests made to the &lt;strong&gt;Risk Notification API&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Se o token de acesso for válido, a requisição é processada e os dados são retornados para a &lt;strong&gt;Aplicação Cliente&lt;/strong&gt;.&lt;/p&gt;
+    &lt;p&gt;If the access token is valid, the request is processed and the data is returned to the &lt;strong&gt;Client Application&lt;/strong&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.
-&lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Suporte Braspag&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. &lt;br /&gt;
+&lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us&quot;&gt;Support Braspag&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;como-obter-o-token&quot;&gt;Como obter o token&lt;/h2&gt;
+&lt;h2 id=&quot;how-to-get-the-token&quot;&gt;How to get the token&lt;/h2&gt;
 
-&lt;p&gt;Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção &lt;strong&gt;client_id:client_secret&lt;/strong&gt;, e enviar o resultado no cabeçalho através do campo &lt;strong&gt;Authorization&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Once in possession of the credential, you will need to “encrypt” it in Base64, using the &lt;strong&gt;client_id:client_secret&lt;/strong&gt; convention, and send the result in the header through the &lt;strong&gt;Authorization&lt;/strong&gt; field.&lt;/p&gt;
 
-&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;p&gt;Exemple:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;client_id: &lt;strong&gt;braspagtestes&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;client_secret: &lt;strong&gt;1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;String a ser codificada em Base64: &lt;strong&gt;braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Resultado após a codificação: &lt;strong&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;String to be encoded in Base64: &lt;strong&gt;braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Result after encoding: &lt;strong&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
@@ -4017,99 +4017,99 @@ The Master must provide Subordinate information in order to use it during the On
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;access_token&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a Chargeback API&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;The access token requested. The application can use this token to authenticate itself to the protected resource, in this case the Antifraud Gateway API&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;token_type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Indica o valor do tipo de token&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Indicates the value of the token type&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;expires_in&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Expiração do o token de acesso, em segundos &lt;br /&gt;O token quando expirar, é necessário obter um novo&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Expiry of the access token, in seconds &lt;br /&gt; The token when it expires, it is necessary to get a new one&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;aceitação&quot;&gt;Aceitação&lt;/h1&gt;
+&lt;h1 id=&quot;acceptance&quot;&gt;Acceptance&lt;/h1&gt;
 
-&lt;h2 id=&quot;aceitando-um-chargeback&quot;&gt;Aceitando um chargeback&lt;/h2&gt;
+&lt;h2 id=&quot;accepting-a-chargeback&quot;&gt;Accepting a chargeback&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;acceptance/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request content type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Establishment Code &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso relacionado ao chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback related case number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4123,7 +4123,7 @@ The Master must provide Subordinate information in order to use it during the On
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4144,7 +4144,7 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no body (Corpo)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4156,85 +4156,85 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso do chargeback&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback case number&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Status do chargeback - &lt;a href=&quot;https://braspag.github.io/manual/chargeback#tabela-4-status&quot;&gt;Tabela 3 - Chargebacks{n}.Status&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback status - &lt;a href=&quot;https://braspag.github.io/manual/chargeback#table-4-status&quot;&gt;Table 3 - Chargebacks{n}.Status&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;StatusDescription&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Descrição do status do chargeback&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback status description&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;aceitando-um-chargeback-inexistente&quot;&gt;Aceitando um chargeback inexistente&lt;/h2&gt;
+&lt;h2 id=&quot;accepting-a-nonexistent-chargeback&quot;&gt;Accepting a nonexistent chargeback&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;acceptance/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request content type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Establishment Code &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso do chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback related case number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4247,7 +4247,7 @@ The Master must provide Subordinate information in order to use it during the On
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4268,7 +4268,7 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no body (Corpo)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4280,81 +4280,81 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código que o chargeback não foi encontrado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Code that chargeback was not found&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem que o chargeback não foi encontrado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Message that chargeback was not found&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;aceitando-um-chargeback-aceito-anteriormente&quot;&gt;Aceitando um chargeback aceito anteriormente&lt;/h2&gt;
+&lt;h2 id=&quot;accepting-a-previously-accepted-or-contested-chargeback&quot;&gt;Accepting a previously accepted or contested chargeback&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;acceptance/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-3&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request content type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Establishment Code &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso relacionado ao chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback related case number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4367,7 +4367,7 @@ The Master must provide Subordinate information in order to use it during the On
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4388,7 +4388,7 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no body (Corpo)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4400,88 +4400,88 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código que o chargeback foi aceito ou contestado anteriomente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Code that chargeback was previously accepted or contested&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem que o chargeback foi aceito ou contestado anteriormente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Message that chargeback was previously accepted or contested&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;contestação&quot;&gt;Contestação&lt;/h1&gt;
+&lt;h1 id=&quot;contestation&quot;&gt;Contestation&lt;/h1&gt;
 
-&lt;h2 id=&quot;contestando-um-chargeback&quot;&gt;Contestando um chargeback&lt;/h2&gt;
+&lt;h2 id=&quot;contesting-a-chargeback&quot;&gt;Contesting a chargeback&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;contestation/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request content type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Establishment Code &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso do chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback related case number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no corpo (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4507,7 +4507,7 @@ The Master must provide Subordinate information in order to use it during the On
 
 &lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4528,72 +4528,72 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;contestando-um-chargeback-inexistente&quot;&gt;Contestando um chargeback inexistente&lt;/h2&gt;
+&lt;h2 id=&quot;contesting-a-nonexistent-chargeback&quot;&gt;Contesting a nonexistent chargeback&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;contestation/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-5&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request content type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Establishment Code &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso do chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback related case number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4606,7 +4606,7 @@ The Master must provide Subordinate information in order to use it during the On
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4627,7 +4627,7 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no body (Corpo)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4639,81 +4639,81 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código que o chargeback não foi encontrado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Code that chargeback was not found&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem que o chargeback não foi encontrado&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Message that chargeback was not found&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;contestando-um-chargeback-contestado-anteriormente&quot;&gt;Contestando um chargeback contestado anteriormente&lt;/h2&gt;
+&lt;h2 id=&quot;contesting-a-previously-contested-or-accepted-chargeback&quot;&gt;Contesting a previously contested or accepted chargeback&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;contestation/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-6&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request content type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Establishment Code &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso do chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback related case number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4726,7 +4726,7 @@ The Master must provide Subordinate information in order to use it during the On
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4747,7 +4747,7 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no body (Corpo)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4759,81 +4759,81 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código que o chargeback foi contestado ou aceito anteriomente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Code that chargeback was previously contested or accepted&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem que o chargeback foi contestado ou aceito anteriormente&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Message that chargeback was previously contested or accepted&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;contestando-um-chargeback-com-nome-do-arquivo-diferente-do-casenumber&quot;&gt;Contestando um chargeback com nome do arquivo diferente do CaseNumber&lt;/h2&gt;
+&lt;h2 id=&quot;contesting-a-chargeback-and-not-sending-the-contestation-files&quot;&gt;Contesting a chargeback and not sending the contestation files&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;contestation/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-7&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request content type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Establishment Code &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso do chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback related case number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4841,132 +4841,12 @@ The Master must provide Subordinate information in order to use it during the On
 &lt;h3 id=&quot;response-7&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;InvalidFileName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Invalid file name&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;400 Bad Request&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Parâmetros no body (Corpo)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código que o chargeback está com nome inválido, diferente do CaseNumber&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem que o chargeback está com nome inválido, diferente do CaseNumber&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;contestando-um-chargeback-e-não-enviando-o-arquivo-de-contestação&quot;&gt;Contestando um chargeback e não enviando o arquivo de contestação&lt;/h2&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;contestation/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
-
-&lt;h3 id=&quot;request-8&quot;&gt;Request&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso do chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;response-8&quot;&gt;Response&lt;/h3&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FileNotFound&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;File not found&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4987,7 +4867,7 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no body (Corpo)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4999,86 +4879,86 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código que o chargeback não foi enviado com o arquivo de contestação&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Code that contestation file was not sent&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem que o chargeback não foi enviado com o arquivo de contestação&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Message that contestation file was not sent&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-extensão-diferente-de-tif&quot;&gt;Contestando um chargeback enviando o arquivo de contestação com extensão diferente de tif&lt;/h2&gt;
+&lt;h2 id=&quot;contesting-a-chargeback-by-submitting-the-contestation-file-with-an-extension-different-than-jpeg-jpg-or-png&quot;&gt;Contesting a chargeback by submitting the contestation file with an extension different than jpeg, jpg or png&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;contestation/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
-&lt;h3 id=&quot;request-9&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-8&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request content type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Establishment Code &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso do chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback related case number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-9&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-8&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;InvalidFileExtension&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -5119,86 +4999,86 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Code that the contestation file was sent with an invalid extension, different than jpeg, jpg or png&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Message that the contestation file was sent with an invalid extension, different than jpeg, jpg or png&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-tamanho-maior-que-7mb&quot;&gt;Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb&lt;/h2&gt;
+&lt;h2 id=&quot;contesting-a-chargeback-by-submitting-contest-files-larger-than-7mb&quot;&gt;Contesting a chargeback by submitting contest files larger than 7mb&lt;/h2&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;contestation/{CaseNumber}&lt;/span&gt;&lt;/aside&gt;
 
-&lt;h3 id=&quot;request-10&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-9&quot;&gt;Request&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request content type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Tipo do conteúdo da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;xxxxxxxxxx&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do estabelecimento ou afiliação na adquirente &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Establishment Code &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Número do caso do chargeback&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback related case number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-10&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-9&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;InvalidFileLength&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -5206,7 +5086,7 @@ The Master must provide Subordinate information in order to use it during the On
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros no cabeçalho (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -5239,18 +5119,18 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Código que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Code that contest files exceeded 7mb in size&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Mensagem que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Message that contest files exceeded 7mb in size&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;consultas&quot;&gt;Consultas&lt;/h1&gt;
+&lt;h1 id=&quot;queries&quot;&gt;Queries&lt;/h1&gt;
 
-&lt;h3 id=&quot;request-11&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-10&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;Chargeback?StartDate={StartDate}&amp;amp;EndDate={EndDate}&amp;amp;PageIndex={PageIndex}&amp;amp;PageSize={PageSize}&lt;/span&gt;&lt;/aside&gt;
 
@@ -5346,7 +5226,7 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-11&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-10&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;PageIndex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
