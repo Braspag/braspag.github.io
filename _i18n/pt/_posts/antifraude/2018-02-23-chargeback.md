@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Chargeback API - Manual de integração
-description: Integração técnica Chargeback API Braspag
+title: Risk Notification API - Manual de integração
+description: Integração técnica Risk Notification API Braspag
 search: true
 categories: manual
 tags:
@@ -13,7 +13,7 @@ language_tabs:
 
 # Visão Geral
 
-Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes consultar chargebacks, realizar envio de arquivos para contestação de chargebacks e acatar chargebacks.
+Risk Notification API foi desenvolvida pelo time de Risco da Braspag para os que clientes possam consultar alertas de fraudes, chargebacks, realizar envio de arquivos para contestação de chargebacks e acatar chargebacks.
 
 A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
 
@@ -21,43 +21,43 @@ A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo 
 
 # Objetivo
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a Chargeback API Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a Risk Notification API, descrevendo as operações disponíveis com exemplos de requisições e respostas.
 
 Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
 
 # Hosts
 
-## API BraspagAuth
+## BraspagAuth API
 
 |Ambiente|URL|
 |:-|:-|
 |`Sandbox`|https:\\\\authsandbox.braspag.com.br\\\|
 |`Produção`|https:\\\\auth.braspag.com.br\\\|
 
-## Chargeback API Braspag
+## Risk Notification API
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\chargebacksandbox.braspag.com.br\\\|
-|`Produção`|https:\\\\chargeback.braspag.com.br\\\|
+|`Sandbox`|https:\\\\risknotificationsandbox.braspag.com.br\\\|
+|`Produção`|https:\\\\risknotification.braspag.com.br\\\|
 
 # Autenticação
 
 ## Tokens de Acesso
 
-A Charegabck API Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
+A Risk Notification API utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
 
 Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.
 
 ## Obtenção do token de acesso  
 
-O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **Chargeback API**.
+O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **Risk Notification API**.
 
 1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
 
 2. O **BraspagAuth** valida a credencial recebida. Se for válida, retorna o token de acesso para a **Aplicação Cliente**.
 
-3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **Chargeback API**.
+3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **Risk Notification API**.
 
 4. Se o token de acesso for válido, a requisição é processada e os dados são retornados para a **Aplicação Cliente**.
 
@@ -106,7 +106,7 @@ Exemplo:
 
 |Parâmetro|Descrição|
 |:-|:-|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a Chargeback API|
+|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a Risk Notification API|
 |`token_type`|Indica o valor do tipo de token|
 |`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
 
@@ -123,9 +123,9 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|condicional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
 **Parâmetros na querystring**
@@ -170,9 +170,9 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|condicional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
 **Parâmetros na querystring**
@@ -215,7 +215,7 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
@@ -262,7 +262,7 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
@@ -277,8 +277,7 @@ Exemplo:
 
 |Key|Value|Obrigatório|
 |:-|:-|:-|
-|`Content-Type`|form-data||
-||Arquivo extensão tif <br/> Obs.: O arquivo deve possuir como nome o número do caso do chargeback <br/> Ex.: `CaseNumber` = 0000001 -> `File` = 0000001.tif <br/> Obs2.: O arquivo deverá ser multi-page com extensão tif de no máximo 7mb de tamanho <br/> Obs3.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019|Sim|
+|`Content-Type`|form-data <br/> Arquivo extensão jpeg, jpg ou png <br/> Obs.: A soma de todos arquivos deve ter no máximo 7mb de tamanho <br/> Obs2.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019|sim|
 
 ### Response
 
@@ -300,7 +299,7 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
@@ -345,7 +344,7 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
@@ -379,51 +378,6 @@ Exemplo:
 |`Code`|Código que o chargeback foi contestado ou aceito anteriomente|
 |`Message`|Mensagem que o chargeback foi contestado ou aceito anteriormente|
 
-## Contestando um chargeback com nome do arquivo diferente do CaseNumber
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "InvalidFileName",
-    "Message": "Invalid file name"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback está com nome inválido, diferente do CaseNumber|
-|`Message`|Mensagem que o chargeback está com nome inválido, diferente do CaseNumber|
-
 ## Contestando um chargeback e não enviando o arquivo de contestação
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
@@ -435,7 +389,7 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
@@ -466,10 +420,10 @@ Exemplo:
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback não foi enviado com o arquivo de contestação|
-|`Message`|Mensagem que o chargeback não foi enviado com o arquivo de contestação|
+|`Code`|Código que não foi enviado com o arquivo de contestação|
+|`Message`|Mensagem que não foi enviado com o arquivo de contestação|
 
-## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de tif
+## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
@@ -480,7 +434,7 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
@@ -511,8 +465,8 @@ Exemplo:
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
-|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
+|`Code`|Código que o arquivo de contestação foi enviado com extensão inválida, diferente de jpeg, pfg ou png|
+|`Message`|Mensagem que o arquivo de contestação foi enviado com extensão inválida, diferente de jpeg, pfg ou png|
 
 ## Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb
 
@@ -525,7 +479,7 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
@@ -556,8 +510,8 @@ Exemplo:
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
-|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
+|`Code`|Código que o arquivo de contestação foi enviado com tamanho superior a 7mb|
+|`Message`|Mensagem que o arquivo de contestação foi enviado com tamanho superior a 7mb|
 
 # Consultas
 
@@ -570,7 +524,7 @@ Exemplo:
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
 **Parâmetros na querystring**
