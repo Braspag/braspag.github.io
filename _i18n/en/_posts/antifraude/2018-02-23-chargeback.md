@@ -1,33 +1,32 @@
 ---
 layout: manual
-title: Chargeback API - Manual de integração
-description: Integração técnica Chargeback API Braspag
+title: Risk Notification - Integration Manual
+description: Technical integration API Risk Notification Braspag
 search: true
 categories: manual
 tags:
-  - Gestão de Risco
+  - Risk Management
 language_tabs:
-  json: JSON
-  html: HTML
+  json: JSON    
 ---
 
-# Visão Geral
+# Overview
 
-Chargeback API foi desenvolvida pelo time de Risco da Braspag para os clientes consultar chargebacks, realizar envio de arquivos para contestação de chargebacks e acatar chargebacks.
+**Risk Notification API** was developed by Braspag's Risk team for clients to consult fraud alerts, chargebacks, submit files for chargeback contestation and accept chargebacks.
 
-A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
+The API is based on REST architecture, which exchange data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the industry and supported by the technical communities.
 
-> Para saber mais sobre OAuth 2, consulte [https://oauth.net/2/](https://oauth.net/2/)
+> To learn more about OAuth 2, see [https://oauth.net/2/](https://oauth.net/2/)
 
-# Objetivo
+# Objective
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a Chargeback API Braspag, descrevendo as operações disponíveis com exemplos de requisições e respostas.
+The purpose of this documentation is to guide the developer on how to integrate with the Risk Notification API by describing the operations available with examples of requests and responses.
 
-Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
+To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send using the HTTP VERB as described in the operation.
 
 # Hosts
 
-## API BraspagAuth
+## BraspagAuth API
 
 |Ambiente|URL|
 |:-|:-|
@@ -38,41 +37,41 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\chargebacksandbox.braspag.com.br\\\|
-|`Produção`|https:\\\\chargeback.braspag.com.br\\\|
+|`Sandbox`|https:\\\\risknotificationsandbox.braspag.com.br\\\|
+|`Produção`|https:\\\\risknotification.braspag.com.br\\\|
 
-# Autenticação
+# Authentication
 
-## Tokens de Acesso
+## Access Token
 
-A Charegabck API Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
+Risk Notification API Braspag uses the industry standard OAuth 2.0 protocol to authorize access to its environment-specific resources, which are: **Sandbox** and **Production**.
 
-Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.
+This session describes the flow required for client applications to obtain valid access tokens for use in the API.
 
-## Obtenção do token de acesso  
+## Obtaining the access token  
 
-O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **Chargeback API**.
+The access token is obtained through the oauth **client_credentials**. The diagram below illustrates, in chronological order, the communication between **Client Application**, **BraspagAuth API** and **Risk Notification API**.
 
-1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
+1. The **Client Application**, informs the **BraspagAuth API** your credential.
 
-2. O **BraspagAuth** valida a credencial recebida. Se for válida, retorna o token de acesso para a **Aplicação Cliente**.
+2. The **BraspagAuth API** validates the credential received. If valid, returns the access token for **Client Application**.
 
-3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **Chargeback API**.
+3. The **Client Application** informs the access token in the header of the HTTP requests made to the **Risk Notification API**.
 
-4. Se o token de acesso for válido, a requisição é processada e os dados são retornados para a **Aplicação Cliente**.
+4. If the access token is valid, the request is processed and the data is returned to the **Client Application**
 
-> Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.
-[Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
+> Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. <br/>
+[Support Braspag](https://suporte.braspag.com.br/hc/en-us)
 
-## Como obter o token
+## How to get the token
 
-Uma vez em posse da credencial, será necessário "codificá-la" em Base64, utilizando a convenção **client_id:client_secret**, e enviar o resultado no cabeçalho através do campo **Authorization**.
+Once in possession of the credential, you will need to "encrypt" it in Base64, using the **client_id:client_secret** convention, and send the result in the header through the **Authorization** field.
 
-Exemplo:
+Exemple:
 * client_id: **braspagtestes**
 * client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
+* String to be encoded in Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
+* Result after encoding: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
 
 ### Request
 
@@ -102,37 +101,37 @@ Exemplo:
 }
 ```
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
-|Parâmetro|Descrição|
+|Parameter|Description|
 |:-|:-|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a Chargeback API|
-|`token_type`|Indica o valor do tipo de token|
-|`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
+|`access_token`|The access token requested. The application can use this token to authenticate itself to the protected resource, in this case the Antifraud Gateway API|
+|`token_type`|Indicates the value of the token type|
+|`expires_in`|Expiry of the access token, in seconds <br/> The token when it expires, it is necessary to get a new one|
 
-# Aceitação
+# Acceptance
 
-## Aceitando um chargeback
+## Accepting a chargeback
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+|`CaseNumber`|Chargeback related case number|yes|
 
 ### Response
 
@@ -144,42 +143,42 @@ Exemplo:
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-**Parâmetros no body (Corpo)**
+**Parameters in the body (Body)**
 
 |Key|Value|
 |:-|:-|
-|`CaseNumber`|Número do caso do chargeback|
-|`Status`|Status do chargeback - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/chargeback#tabela-4-status)|
-|`StatusDescription`|Descrição do status do chargeback|
+|`CaseNumber`|Chargeback case number|
+|`Status`|Chargeback status - [Table 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/chargeback#table-4-status)|
+|`StatusDescription`|Chargeback status description|
 
-## Aceitando um chargeback inexistente
+## Accepting a nonexistent chargeback
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
+|`CaseNumber`|Chargeback related case number|yes|
 
 ### Response
 
@@ -190,41 +189,41 @@ Exemplo:
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|404 Not Found|
 
-**Parâmetros no body (Corpo)**
+**Parameters in the body (Body)**
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback não foi encontrado|
-|`Message`|Mensagem que o chargeback não foi encontrado|
+|`Code`|Code that chargeback was not found|
+|`Message`|Message that chargeback was not found|
 
-## Aceitando um chargeback aceito anteriormente
+## Accepting a previously accepted or contested chargeback
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
+|`CaseNumber`|Chargeback related case number|yes|
 
 ### Response
 
@@ -235,45 +234,45 @@ Exemplo:
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parâmetros no body (Corpo)**
+**Parameters in the body (Body)**
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback foi aceito ou contestado anteriomente|
-|`Message`|Mensagem que o chargeback foi aceito ou contestado anteriormente|
+|`Code`|Code that chargeback was previously accepted or contested|
+|`Message`|Message that chargeback was previously accepted or contested|
 
-# Contestação
+# Contestation
 
-## Contestando um chargeback
+## Contesting a chargeback
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
+|`CaseNumber`|Chargeback related case number|yes|
 
-**Parâmetros no corpo (Body)**
+**Parameters in the body (Body)**
 
 |Key|Value|Obrigatório|
 |:-|:-|:-|
@@ -282,34 +281,34 @@ Exemplo:
 
 ### Response
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-## Contestando um chargeback inexistente
+## Contesting a nonexistent chargeback
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
+|`CaseNumber`|Chargeback related case number|yes|
 
 ### Response
 
@@ -320,41 +319,41 @@ Exemplo:
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|404 Not Found|
 
-**Parâmetros no body (Corpo)**
+**Parameters in the body (Body)**
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback não foi encontrado|
-|`Message`|Mensagem que o chargeback não foi encontrado|
+|`Code`|Code that chargeback was not found|
+|`Message`|Message that chargeback was not found|
 
-## Contestando um chargeback contestado anteriormente
+## Contesting a previously contested or accepted chargeback
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
+|`CaseNumber`|Chargeback related case number|yes|
 
 ### Response
 
@@ -365,86 +364,41 @@ Exemplo:
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parâmetros no body (Corpo)**
+**Parameters in the body (Body)**
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback foi contestado ou aceito anteriomente|
-|`Message`|Mensagem que o chargeback foi contestado ou aceito anteriormente|
+|`Code`|Code that chargeback was previously contested or accepted|
+|`Message`|Message that chargeback was previously contested or accepted|
 
-## Contestando um chargeback com nome do arquivo diferente do CaseNumber
+## Contesting a chargeback and not sending the contestation files
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "InvalidFileName",
-    "Message": "Invalid file name"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback está com nome inválido, diferente do CaseNumber|
-|`Message`|Mensagem que o chargeback está com nome inválido, diferente do CaseNumber|
-
-## Contestando um chargeback e não enviando o arquivo de contestação
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
+|`CaseNumber`|Chargeback related case number|yes|
 
 ### Response
 
@@ -455,41 +409,41 @@ Exemplo:
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parâmetros no body (Corpo)**
+**Parameters in the body (Body)**
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback não foi enviado com o arquivo de contestação|
-|`Message`|Mensagem que o chargeback não foi enviado com o arquivo de contestação|
+|`Code`|Code that contestation file was not sent|
+|`Message`|Message that contestation file was not sent|
 
-## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de tif
+## Contesting a chargeback by submitting the contestation file with an extension different than jpeg, jpg or png
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
+|`CaseNumber`|Chargeback related case number|yes|
 
 ### Response
 
@@ -511,30 +465,30 @@ Exemplo:
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
-|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif|
+|`Code`|Code that the contestation file was sent with an invalid extension, different than jpeg, jpg or png|
+|`Message`|Message that the contestation file was sent with an invalid extension, different than jpeg, jpg or png|
 
-## Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb
+## Contesting a chargeback by submitting contest files larger than 7mb
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
 ### Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
+|`CaseNumber`|Chargeback related case number|yes|
 
 ### Response
 
@@ -545,7 +499,7 @@ Exemplo:
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -556,8 +510,8 @@ Exemplo:
 
 |Key|Value|
 |:-|:-|
-|`Code`|Código que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
-|`Message`|Mensagem que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb|
+|`Code`|Code that contest files exceeded 7mb in size|
+|`Message`|Message that contest files exceeded 7mb in size|
 
 # Consultas
 
