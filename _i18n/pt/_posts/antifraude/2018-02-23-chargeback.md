@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Risk Notification API - Manual de integração
+title: Risk Notification - Manual de integração
 description: Integração técnica Risk Notification API Braspag
 search: true
 categories: manual
