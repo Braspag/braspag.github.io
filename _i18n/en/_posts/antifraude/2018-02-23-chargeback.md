@@ -276,8 +276,7 @@ Exemple:
 
 |Key|Value|Required|
 |:-|:-|:-|
-|`Content-Type`|form-data|-|
-|-|File extension jpeg, jpg or png <br/> Note: All files must add up to a maximum of 7mb in size. <br/> Note2: The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19|Yes|
+|`Content-Type`|form-data <br/> File extension jpeg, jpg or png <br/> Note: All files must add up to a maximum of 7mb in size. <br/> Note2: The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19|yes|
 
 ### Response
 
