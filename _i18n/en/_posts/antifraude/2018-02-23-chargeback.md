@@ -519,27 +519,27 @@ Exemple:
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
-|Key|Value|Descrição|Obrigatório|
+|Key|Value|Description|Required|
 |:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo do conteúdo da requisição|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parâmetros na querystring**
+**Parameters in the querystring**
 
-|Parâmetro|Descrição|Obrigatório|
+|Parameter|Description|Required|
 |:-|:-|:-:|
-|`StartDate`|Data início da consulta|sim|
-|`EndDate`|Data fim da consulta|sim|
-|`PageIndex`|Número da página desejada|sim|
-|`PageSize`|Quantidade de itens desejado na página. Máximo 250 itens.|sim|
-|`MerchantIds`|Id(s) da(s) loja(s) a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId|não|
-|`EstablishmentCodes`|Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId|não|
-|`CaseNumber`|Número do caso do chargeback|não|
-|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
-|`BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|não|
+|`StartDate`|Query start date|sim|
+|`EndDate`|Quer end date|sim|
+|`PageIndex`|Page number|yes|
+|`PageSize`|Number of items per page <br/> Maximum 250 items|yes|
+|`MerchantIds`|MerchantId(s) to be used in the query <br/> Note: If not submitted, the query will be performed taking into account the MerchantId(s) associated with ClientId|no|
+|`EstablishmentCodes`|Establishment code(s) to be used in the query <br/> Note: If not submitted, the query will be performed taking into account the Establishment code(s) associated with ClientId|no|
+|`CaseNumber`|Chargeback case number|no|
+|`AcquirerTransactionId`|Acquirer transaction ID (TID)|no|
+|`BraspagTransactionId`|Pagador transaction ID or PaymentId (Cielo 3.0)|no|
 
 ### Response
 
@@ -597,108 +597,108 @@ Exemple:
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`Id`|Id do chargeback na Chargeback API Braspag|guid|
-|`CreatedDate`|Data de criação do chargeback na Chargeback API Braspag <br/> Ex.: 2018-09-01 09:51:25|date|
-|`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
-|`CaseNumber`|Número do caso relacionado ao chargeback|guid|
-|`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`ReasonCode`|Código do motivo do chargeback|string|
-|`ReasonMessage`|Descrição do motivo do chargeback|string|
-|`Status`|Status do charegabck na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/chargeback#tabela-3-chargebacks[n].status)|string|
-|`Comment`|Comentário que deseja associar ao chargeback e que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
-|`IsFraud`|Identifica se o chargeback é de fraude|bool|
-|`Transaction.AcquirerType`|Identificador da adquirentre|string|
-|`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
-|`Transaction.MerchantOrderId`|Número do pedido da loja|string|
-|`Transaction.Tid`|Id da transação na adquirente|string|
-|`Transaction.Nsu`|Número sequencial único da transação na adquirente|string|
-|`Transaction.AuthorizationCode`|Código de autorização da transação na adquirente|string|
-|`Transaction.SaleDate`|Data da autorização da transação na adquirente <br/> Ex.: 2018-08-15|date|
-|`Transaction.PagadorMerchantId`|Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0|guid|
-|`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|guid|
-|`Transaction.Amount`|Valor da transação em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`Transaction.CardHolder`|Nome do cartão de crédito|string|
-|`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
-|`Transaction.Brand`|Bandeira do cartão de crédito|string|
-|`Transaction.AntifraudMerchantId`|Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway|guid|
-|`Transaction.AntifraudTransactionId`|Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway|guid|
-|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6]({{ site.baseurl_root }}manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
-|`Transaction.ProviderTransactionId`|Id da transação no provedor de antifraude|
-|`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1]({{ site.baseurl_root }}manual/chargeback#tabela-1-chargebacks[n].negativevalues)|string|
-|`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource|string|
-|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4]({{ site.baseurl_root }}manual/chargeback#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
-|`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
+|`Id`|Chargeback ID at Risk Notification API |guid|
+|`CreatedDate`|Chargeback creation date at Risk Notification API<br/> Ex.: 2018-09-01 09:51:25|date|
+|`Date`|Chargeback date <br/> Ex.: 2018-08-30|date|
+|`CaseNumber`|Chargeback case number|string|
+|`Amount`|Chargeback amount in cents <br/> Ex: 123456 = r$ 1.234,56|long|
+|`ReasonCode`|Chargeback reason code|string|
+|`ReasonMessage`|Chargeback reason nessage|string|
+|`Status`|Chargeback status at Risk Notification API - [Table 3]({{ site.baseurl_root }}manual/chargeback#table-3-chargebacks[n].status)|string|
+|`Comment`|Comment associated with chargeback <br/> If Cybersource transaction chargeback, this comment will be visible on Cybersource backoffice|string|
+|`IsFraud`|Identifies if chargeback is fraud|bool|
+|`Transaction.AcquirerType`|Acquirer identifier|string|
+|`Transaction.EstablishmentCode`|Establishment code|string|
+|`Transaction.MerchantOrderId`|Order ID|string|
+|`Transaction.Tid`|Acquirer transaction ID|string|
+|`Transaction.Nsu`|Acquirer unique sequential number (NSU)|string|
+|`Transaction.AuthorizationCode`|Acquirer authorization code|string|
+|`Transaction.SaleDate`|Acquirer authorization date <br/> Ex.: 2018-08-15|date|
+|`Transaction.PagadorMerchantId`|Merchant ID at Pagador or Cielo 3.0|guid|
+|`Transaction.BraspagTransactionId`|Transaction ID at Pagador or Cielo 3.0 (PaymentId)|guid|
+|`Transaction.Amount`|Transaction amount in cents <br/> Ex: 123456 = r$ 1.234,56|long|
+|`Transaction.CardHolder`|Card holder or other message|string|
+|`Transaction.MaskedCardNumber`|Masked card number|string|
+|`Transaction.Brand`|Brand|string|
+|`Transaction.AntifraudMerchantId`|Merchant ID at Antifraud|guid|
+|`Transaction.AntifraudTransactionId`|Transaction Id at Antifraud|guid|
+|`Transaction.AntifraudSourceApplication`|Origin of the antifraud platform - [Table 6]({{ site.baseurl_root }}manual/chargeback#table-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
+|`Transaction.ProviderTransactionId`|Transaction ID at antifraud provider|
+|`Transaction.NegativeValues`|Parameters that were included in negative list when antifraud transaction for Cybersource <br/> Parameters are concatenated using the character , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Table 1]({{ site.baseurl_root }}manual/chargeback#table-1-chargebacks[n].negativevalues)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Id`|ID of the chargeback transaction markup event. Cybersource only|string|
+|`Transaction.ProviderChargebackMarkingEvent.Status`|Status of the chargeback transaction markup event. Cybersource only - [Table 4]({{ site.baseurl_root }}manual/chargeback#table-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Code`|Code of the chargeback transaction markup event. Cybersource only - [Table 5]({{ site.baseurl_root }}manual/chargeback#table-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
 
-# Tabelas
+# Tables
 
-## Tabela 1 - Chargebacks[n].NegativeValues
+## Table 1 - Chargebacks[n].NegativeValues
 
-Possíveis valores a serem inseridos na lista negativa na Cybersource.
+Possible values to be entered in the negative list in Cybersource
 
-|Valor|Descrição|
+|Value|Description|
 |:-|:-|
-|CustomerDocumentNumber|Número do documento do comprador, CPF ou CNPJ|
-|CustomerIpAddress|Endereço de IP do comprador|
-|CustomerPhone|Número de telefone do comprador|
-|ShippingStreet|Logradouro do endereço de entrega|
-|DeviceFingerprintSmartId|Fingerprint do dispositivo do comprador|
+|CustomerDocumentNumber|Customer document number: CPF or CNPJ|
+|CustomerIpAddress|Customer IP address|
+|CustomerPhone|Customer phonenumber|
+|ShippingStreet|Shipping address street|
+|DeviceFingerprintSmartId|Customer device fingerprint|
 
-## Tabela 2 - Result.ProcessingStatus
+## Table 2 - Result.ProcessingStatus
 
-Possíveis retornos do chargeback enviado.
+Possible returns of the sent chargeback
 
-|Valor|Descrição|
+|Value|Description|
 |:-|:-|
-|AlreadyExist|Transação já marcada com chargeback anteriormente|
-|Remand|Chargeback deverá ser reenviado|
-|NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó `Transaction`|
+|AlreadyExist|Transaction already marked with chargeback previously|
+|Remand|Chargeback to be resent|
+|NotFound|Transaction found in database for values sent in `Transaction` node fields|
 
-## Tabela 3 - Chargebacks[n].Status
+## Table 3 - Chargebacks[n].Status
 
-Possíveis valores do chargeback.
+Possible chargeback values
 
-|Valor|Descrição|
+|Value|Description|
 |:-|:-|
-|Received|Chargeback recebido da adquirente|
-|AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa|
-|ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
+|Received|Chargeback received from acquirer|
+|AcceptedByMerchant|Chargeback accepted by merchant. In this case the store understands that it has indeed suffered a chargeback and will not hold the dispute|
+|ContestedByMerchant|Chargeback contested by merchant. In this case the store has sent the necessary documents to try to reverse the chargeback|
 
-## Tabela 4 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status
+## Table 4 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status
 
-|Valor|Descrição|Provider|
+|Value | Description | Provider |
 |:-|:-|:-|
-|ACCEPT|Marcação de chargeback aceita no provedor|Cybersource|
-|REJECT|Marcação de chargeback rejeitada no provedor|Cybesource|
+|ACCEPT|Chargeback markup accepted on provider|Cybersource|
+|REJECT|Chargeback markup rejected on provider|Cybersource|
 
-## Tabela 5 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Code
+## Table 5 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Code
 
-|Valor|Descrição|Provider|
+|Value|Description|Provider|
 |:-|:-|:-|
-|100|Operação realizada com sucesso|Cybersource|
-|150|Erro interno <br/> Possível ação: Aguarde alguns minutos e tente reenviar a marcação de chargeback|Cybersource|
-|151|A marcação de chargeback foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br/> Possível ação: Aguarde alguns minutos e tente reenviar|Cybersource|
-|152|A marcação de chargeback foi recebida, mas ocorreu time-out <br/> Possível ação: Aguarde alguns minutos e tente reenviar|Cybersource|
-|234|Problema com a configuração da loja na Cybersource <br/> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração|Cybersource|
+|100|Operation successfully performed|Cybersource|
+|150|Internal Error <br/> Possible Action: Wait a few minutes and try resubmitting the chargeback tag|Cybersource|
+|151|The chargeback flag was received, but timeout occurred on the server. This error does not include client-server time-out <br/> Possible Action: Please wait a few minutes and try resubmitting|Cybersource|
+|152|Chargeback markup received, but timeout occurred <br/> Possible action: Please wait a few minutes and try resubmitting|Cybersource|
+|234|Cybersource Store Configuration Issue <br/> Possible Action: Contact support to fix configuration issue|Cybersource|
 
-## Tabela 6 - Chargebacks[n].Transaction.AntifraudSourceApplication
+## Table 6 - Chargebacks[n].Transaction.AntifraudSourceApplication
 
-|Valor|Descrição|Provider|
+|Value|Description|Provider|
 |:-|:-|
-|Gateway|Antifraude Gateway|
-|Legacy|Antifraude Legado|
+|Gateway|Gateway Antifraud|
+|Legacy|Legacy Antifraud|
 
-# Matriz
+# Matrix
 
-## Matriz 1 - Documentos
+## Matrix 1 - Documents
 
-|Segmento\Motivo|Documentos Padrão|Portador não Reconhece a Transação|Mercadoria não Recebida|Serviços não Prestados|Mercadoria com Defeito/Não Confere|Crédito Não Processado|Processamento Duplicado/Pagamentos por Outros Meios|
-|Locadora de Veículos|1) Cópia do comprovante de venda <br/> 2) Cadastro do portador (nome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular)<br/> 3) Nota fiscal <br/> 4) Contrato de locação devidamente assinado constando política de seguro <br/> 5) Documento de assinatura em arquivo (autorização débito)|6) Notificação de infração de trânsito paga (se houver) <br/> 7) Termo de responsabilidade (danos futuros) <br/> 8) Boletim de ocorrência (se houver) <br/> 9) Três orçamentos para reparos em caso de acidentes e danos ao veículo (se houver) <br/> 10) Aviso prévio ao portador das cobranças de avarias/multas|-|6) Comprovante de checkout|-|6) Política de cancelamento|6) Dois ou mais comprovantes comprovando que houve duas ou mais transações, informar o código de autorização das duas transações|
-|Hotéis|1)Cópia do comprovante de venda <br/> 2) Cadastro do portador (nome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular) <br/> 3) Nota Fiscal <br/> 4) Documento de assinatura em arquivo (autorização débito)|5) Descritivo dos serviços prestados (chekin e checkout)|-|5) Descritivo dos serviços prestados (chekin e checkout)|-|5) Política de cancelamento (no show) com a cópia da tela de opção de cancelamento no site pelo portador comprovando a data|5) Dois ou mais comprovantes comprovando que houve duas ou mais transações, informar o código de autorização das duas transações|
-|Agência de Turismo|1) Cópia do comprovante de venda <br/> 2) Cadastro do portador (Nome do titular do cartão, Nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular) <br/> 3) Nota fiscal <br/> 4) Contrato prestação de serviço de viagens (se houver)|5) Documento oficial que comprove a identidade do portador (frente e verso) <br/> 6) Documento de assinatura em arquivo (autorização débito)|-|5) Cópia dos bilhetes/voucher's emitidos|-|5) Política de cancelamento|5) Dois ou mais comprovantes comprovando que houve duas ou mais transações, informar o código de autorização das duas transações|
-|Cias Aéreas|1) Cópia do comprovante de venda <br/> 2) Cadastro do portador (nome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular) <br/> 3) Nota fiscal <br/> 4) Contrato prestação de serviço de viagens (se houver)|5) Documento oficial que comprove a identidade do portador (frente e verso) <br/> 6) Documento de assinatura em arquivo (autorização débito)|-|5) Cópia dos bilhetes/voucher's emitidos <br/> 6) Checkin (se houver)|-|5) Política de cancelamento|5) Dois ou mais comprovantes comprovando que houve duas ou mais transações, informar o código de autorização das duas transações|
-|Serviço de Processamento de Dados <br/> Serviços Online|1) Cópia do comprovante de venda <br/> 2) Cadastro do portador (nome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular) <br/> 3) Nota fiscal <br/> 4) Autorização débito <br/> 5) Pedido da compra para transações via internet <br/> 6) Cópia da tela com os dados do meio de pagamento|7) Descritivo dos serviços prestados <br/> 8) Cadastro do portador (Nome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular|-|7) Contrato com detalhes da prestação de serviços <br/> 8) Protocolo dos serviços prestados|-|-|-|
-|Supermercado ou Varejo|1) Cópia do comprovante de venda <br/> 2) Cadastro do portador (ome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular) <br/> 3) Nota fiscal <br/> 4) Autorização débito <br/> 5) Pedido da compra para transações via internet <br/> 6) Cópia da tela com os dados do meio de pagamento|7) Descritivo dos serviços prestados|7) Comprovação da entrega do produto e/ou protocolo assinado <br/> 8) Aceite eletrônico (se houver)|7) Contrato com detalhes da prestação de serviços <br/> 8) Protocolo do serviços prestados|7) Política de devolução e troca com aceite eletrônico (se houver)|7) Política de cancelamento|7) Dois ou mais comprovantes comprovando que houve duas ou mais transações, informar o código de autorização das duas transações|
-|Ingressos|1) Cópia do comprovante de venda <br/> 2) Cadastro do portador (Nome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular) <br/> 3) Nota fiscal <br/> 4) Autorização débito <br/> 5) Pedido da compra para transações via internet <br/> 6) Cópia da tela com os dados do meio de pagamento|-|7) Comprovação da entrega do produto e/ou protocolo assinado <br/> 8) Aceite eletrônico (se houver)|-|7) Política de devolução e troca com aceite eletrônico (se houver)|-|-|
-|Editora ou Livraria|1) Cópia do comprovante de venda <br/> 2) Cadastro do portador (Nome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo /celular) <br/> 3) Nota fiscal <br/> 4) Autorização débito <br/> 5) Pedido da compra para transações via internet <br/> 6) Cópia da tela com os dados do meio de pagamento|-|7) Comprovação da entrega do produto e/ou protocolo assinado <br/> 8) Aceite eletrônico (se houver)|-|7) Política de devolução e troca com aceite eletrônico (se houver)|-|-|
-|Cias de Seguros|1) Cópia do comprovante de venda <br/> 2) Cadastro do portador (nome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular) <br/> 3) Nota fiscal <br/> 4) Autorização débito <br/> 5) Pedido da compra para transações via internet <br/> 6) Cópia da tela com os dados do meio de pagamento|-|-|7) Política de devolução e troca com aceite eletrônico (se houver)|-|-|
-|Demais Segmentos|1) Cópia do comprovante de venda <br/> 2) Cadastro do portador (nome do titular do cartão, nome cadastrado no site, CPF, e-mail, endereço, telefone fixo/celular) <br/> 3) Nota fiscal <br/> 4) Autorização débito <br/> 5) Pedido da compra para transações via internet <br/> 6) Cópia da tela com os dados do meio de pagamento|7) Comprovação da entrega do produto e/ou protocolo assinado <br/> 8) Carta do verdadeiro portador reconhecendo a despesa|7) Comprovação da entrega do produto e/ou protocolo assinado <br/> 8) Aceite eletrônico (se houver)|7) Contrato com detalhes da prestação de serviços <br/> 8) Protocolo dos serviços prestados|7) Política de devolução e troca com aceite eletrônico (se houver)|7) Política de cancelamento|7) Dois ou mais comprovantes comprovando que houve duas ou mais transações, informar o código de autorização das duas transações|
+|Segment\Reason|Standard Documents|Bearer Does Not Recognize Transaction|Product Not Received|Services Not Provided|Product Defective/Does not Check|Unprocessed Credit|Duplicate Processing/Payments by Other Methods|
+|Rental Company|1) Copy of Proof of Sale <br/> 2) Cardholder Registration (name of cardholder, name registered on the website, Social Security Number, email, address, landline / mobile) <br/> 3) Invoice <br/> 4) Duly signed rental agreement stating insurance policy <br/> 5) Signature document on file (debit authorization)|6) Notification of paid traffic violation (if any) <br/> 7) Disclaimer (future damage) <br/> 8) Event report (if any) <br/> 9) Three accident and vehicle repair budgets (if any) <br/> 10 ) Notice to the bearer of damage / penalty charges|-|6) Proof of checkout|-|6) Cancellation policy|6) Two or more vouchers proving that there have been two or more transactions, inform the authorization code of the two transactions|
+|Hotels|1) Copy of proof of sale <br/> 2) Holder's registration (cardholder name, website name, social security number, email, address, landline / mobile phone) <br/> 3) Invoice <br/> 4) File signature document (debit authorization)|5) Description of services provided (chekin and checkout)|-|5) Description of services provided (chekin and checkout)|-|5) cancellation (no show) with a copy of the cancellation option screen on the website by the carrier proving the date|5) Two or more vouchers proving that there were two or more transactions, inform the authorization code of the two transactions|
+| Tourist Agency | 1) Copy of proof of sale <br/> 2) Holder's registration (Cardholder Name, Website Name, Social Security Number, Email, Address, Landline / Mobile) <br/> 3) Invoice <br/> 4) Travel Service Agreement (if any) | 5) Official document certifying bearer's identity (double-sided) <br/> 6) Signature document on file (debit authorization) ) | - | 5) Copy of issued tickets / voucher's | - | 5) Cancellation policy | 5) Two or more vouchers showing that there have been two or more transactions, inform the authorization code of the two transactions|
+|Cias Aereas|1) Copy of proof of sale <br/> 2) Cardholder registration (name of cardholder, name registered on the website, social security number, email, address, landline / mobile phone) <br/> 3 ) Invoice <br/> 4) Travel service agreement (if any)|5) Official document certifying bearer's identity (double-sided) <br/> 6) Signature document on file (debit authorization)|-| 5) Copy of issued tickets / voucher's <br/> 6) Checkin (if any)|-|5) Cancellation policy|5) Two or more vouchers showing that there have been two or more transactions, enter authorization code of the two transactions|
+|Data Processing Service <br/> Online Services |1) Copy of Proof of Sale <br/> 2) Cardholder Registration (name of cardholder, name registered on the website, Social Security Number, email, address, phone number) fixed / mobile) <br/> 3) Invoice <br/> 4) Debit authorization <br/> 5) Purchase order for internet transactions <br/> 6) Copy of payment details screen|7) Description of the Services Provided <br/> 8) Cardholder Registration (Name of cardholder, Name registered on the website, Social Security number, Email, Address, Landline / Mobile|-|7) Contract with details of the provision of services <br/> 8) Protocol on services provided|-|-|-|
+|Supermarket or Retail|1) Copy of Proof of Sale <br/> 2) Cardholder Registration (Cardholder's Name, Website Name, Social Security Number, Email, Address, Landline / Mobile) <br/> 3) Invoice <br/> 4) Debit authorization <br/> 5) Purchase order for internet transactions <br/> 6) Copy of payment details screen 7) Description of services provided <br/> 7) Proof of delivery of product and / or signed protocol <br/> 8) Electronic acceptance (if any)|7) Contract with details of service provision <br/> 8) Protocol of services provided|7) Return policy and exchange with electronic acceptance (if any)|7) Cancellation policy|7) Two or more vouchers proving that there have been two or more transactions, inform the authorization code of the two transactions|
+|Tickets|1) Copy of Proof of Sale <br/> 2) Cardholder Registration (Cardholder's Name, Website Name, Social Security Number, Email, Address, Landline / Mobile) <br/> 3) Invoice <br/> 4) Debit Authorization <br/> 5) Purchase Order for Internet Transactions <br/> 6) Copy of Means of Payment Screen |-|7) Proof of Product Delivery and / or signed protocol <br/> 8) Electronic accept (if any)|-|7) Return and exchange policy with electronic accept (if any)|-|-|
+|Publisher or Bookstore|1) Copy of Proof of Sale <br/> 2) Cardholder Registration (Cardholder's Name, Website Name, Social Security Number, Email, Address, Landline / Mobile) <br/> 3) Invoice <br/> 4) Debit Authorization <br/> 5) Purchase Order for Internet Transactions <br/> 6) Copy of Means of Payment Screen|-|7) Proof of Delivery product and / or signed protocol <br/> 8) Electronic accept (if any)|-|7) Return and exchange policy with electronic accept (if any)|-|-|
+|Insurance Companies|1) Copy of proof of sale <br/> 2) Cardholder registration (name of cardholder, name registered on the website, social security number, email, address, landline / mobile) <br/> 3) Invoice <br/> 4) Debit authorization <br/> 5) Purchase order for internet transactions <br/> 6) Copy of payment method screen|-|-|7) return and exchange with electronic acceptance (if any)|-|-|
+|Other Segments|1) Copy of proof of sale <br/> 2) Cardholder registration (name of cardholder, name registered on the website, social security number, email, address, landline / mobile) <br/> 3 ) Invoice <br/> 4) Debit Authorization <br/> 5) Purchase Order for Internet Transactions <br/> 6) Copy of Means of Payment Screen|7) Proof of Product Delivery and / or signed protocol <br/> 8) Letter from the true bearer acknowledging the expense|7) Proof of delivery of the product and / or signed protocol <br/> 8) Electronic acceptance (if any)|7) Contract with delivery details Services <br/> 8) Service Protocol|7) Return and Exchange Policy with Electronic Acceptance (if any)|7) Cancellation Policy|7) Two or more vouchers showing that there were two or more transactions, enter code of authorization of the two transactions|
