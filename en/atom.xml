@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-08-16T15:04:28+00:00</updated>
+    <updated>2019-08-16T15:17:12+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -22879,9 +22879,9 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
         <id>https://braspag.github.io//en/manual/antifraude</id>
         <content type="html">&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Antifraud Gateway&lt;/strong&gt; is a platform developed by the Braspag Risk team to facilitate the integration of customers who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Antifraud Gateway&lt;/strong&gt; is a platform developed by the Braspag’s Risk team to facilitate the integration of clients who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example.&lt;/p&gt;
 
-&lt;p&gt;The platform is based on REST architecture, which exchanges data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the market and supported by technical communities.&lt;/p&gt;
+&lt;p&gt;The API is based on REST architecture, which exchange data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the industry and supported by the technical communities.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;To learn more about OAuth 2, see &lt;a href=&quot;https://oauth.net/2/&quot;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/p&gt;
@@ -22891,7 +22891,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
 
 &lt;h1 id=&quot;objective&quot;&gt;Objective&lt;/h1&gt;
 
-&lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with Antifraud Gateway API Braspag, gateway of providers of antifraud solutions, describing the operations available with sample requests and responses.&lt;/p&gt;
+&lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with Antifraud Gateway API, gateway of providers of antifraud solutions, describing the operations available with sample requests and responses.&lt;/p&gt;
 
 &lt;p&gt;To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send using the HTTP VERB as described in the operation.&lt;/p&gt;
 
@@ -22909,11 +22909,11 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https://authsandbox.braspag.com.br&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\authsandbox.braspag.com.br\|&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https://auth.braspag.com.br&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\auth.braspag.com.br\|&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -22930,11 +22930,11 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https://risksandbox.braspag.com.br&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\risksandbox.braspag.com.br\|&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https://risk.braspag.com.br&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https:\\risk.braspag.com.br\|&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
