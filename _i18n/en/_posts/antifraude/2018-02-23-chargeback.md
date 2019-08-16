@@ -274,10 +274,10 @@ Exemple:
 
 **Parameters in the body (Body)**
 
-|Key|Value|Obrigatório|
+|Key|Value|Required|
 |:-|:-|:-|
-|`Content-Type`|form-data||
-||Arquivo extensão tif <br/> Obs.: O arquivo deve possuir como nome o número do caso do chargeback <br/> Ex.: `CaseNumber` = 0000001 -> `File` = 0000001.tif <br/> Obs2.: O arquivo deverá ser multi-page com extensão tif de no máximo 7mb de tamanho <br/> Obs3.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019|Sim|
+|`Content-Type`|form-data|-|
+|-|File extension jpeg, jpg or png <br/> Note: All files must add up to a maximum of 7mb in size. <br/> Note2: The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19|Yes|
 
 ### Response
 
