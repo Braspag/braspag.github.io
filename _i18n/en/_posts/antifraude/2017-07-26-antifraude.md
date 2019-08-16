@@ -12,9 +12,9 @@ language_tabs:
 
 # Overview
 
-**Antifraud Gateway** is a platform developed by the Braspag Risk team to facilitate the integration of customers who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example.
+**Antifraud Gateway** is a platform developed by the Braspag's Risk team to facilitate the integration of clients who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example.
 
-The platform is based on REST architecture, which exchanges data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the market and supported by technical communities.
+The API is based on REST architecture, which exchange data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the industry and supported by the technical communities.
 
 > To learn more about OAuth 2, see [https://oauth.net/2/](https://oauth.net/2/)
 
@@ -22,7 +22,7 @@ The platform was built using one of Braspag's main products, the Cartão Protegi
 
 # Objective
 
-The purpose of this documentation is to guide the developer on how to integrate with Antifraud Gateway API Braspag, gateway of providers of antifraud solutions, describing the operations available with sample requests and responses.
+The purpose of this documentation is to guide the developer on how to integrate with Antifraud Gateway API, gateway of providers of antifraud solutions, describing the operations available with sample requests and responses.
 
 To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send using the HTTP VERB as described in the operation.
 
@@ -32,15 +32,15 @@ To perform an operation, combine the base endpoint of the environment with the e
 
 |Environment|URL|
 |:-|:-|
-|`Sandbox`|https://authsandbox.braspag.com.br|
-|`Produção`|https://auth.braspag.com.br|
+|`Sandbox`|https:\\\\authsandbox.braspag.com.br\\\|
+|`Produção`|https:\\\\auth.braspag.com.br\\\|
 
 ## Antifraud Gateway API
 
 |Environment|URL|
 |:-|:-|
-|`Sandbox`|https://risksandbox.braspag.com.br|
-|`Produção`|https://risk.braspag.com.br|
+|`Sandbox`|https:\\\\risksandbox.braspag.com.br\\\|
+|`Produção`|https:\\\\risk.braspag.com.br\\\|
 
 # Authentication
 
