@@ -88,7 +88,7 @@ Exemple:
 
 |Key|Value|
 |:-|:-|
-|`scope`|ChargebackApp|
+|`scope`|Chargeback|
 |`grant_type`|client_credentials|
 
 ### Response
