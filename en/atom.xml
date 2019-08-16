@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-08-16T19:06:22+00:00</updated>
+    <updated>2019-08-16T19:12:22+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4494,13 +4494,8 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;form-data&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;File extension jpeg, jpg or png &lt;br /&gt; Note: All files must add up to a maximum of 7mb in size. &lt;br /&gt; Note2: The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Yes&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;form-data &lt;br /&gt; File extension jpeg, jpg or png &lt;br /&gt; Note: All files must add up to a maximum of 7mb in size. &lt;br /&gt; Note2: The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
