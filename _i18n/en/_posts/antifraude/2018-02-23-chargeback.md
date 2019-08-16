@@ -513,7 +513,7 @@ Exemple:
 |`Code`|Code that contest files exceeded 7mb in size|
 |`Message`|Message that contest files exceeded 7mb in size|
 
-# Consultas
+# Queries
 
 ### Request
 
