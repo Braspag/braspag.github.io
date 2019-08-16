@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-08-16T14:55:53+00:00</updated>
+    <updated>2019-08-16T15:04:28+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -22879,7 +22879,7 @@ aborted and the error analyzed and addressed.&lt;/p&gt;
         <id>https://braspag.github.io//en/manual/antifraude</id>
         <content type="html">&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Antifraud Gateway&lt;/strong&gt; is a platform developed by the Braspag Risk team to facilitate the integration of customers who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example..&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Antifraud Gateway&lt;/strong&gt; is a platform developed by the Braspag Risk team to facilitate the integration of customers who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example.&lt;/p&gt;
 
 &lt;p&gt;The platform is based on REST architecture, which exchanges data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the market and supported by technical communities.&lt;/p&gt;
 
