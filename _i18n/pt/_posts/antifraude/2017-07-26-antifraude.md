@@ -1103,7 +1103,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 |`ChangeStatusResponse.Message`|Mensagem contendo conteúdo da operação realizada|string|
 
 * Quando a transação não for encontrada na base de dados.
-
+<br/>
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
