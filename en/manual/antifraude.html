@@ -4942,11 +4942,11 @@
 
 <h2 id="request-8">Request</h2>
 
-<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Comments"</span><span class="p">:</span><span class="s2">"Transaction accepted after contact with customer."</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dados do cliente OK"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -4994,8 +4994,8 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Transaction new status - Table 19</td>
-      <td style="text-align: center">enum</td>
+      <td style="text-align: left">Transaction new status. Accept or Reject</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">yes</td>
       <td style="text-align: right">-</td>
     </tr>
@@ -5016,7 +5016,11 @@
 </ul>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Change status request successfully received. New status: Accept."</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ChangeStatusResponse"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Change Status request successfully received. New status: Accept."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -5046,15 +5050,25 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parameter</th>
-      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
       <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Message containing the reason for the operation</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Transaction new status</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChangeStatusResponse.Status</code></td>
+      <td style="text-align: left">Identify that Cybersource has received a status change request</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChangeStatusResponse.Message</code></td>
+      <td style="text-align: left">Message containing content of the operation performed</td>
       <td>string</td>
     </tr>
   </tbody>
@@ -5063,11 +5077,6 @@
 <ul>
   <li>When the transaction is not found in the database.</li>
 </ul>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The transaction does not exist."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -5090,33 +5099,9 @@
   </tbody>
 </table>
 
-<p><strong>Parameters in the body (Body)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parameter</th>
-      <th style="text-align: left">Description</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Message containing the reason for the operation</td>
-      <td>string</td>
-    </tr>
-  </tbody>
-</table>
-
 <ul>
   <li>When the transaction is not eligible to change status.</li>
 </ul>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The transaction is not able to update status. Actual status: Reject."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -5135,25 +5120,6 @@
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
       <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parameters in the body (Body)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parameter</th>
-      <th style="text-align: left">Description</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Message containing the reason for the operation</td>
-      <td>string</td>
     </tr>
   </tbody>
 </table>
@@ -5162,11 +5128,6 @@
   <li>When the new status sent is different from Accept or Reject.</li>
 </ul>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The new status is invalid to update transaction. Accepted status are: 'Accept' or 'Reject'."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
 <p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
@@ -5184,25 +5145,6 @@
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
       <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parameters in the body (Body)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parameter</th>
-      <th style="text-align: left">Description</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Message containing the reason for the operation</td>
-      <td>string</td>
     </tr>
   </tbody>
 </table>
