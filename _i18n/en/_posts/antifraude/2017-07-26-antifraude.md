@@ -1574,12 +1574,12 @@ This section describes how to change the status of transactions in review to acc
 
 ## Request
 
-<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
 ``` json
 {
-    "Status":"Accept",
-    "Comments":"Transaction accepted after contact with customer."
+    "Status": "Accept",
+    "Comments": "Dados do cliente OK"
 }
 ```
 
@@ -1596,7 +1596,7 @@ This section describes how to change the status of transactions in review to acc
 
 |Parameter|Description|Type|Required|Size|
 |:-|:-|:-:|:-:|-:|
-|`Status`|Transaction new status - Table 19|enum|yes|-|
+|`Status`|Transaction new status. Accept or Reject|string|yes|-|
 |`Comments`|Comment associated with status change|string|no|255|
 
 ## Response
@@ -1605,7 +1605,11 @@ This section describes how to change the status of transactions in review to acc
 
 ``` json
 {
-    "Message": "Change status request successfully received. New status: Accept."
+    "Status": "Accept",
+    "ChangeStatusResponse": {
+        "Status": "OK",
+        "Message": "Change Status request successfully received. New status: Accept."
+    }
 }
 ```
 
@@ -1618,17 +1622,13 @@ This section describes how to change the status of transactions in review to acc
 
 **Parameters in the body (Body)**
 
-|Parameter|Description|
+|Parâmetro|Descrição|
 |:-|:-|
-|`Message`|Message containing the reason for the operation|string|
+|`Status`|Transaction new status|string|
+|`ChangeStatusResponse.Status`|Identify that Cybersource has received a status change request|string|
+|`ChangeStatusResponse.Message`|Message containing content of the operation performed|string|
 
 * When the transaction is not found in the database.
-
-``` json
-{
-    "Message": "The transaction does not exist."
-}
-```
 
 **Parameters in the header (Header)**
 
@@ -1637,19 +1637,7 @@ This section describes how to change the status of transactions in review to acc
 |`Content-Type`|application/json|
 |`Status`|404 Not Found|
 
-**Parameters in the body (Body)**
-
-|Parameter|Description|
-|:-|:-|
-|`Message`|Message containing the reason for the operation|string|
-
 * When the transaction is not eligible to change status.
-
-``` json
-{
-    "Message": "The transaction is not able to update status. Actual status: Reject."
-}
-```
 
 **Parameters in the header (Header)**
 
@@ -1657,33 +1645,15 @@ This section describes how to change the status of transactions in review to acc
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
-
-**Parameters in the body (Body)**
-
-|Parameter|Description|
-|:-|:-|
-|`Message`|Message containing the reason for the operation|string|
 
 * When the new status sent is different from Accept or Reject.
 
-``` json
-{
-    "Message": "The new status is invalid to update transaction. Accepted status are: 'Accept' or 'Reject'."
-}
-```
-
 **Parameters in the header (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
-
-**Parameters in the body (Body)**
-
-|Parameter|Description|
-|:-|:-|
-|`Message`|Message containing the reason for the operation|string|
 
 * When the type or size of any field is not sent as specified in the manual.
 
