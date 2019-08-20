@@ -1053,10 +1053,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 ``` json
 {
     "Status": "Accept",
-    "ChangeStatusResponse": {
-        "Status": "OK",
-        "Message": "Change Status request successfully received. New status: Accept."
-    }
+    "Comments": "Dados do cliente OK"
 }
 ```
 
