@@ -1048,12 +1048,15 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 ## Request
 
-<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
 ``` json
 {
-    "Status":"Accept",
-    "Comments":"Transação aceita após contato com o cliente."
+    "Status": "Accept",
+    "ChangeStatusResponse": {
+        "Status": "OK",
+        "Message": "Change Status request successfully received. New status: Accept."
+    }
 }
 ```
 
@@ -1070,7 +1073,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
-|`Status`|Novo status da transação - Tabela 19|enum|sim|-|
+|`Status`|Novo status da transação. Accept ou Reject|string|sim|-|
 |`Comments`|Comentário associado a mudança de status|string|não|255|
 
 ## Response
@@ -1079,7 +1082,11 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 ``` json
 {
-    "Message": "Change status request successfully received. New status: Accept."
+    "Status": "Accept",
+    "ChangeStatusResponse": {
+        "Status": "OK",
+        "Message": "Change Status request successfully received. New status: Accept."
+    }
 }
 ```
 
@@ -1094,15 +1101,11 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 |Parâmetro|Descrição|
 |:-|:-|
-|`Message`|Mensagem contendo o motivo da operação|string|
+|`Status`|Novo status da transação|string|
+|`ChangeStatusResponse.Status`|Identifica que a Cybersource recebeu a solicitação de alteração de status|string|
+|`ChangeStatusResponse.Message`|Mensagem contendo conteúdo da operação realizada|string|
 
 * Quando a transação não for encontrada na base de dados.
-
-``` json
-{
-    "Message": "The transaction does not exist."
-}
-```
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -1111,19 +1114,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 |`Content-Type`|application/json|
 |`Status`|404 Not Found|
 
-**Parâmetros no corpo (Body)**
-
-|Parâmetro|Descrição|
-|:-|:-|
-|`Message`|Mensagem contendo o motivo da operação|string|
-
 * Quando a transação não estiver elegivel para alteração de status.
-
-``` json
-{
-    "Message": "The transaction is not able to update status. Actual status: Reject."
-}
-```
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -1131,33 +1122,15 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
-
-**Parâmetros no corpo (Body)**
-
-|Parâmetro|Descrição|
-|:-|:-|
-|`Message`|Mensagem contendo o motivo da operação|string|
 
 * Quando o novo status enviado for diferente de Accept ou Reject.
 
-``` json
-{
-    "Message": "The new status is invalid to update transaction. Accepted status are: 'Accept' or 'Reject'."
-}
-```
-
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
-
-**Parâmetros no corpo (Body)**
-
-|Parâmetro|Descrição|
-|:-|:-|
-|`Message`|Mensagem contendo o motivo da operação|string|
 
 * Quando o tipo ou tamanho de algum campo não for enviado conforme especificado no manual.
 
