@@ -7144,4 +7144,4 @@ Os status das transações serão conforme a utilização de cada cartão.
 |Não Autorizado|0000.0000.0000.0003|57|Cartão Expirado|
 |Não Autorizado|0000.0000.0000.0006|99|Time Out|
 
-As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).
+As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY). 
