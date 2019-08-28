@@ -7054,7 +7054,7 @@ The "Simulado" is a payment method that emulates the use of credit card payment.
 |Status to Simulate|Credit Card Number|Return Code|Return Message|
 |---|---|---|---|
 |Autorizado (authorized)|0000.0000.0000.0001 / 0000.0000.0000.0004|4|Operação realizada com sucesso|
-|Não Autorizado (denied)|0000.0000.0000.0002|2|Não Autorizada|
+|Não Autorizado (denied)|0000.0000.0000.0002|05|Não Autorizada|
 |Autorização Aleatória (random)|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
 |Não Autorizado (denied)|0000.0000.0000.0007|77|Cartão Cancelado (cancelled card)|
 |Não Autorizado (dedied)|0000.0000.0000.0008|70|Problemas com o Cartão de Crédito (invalid card)|
