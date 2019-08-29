@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-08-29T12:47:43+00:00</updated>
+    <updated>2019-08-29T12:50:32+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5741,571 +5741,10 @@ The Master must provide Subordinate information in order to use it during the On
     </entry>
     
     <entry>
-        <title>User Manual</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/braspag-pos-virtual"/>
-        <updated>2017-07-26T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/braspag-pos-virtual</id>
-        <content type="html">&lt;h1 id=&quot;creating-a-group&quot;&gt;Creating a group&lt;/h1&gt;
-
-&lt;p&gt;It is mandatory to create at least one group before inicitate the sales using virtual POS. The group determinates the operator’s access level.&lt;/p&gt;
-
-&lt;p&gt;To create a group, access Configuration &amp;gt; Groups, and fill the fields correctly:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/criargrupos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Nome&lt;/td&gt;
-      &lt;td&gt;Nome do grupo&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Permissões&lt;/td&gt;
-      &lt;td&gt;selecione as permissões que este grupo poderá ter&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;The list of permissions:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Permission&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Change the next recurrence date&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Change the recurrence end date&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Change the day of recurrency&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Change the interval of recurrency&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Change the recurrency payment amount&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Enable or Disable a recurrency&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Void a transaction created by user&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Void a transaction created by user using report interface&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Void any transactions&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Capture a transaction created by user&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Capture a transaction created by user using report interface&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Create an order&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Refund a transaction using report interface&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;View recurrent orders&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;View transactions created by user&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;View recurrent transactions&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&quot;creating-operators&quot;&gt;Creating Operators&lt;/h1&gt;
-
-&lt;p&gt;The “managers” are able to create other users called “operators”, that have permissions to create an order.&lt;/p&gt;
-
-&lt;p&gt;Access Configuration &amp;gt; Operators, and fill the all mandatory fields below. When the information is submitted, an e-mail will be sent to the registered address.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/cadastraroperador.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Username&lt;/td&gt;
-      &lt;td&gt;username to be used to access the POS&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Name&lt;/td&gt;
-      &lt;td&gt;Operator’s name&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;E-mail&lt;/td&gt;
-      &lt;td&gt;Operator’s E-mail&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Group&lt;/td&gt;
-      &lt;td&gt;Operator’s group&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Stores&lt;/td&gt;
-      &lt;td&gt;Stores that operator will perform an order&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&quot;perform-an-order&quot;&gt;Perform an order&lt;/h1&gt;
-
-&lt;p&gt;To create a new order, the operator has to access to the order form: Virtual POS -&amp;gt; Sell Form&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/menucriarpedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;step-by-step&quot;&gt;Step by Step&lt;/h2&gt;
-
-&lt;p&gt;The form has some group of information with mandatory and optional fields.&lt;/p&gt;
-
-&lt;p&gt;You can configure the form to show just some groups you need to you business.&lt;/p&gt;
-
-&lt;p&gt;Below, you will see the details of each possible block of information.&lt;/p&gt;
-
-&lt;h3 id=&quot;order&quot;&gt;Order&lt;/h3&gt;
-
-&lt;p&gt;This group requires the informations about the order.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosdopedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Order Number&lt;/td&gt;
-      &lt;td&gt;merchant’s order number&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Nome&lt;/td&gt;
-      &lt;td&gt;Customer’s Name&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;CPF/CNPJ&lt;/td&gt;
-      &lt;td&gt;Customer’s CPF/CNPJ. In case of foreigner customer, fill zeros&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;E-mail&lt;/td&gt;
-      &lt;td&gt;Customer’s E-mail&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;delivery-address&quot;&gt;Delivery Address&lt;/h3&gt;
-
-&lt;p&gt;This group requires the informations about the delivery address&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosendereco.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Street&lt;/td&gt;
-      &lt;td&gt;Customer’s delivery address street name&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Number&lt;/td&gt;
-      &lt;td&gt;Customer’s delivery address street building number&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Complement&lt;/td&gt;
-      &lt;td&gt;Customer’s delivery address complement&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;City&lt;/td&gt;
-      &lt;td&gt;Customer’s delivery address city&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;State&lt;/td&gt;
-      &lt;td&gt;Customer’s delivery address state&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;District&lt;/td&gt;
-      &lt;td&gt;Customer’s delivery address district&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Zip Code&lt;/td&gt;
-      &lt;td&gt;Customer’s delivery address zip code&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Country&lt;/td&gt;
-      &lt;td&gt;Customer’s delivery address country&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;recurrency&quot;&gt;Recurrency&lt;/h3&gt;
-
-&lt;p&gt;This part defines recurrency configuration to an order. There are three possibilities:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Just schedule the further payments&lt;/li&gt;
-  &lt;li&gt;Charge now and schedule the further payments to the same day&lt;/li&gt;
-  &lt;li&gt;Charge now and schedule the further payments to the other day&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;Option 1: Just schedule the further payments&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;In this option, the recurrency will be scheduled accordint to the informations provided below. In this case, the customer will be charged just when the first recurrency occurs (start date).&lt;/p&gt;
-
-&lt;p&gt;If the end date is not informed, the recurrency will never end.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Interval&lt;/td&gt;
-      &lt;td&gt;Interval of recurrency. Default: Monthly&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Start Date&lt;/td&gt;
-      &lt;td&gt;Recurrency start date&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;End date&lt;/td&gt;
-      &lt;td&gt;recurrency end date&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;em&gt;Option 2: Charge now and schedule the further payments to the same day&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;In this option, the recurrency payment will be created and the first chage will occur immediately. The further recurrences always will occur in the same day of first charge.&lt;/p&gt;
-
-&lt;p&gt;If the end date is not informed, the recurrency will never end.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Interval&lt;/td&gt;
-      &lt;td&gt;Interval of recurrency. Default: Monthly&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Start Date&lt;/td&gt;
-      &lt;td&gt;Recurrency start date. Fixed value&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Recurrence Day&lt;/td&gt;
-      &lt;td&gt;The day that occurs further charges. Fixed Value.&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;End date&lt;/td&gt;
-      &lt;td&gt;recurrency end date&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;em&gt;Option 3: Charge now and schedule the further payments to the other day&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;In this option, the recurrency payment will be created and the first chage will occur immediately. The further recurrences always will occur in the day selected in the form.&lt;/p&gt;
-
-&lt;p&gt;If the end date is not informed, the recurrency will never end.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Intervalo&lt;/td&gt;
-      &lt;td&gt;Interval of recurrency. Default: Monthly&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Start Date&lt;/td&gt;
-      &lt;td&gt;Recurrency start date. Fixed value&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Recurrence Day&lt;/td&gt;
-      &lt;td&gt;The day that occurs further charges&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;End date&lt;/td&gt;
-      &lt;td&gt;recurrency end date&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;billing-address&quot;&gt;Billing Address&lt;/h3&gt;
-
-&lt;p&gt;This group requires the informations about the billing address&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosenderecocobranca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Street&lt;/td&gt;
-      &lt;td&gt;Customer’s billing address street name&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Number&lt;/td&gt;
-      &lt;td&gt;Customer’s billing address street building number&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Complement&lt;/td&gt;
-      &lt;td&gt;Customer’s billing address complement&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;City&lt;/td&gt;
-      &lt;td&gt;Customer’s billing address city&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;State&lt;/td&gt;
-      &lt;td&gt;Customer’s billing address state&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;District&lt;/td&gt;
-      &lt;td&gt;Customer’s billing address district&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Zip Code&lt;/td&gt;
-      &lt;td&gt;Customer’s billing address zip code&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Country&lt;/td&gt;
-      &lt;td&gt;Customer’s billing address country&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;payment-data&quot;&gt;Payment Data&lt;/h3&gt;
-
-&lt;p&gt;This group requires the informations about the payment data&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadospagamento.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Payment Method&lt;/td&gt;
-      &lt;td&gt;The brand of credit card&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Card holder&lt;/td&gt;
-      &lt;td&gt;Card Holder name&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Card Number&lt;/td&gt;
-      &lt;td&gt;Credit card number&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Card Security Code&lt;/td&gt;
-      &lt;td&gt;Card Security Code&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Expiration Date&lt;/td&gt;
-      &lt;td&gt;Card expiration date&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Amount&lt;/td&gt;
-      &lt;td&gt;Transaction’s amount&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Installments&lt;/td&gt;
-      &lt;td&gt;Installment number. In case of recurrency transaction, this field will not be showed.&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;submit-or-clean&quot;&gt;Submit or Clean&lt;/h2&gt;
-
-&lt;p&gt;The Submit button will submit the order to authorization process.&lt;/p&gt;
-
-&lt;p&gt;If you configured the option “automatic capture”, the order will be authorized and captured immediately. Else, the transaction will be captured only if you access the report and capture manually.&lt;/p&gt;
-
-&lt;p&gt;The Clean button will clean the filled information.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/btnpagarlimpar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;order-report&quot;&gt;Order Report&lt;/h1&gt;
-
-&lt;p&gt;Access the Virtual POS &amp;gt; Transactions to see the orders performed previously&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/listapedidos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Abote the order list, there are two labels about amounts. One represents the captured Amount, and other, the partial amount to be captured.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Captured amoun - the total amount already captured&lt;/li&gt;
-  &lt;li&gt;Amount to be captured - total amount that could be captured&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The action column has links to take an one of actions:&lt;/p&gt;
-
-&lt;h2 id=&quot;capture&quot;&gt;Capture&lt;/h2&gt;
-
-&lt;p&gt;This action will be available to the Virtual POS if you not choosed to make automatic capture. 
-All the orders just authorized must be captured here. When the capture process is successfully completed, the order status will change from “Not Paid” to “Paid”.&lt;/p&gt;
-
-&lt;h3 id=&quot;partial-capture&quot;&gt;Partial Capture&lt;/h3&gt;
-
-&lt;p&gt;This action must be used when you need to partially capture the amount. Ex.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Authorized amount: R$ 100,00&lt;/li&gt;
-  &lt;li&gt;Partial Capture of R$ 50,00&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The Virtual POS will show a field to input the partial amount.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/capturar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;aside class=&quot;notice&quot;&gt;Note: the partial capture must be used just once. The remaining amount after a partial capture will be released automatically.&lt;/aside&gt;
-
-&lt;h3 id=&quot;total-capture&quot;&gt;Total Capture&lt;/h3&gt;
-
-&lt;p&gt;This action must be used when you need to capture all the amount. Ex.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Authorized amount: R$ 100,00&lt;/li&gt;
-  &lt;li&gt;Total Capture of R$ 100,00&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;aside class=&quot;notice&quot;&gt;If you are using automatic capture configuration, this option will not be available. &lt;/aside&gt;
-
-&lt;h2 id=&quot;void&quot;&gt;Void&lt;/h2&gt;
-
-&lt;p&gt;This action is destinated to void a transaction.&lt;/p&gt;
-
-&lt;p&gt;You need to confirm the action, as show below.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/cancelar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;print&quot;&gt;Print&lt;/h2&gt;
-
-&lt;p&gt;This action will show you a print version of an order.&lt;/p&gt;
-
-&lt;p&gt;See the example below.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/imprimir.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</content>
-    </entry>
-    
-    <entry>
         <title>Integration Manual</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/braspag-pagador"/>
-        <updated>2017-07-26T00:00:00+00:00</updated>
+        <updated>2017-07-27T00:00:00+00:00</updated>
         <id>https://braspag.github.io//en/manual/braspag-pagador</id>
         <content type="html">&lt;h1 id=&quot;introduction-to-pagador-api&quot;&gt;Introduction to Pagador API&lt;/h1&gt;
 
@@ -21876,6 +21315,567 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>User Manual</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//en/manual/braspag-pos-virtual"/>
+        <updated>2017-07-26T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//en/manual/braspag-pos-virtual</id>
+        <content type="html">&lt;h1 id=&quot;creating-a-group&quot;&gt;Creating a group&lt;/h1&gt;
+
+&lt;p&gt;It is mandatory to create at least one group before inicitate the sales using virtual POS. The group determinates the operator’s access level.&lt;/p&gt;
+
+&lt;p&gt;To create a group, access Configuration &amp;gt; Groups, and fill the fields correctly:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/criargrupos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nome&lt;/td&gt;
+      &lt;td&gt;Nome do grupo&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Permissões&lt;/td&gt;
+      &lt;td&gt;selecione as permissões que este grupo poderá ter&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The list of permissions:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Permission&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Change the next recurrence date&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Change the recurrence end date&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Change the day of recurrency&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Change the interval of recurrency&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Change the recurrency payment amount&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Enable or Disable a recurrency&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Void a transaction created by user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Void a transaction created by user using report interface&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Void any transactions&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Capture a transaction created by user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Capture a transaction created by user using report interface&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Create an order&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Refund a transaction using report interface&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;View recurrent orders&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;View transactions created by user&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;View recurrent transactions&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;creating-operators&quot;&gt;Creating Operators&lt;/h1&gt;
+
+&lt;p&gt;The “managers” are able to create other users called “operators”, that have permissions to create an order.&lt;/p&gt;
+
+&lt;p&gt;Access Configuration &amp;gt; Operators, and fill the all mandatory fields below. When the information is submitted, an e-mail will be sent to the registered address.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/cadastraroperador.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Username&lt;/td&gt;
+      &lt;td&gt;username to be used to access the POS&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Name&lt;/td&gt;
+      &lt;td&gt;Operator’s name&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;E-mail&lt;/td&gt;
+      &lt;td&gt;Operator’s E-mail&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Group&lt;/td&gt;
+      &lt;td&gt;Operator’s group&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Stores&lt;/td&gt;
+      &lt;td&gt;Stores that operator will perform an order&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;perform-an-order&quot;&gt;Perform an order&lt;/h1&gt;
+
+&lt;p&gt;To create a new order, the operator has to access to the order form: Virtual POS -&amp;gt; Sell Form&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/menucriarpedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;step-by-step&quot;&gt;Step by Step&lt;/h2&gt;
+
+&lt;p&gt;The form has some group of information with mandatory and optional fields.&lt;/p&gt;
+
+&lt;p&gt;You can configure the form to show just some groups you need to you business.&lt;/p&gt;
+
+&lt;p&gt;Below, you will see the details of each possible block of information.&lt;/p&gt;
+
+&lt;h3 id=&quot;order&quot;&gt;Order&lt;/h3&gt;
+
+&lt;p&gt;This group requires the informations about the order.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosdopedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Order Number&lt;/td&gt;
+      &lt;td&gt;merchant’s order number&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nome&lt;/td&gt;
+      &lt;td&gt;Customer’s Name&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CPF/CNPJ&lt;/td&gt;
+      &lt;td&gt;Customer’s CPF/CNPJ. In case of foreigner customer, fill zeros&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;E-mail&lt;/td&gt;
+      &lt;td&gt;Customer’s E-mail&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;delivery-address&quot;&gt;Delivery Address&lt;/h3&gt;
+
+&lt;p&gt;This group requires the informations about the delivery address&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosendereco.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Street&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address street name&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address street building number&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Complement&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address complement&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;City&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address city&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;State&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address state&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;District&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address district&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Zip Code&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address zip code&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Country&lt;/td&gt;
+      &lt;td&gt;Customer’s delivery address country&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;recurrency&quot;&gt;Recurrency&lt;/h3&gt;
+
+&lt;p&gt;This part defines recurrency configuration to an order. There are three possibilities:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Just schedule the further payments&lt;/li&gt;
+  &lt;li&gt;Charge now and schedule the further payments to the same day&lt;/li&gt;
+  &lt;li&gt;Charge now and schedule the further payments to the other day&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Option 1: Just schedule the further payments&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In this option, the recurrency will be scheduled accordint to the informations provided below. In this case, the customer will be charged just when the first recurrency occurs (start date).&lt;/p&gt;
+
+&lt;p&gt;If the end date is not informed, the recurrency will never end.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Interval&lt;/td&gt;
+      &lt;td&gt;Interval of recurrency. Default: Monthly&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Start Date&lt;/td&gt;
+      &lt;td&gt;Recurrency start date&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;End date&lt;/td&gt;
+      &lt;td&gt;recurrency end date&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Option 2: Charge now and schedule the further payments to the same day&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In this option, the recurrency payment will be created and the first chage will occur immediately. The further recurrences always will occur in the same day of first charge.&lt;/p&gt;
+
+&lt;p&gt;If the end date is not informed, the recurrency will never end.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Interval&lt;/td&gt;
+      &lt;td&gt;Interval of recurrency. Default: Monthly&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Start Date&lt;/td&gt;
+      &lt;td&gt;Recurrency start date. Fixed value&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Recurrence Day&lt;/td&gt;
+      &lt;td&gt;The day that occurs further charges. Fixed Value.&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;End date&lt;/td&gt;
+      &lt;td&gt;recurrency end date&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Option 3: Charge now and schedule the further payments to the other day&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In this option, the recurrency payment will be created and the first chage will occur immediately. The further recurrences always will occur in the day selected in the form.&lt;/p&gt;
+
+&lt;p&gt;If the end date is not informed, the recurrency will never end.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Intervalo&lt;/td&gt;
+      &lt;td&gt;Interval of recurrency. Default: Monthly&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Start Date&lt;/td&gt;
+      &lt;td&gt;Recurrency start date. Fixed value&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Recurrence Day&lt;/td&gt;
+      &lt;td&gt;The day that occurs further charges&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;End date&lt;/td&gt;
+      &lt;td&gt;recurrency end date&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;billing-address&quot;&gt;Billing Address&lt;/h3&gt;
+
+&lt;p&gt;This group requires the informations about the billing address&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosenderecocobranca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Street&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address street name&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address street building number&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Complement&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address complement&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;City&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address city&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;State&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address state&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;District&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address district&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Zip Code&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address zip code&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Country&lt;/td&gt;
+      &lt;td&gt;Customer’s billing address country&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;payment-data&quot;&gt;Payment Data&lt;/h3&gt;
+
+&lt;p&gt;This group requires the informations about the payment data&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/dadospagamento.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Mandatory&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment Method&lt;/td&gt;
+      &lt;td&gt;The brand of credit card&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Card holder&lt;/td&gt;
+      &lt;td&gt;Card Holder name&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Card Number&lt;/td&gt;
+      &lt;td&gt;Credit card number&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Card Security Code&lt;/td&gt;
+      &lt;td&gt;Card Security Code&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Expiration Date&lt;/td&gt;
+      &lt;td&gt;Card expiration date&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Amount&lt;/td&gt;
+      &lt;td&gt;Transaction’s amount&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Installments&lt;/td&gt;
+      &lt;td&gt;Installment number. In case of recurrency transaction, this field will not be showed.&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;submit-or-clean&quot;&gt;Submit or Clean&lt;/h2&gt;
+
+&lt;p&gt;The Submit button will submit the order to authorization process.&lt;/p&gt;
+
+&lt;p&gt;If you configured the option “automatic capture”, the order will be authorized and captured immediately. Else, the transaction will be captured only if you access the report and capture manually.&lt;/p&gt;
+
+&lt;p&gt;The Clean button will clean the filled information.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/btnpagarlimpar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;order-report&quot;&gt;Order Report&lt;/h1&gt;
+
+&lt;p&gt;Access the Virtual POS &amp;gt; Transactions to see the orders performed previously&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/listapedidos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Abote the order list, there are two labels about amounts. One represents the captured Amount, and other, the partial amount to be captured.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Captured amoun - the total amount already captured&lt;/li&gt;
+  &lt;li&gt;Amount to be captured - total amount that could be captured&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The action column has links to take an one of actions:&lt;/p&gt;
+
+&lt;h2 id=&quot;capture&quot;&gt;Capture&lt;/h2&gt;
+
+&lt;p&gt;This action will be available to the Virtual POS if you not choosed to make automatic capture. 
+All the orders just authorized must be captured here. When the capture process is successfully completed, the order status will change from “Not Paid” to “Paid”.&lt;/p&gt;
+
+&lt;h3 id=&quot;partial-capture&quot;&gt;Partial Capture&lt;/h3&gt;
+
+&lt;p&gt;This action must be used when you need to partially capture the amount. Ex.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Authorized amount: R$ 100,00&lt;/li&gt;
+  &lt;li&gt;Partial Capture of R$ 50,00&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Virtual POS will show a field to input the partial amount.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/capturar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Note: the partial capture must be used just once. The remaining amount after a partial capture will be released automatically.&lt;/aside&gt;
+
+&lt;h3 id=&quot;total-capture&quot;&gt;Total Capture&lt;/h3&gt;
+
+&lt;p&gt;This action must be used when you need to capture all the amount. Ex.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Authorized amount: R$ 100,00&lt;/li&gt;
+  &lt;li&gt;Total Capture of R$ 100,00&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;If you are using automatic capture configuration, this option will not be available. &lt;/aside&gt;
+
+&lt;h2 id=&quot;void&quot;&gt;Void&lt;/h2&gt;
+
+&lt;p&gt;This action is destinated to void a transaction.&lt;/p&gt;
+
+&lt;p&gt;You need to confirm the action, as show below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/cancelar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;print&quot;&gt;Print&lt;/h2&gt;
+
+&lt;p&gt;This action will show you a print version of an order.&lt;/p&gt;
+
+&lt;p&gt;See the example below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/imprimir.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </content>
     </entry>
     
