@@ -326,8 +326,8 @@ A Braspag ao receber os dados do pedido, encaminha para o provedor analisá-los.
 |`CartItem[n].Category`|Categoria do produto <br/> [Tabela 32 - CartItem{n}.Category]({{ site.baseurl_root }}manual/antifraude#tabela-32-cartitem[n].category)|enum|-|-|
 |`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 7 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-7-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
-|`CartItem[n].Sku`|SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto|string|não|255|
-|`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
+|`CartItem[n].Sku`|SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto|string|sim|255|
+|`CartItem[n].Quantity`|Quantidade do produto|int|sim|-|
 |`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 8 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}manual/antifraude#tabela-8-cartitem[n].addressriskverify)|enum|-|-|
 |`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 9 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-9-cartitem[n].hosthedge)|enum|-|-|
 |`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 10 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|-|-|
