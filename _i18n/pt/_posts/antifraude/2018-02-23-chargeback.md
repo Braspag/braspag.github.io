@@ -5,7 +5,7 @@ description: Integração técnica Risk Notification API Braspag
 search: true
 categories: manual
 tags:
-  - Gestão de Risco
+  
 language_tabs:
   json: JSON
   html: HTML
