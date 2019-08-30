@@ -6729,7 +6729,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|Estorno negado (aplicável para Rede)|
 |6|Boleto registrado pago a menor|
-|7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//en/manual/chargeback)|
+|7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//en/manual/risknotification)|
 
 # Anexos
 
