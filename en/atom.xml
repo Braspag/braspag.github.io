@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-08-30T13:14:39+00:00</updated>
+    <updated>2019-08-30T13:19:15+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -20088,7 +20088,7 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;Chargeback notification &lt;br /&gt; More details &lt;a href=&quot;https://braspag.github.io//manual/chargeback&quot;&gt;Chargeback API&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Chargeback notification &lt;br /&gt; More details &lt;a href=&quot;https://braspag.github.io//en/manual/risknotification&quot;&gt;Risk Notification&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
