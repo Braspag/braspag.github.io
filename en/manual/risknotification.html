@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Risk Notification - Integration Manual &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//en/assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//en/manual/risknotification" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/en/manual/risknotification" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//en/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="http://www.braspag.com.br/suporte/" class="help">Help</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://braspag.github.io//en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/risknotification">Risk Notification - Integration Manual</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="overview">Overview</h1>
+
+<p><strong>Risk Notification API</strong> was developed by Braspag’s Risk team for clients to consult fraud alerts, chargebacks, submit files for chargeback contestation and accept chargebacks.</p>
+
+<p>The API is based on REST architecture, which exchange data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the industry and supported by the technical communities.</p>
+
+<blockquote>
+  <p>To learn more about OAuth 2, see <a href="https://oauth.net/2/">https://oauth.net/2/</a></p>
+</blockquote>
+
+<h1 id="objective">Objective</h1>
+
+<p>The purpose of this documentation is to guide the developer on how to integrate with the Risk Notification API by describing the operations available with examples of requests and responses.</p>
+
+<p>To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send using the HTTP VERB as described in the operation.</p>
+
+<h1 id="hosts">Hosts</h1>
+
+<h2 id="braspagauth-api">BraspagAuth API</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ambiente</th>
+      <th style="text-align: left">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
+      <td style="text-align: left">https:\\authsandbox.braspag.com.br\|</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
+      <td style="text-align: left">https:\\auth.braspag.com.br\|</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="chargeback-api-braspag">Chargeback API Braspag</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ambiente</th>
+      <th style="text-align: left">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
+      <td style="text-align: left">https:\\risknotificationsandbox.braspag.com.br\|</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
+      <td style="text-align: left">https:\\risknotification.braspag.com.br\|</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="authentication">Authentication</h1>
+
+<h2 id="access-token">Access Token</h2>
+
+<p>Risk Notification API Braspag uses the industry standard OAuth 2.0 protocol to authorize access to its environment-specific resources, which are: <strong>Sandbox</strong> and <strong>Production</strong>.</p>
+
+<p>This session describes the flow required for client applications to obtain valid access tokens for use in the API.</p>
+
+<h2 id="obtaining-the-access-token">Obtaining the access token</h2>
+
+<p>The access token is obtained through the oauth <strong>client_credentials</strong>. The diagram below illustrates, in chronological order, the communication between <strong>Client Application</strong>, <strong>BraspagAuth API</strong> and <strong>Risk Notification API</strong>.</p>
+
+<ol>
+  <li>
+    <p>The <strong>Client Application</strong>, informs the <strong>BraspagAuth API</strong> your credential.</p>
+  </li>
+  <li>
+    <p>The <strong>BraspagAuth API</strong> validates the credential received. If valid, returns the access token for <strong>Client Application</strong>.</p>
+  </li>
+  <li>
+    <p>The <strong>Client Application</strong> informs the access token in the header of the HTTP requests made to the <strong>Risk Notification API</strong>.</p>
+  </li>
+  <li>
+    <p>If the access token is valid, the request is processed and the data is returned to the <strong>Client Application</strong></p>
+  </li>
+</ol>
+
+<blockquote>
+  <p>Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. <br />
+<a href="https://suporte.braspag.com.br/hc/en-us">Support Braspag</a></p>
+</blockquote>
+
+<h2 id="how-to-get-the-token">How to get the token</h2>
+
+<p>Once in possession of the credential, you will need to “encrypt” it in Base64, using the <strong>client_id:client_secret</strong> convention, and send the result in the header through the <strong>Authorization</strong> field.</p>
+
+<p>Exemple:</p>
+<ul>
+  <li>client_id: <strong>braspagtestes</strong></li>
+  <li>client_secret: <strong>1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
+  <li>String to be encoded in Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
+  <li>Result after encoding: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong></li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/x-www-form-urlencoded</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">scope</code></td>
+      <td style="text-align: left">Chargeback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">grant_type</code></td>
+      <td style="text-align: left">client_credentials</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the body (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">access_token</code></td>
+      <td style="text-align: left">The access token requested. The application can use this token to authenticate itself to the protected resource, in this case the Antifraud Gateway API</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">token_type</code></td>
+      <td style="text-align: left">Indicates the value of the token type</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">expires_in</code></td>
+      <td style="text-align: left">Expiry of the access token, in seconds <br /> The token when it expires, it is necessary to get a new one</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="acceptance">Acceptance</h1>
+
+<h2 id="accepting-a-chargeback">Accepting a chargeback</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+
+<h3 id="request-1">Request</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Establishment Code <br /> Note: If this Key was not sent, <code class="highlighter-rouge">MerchantId</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">MerchantID <br /> Note: If this Key was not sent, <code class="highlighter-rouge">EstablishmentCode</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-1">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedByMerchant"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback case number</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Chargeback status - <a href="https://braspag.github.io/manual/chargeback#table-4-status">Table 3 - Chargebacks{n}.Status</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">StatusDescription</code></td>
+      <td style="text-align: left">Chargeback status description</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="accepting-a-nonexistent-chargeback">Accepting a nonexistent chargeback</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+
+<h3 id="request-2">Request</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Establishment Code <br /> Note: If this Key was not sent, <code class="highlighter-rouge">MerchantId</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">MerchantID <br /> Note: If this Key was not sent, <code class="highlighter-rouge">EstablishmentCode</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-2">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Code that chargeback was not found</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message that chargeback was not found</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="accepting-a-previously-accepted-or-contested-chargeback">Accepting a previously accepted or contested chargeback</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+
+<h3 id="request-3">Request</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Establishment Code <br /> Note: If this Key was not sent, <code class="highlighter-rouge">MerchantId</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">MerchantID <br /> Note: If this Key was not sent, <code class="highlighter-rouge">EstablishmentCode</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-3">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Code that chargeback was previously accepted or contested</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message that chargeback was previously accepted or contested</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="contestation">Contestation</h1>
+
+<h2 id="contesting-a-chargeback">Contesting a chargeback</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-4">Request</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Establishment Code <br /> Note: If this Key was not sent, <code class="highlighter-rouge">MerchantId</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">MerchantID <br /> Note: If this Key was not sent, <code class="highlighter-rouge">EstablishmentCode</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">form-data <br /> File extension jpeg, jpg or png <br /> Note: All files must add up to a maximum of 7mb in size. <br /> Note2: The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-4">Response</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contesting-a-nonexistent-chargeback">Contesting a nonexistent chargeback</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-5">Request</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Establishment Code <br /> Note: If this Key was not sent, <code class="highlighter-rouge">MerchantId</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">MerchantID <br /> Note: If this Key was not sent, <code class="highlighter-rouge">EstablishmentCode</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-5">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Code that chargeback was not found</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message that chargeback was not found</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contesting-a-previously-contested-or-accepted-chargeback">Contesting a previously contested or accepted chargeback</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-6">Request</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Establishment Code <br /> Note: If this Key was not sent, <code class="highlighter-rouge">MerchantId</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">MerchantID <br /> Note: If this Key was not sent, <code class="highlighter-rouge">EstablishmentCode</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-6">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Code that chargeback was previously contested or accepted</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message that chargeback was previously contested or accepted</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contesting-a-chargeback-and-not-sending-the-contestation-files">Contesting a chargeback and not sending the contestation files</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-7">Request</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Establishment Code <br /> Note: If this Key was not sent, <code class="highlighter-rouge">MerchantId</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">MerchantID <br /> Note: If this Key was not sent, <code class="highlighter-rouge">EstablishmentCode</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-7">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FileNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body (Body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Code that contestation file was not sent</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message that contestation file was not sent</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contesting-a-chargeback-by-submitting-the-contestation-file-with-an-extension-different-than-jpeg-jpg-or-png">Contesting a chargeback by submitting the contestation file with an extension different than jpeg, jpg or png</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-8">Request</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Establishment Code <br /> Note: If this Key was not sent, <code class="highlighter-rouge">MerchantId</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">MerchantID <br /> Note: If this Key was not sent, <code class="highlighter-rouge">EstablishmentCode</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-8">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileExtension"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file extension"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Code that the contestation file was sent with an invalid extension, different than jpeg, jpg or png</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message that the contestation file was sent with an invalid extension, different than jpeg, jpg or png</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contesting-a-chargeback-by-submitting-contest-files-larger-than-7mb">Contesting a chargeback by submitting contest files larger than 7mb</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-9">Request</h3>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Establishment Code <br /> Note: If this Key was not sent, <code class="highlighter-rouge">MerchantId</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">MerchantID <br /> Note: If this Key was not sent, <code class="highlighter-rouge">EstablishmentCode</code> must be sent</td>
+      <td style="text-align: left">conditional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-9">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileLength"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file length"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Code that contest files exceeded 7mb in size</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message that contest files exceeded 7mb in size</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="queries">Queries</h1>
+
+<h3 id="request-10">Request</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
+
+<p><strong>Parameters in the header (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Request content type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Authorization type</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Request identifier</td>
+      <td style="text-align: left">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">StartDate</code></td>
+      <td style="text-align: left">Query start date</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EndDate</code></td>
+      <td style="text-align: left">Quer end date</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">PageIndex</code></td>
+      <td style="text-align: left">Page number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">PageSize</code></td>
+      <td style="text-align: left">Number of items per page <br /> Maximum 250 items</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantIds</code></td>
+      <td style="text-align: left">MerchantId(s) to be used in the query <br /> Note: If not submitted, the query will be performed taking into account the MerchantId(s) associated with ClientId</td>
+      <td style="text-align: center">no</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCodes</code></td>
+      <td style="text-align: left">Establishment code(s) to be used in the query <br /> Note: If not submitted, the query will be performed taking into account the Establishment code(s) associated with ClientId</td>
+      <td style="text-align: center">no</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback case number</td>
+      <td style="text-align: center">no</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">AcquirerTransactionId</code></td>
+      <td style="text-align: left">Acquirer transaction ID (TID)</td>
+      <td style="text-align: center">no</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Pagador transaction ID or PaymentId (Cielo 3.0)</td>
+      <td style="text-align: center">no</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-10">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Total"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Chargebacks"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd14e3fb-cf2a-4228-b690-1338660afc54"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-01 09:51:25"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumidor nao reconhece a compra"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cliente enviou documentos inválidos"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"AcquirerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123efg"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890BA2018XPTO"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"258654"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T85245"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-15"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PagadorMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1052460-92b2-49c3-a929-fc985df0ba2f"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bb33b5c5-82fe-4254-9f1d-b9c97297b0d5"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"CardHolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOAO D COUVES"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"MaskedCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453906******8385"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AntifraudMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b1b017a-a8b5-4e83-ae36-19c69f11845e"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AntifraudTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9f6ec028-b55d-4605-b655-164ce62aeaef"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AntifraudSourceApplication"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gateway"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5446494501496896403073"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"NegativeValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"CustomerDocumentNumber"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"ShippingStreet"</span><span class="w">
+                </span><span class="p">],</span><span class="w"> 
+                </span><span class="nl">"ProviderChargebackMarkingEvent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5446495589216876903021"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
+      <td style="text-align: left">Chargeback ID at Risk Notification API</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CreatedDate</code></td>
+      <td style="text-align: left">Chargeback creation date at Risk Notification API<br /> Ex.: 2018-09-01 09:51:25</td>
+      <td style="text-align: center">date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Date</code></td>
+      <td style="text-align: left">Chargeback date <br /> Ex.: 2018-08-30</td>
+      <td style="text-align: center">date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback case number</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Amount</code></td>
+      <td style="text-align: left">Chargeback amount in cents <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ReasonCode</code></td>
+      <td style="text-align: left">Chargeback reason code</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ReasonMessage</code></td>
+      <td style="text-align: left">Chargeback reason nessage</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Chargeback status at Risk Notification API - <a href="https://braspag.github.io/manual/chargeback#table-3-chargebacks[n].status">Table 3</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Comment</code></td>
+      <td style="text-align: left">Comment associated with chargeback <br /> If Cybersource transaction chargeback, this comment will be visible on Cybersource backoffice</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">IsFraud</code></td>
+      <td style="text-align: left">Identifies if chargeback is fraud</td>
+      <td style="text-align: center">bool</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AcquirerType</code></td>
+      <td style="text-align: left">Acquirer identifier</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.EstablishmentCode</code></td>
+      <td style="text-align: left">Establishment code</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.MerchantOrderId</code></td>
+      <td style="text-align: left">Order ID</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Tid</code></td>
+      <td style="text-align: left">Acquirer transaction ID</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Nsu</code></td>
+      <td style="text-align: left">Acquirer unique sequential number (NSU)</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AuthorizationCode</code></td>
+      <td style="text-align: left">Acquirer authorization code</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.SaleDate</code></td>
+      <td style="text-align: left">Acquirer authorization date <br /> Ex.: 2018-08-15</td>
+      <td style="text-align: center">date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.PagadorMerchantId</code></td>
+      <td style="text-align: left">Merchant ID at Pagador or Cielo 3.0</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.BraspagTransactionId</code></td>
+      <td style="text-align: left">Transaction ID at Pagador or Cielo 3.0 (PaymentId)</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Amount</code></td>
+      <td style="text-align: left">Transaction amount in cents <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.CardHolder</code></td>
+      <td style="text-align: left">Card holder or other message</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.MaskedCardNumber</code></td>
+      <td style="text-align: left">Masked card number</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Brand</code></td>
+      <td style="text-align: left">Brand</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AntifraudMerchantId</code></td>
+      <td style="text-align: left">Merchant ID at Antifraud</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AntifraudTransactionId</code></td>
+      <td style="text-align: left">Transaction Id at Antifraud</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AntifraudSourceApplication</code></td>
+      <td style="text-align: left">Origin of the antifraud platform - <a href="https://braspag.github.io/manual/chargeback#table-6-chargebacks[n].transaction.antifraudsourceapplication">Table 6</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderTransactionId</code></td>
+      <td style="text-align: left">Transaction ID at antifraud provider</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.NegativeValues</code></td>
+      <td style="text-align: left">Parameters that were included in negative list when antifraud transaction for Cybersource <br /> Parameters are concatenated using the character , <br /> Ex.: CustomerDocumentNumber, ShippingStreet <br /> - <a href="https://braspag.github.io/manual/chargeback#table-1-chargebacks[n].negativevalues">Table 1</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Id</code></td>
+      <td style="text-align: left">ID of the chargeback transaction markup event. Cybersource only</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Status</code></td>
+      <td style="text-align: left">Status of the chargeback transaction markup event. Cybersource only - <a href="https://braspag.github.io/manual/chargeback#table-4-chargebacks[n].transaction.providerchargebackmarkingevent.status">Table 4</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Code</code></td>
+      <td style="text-align: left">Code of the chargeback transaction markup event. Cybersource only - <a href="https://braspag.github.io/manual/chargeback#table-5-chargebacks[n].transaction.providerchargebackmarkingevent.code">Table 5</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="tables">Tables</h1>
+
+<h2 id="table-1---chargebacksnnegativevalues">Table 1 - Chargebacks[n].NegativeValues</h2>
+
+<p>Possible values to be entered in the negative list in Cybersource</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CustomerDocumentNumber</td>
+      <td style="text-align: left">Customer document number: CPF or CNPJ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CustomerIpAddress</td>
+      <td style="text-align: left">Customer IP address</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CustomerPhone</td>
+      <td style="text-align: left">Customer phonenumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ShippingStreet</td>
+      <td style="text-align: left">Shipping address street</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeviceFingerprintSmartId</td>
+      <td style="text-align: left">Customer device fingerprint</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-2---resultprocessingstatus">Table 2 - Result.ProcessingStatus</h2>
+
+<p>Possible returns of the sent chargeback</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AlreadyExist</td>
+      <td style="text-align: left">Transaction already marked with chargeback previously</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Remand</td>
+      <td style="text-align: left">Chargeback to be resent</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NotFound</td>
+      <td style="text-align: left">Transaction found in database for values sent in <code class="highlighter-rouge">Transaction</code> node fields</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-3---chargebacksnstatus">Table 3 - Chargebacks[n].Status</h2>
+
+<p>Possible chargeback values</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Received</td>
+      <td style="text-align: left">Chargeback received from acquirer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AcceptedByMerchant</td>
+      <td style="text-align: left">Chargeback accepted by merchant. In this case the store understands that it has indeed suffered a chargeback and will not hold the dispute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ContestedByMerchant</td>
+      <td style="text-align: left">Chargeback contested by merchant. In this case the store has sent the necessary documents to try to reverse the chargeback</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-4---chargebacksntransactionproviderchargebackmarkingeventstatus">Table 4 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ACCEPT</td>
+      <td style="text-align: left">Chargeback markup accepted on provider</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REJECT</td>
+      <td style="text-align: left">Chargeback markup rejected on provider</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-5---chargebacksntransactionproviderchargebackmarkingeventcode">Table 5 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Code</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">100</td>
+      <td style="text-align: left">Operation successfully performed</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">150</td>
+      <td style="text-align: left">Internal Error <br /> Possible Action: Wait a few minutes and try resubmitting the chargeback tag</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">151</td>
+      <td style="text-align: left">The chargeback flag was received, but timeout occurred on the server. This error does not include client-server time-out <br /> Possible Action: Please wait a few minutes and try resubmitting</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">152</td>
+      <td style="text-align: left">Chargeback markup received, but timeout occurred <br /> Possible action: Please wait a few minutes and try resubmitting</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">234</td>
+      <td style="text-align: left">Cybersource Store Configuration Issue <br /> Possible Action: Contact support to fix configuration issue</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-6---chargebacksntransactionantifraudsourceapplication">Table 6 - Chargebacks[n].Transaction.AntifraudSourceApplication</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th>Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Gateway</td>
+      <td style="text-align: left">Gateway Antifraud</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Legacy</td>
+      <td style="text-align: left">Legacy Antifraud</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="matrix">Matrix</h1>
+
+<h2 id="matrix-1---documents">Matrix 1 - Documents</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Segment\Reason</td>
+      <td>Standard Documents</td>
+      <td>Bearer Does Not Recognize Transaction</td>
+      <td>Product Not Received</td>
+      <td>Services Not Provided</td>
+      <td>Product Defective/Does not Check</td>
+      <td>Unprocessed Credit</td>
+      <td>Duplicate Processing/Payments by Other Methods</td>
+    </tr>
+    <tr>
+      <td>Rental Company</td>
+      <td>1) Copy of Proof of Sale <br /> 2) Cardholder Registration (name of cardholder, name registered on the website, Social Security Number, email, address, landline / mobile) <br /> 3) Invoice <br /> 4) Duly signed rental agreement stating insurance policy <br /> 5) Signature document on file (debit authorization)</td>
+      <td>6) Notification of paid traffic violation (if any) <br /> 7) Disclaimer (future damage) <br /> 8) Event report (if any) <br /> 9) Three accident and vehicle repair budgets (if any) <br /> 10 ) Notice to the bearer of damage / penalty charges</td>
+      <td>-</td>
+      <td>6) Proof of checkout</td>
+      <td>-</td>
+      <td>6) Cancellation policy</td>
+      <td>6) Two or more vouchers proving that there have been two or more transactions, inform the authorization code of the two transactions</td>
+    </tr>
+    <tr>
+      <td>Hotels</td>
+      <td>1) Copy of proof of sale <br /> 2) Holder’s registration (cardholder name, website name, social security number, email, address, landline / mobile phone) <br /> 3) Invoice <br /> 4) File signature document (debit authorization)</td>
+      <td>5) Description of services provided (chekin and checkout)</td>
+      <td>-</td>
+      <td>5) Description of services provided (chekin and checkout)</td>
+      <td>-</td>
+      <td>5) cancellation (no show) with a copy of the cancellation option screen on the website by the carrier proving the date</td>
+      <td>5) Two or more vouchers proving that there were two or more transactions, inform the authorization code of the two transactions</td>
+    </tr>
+    <tr>
+      <td>Tourist Agency</td>
+      <td>1) Copy of proof of sale <br /> 2) Holder’s registration (Cardholder Name, Website Name, Social Security Number, Email, Address, Landline / Mobile) <br /> 3) Invoice <br /> 4) Travel Service Agreement (if any)</td>
+      <td>5) Official document certifying bearer’s identity (double-sided) <br /> 6) Signature document on file (debit authorization) )</td>
+      <td>-</td>
+      <td>5) Copy of issued tickets / voucher’s</td>
+      <td>-</td>
+      <td>5) Cancellation policy</td>
+      <td>5) Two or more vouchers showing that there have been two or more transactions, inform the authorization code of the two transactions</td>
+    </tr>
+    <tr>
+      <td>Cias Aereas</td>
+      <td>1) Copy of proof of sale <br /> 2) Cardholder registration (name of cardholder, name registered on the website, social security number, email, address, landline / mobile phone) <br /> 3 ) Invoice <br /> 4) Travel service agreement (if any)</td>
+      <td>5) Official document certifying bearer’s identity (double-sided) <br /> 6) Signature document on file (debit authorization)</td>
+      <td>-</td>
+      <td>5) Copy of issued tickets / voucher’s <br /> 6) Checkin (if any)</td>
+      <td>-</td>
+      <td>5) Cancellation policy</td>
+      <td>5) Two or more vouchers showing that there have been two or more transactions, enter authorization code of the two transactions</td>
+    </tr>
+    <tr>
+      <td>Data Processing Service <br /> Online Services</td>
+      <td>1) Copy of Proof of Sale <br /> 2) Cardholder Registration (name of cardholder, name registered on the website, Social Security Number, email, address, phone number) fixed / mobile) <br /> 3) Invoice <br /> 4) Debit authorization <br /> 5) Purchase order for internet transactions <br /> 6) Copy of payment details screen</td>
+      <td>7) Description of the Services Provided <br /> 8) Cardholder Registration (Name of cardholder, Name registered on the website, Social Security number, Email, Address, Landline / Mobile</td>
+      <td>-</td>
+      <td>7) Contract with details of the provision of services <br /> 8) Protocol on services provided</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Supermarket or Retail</td>
+      <td>1) Copy of Proof of Sale <br /> 2) Cardholder Registration (Cardholder’s Name, Website Name, Social Security Number, Email, Address, Landline / Mobile) <br /> 3) Invoice <br /> 4) Debit authorization <br /> 5) Purchase order for internet transactions <br /> 6) Copy of payment details screen 7) Description of services provided <br /> 7) Proof of delivery of product and / or signed protocol <br /> 8) Electronic acceptance (if any)</td>
+      <td>7) Contract with details of service provision <br /> 8) Protocol of services provided</td>
+      <td>7) Return policy and exchange with electronic acceptance (if any)</td>
+      <td>7) Cancellation policy</td>
+      <td>7) Two or more vouchers proving that there have been two or more transactions, inform the authorization code of the two transactions</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Tickets</td>
+      <td>1) Copy of Proof of Sale <br /> 2) Cardholder Registration (Cardholder’s Name, Website Name, Social Security Number, Email, Address, Landline / Mobile) <br /> 3) Invoice <br /> 4) Debit Authorization <br /> 5) Purchase Order for Internet Transactions <br /> 6) Copy of Means of Payment Screen</td>
+      <td>-</td>
+      <td>7) Proof of Product Delivery and / or signed protocol <br /> 8) Electronic accept (if any)</td>
+      <td>-</td>
+      <td>7) Return and exchange policy with electronic accept (if any)</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Publisher or Bookstore</td>
+      <td>1) Copy of Proof of Sale <br /> 2) Cardholder Registration (Cardholder’s Name, Website Name, Social Security Number, Email, Address, Landline / Mobile) <br /> 3) Invoice <br /> 4) Debit Authorization <br /> 5) Purchase Order for Internet Transactions <br /> 6) Copy of Means of Payment Screen</td>
+      <td>-</td>
+      <td>7) Proof of Delivery product and / or signed protocol <br /> 8) Electronic accept (if any)</td>
+      <td>-</td>
+      <td>7) Return and exchange policy with electronic accept (if any)</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Insurance Companies</td>
+      <td>1) Copy of proof of sale <br /> 2) Cardholder registration (name of cardholder, name registered on the website, social security number, email, address, landline / mobile) <br /> 3) Invoice <br /> 4) Debit authorization <br /> 5) Purchase order for internet transactions <br /> 6) Copy of payment method screen</td>
+      <td>-</td>
+      <td>-</td>
+      <td>7) return and exchange with electronic acceptance (if any)</td>
+      <td>-</td>
+      <td>-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Other Segments</td>
+      <td>1) Copy of proof of sale <br /> 2) Cardholder registration (name of cardholder, name registered on the website, social security number, email, address, landline / mobile) <br /> 3 ) Invoice <br /> 4) Debit Authorization <br /> 5) Purchase Order for Internet Transactions <br /> 6) Copy of Means of Payment Screen</td>
+      <td>7) Proof of Product Delivery and / or signed protocol <br /> 8) Letter from the true bearer acknowledging the expense</td>
+      <td>7) Proof of delivery of the product and / or signed protocol <br /> 8) Electronic acceptance (if any)</td>
+      <td>7) Contract with delivery details Services <br /> 8) Service Protocol</td>
+      <td>7) Return and Exchange Policy with Electronic Acceptance (if any)</td>
+      <td>7) Cancellation Policy</td>
+      <td>7) Two or more vouchers showing that there were two or more transactions, enter code of authorization of the two transactions</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you didn't find your answer, <a href="http://www.braspag.com.br/fale-conosco/">send us a message</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io//en">
+        <img src="https://braspag.github.io//en/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//en/assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//en/assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Toggle"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//en/assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json", ]);
+            });
+        </script>
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:715256,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
