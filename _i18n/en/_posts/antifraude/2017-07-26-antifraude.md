@@ -630,8 +630,8 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`CartItem[n].ProductName`|Product name|string|yes|255|
 |`CartItem[n].Risk`|Risk level of the product associated with the quantity of chargebacks <br/> [Table 11 - CartItem{n}.Risk]({{ site.baseurl_root }}en/manual/antifraude#table-11-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Product unit price <br/> Ex: 10950 = r$ 109,50|long|yes|-|
-|`CartItem[n].Sku`|Product SKU|string|no|255|
-|`CartItem[n].Quantity`|Product quantity|int|no|-|
+|`CartItem[n].Sku`|Product SKU|string|yes|255|
+|`CartItem[n].Quantity`|Product quantity|int|yes|-|
 |`CartItem[n].AddressRiskVerify`|Identifies that you will evaluate the billing and shipping addresses for different cities, states or countries <br/> [Table 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}en/manual/antifraude#table-12-cartitem[n].addressriskverify)|enum|-|-|
 |`CartItem[n].HostHedge`|Level of importance of customer IP and email addresses in fraud analysis <br/> [Table 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}en/manual/antifraude#table-13-cartitem[n].hosthedge)|enum|-|-|
 |`CartItem[n].NonSensicalHedge`|Level of importance of verifications about the customer data non sensical in fraud analysis <br/> [Table 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge)|enum|-|-|
