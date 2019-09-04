@@ -6160,6 +6160,16 @@ curl
     "ProofOfSale": "2539492",
     "AcquirerTransactionId": "0510042539492",
     "AuthorizationCode": "759497",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2017-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Received"
+        }
+    ],
     "VelocityAnalysis": {
       "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
       "ResultMessage": "Accept",
@@ -6220,6 +6230,22 @@ curl
     "ProofOfSale": "2539492",
     "AcquirerTransactionId": "0510042539492",
     "AuthorizationCode": "759497",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2017-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Received",
+            "RawData": "Client did not participate and did not authorize transaction"
+        }
+    ],
+    "VelocityAnalysis": {
+      "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
+      "ResultMessage": "Accept",
+      "Score": 0
+    },
     "PaymentId": "f8078b32-be17-4c35-b164-ad74c3cd0725",
     "Type": "CreditCard",
     "Amount": 10000,
@@ -6291,6 +6317,13 @@ curl
 |`Payment.AcquirerTransactionId`|Provider's Transaction ID|Text|40|Alphanumeric Text|
 |`Payment.ProofOfSale`|Provider's Proof of Sale Code|Text|20|Alphanumeric Text|
 |`Payment.AuthorizationCode`|Provider's Authorization Code|Text|300|Alphanumeric Text|
+|`Payment.Chargebacks[n].Amount`|Chargeback amount|Number|15|10000|
+|`Payment.Chargebacks[n].CaseNumber`|Chargeback case number|Text|16|Alphanumeric Text|
+|`Payment.Chargebacks[n].Date`|Chargeback date|Date|10|AAAA-MM-DD|
+|`Payment.Chargebacks[n].ReasonCode`|Chargeback reason code|Text|10|Alphanumeric Text|
+|`Payment.Chargebacks[n].ReasonMessage`|Chargeback reason message|Text|512|Alphanumeric Text|
+|`Payment.Chargebacks[n].Status`|Chargegback status <br/> [Values List - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}manual/en/braspag-pagador#list-values-payment.chargebacks[n].status)|Text|32|Text|
+|`Payment.Chargebacks[n].RawData`|Raw Data|Text|512|Alphanumeric Text|
 |`Payment.PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Payment.ReceivedDate`|Transaction's received date|Text|19|YYYY-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Operation's Reason Code|Text|32|Alphanumeric Text|
@@ -7061,6 +7094,14 @@ The "Simulado" is a payment method that emulates the use of credit card payment.
 |Não Autorizado (dedied)|0000.0000.0000.0005|78|Cartão Bloqueado (blocked card)|
 |Não Autorizado (dedied)|0000.0000.0000.0003|57|Cartão Expirado (expired card)|
 |Não Autorizado (dedied)|0000.0000.0000.0006|99|Time Out (timeout)|
+
+## Values List - Payment.Chargebacks[n].Status
+
+|Value|Description|
+|:-|:-|
+|Received|Chargeback received from acquirer|
+|AcceptedByMerchant|Chargeback accepted by merchant. In this case the store understands that it has indeed suffered a chargeback and will not hold the dispute|
+|ContestedByMerchant|Chargeback contested by merchant. In this case the store has sent the necessary documents to try to reverse the chargeback|
 
 The CVV2 (security code) can be any random number. The expiry date must be greater than current date.
 
