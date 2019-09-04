@@ -6197,7 +6197,8 @@ curl
             "Date": "2017-06-04",
             "ReasonCode": "104",
             "ReasonMessage": "Outras Fraudes - Cartao Ausente",
-            "Status": "Received"
+            "Status": "Received",
+            "RawData": "Client did not participate and did not authorize transaction"
         }
     ],
     "VelocityAnalysis": {
@@ -6278,10 +6279,11 @@ curl
 |`Payment.AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
 |`Payment.Chargebacks[n].Amount`|Valor do chargeback|Número|15|10000|
 |`Payment.Chargebacks[n].CaseNumber`|Número do caso relacionado ao chargeback|Texto|16|Texto alfanumérico|
-|`Payment.Chargebacks[n].Date`|Código de autorização|Texto|300|AAAA-MM-DD|
-|`Payment.Chargebacks[n].ReasonCode`|Código do motivo do chargeback|Texto|10|Texto alfanumérico|
-|`Payment.Chargebacks[n].ReasonMessage`|Descrição do motivo do chargeback|Texto|512|Texto alfanumérico|
-|`Payment.Chargebacks[n].Status`|Status do chargegback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
+|`Payment.Chargebacks[n].Date`|Data do chargeback|Date|10|AAAA-MM-DD|
+|`Payment.Chargebacks[n].ReasonCode`|Código de motivo do chargeback|Texto|10|Texto alfanumérico|
+|`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback|Texto|512|Texto alfanumérico|
+|`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
+|`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente|Texto|512|Alphanumeric Text|
 |`Payment.PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
