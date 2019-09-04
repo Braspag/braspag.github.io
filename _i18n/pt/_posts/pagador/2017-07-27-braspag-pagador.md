@@ -6120,6 +6120,16 @@ curl
     "ProofOfSale": "2539492",
     "AcquirerTransactionId": "0510042539492",
     "AuthorizationCode": "759497",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2017-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Received"
+        }
+    ],
     "VelocityAnalysis": {
       "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
       "ResultMessage": "Accept",
@@ -6187,9 +6197,14 @@ curl
             "Date": "2017-06-04",
             "ReasonCode": "104",
             "ReasonMessage": "Outras Fraudes - Cartao Ausente",
-            "Status": "Pendent"
+            "Status": "Received"
         }
     ],
+    "VelocityAnalysis": {
+      "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
+      "ResultMessage": "Accept",
+      "Score": 0
+    },
     "PaymentId": "f8078b32-be17-4c35-b164-ad74c3cd0725",
     "Type": "CreditCard",
     "Amount": 10000,
