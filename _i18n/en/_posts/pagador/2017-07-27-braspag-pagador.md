@@ -6323,7 +6323,7 @@ curl
 |`Payment.Chargebacks[n].Date`|Chargeback date|Date|10|AAAA-MM-DD|
 |`Payment.Chargebacks[n].ReasonCode`|Chargeback reason code|Text|10|Alphanumeric Text|
 |`Payment.Chargebacks[n].ReasonMessage`|Chargeback reason message|Text|512|Alphanumeric Text|
-|`Payment.Chargebacks[n].Status`|Chargegback status <br/> [Values List - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}manual/en/braspag-pagador#list-values-payment.chargebacks[n].status)|Text|32|Text|
+|`Payment.Chargebacks[n].Status`|Chargegback status <br/> [Values List - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}/manual/en/braspag-pagador#list-values-payment.chargebacks[n].status)|Text|32|Text|
 |`Payment.Chargebacks[n].RawData`|Raw Data|Text|512|Alphanumeric Text|
 |`Payment.PaymentId`|Braspag's Transaction ID|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Payment.ReceivedDate`|Transaction's received date|Text|19|YYYY-MM-DD HH:mm:SS|
