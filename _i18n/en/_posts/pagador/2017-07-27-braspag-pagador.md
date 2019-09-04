@@ -7101,8 +7101,8 @@ The "Simulado" is a payment method that emulates the use of credit card payment.
 |Value|Description|
 |:-|:-|
 |Received|Chargeback received from acquirer|
-|AcceptedByMerchant|Chargeback accepted by merchant. In this case the store understands that it has indeed suffered a chargeback and will not hold the dispute|
-|ContestedByMerchant|Chargeback contested by merchant. In this case the store has sent the necessary documents to try to reverse the chargeback|
+|AcceptedByMerchant|Chargeback accepted by merchant. In this case the merchant understands that it has indeed suffered a chargeback and will not hold the contestation|
+|ContestedByMerchant|Chargeback contested by merchant. In this case the merchant has sent the necessary documents to try to reverse the chargeback|
 
 The CVV2 (security code) can be any random number. The expiry date must be greater than current date.
 
