@@ -600,11 +600,11 @@ Exemplo:
 |`Id`|Id do chargeback na Chargeback API Braspag|guid|
 |`CreatedDate`|Data de criação do chargeback na Chargeback API Braspag <br/> Ex.: 2018-09-01 09:51:25|date|
 |`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
-|`CaseNumber`|Número do caso relacionado ao chargeback|guid|
+|`CaseNumber`|Número do caso relacionado ao chargeback|string|
 |`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
 |`ReasonCode`|Código do motivo do chargeback|string|
 |`ReasonMessage`|Descrição do motivo do chargeback|string|
-|`Status`|Status do charegabck na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/chargeback#tabela-3-chargebacks[n].status)|string|
+|`Status`|Status do chargegback na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/chargeback#tabela-3-chargebacks[n].status)|string|
 |`Comment`|Comentário que deseja associar ao chargeback e que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
 |`IsFraud`|Identifica se o chargeback é de fraude|bool|
 |`Transaction.AcquirerType`|Identificador da adquirentre|string|
