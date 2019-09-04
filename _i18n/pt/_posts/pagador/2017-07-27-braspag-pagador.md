@@ -6284,7 +6284,7 @@ curl
 |`Payment.Chargebacks[n].ReasonCode`|Código de motivo do chargeback|Texto|10|Texto alfanumérico|
 |`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback|Texto|512|Texto alfanumérico|
 |`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
-|`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente|Texto|512|Alphanumeric Text|
+|`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente|Texto|512|Texto alfanumérico|
 |`Payment.PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
