@@ -9970,7 +9970,7 @@ curl
       <td>Texto</td>
       <td>9</td>
       <td>Não</td>
-      <td>Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-8-cartitem[n].addressriskverify">Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.GiftCategory</a></td>
+      <td>Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br /> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.GiftCategory](https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.tems[n].giftcategory</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.HostHedge</code></td>
@@ -11774,6 +11774,16 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <span class="s2">"ProofOfSale"</span>: <span class="s2">"2539492"</span>,
     <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0510042539492"</span>,
     <span class="s2">"AuthorizationCode"</span>: <span class="s2">"759497"</span>,
+    <span class="s2">"Chargebacks"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"Amount"</span>: 10000,
+            <span class="s2">"CaseNumber"</span>: <span class="s2">"123456"</span>,
+            <span class="s2">"Date"</span>: <span class="s2">"2017-06-04"</span>,
+            <span class="s2">"ReasonCode"</span>: <span class="s2">"104"</span>,
+            <span class="s2">"ReasonMessage"</span>: <span class="s2">"Outras Fraudes - Cartao Ausente"</span>,
+            <span class="s2">"Status"</span>: <span class="s2">"Pendent"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
     <span class="s2">"PaymentId"</span>: <span class="s2">"f8078b32-be17-4c35-b164-ad74c3cd0725"</span>,
     <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
     <span class="s2">"Amount"</span>: 10000,
@@ -12087,6 +12097,48 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
       <td>Texto</td>
       <td>300</td>
       <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].Amount</code></td>
+      <td>Valor do chargeback</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].CaseNumber</code></td>
+      <td>Número do caso relacionado ao chargeback</td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].Date</code></td>
+      <td>Código de autorização</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>AAAA-MM-DD</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].ReasonCode</code></td>
+      <td>Código do motivo do chargeback</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].ReasonMessage</code></td>
+      <td>Descrição do motivo do chargeback</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].Status</code></td>
+      <td>Status do chargegback <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status">Lista de Valores - Payment.Chargebacks{n}.Status</a></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.PaymentId</code></td>
@@ -15886,6 +15938,31 @@ No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o
     <tr>
       <td style="text-align: left">No value returned</td>
       <td style="text-align: left">O tipo de roteamento é desconhecido</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentchargebacksnstatus">Lista de Valores - Payment.Chargebacks[n].Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Received</td>
+      <td style="text-align: left">Chargeback recebido da adquirente</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AcceptedByMerchant</td>
+      <td style="text-align: left">Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ContestedByMerchant</td>
+      <td style="text-align: left">Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback</td>
     </tr>
   </tbody>
 </table>
