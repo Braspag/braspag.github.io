@@ -6167,7 +6167,8 @@ curl
             "Date": "2017-06-04",
             "ReasonCode": "104",
             "ReasonMessage": "Outras Fraudes - Cartao Ausente",
-            "Status": "Received"
+            "Status": "Received",
+            "RawData": "Client did not participate and did not authorize transaction"
         }
     ],
     "VelocityAnalysis": {
