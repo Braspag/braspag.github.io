@@ -5151,7 +5151,7 @@ curl
 |`Payment.FraudAnalysis.Browser.IpAddress`|Texto|45|Sim|Endereço de IP do comprador. Formato IPv4 ou IPv6|
 |`Payment.FraudAnalysis.Cart.IsGift`|Booleano|---|Não|Indica se o pedido realizado pelo comprador é para presente|
 |`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Booleano|---|Não|Indica se o pedido realizado pelo comprador pode ser devolvido a loja <br/> Possíveis valores: true / false (default)|
-|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Texto|9|Não|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.GiftCategory]({{ site.baseurl_root }}manual/antifraude#tabela-8-cartitem[n].addressriskverify)|
+|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Texto|9|Não|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.GiftCategory]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.tems[n].giftcategory|
 |`Payment.FraudAnalysis.Cart.Items.HostHedge`|Texto|6|Não|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.HostHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge)|
 |`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Texto|6|Não|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Lista de Valores - Cart.Items{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge)|
 |`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Texto|6|Não|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge)|
@@ -6180,6 +6180,16 @@ curl
     "ProofOfSale": "2539492",
     "AcquirerTransactionId": "0510042539492",
     "AuthorizationCode": "759497",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2017-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Pendent"
+        }
+    ],
     "PaymentId": "f8078b32-be17-4c35-b164-ad74c3cd0725",
     "Type": "CreditCard",
     "Amount": 10000,
@@ -6251,6 +6261,12 @@ curl
 |`Payment.AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
 |`Payment.ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
 |`Payment.AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
+|`Payment.Chargebacks[n].Amount`|Valor do chargeback|Número|15|10000|
+|`Payment.Chargebacks[n].CaseNumber`|Número do caso relacionado ao chargeback|Texto|16|Texto alfanumérico|
+|`Payment.Chargebacks[n].Date`|Código de autorização|Texto|300|AAAA-MM-DD|
+|`Payment.Chargebacks[n].ReasonCode`|Código do motivo do chargeback|Texto|10|Texto alfanumérico|
+|`Payment.Chargebacks[n].ReasonMessage`|Descrição do motivo do chargeback|Texto|512|Texto alfanumérico|
+|`Payment.Chargebacks[n].Status`|Status do chargegback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
 |`Payment.PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
@@ -7361,3 +7377,11 @@ As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mant
 |Satellite|Conexões por satélite. Se o uplink e o downlink estiverem cadastrados, o método roteamento é considerado padrão porque o remetente é conhecido. No entanto, se o downlink não está registrado, o comprador pode estar em qualquer lugar dentro do feixe padrão do satélite, que pode abranger um continente ou mais|
 |SuperPOP|O comprador está discando em um ISP multi-estatal ou multinacional que provavelmente não é provável a localização do endereço de IP. O comprador pode estar discando através de limites geográficos|
 |No value returned|O tipo de roteamento é desconhecido|
+
+## Lista de Valores - Payment.Chargebacks[n].Status
+
+|Valor|Descrição|
+|:-|:-|
+|Received|Chargeback recebido da adquirente|
+|AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa|
+|ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
