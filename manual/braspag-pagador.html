@@ -11791,7 +11791,8 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
             <span class="s2">"Date"</span>: <span class="s2">"2017-06-04"</span>,
             <span class="s2">"ReasonCode"</span>: <span class="s2">"104"</span>,
             <span class="s2">"ReasonMessage"</span>: <span class="s2">"Outras Fraudes - Cartao Ausente"</span>,
-            <span class="s2">"Status"</span>: <span class="s2">"Received"</span>
+            <span class="s2">"Status"</span>: <span class="s2">"Received"</span>,
+            <span class="s2">"RawData"</span>: <span class="s2">"Client did not participate and did not authorize transaction"</span>
         <span class="o">}</span>
     <span class="o">]</span>,
     <span class="s2">"VelocityAnalysis"</span>: <span class="o">{</span>
@@ -12129,31 +12130,38 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Chargebacks[n].Date</code></td>
-      <td>Código de autorização</td>
-      <td>Texto</td>
-      <td>300</td>
+      <td>Data do chargeback</td>
+      <td>Date</td>
+      <td>10</td>
       <td>AAAA-MM-DD</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Chargebacks[n].ReasonCode</code></td>
-      <td>Código do motivo do chargeback</td>
+      <td>Código de motivo do chargeback</td>
       <td>Texto</td>
       <td>10</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Chargebacks[n].ReasonMessage</code></td>
-      <td>Descrição do motivo do chargeback</td>
+      <td>Mensagem de motivo do chargeback</td>
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Chargebacks[n].Status</code></td>
-      <td>Status do chargegback <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status">Lista de Valores - Payment.Chargebacks{n}.Status</a></td>
+      <td>Status do chargeback <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status">Lista de Valores - Payment.Chargebacks{n}.Status</a></td>
       <td>Texto</td>
       <td>32</td>
       <td>Texto</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].RawData</code></td>
+      <td>Dado enviado pela adquirente</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Alphanumeric Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.PaymentId</code></td>

@@ -13011,6 +13011,16 @@ New Next scheduled recurrence date: Oct 2th <br />
     </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2539492"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0510042539492"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"759497"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Chargebacks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-04"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"104"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outras Fraudes - Cartao Ausente"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nl">"VelocityAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f8078b32-be17-4c35-b164-ad74c3cd0725"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ResultMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
@@ -13070,6 +13080,22 @@ New Next scheduled recurrence date: Oct 2th <br />
     <span class="s2">"ProofOfSale"</span>: <span class="s2">"2539492"</span>,
     <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0510042539492"</span>,
     <span class="s2">"AuthorizationCode"</span>: <span class="s2">"759497"</span>,
+    <span class="s2">"Chargebacks"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"Amount"</span>: 10000,
+            <span class="s2">"CaseNumber"</span>: <span class="s2">"123456"</span>,
+            <span class="s2">"Date"</span>: <span class="s2">"2017-06-04"</span>,
+            <span class="s2">"ReasonCode"</span>: <span class="s2">"104"</span>,
+            <span class="s2">"ReasonMessage"</span>: <span class="s2">"Outras Fraudes - Cartao Ausente"</span>,
+            <span class="s2">"Status"</span>: <span class="s2">"Received"</span>,
+            <span class="s2">"RawData"</span>: <span class="s2">"Client did not participate and did not authorize transaction"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">"VelocityAnalysis"</span>: <span class="o">{</span>
+      <span class="s2">"Id"</span>: <span class="s2">"f8078b32-be17-4c35-b164-ad74c3cd0725"</span>,
+      <span class="s2">"ResultMessage"</span>: <span class="s2">"Accept"</span>,
+      <span class="s2">"Score"</span>: 0
+    <span class="o">}</span>,
     <span class="s2">"PaymentId"</span>: <span class="s2">"f8078b32-be17-4c35-b164-ad74c3cd0725"</span>,
     <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
     <span class="s2">"Amount"</span>: 10000,
@@ -13382,6 +13408,55 @@ New Next scheduled recurrence date: Oct 2th <br />
       <td>Provider’s Authorization Code</td>
       <td>Text</td>
       <td>300</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].Amount</code></td>
+      <td>Chargeback amount</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].CaseNumber</code></td>
+      <td>Chargeback case number</td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].Date</code></td>
+      <td>Chargeback date</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>AAAA-MM-DD</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].ReasonCode</code></td>
+      <td>Chargeback reason code</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].ReasonMessage</code></td>
+      <td>Chargeback reason message</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].Status</code></td>
+      <td>Chargegback status <br /> <a href="https://braspag.github.io/manual/en/braspag-pagador#list-values-payment.chargebacks[n].status">Values List - Payment.Chargebacks{n}.Status</a></td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].RawData</code></td>
+      <td>Raw Data</td>
+      <td>Text</td>
+      <td>512</td>
       <td>Alphanumeric Text</td>
     </tr>
     <tr>
@@ -15624,6 +15699,31 @@ New Next scheduled recurrence date: Oct 2th <br />
       <td>0000.0000.0000.0006</td>
       <td>99</td>
       <td>Time Out (timeout)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="values-list---paymentchargebacksnstatus">Values List - Payment.Chargebacks[n].Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Received</td>
+      <td style="text-align: left">Chargeback received from acquirer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AcceptedByMerchant</td>
+      <td style="text-align: left">Chargeback accepted by merchant. In this case the store understands that it has indeed suffered a chargeback and will not hold the dispute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ContestedByMerchant</td>
+      <td style="text-align: left">Chargeback contested by merchant. In this case the store has sent the necessary documents to try to reverse the chargeback</td>
     </tr>
   </tbody>
 </table>
