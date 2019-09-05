@@ -573,7 +573,7 @@ Exemplo:
                 "PagadorMerchantId": "a1052460-92b2-49c3-a929-fc985df0ba2f",
                 "BraspagTransactionId": "bb33b5c5-82fe-4254-9f1d-b9c97297b0d5",
                 "Amount": 10000,
-                "CardHolder": "JOAO D COUVES",
+                "RawData": "JOAO D COUVES",
                 "MaskedCardNumber": "453906******8385",
                 "Brand": "Visa",
                 "AntifraudMerchantId": "4b1b017a-a8b5-4e83-ae36-19c69f11845e",
@@ -617,7 +617,7 @@ Exemplo:
 |`Transaction.PagadorMerchantId`|Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0|guid|
 |`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|guid|
 |`Transaction.Amount`|Valor da transação em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`Transaction.CardHolder`|Nome do cartão de crédito|string|
+|`Transaction.RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|string|
 |`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
 |`Transaction.Brand`|Bandeira do cartão de crédito|string|
 |`Transaction.AntifraudMerchantId`|Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway|guid|
