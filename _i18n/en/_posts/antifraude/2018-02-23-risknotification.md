@@ -572,7 +572,7 @@ Exemple:
                 "PagadorMerchantId": "a1052460-92b2-49c3-a929-fc985df0ba2f",
                 "BraspagTransactionId": "bb33b5c5-82fe-4254-9f1d-b9c97297b0d5",
                 "Amount": 10000,
-                "CardHolder": "JOAO D COUVES",
+                "RawData": "JOAO D COUVES",
                 "MaskedCardNumber": "453906******8385",
                 "Brand": "Visa",
                 "AntifraudMerchantId": "4b1b017a-a8b5-4e83-ae36-19c69f11845e",
@@ -616,7 +616,7 @@ Exemple:
 |`Transaction.PagadorMerchantId`|Merchant ID at Pagador or Cielo 3.0|guid|
 |`Transaction.BraspagTransactionId`|Transaction ID at Pagador or Cielo 3.0 (PaymentId)|guid|
 |`Transaction.Amount`|Transaction amount in cents <br/> Ex: 123456 = r$ 1.234,56|long|
-|`Transaction.CardHolder`|Card holder or other message|string|
+|`Transaction.RawData`|Data sent by acquirer and may be the card holder or other message|string|
 |`Transaction.MaskedCardNumber`|Masked card number|string|
 |`Transaction.Brand`|Brand|string|
 |`Transaction.AntifraudMerchantId`|Merchant ID at Antifraud|guid|
