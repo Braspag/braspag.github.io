@@ -84,7 +84,7 @@ curl
 | token\_type | Fixo &quot;bearer&quot; | Alfanumérico |
 | expires\_in | Tempo em minutos para expirar o token | Numérico |
 
-#Passo 2 - Implementação do script
+# Passo 2 - Implementação do script
 
 Neste passo, é implementado o _script_ e o mapeamento de _classes_ responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que demonstra a implementação básica. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:
 
@@ -129,7 +129,7 @@ Descrição das saídas
 | ReturnCode | Código de retorno da requisição de autenticação | Alfanumérico [até 5 posições] |
 | ReturnMessage | Mensagem de retorno da requisição de autenticação | Alfanumérico [varivável] |
 
-#Passo 3 - Mapeamento de classes
+# Passo 3 - Mapeamento de classes
 
 A solução disponibiliza dezenas de classes que devem ser mapeadas em seu código HTML.
 
@@ -253,7 +253,7 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | bpmpi_mdd4 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não | Não |
 | bpmpi_mdd5 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não | Não |
 
-#Passo 4 - Implementação da chamada ao evento de autenticação
+# Passo 4 - Implementação da chamada ao evento de autenticação
 
 O evento &quot;**bpmpi_Authenticate()**&quot; deve chamado no momento de finalização do checkout (finalização da compra). Vide exemplo abaixo:
 
