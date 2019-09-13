@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: 2.2. SDK Android
+title: 2.2. SDK Android (em breve)
 description: Integração técnica Gateway Braspag
 search: true
 translated: true
