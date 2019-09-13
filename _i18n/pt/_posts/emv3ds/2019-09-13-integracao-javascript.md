@@ -270,3 +270,8 @@ Utilize os cartões de **teste** abaixo para simular diversos cenários no ambie
 | 4000000000001091 | SUCCESS | Autenticação com desafio e portador autenticou com sucesso|
 | 4000000000001117 | UNENROLLED | Autenticação com desafio e Cartão não elegível |
 | 4000000000001109 | FAILURE | Autenticação com desafio e portador falhou na autenticação |
+
+## Autorização com Autenticação
+
+Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó **ExternalAuthentication** ).
+Veja maiores detalhes em: [https://braspag.github.io/manual/autorizacao-com-autenticacao](https://braspag.github.io/manual/autorizacao-com-autenticacao)
