@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integração via Javascript
+title: 2.1. Integração via Javascript
 description: Integração técnica Gateway Braspag
 search: true
 translated: true
