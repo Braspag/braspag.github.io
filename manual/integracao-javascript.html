@@ -410,7 +410,6 @@
       <th><strong>Descrição</strong></th>
       <th><strong>Tipo/Tamanho</strong></th>
       <th><strong>Obrigatório</strong></th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -419,28 +418,24 @@
       <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
       <td>Booleanotrue – submeter à autenticaçãofalse – não submeter à autenticação</td>
       <td>Sim</td>
-      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_auth_notifyonly</td>
       <td>Booleano que indica se a transação com cartão será submetida no modo “somente notificação”. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. <strong>VÁLIDO SOMENTE PARA CARTÕES MASTERCARD</strong></td>
       <td>Booleano: <br />true – modo somente notificação; <br />false – modo com autenticação</td>
-      <td>Sim</td>
-      <td>Sim</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td>bpmpi_auth_suppresschallenge</td>
       <td>Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.</td>
       <td>Booleano: <br />true – ignorar desafios se houver; <br />false – apresentar desafio se houver</td>
-      <td>Sim</td>
-      <td>Sim</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td>bpmpi_accesstoken</td>
       <td>Token gerado pela API de Token de Acesso (etapa 1)</td>
       <td>Alfanumérico [varivável]</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -515,6 +510,19 @@
       <td>Booleano<br />true - sim<br />false - não</td>
       <td>Não</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Dados das características do pedido</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>bpmpi_recurring_enddate</td>
       <td>Identifica a data de término da recorrência</td>
@@ -533,19 +541,6 @@
       <td>Texto (AAAA-MM-DD)</td>
       <td>Não</td>
     </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Dados das características do pedido</strong></th>
-      <th><strong>Descrição</strong></th>
-      <th><strong>Tipo/Tamanho</strong></th>
-      <th><strong>Obrigatório</strong></th>
-    </tr>
-  </thead>
-  <tbody>
     <tr>
       <td>bpmpi_order_recurrence</td>
       <td>Indica se é um pedido que gera recorrências futuras</td>
@@ -604,7 +599,7 @@
       <td>bpmpi_merchant_url</td>
       <td>Endereço do site do estabelcimento</td>
       <td>Alphanumérico [100] Exemplo: http://www.exemplo.com.br</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
   </tbody>
 </table>
@@ -654,55 +649,55 @@
       <td>bpmpi_billto_contactname</td>
       <td>Nome do contato do endereço de cobrança</td>
       <td>Alfanumérico [até 120]</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_phonenumber</td>
       <td>Telefone de contato do endereço de cobrança</td>
       <td>Numérico [até 15 posições], no formato: 5511999999999</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_email</td>
       <td>E-mail do contato do endereço de cobrança</td>
       <td>Alfanumérico [até 255], no formato <a href="mailto:nome@exemplo.com">nome@exemplo.com</a></td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_street1</td>
       <td>Logradouro e Número do endereço de cobrança</td>
       <td>Alfanumérico [até 60]</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_street2</td>
       <td>Complemento e bairro do endereço de cobrança</td>
       <td>Alfanumérico [até 60]</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_city</td>
       <td>Cidade do endereço de cobrança</td>
       <td>Alfanumérico [até 50]</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_state</td>
       <td>Sigla do estado do endereço de cobrança</td>
       <td>Texto [2 posições]</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billto_zipcode</td>
       <td>CEP do endereço de cobrança</td>
       <td>Alfanumérico [até 8 posições], no formato: 99999999</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_billto_country</td>
       <td>País do endereço de cobrança</td>
       <td>Texto [2 posições] Ex. BR</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
   </tbody>
 </table>
@@ -1048,6 +1043,50 @@
 <p>O evento "<strong>bpmpi_Authenticate()</strong>" deve chamado no momento de finalização do checkout (finalização da compra). Vide exemplo abaixo:</p>
 
 <p>&lt;input type="button"onclick="bpmpi_authenticate()" /&gt;</p>
+
+<h1 id="cartões-de-teste">Cartões de Teste</h1>
+
+<p>Utilize os cartões de <strong>teste</strong> abaixo para simular diversos cenários no ambiente de <strong>SANDBOX</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Cartão</strong></td>
+      <td><strong>Resultado</strong></td>
+      <td><strong>Descrição</strong></td>
+    </tr>
+    <tr>
+      <td>4000000000001000</td>
+      <td>SUCCESS</td>
+      <td>Autenticação Silenciosa e portador autenticou com sucesso</td>
+    </tr>
+    <tr>
+      <td>4000000000001018</td>
+      <td>FAILURE</td>
+      <td>Autenticação Silenciosa e portador finalizou com falha</td>
+    </tr>
+    <tr>
+      <td>4000000000001034</td>
+      <td>UNENROLLED</td>
+      <td>Cartão não elegível para autenticação</td>
+    </tr>
+    <tr>
+      <td>4000000000001091</td>
+      <td>SUCCESS</td>
+      <td>Autenticação com desafio e portador autenticou com sucesso</td>
+    </tr>
+    <tr>
+      <td>4000000000001117</td>
+      <td>UNENROLLED</td>
+      <td>Autenticação com desafio e Cartão não elegível</td>
+    </tr>
+    <tr>
+      <td>4000000000001109</td>
+      <td>FAILURE</td>
+      <td>Autenticação com desafio e portador falhou na autenticação</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
