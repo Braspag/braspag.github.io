@@ -141,9 +141,9 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 
 | **Dados de Parametrização** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
-| bpmpi_auth | Booleano que indica se a transação é submetida o não para o processo de autenticação| Booleanotrue – submeter à autenticaçãofalse – não submeter à autenticação | Sim | Sim |
-| bpmpi_auth_notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação". Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Sim | Sim |
-| bpmpi_auth_suppresschallenge | Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.  | Booleano: <br>true – ignorar desafios se houver; <br>false – apresentar desafio se houver | Sim | Sim |
+| bpmpi_auth | Booleano que indica se a transação é submetida o não para o processo de autenticação| Booleanotrue – submeter à autenticaçãofalse – não submeter à autenticação | Sim |
+| bpmpi_auth_notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação". Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Não |
+| bpmpi_auth_suppresschallenge | Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.  | Booleano: <br>true – ignorar desafios se houver; <br>false – apresentar desafio se houver | Não |
 | bpmpi_accesstoken | Token gerado pela API de Token de Acesso (etapa 1) | Alfanumérico [varivável] | Sim |
 
 | **Dados de Pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
@@ -158,12 +158,12 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | bpmpi_cardexpirationyear | Ano do vencimento do cartão | Numérico [4 posições] | Sim | 
 | bpmpi_cardalias | Alias do cartão | Alphanumérico [até 128 posições] | Não |
 | bpmpi_default_card | Indica se é um cartão padrão do cliente na loja | Booleano<br>true - sim<br>false - não | Não |
-| bpmpi_recurring_enddate | Identifica a data de término da recorrência | Texto (AAAA-MM-DD) | Não |
-| bpmpi_recurring_frequency | Indica a frequência da recorrência | Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
-| bpmpi_recurring_originalpurchasedate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
 
 | **Dados das características do pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
+| bpmpi_recurring_enddate | Identifica a data de término da recorrência | Texto (AAAA-MM-DD) | Não |
+| bpmpi_recurring_frequency | Indica a frequência da recorrência | Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
+| bpmpi_recurring_originalpurchasedate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
 | bpmpi_order_recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
 | bpmpi_order_productcode | Tipoda compra | ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
 | bpmpi_order_countlast24hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
@@ -173,7 +173,7 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | bpmpi_order_marketingoptin | Indica se o comprador aceitou receber ofertas de marketing | Booleano<br>true – sim<br>false – não  | Não |
 | bpmpi_order_marketingsource | Identifica a origem da campanha de marketing | Alfanumérico [até 40 posições] | Não |
 | bpmpi_transaction_mode | Identifica o canal que originou a transação | M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | Não |
-| bpmpi_merchant_url | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Não |
+| bpmpi_merchant_url | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
 
 | **Dados específicos para cartões Gift Card (pré-pago)** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
@@ -183,15 +183,15 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | **Dados de endereço de cobrança** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | bpmpi_billto_customerid | Identifica o CPF/CNPJ do comprador | Numérico [11 a 14 posições]<br>99999999999999 | Não |
-| bpmpi_billto_contactname| Nome do contato do endereço de cobrança | Alfanumérico [até 120] | Não |
-| bpmpi_billTo_phonenumber | Telefone de contato do endereço de cobrança | Numérico [até 15 posições], no formato: 5511999999999 | Não |
-| bpmpi_billTo_email | E-mail do contato do endereço de cobrança | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Não |
-| bpmpi_billTo_street1 | Logradouro e Número do endereço de cobrança | Alfanumérico [até 60] | Não |
-| bpmpi_billTo_street2 | Complemento e bairro do endereço de cobrança | Alfanumérico [até 60] | Não |
-| bpmpi_billTo_city | Cidade do endereço de cobrança | Alfanumérico [até 50] | Não |
-| bpmpi_billTo_state | Sigla do estado do endereço de cobrança | Texto [2 posições] | Não |
-| bpmpi_billto_zipcode | CEP do endereço de cobrança | Alfanumérico [até 8 posições], no formato: 99999999 | Não |
-| bpmpi_billto_country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Não |
+| bpmpi_billto_contactname| Nome do contato do endereço de cobrança | Alfanumérico [até 120] | Sim |
+| bpmpi_billTo_phonenumber | Telefone de contato do endereço de cobrança | Numérico [até 15 posições], no formato: 5511999999999 | Sim |
+| bpmpi_billTo_email | E-mail do contato do endereço de cobrança | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Sim |
+| bpmpi_billTo_street1 | Logradouro e Número do endereço de cobrança | Alfanumérico [até 60] | Sim |
+| bpmpi_billTo_street2 | Complemento e bairro do endereço de cobrança | Alfanumérico [até 60] | Sim |
+| bpmpi_billTo_city | Cidade do endereço de cobrança | Alfanumérico [até 50] | Sim |
+| bpmpi_billTo_state | Sigla do estado do endereço de cobrança | Texto [2 posições] | Sim |
+| bpmpi_billto_zipcode | CEP do endereço de cobrança | Alfanumérico [até 8 posições], no formato: 99999999 | Sim |
+| bpmpi_billto_country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Sim |
 
 | **Dados de endereço de entrega** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
@@ -258,3 +258,15 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 O evento &quot;**bpmpi_Authenticate()**&quot; deve chamado no momento de finalização do checkout (finalização da compra). Vide exemplo abaixo:
 
 &lt;input type=&quot;button&quot;onclick=&quot;bpmpi_authenticate()&quot; /&gt;
+
+# Cartões de Teste
+
+Utilize os cartões de **teste** abaixo para simular diversos cenários no ambiente de **SANDBOX**
+
+| **Cartão** | **Resultado** | **Descrição** |
+| 4000000000001000 | SUCCESS | Autenticação Silenciosa e portador autenticou com sucesso |
+| 4000000000001018 | FAILURE | Autenticação Silenciosa e portador finalizou com falha|
+| 4000000000001034 | UNENROLLED | Cartão não elegível para autenticação |
+| 4000000000001091 | SUCCESS | Autenticação com desafio e portador autenticou com sucesso|
+| 4000000000001117 | UNENROLLED | Autenticação com desafio e Cartão não elegível |
+| 4000000000001109 | FAILURE | Autenticação com desafio e portador falhou na autenticação |
