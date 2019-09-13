@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Documentações e tutoriais</title>
     <link href="https://braspag.github.io//en/atom.xml" rel="self"/>
-    <link href="https://braspag.github.io//en/"/>
+    <link href="https://braspag.github.io//en"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-09-05T13:57:26+00:00</updated>
+    <updated>2019-09-13T20:01:05+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
