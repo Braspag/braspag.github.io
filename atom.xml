@@ -6,7 +6,7 @@ layout: null
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{{ site.title }}</title>
     <link href="{{ site.baseurl }}/atom.xml" rel="self"/>
-    <link href="{{ site.baseurl }}/"/>
+    <link href="{{ site.baseurl }}"/>
     <logo>{{ site.baseurl }}/assets/images/logo.png</logo>
     <icon>{{ site.baseurl }}/assets/favicon.ico</icon>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
