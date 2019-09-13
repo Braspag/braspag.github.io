@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: 4. Autorização com Autenticação
+title: 3. Autorização com Autenticação
 description: Integração técnica Gateway Braspag
 search: true
 translated: true
