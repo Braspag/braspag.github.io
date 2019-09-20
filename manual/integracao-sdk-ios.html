@@ -168,19 +168,6 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://mpisandbox.braspag.com.br/v2/auth/token"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"Authorization: Basic xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-<span class="o">{</span>
-     <span class="s2">"EstablishmentCode"</span>:<span class="s2">"1006993069"</span>,
-     <span class="s2">"MerchantName"</span>: <span class="s2">"Loja Exemplo Ltda"</span>,
-     <span class="s2">"MCC"</span>: <span class="s2">"5912"</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
 <table>
   <thead>
     <tr>
@@ -216,15 +203,6 @@
       </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T11:29:32"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-      <span class="s2">"access_token"</span>: <span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span>,
-      <span class="s2">"token_type"</span>: <span class="s2">"barear"</span>,
-      <span class="s2">"expires_in"</span>: <span class="s2">"2018-07-23T11:29:32"</span>
-<span class="o">}</span>
-</code></pre></div></div>
 
 <table>
   <thead>
@@ -548,7 +526,7 @@
     <tr>
       <td>productCode</td>
       <td>Tipo da compra</td>
-      <td><em>ProductCodeEnum</em><br /> ACC: Hotelaria<br />ACF: Financiamento de conta<br />CHA: Check acceptance<br />DIG: Digital Goods<br />DSP: Dispensação de dinheiro<br />GAS: Combustível<br />GEN: Varejo geral<br />LUX: Artigos de luxo<br />PAL: recarga<br />PHY: compra de mercadorias<br />QCT: Transação quase-dinheiro<br />REN: Alugue de Carros<br />RES: Restaurante<br />SVC: Serviços<br />TBD: Outros<br />TRA: Turismo</td>
+      <td><em>ProductCode</em><br /> hotel: Hotelaria<br />financeAccount: Financiamento de conta<br />checkAcceptance: Check acceptance<br />digitalGoods: Digital Goods<br />cashDispenser: Dispensação de dinheiro<br />fuel: Combustível<br />retail: Varejo geral<br />luxuryGoods: Artigos de luxo<br />recharge: recarga<br />goodsPurchase: compra de mercadorias<br />quasiMoneyTransaction: Transação quase-dinheiro<br />carRental: Alugue de Carros<br />restaurant: Restaurante<br />services: Serviços<br />other: Outros<br />turism: Turismo</td>
       <td>Não</td>
     </tr>
     <tr>
