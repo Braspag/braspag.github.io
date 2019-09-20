@@ -269,44 +269,43 @@
 
 <p>Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Braspag3dsSdk</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="no">Braspag3dsSdk</span>
 </code></pre></div></div>
 
 <p>Em seguida é necessário passar para o lado cliente(APP) o <em>access_token</em> gerado no passo anterior:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">braspag3ds</span> <span class="o">=</span> <span class="kt">Braspag3ds</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="s">"&gt;"</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt">Environment</span><span class="o">.</span><span class="n">production</span><span class="p">)</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">braspag3ds</span> <span class="o">=</span> <span class="no">Braspag3ds</span><span class="p">(</span><span class="ss">accessToken: </span><span class="s2">"&gt;"</span><span class="p">,</span> <span class="ss">environment: </span><span class="no">Environment</span><span class="p">.</span><span class="nf">production</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Em seguida é necessário utilizar o método <em>authenticate</em>, informando os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds</span><span class="o">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="nv">orderData</span><span class="p">:</span> <span class="kt">OrderData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">cardData</span><span class="p">:</span> <span class="kt">CardData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">authOptions</span><span class="p">:</span> <span class="kt">OptionsData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">billToData</span><span class="p">:</span> <span class="kt">BillToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">shipToData</span><span class="p">:</span> <span class="kt">ShipToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">cart</span><span class="p">:</span> <span class="p">[</span><span class="kt">CartItemData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">deviceData</span><span class="p">:</span> <span class="kt">DeviceData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">userData</span><span class="p">:</span> <span class="kt">UserData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">airlineData</span><span class="p">:</span> <span class="kt">AirlineData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">mdd</span><span class="p">:</span> <span class="kt">MddData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">recurringData</span><span class="p">:</span> <span class="kt">RecurringData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="nv">deviceIpAddress</span><span class="p">:</span> <span class="s">"0.0.0.0"</span><span class="p">){</span> <span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">authenticationResponse</span><span class="p">)</span> <span class="k">in</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="ss">orderData: </span><span class="no">OrderData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">cardData: </span><span class="no">CardData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">authOptions: </span><span class="no">OptionsData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">billToData: </span><span class="no">BillToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">shipToData: </span><span class="no">ShipToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">cart: </span><span class="p">[</span><span class="no">CartItemData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">deviceData: </span><span class="no">DeviceData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">userData: </span><span class="no">UserData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">airlineData: </span><span class="no">AirlineData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">mdd: </span><span class="no">MddData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">recurringData: </span><span class="no">RecurringData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="ss">deviceIpAddress: </span><span class="s2">"0.0.0.0"</span><span class="p">){</span> <span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">authenticationResponse</span><span class="p">)</span> <span class="k">in</span>
                         
-                        <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
-                        <span class="k">case</span> <span class="o">.</span><span class="nv">success</span><span class="p">:</span>
+                        <span class="n">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+                        <span class="k">case</span> <span class="p">.</span><span class="nf">success</span><span class="p">:</span>
                           <span class="o">...</span>
-                        <span class="k">case</span> <span class="o">.</span><span class="nv">unenrolled</span><span class="p">:</span>
+                        <span class="k">case</span> <span class="p">.</span><span class="nf">unenrolled</span><span class="p">:</span>
                           <span class="o">...</span>
-                        <span class="k">case</span> <span class="nv">failure</span><span class="p">:</span>
-                          <span class="o">...</span>
-                        <span class="k">case</span> <span class="nv">error</span><span class="p">:</span>
-                          <span class="o">...</span>
-                        <span class="k">case</span> <span class="nv">unsupportedBrand</span><span class="p">:</span>
-                          <span class="o">...</span>
+                        <span class="k">case</span> <span class="ss">failure:
+                          </span><span class="o">...</span>
+                        <span class="k">case</span> <span class="ss">error:
+                          </span><span class="o">...</span>
+                        <span class="k">case</span> <span class="ss">unsupportedBrand:
+                          </span><span class="o">...</span>
                         <span class="p">}</span>
                         
   <span class="p">}</span>
-                 
 </code></pre></div></div>
 
 <p>Parâmetros de entrada do método <em>authenticate</em></p>
@@ -359,7 +358,7 @@
     </tr>
     <tr>
       <td>deviceData</td>
-      <td>DeviceData?</td>
+      <td>[DeviceData]?</td>
       <td>Configurações adicionais ao processo de 3DS</td>
       <td>Não</td>
     </tr>
@@ -551,6 +550,66 @@
       <td>installments</td>
       <td>Número de parcelas da transação</td>
       <td>Numérico [até 2 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>recurrence</td>
+      <td>Indica se é um pedido que gera recorrências futuras</td>
+      <td>Booleano<br />true<br />false</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>productCode</td>
+      <td>Tipoda compra</td>
+      <td>Enum ProductCodeEnum <br /> ACC: Hotelaria<br />ACF: Financiamento de conta<br />CHA: Check acceptance<br />DIG: Digital Goods<br />DSP: Dispensação de dinheiro<br />GAS: Combustível<br />GEN: Varejo geral<br />LUX: Artigos de luxo<br />PAL: recarga<br />PHY: compra de mercadorias<br />QCT: Transação quase-dinheiro<br />REN: Alugue de Carros<br />RES: Restaurante<br />SVC: Serviços<br />TBD: Outros<br />TRA: Turismo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>countLast24Hours</td>
+      <td>Quantidade de pedidos efetuados por este comprador nas últimas 24h</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>countLast6Months</td>
+      <td>Quantidade de pedidos efetuados por este comprador nos últimos 6 meses</td>
+      <td>Numérico [até 4 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>countLast1Year</td>
+      <td>Quantidade de pedidos efetuados por este comprador no último ano</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>cardAttemptsLast24Hours</td>
+      <td>Quantidade de transações com o mesmo cartão nas últimas 24h</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>marketingOptin</td>
+      <td>Indica se o comprador aceitou receber ofertas de marketing</td>
+      <td>Booleano<br />true – sim<br />false – não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>marketingSource</td>
+      <td>Identifica a origem da campanha de marketing</td>
+      <td>Alfanumérico [até 40 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>transactionMode</td>
+      <td>Identifica o canal que originou a transação</td>
+      <td>M: MOTO<br />R: Varejo<br />S: E-Commerce<br />P: Mobile<br />T: Tablet</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>merchantUrl</td>
+      <td>Endereço do site do estabelcimento</td>
+      <td>Alphanumérico [100] Exemplo: http://www.exemplo.com.br</td>
       <td>Sim</td>
     </tr>
   </tbody>
@@ -751,7 +810,7 @@
     <tr>
       <td>shippingMethod</td>
       <td>Tipo do método de envio</td>
-      <td>lowcost: envio econômico<br />sameday: envio no mesmo dia<br />oneday: envio no dia seguinte<br />twoday: envio em dois dias<br />threeday: envio em três dias<br />pickup: retirada na loja<br />other: outrosnone: não há envio</td>
+      <td>Enum ShippingMethod<br />lowcost: envio econômico<br />sameday: envio no mesmo dia<br />oneday: envio no dia seguinte<br />twoday: envio em dois dias<br />threeday: envio em três dias<br />pickup: retirada na loja<br />other: outrosnone: não há envio</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -763,101 +822,12 @@
   </tbody>
 </table>
 
-<table>
-  <thead>
-    <tr>
-      <th><strong>Dados das características do pedido</strong></th>
-      <th><strong>Descrição</strong></th>
-      <th><strong>Tipo/Tamanho</strong></th>
-      <th><strong>Obrigatório</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>bpmpi_recurring_enddate</td>
-      <td>Identifica a data de término da recorrência</td>
-      <td>Texto (AAAA-MM-DD)</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_recurring_frequency</td>
-      <td>Indica a frequência da recorrência</td>
-      <td>Número<br />1 - Mensal<br />2 - Bimestral<br />3 - Trimestral<br />4 - Quadrimestral<br />6 - Semestral<br />12 - Anual</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_recurring_originalpurchasedate</td>
-      <td>Identifica a data da 1ª transação que originou a recorrência</td>
-      <td>Texto (AAAA-MM-DD)</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_order_recurrence</td>
-      <td>Indica se é um pedido que gera recorrências futuras</td>
-      <td>Booleano<br />true<br />false</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_order_productcode</td>
-      <td>Tipoda compra</td>
-      <td>ACC: Hotelaria<br />ACF: Financiamento de conta<br />CHA: Check acceptance<br />DIG: Digital Goods<br />DSP: Dispensação de dinheiro<br />GAS: Combustível<br />GEN: Varejo geral<br />LUX: Artigos de luxo<br />PAL: recarga<br />PHY: compra de mercadorias<br />QCT: Transação quase-dinheiro<br />REN: Alugue de Carros<br />RES: Restaurante<br />SVC: Serviços<br />TBD: Outros<br />TRA: Turismo</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_order_countlast24hours</td>
-      <td>Quantidade de pedidos efetuados por este comprador nas últimas 24h</td>
-      <td>Numérico [até 3 posições]</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_order_countlast6months</td>
-      <td>Quantidade de pedidos efetuados por este comprador nos últimos 6 meses</td>
-      <td>Numérico [até 4 posições]</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_order_countlast1year</td>
-      <td>Quantidade de pedidos efetuados por este comprador no último ano</td>
-      <td>Numérico [até 3 posições]</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_order_cardattemptslast24hours</td>
-      <td>Quantidade de transações com o mesmo cartão nas últimas 24h</td>
-      <td>Numérico [até 3 posições]</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_order_marketingoptin</td>
-      <td>Indica se o comprador aceitou receber ofertas de marketing</td>
-      <td>Booleano<br />true – sim<br />false – não</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_order_marketingsource</td>
-      <td>Identifica a origem da campanha de marketing</td>
-      <td>Alfanumérico [até 40 posições]</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_transaction_mode</td>
-      <td>Identifica o canal que originou a transação</td>
-      <td>M: MOTO<br />R: Varejo<br />S: E-Commerce<br />P: Mobile<br />T: Tablet</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_merchant_url</td>
-      <td>Endereço do site do estabelcimento</td>
-      <td>Alphanumérico [100] Exemplo: http://www.exemplo.com.br</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="cartitemdata">CartItemData</h2>
 
 <table>
   <thead>
     <tr>
-      <th><strong>Dados específicos para cartões Gift Card (pré-pago)</strong></th>
+      <th><strong>Propriedade</strong></th>
       <th><strong>Descrição</strong></th>
       <th><strong>Tipo/Tamanho</strong></th>
       <th><strong>Obrigatório</strong></th>
@@ -865,73 +835,44 @@
   </thead>
   <tbody>
     <tr>
-      <td>bpmpi_giftcard_amount</td>
-      <td>O total do valor da compra para cartões-presente pré-pagos em valor arredondado</td>
-      <td>Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 12554</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_giftcard_currency</td>
-      <td>Código da moeda da transação paga com cartão do tipo pré-pago</td>
-      <td>Fixo "BRL"</td>
-      <td>Não</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Dados do carrinho de compras</strong></th>
-      <th><strong>Descrição</strong></th>
-      <th><strong>Tipo/Tamanho</strong></th>
-      <th><strong>Obrigatório</strong></th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>bpmpi_cart_#_description</td>
+      <td>description</td>
       <td>Descrição do item</td>
       <td>Alfanumérico [até 255 posições]</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>bpmpi_cart_#_name</td>
+      <td>name</td>
       <td>Nome do item</td>
       <td>Alfanumérico [até 255 posições]</td>
-      <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td>bpmpi_cart_#_sku</td>
+      <td>sku</td>
       <td>SKU do item</td>
       <td>Alfanumérico [até 255 posições]</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>bpmpi_cart_#_quantity</td>
+      <td>quantity</td>
       <td>Quantidade do item no carrinho</td>
       <td>Numérico [até 10 posições]</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>bpmpi_cart_#_unitprice</td>
+      <td>unitprice</td>
       <td>Valor unitário do item do carrinho em centavos</td>
       <td>Numérico [até 10 posições]</td>
       <td>Não</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
 
+<h2 id="devicedata">DeviceData</h2>
+
 <table>
   <thead>
     <tr>
-      <th><strong>Dados do usuário</strong></th>
+      <th><strong>Propriedade</strong></th>
       <th><strong>Descrição</strong></th>
       <th><strong>Tipo/Tamanho</strong></th>
       <th><strong>Obrigatório</strong></th>
@@ -939,80 +880,13 @@
   </thead>
   <tbody>
     <tr>
-      <td>bpmpi_useraccount_guest</td>
-      <td>Indica se o comprador é um comprador sem login (guest)</td>
-      <td>Booleano<br />true – sim<br />false – não</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_useraccount_createddate</td>
-      <td>Indica a data de quando houve a criação da conta do comprador</td>
-      <td>Texto<br />AAAA-MM-DD – data da criação</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_useraccount_changeddate</td>
-      <td>Indica a data de quando houve a última alteração na conta do comprador</td>
-      <td>Texto<br />AAAA-MM-DD – data da última alteração</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_useraccount_passwordchangeddate</td>
-      <td>Indica a data de quando houve a alteração de senha da conta do comprador</td>
-      <td>Texto<br />AAAA-MM-DD – data da última alteração de senha</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_useraccount_authenticationmethod</td>
-      <td>Método de autenticação do comprador na loja</td>
-      <td>01- Não houve autenticação<br />02- Login da própria loja<br />03- Login com ID federado<br />04- Login com autenticador FIDO</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_useraccount_authenticationprotocol</td>
-      <td>Dado que representa o protocolo de login efetuado na loja</td>
-      <td>Alfanumérico [até 2048 posições]</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_useraccount_authenticationtimestamp</td>
-      <td>A data e hora que o login foi efetuado na loja</td>
-      <td>Texto [19 posições] <em>YYYY-MM-ddTHH:mm:SS</em></td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_merchant_newcustomer</td>
-      <td>Identifica se um comprador novo na loja</td>
-      <td>Booleano<br />true – sim<br />false – não</td>
-      <td>Não</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Dados do dispositivo utilizado para compra</strong></th>
-      <th><strong>Descrição</strong></th>
-      <th><strong>Tipo/Tamanho</strong></th>
-      <th><strong>Obrigatório</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>bpmpi_device_ipaddress</td>
-      <td>Endereço IP da máquina do comprador</td>
-      <td>Alfanumérico [até 45]</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>bpmpi_device_#_fingerprint</td>
+      <td>fingerprint</td>
       <td>Id retornado pelo Device Finger Print</td>
       <td>Alfanumérico [sem limitação]</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_device_#_provider</td>
+      <td>provider</td>
       <td>Nome do provedor do Device Finger Print</td>
       <td>Alfanumérico [até 32 posições] cardinal<br />inauth<br />threatmetrix</td>
       <td>Não</td>
@@ -1020,10 +894,12 @@
   </tbody>
 </table>
 
+<h2 id="userdata">UserData</h2>
+
 <table>
   <thead>
     <tr>
-      <th><strong>Dados específicos para companhias aéreas</strong></th>
+      <th><strong>Propriedades</strong></th>
       <th><strong>Descrição</strong></th>
       <th><strong>Tipo/Tamanho</strong></th>
       <th><strong>Obrigatório</strong></th>
@@ -1031,66 +907,62 @@
   </thead>
   <tbody>
     <tr>
-      <td>bpmpi_airline_travelleg_#_carrier</td>
-      <td>Código IATA para o trecho</td>
-      <td>Alfanumérico [2 posições]</td>
+      <td>guest</td>
+      <td>Indica se o comprador é um comprador sem login (guest)</td>
+      <td>Booleano<br />true – sim<br />false – não</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_airline_travelleg_#_departuredate</td>
-      <td>Data de partida</td>
-      <td>Texto<br />AAAA-MM-DD</td>
+      <td>createdDate</td>
+      <td>Indica a data de quando houve a criação da conta do comprador</td>
+      <td>Texto<br />AAAA-MM-DD – data da criação</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_airline_travelleg_#_origin</td>
-      <td>Código IATA do aeroporto de origem</td>
-      <td>Alfanumérico [5 posições]</td>
+      <td>changedDate</td>
+      <td>Indica a data de quando houve a última alteração na conta do comprador</td>
+      <td>Texto<br />AAAA-MM-DD – data da última alteração</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_airline_travelleg_#_destination</td>
-      <td>Código IATA do aeroporto de destino</td>
-      <td>Alfanumérico [5 posições]</td>
+      <td>passwordChangedDate</td>
+      <td>Indica a data de quando houve a alteração de senha da conta do comprador</td>
+      <td>Texto<br />AAAA-MM-DD – data da última alteração de senha</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_airline_passenger_#_name</td>
-      <td>Nome do passageiro</td>
-      <td>Alfanumérico [até 60 posições]</td>
+      <td>authenticationMethod</td>
+      <td>Método de autenticação do comprador na loja</td>
+      <td>Enum AuthenticationMethodEnum <br /> 01- Não houve autenticação<br />02- Login da própria loja<br />03- Login com ID federado<br />04- Login com autenticador FIDO</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_airline_passenger_#_ticketprice</td>
-      <td>O valor da passagem em centavos  Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 12554</td>
-      <td>Não</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>bpmpi_airline_numberofpassengers</td>
-      <td>Número de passageiros</td>
-      <td>Numérico [3 posições]</td>
+      <td>authenticationProtocol</td>
+      <td>Dado que representa o protocolo de login efetuado na loja</td>
+      <td>Alfanumérico [até 2048 posições]</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_airline_billto_passportcountry</td>
-      <td>Código do país que emitiu o passaporte (ISO Standard Country Codes)</td>
-      <td>Texto [2 posições]</td>
+      <td>authenticationTimestamp</td>
+      <td>A data e hora que o login foi efetuado na loja</td>
+      <td>Texto [19 posições] <em>YYYY-MM-ddTHH:mm:SS</em></td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_airline_billto_passportnumber</td>
-      <td>Número do passaporte</td>
-      <td>Alfanumérico [40 posições]</td>
+      <td>newCustomer</td>
+      <td>Identifica se um comprador novo na loja</td>
+      <td>Booleano<br />true – sim<br />false – não</td>
       <td>Não</td>
     </tr>
   </tbody>
 </table>
 
+<h2 id="airlinedata">AirlineData</h2>
+
 <table>
   <thead>
     <tr>
-      <th><strong>Dados extras do estabelecimento (caso aplicável)</strong></th>
+      <th><strong>Propriedades</strong></th>
       <th><strong>Descrição</strong></th>
       <th><strong>Tipo/Tamanho</strong></th>
       <th><strong>Obrigatório</strong></th>
@@ -1098,33 +970,198 @@
   </thead>
   <tbody>
     <tr>
-      <td>bpmpi_mdd1</td>
+      <td>numberOfPassengers</td>
+      <td>Número de passageiros</td>
+      <td>Numérico [3 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>billToPassportCountry</td>
+      <td>Código do país que emitiu o passaporte (ISO Standard Country Codes)</td>
+      <td>Texto [2 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>billtoPassportNumber</td>
+      <td>Número do passaporte</td>
+      <td>Alfanumérico [40 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>travelLeg</td>
+      <td>Trecho da viagem</td>
+      <td>TravelLeg</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>passenger</td>
+      <td>Dados do passageiro</td>
+      <td>Passenger</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="travelleg">TravelLeg</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>carrier</td>
+      <td>Código IATA para o trecho</td>
+      <td>Alfanumérico [2 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>departureDate</td>
+      <td>Data de partida</td>
+      <td>Texto<br />AAAA-MM-DD</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>origin</td>
+      <td>Código IATA do aeroporto de origem</td>
+      <td>Alfanumérico [5 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>destination</td>
+      <td>Código IATA do aeroporto de destino</td>
+      <td>Alfanumérico [5 posições]</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="passenger">Passenger</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>Nome do passageiro</td>
+      <td>Alfanumérico [até 60 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ticketPrice</td>
+      <td>O valor da passagem em centavos</td>
+      <td>Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 12554</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="mdd">MDD</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Proriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mdd1</td>
       <td>Dado Extra definido pelo lojista</td>
       <td>Alfanumérico [até 255 posições]</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_mdd2</td>
+      <td>mdd2</td>
       <td>Dado Extra definido pelo lojista</td>
       <td>Alfanumérico [até 255 posições]</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_mdd3</td>
+      <td>mdd3</td>
       <td>Dado Extra definido pelo lojista</td>
       <td>Alfanumérico [até 255 posições]</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_mdd4</td>
+      <td>mdd4</td>
       <td>Dado Extra definido pelo lojista</td>
       <td>Alfanumérico [até 255 posições]</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>bpmpi_mdd5</td>
+      <td>mdd5</td>
       <td>Dado Extra definido pelo lojista</td>
       <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recurringdata">RecurringData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Proriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>endDate</td>
+      <td>Identifica a data de término da recorrência</td>
+      <td>Texto (AAAA-MM-DD)</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>frequency</td>
+      <td>Indica a frequência da recorrência</td>
+      <td>Enum RecurringFrequency<br /> Número<br />1 - Mensal<br />2 - Bimestral<br />3 - Trimestral<br />4 - Quadrimestral<br />6 - Semestral<br />12 - Anual</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>originalPurchaseDate</td>
+      <td>Identifica a data da 1ª transação que originou a recorrência</td>
+      <td>Texto (AAAA-MM-DD)</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="demais-parâmetros">Demais parâmetros</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Proriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ipAddress</td>
+      <td>Endereço IP da máquina do comprador</td>
+      <td>Alfanumérico [até 45]</td>
       <td>Não</td>
     </tr>
   </tbody>
