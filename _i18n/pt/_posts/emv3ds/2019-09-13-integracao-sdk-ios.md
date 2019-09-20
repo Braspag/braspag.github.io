@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: 2.3. SDK IOS (em breve)
+title: 2.3. SDK IOS
 description: Integração técnica Gateway Braspag
 search: true
 translated: true
@@ -104,7 +104,7 @@ Em seguida é necessário utilizar o método *authenticate*, informando os dados
 braspag3ds.authenticate(orderData: OrderData(...),
                         cardData: CardData(...),
                         authOptions: OptionsData(...),
-                        billToData: BillToDta(...),
+                        billToData: BillToData(...),
                         shipToData: ShipToData(...),
                         cart: [CartItemData(...),
                         deviceData: DeviceData(...),
@@ -148,7 +148,6 @@ Parâmetros de entrada do método *authenticate*
 | recurringData | RecurringData? | Dados da recorrência | Não |
 | deviceIpAddress | String? | Endereço IP do dispositivo | Não |
 
-
 Descrição dos Status do Callback
 
 | **Status** | **Descrição** | 
@@ -179,23 +178,62 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 
 ## OptionsData
 
-| Propriedade | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação". Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Não |
 | suppresschallenge | Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.  | Booleano: <br>true – ignorar desafios se houver; <br>false – apresentar desafio se houver | Não |
 
-| **Dados de Pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+## OrderData
+
+| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
-| bpmpi_ordernumber | Código do pedido no estabelecimento | Alphanumérico [até 50 posições] | Sim |
-| bpmpi_currency | Código da moeda | Fixo &quot;BRL&quot; | Sim |
-| bpmpi_totalamount | Valor total da transação, enviado em centavos | Numérico [até 15 posições] | Sim |
-| bpmpi_installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
-| bpmpi_paymentmethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | Credit – Cartão de Crédito<br>Debit – Cartão de Débito | Sim |
-| bpmpi_cardnumber | Número do Cartão | Numérico [até 19 posições] | Sim |
-| bpmpi_cardexpirationmonth | Mês do vencimento do cartão | Numérico [2 posições] | Sim |
-| bpmpi_cardexpirationyear | Ano do vencimento do cartão | Numérico [4 posições] | Sim | 
-| bpmpi_cardalias | Alias do cartão | Alphanumérico [até 128 posições] | Não |
-| bpmpi_default_card | Indica se é um cartão padrão do cliente na loja | Booleano<br>true - sim<br>false - não | Não |
+| orderNumber | Código do pedido no estabelecimento | Alphanumérico [até 50 posições] | Sim |
+| currencyCode | Código da moeda | Fixo &quot;BRL&quot; | Sim |
+| totalAmount | Valor total da transação, enviado em centavos | Numérico [até 15 posições] | Sim |
+| paymentMethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | Credit – Cartão de Crédito<br>Debit – Cartão de Débito | Sim |
+| installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
+
+## CardData
+
+| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| number | Número do Cartão | Numérico [até 19 posições] | Sim |
+| expirationMonth | Mês do vencimento do cartão | Numérico [2 posições] | Sim |
+| cardexpirationYear | Ano do vencimento do cartão | Numérico [4 posições] | Sim | 
+| cardAlias** | Alias do cartão | Alphanumérico [até 128 posições] | Não |
+| defaultCard** | Indica se é um cartão padrão do cliente na loja | Booleano<br>true - sim<br>false - não | Não |
+
+## BillToData
+
+| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| customerId | Identifica o CPF/CNPJ do comprador | Numérico [11 a 14 posições]<br>99999999999999 | Não |
+| contactName| Nome do contato do endereço de cobrança | Alfanumérico [até 120] | Sim |
+| phoneNumber | Telefone de contato do endereço de cobrança | Numérico [até 15 posições], no formato: 5511999999999 | Sim |
+| email | E-mail do contato do endereço de cobrança | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Sim |
+| street1 | Logradouro e Número do endereço de cobrança | Alfanumérico [até 60] | Sim |
+| street2 | Complemento e bairro do endereço de cobrança | Alfanumérico [até 60] | Sim |
+| city | Cidade do endereço de cobrança | Alfanumérico [até 50] | Sim |
+| state | Sigla do estado do endereço de cobrança | Texto [2 posições] | Sim |
+| zipCode | CEP do endereço de cobrança | Alfanumérico [até 8 posições], no formato: 99999999 | Sim |
+| country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Sim |
+
+## ShipToData
+
+| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| sameAsBillTo | Indica se utiliza o mesmo endereço fornecido para endereço de cobrança | Booleano<br>true<br>false | Não |
+| addressee | Nome do contato do endereço de entrega | Alfanumérico [até 60] | Não |
+| phoneNumber | Telefone de contato do endereço de entrega | Numérico [até 15 posições], no formato: 5511999999999 | Não |
+| email | E-mail do contato do endereço de entrega | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Não |
+| street1 | Logradouro e Número do endereço de entrega | Alfanumérico [até 60] | Não |
+| street2 | Complemento e bairro do endereço de entrega | Alfanumérico [até 60] | Não | 
+| city | Cidade do endereço de entrega | Alfanumérico [até 50] | Não |
+| state | Sigla do estado do endereço de entrega | Texto [2 posições] | Não | 
+| zipCode | CEP do endereço de entrega | Alfanumérico [até 8 posições], no formato: 99999999 | Não |
+| country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Não |
+| shippingMethod | Tipo do método de envio | lowcost: envio econômico<br>sameday: envio no mesmo dia<br>oneday: envio no dia seguinte<br>twoday: envio em dois dias<br>threeday: envio em três dias<br>pickup: retirada na loja<br>other: outrosnone: não há envio | Não |
+| firstUsageDate | Indica a data de quando houve a primeira utilização do endereço de entrega | Texto<br>AAAA-MM-DD – data da criação  | Não |
 
 | **Dados das características do pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
@@ -217,34 +255,6 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | --- | --- | --- | --- |
 | bpmpi_giftcard_amount | O total do valor da compra para cartões-presente pré-pagos em valor arredondado | Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
 | bpmpi_giftcard_currency | Código da moeda da transação paga com cartão do tipo pré-pago | Fixo &quot;BRL&quot; | Não |
-
-| **Dados de endereço de cobrança** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| bpmpi_billto_customerid | Identifica o CPF/CNPJ do comprador | Numérico [11 a 14 posições]<br>99999999999999 | Não |
-| bpmpi_billto_contactname| Nome do contato do endereço de cobrança | Alfanumérico [até 120] | Sim |
-| bpmpi_billTo_phonenumber | Telefone de contato do endereço de cobrança | Numérico [até 15 posições], no formato: 5511999999999 | Sim |
-| bpmpi_billTo_email | E-mail do contato do endereço de cobrança | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Sim |
-| bpmpi_billTo_street1 | Logradouro e Número do endereço de cobrança | Alfanumérico [até 60] | Sim |
-| bpmpi_billTo_street2 | Complemento e bairro do endereço de cobrança | Alfanumérico [até 60] | Sim |
-| bpmpi_billTo_city | Cidade do endereço de cobrança | Alfanumérico [até 50] | Sim |
-| bpmpi_billTo_state | Sigla do estado do endereço de cobrança | Texto [2 posições] | Sim |
-| bpmpi_billto_zipcode | CEP do endereço de cobrança | Alfanumérico [até 8 posições], no formato: 99999999 | Sim |
-| bpmpi_billto_country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Sim |
-
-| **Dados de endereço de entrega** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| bpmpi_shipto_sameasbillto | Indica se utiliza o mesmo endereço fornecido para endereço de cobrança | Booleano<br>true<br>false | Não |
-| bpmpi_shipto_addressee | Nome do contato do endereço de entrega | Alfanumérico [até 60] | Não |
-| bpmpi_shipTo_phonenumber | Telefone de contato do endereço de entrega | Numérico [até 15 posições], no formato: 5511999999999 | Não |
-| bpmpi_shipTo_email | E-mail do contato do endereço de entrega | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Não |
-| bpmpi_shipTo_street1 | Logradouro e Número do endereço de entrega | Alfanumérico [até 60] | Não |
-| bpmpi_shipTo_street2 | Complemento e bairro do endereço de entrega | Alfanumérico [até 60] | Não | 
-| bpmpi_shipTo_city | Cidade do endereço de entrega | Alfanumérico [até 50] | Não |
-| bpmpi_shipTo_state | Sigla do estado do endereço de entrega | Texto [2 posições] | Não | 
-| bpmpi_shipto_zipcode | CEP do endereço de entrega | Alfanumérico [até 8 posições], no formato: 99999999 | Não |
-| bpmpi_shipto_country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Não |
-| bpmpi_shipTo_shippingmethod | Tipo do método de envio | lowcost: envio econômico<br>sameday: envio no mesmo dia<br>oneday: envio no dia seguinte<br>twoday: envio em dois dias<br>threeday: envio em três dias<br>pickup: retirada na loja<br>other: outrosnone: não há envio | Não |
-| bpmpi_shipto_firstusagedate | Indica a data de quando houve a primeira utilização do endereço de entrega | Texto<br>AAAA-MM-DD – data da criação  | Não |
 
 | **Dados do carrinho de compras** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
