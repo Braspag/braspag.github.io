@@ -560,8 +560,8 @@
     </tr>
     <tr>
       <td>productCode</td>
-      <td>Tipoda compra</td>
-      <td>Enum ProductCodeEnum <br /> ACC: Hotelaria<br />ACF: Financiamento de conta<br />CHA: Check acceptance<br />DIG: Digital Goods<br />DSP: Dispensação de dinheiro<br />GAS: Combustível<br />GEN: Varejo geral<br />LUX: Artigos de luxo<br />PAL: recarga<br />PHY: compra de mercadorias<br />QCT: Transação quase-dinheiro<br />REN: Alugue de Carros<br />RES: Restaurante<br />SVC: Serviços<br />TBD: Outros<br />TRA: Turismo</td>
+      <td>Tipo da compra</td>
+      <td><em>ProductCodeEnum</em><br /> ACC: Hotelaria<br />ACF: Financiamento de conta<br />CHA: Check acceptance<br />DIG: Digital Goods<br />DSP: Dispensação de dinheiro<br />GAS: Combustível<br />GEN: Varejo geral<br />LUX: Artigos de luxo<br />PAL: recarga<br />PHY: compra de mercadorias<br />QCT: Transação quase-dinheiro<br />REN: Alugue de Carros<br />RES: Restaurante<br />SVC: Serviços<br />TBD: Outros<br />TRA: Turismo</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -589,7 +589,7 @@
       <td>Não</td>
     </tr>
     <tr>
-      <td>marketingOptin</td>
+      <td>marketingOptIn</td>
       <td>Indica se o comprador aceitou receber ofertas de marketing</td>
       <td>Booleano<br />true – sim<br />false – não</td>
       <td>Não</td>
@@ -646,13 +646,13 @@
       <td>Sim</td>
     </tr>
     <tr>
-      <td>cardAlias**</td>
+      <td>cardAlias</td>
       <td>Alias do cartão</td>
       <td>Alphanumérico [até 128 posições]</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>defaultCard**</td>
+      <td>defaultCard</td>
       <td>Indica se é um cartão padrão do cliente na loja</td>
       <td>Booleano<br />true - sim<br />false - não</td>
       <td>Não</td>
@@ -810,7 +810,7 @@
     <tr>
       <td>shippingMethod</td>
       <td>Tipo do método de envio</td>
-      <td>Enum ShippingMethod<br />lowcost: envio econômico<br />sameday: envio no mesmo dia<br />oneday: envio no dia seguinte<br />twoday: envio em dois dias<br />threeday: envio em três dias<br />pickup: retirada na loja<br />other: outrosnone: não há envio</td>
+      <td><em>ShippingMethodEnum</em><br />lowcost: envio econômico<br />sameday: envio no mesmo dia<br />oneday: envio no dia seguinte<br />twoday: envio em dois dias<br />threeday: envio em três dias<br />pickup: retirada na loja<br />other: outrosnone: não há envio</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -1134,7 +1134,7 @@
     <tr>
       <td>frequency</td>
       <td>Indica a frequência da recorrência</td>
-      <td>Enum RecurringFrequency<br /> Número<br />1 - Mensal<br />2 - Bimestral<br />3 - Trimestral<br />4 - Quadrimestral<br />6 - Semestral<br />12 - Anual</td>
+      <td><em>RecurringFrequencyEnum</em> <br /> Número<br />1 - Mensal<br />2 - Bimestral<br />3 - Trimestral<br />4 - Quadrimestral<br />6 - Semestral<br />12 - Anual</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -1172,12 +1172,14 @@
 <p>Utilize os cartões de <strong>teste</strong> abaixo para simular diversos cenários no ambiente de <strong>SANDBOX</strong></p>
 
 <table>
-  <tbody>
+  <thead>
     <tr>
-      <td><strong>Cartão</strong></td>
-      <td><strong>Resultado</strong></td>
-      <td><strong>Descrição</strong></td>
+      <th><strong>Cartão</strong></th>
+      <th><strong>Resultado</strong></th>
+      <th><strong>Descrição</strong></th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>4000000000001000</td>
       <td>SUCCESS</td>
