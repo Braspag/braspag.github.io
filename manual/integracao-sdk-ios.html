@@ -269,43 +269,43 @@
 
 <p>Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="no">Braspag3dsSdk</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Braspag3dsSdk</span>
 </code></pre></div></div>
 
 <p>Em seguida é necessário passar para o lado cliente(APP) o <em>access_token</em> gerado no passo anterior:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">braspag3ds</span> <span class="o">=</span> <span class="no">Braspag3ds</span><span class="p">(</span><span class="ss">accessToken: </span><span class="s2">"&gt;"</span><span class="p">,</span> <span class="ss">environment: </span><span class="no">Environment</span><span class="p">.</span><span class="nf">production</span><span class="p">)</span>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">braspag3ds</span> <span class="p">=</span> <span class="nf">Braspag3ds</span><span class="p">(</span><span class="n">accessToken</span><span class="p">:</span> <span class="s">"&gt;"</span><span class="p">,</span> <span class="n">environment</span><span class="p">:</span> <span class="n">Environment</span><span class="p">.</span><span class="n">production</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Em seguida é necessário utilizar o método <em>authenticate</em>, informando os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="ss">orderData: </span><span class="no">OrderData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">cardData: </span><span class="no">CardData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">authOptions: </span><span class="no">OptionsData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">billToData: </span><span class="no">BillToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">shipToData: </span><span class="no">ShipToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">cart: </span><span class="p">[</span><span class="no">CartItemData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">deviceData: </span><span class="no">DeviceData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">userData: </span><span class="no">UserData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">airlineData: </span><span class="no">AirlineData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">mdd: </span><span class="no">MddData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">recurringData: </span><span class="no">RecurringData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
-                        <span class="ss">deviceIpAddress: </span><span class="s2">"0.0.0.0"</span><span class="p">){</span> <span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">authenticationResponse</span><span class="p">)</span> <span class="k">in</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>braspag3ds.authenticate(orderData: OrderData(...),
+                        cardData: CardData(...),
+                        authOptions: OptionsData(...),
+                        billToData: BillToData(...),
+                        shipToData: ShipToData(...),
+                        cart: [CartItemData(...),
+                        deviceData: DeviceData(...),
+                        userData: UserData(...),
+                        airlineData: AirlineData(...),
+                        mdd: MddData(...),
+                        recurringData: RecurringData(...),
+                        deviceIpAddress: "0.0.0.0"){ (status, authenticationResponse) in
                         
-                        <span class="n">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
-                        <span class="k">case</span> <span class="p">.</span><span class="nf">success</span><span class="p">:</span>
-                          <span class="o">...</span>
-                        <span class="k">case</span> <span class="p">.</span><span class="nf">unenrolled</span><span class="p">:</span>
-                          <span class="o">...</span>
-                        <span class="k">case</span> <span class="ss">failure:
-                          </span><span class="o">...</span>
-                        <span class="k">case</span> <span class="ss">error:
-                          </span><span class="o">...</span>
-                        <span class="k">case</span> <span class="ss">unsupportedBrand:
-                          </span><span class="o">...</span>
-                        <span class="p">}</span>
+                        switch(status){
+                        case .success:
+                          ...
+                        case .unenrolled:
+                          ...
+                        case failure:
+                          ...
+                        case error:
+                          ...
+                        case unsupportedBrand:
+                          ...
+                        }
                         
-  <span class="p">}</span>
+  }
 </code></pre></div></div>
 
 <p>Parâmetros de entrada do método <em>authenticate</em></p>
