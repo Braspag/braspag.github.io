@@ -76,7 +76,6 @@ dependecies{
 }
 ```
 
-
 Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
 
 ```kotlin
