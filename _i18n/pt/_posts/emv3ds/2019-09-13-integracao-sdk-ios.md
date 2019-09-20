@@ -232,14 +232,89 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | state | Sigla do estado do endereço de entrega | Texto [2 posições] | Não | 
 | zipCode | CEP do endereço de entrega | Alfanumérico [até 8 posições], no formato: 99999999 | Não |
 | country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Não |
-| shippingMethod | Tipo do método de envio | lowcost: envio econômico<br>sameday: envio no mesmo dia<br>oneday: envio no dia seguinte<br>twoday: envio em dois dias<br>threeday: envio em três dias<br>pickup: retirada na loja<br>other: outrosnone: não há envio | Não |
+| shippingMethod | Tipo do método de envio | Enum ShippingMethod<br>lowcost: envio econômico<br>sameday: envio no mesmo dia<br>oneday: envio no dia seguinte<br>twoday: envio em dois dias<br>threeday: envio em três dias<br>pickup: retirada na loja<br>other: outrosnone: não há envio | Não |
 | firstUsageDate | Indica a data de quando houve a primeira utilização do endereço de entrega | Texto<br>AAAA-MM-DD – data da criação  | Não |
+
+## CartItemData
+
+| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| description | Descrição do item | Alfanumérico [até 255 posições] | Não |
+| name | Nome do item | Alfanumérico [até 255 posições] | Não | Sim |
+| sku | SKU do item | Alfanumérico [até 255 posições] | Não |
+| quantity| Quantidade do item no carrinho | Numérico [até 10 posições] | Não |
+| unitprice | Valor unitário do item do carrinho em centavos | Numérico [até 10 posições] | Não |
+
+## DeviceData
+
+| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| fingerprint | Id retornado pelo Device Finger Print | Alfanumérico [sem limitação] | Não |
+| provider | Nome do provedor do Device Finger Print | Alfanumérico [até 32 posições] cardinal<br>inauth<br>threatmetrix| Não |
+
+## UserData
+
+| **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| guest | Indica se o comprador é um comprador sem login (guest)| Booleano<br>true – sim<br>false – não  | Não |
+| createdDate | Indica a data de quando houve a criação da conta do comprador | Texto<br>AAAA-MM-DD – data da criação  | Não |
+| changedDate | Indica a data de quando houve a última alteração na conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração | Não |
+| passwordChangedDate | Indica a data de quando houve a alteração de senha da conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração de senha  | Não |
+| authenticationMethod | Método de autenticação do comprador na loja | 01- Não houve autenticação<br>02- Login da própria loja<br>03- Login com ID federado<br>04- Login com autenticador FIDO | Não |
+| authenticationProtocol | Dado que representa o protocolo de login efetuado na loja | Alfanumérico [até 2048 posições] | Não |
+| authenticationTimestamp | A data e hora que o login foi efetuado na loja | Texto [19 posições] _YYYY-MM-ddTHH:mm:SS_ | Não |
+| newCustomer | Identifica se um comprador novo na loja| Booleano<br>true – sim<br>false – não  | Não |
+
+## AirlineData
+
+| **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| numberOfPassengers | Número de passageiros | Numérico [3 posições] | Não |
+| billToPassportCountry | Código do país que emitiu o passaporte (ISO Standard Country Codes) | Texto [2 posições] | Não |
+| billtoPassportNumber | Número do passaporte | Alfanumérico [40 posições] | Não |
+| travelleg | Trecho da viagem | TravelLeg | Não |
+| passenger | Dados do passageiro | Passenger | Não |
+
+## TravelLeg
+
+| **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| carrier | Código IATA para o trecho | Alfanumérico [2 posições] | Não |
+| departuredate | Data de partida | Texto<br>AAAA-MM-DD | Não |
+| origin | Código IATA do aeroporto de origem | Alfanumérico [5 posições] | Não |
+| destination | Código IATA do aeroporto de destino | Alfanumérico [5 posições] | Não |
+
+## Passenger
+
+| **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| name| Nome do passageiro | Alfanumérico [até 60 posições] | Não |
+| ticketPrice | O valor da passagem em centavos  Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
+
+## MDD
+
+| **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| mdd1 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+| mdd2 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+| mdd3 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+| mdd4 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+| mdd5 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+
+## RecurringData
+
+| **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| endDate | Identifica a data de término da recorrência | Texto (AAAA-MM-DD) | Não |
+| frequency | Indica a frequência da recorrência | Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
+| originalPurchaseDate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
+
+
+| ipAddress | Endereço IP da máquina do comprador | Alfanumérico [até 45] | Não |
 
 | **Dados das características do pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
-| bpmpi_recurring_enddate | Identifica a data de término da recorrência | Texto (AAAA-MM-DD) | Não |
-| bpmpi_recurring_frequency | Indica a frequência da recorrência | Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
-| bpmpi_recurring_originalpurchasedate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
+
 | bpmpi_order_recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
 | bpmpi_order_productcode | Tipoda compra | ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
 | bpmpi_order_countlast24hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
@@ -251,55 +326,8 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | bpmpi_transaction_mode | Identifica o canal que originou a transação | M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | Não |
 | bpmpi_merchant_url | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
 
-| **Dados específicos para cartões Gift Card (pré-pago)** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| bpmpi_giftcard_amount | O total do valor da compra para cartões-presente pré-pagos em valor arredondado | Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
-| bpmpi_giftcard_currency | Código da moeda da transação paga com cartão do tipo pré-pago | Fixo &quot;BRL&quot; | Não |
 
-| **Dados do carrinho de compras** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| bpmpi_cart_#_description | Descrição do item | Alfanumérico [até 255 posições] | Não |
-| bpmpi_cart_#_name | Nome do item | Alfanumérico [até 255 posições] | Não | Sim |
-| bpmpi_cart_#_sku | SKU do item | Alfanumérico [até 255 posições] | Não |
-| bpmpi_cart_#_quantity| Quantidade do item no carrinho | Numérico [até 10 posições] | Não |
-| bpmpi_cart_#_unitprice | Valor unitário do item do carrinho em centavos | Numérico [até 10 posições] | Não |
 
-| **Dados do usuário** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| bpmpi_useraccount_guest | Indica se o comprador é um comprador sem login (guest)| Booleano<br>true – sim<br>false – não  | Não |
-| bpmpi_useraccount_createddate | Indica a data de quando houve a criação da conta do comprador | Texto<br>AAAA-MM-DD – data da criação  | Não |
-| bpmpi_useraccount_changeddate | Indica a data de quando houve a última alteração na conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração | Não |
-| bpmpi_useraccount_passwordchangeddate | Indica a data de quando houve a alteração de senha da conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração de senha  | Não |
-| bpmpi_useraccount_authenticationmethod | Método de autenticação do comprador na loja | 01- Não houve autenticação<br>02- Login da própria loja<br>03- Login com ID federado<br>04- Login com autenticador FIDO | Não |
-| bpmpi_useraccount_authenticationprotocol | Dado que representa o protocolo de login efetuado na loja | Alfanumérico [até 2048 posições] | Não |
-| bpmpi_useraccount_authenticationtimestamp | A data e hora que o login foi efetuado na loja | Texto [19 posições] _YYYY-MM-ddTHH:mm:SS_ | Não |
-| bpmpi_merchant_newcustomer | Identifica se um comprador novo na loja| Booleano<br>true – sim<br>false – não  | Não |
-
-| **Dados do dispositivo utilizado para compra** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| bpmpi_device_ipaddress | Endereço IP da máquina do comprador | Alfanumérico [até 45] | Não |
-| bpmpi_device_#_fingerprint | Id retornado pelo Device Finger Print | Alfanumérico [sem limitação] | Não |
-| bpmpi_device_#_provider | Nome do provedor do Device Finger Print | Alfanumérico [até 32 posições] cardinal<br>inauth<br>threatmetrix| Não |
-
-| **Dados específicos para companhias aéreas** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| bpmpi_airline_travelleg_#_carrier | Código IATA para o trecho | Alfanumérico [2 posições] | Não |
-| bpmpi_airline_travelleg_#_departuredate | Data de partida | Texto<br>AAAA-MM-DD | Não |
-| bpmpi_airline_travelleg_#_origin | Código IATA do aeroporto de origem | Alfanumérico [5 posições] | Não |
-| bpmpi_airline_travelleg_#_destination | Código IATA do aeroporto de destino | Alfanumérico [5 posições] | Não |
-| bpmpi_airline_passenger_#_name| Nome do passageiro | Alfanumérico [até 60 posições] | Não |
-| bpmpi_airline_passenger_#_ticketprice | O valor da passagem em centavos  Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
-| bpmpi_airline_numberofpassengers | Número de passageiros | Numérico [3 posições] | Não |
-| bpmpi_airline_billto_passportcountry | Código do país que emitiu o passaporte (ISO Standard Country Codes) | Texto [2 posições] | Não |
-| bpmpi_airline_billto_passportnumber | Número do passaporte | Alfanumérico [40 posições] | Não |
-
-| **Dados extras do estabelecimento (caso aplicável)** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| bpmpi_mdd1 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
-| bpmpi_mdd2 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
-| bpmpi_mdd3 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
-| bpmpi_mdd4 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
-| bpmpi_mdd5 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
 
 # Cartões de Teste
 
