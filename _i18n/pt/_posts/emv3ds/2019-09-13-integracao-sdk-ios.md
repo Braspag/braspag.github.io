@@ -88,19 +88,14 @@ curl
 
 Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:
 
-```javascript
 import Braspag3dsSdk
-```
 
 Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
 
-```csharp
 let braspag3ds = Braspag3ds(accessToken: "<<Access_Token gerado no passo 1>>", environment: Environment.production)
-```
 
 Em seguida é necessário utilizar o método *authenticate*, informando os dados do comprador e o *callback* que receberá a resposta:
 
-```
 braspag3ds.authenticate(orderData: OrderData(...),
                         cardData: CardData(...),
                         authOptions: OptionsData(...),
@@ -128,9 +123,8 @@ braspag3ds.authenticate(orderData: OrderData(...),
                         }
                         
   }
-```
 
-Parâmetros de entrada do método *authenticate*
+## Parâmetros de entrada do método *authenticate*
 
 | **Campo** | **Tipo** | **Descrição** | **Obrigatório** |
 | --- | --- | -- | -- |
@@ -147,7 +141,7 @@ Parâmetros de entrada do método *authenticate*
 | recurringData | RecurringData? | Dados da recorrência | Não |
 | deviceIpAddress | String? | Endereço IP do dispositivo | Não |
 
-Descrição dos Status do Callback
+## Descrição dos Status do Callback
 
 | **Status** | **Descrição** | 
 | --- | --- |
@@ -157,7 +151,7 @@ Descrição dos Status do Callback
 | error | É retornado quando o processo de autenticação recebeu um erro sistêmico. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
 | unsupportedBrand | É retornado quando a bandeira do cartão não é suportado pelo 3DS 2.0 |
 
-Descrição dos campos do *AuthenticationResponse*
+## Descrição dos campos do *AuthenticationResponse*
 
 | **Saída** | **Descrição** | **Tipo/Tamanho** |
 | --- | --- | --- |
