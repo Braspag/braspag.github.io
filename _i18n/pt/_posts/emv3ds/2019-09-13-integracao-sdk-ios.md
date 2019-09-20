@@ -95,7 +95,7 @@ import Braspag3dsSdk
 Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
 
 ```ruby
-let braspag3ds = Braspag3ds(accessToken: "<<Access-Token gerado no passo 1>>", environment: Environment.production)
+let braspag3ds = Braspag3ds(accessToken: "<<Access_Token gerado no passo 1>>", environment: Environment.production)
 ```
 
 Em seguida é necessário utilizar o método *authenticate*, informando os dados do comprador e o *callback* que receberá a resposta:
@@ -192,12 +192,12 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | paymentMethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | Credit – Cartão de Crédito<br>Debit – Cartão de Débito | Sim |
 | installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
 | recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
-| productCode | Tipoda compra | Enum ProductCodeEnum <br> ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
+| productCode | Tipo da compra | *ProductCodeEnum*<br><br> ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
 | countLast24Hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
 | countLast6Months | Quantidade de pedidos efetuados por este comprador nos últimos 6 meses | Numérico [até 4 posições] | Não |
 | countLast1Year | Quantidade de pedidos efetuados por este comprador no último ano | Numérico [até 3 posições] | Não |
 | cardAttemptsLast24Hours | Quantidade de transações com o mesmo cartão nas últimas 24h | Numérico [até 3 posições] | Não |
-| marketingOptin | Indica se o comprador aceitou receber ofertas de marketing | Booleano<br>true – sim<br>false – não  | Não |
+| marketingOptIn | Indica se o comprador aceitou receber ofertas de marketing | Booleano<br>true – sim<br>false – não  | Não |
 | marketingSource | Identifica a origem da campanha de marketing | Alfanumérico [até 40 posições] | Não |
 | transactionMode | Identifica o canal que originou a transação | M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | Não |
 | merchantUrl | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
@@ -209,8 +209,8 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | number | Número do Cartão | Numérico [até 19 posições] | Sim |
 | expirationMonth | Mês do vencimento do cartão | Numérico [2 posições] | Sim |
 | cardexpirationYear | Ano do vencimento do cartão | Numérico [4 posições] | Sim | 
-| cardAlias** | Alias do cartão | Alphanumérico [até 128 posições] | Não |
-| defaultCard** | Indica se é um cartão padrão do cliente na loja | Booleano<br>true - sim<br>false - não | Não |
+| cardAlias | Alias do cartão | Alphanumérico [até 128 posições] | Não |
+| defaultCard | Indica se é um cartão padrão do cliente na loja | Booleano<br>true - sim<br>false - não | Não |
 
 ## BillToData
 
@@ -241,7 +241,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | state | Sigla do estado do endereço de entrega | Texto [2 posições] | Não | 
 | zipCode | CEP do endereço de entrega | Alfanumérico [até 8 posições], no formato: 99999999 | Não |
 | country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Não |
-| shippingMethod | Tipo do método de envio | Enum ShippingMethod<br>lowcost: envio econômico<br>sameday: envio no mesmo dia<br>oneday: envio no dia seguinte<br>twoday: envio em dois dias<br>threeday: envio em três dias<br>pickup: retirada na loja<br>other: outrosnone: não há envio | Não |
+| shippingMethod | Tipo do método de envio | *ShippingMethodEnum*<br><br>lowcost: envio econômico<br>sameday: envio no mesmo dia<br>oneday: envio no dia seguinte<br>twoday: envio em dois dias<br>threeday: envio em três dias<br>pickup: retirada na loja<br>other: outrosnone: não há envio | Não |
 | firstUsageDate | Indica a data de quando houve a primeira utilização do endereço de entrega | Texto<br>AAAA-MM-DD – data da criação  | Não |
 
 ## CartItemData
@@ -297,7 +297,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 
 | **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
-| name| Nome do passageiro | Alfanumérico [até 60 posições] | Não |
+| name | Nome do passageiro | Alfanumérico [até 60 posições] | Não |
 | ticketPrice | O valor da passagem em centavos | Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
 
 ## MDD
@@ -315,7 +315,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | endDate | Identifica a data de término da recorrência | Texto (AAAA-MM-DD) | Não |
-| frequency | Indica a frequência da recorrência | Enum RecurringFrequency<br> Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
+| frequency | Indica a frequência da recorrência | *RecurringFrequencyEnum* <br><br> Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
 | originalPurchaseDate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
 
 ## Demais parâmetros
@@ -329,6 +329,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 Utilize os cartões de **teste** abaixo para simular diversos cenários no ambiente de **SANDBOX**
 
 | **Cartão** | **Resultado** | **Descrição** |
+| --- | --- | --- |
 | 4000000000001000 | SUCCESS | Autenticação Silenciosa e portador autenticou com sucesso |
 | 4000000000001018 | FAILURE | Autenticação Silenciosa e portador finalizou com falha|
 | 4000000000001034 | UNENROLLED | Cartão não elegível para autenticação |
