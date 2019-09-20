@@ -59,18 +59,18 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 # Passo 2 - Utilizando o SDK
 
-Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk na libs do app:
+Para utilizar o SDK é necessário copiar e colar o arquivo Braspag3dsSdk na libs do app:
 
 ```kotlin
 braspag3ds-1.0-release.aar
 ```
 
-Em seguida alterar o gradle:app
+Em seguida alterar no (gradle:app)
 
 ```kotlin
 dependecies{
 
-  implementation fileTree(dir: 'libs', include: ['*jar', '*.aar'])
+  implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
   
   ...
 }
