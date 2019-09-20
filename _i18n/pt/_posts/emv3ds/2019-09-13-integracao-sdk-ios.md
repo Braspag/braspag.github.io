@@ -5,7 +5,7 @@ description: Integração técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
-lags:
+tags:
   - Autenticação 3DS 2.0
 ---
 
