@@ -269,46 +269,44 @@
 
 <p>Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Braspag3dsSdk</span>
-</code></pre></div></div>
+<p>import Braspag3dsSdk</p>
 
 <p>Em seguida é necessário passar para o lado cliente(APP) o <em>access_token</em> gerado no passo anterior:</p>
 
-<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">braspag3ds</span> <span class="p">=</span> <span class="nf">Braspag3ds</span><span class="p">(</span><span class="n">accessToken</span><span class="p">:</span> <span class="s">"&gt;"</span><span class="p">,</span> <span class="n">environment</span><span class="p">:</span> <span class="n">Environment</span><span class="p">.</span><span class="n">production</span><span class="p">)</span>
-</code></pre></div></div>
+<p>let braspag3ds = Braspag3ds(accessToken: “&gt;”, environment: Environment.production)</p>
 
 <p>Em seguida é necessário utilizar o método <em>authenticate</em>, informando os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>braspag3ds.authenticate(orderData: OrderData(...),
-                        cardData: CardData(...),
-                        authOptions: OptionsData(...),
-                        billToData: BillToData(...),
-                        shipToData: ShipToData(...),
-                        cart: [CartItemData(...),
-                        deviceData: DeviceData(...),
-                        userData: UserData(...),
-                        airlineData: AirlineData(...),
-                        mdd: MddData(...),
-                        recurringData: RecurringData(...),
-                        deviceIpAddress: "0.0.0.0"){ (status, authenticationResponse) in
-                        
-                        switch(status){
-                        case .success:
-                          ...
-                        case .unenrolled:
-                          ...
-                        case failure:
-                          ...
-                        case error:
-                          ...
-                        case unsupportedBrand:
-                          ...
-                        }
-                        
-  }
+<p>braspag3ds.authenticate(orderData: OrderData(…),
+                        cardData: CardData(…),
+                        authOptions: OptionsData(…),
+                        billToData: BillToData(…),
+                        shipToData: ShipToData(…),
+                        cart: [CartItemData(…),
+                        deviceData: DeviceData(…),
+                        userData: UserData(…),
+                        airlineData: AirlineData(…),
+                        mdd: MddData(…),
+                        recurringData: RecurringData(…),
+                        deviceIpAddress: “0.0.0.0”){ (status, authenticationResponse) in</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                    switch(status){
+                    case .success:
+                      ...
+                    case .unenrolled:
+                      ...
+                    case failure:
+                      ...
+                    case error:
+                      ...
+                    case unsupportedBrand:
+                      ...
+                    }
 </code></pre></div></div>
 
-<p>Parâmetros de entrada do método <em>authenticate</em></p>
+<p>}</p>
+
+<h2 id="parâmetros-de-entrada-do-método-authenticate">Parâmetros de entrada do método <em>authenticate</em></h2>
 
 <table>
   <thead>
@@ -395,7 +393,7 @@
   </tbody>
 </table>
 
-<p>Descrição dos Status do Callback</p>
+<h2 id="descrição-dos-status-do-callback">Descrição dos Status do Callback</h2>
 
 <table>
   <thead>
@@ -428,7 +426,7 @@
   </tbody>
 </table>
 
-<p>Descrição dos campos do <em>AuthenticationResponse</em></p>
+<h2 id="descrição-dos-campos-do-authenticationresponse">Descrição dos campos do <em>AuthenticationResponse</em></h2>
 
 <table>
   <thead>
