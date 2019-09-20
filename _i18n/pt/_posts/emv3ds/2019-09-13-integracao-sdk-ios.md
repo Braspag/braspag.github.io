@@ -129,7 +129,6 @@ braspag3ds.authenticate(orderData: OrderData(...),
                         }                  
   }
   
-
 ## Parâmetros de entrada do método *authenticate*
 
 | **Campo** | **Tipo** | **Descrição** | **Obrigatório** |
