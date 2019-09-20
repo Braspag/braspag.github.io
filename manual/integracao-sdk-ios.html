@@ -57,6 +57,8 @@
                     
                     <li><a data-language-name='shell'>cURL</a></li>
                     
+                    <li><a data-language-name='swift'>swift</a></li>
+                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -269,42 +271,43 @@
 
 <p>Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:</p>
 
-<p>import Braspag3dsSdk</p>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Braspag3dsSdk</span>
+</code></pre></div></div>
 
 <p>Em seguida é necessário passar para o lado cliente(APP) o <em>access_token</em> gerado no passo anterior:</p>
 
-<p>let braspag3ds = Braspag3ds(accessToken: “&gt;”, environment: Environment.production)</p>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">braspag3ds</span> <span class="o">=</span> <span class="kt">Braspag3ds</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="s">"&gt;"</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt">Environment</span><span class="o">.</span><span class="n">production</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>Em seguida é necessário utilizar o método <em>authenticate</em>, informando os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
 
-<p>braspag3ds.authenticate(orderData: OrderData(…),
-                        cardData: CardData(…),
-                        authOptions: OptionsData(…),
-                        billToData: BillToData(…),
-                        shipToData: ShipToData(…),
-                        cart: [CartItemData(…),
-                        deviceData: DeviceData(…),
-                        userData: UserData(…),
-                        airlineData: AirlineData(…),
-                        mdd: MddData(…),
-                        recurringData: RecurringData(…),
-                        deviceIpAddress: “0.0.0.0”){ (status, authenticationResponse) in</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                    switch(status){
-                    case .success:
-                      ...
-                    case .unenrolled:
-                      ...
-                    case failure:
-                      ...
-                    case error:
-                      ...
-                    case unsupportedBrand:
-                      ...
-                    }
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds</span><span class="o">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="nv">orderData</span><span class="p">:</span> <span class="kt">OrderData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">cardData</span><span class="p">:</span> <span class="kt">CardData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">authOptions</span><span class="p">:</span> <span class="kt">OptionsData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">billToData</span><span class="p">:</span> <span class="kt">BillToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">shipToData</span><span class="p">:</span> <span class="kt">ShipToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">cart</span><span class="p">:</span> <span class="p">[</span><span class="kt">CartItemData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">deviceData</span><span class="p">:</span> <span class="kt">DeviceData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">userData</span><span class="p">:</span> <span class="kt">UserData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">airlineData</span><span class="p">:</span> <span class="kt">AirlineData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">mdd</span><span class="p">:</span> <span class="kt">MddData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">recurringData</span><span class="p">:</span> <span class="kt">RecurringData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">deviceIpAddress</span><span class="p">:</span> <span class="s">"0.0.0.0"</span><span class="p">){</span> <span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">authenticationResponse</span><span class="p">)</span> <span class="k">in</span>
+                        
+                        <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+                        <span class="k">case</span> <span class="o">.</span><span class="nv">success</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="k">case</span> <span class="o">.</span><span class="nv">unenrolled</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="k">case</span> <span class="nv">failure</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="k">case</span> <span class="nv">error</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="k">case</span> <span class="nv">unsupportedBrand</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="p">}</span>                  
+  <span class="p">}</span>
 </code></pre></div></div>
-
-<p>}</p>
 
 <h2 id="parâmetros-de-entrada-do-método-authenticate">Parâmetros de entrada do método <em>authenticate</em></h2>
 
@@ -541,7 +544,7 @@
     <tr>
       <td>paymentMethod</td>
       <td>Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit</td>
-      <td>Credit – Cartão de Crédito<br />Debit – Cartão de Débito</td>
+      <td><em>PaymentMethod</em> <br />credit – Cartão de Crédito<br />debit – Cartão de Débito</td>
       <td>Sim</td>
     </tr>
     <tr>
@@ -931,7 +934,7 @@
     <tr>
       <td>authenticationMethod</td>
       <td>Método de autenticação do comprador na loja</td>
-      <td>Enum AuthenticationMethodEnum <br /> 01- Não houve autenticação<br />02- Login da própria loja<br />03- Login com ID federado<br />04- Login com autenticador FIDO</td>
+      <td><em>AuthenticationMethod</em> <br /> noAuthentication - Não houve autenticação<br />ownStoreLogin - Login da própria loja<br />federatedLogin - Login com ID federado<br />fidoAuthenticator - Login com autenticador FIDO</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -1132,7 +1135,7 @@
     <tr>
       <td>frequency</td>
       <td>Indica a frequência da recorrência</td>
-      <td><em>RecurringFrequencyEnum</em> <br /> Número<br />1 - Mensal<br />2 - Bimestral<br />3 - Trimestral<br />4 - Quadrimestral<br />6 - Semestral<br />12 - Anual</td>
+      <td><em>RecurringFrequencyEnum</em> <br />MonthlyBimonthly<br />Quarterly<br />Triannual<br />SemiAnnual<br />Yearly</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -1357,6 +1360,8 @@ Veja maiores detalhes em: <a href="https://braspag.github.io/manual/autorizacao-
         
         langs += "<a data-language-name='shell'>cURL</a>";
         
+        langs += "<a data-language-name='swift'>swift</a>";
+        
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
@@ -1364,7 +1369,7 @@ Veja maiores detalhes em: <a href="https://braspag.github.io/manual/autorizacao-
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json",  "shell", ]);
+                setupLanguages([  "json",  "shell",  "swift", ]);
             });
         </script>
         
