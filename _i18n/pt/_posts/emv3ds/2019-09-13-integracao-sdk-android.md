@@ -80,39 +80,55 @@ dependecies{
 Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
 
 ```kotlin
-val braspag3ds = Braspag3ds(accessToken: "<<Access_Token gerado no passo 1>>", environment: Environment.production)
+val braspag3dsSdk = Braspag3ds(
+                       accessToken = “<Access_Token>“,
+                       environment = Environment.SANDBOX
+                   )
 ```
-
-
 
 Em seguida é necessário utilizar o método `authenticate`, informando os dados do comprador e o *callback* que receberá a resposta:
 
 ```kotlin
-braspag3ds.authenticate(orderData: OrderData(...),
-                        cardData: CardData(...),
-                        authOptions: OptionsData(...),
-                        billToData: BillToData(...),
-                        shipToData: ShipToData(...),
-                        cart: [CartItemData(...),
-                        deviceData: DeviceData(...),
-                        userData: UserData(...),
-                        airlineData: AirlineData(...),
-                        mdd: MddData(...),
-                        recurringData: RecurringData(...),
-                        deviceIpAddress: "0.0.0.0"){ (status, authenticationResponse) in
-                        
-                        when(status){
-                        success:
-                          ...
-                        unenrolled:
-                          ...
-                        failure:
-                          ...
-                        error:
-                          ...
-                        unsupportedBrand:
-                          ...
-                        }                  
+braspag3dsSdk.authenticate(
+           orderData = OrderData(
+               orderNumber = ORDER_NUMBER,
+               currencyCode = CURRENCY_BRL,
+               totalAmount = TOTAL_AMOUNT,
+               paymentMethod = PaymentMethod.credit,
+               transactionMode = TransactionMode.eCommerce,
+               installments = 3,
+               merchantUrl = “https://www.exemplo.com.br”
+           ),
+           cardData = CardData(
+               number = selectedCard,
+               expirationMonth = EXPIRATION_MONTH,
+               expirationYear = EXPIRATION_YEAR
+           ),
+           authOptions = OptionsData(
+               notifyOnly = notifyOnly,
+               suppressChallenge = suppressChallenge
+           ),
+           shipToData = ShipToData(
+               sameAsBillTo = true,
+               addressee = “Rua Jose Joao, 666",
+               city = “Jundiaí“,
+               country = “BR”,
+               email = “josejoao@gmail.com”,
+               state = “SP”,
+               shippingMethod = “lowcost”,
+               zipCode = “13306270”
+           ),
+           recurringData = RecurringData(
+               frequency = RecurringFrequency.MONTHLY
+           ),
+           userData = UserData(
+               newCustomer = false,
+               authenticationMethod = AuthenticationMethod.noAuthentication
+           ),
+           activity = activity,
+           callback = callback
+       )
+   }                 
   }
 ```
 
