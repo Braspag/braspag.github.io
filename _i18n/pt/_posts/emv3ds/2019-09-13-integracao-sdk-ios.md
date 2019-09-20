@@ -88,19 +88,19 @@ curl
 
 Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:
 
-```ruby
+```javascript
 import Braspag3dsSdk
 ```
 
 Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
 
-```ruby
+```csharp
 let braspag3ds = Braspag3ds(accessToken: "<<Access_Token gerado no passo 1>>", environment: Environment.production)
 ```
 
 Em seguida é necessário utilizar o método *authenticate*, informando os dados do comprador e o *callback* que receberá a resposta:
 
-```ruby
+```
 braspag3ds.authenticate(orderData: OrderData(...),
                         cardData: CardData(...),
                         authOptions: OptionsData(...),
