@@ -1,16 +1,12 @@
 ---
-layout: tutorial
+layout: manual
 title: 2.3. SDK IOS
 description: Integração técnica Gateway Braspag
 search: true
 translated: true
-categories: manual
-tags:
+categories: manuat
+lags:
   - Autenticação 3DS 2.0
-language_tabs:
-  json: JSON
-  shell: cURL
-  swift: swift
 ---
 
 # O que é 3DS 2.0?
@@ -192,14 +188,14 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | paymentMethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | *PaymentMethod* <br><br>credit – Cartão de Crédito<br>debit – Cartão de Débito | Sim |
 | installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
 | recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
-| productCode | Tipo da compra | *ProductCode*<br><br> hotel: Hotelaria<br>financeAccount: Financiamento de conta<br>checkAcceptance: Check acceptance<br>digitalGoods: Digital Goods<br>cashDispenser: Dispensação de dinheiro<br>fuel: Combustível<br>retail: Varejo geral<br>luxuryGoods: Artigos de luxo<br>recharge: recarga<br>goodsPurchase: compra de mercadorias<br>quasiMoneyTransaction: Transação quase-dinheiro<br>carRental: Alugue de Carros<br>restaurant: Restaurante<br>services: Serviços<br>other: Outros<br>turism: Turismo | Não |
+| productCode | Tipo da compra | *ProductCodeEnum*<br><br> ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
 | countLast24Hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
 | countLast6Months | Quantidade de pedidos efetuados por este comprador nos últimos 6 meses | Numérico [até 4 posições] | Não |
 | countLast1Year | Quantidade de pedidos efetuados por este comprador no último ano | Numérico [até 3 posições] | Não |
 | cardAttemptsLast24Hours | Quantidade de transações com o mesmo cartão nas últimas 24h | Numérico [até 3 posições] | Não |
 | marketingOptIn | Indica se o comprador aceitou receber ofertas de marketing | Booleano<br>true – sim<br>false – não  | Não |
 | marketingSource | Identifica a origem da campanha de marketing | Alfanumérico [até 40 posições] | Não |
-| transactionMode | Identifica o canal que originou a transação | *TransactionMode*<br><br> MOTO: MOTO<br>retail: Varejo<br>eCommerce: E-Commerce<br>mobile: Mobile<br>tablet: Tablet | Não |
+| transactionMode | Identifica o canal que originou a transação | M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | Não |
 | merchantUrl | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
 
 ## CardData
