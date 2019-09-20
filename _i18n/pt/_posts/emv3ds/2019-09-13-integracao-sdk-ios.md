@@ -10,6 +10,7 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
+  swift: swift
 ---
 
 # O que é 3DS 2.0?
@@ -88,14 +89,19 @@ curl
 
 Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:
 
+```swift
 import Braspag3dsSdk
+```
 
 Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
 
+```swift
 let braspag3ds = Braspag3ds(accessToken: "<<Access_Token gerado no passo 1>>", environment: Environment.production)
+```
 
 Em seguida é necessário utilizar o método *authenticate*, informando os dados do comprador e o *callback* que receberá a resposta:
 
+```swift
 braspag3ds.authenticate(orderData: OrderData(...),
                         cardData: CardData(...),
                         authOptions: OptionsData(...),
@@ -120,9 +126,9 @@ braspag3ds.authenticate(orderData: OrderData(...),
                           ...
                         case unsupportedBrand:
                           ...
-                        }
-                        
+                        }                  
   }
+  
 
 ## Parâmetros de entrada do método *authenticate*
 
@@ -183,7 +189,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | orderNumber | Código do pedido no estabelecimento | Alphanumérico [até 50 posições] | Sim |
 | currencyCode | Código da moeda | Fixo &quot;BRL&quot; | Sim |
 | totalAmount | Valor total da transação, enviado em centavos | Numérico [até 15 posições] | Sim |
-| paymentMethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | Credit – Cartão de Crédito<br>Debit – Cartão de Débito | Sim |
+| paymentMethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | *PaymentMethod* <br><br>credit – Cartão de Crédito<br>debit – Cartão de Débito | Sim |
 | installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
 | recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
 | productCode | Tipo da compra | *ProductCodeEnum*<br><br> ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
@@ -263,7 +269,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | createdDate | Indica a data de quando houve a criação da conta do comprador | Texto<br>AAAA-MM-DD – data da criação  | Não |
 | changedDate | Indica a data de quando houve a última alteração na conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração | Não |
 | passwordChangedDate | Indica a data de quando houve a alteração de senha da conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração de senha  | Não |
-| authenticationMethod | Método de autenticação do comprador na loja | Enum AuthenticationMethodEnum <br> 01- Não houve autenticação<br>02- Login da própria loja<br>03- Login com ID federado<br>04- Login com autenticador FIDO | Não |
+| authenticationMethod | Método de autenticação do comprador na loja | *AuthenticationMethod* <br> noAuthentication - Não houve autenticação<br>ownStoreLogin - Login da própria loja<br>federatedLogin - Login com ID federado<br>fidoAuthenticator - Login com autenticador FIDO | Não |
 | authenticationProtocol | Dado que representa o protocolo de login efetuado na loja | Alfanumérico [até 2048 posições] | Não |
 | authenticationTimestamp | A data e hora que o login foi efetuado na loja | Texto [19 posições] _YYYY-MM-ddTHH:mm:SS_ | Não |
 | newCustomer | Identifica se um comprador novo na loja| Booleano<br>true – sim<br>false – não  | Não |
@@ -309,7 +315,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | endDate | Identifica a data de término da recorrência | Texto (AAAA-MM-DD) | Não |
-| frequency | Indica a frequência da recorrência | *RecurringFrequencyEnum* <br><br> Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
+| frequency | Indica a frequência da recorrência | *RecurringFrequencyEnum* <br><br>MonthlyBimonthly<br>Quarterly<br>Triannual<br>SemiAnnual<br>Yearly| Não |
 | originalPurchaseDate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
 
 ## Demais parâmetros
