@@ -99,7 +99,7 @@ Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerad
 let braspag3ds = Braspag3ds(accessToken: "<<Access_Token gerado no passo 1>>", environment: Environment.production)
 ```
 
-Em seguida é necessário utilizar o método *authenticate*, informando os dados do comprador e o *callback* que receberá a resposta:
+Em seguida é necessário utilizar o método `authenticate`, informando os dados do comprador e o *callback* que receberá a resposta:
 
 ```swift
 braspag3ds.authenticate(orderData: OrderData(...),
