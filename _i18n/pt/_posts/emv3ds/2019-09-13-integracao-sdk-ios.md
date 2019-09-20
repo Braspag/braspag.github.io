@@ -88,19 +88,19 @@ curl
 
 Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:
 
-```swift
+```ruby
 import Braspag3dsSdk
 ```
 
 Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
 
-```swift
+```ruby
 let braspag3ds = Braspag3ds(accessToken: "<<Access-Token gerado no passo 1>>", environment: Environment.production)
 ```
 
 Em seguida é necessário utilizar o método *authenticate*, informando os dados do comprador e o *callback* que receberá a resposta:
 
-```swift
+```ruby
 braspag3ds.authenticate(orderData: OrderData(...),
                         cardData: CardData(...),
                         authOptions: OptionsData(...),
@@ -128,7 +128,6 @@ braspag3ds.authenticate(orderData: OrderData(...),
                         }
                         
   }
-                 
 ```
 
 Parâmetros de entrada do método *authenticate*
@@ -141,7 +140,7 @@ Parâmetros de entrada do método *authenticate*
 | billToData | BillToData? | Dados de cobrança do portador | Não |
 | shipToData | ShipToData? | Dados da entrega | Não |
 | cart | [CartItemData]? | Array com itens do carrinho | Não |
-| deviceData | DeviceData? | Configurações adicionais ao processo de 3DS | Não |
+| deviceData | [DeviceData]? | Configurações adicionais ao processo de 3DS | Não |
 | userData | UserData? | Dados do usuário na sua loja | Não |
 | airlineData | AirlineData? | Dados da passagem aérea | Não |
 | mdd | MddData? | Dados extras enviados pelo lojista | Não |
@@ -192,6 +191,16 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | totalAmount | Valor total da transação, enviado em centavos | Numérico [até 15 posições] | Sim |
 | paymentMethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | Credit – Cartão de Crédito<br>Debit – Cartão de Débito | Sim |
 | installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
+| recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
+| productCode | Tipoda compra | Enum ProductCodeEnum <br> ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
+| countLast24Hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
+| countLast6Months | Quantidade de pedidos efetuados por este comprador nos últimos 6 meses | Numérico [até 4 posições] | Não |
+| countLast1Year | Quantidade de pedidos efetuados por este comprador no último ano | Numérico [até 3 posições] | Não |
+| cardAttemptsLast24Hours | Quantidade de transações com o mesmo cartão nas últimas 24h | Numérico [até 3 posições] | Não |
+| marketingOptin | Indica se o comprador aceitou receber ofertas de marketing | Booleano<br>true – sim<br>false – não  | Não |
+| marketingSource | Identifica a origem da campanha de marketing | Alfanumérico [até 40 posições] | Não |
+| transactionMode | Identifica o canal que originou a transação | M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | Não |
+| merchantUrl | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
 
 ## CardData
 
@@ -240,7 +249,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | description | Descrição do item | Alfanumérico [até 255 posições] | Não |
-| name | Nome do item | Alfanumérico [até 255 posições] | Não | Sim |
+| name | Nome do item | Alfanumérico [até 255 posições] | Sim |
 | sku | SKU do item | Alfanumérico [até 255 posições] | Não |
 | quantity| Quantidade do item no carrinho | Numérico [até 10 posições] | Não |
 | unitprice | Valor unitário do item do carrinho em centavos | Numérico [até 10 posições] | Não |
@@ -260,7 +269,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | createdDate | Indica a data de quando houve a criação da conta do comprador | Texto<br>AAAA-MM-DD – data da criação  | Não |
 | changedDate | Indica a data de quando houve a última alteração na conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração | Não |
 | passwordChangedDate | Indica a data de quando houve a alteração de senha da conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração de senha  | Não |
-| authenticationMethod | Método de autenticação do comprador na loja | 01- Não houve autenticação<br>02- Login da própria loja<br>03- Login com ID federado<br>04- Login com autenticador FIDO | Não |
+| authenticationMethod | Método de autenticação do comprador na loja | Enum AuthenticationMethodEnum <br> 01- Não houve autenticação<br>02- Login da própria loja<br>03- Login com ID federado<br>04- Login com autenticador FIDO | Não |
 | authenticationProtocol | Dado que representa o protocolo de login efetuado na loja | Alfanumérico [até 2048 posições] | Não |
 | authenticationTimestamp | A data e hora que o login foi efetuado na loja | Texto [19 posições] _YYYY-MM-ddTHH:mm:SS_ | Não |
 | newCustomer | Identifica se um comprador novo na loja| Booleano<br>true – sim<br>false – não  | Não |
@@ -272,7 +281,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | numberOfPassengers | Número de passageiros | Numérico [3 posições] | Não |
 | billToPassportCountry | Código do país que emitiu o passaporte (ISO Standard Country Codes) | Texto [2 posições] | Não |
 | billtoPassportNumber | Número do passaporte | Alfanumérico [40 posições] | Não |
-| travelleg | Trecho da viagem | TravelLeg | Não |
+| travelLeg | Trecho da viagem | TravelLeg | Não |
 | passenger | Dados do passageiro | Passenger | Não |
 
 ## TravelLeg
@@ -280,7 +289,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | carrier | Código IATA para o trecho | Alfanumérico [2 posições] | Não |
-| departuredate | Data de partida | Texto<br>AAAA-MM-DD | Não |
+| departureDate | Data de partida | Texto<br>AAAA-MM-DD | Não |
 | origin | Código IATA do aeroporto de origem | Alfanumérico [5 posições] | Não |
 | destination | Código IATA do aeroporto de destino | Alfanumérico [5 posições] | Não |
 
@@ -289,7 +298,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | name| Nome do passageiro | Alfanumérico [até 60 posições] | Não |
-| ticketPrice | O valor da passagem em centavos  Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
+| ticketPrice | O valor da passagem em centavos | Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
 
 ## MDD
 
@@ -306,28 +315,14 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | endDate | Identifica a data de término da recorrência | Texto (AAAA-MM-DD) | Não |
-| frequency | Indica a frequência da recorrência | Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
+| frequency | Indica a frequência da recorrência | Enum RecurringFrequency<br> Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
 | originalPurchaseDate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
 
+## Demais parâmetros
 
-| ipAddress | Endereço IP da máquina do comprador | Alfanumérico [até 45] | Não |
-
-| **Dados das características do pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
-
-| bpmpi_order_recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
-| bpmpi_order_productcode | Tipoda compra | ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
-| bpmpi_order_countlast24hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
-| bpmpi_order_countlast6months | Quantidade de pedidos efetuados por este comprador nos últimos 6 meses | Numérico [até 4 posições] | Não |
-| bpmpi_order_countlast1year | Quantidade de pedidos efetuados por este comprador no último ano | Numérico [até 3 posições] | Não |
-| bpmpi_order_cardattemptslast24hours | Quantidade de transações com o mesmo cartão nas últimas 24h | Numérico [até 3 posições] | Não |
-| bpmpi_order_marketingoptin | Indica se o comprador aceitou receber ofertas de marketing | Booleano<br>true – sim<br>false – não  | Não |
-| bpmpi_order_marketingsource | Identifica a origem da campanha de marketing | Alfanumérico [até 40 posições] | Não |
-| bpmpi_transaction_mode | Identifica o canal que originou a transação | M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | Não |
-| bpmpi_merchant_url | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
-
-
-
+| ipAddress | Endereço IP da máquina do comprador | Alfanumérico [até 45] | Não |
 
 # Cartões de Teste
 
