@@ -12,5 +12,302 @@ language_tabs:
   shell: cURL
 ---
 
-# Em breve
+# O que é 3DS 2.0?
 
+Para maiores detalhes sobre o 3DS 2.0, acesse:[https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?](https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
+
+# Passo 1 - Solicitação de Token de Acesso
+
+A solução é composta pelo passo de solicitação de token de acesso via API e solicitação de autenticação a partir do APP.
+
+|Ambiente | Endpoint | Authorization |
+|---|---|---|
+| **SANDBOX** | https://mpisandbox.braspag.com.br | **Basic _(Authorization)_**<br><br>O valor do Authorization deve ser obtido concatenando-se o valor do "ClientID", sinal de dois-pontos (":") e "ClientSecret"<br><br>Ex. dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e:D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=<br><br>e na sequência, codificar o resultado na base 64. <br>Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br><br>ClientID: **dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e**<br>ClientSecret: **D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=**|
+| --- | --- |
+| **PRODUÇÃO** | https://mpi.braspag.com.br | Solicite os dados "ClientID" e "ClientSecret" à equipe de suporte após concluir o desenvolvimento em sandbox. |
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/auth/token</span></aside>
+
+```json
+{
+     "EstablishmentCode":"1006993069",
+     "MerchantName": "Loja Exemplo Ltda",
+     "MCC": "5912"
+}
+```
+
+```shell
+curl
+--request POST "https://mpisandbox.braspag.com.br/v2/auth/token"
+--header "Content-Type: application/json"
+--header "Authorization: Basic xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+--data-binary
+--verbose
+{
+     "EstablishmentCode":"1006993069",
+     "MerchantName": "Loja Exemplo Ltda",
+     "MCC": "5912"
+}
+```
+
+| **Campo** | **Descrição** | **Tipo/Tamanho** |
+| --- | --- | --- |
+| EstablishmentCode | Código do Estabelecimento do Cielo E-Commerce 3.0 | Numérico [10 posições] |
+| MerchantName | Nome do estabelecimento registrado na Cielo | Alfanumérico [até 25 posições] |
+| MCC | Código de Categoria do estabelecimento | Numérico [4 posições] |
+
+### Response
+
+```json
+{
+      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
+      "token_type": "barear",
+      "expires_in": "2018-07-23T11:29:32"
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--data-binary
+{
+      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
+      "token_type": "barear",
+      "expires_in": "2018-07-23T11:29:32"
+}
+```
+
+| **Campo** | **Descrição** | **Tipo/Tamanho** |
+| --- | --- | --- |
+| access\_token | Token necessário para realizar a autenticação. | Alfanumérico [tamanho variável] |
+| token\_type | Fixo &quot;bearer&quot; | Alfanumérico |
+| expires\_in | Tempo em minutos para expirar o token | Numérico |
+
+# Passo 2 - Utilizando o SDK
+
+Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:
+
+```swift
+import Braspag3dsSdk
+```
+
+Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
+
+```swift
+let braspag3ds = Braspag3ds(accessToken: "<<Access-Token gerado no passo 1>>", environment: Environment.production)
+```
+
+Em seguida é necessário utilizar o método *authenticate*, informando os dados do comprador e o *callback* que receberá a resposta:
+
+```swift
+braspag3ds.authenticate(orderData: OrderData(...),
+                        cardData: CardData(...),
+                        authOptions: OptionsData(...),
+                        billToData: BillToDta(...),
+                        shipToData: ShipToData(...),
+                        cart: [CartItemData(...),
+                        deviceData: DeviceData(...),
+                        userData: UserData(...),
+                        airlineData: AirlineData(...),
+                        mdd: MddData(...),
+                        recurringData: RecurringData(...),
+                        deviceIpAddress: "0.0.0.0"){ (status, authenticationResponse) in
+                        
+                        switch(status){
+                        case .success:
+                          ...
+                        case .unenrolled:
+                          ...
+                        case failure:
+                          ...
+                        case error:
+                          ...
+                        case unsupportedBrand:
+                          ...
+                        }
+                        
+  }
+                 
+```
+
+Parâmetros de entrada do método *authenticate*
+
+| **Campo** | **Tipo** | **Descrição** | **Obrigatório** |
+| --- | --- | -- | -- |
+| orderData | OrderData | Dados do pedido de pagamento | Sim |
+| cardData | CardData | Dados do cartão | Sim |
+| authOptions | OptionsData? | Configurações adicionais ao processo de 3DS | Não |
+| billToData | BillToData? | Dados de cobrança do portador | Não |
+| shipToData | ShipToData? | Dados da entrega | Não |
+| cart | [CartItemData]? | Array com itens do carrinho | Não |
+| deviceData | DeviceData? | Configurações adicionais ao processo de 3DS | Não |
+| userData | UserData? | Dados do usuário na sua loja | Não |
+| airlineData | AirlineData? | Dados da passagem aérea | Não |
+| mdd | MddData? | Dados extras enviados pelo lojista | Não |
+| recurringData | RecurringData? | Dados da recorrência | Não |
+| deviceIpAddress | String? | Endereço IP do dispositivo | Não |
+
+
+Descrição dos Status do Callback
+
+| **Status** | **Descrição** | 
+| --- | --- |
+| success | É retornado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.|
+| unenrolled | É retornado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
+| failure | É retornado quando o cartão é elegível, porém não teve o processo de autenticação falhou por algum motivo. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
+| error | É retornado quando o processo de autenticação recebeu um erro sistêmico. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
+| unsupportedBrand | É retornado quando a bandeira do cartão não é suportado pelo 3DS 2.0 |
+
+Descrição dos campos do *AuthenticationResponse*
+
+| **Saída** | **Descrição** | **Tipo/Tamanho** |
+| --- | --- | --- |
+| cavv | Dado que representa assinatura da autenticação | Alfanumérico [28 posições] |
+| xid | ID que representa a requisição da autenticação | Alfanumérico [28 posições] |
+| eci | Código indicador do e-commerce, que representa o resultado da autenticação | Numérico [até 2 posições] |
+| version | Versão do 3DS aplicado | Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0 |
+| referenceID | ID que representa a requisição de autenticação | GUID [36 posições] |
+| returnCode | Código de retorno da requisição de autenticação | Alfanumérico [até 5 posições] |
+| returnMessage | Mensagem de retorno da requisição de autenticação | Alfanumérico [varivável] |
+
+# Detalhamento dos objetos da requisição
+
+Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisição é separada em diversos objetos com contexto de dados bem definido conforme a tabela dos parâmetros de entrada do authenticate mostra. Abaixo vamos detalhar cada um dos objetos utilziados.
+
+<aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco</aside>
+
+## OptionsData
+
+| Propriedade | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação". Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Não |
+| suppresschallenge | Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.  | Booleano: <br>true – ignorar desafios se houver; <br>false – apresentar desafio se houver | Não |
+
+| **Dados de Pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_ordernumber | Código do pedido no estabelecimento | Alphanumérico [até 50 posições] | Sim |
+| bpmpi_currency | Código da moeda | Fixo &quot;BRL&quot; | Sim |
+| bpmpi_totalamount | Valor total da transação, enviado em centavos | Numérico [até 15 posições] | Sim |
+| bpmpi_installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
+| bpmpi_paymentmethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | Credit – Cartão de Crédito<br>Debit – Cartão de Débito | Sim |
+| bpmpi_cardnumber | Número do Cartão | Numérico [até 19 posições] | Sim |
+| bpmpi_cardexpirationmonth | Mês do vencimento do cartão | Numérico [2 posições] | Sim |
+| bpmpi_cardexpirationyear | Ano do vencimento do cartão | Numérico [4 posições] | Sim | 
+| bpmpi_cardalias | Alias do cartão | Alphanumérico [até 128 posições] | Não |
+| bpmpi_default_card | Indica se é um cartão padrão do cliente na loja | Booleano<br>true - sim<br>false - não | Não |
+
+| **Dados das características do pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_recurring_enddate | Identifica a data de término da recorrência | Texto (AAAA-MM-DD) | Não |
+| bpmpi_recurring_frequency | Indica a frequência da recorrência | Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
+| bpmpi_recurring_originalpurchasedate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
+| bpmpi_order_recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
+| bpmpi_order_productcode | Tipoda compra | ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
+| bpmpi_order_countlast24hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
+| bpmpi_order_countlast6months | Quantidade de pedidos efetuados por este comprador nos últimos 6 meses | Numérico [até 4 posições] | Não |
+| bpmpi_order_countlast1year | Quantidade de pedidos efetuados por este comprador no último ano | Numérico [até 3 posições] | Não |
+| bpmpi_order_cardattemptslast24hours | Quantidade de transações com o mesmo cartão nas últimas 24h | Numérico [até 3 posições] | Não |
+| bpmpi_order_marketingoptin | Indica se o comprador aceitou receber ofertas de marketing | Booleano<br>true – sim<br>false – não  | Não |
+| bpmpi_order_marketingsource | Identifica a origem da campanha de marketing | Alfanumérico [até 40 posições] | Não |
+| bpmpi_transaction_mode | Identifica o canal que originou a transação | M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | Não |
+| bpmpi_merchant_url | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
+
+| **Dados específicos para cartões Gift Card (pré-pago)** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_giftcard_amount | O total do valor da compra para cartões-presente pré-pagos em valor arredondado | Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
+| bpmpi_giftcard_currency | Código da moeda da transação paga com cartão do tipo pré-pago | Fixo &quot;BRL&quot; | Não |
+
+| **Dados de endereço de cobrança** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_billto_customerid | Identifica o CPF/CNPJ do comprador | Numérico [11 a 14 posições]<br>99999999999999 | Não |
+| bpmpi_billto_contactname| Nome do contato do endereço de cobrança | Alfanumérico [até 120] | Sim |
+| bpmpi_billTo_phonenumber | Telefone de contato do endereço de cobrança | Numérico [até 15 posições], no formato: 5511999999999 | Sim |
+| bpmpi_billTo_email | E-mail do contato do endereço de cobrança | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Sim |
+| bpmpi_billTo_street1 | Logradouro e Número do endereço de cobrança | Alfanumérico [até 60] | Sim |
+| bpmpi_billTo_street2 | Complemento e bairro do endereço de cobrança | Alfanumérico [até 60] | Sim |
+| bpmpi_billTo_city | Cidade do endereço de cobrança | Alfanumérico [até 50] | Sim |
+| bpmpi_billTo_state | Sigla do estado do endereço de cobrança | Texto [2 posições] | Sim |
+| bpmpi_billto_zipcode | CEP do endereço de cobrança | Alfanumérico [até 8 posições], no formato: 99999999 | Sim |
+| bpmpi_billto_country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Sim |
+
+| **Dados de endereço de entrega** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_shipto_sameasbillto | Indica se utiliza o mesmo endereço fornecido para endereço de cobrança | Booleano<br>true<br>false | Não |
+| bpmpi_shipto_addressee | Nome do contato do endereço de entrega | Alfanumérico [até 60] | Não |
+| bpmpi_shipTo_phonenumber | Telefone de contato do endereço de entrega | Numérico [até 15 posições], no formato: 5511999999999 | Não |
+| bpmpi_shipTo_email | E-mail do contato do endereço de entrega | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Não |
+| bpmpi_shipTo_street1 | Logradouro e Número do endereço de entrega | Alfanumérico [até 60] | Não |
+| bpmpi_shipTo_street2 | Complemento e bairro do endereço de entrega | Alfanumérico [até 60] | Não | 
+| bpmpi_shipTo_city | Cidade do endereço de entrega | Alfanumérico [até 50] | Não |
+| bpmpi_shipTo_state | Sigla do estado do endereço de entrega | Texto [2 posições] | Não | 
+| bpmpi_shipto_zipcode | CEP do endereço de entrega | Alfanumérico [até 8 posições], no formato: 99999999 | Não |
+| bpmpi_shipto_country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Não |
+| bpmpi_shipTo_shippingmethod | Tipo do método de envio | lowcost: envio econômico<br>sameday: envio no mesmo dia<br>oneday: envio no dia seguinte<br>twoday: envio em dois dias<br>threeday: envio em três dias<br>pickup: retirada na loja<br>other: outrosnone: não há envio | Não |
+| bpmpi_shipto_firstusagedate | Indica a data de quando houve a primeira utilização do endereço de entrega | Texto<br>AAAA-MM-DD – data da criação  | Não |
+
+| **Dados do carrinho de compras** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_cart_#_description | Descrição do item | Alfanumérico [até 255 posições] | Não |
+| bpmpi_cart_#_name | Nome do item | Alfanumérico [até 255 posições] | Não | Sim |
+| bpmpi_cart_#_sku | SKU do item | Alfanumérico [até 255 posições] | Não |
+| bpmpi_cart_#_quantity| Quantidade do item no carrinho | Numérico [até 10 posições] | Não |
+| bpmpi_cart_#_unitprice | Valor unitário do item do carrinho em centavos | Numérico [até 10 posições] | Não |
+
+| **Dados do usuário** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_useraccount_guest | Indica se o comprador é um comprador sem login (guest)| Booleano<br>true – sim<br>false – não  | Não |
+| bpmpi_useraccount_createddate | Indica a data de quando houve a criação da conta do comprador | Texto<br>AAAA-MM-DD – data da criação  | Não |
+| bpmpi_useraccount_changeddate | Indica a data de quando houve a última alteração na conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração | Não |
+| bpmpi_useraccount_passwordchangeddate | Indica a data de quando houve a alteração de senha da conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração de senha  | Não |
+| bpmpi_useraccount_authenticationmethod | Método de autenticação do comprador na loja | 01- Não houve autenticação<br>02- Login da própria loja<br>03- Login com ID federado<br>04- Login com autenticador FIDO | Não |
+| bpmpi_useraccount_authenticationprotocol | Dado que representa o protocolo de login efetuado na loja | Alfanumérico [até 2048 posições] | Não |
+| bpmpi_useraccount_authenticationtimestamp | A data e hora que o login foi efetuado na loja | Texto [19 posições] _YYYY-MM-ddTHH:mm:SS_ | Não |
+| bpmpi_merchant_newcustomer | Identifica se um comprador novo na loja| Booleano<br>true – sim<br>false – não  | Não |
+
+| **Dados do dispositivo utilizado para compra** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_device_ipaddress | Endereço IP da máquina do comprador | Alfanumérico [até 45] | Não |
+| bpmpi_device_#_fingerprint | Id retornado pelo Device Finger Print | Alfanumérico [sem limitação] | Não |
+| bpmpi_device_#_provider | Nome do provedor do Device Finger Print | Alfanumérico [até 32 posições] cardinal<br>inauth<br>threatmetrix| Não |
+
+| **Dados específicos para companhias aéreas** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_airline_travelleg_#_carrier | Código IATA para o trecho | Alfanumérico [2 posições] | Não |
+| bpmpi_airline_travelleg_#_departuredate | Data de partida | Texto<br>AAAA-MM-DD | Não |
+| bpmpi_airline_travelleg_#_origin | Código IATA do aeroporto de origem | Alfanumérico [5 posições] | Não |
+| bpmpi_airline_travelleg_#_destination | Código IATA do aeroporto de destino | Alfanumérico [5 posições] | Não |
+| bpmpi_airline_passenger_#_name| Nome do passageiro | Alfanumérico [até 60 posições] | Não |
+| bpmpi_airline_passenger_#_ticketprice | O valor da passagem em centavos  Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
+| bpmpi_airline_numberofpassengers | Número de passageiros | Numérico [3 posições] | Não |
+| bpmpi_airline_billto_passportcountry | Código do país que emitiu o passaporte (ISO Standard Country Codes) | Texto [2 posições] | Não |
+| bpmpi_airline_billto_passportnumber | Número do passaporte | Alfanumérico [40 posições] | Não |
+
+| **Dados extras do estabelecimento (caso aplicável)** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| bpmpi_mdd1 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+| bpmpi_mdd2 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+| bpmpi_mdd3 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+| bpmpi_mdd4 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+| bpmpi_mdd5 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+
+# Cartões de Teste
+
+Utilize os cartões de **teste** abaixo para simular diversos cenários no ambiente de **SANDBOX**
+
+| **Cartão** | **Resultado** | **Descrição** |
+| 4000000000001000 | SUCCESS | Autenticação Silenciosa e portador autenticou com sucesso |
+| 4000000000001018 | FAILURE | Autenticação Silenciosa e portador finalizou com falha|
+| 4000000000001034 | UNENROLLED | Cartão não elegível para autenticação |
+| 4000000000001091 | SUCCESS | Autenticação com desafio e portador autenticou com sucesso|
+| 4000000000001117 | UNENROLLED | Autenticação com desafio e Cartão não elegível |
+| 4000000000001109 | FAILURE | Autenticação com desafio e portador falhou na autenticação |
+
+## Autorização com Autenticação
+
+Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó **ExternalAuthentication** ).
+Veja maiores detalhes em: [https://braspag.github.io/manual/autorizacao-com-autenticacao](https://braspag.github.io/manual/autorizacao-com-autenticacao)
+
+# Últimas atualizações
+
+Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-13-integracao-javascript.md)
