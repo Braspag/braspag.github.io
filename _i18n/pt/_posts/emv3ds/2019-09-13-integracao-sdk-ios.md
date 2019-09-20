@@ -102,6 +102,9 @@ braspag3ds.authenticate(orderData: OrderData(...),
   }
 ```
 
+## Versão mínima do SDK
+O SDK utiliza a versão mínima 9.0
+
 ## Parâmetros de entrada do método *authenticate*
 
 | **Campo** | **Tipo** | **Descrição** | **Obrigatório** |
