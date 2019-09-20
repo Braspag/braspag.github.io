@@ -35,20 +35,6 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 }
 ```
 
-```shell
-curl
---request POST "https://mpisandbox.braspag.com.br/v2/auth/token"
---header "Content-Type: application/json"
---header "Authorization: Basic xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
---data-binary
---verbose
-{
-     "EstablishmentCode":"1006993069",
-     "MerchantName": "Loja Exemplo Ltda",
-     "MCC": "5912"
-}
-```
-
 | **Campo** | **Descrição** | **Tipo/Tamanho** |
 | --- | --- | --- |
 | EstablishmentCode | Código do Estabelecimento do Cielo E-Commerce 3.0 | Numérico [10 posições] |
@@ -58,16 +44,6 @@ curl
 ### Response
 
 ```json
-{
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
-      "token_type": "barear",
-      "expires_in": "2018-07-23T11:29:32"
-}
-```
-
-```shell
---header "Content-Type: application/json"
---data-binary
 {
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
       "token_type": "barear",
@@ -188,7 +164,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | paymentMethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | *PaymentMethod* <br><br>credit – Cartão de Crédito<br>debit – Cartão de Débito | Sim |
 | installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
 | recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
-| productCode | Tipo da compra | *ProductCodeEnum*<br><br> ACC: Hotelaria<br>ACF: Financiamento de conta<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Dispensação de dinheiro<br>GAS: Combustível<br>GEN: Varejo geral<br>LUX: Artigos de luxo<br>PAL: recarga<br>PHY: compra de mercadorias<br>QCT: Transação quase-dinheiro<br>REN: Alugue de Carros<br>RES: Restaurante<br>SVC: Serviços<br>TBD: Outros<br>TRA: Turismo | Não |
+| productCode | Tipo da compra | *ProductCode*<br><br> hotel: Hotelaria<br>financeAccount: Financiamento de conta<br>checkAcceptance: Check acceptance<br>digitalGoods: Digital Goods<br>cashDispenser: Dispensação de dinheiro<br>fuel: Combustível<br>retail: Varejo geral<br>luxuryGoods: Artigos de luxo<br>recharge: recarga<br>goodsPurchase: compra de mercadorias<br>quasiMoneyTransaction: Transação quase-dinheiro<br>carRental: Alugue de Carros<br>restaurant: Restaurante<br>services: Serviços<br>other: Outros<br>turism: Turismo | Não |
 | countLast24Hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
 | countLast6Months | Quantidade de pedidos efetuados por este comprador nos últimos 6 meses | Numérico [até 4 posições] | Não |
 | countLast1Year | Quantidade de pedidos efetuados por este comprador no último ano | Numérico [até 3 posições] | Não |
