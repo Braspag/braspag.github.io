@@ -96,7 +96,7 @@ braspag3dsSdk.authenticate(
                paymentMethod = PaymentMethod.credit,
                transactionMode = TransactionMode.eCommerce,
                installments = 3,
-               merchantUrl = “https://www.exemplo.com.br”
+               merchantUrl = "https://www.exemplo.com.br"
            ),
            cardData = CardData(
                number = selectedCard,
@@ -109,13 +109,13 @@ braspag3dsSdk.authenticate(
            ),
            shipToData = ShipToData(
                sameAsBillTo = true,
-               addressee = “Rua Jose Joao, 666",
-               city = “Jundiaí“,
-               country = “BR”,
-               email = “josejoao@gmail.com”,
-               state = “SP”,
-               shippingMethod = “lowcost”,
-               zipCode = “13306270”
+               addressee = "Rua Jose Joao, 666",
+               city = "Jundiaí",
+               country = "BR",
+               email = "josejoao@gmail.com",
+               state = "SP",
+               shippingMethod = "lowcost",
+               zipCode = "13306270"
            ),
            recurringData = RecurringData(
                frequency = RecurringFrequency.MONTHLY
