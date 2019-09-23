@@ -80,7 +80,7 @@ Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerad
 
 ```kotlin
 val braspag3dsSdk = Braspag3ds(
-                       accessToken = “[Access_Token gerado no passo 1]“,
+                       accessToken = "[Access_Token gerado no passo 1]",
                        environment = Environment.SANDBOX
                    )
 ```
