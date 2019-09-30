@@ -263,13 +263,12 @@ O evento &quot;**bpmpi_Authenticate()**&quot; deve chamado no momento de finaliz
 
 Utilize os cartões de **teste** abaixo para simular diversos cenários no ambiente de **SANDBOX**
 
-| **Cartão** | **Resultado** | **Descrição** |
-| 4000000000001000 | SUCCESS | Autenticação Silenciosa e portador autenticou com sucesso |
-| 4000000000001018 | FAILURE | Autenticação Silenciosa e portador finalizou com falha|
-| 4000000000001034 | UNENROLLED | Cartão não elegível para autenticação |
-| 4000000000001091 | SUCCESS | Autenticação com desafio e portador autenticou com sucesso|
-| 4000000000001117 | UNENROLLED | Autenticação com desafio e Cartão não elegível |
-| 4000000000001109 | FAILURE | Autenticação com desafio e portador falhou na autenticação |
+| **Cartões** | **Resultado** | **Descrição** |
+| 4000000000001000<br>5200000000001005 | SUCCESS | Autenticação Silenciosa e portador autenticou com sucesso |
+| 4000000000001018<br>5200000000001013 | FAILURE | Autenticação Silenciosa e portador finalizou com falha|
+| 4000000000001034<br>5200000000001039 | UNENROLLED | Cartão não elegível para autenticação |
+| 4000000000001091<br>5200000000001096 | SUCCESS | Autenticação com desafio e portador autenticou com sucesso|
+| 4000000000001109<br>5200000000001104 | FAILURE | Autenticação com desafio e portador falhou na autenticação |
 
 ## Autorização com Autenticação
 
