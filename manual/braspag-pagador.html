@@ -5002,7 +5002,7 @@ HTTP Status 200
         </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Address"</span><span class="p">:</span><span class="w">
-        </span><span class="p">{</span><span class="w">
+        </span><span class="p">{</span><span class="err">split</span><span class="w">
              </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
              </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
              </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
@@ -11720,9 +11720,6 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w">
-
 </span><span class="err">--body</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
@@ -13819,8 +13816,8 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>Para utilizar o sistema de antifraude, é necessário incluir o bloco <code class="highlighter-rouge">Payment.FraudAnalysis</code>. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos <code class="highlighter-rouge">Customer.DeliveryAddress</code> e/ou <code class="highlighter-rouge">Customer.BillingAddress</code>.</p>
 
-<p>| Campos | Tipo | Tamanho | Obrigatório | Descrição|
-|–|–|–|–|–|
+<p>|Campos|Tipo|Tamanho|Obrigatório|Descrição|
+|—–|—-|——-|———–|———|
 |<code class="highlighter-rouge">MerchantOrderId</code>|Texto|50|Sim|Número de identificação do pedido no sistema do lojista|
 |<code class="highlighter-rouge">Customer</code>|-|-|Sim|Dados do comprador|
 |<code class="highlighter-rouge">Customer.Name</code>|Texto|61|Sim|Nome do comprador|
@@ -13862,8 +13859,8 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 |</code>Payment.CreditCard.SecurityCode<code class="highlighter-rouge">|Texto|4|Sim|Código de segurança impresso no verso do cartão|
 |</code>Payment.CreditCard.Brand<code class="highlighter-rouge">|Texto|10|Sim|Bandeira do cartão  |Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover|
 |</code>Payment.SaveCard<code class="highlighter-rouge">|Boleano|-|Não|Parâmetro para salvar os dados do cartão como token. Caso seja passado com o valor </code>True<code class="highlighter-rouge">, O parâmetro </code>CardToken<code class="highlighter-rouge"> será retornado no </code>Response<code class="highlighter-rouge"> sendo seu valor o token gerado que poderá ser utilizado em futuras transações.|
-|</code>Payment.FraudAnalysis<code class="highlighter-rouge">|-|-|-|Nó contendo as informações para Análise de Fraude
-|</code>Payment.FraudAnalysis.Provider<code class="highlighter-rouge">|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: </code>Cybersource<code class="highlighter-rouge">
+|</code>Payment.FraudAnalysis<code class="highlighter-rouge">|-|-|-|Nó contendo as informações para Análise de Fraude|
+|</code>Payment.FraudAnalysis.Provider<code class="highlighter-rouge">|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: </code>Cybersource<code class="highlighter-rouge">|
 |</code>Payment.FraudAnalysis.TotalOrderAmount<code class="highlighter-rouge">|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
 |</code>Payment.FraudAnalysis.FingerPrintId<code class="highlighter-rouge">|Texto|6010|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource)|
 |</code>Payment.FraudAnalisys.Browser<code class="highlighter-rouge">|-|-|Sim|-|
