@@ -6,6 +6,7 @@ search: true
 translated: true
 categories: manual
 tags:
+    - Pagador
 language_tabs:
   json: JSON
   shell: cURL
