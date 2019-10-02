@@ -13143,7 +13143,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"5a1a61f0-1630-4873-bf69-a6ff9ae664e9"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">
             </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -13199,7 +13199,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a1a61f0-1630-4873-bf69-a6ff9ae664e9"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -13207,11 +13207,11 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">                
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95506357-f4c7-475f-a6b8-cf4618b9d721"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a1a61f0-1630-4873-bf69-a6ff9ae664e9"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9500</span><span class="p">,</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -13273,11 +13273,11 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
-<span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>  
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>  
-<span class="nv">grant_type</span><span class="o">=</span>client_credentials
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">x-www-form-urlencoded</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w">  
+</span><span class="err">grant_type=client_credentials</span><span class="w">
+</span></code></pre></div></div>
 
 <p><strong>Response</strong></p>
 
@@ -13300,7 +13300,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -13308,7 +13308,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">
             </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -13324,7 +13324,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
     </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96bf94c-b213-44a7-9ea3-0ee2865dc57e"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -13332,17 +13332,17 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5670</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -13350,11 +13350,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -13384,7 +13384,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -13415,7 +13415,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
     </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -13423,17 +13423,17 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5670</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -13441,11 +13441,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -13479,7 +13479,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -13487,7 +13487,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">3000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -13510,7 +13510,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
     </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -13518,17 +13518,17 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4720</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">280</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -13536,11 +13536,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2865</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -13579,7 +13579,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
     </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -13587,7 +13587,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -13639,29 +13639,29 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"VoidSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5670</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -13685,11 +13685,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="mi">1000</span><span class="w">
         </span><span class="p">}</span><span class="w">
      </span><span class="p">]</span><span class="w">
@@ -13748,29 +13748,29 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"VoidSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5147542-0c0e-45d4-b6a8-a5a7167e6ae7"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1417</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">956</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b3f216c-69d7-44cf-a2d1-dbd1439429c3"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -13784,7 +13784,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"f1531485-adb3-4320-9b14-dbc07eea2b3e"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="mi">1000</span><span class="w">
         </span><span class="p">}</span><span class="w">
      </span><span class="p">]</span><span class="w">
