@@ -7403,3 +7403,5 @@ As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mant
 |Received|Chargeback recebido da adquirente|
 |AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a contestação|
 |ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
+
+2017-07-27-braspag-pagador
