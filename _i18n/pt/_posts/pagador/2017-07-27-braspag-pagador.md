@@ -7163,7 +7163,6 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 | `AuthenticationUrl`   | URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.                                                      | Texto    | 56      | Sim         |
 | `ReturnUrl`                  | Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.             | Texto | 1024       | Sim         |
 
-
 ### Modelos de Split
 
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
