@@ -5914,7 +5914,6 @@ Esse campo contém os dados do comprador. Possui diversos subcampos que devem se
 |`Customer.Identity`|Texto|18|Sim|Número de documento do comprador|
 |`Customer.IdentityType`|Texto|4|Sim|Tipo de documento de identificação do comprador. Ex.: `CPF` ou `CNPJ`|
 
-
 ### Payment
 
 Esse campo possui os elementos da transação, assim como o antifraude (**Payment.FraudAnalysis**), que será explicado separadamente.
@@ -5966,7 +5965,6 @@ Esse campo é referente ao sistema de antifraude.
 O antifraude é obrigatório no Split de Pagamentos. E para esse sistema utilizamos o nosso parceiro [CyberSource](https://www.cybersource.com/) do Grupo [Visa](https://www.visa.com.br/).
 A fim de exemplificar uma transação da forma mais simples possível, alguns campos obrigatórios para o ambiente de produção não foram passados.
 
-
 Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefinedFields**.
 
 ```json
@@ -5979,7 +5977,6 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
     }
 }
 ```
-
 
 |Campos|Tipo|Tamanho|Obrigatório|Descrição|
 |-----|----|-------|-----------|---------|
@@ -7016,12 +7013,9 @@ Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada
 
 ![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
-
-
 **Request - Transação de Débito**
 
 Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação do banco correspondente e o nó referente a análise de fraude não deve ser informado.
-
 
 ```json
 {
@@ -7174,10 +7168,9 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
 
-| Tipo                       | Descrição                                                                                                                          |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Split Transacional**     | O **Marketplace** envia na autorização (captura automática) ou no momento de captura as regras de divisão.                         |
-| **Split Pós-Transacional** | O **Marketplace** envia as regras de divisão após a captura da transação.
+| Tipo                       | Descrição                                                                                          |
+| **Split Transacional**     | O **Marketplace** envia na autorização (captura automática) ou no momento de captura as regras de divisão. |
+| **Split Pós-Transacional** | O **Marketplace** envia as regras de divisão após a captura da transação. |
 
 > No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
 
@@ -7235,16 +7228,13 @@ Como resposta, A API retornará um nó contento as regras de divisão enviadas e
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
-
 #### Pós-Transacional
 
 Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.
 
 Para transações com **Cartão de Crédito** este período é de **20 dias** e para as transações com **Cartão de Débito** este período é de **1 dia**, se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
 
-
 > O período para redividir uma transação poderá ser alterado pela Braspag (Facilitador).
-
 
 **Autenticação**
 
@@ -7558,7 +7548,6 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture/capture?amount=8000</span></aside>
 
-
 **Response**
 
 ```json
@@ -7769,20 +7758,18 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 ## Antifraude
 
-
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
 
 >  No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
-
 
 ### Fluxo transacional
 
 A integração com o antifraude se dá através do próprio fluxo transacional, na mesma requisição da transação.
 
--   Cliente realiza uma transação.
--   A anállise de fraude é realizada.
-	- Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
--   A transação é executada normalmente.
+- Cliente realiza uma transação.
+- A anállise de fraude é realizada.
+- Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
+- A transação é executada normalmente.
 
 Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.FraudAnalysis`. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos `Customer.DeliveryAddress` e/ou `Customer.BillingAddress`.
 
@@ -8362,10 +8349,6 @@ Este bloqueio, conhecido como custódia, pode durar até 180 dias. Após este pr
 |-----------|----|-------|-----------|---------|
 |`SubordinateMerchantId`|Texto|36|Sim|Merchantid identificador do subordinado|
 |`Locked`|Booleano|---|Sim|Booleano que identifica se o a liquidação será travada para o subordinado ou não|
-
-
-
-
 
 # Consultas
 
