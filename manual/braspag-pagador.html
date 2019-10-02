@@ -13816,65 +13816,476 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>Para utilizar o sistema de antifraude, é necessário incluir o bloco <code class="highlighter-rouge">Payment.FraudAnalysis</code>. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos <code class="highlighter-rouge">Customer.DeliveryAddress</code> e/ou <code class="highlighter-rouge">Customer.BillingAddress</code>.</p>
 
-<p>|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|—–|—-|——-|———–|———|
-|<code class="highlighter-rouge">MerchantOrderId</code>|Texto|50|Sim|Número de identificação do pedido no sistema do lojista|
-|<code class="highlighter-rouge">Customer</code>|-|-|Sim|Dados do comprador|
-|<code class="highlighter-rouge">Customer.Name</code>|Texto|61|Sim|Nome do comprador|
-|<code class="highlighter-rouge">Customer.Identity</code>|Texto|18|Sim|Número de documento do comprador|
-|<code class="highlighter-rouge">Customer.IdentityType</code>|Texto|4|Sim|Tipo de documento de identificação do comprador. Ex.: <code class="highlighter-rouge">CPF</code> ou <code class="highlighter-rouge">CNPJ</code>|
-|<code class="highlighter-rouge">Customer.Email</code>|Texto|60|Não|E-mail do comprador|
-|<code class="highlighter-rouge">Customer.Phone</code>|Texto|15|Não|Telefone do comprador. Ex.: <code class="highlighter-rouge">552121114700</code>|
-|<code class="highlighter-rouge">Customer.Mobile</code>|Texto|15|Não|Telefone celular do comprador. Ex.: <code class="highlighter-rouge">5521987654321</code>|1<code class="highlighter-rouge">|
-|</code>Customer.DeliveryAddress<code class="highlighter-rouge">| - | - |Não|Enviado quando a transação é referente a algum produto com entrega|
-|</code>Customer.DeliveryAddress.Street<code class="highlighter-rouge">|Texto|24|Não|Endereço de entrega do comprador.|
-|</code>Customer.DeliveryAddress.Number<code class="highlighter-rouge">|Texto|5|Não|Número do endereço de entrega do comprador|
-|</code>Customer.DeliveryAddress.Complement<code class="highlighter-rouge">|Texto|14|Não|Complemento do endereço de entrega do comprador|
-|</code>Customer.DeliveryAddress.District<code class="highlighter-rouge">|Texto|15|Não|Distrito ou Bairro do endereço de entrega do comprador|
-|</code>Customer.DeliveryAddress.ZipCode<code class="highlighter-rouge">|Texto|9|Não|CEP do endereço de entrega do comprador|
-|</code>Customer.DeliveryAddress.City<code class="highlighter-rouge">|Texto|20|Não|Cidade do endereço de entrega do comprador|
-|</code>Customer.DeliveryAddress.State<code class="highlighter-rouge">|Texto|2|Não|Estado do endereço de entrega do comprador|
-|</code>Customer.DeliveryAddress.Country<code class="highlighter-rouge">|Texto|2|Não|País do endereço de entrega do comprador|
-|</code>Customer.BillingAddress<code class="highlighter-rouge">|-|-|Não|-|
-|</code>Customer.BillingAddress.Street<code class="highlighter-rouge">|Texto|24|Sim|Endereço de cobrança do comprador|
-|</code>Customer.BillingAddress.Number<code class="highlighter-rouge">|Texto|5|Sim|Número do endereço de cobrança do comprador|
-|</code>Customer.BillingAddress.Complement<code class="highlighter-rouge">|Texto|14|Não|Complemento do endereço de cobrança do comprador|
-|</code>Customer.BillingAddress.District<code class="highlighter-rouge">|Texto|15|Sim|Distrito ou Bairro do endereço de cobrança do comprador|
-|</code>Customer.BillingAddress.ZipCode<code class="highlighter-rouge">|Texto|9|Sim|CEP do endereço de cobrança do comprador|
-|</code>Customer.BillingAddress.City<code class="highlighter-rouge">|Texto|20|Sim|Cidade do endereço de cobrança do comprador|
-|</code>Customer.BillingAddress.State<code class="highlighter-rouge">|Texto|2|Sim|Estado do endereço de cobrança do comprador|
-|</code>Customer.BillingAddress.Country<code class="highlighter-rouge">|Texto|2|Sim|País do endereço de cobrança do comprador|
-|</code>Payment<code class="highlighter-rouge">|-|-|Sim|Campos refente ao pagamento e antifraude|
-|</code>Payment.Provider<code class="highlighter-rouge">|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|</code>Payment.Type<code class="highlighter-rouge">|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: </code>CreditCard<code class="highlighter-rouge"> ou </code>DebitCard<code class="highlighter-rouge">|
-|</code>Payment.Amount<code class="highlighter-rouge">|Inteiro|15|Sim|Valor do pedido em centavos. Ex.: r$ 1.559,85 = 155985|
-|</code>Payment.Capture<code class="highlighter-rouge">|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja </code>False<code class="highlighter-rouge"> a transação será apenas autorizada. Se for </code>True<code class="highlighter-rouge">, a captura será realizada automaticamente após a autorização.|
-|</code>Payment.ServiceTaxAmount<code class="highlighter-rouge">|Inteiro|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço  |Obs.: Esse valor não é adicionado ao valor da autorização|
-|</code>Payment.Installments<code class="highlighter-rouge">|Inteiro|2|Sim|Número de parcelas do pedido|
-|</code>Payment.SoftDescriptor<code class="highlighter-rouge">|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador|
-|</code>Payment.CreditCard<code class="highlighter-rouge">|-|-|Sim|Nó contendo as informações do cartão|
-|</code>Payment.CreditCard.CardNumber<code class="highlighter-rouge">|Texto|16|Sim|Número do cartão do comprador|
-|</code>Payment.CreditCard.Holder<code class="highlighter-rouge">|Texto|50|Sim|Nome do comprador impresso no cartão|
-|</code>Payment.CreditCard.ExpirationDate<code class="highlighter-rouge">|Texto|7|Sim|Data de validade do cartão composta por MM/AAAA|
-|</code>Payment.CreditCard.SecurityCode<code class="highlighter-rouge">|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|</code>Payment.CreditCard.Brand<code class="highlighter-rouge">|Texto|10|Sim|Bandeira do cartão  |Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover|
-|</code>Payment.SaveCard<code class="highlighter-rouge">|Boleano|-|Não|Parâmetro para salvar os dados do cartão como token. Caso seja passado com o valor </code>True<code class="highlighter-rouge">, O parâmetro </code>CardToken<code class="highlighter-rouge"> será retornado no </code>Response<code class="highlighter-rouge"> sendo seu valor o token gerado que poderá ser utilizado em futuras transações.|
-|</code>Payment.FraudAnalysis<code class="highlighter-rouge">|-|-|-|Nó contendo as informações para Análise de Fraude|
-|</code>Payment.FraudAnalysis.Provider<code class="highlighter-rouge">|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: </code>Cybersource<code class="highlighter-rouge">|
-|</code>Payment.FraudAnalysis.TotalOrderAmount<code class="highlighter-rouge">|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
-|</code>Payment.FraudAnalysis.FingerPrintId<code class="highlighter-rouge">|Texto|6010|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource)|
-|</code>Payment.FraudAnalisys.Browser<code class="highlighter-rouge">|-|-|Sim|-|
-|</code>Payment.FraudAnalysis.Browser.IpAddress<code class="highlighter-rouge">|Texto|255|Sim|Ip do comprador|
-|</code>Payment.FraudAnalysis.Cart<code class="highlighter-rouge">|Lista|-|Não|Nó contendo as informações do carrinho de compras para análise de fraude|
-|</code>Payment.FraudAnalysis.Cart.Items[].Name<code class="highlighter-rouge">|Texto|50|Não|Nome do produto|
-|</code>Payment.FraudAnalysis.Cart.Items[].Sku<code class="highlighter-rouge">|Texto|12|Não|Sku do produto|
-|</code>Payment.FraudAnalysis.Cart.Items[].UnitPrice<code class="highlighter-rouge">|Inteiro|15|Não|Preço original do produto em centavos  |Ex.: R$ 1.559,85 = 155985|
-|</code>Payment.FraudAnalysis.Cart.Items[].Quantity<code class="highlighter-rouge">|Inteiro|-|Não|Quantidade do produto|
-|</code>Payment.FraudAnalysis.MerchantDefinedFields<code class="highlighter-rouge">|Lista|-|Sim|Nó contendo dados |adicionais para análise de fraude [Tabela de Merchant Defined Data](https://braspag.github.io//manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|
-|</code>Payment.FraudAnalysis.MerchantDefinedFields.Items[].Id<code class="highlighter-rouge">|Inteiro|-|Sim|Identificador de uma informação adicional a ser enviada|
-|</code>Payment.FraudAnalysis.MerchantDefinedFields.Items[].Value<code class="highlighter-rouge">|Texto|255|Sim|Valor de uma informação adicional a ser enviada|
-|</code>Payment.FraudAnalysis.Shipping<code class="highlighter-rouge">|-|-|Não|Nó contendo informações adicionais da entrega do pedido para análise de fraude|
-|</code>Payment.FraudAnalysis.Shipping.Addressee`|Texto|61|Não|Nome e sobrenome do destinatário|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Campos</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Número de identificação do pedido no sistema do lojista</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Dados do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Texto</td>
+      <td>61</td>
+      <td>Sim</td>
+      <td>Nome do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Texto</td>
+      <td>18</td>
+      <td>Sim</td>
+      <td>Número de documento do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Tipo de documento de identificação do comprador. Ex.: <code class="highlighter-rouge">CPF</code> ou <code class="highlighter-rouge">CNPJ</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Texto</td>
+      <td>60</td>
+      <td>Não</td>
+      <td>E-mail do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Telefone do comprador. Ex.: <code class="highlighter-rouge">552121114700</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Mobile</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Telefone celular do comprador. Ex.: <code class="highlighter-rouge">5521987654321</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Enviado quando a transação é referente a algum produto com entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Texto</td>
+      <td>24</td>
+      <td>Não</td>
+      <td>Endereço de entrega do comprador.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Texto</td>
+      <td>5</td>
+      <td>Não</td>
+      <td>Número do endereço de entrega do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>Complemento do endereço de entrega do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Distrito ou Bairro do endereço de entrega do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+      <td>CEP do endereço de entrega do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Não</td>
+      <td>Cidade do endereço de entrega do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço de entrega do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>País do endereço de entrega do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Street</code></td>
+      <td>Texto</td>
+      <td>24</td>
+      <td>Sim</td>
+      <td>Endereço de cobrança do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Number</code></td>
+      <td>Texto</td>
+      <td>5</td>
+      <td>Sim</td>
+      <td>Número do endereço de cobrança do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Complement</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>Complemento do endereço de cobrança do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.District</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Distrito ou Bairro do endereço de cobrança do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP do endereço de cobrança do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.City</code></td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>Cidade do endereço de cobrança do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Estado do endereço de cobrança do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Country</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>País do endereço de cobrança do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Campos refente ao pagamento e antifraude</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Nome da provedora de Meio de Pagamento</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do meio de pagamento. Possíveis Valores: <code class="highlighter-rouge">CreditCard</code> ou <code class="highlighter-rouge">DebitCard</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Inteiro</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do pedido em centavos. Ex.: r$ 1.559,85 = 155985</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td>Boleano</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Parâmetro para capturar a transação. Caso o valor seja <code class="highlighter-rouge">False</code> a transação será apenas autorizada. Se for <code class="highlighter-rouge">True</code>, a captura será realizada automaticamente após a autorização.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td>Inteiro</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço</td>
+      <td>Obs.: Esse valor não é adicionado ao valor da autorização</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Inteiro</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de parcelas do pedido</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Sim</td>
+      <td>Texto que será impresso na fatura do cartão de crédito do portador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CreditCard</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Nó contendo as informações do cartão</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td>Número do cartão do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CreditCard.Holder</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome do comprador impresso no cartão</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Data de validade do cartão composta por MM/AAAA</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Código de segurança impresso no verso do cartão</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CreditCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão</td>
+      <td>Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.SaveCard</code></td>
+      <td>Boleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Parâmetro para salvar os dados do cartão como token. Caso seja passado com o valor <code class="highlighter-rouge">True</code>, O parâmetro <code class="highlighter-rouge">CardToken</code> será retornado no <code class="highlighter-rouge">Response</code> sendo seu valor o token gerado que poderá ser utilizado em futuras transações.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Nó contendo as informações para Análise de Fraude</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
+      <td>Texto</td>
+      <td>12</td>
+      <td>Sim</td>
+      <td>Identifica o provedor da solução de análise de fraude</td>
+      <td>Possíveis valores: <code class="highlighter-rouge">Cybersource</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
+      <td>Inteiro</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Valor total do pedido em centavos, podendo ser diferente do valor da transação</td>
+      <td>Ex.: Valor do pedido sem a taxa de entrega</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
+      <td>Texto</td>
+      <td>6010</td>
+      <td>Sim</td>
+      <td>Impressão digital de dispositivos e geolocalização real do IP do comprador <a href="https://braspag.github.io//manual/antifraude#cybersource">Configuração do Fingerprint</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalisys.Browser</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Ip do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Cart</code></td>
+      <td>Lista</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Nó contendo as informações do carrinho de compras para análise de fraude</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items[].Name</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Nome do produto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items[].Sku</code></td>
+      <td>Texto</td>
+      <td>12</td>
+      <td>Não</td>
+      <td>Sku do produto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items[].UnitPrice</code></td>
+      <td>Inteiro</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Preço original do produto em centavos</td>
+      <td>Ex.: R$ 1.559,85 = 155985</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items[].Quantity</code></td>
+      <td>Inteiro</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Quantidade do produto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields</code></td>
+      <td>Lista</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Nó contendo dados</td>
+      <td>adicionais para análise de fraude <a href="https://braspag.github.io//manual/antifraude#tabela-31-merchantdefineddata-(cybersource)">Tabela de Merchant Defined Data</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Items[].Id</code></td>
+      <td>Inteiro</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Identificador de uma informação adicional a ser enviada</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Items[].Value</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Valor de uma informação adicional a ser enviada</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Nó contendo informações adicionais da entrega do pedido para análise de fraude</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
+      <td>Texto</td>
+      <td>61</td>
+      <td>Não</td>
+      <td>Nome e sobrenome do destinatário</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="agenda-financeira">Agenda Financeira</h2>
 
