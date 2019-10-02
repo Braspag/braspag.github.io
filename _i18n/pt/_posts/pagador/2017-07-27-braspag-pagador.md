@@ -2667,7 +2667,7 @@ Para criar uma venda, é necessário fazer um POST para o recurso Payment confor
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
         "Address":
-        {
+        {split
              "Street":"Alameda Xingu",
              "Number":"512",
              "Complement":"27 andar",
@@ -5991,9 +5991,6 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
 
 ```json
 
---header "Authorization: Bearer {access_token}"
---header "Content-Type: application/json"
-
 --body
 {
     "MerchantOrderId":"201904150001",
@@ -7773,8 +7770,8 @@ A integração com o antifraude se dá através do próprio fluxo transacional, 
 
 Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.FraudAnalysis`. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos `Customer.DeliveryAddress` e/ou `Customer.BillingAddress`.
 
-| Campos | Tipo | Tamanho | Obrigatório | Descrição|
-|--|--|--|--|--|
+|Campos|Tipo|Tamanho|Obrigatório|Descrição|
+|-----|----|-------|-----------|---------|
 |`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido no sistema do lojista|
 |`Customer`|-|-|Sim|Dados do comprador|
 |`Customer.Name`|Texto|61|Sim|Nome do comprador|
@@ -7816,8 +7813,8 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Payment.CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
 |`Payment.CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão  |Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover|
 |`Payment.SaveCard`|Boleano|-|Não|Parâmetro para salvar os dados do cartão como token. Caso seja passado com o valor `True`, O parâmetro `CardToken` será retornado no `Response` sendo seu valor o token gerado que poderá ser utilizado em futuras transações.|
-|`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude
-|`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: `Cybersource`
+|`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
+|`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: `Cybersource`|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
 |`Payment.FraudAnalysis.FingerPrintId`|Texto|6010|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource)|
 |`Payment.FraudAnalisys.Browser`|-|-|Sim|-|
