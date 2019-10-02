@@ -7779,7 +7779,7 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Customer.IdentityType`|Texto|4|Sim|Tipo de documento de identificação do comprador. Ex.: `CPF` ou `CNPJ`|
 |`Customer.Email`|Texto|60|Não|E-mail do comprador|
 |`Customer.Phone`|Texto|15|Não|Telefone do comprador. Ex.: `552121114700`|
-|`Customer.Mobile`|Texto|15|Não|Telefone celular do comprador. Ex.: `5521987654321`|1`|
+|`Customer.Mobile`|Texto|15|Não|Telefone celular do comprador. Ex.: `5521987654321`|
 |`Customer.DeliveryAddress`| - | - |Não|Enviado quando a transação é referente a algum produto com entrega|
 |`Customer.DeliveryAddress.Street`|Texto|24|Não|Endereço de entrega do comprador.|
 |`Customer.DeliveryAddress.Number`|Texto|5|Não|Número do endereço de entrega do comprador|
