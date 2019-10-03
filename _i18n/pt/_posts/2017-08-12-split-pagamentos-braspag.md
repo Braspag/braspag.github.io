@@ -202,7 +202,6 @@ Esse campo contém os dados do comprador. Possui diversos subcampos que devem se
 |`Customer.Identity`|Texto|18|Sim|Número de documento do comprador|
 |`Customer.IdentityType`|Texto|4|Sim|Tipo de documento de identificação do comprador. Ex.: `CPF` ou `CNPJ`|
 
-
 ### Payment
 
 Esse campo possui os elementos da transação, assim como o antifraude (**Payment.FraudAnalysis**), que será explicado separadamente.
@@ -250,7 +249,6 @@ Esse campo é referente ao sistema de antifraude.
 O antifraude é obrigatório no Split de Pagamentos. E para esse sistema utilizamos o nosso parceiro [CyberSource](https://www.cybersource.com/) do Grupo [Visa](https://www.visa.com.br/).
 A fim de exemplificar uma transação da forma mais simples possível, alguns campos obrigatórios para o ambiente de produção não foram passados.
 
-
 Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefinedFields**.
 
 ```json
@@ -263,7 +261,6 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
     }
 }
 ```
-
 
 |Campos|Tipo|Tamanho|Obrigatório|Descrição|
 |-----|----|-------|-----------|---------|
@@ -319,14 +316,12 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
 }
 ```
 
-
 |Campos|Tipo|Tamanho|Obrigatório|Descrição|
 |-----|----|-------|-----------|---------|
 |`SplitPayments.SubordinateMerchantId`|Guid|36|Sim|Identificador do Seller na Braspag|
 |`SplitPayments.Amount`|Número|15|Sim|Total da venda do Seller específico. R$ 100,00 = 10000|
 |`SplitPayments.Fares.Mdr`|Decimal|3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
 |`SplitPayments.Fares.Fee`|Número|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto|
-
 
 **Response**
 
@@ -1301,8 +1296,6 @@ Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada
 
 ![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
-
-
 **Request - Transação de Débito**
 
 Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação do banco correspondente e o nó referente a análise de fraude não deve ser informado.
@@ -1470,7 +1463,6 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 | `AuthenticationUrl`   | URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.                                                      | Texto    | 56      | Sim         |
 | `ReturnUrl`                  | Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.             | Texto | 1024       | Sim         |
 
-
 ### Modelos de Split
 
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
@@ -1536,13 +1528,11 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
-
 #### Pós-Transacional
 
 Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.
 
 Para transações com **Cartão de Crédito** este período é de **20 dias** e para as transações com **Cartão de Débito** este período é de **1 dia**, se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
-
 
 > O período para redividir uma transação poderá ser alterado pela Braspag (Facilitador).
 
@@ -2175,14 +2165,14 @@ O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligên
 
 A integração com o antifraude se dá através do próprio fluxo transacional, na mesma requisição da transação.
 
--   Cliente realiza uma transação.
--   A anállise de fraude é realizada.
-	- Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
--   A transação é executada normalmente.
+- Cliente realiza uma transação.
+- A anállise de fraude é realizada.
+- Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
+- A transação é executada normalmente.
 
 Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.FraudAnalysis`. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos `Customer.DeliveryAddress` e/ou `Customer.BillingAddress`.
 
-| Campos | Tipo | Tamanho | Obrigatório | Descrição|
+|Campos|Tipo|Tamanho|Obrigatório|Descrição|
 |--|--|--|--|--|
 |`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido no sistema do lojista|
 |`Customer`|-|-|Sim|Dados do comprador|
@@ -2223,7 +2213,8 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade do cartão composta por MM/AAAA|
 |`Payment.CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
 |`Payment.CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão  |Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover|
-|`Payment.SaveCard`|Boleano|-|Não|Parâmetro para salvar os dados do cartão como token. Caso seja passado com o valor `True`, O parâmetro `CardToken` será retornado no `Response` sendo seu valor o token gerado que poderá ser utilizado em futuras transações.|`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
+|`Payment.SaveCard`|Boleano|-|Não|Parâmetro para salvar os dados do cartão como token. Caso seja passado com o valor `True`, O parâmetro `CardToken` será retornado no `Response` sendo seu valor o token gerado que poderá ser utilizado em futuras transações.|
+|`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
 |`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: `Cybersource`|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
 |`Payment.FraudAnalisys.Browser`|-|-|Sim|-|
