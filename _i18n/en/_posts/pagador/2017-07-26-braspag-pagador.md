@@ -4765,7 +4765,15 @@ To create an electronic transfer payment (known as Online Debit as well), it is 
         "Provider":"Bradesco",
         "Type":"EletronicTransfer",
         "Amount":10000,
-        "ReturnUrl":"http://www.braspag.com.br"
+        "ReturnUrl":"http://www.braspag.com.br",
+        "Beneficiary":
+            {
+            "Bank":"Bradesco"
+        },
+        "Shopper":{
+            "Branch":"1234",
+            "Account":"12345-6"
+        }
     }
 }
 ```
@@ -4830,6 +4838,9 @@ curl
 |`Payment.Type`|Payment Method's Type|Text|100|Yes|
 |`Payment.Amount`|Transaction Amount (must be sent in cents)|Number|15|Yes|
 |`Payment.Provider`|Payment Method Provider's name|Text|15|---|
+|`Payment.Beneficiary.Bank`|Payer's bank (mandatory when Provider is PayMeeSemiTransparent). |Text |100 |Conditional|
+|`Payment.Shopper.Branch`|Payer's bank account branch (mandatory when provider is PayMeeSemiTransparent). |Text |100 |Conditional|
+|`Payment.Shopper.Account`|Payer's banck account number (mandatory when provider is PayMeeSemiTransparent). |Texto |100 |Condicional|
 
 ### Response
 
