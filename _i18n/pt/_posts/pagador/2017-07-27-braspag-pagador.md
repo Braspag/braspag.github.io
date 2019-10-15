@@ -2683,7 +2683,15 @@ Para criar uma venda, é necessário fazer um POST para o recurso Payment confor
         "Provider":"Bradesco",
         "Type":"EletronicTransfer",
         "Amount":10000,
-        "ReturnUrl":"http://www.braspag.com.br"
+        "ReturnUrl":"http://www.braspag.com.br",
+		"Beneficiary":
+			{
+			"Bank":"Bradesco"
+		},
+		"Shopper":{
+			"Branch":"1669",
+			"Account":"19887-5"
+		}
     }
 }
 ```
@@ -2721,7 +2729,15 @@ curl
         "Provider":"Bradesco",
         "Type":"EletronicTransfer",
         "Amount":10000,
-        "ReturnUrl":"http://www.braspag.com.br"
+        "ReturnUrl":"http://www.braspag.com.br",
+		"Beneficiary":
+			{
+			"Bank":"Bradesco"
+		},
+		"Shopper":{
+			"Branch":"1669",
+			"Account":"19887-5"
+		}
     }
 }
 --verbose
@@ -2748,6 +2764,9 @@ curl
 |`Payment.Type`|Tipo do Meio de Pagamento. |Texto |100 |Sim|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos)|Número |15 |Sim|
 |`Payment.Provider`|Nome da provedora de Meio de Pagamento|Texto |15 |---|
+|`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). |Texto |100 |Condicional|
+|`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). |Texto |100 |Condicional|
+|`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). |Texto |100 |Condicional|
 
 #### Resposta
 
