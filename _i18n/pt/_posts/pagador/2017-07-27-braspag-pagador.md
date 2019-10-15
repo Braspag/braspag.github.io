@@ -2684,14 +2684,14 @@ Para criar uma venda, é necessário fazer um POST para o recurso Payment confor
         "Type":"EletronicTransfer",
         "Amount":10000,
         "ReturnUrl":"http://www.braspag.com.br",
-		"Beneficiary":
-			{
-			"Bank":"Bradesco"
-		},
-		"Shopper":{
-			"Branch":"1669",
-			"Account":"19887-5"
-		}
+        "Beneficiary":
+            {
+            "Bank":"Bradesco"
+        },
+        "Shopper":{
+            "Branch":"1669",
+            "Account":"19887-5"
+        }
     }
 }
 ```
