@@ -16375,10 +16375,2812 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
       <td>Texto sobre alguma informação específica para o boleto</td>
       <td>Texto</td>
       <td>Vide Tabela dos bancos</td>
-      <td>Ex. “Boleto referente</td>
+      <td>Ex. “Boleto referente ao pedido número 99999”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Url</code></td>
+      <td>URL para apresentação do boleto</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Ex. “https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.BoletoNumber</code></td>
+      <td>Nosso Número</td>
+      <td>Texto</td>
+      <td>Vide Tabela dos bancos</td>
+      <td>Ex. “12345678”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.BarCodeNumber</code></td>
+      <td>Código de Barras do boleto</td>
+      <td>Texto</td>
+      <td>44</td>
+      <td>Ex. “99999390276000001234864001834007775680099999”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.DigitableLine</code></td>
+      <td>Linha digitável do boleto</td>
+      <td>Texto</td>
+      <td>54</td>
+      <td>Ex. “99999.39027 60000.012348 64001.834007 7 75680000199999”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Assignor</code></td>
+      <td>Nome do cedente do boleto</td>
+      <td>Texto</td>
+      <td>200</td>
+      <td>Ex. “RAZAO SOCIAL DA LOJA LTDA”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Address</code></td>
+      <td>Endereço do cedente do boleto</td>
+      <td>Texto</td>
+      <td>160</td>
+      <td>Ex. “Alameda Xingu 512”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Identification</code></td>
+      <td>CNPJ do cedente</td>
+      <td>Texto</td>
+      <td>18</td>
+      <td>Ex. “11.355.111/0001-11”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExpirationDate</code></td>
+      <td>Data de vencimento do boleto</td>
+      <td>Texto</td>
+      <td>AAAA-MM-DD</td>
+      <td>Ex. “2018-06-21”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CreditDate</code></td>
+      <td>Data de crédito do valor pago do boleto</td>
+      <td>Texto</td>
+      <td>AAAA-MM-DD</td>
+      <td>Ex. “2018-06-19”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CapturedDate</code></td>
+      <td>Data de pagamento do boleto</td>
+      <td>Texto</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+      <td>Ex. “2018-06-19 01:45:57”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
+      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Texto</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+      <td>Ex. “2018-06-19 01:45:57”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>URL da loja para onde redireciona o cliente</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Ex. “https://www.loja.com.br”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Currency</code></td>
+      <td>Moeda na qual o pagamento será feito</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Country</code></td>
+      <td>País na qual o pagamento será feito</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>BRA</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Nome do campo que será gravado o Dado Extra</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Valor do campo que será gravado o Dado Extra</td>
+      <td>Texto</td>
+      <td>1024</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.PaymentId</code></td>
+      <td>Campo Identificador do Pedido</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReasonCode</code></td>
+      <td>Código de retorno da Adquirência</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Status</code></td>
+      <td>Status da Transação</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>Ex. 1</td>
     </tr>
   </tbody>
 </table>
+
+<h2 id="consultando-uma-venda-pelo-identificador-da-loja">Consultando uma venda pelo identificador da loja</h2>
+
+<aside class="notice">Regra:
+
+Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag
+Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag com a opção “Histórico” selecionada
+Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag
+
+</aside>
+
+<p>Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.</p>
+
+<p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.</p>
+
+<h3 id="requisição-32">Requisição</h3>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curls
+<span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.brv2/sales?merchantOrderId={merchantOrderId}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Chave Publica para Autenticação Dupla na API</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Campo Identificador do Pedido na Loja.</td>
+      <td>Texto</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-35">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fb4d606-bb63-4423-a683-c966e15399e8"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReceveidDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-06T10:13:39.42"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6c1d45c3-a95f-49c1-a626-1e9373feecc2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReceveidDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-19T20:23:28.847"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"ReasonCode"</span>: 0,
+    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+    <span class="s2">"Payments"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"PaymentId"</span>: <span class="s2">"5fb4d606-bb63-4423-a683-c966e15399e8"</span>,
+            <span class="s2">"ReceveidDate"</span>: <span class="s2">"2015-04-06T10:13:39.42"</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"PaymentId"</span>: <span class="s2">"6c1d45c3-a95f-49c1-a626-1e9373feecc2"</span>,
+            <span class="s2">"ReceveidDate"</span>: <span class="s2">"2014-12-19T20:23:28.847"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Campo Identificador do Pedido</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="consultando-um-pedido-recorrente">Consultando um pedido Recorrente</h2>
+
+<p>Para consultar um pedido de Recorrência, é necessário fazer um GET conforme o exemplo.</p>
+
+<h3 id="requisição-33">Requisição</h3>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Chave Publica para Autenticação Dupla na API</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Campo Identificador da Recorrência.</td>
+      <td>Texto</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-36">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Cliente"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f5a83c14-0254-4e73-bdd3-9afba1007266"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"NextRecurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-11"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-31"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CurrentRecurrencyTry"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051120"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RecurrencyDay"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SuccessfulRecurrences"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/f5a83c14-0254-4e73-bdd3-9afba1007266"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"RecurrentTransactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"PaymentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f5a83c14-0254-4e73-bdd3-9afba1007266"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cd694ffb-c0c4-47db-9390-737df70a2012"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"TryNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/cd694ffb-c0c4-47db-9390-737df70a2012"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+  <span class="s2">"Customer"</span>: <span class="o">{</span>
+    <span class="s2">"Name"</span>: <span class="s2">"Nome do Cliente"</span>
+  <span class="o">}</span>,
+  <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
+    <span class="s2">"Installments"</span>: 1,
+    <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"f5a83c14-0254-4e73-bdd3-9afba1007266"</span>,
+    <span class="s2">"NextRecurrency"</span>: <span class="s2">"2017-06-11"</span>,
+    <span class="s2">"StartDate"</span>: <span class="s2">"2017-05-11"</span>,
+    <span class="s2">"EndDate"</span>: <span class="s2">"2019-12-31"</span>,
+    <span class="s2">"Interval"</span>: <span class="s2">"Monthly"</span>,
+    <span class="s2">"Amount"</span>: 10000,
+    <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+    <span class="s2">"CreateDate"</span>: <span class="s2">"2017-05-11T00:00:00"</span>,
+    <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+    <span class="s2">"CurrentRecurrencyTry"</span>: 1,
+    <span class="s2">"OrderNumber"</span>: <span class="s2">"2017051120"</span>,
+    <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+    <span class="s2">"RecurrencyDay"</span>: 11,
+    <span class="s2">"SuccessfulRecurrences"</span>: 1,
+    <span class="s2">"Links"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+        <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+        <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/f5a83c14-0254-4e73-bdd3-9afba1007266"</span>
+      <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">"RecurrentTransactions"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"PaymentNumber"</span>: 0,
+        <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"f5a83c14-0254-4e73-bdd3-9afba1007266"</span>,
+        <span class="s2">"TransactionId"</span>: <span class="s2">"cd694ffb-c0c4-47db-9390-737df70a2012"</span>,
+        <span class="s2">"TryNumber"</span>: 1,
+        <span class="s2">"Links"</span>: <span class="o">[</span>
+          <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+            <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/cd694ffb-c0c4-47db-9390-737df70a2012"</span>
+          <span class="o">}</span>
+        <span class="o">]</span>
+      <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">"Status"</span>: 1
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Campo Identificador da próxima recorrência.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NextRecurrency</code></td>
+      <td>Data da próxima recorrência.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">StartDate</code></td>
+      <td>Data do inicio da recorrência.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">EndDate</code></td>
+      <td>Data do fim da recorrência.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Interval</code></td>
+      <td>Intervalo entre as recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CurrentRecurrencyTry</code></td>
+      <td>Indica o número de tentativa da recorrência atual</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">OrderNumber</code></td>
+      <td>Identificado do Pedido na loja</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>2017051101</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Status do pedido recorrente</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>1 - Ativo2 - Finalizado3,4,5 - Inativo</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrencyDay</code></td>
+      <td>O dia da recorrência</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SuccessfulRecurrences</code></td>
+      <td>Quantidade de recorrência realizada com sucesso</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentTransactions.RecurrentPaymentId</code></td>
+      <td>Id da Recorrência</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentTransactions.TransactionId</code></td>
+      <td>Payment ID da transação gerada na recorrência</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentTransactions.PaymentNumber</code></td>
+      <td>Número da Recorrência. A primeira é zero</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentTransactions.TryNumber</code></td>
+      <td>Número da tentativa atual na recorrência específica</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="post-de-notificação">Post de Notificação</h1>
+
+<p>Para receber a notificação de alteração de status deve-se ter configurado no cadastro de sua loja na Braspag, o campo URL Status Pagamento para receber os parametros conforme o exemplo ao lado.</p>
+
+<p>Resposta esperada da Loja: HTTP Status Code 200 OK</p>
+
+<p>Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes enviar o Post de Notificação.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Identificador que representa a transação</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ChangeType</code></td>
+      <td>Especifica o tipo de notificação. Vide tabela abaixo</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>ChangeType</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Mudança de status do pagamento</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recorrência criada</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mudança de status do Antifraude</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Mudança de status do pagamento recorrente (Ex. desativação automática)</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Estorno negado (aplicável para Rede)</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Boleto registrado pago a menor</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Notificação de chargeback <br /> Para mais detalhes <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="anexos">Anexos</h1>
+
+<h2 id="lista-de-providers">Lista de Providers</h2>
+
+<h3 id="providers-para-crédito">Providers para Crédito</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Brand</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simulado</td>
+      <td>—</td>
+      <td>Provider de Sandbox</td>
+    </tr>
+    <tr>
+      <td>Cielo</td>
+      <td>Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover</td>
+      <td>Provider para transações na plataforma legado Cielo 1.5</td>
+    </tr>
+    <tr>
+      <td>Cielo30</td>
+      <td>Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper</td>
+      <td>Provider para transações na plataforma de e-commerce Cielo 3.0</td>
+    </tr>
+    <tr>
+      <td>Redecard</td>
+      <td>Visa, Master, Hipercard, Hiper, Diners</td>
+      <td>Provider para transações na plataforma legado Rede Komerci</td>
+    </tr>
+    <tr>
+      <td>Rede</td>
+      <td>Visa, Master, Hipercard, Hiper, Diners, Elo, Amex</td>
+      <td>Provider para transações na plataforma de e-commerce Rede e-Rede na versão SOAP</td>
+    </tr>
+    <tr>
+      <td>Rede2</td>
+      <td>Visa, Master, Hipercard, Hiper, Diners, Elo, Amex</td>
+      <td>Provider para transações na plataforma de e-commerce Rede e-Rede na versão REST</td>
+    </tr>
+    <tr>
+      <td>Getnet</td>
+      <td>Visa, Master, Elo, Amex</td>
+      <td>Provider para transações na plataforma de e-commerce GetNet</td>
+    </tr>
+    <tr>
+      <td>GlobalPayments</td>
+      <td>Visa, Master</td>
+      <td>Provider para transações na plataforma de e-commerce Global Payments</td>
+    </tr>
+    <tr>
+      <td>Stone</td>
+      <td>Visa, Master, Hipercard, Elo</td>
+      <td>Provider para transações na plataforma de e-commerce Stone</td>
+    </tr>
+    <tr>
+      <td>FirstData</td>
+      <td>Visa, Master, Cabal</td>
+      <td>Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data</td>
+    </tr>
+    <tr>
+      <td>Sub1</td>
+      <td>Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada</td>
+      <td>Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data</td>
+    </tr>
+    <tr>
+      <td>Banorte</td>
+      <td>Visa, Master, Carnet</td>
+      <td>Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte</td>
+    </tr>
+    <tr>
+      <td>Credibanco</td>
+      <td>Visa, Master, Diners, Amex, Credential</td>
+      <td>Provider para transações em pesos colombianos (COP) na plataforma de e-commerce Credibanco</td>
+    </tr>
+    <tr>
+      <td>Transbank</td>
+      <td>Visa, Master, Diners, Amex</td>
+      <td>Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank</td>
+    </tr>
+    <tr>
+      <td>RedeSitef</td>
+      <td>Visa, Master, Hipercard, Diners</td>
+      <td>Provider para transações na plataforma Rede com tecnologia TEF</td>
+    </tr>
+    <tr>
+      <td>CieloSitef</td>
+      <td>Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover</td>
+      <td>Provider para transações na plataforma Cielo com tecnologia TEF</td>
+    </tr>
+    <tr>
+      <td>SantanderSitef</td>
+      <td>Visa, Master</td>
+      <td>Provider para transações na plataforma GetNet com tecnologia TEF</td>
+    </tr>
+    <tr>
+      <td>DMCard</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="providers-pra-débito">Providers pra Débito</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Brand</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cielo</td>
+      <td>Visa, Master</td>
+      <td>Provider para transações de débito na plataforma legado Cielo 1.5</td>
+    </tr>
+    <tr>
+      <td>Cielo30</td>
+      <td>Visa, Master</td>
+      <td>Provider para transações de débito na plataforma de e-commerce Cielo 3.0</td>
+    </tr>
+    <tr>
+      <td>Getnet</td>
+      <td>Visa, Master</td>
+      <td>Provider para transações de débito na plataforma de e-commerce GetNet</td>
+    </tr>
+    <tr>
+      <td>FirstData</td>
+      <td>Visa, Master</td>
+      <td>Provider para transações de débito na plataforma de e-commerce First Data</td>
+    </tr>
+    <tr>
+      <td>GlobalPayments</td>
+      <td>Visa, Master</td>
+      <td>Provider para transações de débito na plataforma de e-commerce Global Payments</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="providers-pra-voucher">Providers pra Voucher</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Brand</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alelo</td>
+      <td>Elo</td>
+      <td>Provider para transações de voucher (vale refeição/alimentação) na plataforma Alelo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="providers-para-zero-auth-via-verifycard">Providers para Zero Auth via VerifyCard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simulado</td>
+    </tr>
+    <tr>
+      <td>Cielo30 (Cielo 3.0)</td>
+    </tr>
+    <tr>
+      <td>Rede2 (e-Rede REST)</td>
+    </tr>
+    <tr>
+      <td>Getnet</td>
+    </tr>
+    <tr>
+      <td>FirstData</td>
+    </tr>
+    <tr>
+      <td>GlobalPayments</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="providers-para-consulta-bin-via-verifycard">Providers para Consulta BIN via VerifyCard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simulado</td>
+    </tr>
+    <tr>
+      <td>Cielo30 (Cielo 3.0)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="providers-para-boleto-com-registro">Providers para Boleto com Registro</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="providers-para-transferência-eletronica-débito-online">Providers para Transferência Eletronica (Débito Online)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco, BancoDoBrasil, SafetyPay, Itau</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-status-da-transação">Lista de Status da Transação</h2>
+
+<p>Status retornados pela API</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Status do Pagamento</th>
+      <th>Meio de pagamento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>NotFinished</td>
+      <td>Todos</td>
+      <td>Falha ao processar o pagamento</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Authorized</td>
+      <td>Todos</td>
+      <td>Meio de pagamento apto a ser capturado ou pago(Boleto)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>PaymentConfirmed</td>
+      <td>Todos</td>
+      <td>Pagamento confirmado e finalizado</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Denied</td>
+      <td>Cartão de Crédito e Débito (Transferência eletrônica)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Voided</td>
+      <td>Todos</td>
+      <td>Pagamento cancelado</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Refunded</td>
+      <td>Cartão de crédito e Débito</td>
+      <td>Pagamento Cancelado/Estornado</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Pending</td>
+      <td>Cartão de Crédito e Débito  (Transferência eletrônica)</td>
+      <td>Esperando retorno da instituição financeira</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Aborted</td>
+      <td>Todos</td>
+      <td>Pagamento cancelado por falha no processamento</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Scheduled</td>
+      <td>Cartão de crédito</td>
+      <td>Recorrência agendada</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-status-do-antifraude">Lista de Status do Antifraude</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Accept</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Reject</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Review</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Aborted</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Unfinished</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-de-mdds">Tabela de MDDs</h2>
+
+<blockquote>
+  <p>Nível de Relevância <br /> 1 - Relevante <br /> 2 - Muito Relevante <br /> 3 - Extremamente Relevante <br /><br />
+Conforme nível de relevância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.<br /><br />
+No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o campo correspondente como vazio, ou seja, apenas não enviar.
+|ID|Valor|Tipo|Nível de Relevância|Segmento|
+|:-|:-|:-|:-:|:-|
+|1|Cliente efetuou Login <br /> Se o cliente final logou no site para comprar, enviar: o login dele <br /> Se fez compra como visitante, enviar: Guest <br /> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|2|Todos|
+|2|Quantidade em dias que o cliente é seu cliente <br /> Ex.: 314|int|3|Todos|
+|3|Quantidade de parcelas do pedido|int|3|Todos|
+|4|Canal de Venda <br /> Possíveis valores: <br /> Call Center -&gt; compra pelo telefone <br /> Web -&gt; compra pela web <br /> Portal -&gt; um agente fazendo a compra para o cliente <br /> Quiosque -&gt; compras em quiosques <br /> Movel -&gt; compras feitas em celulares ou tablets|string|3|Todos|
+|5|Enviar o código do cupom/desconto caso o cliente utilize na compra|string|1|Todos|
+|6|Quantidade em dias desde a última compra realizada pelo cliente <br /> Ex.: 55|int|3|Todos|
+|7|Código ou nome do seller (vendedor)|string|1|Todos|
+|8|Tentativas realizadas pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|2|Todos|
+|9|Identifica se cliente irá retirar o produto na loja <br /> Possíveis valores: SIM ou NAO|string|3|Varejo ou Cosméticos|
+|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br /> Possíveis valores: SIM ou NAO|string|3|Aéreo ou Turismo|
+|11|Categoria do hotel (quantas estrelas) <br /> Possíveis valores: <br /> 1 -&gt; Simples <br /> 2 -&gt; Econômico <br /> 3 -&gt; Turismo <br /> 4 -&gt; Superior <br /> 5 -&gt; Luxo|int|3|Turismo|
+|12|Quantidade em dias desde a data da compra até a data do checkin no hotel <br /> Ex.: 123|int|3|Turismo|
+|13|Quantidade de diárias no hotel <br /> Ex.: 5|int|3|Turismo|
+|14|Categoria da viagem ou pacote <br /> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|3|Aéreo ou Turismo|
+|15|Nome da companhia áerea / locadora de carro / hotel <br /> Enviar o nome de cada uma das empresas, separado por /|string|2|Aéreo ou Turismo|
+|16|Código PNR da reserva <br /> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|3|Aérea|
+|17|Identifica se houve antecipação de reserva <br /> Possíveis valores: SIM ou NAO <br /> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string|3|Aéreo|
+|18|Categoria do veículo alugado <br /> Possíveis valores: <br /> 1 - Básico <br /> 2 - Esportivo <br /> 3 - Prime <br /> 4 - Utilitário <br /> 5 - Blindado|string|3|Turismo|
+|19|Identifica se o pacote refere-se a cruzeiro <br /> Possíveis valores: SIM ou NAO|string|2|Turismo|
+|20|Decisão da análise de fraude referente a última compra <br /> Possíveis valores: ACEITA ou REJEITADA|string|3|Todos|
+|21|Valor do frete <br /> Ex.: 10599 = r$ 105,99|long|1|Varejo ou Cosméticos|
+|22|Código da loja onde o produto será retirado <br /> Este campo deverá ser enviado quando o campo 9 for enviado igual a SIM|string|3|Varejo ou Cosméticos|
+|23|Sufixo (4 últimos dígitos) do cartão de crédito|int|1|Todos|
+|24|Quantidade de dias desde a primeira compra realizada pelo cliente <br /> Ex.: 150|int|3|Todos|
+|25|Sexo do cliente <br /> Possíveis valores: <br /> F -&gt; Feminino <br /> M -&gt; Masculino|string|2|Todos|
+|26|Bin (6 primeiros dígitos) do cartão de crédito|int|1|Todos|
+|27|Tipo do logradouro do endereço de entrega <br /> Possíveis valores: <br /> R -&gt; Residencial <br /> C -&gt; Comercial|string|2|Todos|
+|28|Tempo médio em minutos que o cliente levou para realizar a compra|int|2|Todos|
+|29|Quantidade de tentativas que o cliente realizou para efetuar login|int|2|Todos|
+|30|Quantidade de páginas web que o cliente visitou anteriormente a compra referente a 30 minutos passados|int|2|Todos|
+|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|2|Todos|
+|32|Identifica se o e-mail foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado|string|3|Todos|
+|33|Identifica se o número do cartão de crédito foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado|string|3|Todos|
+|34|Identifica se o e-mail foi confirmado para ativação de conta <br /> Possíveis valores: SIM ou NAO|string|2|Todos|
+|35|Identifica o tipo de cliente <br /> Possíveis valores: Local ou Turista|string|2|Turismo|
+|36|Identifica se foi utilizado cartão presente (GiftCard) na compra como forma de pagamento <br /> Possíveis valores: SIM ou NAO|string|1|Todos|
+|37|Meio de envio do pedido <br /> Possíveis valores: Sedex <br /> Sedex 10 <br /> 1 Dia <br /> 2 Dias <br /> Motoboy <br /> Mesmo Dia <br />|string|3|Varejo ou Cosméticos|
+|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br /> Formato: DDIDDDNúmero - Ex.: 552121114720|string|3|Todos|
+|39|Nome de usuário do Call Center <br /> Este campo deverá ser enviado quando campo 4 for enviado igual a Call Center|string|1|Todos|
+|40|Comentários inseridos quando pedido for presente|string|1|Todos|
+|41|Tipo do documento <br /> Possíveis valores: CPF ou CNPJ ou Passaporte|string|2|Todos|
+|42|Idade do cliente|int|2|Todos|
+|43|Faixa de rendimento do cliente <br /> Ex.: 100000 = r$ 1.000,00|long|2|Todos|
+|44|Quantidade histórica de compras realizadas pelo cliente|int|3|Todos| 
+|45|Identifica se é uma compra realizada por funcionário <br /> Possíveis valores: SIM ou NAO|string|2|Todos|
+|46|Nome impresso (portador) no cartão de crédito|string|3|Todos|
+|47|Identifica se o cartão é private label <br /> Possíveis valores: SIM ou NAO|string|2|Todos|
+|48|Quantidade de meios de pagamentos utilizados para efetuar a compra|int|2|Todos|
+|49|Média das compras realizadas nos últimos 6 meses <br /> Ex.: 159050 = r$ 1.590,99|long|3|Todos|
+|50|Fator de desvio de valor da compra atual sobre a média dos últimos 6 meses|3|Todos|
+|51|Identifica se é um cliente VIP com tratamento de risco diferenciado ou lista positiva <br /> Possíveis valores: SIM ou NAO|string|3|Todos|
+|52|Categoria do produto <br /> Possíveis valores: <br /> Animais e Bichos de Estimação <br /> Roupas e Acessórios <br /> Negócios e Indústria <br /> Câmeras e Óticas <br /> Eletrônicos <br /> Comidas, Bebidas e Cigarro <br /> Móveis <br /> Ferramentas <br /> Saúde e Beleza <br /> Casa e Jardim <br /> Malas e Bagagens <br /> Adulto <br /> Armas e Munição <br /> Materiais de Escritório <br /> Religião e Cerimoniais <br /> Software <br /> Equipamentos de Esporte <br /> Brinquedos e Jogos <br /> Veículos e Peças <br /> Livros <br /> DVDs e Vídeos <br /> Revistas e Jornais <br /> Música <br /> Outras Categorias Não Especificadas|string|2|Todos|
+|53|Identifica se existe rotina de confirmação de celular por SMS <br /> Possíveis valores: SIM ou NAO|string|2|Todos|
+|54|Qual a 2ª forma de pagamento|string|2|Todos|
+|55|Qual a 3ª forma de pagamento|string|2|Todos|
+|56|Se 2ª forma de pagamento for cartão de crédito, enviar a bandeira|string|1|Todos|
+|57|Se 3ª forma de pagamento for cartão de crédito, enviar a bandeira|string|1|Todos|
+|58|Se 2ª forma de pagamento, informar o valor pago <br /> Ex.: 128599 = r$ 1.285,99|long|2|Todos|
+|59|Se 3ª forma de pagamento, informar o valor pago <br /> Ex.: 59089 = r$ 590,89|long|2|Todos|
+|60|Quantidade em dias desde a data da última alteração <br /> Ex.: 57|int|3|Todos|
+|61|Identifica se houve alteração cadastral|string|1|Todos|
+|62|Quantidade de pontos trocados na última compra|long|3|Fidelidade|
+|63|Quantidade de pontos restantes no saldo|long|2|Fidelidade|
+|64|Quantidade de dias desde a última troca de pontos|long|2|Fidelidade|
+|65|Identificador do cliente no programa de fidelidade|string|2|Fidelidade|
+|66|Quantidade de minutos recarregados nos últimos 30 dias|long|2|Digital Goods|
+|67|Quantidade de recargas realizadas nos últimos 30 dias|long|2|Digital Goods|
+|68|Quantidade em dias entre a data de partida e a data de retorno|int|2|Aéreo|
+|69|Quantidade de passageiros viajando independente da faixa etária|int|2|Aéreo|
+|70|Identificador do voô|string|1|Aéreo|
+|71|Número de infants viajando|int|2|Aéreo|
+|72|Número de crianças viajando|int|2|Aéreo|
+|73|Número de adultos viajando|int|2|Aéreo|
+|74|Identifica se é um passageiro frequente (Frequently Flyer) <br /> Possíveis valores: SIM ou NAO|string|2|Aéreo|
+|75|Identificar do passageiro frequente (Frequently Flyer Number)|string|2|Aéreo|
+|76|Categoria do passageiro frequente (Frequently Flyer) <br /> Esta categoria pode variar de acordo com a companhia aérea|int|2|Aéreo|
+|77|Dia da semana do embarque <br /> Possíveis valores: Sunday (Domingo) <br /> Monday (Segunda-feira) <br /> Tuesday (Terça-feira) <br /> Wednesday (Quarta-feira) <br /> Thursday (Quinta-feira) <br /> Friday (Sexta-feira) <br /> Saturday (Sábado)|string|2|Aéreo|
+|78|Código da companhia aérea <br /> Ex.: JJ ou LA ou AA ou UA ou G3 e etc|string|1|Aéreo|
+|79|Classe tarifária da passagem <br /> Ex.: W ou Y ou N e etc|string|2|Aéreo|
+|80|Número do celular do passageiro <br /> Ex.: Formato: DDIDDDNúmero - Ex.: 5521976781114|string|2|Aéreo|
+|81|Identifica se o dono do cartão de crédito irá viajar <br /> Possíveis valores: SIM ou NAO|string|3|Aéreo|
+|82|Identifica se o seller (vendedor) irá trabalhar com revisão manual ou não <br /> Possíveis valores: SIM ou NAO|string|1|Todos|
+|83|Segmento de negócio <br /> Ex.: Varejo|string|2|Todos|
+|84|Nome da plataforma integrada a API Antifraude Gateway Braspag <br /> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA|string|3|Todos|
+|85 a 89|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|-|-|
+|90 a 100|Reservados|-|-|-|</p>
+</blockquote>
+
+<h2 id="lista-de-http-status-code">Lista de HTTP Status Code</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status Code</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Bad Request</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Resource Not Found</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Internal Server Error</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-status-da-recorrência">Lista de Status da Recorrência</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Active</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Finished</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>DisabledByMerchant</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>DisabledMaxAttempts</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>DisabledExpiredCreditCard</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-reasoncodereasonmessage">Lista de ReasonCode/ReasonMessage</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reason Code</th>
+      <th>Reason Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Successful</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>AffiliationNotFound</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>IssuficientFunds</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>CouldNotGetCreditCard</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>ConnectionWithAcquirerFailed</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>InvalidTransactionType</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>InvalidPaymentPlan</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Denied</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Scheduled</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Waiting</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Authenticated</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>NotAuthenticated</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>ProblemsWithCreditCard</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>CardCanceled</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>BlockedCreditCard</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>CardExpired</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>AbortedByFraud</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>CouldNotAntifraud</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>TryAgain</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>InvalidAmount</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>ProblemsWithIssuer</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>InvalidCardNumber</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>TimeOut</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>CartaoProtegidoIsNotEnabled</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>PaymentMethodIsNotEnabled</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>InvalidRequest</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>InternalError</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="códigos-de-erros-da-api">Códigos de Erros da API</h2>
+
+<p>Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Mensagem</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Internal error</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>RequestId is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>MerchantId is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Payment Type is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Payment Type can only contain letters</td>
+      <td>Caracteres especiais não permitidos</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Customer Identity is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>Customer Name is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>106</td>
+      <td>Transaction ID is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>107</td>
+      <td>OrderId is invalid or does not exists</td>
+      <td>Campo enviado excede o tamanho ou contem caracteres especiais</td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>Amount must be greater or equal to zero</td>
+      <td>Valor da transação deve ser maior que “0”</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>Payment Currency is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>110</td>
+      <td>Invalid Payment Currency</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>111</td>
+      <td>Payment Country is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>Invalid Payment Country</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>113</td>
+      <td>Invalid Payment Code</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>The provided MerchantId is not in correct format</td>
+      <td>O MerchantId enviado não é um GUID</td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>The provided MerchantId was not found</td>
+      <td>O MerchantID não existe ou pertence a outro ambiente (EX: Sandbox)</td>
+    </tr>
+    <tr>
+      <td>116</td>
+      <td>The provided MerchantId is blocked</td>
+      <td>Loja bloqueada, entre em contato com o suporte Braspag</td>
+    </tr>
+    <tr>
+      <td>117</td>
+      <td>Credit Card Holder is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>118</td>
+      <td>Credit Card Number is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>119</td>
+      <td>At least one Payment is required</td>
+      <td>Nó “Payment” não enviado</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>Request IP not allowed. Check your IP White List</td>
+      <td>IP bloqueado por questões de segurança</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>Customer is required</td>
+      <td>Nó “Customer” não enviado</td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>MerchantOrderId is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>Installments must be greater or equal to one</td>
+      <td>Numero de parcelas deve ser superior a 1</td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>Credit Card is Required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>Credit Card Expiration Date is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>Credit Card Expiration Date is invalid</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>You must provide CreditCard Number</td>
+      <td>Numero do cartão de crédito é obrigatório</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>Card Number length exceeded</td>
+      <td>Numero do cartão superiro a 16 digitos</td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>Affiliation not found</td>
+      <td>Meio de pagamento não vinculado a loja ou Provider invalido</td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>Could not get Credit Card</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>MerchantKey is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>132</td>
+      <td>MerchantKey is invalid</td>
+      <td>O Merchantkey enviado não é um válido</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>Provider is not supported for this Payment Type</td>
+      <td>Provider enviado não existe</td>
+    </tr>
+    <tr>
+      <td>134</td>
+      <td>FingerPrint length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>135</td>
+      <td>MerchantDefinedFieldValue length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>136</td>
+      <td>ItemDataName length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>137</td>
+      <td>ItemDataSKU length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>138</td>
+      <td>PassengerDataName length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>139</td>
+      <td>PassengerDataStatus length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>PassengerDataEmail length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>141</td>
+      <td>PassengerDataPhone length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>142</td>
+      <td>TravelDataRoute length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>143</td>
+      <td>TravelDataJourneyType length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>144</td>
+      <td>TravelLegDataDestination length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>145</td>
+      <td>TravelLegDataOrigin length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>SecurityCode length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>147</td>
+      <td>Address Street length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>148</td>
+      <td>Address Number length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>149</td>
+      <td>Address Complement length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>Address ZipCode length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>Address City length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>152</td>
+      <td>Address State length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>153</td>
+      <td>Address Country length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>154</td>
+      <td>Address District length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>155</td>
+      <td>Customer Name length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>156</td>
+      <td>Customer Identity length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>157</td>
+      <td>Customer IdentityType length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>158</td>
+      <td>Customer Email length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>159</td>
+      <td>ExtraData Name length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>160</td>
+      <td>ExtraData Value length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>Boleto Instructions length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>Boleto Demostrative length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>Return Url is required</td>
+      <td>URL de retorno não é valida - Não é aceito paginação ou extenções (EX .PHP) na URL de retorno</td>
+    </tr>
+    <tr>
+      <td>166</td>
+      <td>AuthorizeNow is required</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>167</td>
+      <td>Antifraud not configured</td>
+      <td>Antifraude não vinculado ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>168</td>
+      <td>Recurrent Payment not found</td>
+      <td>Recorrencia não encontrada</td>
+    </tr>
+    <tr>
+      <td>169</td>
+      <td>Recurrent Payment is not active</td>
+      <td>Recorrencia não está ativa. Execução paralizada</td>
+    </tr>
+    <tr>
+      <td>170</td>
+      <td>Cartão Protegido not configured</td>
+      <td>Cartão protegido não vinculado ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>171</td>
+      <td>Affiliation data not sent</td>
+      <td>Falha no processamento do pedido - Entre em contato com o suporte Braspag</td>
+    </tr>
+    <tr>
+      <td>172</td>
+      <td>Credential Code is required</td>
+      <td>Falha na validação das credenciadas enviadas</td>
+    </tr>
+    <tr>
+      <td>173</td>
+      <td>Payment method is not enabled</td>
+      <td>Meio de pagamento não vinculado ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>174</td>
+      <td>Card Number is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>175</td>
+      <td>EAN is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>176</td>
+      <td>Payment Currency is not supported</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>177</td>
+      <td>Card Number is invalid</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>178</td>
+      <td>EAN is invalid</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>179</td>
+      <td>The max number of installments allowed for recurring payment is 1</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>180</td>
+      <td>The provided Card PaymentToken was not found</td>
+      <td>Token do Cartão protegido não encontrado</td>
+    </tr>
+    <tr>
+      <td>181</td>
+      <td>The MerchantIdJustClick is not configured</td>
+      <td>Token do Cartão protegido bloqueado</td>
+    </tr>
+    <tr>
+      <td>182</td>
+      <td>Brand is required</td>
+      <td>Bandeira do cartão não enviado</td>
+    </tr>
+    <tr>
+      <td>183</td>
+      <td>Invalid customer bithdate</td>
+      <td>Data de nascimento invalida ou futura</td>
+    </tr>
+    <tr>
+      <td>184</td>
+      <td>Request could not be empty</td>
+      <td>Falha no formado ta requisição. Verifique o código enviado</td>
+    </tr>
+    <tr>
+      <td>185</td>
+      <td>Brand is not supported by selected provider</td>
+      <td>Bandeira não suportada pela API Braspag</td>
+    </tr>
+    <tr>
+      <td>186</td>
+      <td>The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)</td>
+      <td>Meio de pagamento não suporta o comando enviado</td>
+    </tr>
+    <tr>
+      <td>187</td>
+      <td>ExtraData Collection contains one or more duplicated names</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>188</td>
+      <td>Avs with CPF invalid</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>189</td>
+      <td>Avs with length of street exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>190</td>
+      <td>Avs with length of number exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>190</td>
+      <td>Avs with length of complement exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>191</td>
+      <td>Avs with length of district exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>192</td>
+      <td>Avs with zip code invalid</td>
+      <td>CEP enviado é invalido</td>
+    </tr>
+    <tr>
+      <td>193</td>
+      <td>Split Amount must be greater than zero</td>
+      <td>Valor para realização do SPLIT deve ser superior a 0</td>
+    </tr>
+    <tr>
+      <td>194</td>
+      <td>Split Establishment is Required</td>
+      <td>SPLIT não habilitado para o cadastro da loja</td>
+    </tr>
+    <tr>
+      <td>195</td>
+      <td>The PlataformId is required</td>
+      <td>Validados de plataformas não enviado</td>
+    </tr>
+    <tr>
+      <td>196</td>
+      <td>DeliveryAddress is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>197</td>
+      <td>Street is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>198</td>
+      <td>Number is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>199</td>
+      <td>ZipCode is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>City is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>State is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>202</td>
+      <td>District is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>203</td>
+      <td>Cart item Name is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Cart item Quantity is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>205</td>
+      <td>Cart item type is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>206</td>
+      <td>Cart item name length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>207</td>
+      <td>Cart item description length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>208</td>
+      <td>Cart item sku length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>209</td>
+      <td>Shipping addressee sku length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>210</td>
+      <td>Shipping data cannot be null</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>211</td>
+      <td>WalletKey is invalid</td>
+      <td>Dados da Visa Checkout invalidos</td>
+    </tr>
+    <tr>
+      <td>212</td>
+      <td>Merchant Wallet Configuration not found</td>
+      <td>Visa Checkout não vinculado a conta do lojista</td>
+    </tr>
+    <tr>
+      <td>213</td>
+      <td>Credit Card Number is invalid</td>
+      <td>Cartão de crédito enviado é invalido</td>
+    </tr>
+    <tr>
+      <td>214</td>
+      <td>Credit Card Holder Must Have Only Letters</td>
+      <td>Portador do cartão não deve conter caracteres especiais</td>
+    </tr>
+    <tr>
+      <td>215</td>
+      <td>Agency is required in Boleto Credential</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>216</td>
+      <td>Customer IP address is invalid</td>
+      <td>IP bloqueado por questões de segurança</td>
+    </tr>
+    <tr>
+      <td>300</td>
+      <td>MerchantId was not found</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>301</td>
+      <td>Request IP is not allowed</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>302</td>
+      <td>Sent MerchantOrderId is duplicated</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>303</td>
+      <td>Sent OrderId does not exist</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>304</td>
+      <td>Customer Identity is required</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>306</td>
+      <td>Merchant is blocked</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>307</td>
+      <td>Transaction not found</td>
+      <td>Transação não encontrada ou não existente no ambiente</td>
+    </tr>
+    <tr>
+      <td>308</td>
+      <td>Transaction not available to capture</td>
+      <td>Transação não pode ser capturada - Entre em contato com o suporte Braspag</td>
+    </tr>
+    <tr>
+      <td>309</td>
+      <td>Transaction not available to void</td>
+      <td>Transação não pode ser Cancelada - Entre em contato com o suporte Braspag</td>
+    </tr>
+    <tr>
+      <td>310</td>
+      <td>Payment method doest not support this operation</td>
+      <td>Comando enviado não suportado pelo meio de pagamento</td>
+    </tr>
+    <tr>
+      <td>311</td>
+      <td>Refund is not enabled for this merchant</td>
+      <td>Cancelamento após 24 horas não liberado para o lojista</td>
+    </tr>
+    <tr>
+      <td>312</td>
+      <td>Transaction not available to refund</td>
+      <td>Transação não permite cancelamento após 24 horas</td>
+    </tr>
+    <tr>
+      <td>313</td>
+      <td>Recurrent Payment not found</td>
+      <td>Transação recorrente não encontrada ou não disponivel no ambiente</td>
+    </tr>
+    <tr>
+      <td>314</td>
+      <td>Invalid Integration</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>315</td>
+      <td>Cannot change NextRecurrency with pending payment</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>316</td>
+      <td>Cannot set NextRecurrency to past date</td>
+      <td>Não é permitido alterada dada da recorrencia para uma data passada</td>
+    </tr>
+    <tr>
+      <td>317</td>
+      <td>Invalid Recurrency Day</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>318</td>
+      <td>No transaction found</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>319</td>
+      <td>Smart recurrency is not enabled</td>
+      <td>Recorrencia não vinculada ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>320</td>
+      <td>Can not Update Affiliation Because this Recurrency not Affiliation saved</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>321</td>
+      <td>Can not set EndDate to before next recurrency</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>322</td>
+      <td>Zero Dollar Auth is not enabled</td>
+      <td>Zero Dollar não vinculado ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>323</td>
+      <td>Bin Query is not enabled</td>
+      <td>Consulta de Bins não vinculada ao cadastro do lojista</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cartões-para-teste-simulado">Cartões para Teste (Simulado)</h2>
+
+<p>O Simulado é um meio de pagamento que emula a utilizaçao de pagamentos com Cartão de Crétido. Com esse meio de pagamento é possivel simular todos os fluxos de Autorização, Captura e Cancelamento.</p>
+
+<p>Para melhor utilização do Meio de Pagamento Simulado, estamos disponibilizando cartões de testes na tabela abaixo.</p>
+
+<p>Os status das transações serão conforme a utilização de cada cartão.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status da Transação</th>
+      <th>Cartões para realização dos testes</th>
+      <th>Código de Retorno</th>
+      <th>Mensagem de Retorno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Autorizado</td>
+      <td>0000.0000.0000.0001 / 0000.0000.0000.0004</td>
+      <td>4</td>
+      <td>Operação realizada com sucesso</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0002</td>
+      <td>05</td>
+      <td>Não Autorizada</td>
+    </tr>
+    <tr>
+      <td>Autorização Aleatória</td>
+      <td>0000.0000.0000.0009</td>
+      <td>4 / 99</td>
+      <td>Operation Successful / Time Out</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0007</td>
+      <td>77</td>
+      <td>Cartão Cancelado</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0008</td>
+      <td>70</td>
+      <td>Problemas com o Cartão de Crédito</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0005</td>
+      <td>78</td>
+      <td>Cartão Bloqueado</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0003</td>
+      <td>57</td>
+      <td>Cartão Expirado</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0006</td>
+      <td>99</td>
+      <td>Time Out</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).</p>
+
+<h2 id="lista-de-valores---paymentfraudanalysiscartitemsngiftcategory">Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].GiftCategory</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Em caso de divergência entre endereços de cobrança e entrega, atribui risco baixo ao pedido</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Diferenças entre os endereços de cobrança e entrega não afetam a pontuação</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysiscartitemsnhosthedge">Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].HostHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysiscartitemsnnonsensicalhedge">Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].NonSensicalHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysiscartitemsnobscenitieshedge">Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].ObscenitiesHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysiscartitemsntimehedge">Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].TimeHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysiscartitemsnphonehedge">Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].PhoneHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysiscartitemsnvelocityhedge">Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].VelocityHedge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Baixa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left">Normal (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">High</td>
+      <td style="text-align: left">Alta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Off</td>
+      <td style="text-align: left">Não irá afetar o score da análise de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysiscartitemsntype">Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].Type</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AdultContent</td>
+      <td style="text-align: left">Conteúdo adulto</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Coupon</td>
+      <td style="text-align: left">Cupom aplicado para todo o pedido</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Default</td>
+      <td style="text-align: left">Valor default para o tipo do produto. Quando não enviado nenhum outro valor, assume-se o tipo sendo este</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EletronicGood</td>
+      <td style="text-align: left">Produto eletônico diferente de software</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EletronicSoftware</td>
+      <td style="text-align: left">Softwares distribuídos eletronicamente via download</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GiftCertificate</td>
+      <td style="text-align: left">Vale presente</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HandlingOnly</td>
+      <td style="text-align: left">Taxa que você cobra do seu cliente para cobrir os seus custos administrativos de venda. Ex.: Taxa de conveniência / Taxa de instalação</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Service</td>
+      <td style="text-align: left">Serviço que será realizado para o cliente</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ShippingAndHandling</td>
+      <td style="text-align: left">Valor do frete e e taxa que você cobra do seu cliente para cobrir os seus custos administrativos de venda</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ShippingOnly</td>
+      <td style="text-align: left">Valor do frete</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Subscription</td>
+      <td style="text-align: left">Assinatura. Ex.: Streaming de vídeos / Assinatura de notícias</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysisshippingshippingmethod">Lista de Valores - Payment.FraudAnalysis.Shipping.ShippingMethod</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SameDay</td>
+      <td style="text-align: left">Meio de entrega no mesmo dia</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NextDay</td>
+      <td style="text-align: left">Meio de entrega no próximo dia</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TwoDay</td>
+      <td style="text-align: left">Meio de entrega em dois dias</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ThreeDay</td>
+      <td style="text-align: left">Meio de entrega em três dias</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LowCost</td>
+      <td style="text-align: left">Meio de entrega de baixo custo</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pickup</td>
+      <td style="text-align: left">Retirada na loja</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Other</td>
+      <td style="text-align: left">Outro meio de entrega</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">Sem meio de entrega, pois é um serviço ou assinatura</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysistraveljourneytype">Lista de Valores - Payment.FraudAnalysis.Travel.JourneyType</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">OneWayTrip</td>
+      <td style="text-align: left">Viagem somente de ida</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RoundTrip</td>
+      <td style="text-align: left">Viagem de ida e volta</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysistravelpassengersnrating">Lista de Valores - Payment.FraudAnalysis.Travel.Passengers[n].Rating</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Adult</td>
+      <td style="text-align: left">Adulto</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Child</td>
+      <td style="text-align: left">Criança</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Infant</td>
+      <td style="text-align: left">Infantil</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysistravelpassengersnstatus">Lista de Valores - Payment.FraudAnalysis.Travel.Passengers[n].Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Standard</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Gold</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Platinum</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysisstatus">Lista de Valores - Payment.FraudAnalysis.Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Accept</td>
+      <td style="text-align: left">Transação aceita após análise de fraude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Review</td>
+      <td style="text-align: left">Transação em revisão após análise de fraude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Reject</td>
+      <td style="text-align: left">Transação rejeitada após análise de fraude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pendent</td>
+      <td style="text-align: left">Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Unfinished</td>
+      <td style="text-align: left">Transação não finalizada por algum motivo de validação de contrato ou erro interno</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProviderError</td>
+      <td style="text-align: left">Transação com erro no provedor ao ser enviada para análise</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysisfraudanalysisreasoncode">Lista de Valores - Payment.FraudAnalysis.FraudAnalysisReasonCode</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">100</td>
+      <td style="text-align: left">Operação realizada com sucesso</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">101</td>
+      <td style="text-align: left">A transação enviada para análise de fraude está faltando um ou mais campos necessários <br /> Verificar no response o campo <code class="highlighter-rouge">ProviderAnalysisResult.Missing</code> <br /> Possível ação: Reenviar a transação com a informação completa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">102</td>
+      <td style="text-align: left">A transação enviada para análise de fraude possui um ou mais campos com valores inválidos <br /> Verificar no response o campo <code class="highlighter-rouge">ProviderAnalysisResult.Invalid</code> <br /> Possível ação: Reenviar a transação com as informações corretas</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">150</td>
+      <td style="text-align: left">Erro interno <br /> Possível ação: Aguarde alguns minutos e tente reenviar a transação</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">151</td>
+      <td style="text-align: left">A transação foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br /> Possível ação: Aguarde alguns minutos e tente reenviar a transação</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">152</td>
+      <td style="text-align: left">O pedido foi recebido, mas ocorreu time-out <br /> Possível ação: Aguarde alguns minutos e tente reenviar a transação</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">202</td>
+      <td style="text-align: left">Transação recusada pois o cartão expirou ou a data de validade não coincide com a correta <br /> Possível ação: Solicite outro cartão ou outra forma de pagamento</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">231</td>
+      <td style="text-align: left">Transação recusada pois o cartão é inválido <br /> Possível ação: Solicite outro cartão ou outra forma de pagamento</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">234</td>
+      <td style="text-align: left">Problema com a configuração da loja na Cybersource <br /> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">400</td>
+      <td style="text-align: left">A pontuação de fraude ultrapassa o seu limite <br /> Possível ação: Reveja a transação do comprador</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">480</td>
+      <td style="text-align: left">A transação foi marcada como revisão pelo DM (Decision Manager)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">481</td>
+      <td style="text-align: left">A transação foi rejeitada pelo DM (Decision Manager)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysisreplydataaddressinfocode">Lista de Valores - Payment.FraudAnalysis.ReplyData.AddressInfoCode</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">COR-BA</td>
+      <td style="text-align: left">O endereço de cobrança pode ser normalizado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COR-SA</td>
+      <td style="text-align: left">O endereço de entrega pode ser normalizado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INTL-BA</td>
+      <td style="text-align: left">O país do endereço de cobrança está fora dos EUA</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INTL-SA</td>
+      <td style="text-align: left">O país do endereço de entrega está fora dos EUA</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MIL-USA</td>
+      <td style="text-align: left">Endereço militar nos EUA</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-A</td>
+      <td style="text-align: left">Os endereços de cobrança e entrega usam nomes de ruas diferentes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-BIN</td>
+      <td style="text-align: left">O BIN do cartão (os seis primeiros dígitos do número do cartão) não corresponde ao país</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-C</td>
+      <td style="text-align: left">Os endereços de cobrança e entrega usam cidades diferentes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-CO</td>
+      <td style="text-align: left">Os endereços de cobrança e entrega usam países diferentes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-ST</td>
+      <td style="text-align: left">Os endereços de cobrança e entrega usam estados diferentes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-Z</td>
+      <td style="text-align: left">Os endereços de cobrança e entrega usam códidos postais diferentes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UNV-ADDR</td>
+      <td style="text-align: left">O endereço é inverificável</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysisreplydatafactorcode">Lista de Valores - Payment.FraudAnalysis.ReplyData.FactorCode</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">A</td>
+      <td style="text-align: left">Mudança de endereço excessiva. O comprador mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">B</td>
+      <td style="text-align: left">BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">C</td>
+      <td style="text-align: left">Elevado números de cartões de créditos. O comprador tem usado mais de seis números de cartões de créditos nos últimos seis meses</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">D</td>
+      <td style="text-align: left">Impacto do endereço de e-mail. O comprador usa um provedor de e-mail gratuito ou o endereço de email é arriscado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E</td>
+      <td style="text-align: left">Lista positiva. O comprador está na sua lista positiva</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">F</td>
+      <td style="text-align: left">Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">G</td>
+      <td style="text-align: left">Inconsistências de geolocalização. O domínio do comprador de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">H</td>
+      <td style="text-align: left">Excessivas mudanças de nome. O comprador mudou o nome duas ou mais vezes nos últimos seis meses</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">I</td>
+      <td style="text-align: left">Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">Entrada sem sentido. O nome do comprador e os campos de endereço contém palavras sem sentido ou idioma</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">O</td>
+      <td style="text-align: left">Obscenidades. Dados do comprador contém palavras obscenas</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">P</td>
+      <td style="text-align: left">Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefones estão ligados a um número de conta única</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Q</td>
+      <td style="text-align: left">Inconsistências do telefone. O número de telefone do comprador é suspeito</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R</td>
+      <td style="text-align: left">Ordem arriscada. A transação, o comprador e o lojista mostram informações correlacionadas de alto risco</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">T</td>
+      <td style="text-align: left">Cobertura Time. O comprador está a tentar uma compra fora do horário esperado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">U</td>
+      <td style="text-align: left">Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">V</td>
+      <td style="text-align: left">O cartão foi usado muitas vezes nos últimos 15 minutos</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">W</td>
+      <td style="text-align: left">Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Z</td>
+      <td style="text-align: left">Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysisreplydatainternetinfocode">Lista de Valores - Payment.FraudAnalysis.ReplyData.InternetInfoCode</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">FREE-EM</td>
+      <td style="text-align: left">O endereço de e-mail do comprador é de um provedor de e-mail gratuito</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INTL-IPCO</td>
+      <td style="text-align: left">O país do endereço de e-mail do comprador está fora dos EUA</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INV-EM</td>
+      <td style="text-align: left">O endereço de e-mail do comprador é inválido</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-EMBCO</td>
+      <td style="text-align: left">O domínio do endereço de e-mail do comprador não é consistente com o país do endereço de cobrança</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-IPBC</td>
+      <td style="text-align: left">O endereço de e-mail do comprador não é consistente com a cidade do endereço de cobrança</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-IPBCO</td>
+      <td style="text-align: left">O endereço de e-mail do comprador não é consistente com o país do endereço de cobrança</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-IPBST</td>
+      <td style="text-align: left">O endereço IP do comprador não é consistente com o estado no endereço de cobrança. No entanto, este código de informação não pode ser devolvido quando a inconsistência é entre estados imediatamente  adjacentes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-IPEM</td>
+      <td style="text-align: left">O endereço de e-mail do comprador não é consistente com o endereço IP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RISK-EM</td>
+      <td style="text-align: left">O domínio do e-mail do comprador (por exemplo, mail.example.com) está associado com alto risco</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UNV-NID</td>
+      <td style="text-align: left">O endereço IP do comprador é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UNV-RISK</td>
+      <td style="text-align: left">O endereço IP é de origem de risco</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UNV-EMBCO</td>
+      <td style="text-align: left">O país do endereço de e-mail não corresponde ao país do endereço de cobrança</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentfraudanalysisreplydataiproutingmethod">Lista de Valores - Payment.FraudAnalysis.ReplyData.IpRoutingMethod</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Anonymizer</td>
+      <td style="text-align: left">Endereços de IP estão escondidos porque o comprador é extremamente cauteloso, quer privacidade absoluta ou é fraudulento</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AOL, AOL dialup, AOL POP and AOL proxy</td>
+      <td style="text-align: left">Membros da AOL. Na maioria dos casos, o país pode ser identificado, mas o estado e cidade não podem</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Cache proxy</td>
+      <td style="text-align: left">Proxy usado através de um acelerador da Internet ou de uma distribuição de conteúdo de serviço. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Fixed</td>
+      <td style="text-align: left">O endereço de IP está próximo ou no mesmo local que o comprador</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">International proxy</td>
+      <td style="text-align: left">Proxy que contém tráfego de vários países. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP. Em muitos casos, redes corporativas estão roteando o tráfego de escritórios internacionais através de um ponto central, muitas vezes a sede corporativa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mobile gateway</td>
+      <td style="text-align: left">Gateway para conectar dispositivos móveis à internet. Muitas operadoras, especialmente na Europa, atendem mais do que um país e tráfego ocorre através de hubs de rede centralizados. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">POP</td>
+      <td style="text-align: left">Discagem do comprador em um ISP regional provavelmente perto da localização do endereço de IP, mas possivelmente através de limites geográficos</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Regional proxy</td>
+      <td style="text-align: left">Proxy que contém tráfego de vários estados dentro de um único país. O comprador pode estar localizado em um estado diferente do indicado pelo endereço de IP. Em muitos casos, redes corporativas estão roteando o tráfego de escritórios internacionais através de um ponto central, muitas vezes a sede corporativa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Satellite</td>
+      <td style="text-align: left">Conexões por satélite. Se o uplink e o downlink estiverem cadastrados, o método roteamento é considerado padrão porque o remetente é conhecido. No entanto, se o downlink não está registrado, o comprador pode estar em qualquer lugar dentro do feixe padrão do satélite, que pode abranger um continente ou mais</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SuperPOP</td>
+      <td style="text-align: left">O comprador está discando em um ISP multi-estatal ou multinacional que provavelmente não é provável a localização do endereço de IP. O comprador pode estar discando através de limites geográficos</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">No value returned</td>
+      <td style="text-align: left">O tipo de roteamento é desconhecido</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentchargebacksnstatus">Lista de Valores - Payment.Chargebacks[n].Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Received</td>
+      <td style="text-align: left">Chargeback recebido da adquirente</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AcceptedByMerchant</td>
+      <td style="text-align: left">Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a contestação</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ContestedByMerchant</td>
+      <td style="text-align: left">Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>2017-07-27-braspag-pagador</p>
 
 </div>
 
