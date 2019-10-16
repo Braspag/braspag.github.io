@@ -8806,4 +8806,916 @@ curl
 |`Payment.Amount`|Valor do Pedido (em centavos)|Número|15|10000|
 |`Payment.CapturedAmount`|Valor pago do boleto (em centavos)|Número|15|10000|
 |`Payment.Instructions`|Texto sobre alguma instrução específica para o boleto|Texto|Vide Tabela dos bancos|Ex. "Não pagar após o vencimento"|
-|`Payment.Demonstrative`|Texto sobre alguma informação específica para o boleto|Texto|Vide Tabela dos bancos|Ex. "Boleto referente 
+|`Payment.Demonstrative`|Texto sobre alguma informação específica para o boleto|Texto|Vide Tabela dos bancos|Ex. "Boleto referente ao pedido número 99999"|
+|`Payment.Url`|URL para apresentação do boleto|Texto|-|Ex. "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"|
+|`Payment.BoletoNumber`|Nosso Número|Texto|Vide Tabela dos bancos|Ex. "12345678"|
+|`Payment.BarCodeNumber`|Código de Barras do boleto|Texto|44|Ex. "99999390276000001234864001834007775680099999"|
+|`Payment.DigitableLine`|Linha digitável do boleto|Texto|54|Ex. "99999.39027 60000.012348 64001.834007 7 75680000199999"|
+|`Payment.Assignor`|Nome do cedente do boleto|Texto|200|Ex. "RAZAO SOCIAL DA LOJA LTDA"|
+|`Payment.Address`|Endereço do cedente do boleto|Texto|160|Ex. "Alameda Xingu 512"|
+|`Payment.Identification`|CNPJ do cedente|Texto|18|Ex. "11.355.111/0001-11"|
+|`Payment.ExpirationDate`|Data de vencimento do boleto|Texto|AAAA-MM-DD|Ex. "2018-06-21"|
+|`Payment.CreditDate`|Data de crédito do valor pago do boleto|Texto|AAAA-MM-DD|Ex. "2018-06-19"|
+|`Payment.CapturedDate`|Data de pagamento do boleto|Texto|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
+|`Payment.ReturnUrl`|URL da loja para onde redireciona o cliente|Texto|-|Ex. "https://www.loja.com.br"|
+|`Payment.Currency`|Moeda na qual o pagamento será feito|Texto|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Country`|País na qual o pagamento será feito|Texto|3|BRA|
+|`Payment.ExtraDataCollection.Name`|Nome do campo que será gravado o Dado Extra|Texto|50|Texto alfanumérico|
+|`Payment.ExtraDataCollection.Value`|Valor do campo que será gravado o Dado Extra|Texto|1024|Texto alfanumérico|
+|`Payment.PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
+|`Payment.Status`|Status da Transação|Byte|2| Ex. 1|
+
+## Consultando uma venda pelo identificador da loja
+
+<aside class="notice"><strong>Regra:</strong>
+<ul>
+<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
+<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
+<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
+</ul>
+</aside>
+
+Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.
+
+Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
+
+```shell
+curls
+--request GET "https://apiquerysandbox.braspag.com.brv2/sales?merchantOrderId={merchantOrderId}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`MerchantOrderId`|Campo Identificador do Pedido na Loja. |Texto |36 |Sim|
+
+### Resposta
+
+```json
+{
+    "Payment": [
+        {
+            "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
+            "ReceveidDate": "2015-04-06T10:13:39.42"
+        },
+        {
+            "PaymentId": "6c1d45c3-a95f-49c1-a626-1e9373feecc2",
+            "ReceveidDate": "2014-12-19T20:23:28.847"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Payments": [
+        {
+            "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
+            "ReceveidDate": "2015-04-06T10:13:39.42"
+        },
+        {
+            "PaymentId": "6c1d45c3-a95f-49c1-a626-1e9373feecc2",
+            "ReceveidDate": "2014-12-19T20:23:28.847"
+        }
+    ]
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+
+## Consultando um pedido Recorrente
+
+Para consultar um pedido de Recorrência, é necessário fazer um GET conforme o exemplo.
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
+
+```shell
+curl
+--request GET "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RecurrentPaymentId`|Campo Identificador da Recorrência. |Texto |36 |Sim|
+
+### Resposta
+
+```json
+{
+  "Customer": {
+    "Name": "Nome do Cliente"
+  },
+  "RecurrentPayment": {
+    "Installments": 1,
+    "RecurrentPaymentId": "f5a83c14-0254-4e73-bdd3-9afba1007266",
+    "NextRecurrency": "2017-06-11",
+    "StartDate": "2017-05-11",
+    "EndDate": "2019-12-31",
+    "Interval": "Monthly",
+    "Amount": 10000,
+    "Country": "BRA",
+    "CreateDate": "2017-05-11T00:00:00",
+    "Currency": "BRL",
+    "CurrentRecurrencyTry": 1,
+    "OrderNumber": "2017051120",
+    "Provider": "Simulado",
+    "RecurrencyDay": 11,
+    "SuccessfulRecurrences": 1,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/f5a83c14-0254-4e73-bdd3-9afba1007266"
+      }
+    ],
+    "RecurrentTransactions": [
+      {
+        "PaymentNumber": 0,
+        "RecurrentPaymentId": "f5a83c14-0254-4e73-bdd3-9afba1007266",
+        "TransactionId": "cd694ffb-c0c4-47db-9390-737df70a2012",
+        "TryNumber": 1,
+        "Links": [
+          {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/cd694ffb-c0c4-47db-9390-737df70a2012"
+          }
+        ]
+      }
+    ],
+    "Status": 1
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "Customer": {
+    "Name": "Nome do Cliente"
+  },
+  "RecurrentPayment": {
+    "Installments": 1,
+    "RecurrentPaymentId": "f5a83c14-0254-4e73-bdd3-9afba1007266",
+    "NextRecurrency": "2017-06-11",
+    "StartDate": "2017-05-11",
+    "EndDate": "2019-12-31",
+    "Interval": "Monthly",
+    "Amount": 10000,
+    "Country": "BRA",
+    "CreateDate": "2017-05-11T00:00:00",
+    "Currency": "BRL",
+    "CurrentRecurrencyTry": 1,
+    "OrderNumber": "2017051120",
+    "Provider": "Simulado",
+    "RecurrencyDay": 11,
+    "SuccessfulRecurrences": 1,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/f5a83c14-0254-4e73-bdd3-9afba1007266"
+      }
+    ],
+    "RecurrentTransactions": [
+      {
+        "PaymentNumber": 0,
+        "RecurrentPaymentId": "f5a83c14-0254-4e73-bdd3-9afba1007266",
+        "TransactionId": "cd694ffb-c0c4-47db-9390-737df70a2012",
+        "TryNumber": 1,
+        "Links": [
+          {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/cd694ffb-c0c4-47db-9390-737df70a2012"
+          }
+        ]
+      }
+    ],
+    "Status": 1
+  }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`RecurrentPaymentId`|Campo Identificador da próxima recorrência. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`StartDate`|Data do inicio da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`Interval`|Intervalo entre as recorrência. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
+|`CurrentRecurrencyTry`|Indica o número de tentativa da recorrência atual |Número|1|1|
+|`OrderNumber`|Identificado do Pedido na loja |Texto|50 |2017051101|
+|`Status`|Status do pedido recorrente |Número|1 |<UL><LI>1 - Ativo</LI><LI>2 - Finalizado</LI><LI>3,4,5 - Inativo</LI></UL> |
+|`RecurrencyDay`|O dia da recorrência |Número|2 |22 |
+|`SuccessfulRecurrences`|Quantidade de recorrência realizada com sucesso|Número|2 |5|
+|`RecurrentTransactions.RecurrentPaymentId`|Id da Recorrência|Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`RecurrentTransactions.TransactionId`|Payment ID da transação gerada na recorrência|Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`RecurrentTransactions.PaymentNumber`|Número da Recorrência. A primeira é zero |Número|2 |3 |
+|`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica |Número|2 |1 |
+
+# Post de Notificação
+
+Para receber a notificação de alteração de status deve-se ter configurado no cadastro de sua loja na Braspag, o campo URL Status Pagamento para receber os parametros conforme o exemplo ao lado.
+
+Resposta esperada da Loja: HTTP Status Code 200 OK
+
+Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes enviar o Post de Notificação.
+
+```json
+{
+   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "ChangeType": "2"
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|---------|----|-------|-----------|
+|`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4|GUID|36|Não|
+|`PaymentId`|Identificador que representa a transação|GUID|36|Sim|
+|`ChangeType`|Especifica o tipo de notificação. Vide tabela abaixo | Número | 1 |Sim|
+
+|ChangeType|Descrição|
+|----------|---------|
+|1|Mudança de status do pagamento|
+|2|Recorrência criada|
+|3|Mudança de status do Antifraude|
+|4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
+|5|Estorno negado (aplicável para Rede)|
+|6|Boleto registrado pago a menor|
+|7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//manual/risknotification)|
+
+# Anexos
+
+## Lista de Providers
+
+### Providers para Crédito
+
+|Provider|Brand|Descrição|
+|--------|-----|---------|
+|Simulado|---|Provider de Sandbox|
+|Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma legado Cielo 1.5|
+|Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|Provider para transações na plataforma de e-commerce Cielo 3.0|
+|Redecard|Visa, Master, Hipercard, Hiper, Diners|Provider para transações na plataforma legado Rede Komerci|
+|Rede|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede e-Rede na versão SOAP|
+|Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede e-Rede na versão REST|
+|Getnet|Visa, Master, Elo, Amex|Provider para transações na plataforma de e-commerce GetNet|
+|GlobalPayments|Visa, Master|Provider para transações na plataforma de e-commerce Global Payments|
+|Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone|
+|FirstData|Visa, Master, Cabal|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data|
+|Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data|
+|Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte|
+|Credibanco|Visa, Master, Diners, Amex, Credential|Provider para transações em pesos colombianos (COP) na plataforma de e-commerce Credibanco|
+|Transbank|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank|
+|RedeSitef|Visa, Master, Hipercard, Diners|Provider para transações na plataforma Rede com tecnologia TEF|
+|CieloSitef|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma Cielo com tecnologia TEF|
+|SantanderSitef|Visa, Master|Provider para transações na plataforma GetNet com tecnologia TEF|
+|DMCard|---|---|
+
+### Providers pra Débito
+
+|Provider|Brand|Descrição|
+|--------|-----|---------|
+|Cielo|Visa, Master|Provider para transações de débito na plataforma legado Cielo 1.5|
+|Cielo30|Visa, Master|Provider para transações de débito na plataforma de e-commerce Cielo 3.0|
+|Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce GetNet|
+|FirstData|Visa, Master|Provider para transações de débito na plataforma de e-commerce First Data|
+|GlobalPayments|Visa, Master|Provider para transações de débito na plataforma de e-commerce Global Payments|
+
+### Providers pra Voucher
+
+|Provider|Brand|Descrição|
+|--------|-----|---------|
+|Alelo|Elo|Provider para transações de voucher (vale refeição/alimentação) na plataforma Alelo|
+
+### Providers para Zero Auth via VerifyCard
+
+|Provider|
+|--------|
+|Simulado|
+|Cielo30 (Cielo 3.0)|
+|Rede2 (e-Rede REST)|
+|Getnet|
+|FirstData|
+|GlobalPayments|
+
+### Providers para Consulta BIN via VerifyCard
+
+|Provider|
+|--------|
+|Simulado|
+|Cielo30 (Cielo 3.0)|
+
+### Providers para Boleto com Registro
+
+|Provider|
+|--------|
+|Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
+
+### Providers para Transferência Eletronica (Débito Online)
+
+|Provider|
+|--------|
+|Bradesco, BancoDoBrasil, SafetyPay, Itau|
+
+## Lista de Status da Transação
+
+Status retornados pela API
+
+|Código|Status do Pagamento|Meio de pagamento|Descrição|
+|------|-------------------|-----------------|---------|
+|0|NotFinished|Todos|Falha ao processar o pagamento|
+|1|Authorized|Todos|Meio de pagamento apto a ser capturado ou pago(Boleto)|
+|2|PaymentConfirmed|Todos|Pagamento confirmado e finalizado|
+|3|Denied|Cartão de Crédito e Débito (Transferência eletrônica) |
+|10|Voided|Todos|Pagamento cancelado|
+|11|Refunded|Cartão de crédito e Débito|Pagamento Cancelado/Estornado|
+|12|Pending|Cartão de Crédito e Débito  (Transferência eletrônica) |Esperando retorno da instituição financeira|
+|13|Aborted|Todos|Pagamento cancelado por falha no processamento|
+|20|Scheduled|Cartão de crédito|Recorrência agendada|
+
+## Lista de Status do Antifraude
+
+| Código | Descrição  |
+|--------|------------|
+| 0      | Unknown    |
+| 1      | Accept     |
+| 2      | Reject     |
+| 3      | Review     |
+| 4      | Aborted    |
+| 5      | Unfinished |
+
+## Tabela de MDDs
+
+> Nível de Relevância <br/> 1 - Relevante <br/> 2 - Muito Relevante <br/> 3 - Extremamente Relevante <br/><br/>
+> Conforme nível de relevância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.<br/><br/>
+> No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o campo correspondente como vazio, ou seja, apenas não enviar.
+|ID|Valor|Tipo|Nível de Relevância|Segmento|
+|:-|:-|:-|:-:|:-|
+|1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|2|Todos|
+|2|Quantidade em dias que o cliente é seu cliente <br/> Ex.: 314|int|3|Todos|
+|3|Quantidade de parcelas do pedido|int|3|Todos|
+|4|Canal de Venda <br/> Possíveis valores: <br/> Call Center -> compra pelo telefone <br/> Web -> compra pela web <br/> Portal -> um agente fazendo a compra para o cliente <br/> Quiosque -> compras em quiosques <br/> Movel -> compras feitas em celulares ou tablets|string|3|Todos|
+|5|Enviar o código do cupom/desconto caso o cliente utilize na compra|string|1|Todos|
+|6|Quantidade em dias desde a última compra realizada pelo cliente <br/> Ex.: 55|int|3|Todos|
+|7|Código ou nome do seller (vendedor)|string|1|Todos|
+|8|Tentativas realizadas pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|2|Todos|
+|9|Identifica se cliente irá retirar o produto na loja <br/> Possíveis valores: SIM ou NAO|string|3|Varejo ou Cosméticos|
+|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br/> Possíveis valores: SIM ou NAO|string|3|Aéreo ou Turismo|
+|11|Categoria do hotel (quantas estrelas) <br/> Possíveis valores: <br/> 1 -> Simples <br/> 2 -> Econômico <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|3|Turismo|
+|12|Quantidade em dias desde a data da compra até a data do checkin no hotel <br/> Ex.: 123|int|3|Turismo|
+|13|Quantidade de diárias no hotel <br/> Ex.: 5|int|3|Turismo|
+|14|Categoria da viagem ou pacote <br> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|3|Aéreo ou Turismo|
+|15|Nome da companhia áerea / locadora de carro / hotel <br/> Enviar o nome de cada uma das empresas, separado por /|string|2|Aéreo ou Turismo|
+|16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|3|Aérea|
+|17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string|3|Aéreo|
+|18|Categoria do veículo alugado <br/> Possíveis valores: <br/> 1 - Básico <br/> 2 - Esportivo <br/> 3 - Prime <br/> 4 - Utilitário <br/> 5 - Blindado|string|3|Turismo|
+|19|Identifica se o pacote refere-se a cruzeiro <br/> Possíveis valores: SIM ou NAO|string|2|Turismo|
+|20|Decisão da análise de fraude referente a última compra <br/> Possíveis valores: ACEITA ou REJEITADA|string|3|Todos|
+|21|Valor do frete <br/> Ex.: 10599 = r$ 105,99|long|1|Varejo ou Cosméticos|
+|22|Código da loja onde o produto será retirado <br/> Este campo deverá ser enviado quando o campo 9 for enviado igual a SIM|string|3|Varejo ou Cosméticos|
+|23|Sufixo (4 últimos dígitos) do cartão de crédito|int|1|Todos|
+|24|Quantidade de dias desde a primeira compra realizada pelo cliente <br/> Ex.: 150|int|3|Todos|
+|25|Sexo do cliente <br/> Possíveis valores: <br/> F -> Feminino <br/> M -> Masculino|string|2|Todos|
+|26|Bin (6 primeiros dígitos) do cartão de crédito|int|1|Todos|
+|27|Tipo do logradouro do endereço de entrega <br/> Possíveis valores: <br/> R -> Residencial <br/> C -> Comercial|string|2|Todos|
+|28|Tempo médio em minutos que o cliente levou para realizar a compra|int|2|Todos|
+|29|Quantidade de tentativas que o cliente realizou para efetuar login|int|2|Todos|
+|30|Quantidade de páginas web que o cliente visitou anteriormente a compra referente a 30 minutos passados|int|2|Todos|
+|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|2|Todos|
+|32|Identifica se o e-mail foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|3|Todos|
+|33|Identifica se o número do cartão de crédito foi colado ou digitado <br/> Possíveis valores: Digitado ou Colado|string|3|Todos|
+|34|Identifica se o e-mail foi confirmado para ativação de conta <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
+|35|Identifica o tipo de cliente <br/> Possíveis valores: Local ou Turista|string|2|Turismo|
+|36|Identifica se foi utilizado cartão presente (GiftCard) na compra como forma de pagamento <br/> Possíveis valores: SIM ou NAO|string|1|Todos|
+|37|Meio de envio do pedido <br/> Possíveis valores: Sedex <br/> Sedex 10 <br/> 1 Dia <br/> 2 Dias <br/> Motoboy <br/> Mesmo Dia <br/>|string|3|Varejo ou Cosméticos|
+|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br/> Formato: DDIDDDNúmero - Ex.: 552121114720|string|3|Todos|
+|39|Nome de usuário do Call Center <br/> Este campo deverá ser enviado quando campo 4 for enviado igual a Call Center|string|1|Todos|
+|40|Comentários inseridos quando pedido for presente|string|1|Todos|
+|41|Tipo do documento <br/> Possíveis valores: CPF ou CNPJ ou Passaporte|string|2|Todos|
+|42|Idade do cliente|int|2|Todos|
+|43|Faixa de rendimento do cliente <br/> Ex.: 100000 = r$ 1.000,00|long|2|Todos|
+|44|Quantidade histórica de compras realizadas pelo cliente|int|3|Todos| 
+|45|Identifica se é uma compra realizada por funcionário <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
+|46|Nome impresso (portador) no cartão de crédito|string|3|Todos|
+|47|Identifica se o cartão é private label <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
+|48|Quantidade de meios de pagamentos utilizados para efetuar a compra|int|2|Todos|
+|49|Média das compras realizadas nos últimos 6 meses <br/> Ex.: 159050 = r$ 1.590,99|long|3|Todos|
+|50|Fator de desvio de valor da compra atual sobre a média dos últimos 6 meses|3|Todos|
+|51|Identifica se é um cliente VIP com tratamento de risco diferenciado ou lista positiva <br/> Possíveis valores: SIM ou NAO|string|3|Todos|
+|52|Categoria do produto <br/> Possíveis valores: <br/> Animais e Bichos de Estimação <br/> Roupas e Acessórios <br/> Negócios e Indústria <br/> Câmeras e Óticas <br/> Eletrônicos <br/> Comidas, Bebidas e Cigarro <br/> Móveis <br/> Ferramentas <br/> Saúde e Beleza <br/> Casa e Jardim <br/> Malas e Bagagens <br/> Adulto <br/> Armas e Munição <br/> Materiais de Escritório <br/> Religião e Cerimoniais <br/> Software <br/> Equipamentos de Esporte <br/> Brinquedos e Jogos <br/> Veículos e Peças <br/> Livros <br/> DVDs e Vídeos <br/> Revistas e Jornais <br/> Música <br/> Outras Categorias Não Especificadas|string|2|Todos|
+|53|Identifica se existe rotina de confirmação de celular por SMS <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
+|54|Qual a 2ª forma de pagamento|string|2|Todos|
+|55|Qual a 3ª forma de pagamento|string|2|Todos|
+|56|Se 2ª forma de pagamento for cartão de crédito, enviar a bandeira|string|1|Todos|
+|57|Se 3ª forma de pagamento for cartão de crédito, enviar a bandeira|string|1|Todos|
+|58|Se 2ª forma de pagamento, informar o valor pago <br/> Ex.: 128599 = r$ 1.285,99|long|2|Todos|
+|59|Se 3ª forma de pagamento, informar o valor pago <br/> Ex.: 59089 = r$ 590,89|long|2|Todos|
+|60|Quantidade em dias desde a data da última alteração <br/> Ex.: 57|int|3|Todos|
+|61|Identifica se houve alteração cadastral|string|1|Todos|
+|62|Quantidade de pontos trocados na última compra|long|3|Fidelidade|
+|63|Quantidade de pontos restantes no saldo|long|2|Fidelidade|
+|64|Quantidade de dias desde a última troca de pontos|long|2|Fidelidade|
+|65|Identificador do cliente no programa de fidelidade|string|2|Fidelidade|
+|66|Quantidade de minutos recarregados nos últimos 30 dias|long|2|Digital Goods|
+|67|Quantidade de recargas realizadas nos últimos 30 dias|long|2|Digital Goods|
+|68|Quantidade em dias entre a data de partida e a data de retorno|int|2|Aéreo|
+|69|Quantidade de passageiros viajando independente da faixa etária|int|2|Aéreo|
+|70|Identificador do voô|string|1|Aéreo|
+|71|Número de infants viajando|int|2|Aéreo|
+|72|Número de crianças viajando|int|2|Aéreo|
+|73|Número de adultos viajando|int|2|Aéreo|
+|74|Identifica se é um passageiro frequente (Frequently Flyer) <br/> Possíveis valores: SIM ou NAO|string|2|Aéreo|
+|75|Identificar do passageiro frequente (Frequently Flyer Number)|string|2|Aéreo|
+|76|Categoria do passageiro frequente (Frequently Flyer) <br/> Esta categoria pode variar de acordo com a companhia aérea|int|2|Aéreo|
+|77|Dia da semana do embarque <br/> Possíveis valores: Sunday (Domingo) <br/> Monday (Segunda-feira) <br/> Tuesday (Terça-feira) <br/> Wednesday (Quarta-feira) <br/> Thursday (Quinta-feira) <br/> Friday (Sexta-feira) <br/> Saturday (Sábado)|string|2|Aéreo|
+|78|Código da companhia aérea <br/> Ex.: JJ ou LA ou AA ou UA ou G3 e etc|string|1|Aéreo|
+|79|Classe tarifária da passagem <br/> Ex.: W ou Y ou N e etc|string|2|Aéreo|
+|80|Número do celular do passageiro <br/> Ex.: Formato: DDIDDDNúmero - Ex.: 5521976781114|string|2|Aéreo|
+|81|Identifica se o dono do cartão de crédito irá viajar <br/> Possíveis valores: SIM ou NAO|string|3|Aéreo|
+|82|Identifica se o seller (vendedor) irá trabalhar com revisão manual ou não <br/> Possíveis valores: SIM ou NAO|string|1|Todos|
+|83|Segmento de negócio <br/> Ex.: Varejo|string|2|Todos|
+|84|Nome da plataforma integrada a API Antifraude Gateway Braspag <br/> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA|string|3|Todos|
+|85 a 89|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|-|-|
+|90 a 100|Reservados|-|-|-|
+
+## Lista de HTTP Status Code
+
+| HTTP Status Code | Descrição             |
+|------------------|-----------------------|
+| 200              | OK                    |
+| 400              | Bad Request           |
+| 404              | Resource Not Found    |
+| 500              | Internal Server Error |
+
+## Lista de Status da Recorrência
+
+| Código | Descrição                 |
+|--------|---------------------------|
+| 1      | Active                    |
+| 2      | Finished                  |
+| 3      | DisabledByMerchant        |
+| 4      | DisabledMaxAttempts       |
+| 5      | DisabledExpiredCreditCard |
+
+## Lista de ReasonCode/ReasonMessage
+
+| Reason Code | Reason Message               |
+|-------------|------------------------------|
+| 0           | Successful                   |
+| 1           | AffiliationNotFound          |
+| 2           | IssuficientFunds             |
+| 3           | CouldNotGetCreditCard        |
+| 4           | ConnectionWithAcquirerFailed |
+| 5           | InvalidTransactionType       |
+| 6           | InvalidPaymentPlan           |
+| 7           | Denied                       |
+| 8           | Scheduled                    |
+| 9           | Waiting                      |
+| 10          | Authenticated                |
+| 11          | NotAuthenticated             |
+| 12          | ProblemsWithCreditCard       |
+| 13          | CardCanceled                 |
+| 14          | BlockedCreditCard            |
+| 15          | CardExpired                  |
+| 16          | AbortedByFraud               |
+| 17          | CouldNotAntifraud            |
+| 18          | TryAgain                     |
+| 19          | InvalidAmount                |
+| 20          | ProblemsWithIssuer           |
+| 21          | InvalidCardNumber            |
+| 22          | TimeOut                      |
+| 23          | CartaoProtegidoIsNotEnabled  |
+| 24          | PaymentMethodIsNotEnabled    |
+| 98          | InvalidRequest               |
+| 99          | InternalError                |
+
+## Códigos de Erros da API
+
+Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.
+
+|Código|Mensagem|Descrição|
+|------|--------|---------|
+|0|Internal error|Dado enviado excede o tamanho do campo|
+|100|RequestId is required|Campo enviado está vazio ou invalido|
+|101|MerchantId is required|Campo enviado está vazio ou invalido|
+|102|Payment Type is required|Campo enviado está vazio ou invalido|
+|103|Payment Type can only contain letters|Caracteres especiais não permitidos|
+|104|Customer Identity is required|Campo enviado está vazio ou invalido|
+|105|Customer Name is required|Campo enviado está vazio ou invalido|
+|106|Transaction ID is required|Campo enviado está vazio ou invalido|
+|107|OrderId is invalid or does not exists|Campo enviado excede o tamanho ou contem caracteres especiais |
+|108|Amount must be greater or equal to zero|Valor da transação deve ser maior que "0"|
+|109|Payment Currency is required|Campo enviado está vazio ou invalido|
+|110|Invalid Payment Currency|Campo enviado está vazio ou invalido|
+|111|Payment Country is required|Campo enviado está vazio ou invalido|
+|112|Invalid Payment Country|Campo enviado está vazio ou invalido|
+|113|Invalid Payment Code|Campo enviado está vazio ou invalido|
+|114|The provided MerchantId is not in correct format|O MerchantId enviado não é um GUID|
+|115|The provided MerchantId was not found|O MerchantID não existe ou pertence a outro ambiente (EX: Sandbox)|
+|116|The provided MerchantId is blocked|Loja bloqueada, entre em contato com o suporte Braspag|
+|117|Credit Card Holder is required|Campo enviado está vazio ou invalido|
+|118|Credit Card Number is required|Campo enviado está vazio ou invalido|
+|119|At least one Payment is required|Nó "Payment" não enviado|
+|120|Request IP not allowed. Check your IP White List|IP bloqueado por questões de segurança|
+|121|Customer is required|Nó "Customer" não enviado|
+|122|MerchantOrderId is required|Campo enviado está vazio ou invalido|
+|123|Installments must be greater or equal to one|Numero de parcelas deve ser superior a 1|
+|124|Credit Card is Required|Campo enviado está vazio ou invalido|
+|125|Credit Card Expiration Date is required|Campo enviado está vazio ou invalido|
+|126|Credit Card Expiration Date is invalid|Campo enviado está vazio ou invalido|
+|127|You must provide CreditCard Number|Numero do cartão de crédito é obrigatório|
+|128|Card Number length exceeded|Numero do cartão superiro a 16 digitos|
+|129|Affiliation not found|Meio de pagamento não vinculado a loja ou Provider invalido|
+|130|Could not get Credit Card|---|
+|131|MerchantKey is required|Campo enviado está vazio ou invalido|
+|132|MerchantKey is invalid|O Merchantkey enviado não é um válido|
+|133|Provider is not supported for this Payment Type|Provider enviado não existe|
+|134|FingerPrint length exceeded|Dado enviado excede o tamanho do campo|
+|135|MerchantDefinedFieldValue length exceeded|Dado enviado excede o tamanho do campo|
+|136|ItemDataName length exceeded|Dado enviado excede o tamanho do campo|
+|137|ItemDataSKU length exceeded|Dado enviado excede o tamanho do campo|
+|138|PassengerDataName length exceeded|Dado enviado excede o tamanho do campo|
+|139|PassengerDataStatus length exceeded|Dado enviado excede o tamanho do campo|
+|140|PassengerDataEmail length exceeded|Dado enviado excede o tamanho do campo|
+|141|PassengerDataPhone length exceeded|Dado enviado excede o tamanho do campo|
+|142|TravelDataRoute length exceeded|Dado enviado excede o tamanho do campo|
+|143|TravelDataJourneyType length exceeded|Dado enviado excede o tamanho do campo|
+|144|TravelLegDataDestination length exceeded|Dado enviado excede o tamanho do campo|
+|145|TravelLegDataOrigin length exceeded|Dado enviado excede o tamanho do campo|
+|146|SecurityCode length exceeded|Dado enviado excede o tamanho do campo|
+|147|Address Street length exceeded|Dado enviado excede o tamanho do campo|
+|148|Address Number length exceeded|Dado enviado excede o tamanho do campo|
+|149|Address Complement length exceeded|Dado enviado excede o tamanho do campo|
+|150|Address ZipCode length exceeded|Dado enviado excede o tamanho do campo|
+|151|Address City length exceeded|Dado enviado excede o tamanho do campo|
+|152|Address State length exceeded|Dado enviado excede o tamanho do campo|
+|153|Address Country length exceeded|Dado enviado excede o tamanho do campo|
+|154|Address District length exceeded|Dado enviado excede o tamanho do campo|
+|155|Customer Name length exceeded|Dado enviado excede o tamanho do campo|
+|156|Customer Identity length exceeded|Dado enviado excede o tamanho do campo|
+|157|Customer IdentityType length exceeded|Dado enviado excede o tamanho do campo|
+|158|Customer Email length exceeded|Dado enviado excede o tamanho do campo|
+|159|ExtraData Name length exceeded|Dado enviado excede o tamanho do campo|
+|160|ExtraData Value length exceeded|Dado enviado excede o tamanho do campo|
+|161|Boleto Instructions length exceeded|Dado enviado excede o tamanho do campo|
+|162|Boleto Demostrative length exceeded|Dado enviado excede o tamanho do campo|
+|163|Return Url is required|URL de retorno não é valida - Não é aceito paginação ou extenções (EX .PHP) na URL de retorno|
+|166|AuthorizeNow is required|---|
+|167|Antifraud not configured|Antifraude não vinculado ao cadastro do lojista|
+|168|Recurrent Payment not found|Recorrencia não encontrada|
+|169|Recurrent Payment is not active|Recorrencia não está ativa. Execução paralizada|
+|170|Cartão Protegido not configured|Cartão protegido não vinculado ao cadastro do lojista|
+|171|Affiliation data not sent|Falha no processamento do pedido - Entre em contato com o suporte Braspag|
+|172|Credential Code is required|Falha na validação das credenciadas enviadas|
+|173|Payment method is not enabled|Meio de pagamento não vinculado ao cadastro do lojista|
+|174|Card Number is required|Campo enviado está vazio ou invalido|
+|175|EAN is required|Campo enviado está vazio ou invalido|
+|176|Payment Currency is not supported|Campo enviado está vazio ou invalido|
+|177|Card Number is invalid|Campo enviado está vazio ou invalido|
+|178|EAN is invalid|Campo enviado está vazio ou invalido|
+|179|The max number of installments allowed for recurring payment is 1|Campo enviado está vazio ou invalido|
+|180|The provided Card PaymentToken was not found|Token do Cartão protegido não encontrado|
+|181|The MerchantIdJustClick is not configured|Token do Cartão protegido bloqueado|
+|182|Brand is required|Bandeira do cartão não enviado|
+|183|Invalid customer bithdate|Data de nascimento invalida ou futura|
+|184|Request could not be empty|Falha no formado ta requisição. Verifique o código enviado|
+|185|Brand is not supported by selected provider|Bandeira não suportada pela API Braspag|
+|186|The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)|Meio de pagamento não suporta o comando enviado|
+|187|ExtraData Collection contains one or more duplicated names|---|
+|188|Avs with CPF invalid|---|
+|189|Avs with length of street exceeded|Dado enviado excede o tamanho do campo|
+|190|Avs with length of number exceeded|Dado enviado excede o tamanho do campo|
+|190|Avs with length of complement exceeded|Dado enviado excede o tamanho do campo|
+|191|Avs with length of district exceeded|Dado enviado excede o tamanho do campo|
+|192|Avs with zip code invalid|CEP enviado é invalido|
+|193|Split Amount must be greater than zero|Valor para realização do SPLIT deve ser superior a 0|
+|194|Split Establishment is Required|SPLIT não habilitado para o cadastro da loja|
+|195|The PlataformId is required|Validados de plataformas não enviado|
+|196|DeliveryAddress is required|Campo obrigatório não enviado|
+|197|Street is required|Campo obrigatório não enviado|
+|198|Number is required|Campo obrigatório não enviado|
+|199|ZipCode is required|Campo obrigatório não enviado|
+|200|City is required|Campo obrigatório não enviado|
+|201|State is required|Campo obrigatório não enviado|
+|202|District is required|Campo obrigatório não enviado|
+|203|Cart item Name is required|Campo obrigatório não enviado|
+|204|Cart item Quantity is required|Campo obrigatório não enviado|
+|205|Cart item type is required|Campo obrigatório não enviado|
+|206|Cart item name length exceeded |Dado enviado excede o tamanho do campo|
+|207|Cart item description length exceeded |Dado enviado excede o tamanho do campo|
+|208|Cart item sku length exceeded |Dado enviado excede o tamanho do campo|
+|209|Shipping addressee sku length exceeded |Dado enviado excede o tamanho do campo|
+|210|Shipping data cannot be null|Campo obrigatório não enviado|
+|211|WalletKey is invalid|Dados da Visa Checkout invalidos|
+|212|Merchant Wallet Configuration not found|Visa Checkout não vinculado a conta do lojista|
+|213|Credit Card Number is invalid|Cartão de crédito enviado é invalido|
+|214|Credit Card Holder Must Have Only Letters|Portador do cartão não deve conter caracteres especiais|
+|215|Agency is required in Boleto Credential|Campo obrigatório não enviado|
+|216|Customer IP address is invalid|IP bloqueado por questões de segurança|
+|300|MerchantId was not found|---|
+|301|Request IP is not allowed|---|
+|302|Sent MerchantOrderId is duplicated|---|
+|303|Sent OrderId does not exist|---|
+|304|Customer Identity is required|---|
+|306|Merchant is blocked|---|
+|307|Transaction not found|Transação não encontrada ou não existente no ambiente|
+|308|Transaction not available to capture|Transação não pode ser capturada - Entre em contato com o suporte Braspag|
+|309|Transaction not available to void|Transação não pode ser Cancelada - Entre em contato com o suporte Braspag|
+|310|Payment method doest not support this operation|Comando enviado não suportado pelo meio de pagamento|
+|311|Refund is not enabled for this merchant|Cancelamento após 24 horas não liberado para o lojista|
+|312|Transaction not available to refund|Transação não permite cancelamento após 24 horas|
+|313|Recurrent Payment not found|Transação recorrente não encontrada ou não disponivel no ambiente|
+|314|Invalid Integration|---|
+|315|Cannot change NextRecurrency with pending payment|---|
+|316|Cannot set NextRecurrency to past date|Não é permitido alterada dada da recorrencia para uma data passada|
+|317|Invalid Recurrency Day|---|
+|318|No transaction found|---|
+|319|Smart recurrency is not enabled|Recorrencia não vinculada ao cadastro do lojista|
+|320|Can not Update Affiliation Because this Recurrency not Affiliation saved|---|
+|321|Can not set EndDate to before next recurrency|---|
+|322|Zero Dollar Auth is not enabled|Zero Dollar não vinculado ao cadastro do lojista|
+|323|Bin Query is not enabled|Consulta de Bins não vinculada ao cadastro do lojista|
+
+## Cartões para Teste (Simulado)
+
+O Simulado é um meio de pagamento que emula a utilizaçao de pagamentos com Cartão de Crétido. Com esse meio de pagamento é possivel simular todos os fluxos de Autorização, Captura e Cancelamento.
+
+Para melhor utilização do Meio de Pagamento Simulado, estamos disponibilizando cartões de testes na tabela abaixo.
+
+Os status das transações serão conforme a utilização de cada cartão.
+
+|Status da Transação|Cartões para realização dos testes|Código de Retorno|Mensagem de Retorno|
+|-------------------|----------------------------------|-----------------|-------------------|
+|Autorizado|0000.0000.0000.0001 / 0000.0000.0000.0004|4|Operação realizada com sucesso|
+|Não Autorizado|0000.0000.0000.0002|05|Não Autorizada|
+|Autorização Aleatória|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
+|Não Autorizado|0000.0000.0000.0007|77|Cartão Cancelado|
+|Não Autorizado|0000.0000.0000.0008|70|Problemas com o Cartão de Crédito|
+|Não Autorizado|0000.0000.0000.0005|78|Cartão Bloqueado|
+|Não Autorizado|0000.0000.0000.0003|57|Cartão Expirado|
+|Não Autorizado|0000.0000.0000.0006|99|Time Out|
+
+As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).
+
+## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].GiftCategory
+
+|Valor|Descrição|
+|:-|:-|
+|Yes|Em caso de divergência entre endereços de cobrança e entrega, atribui risco baixo ao pedido|
+|No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|
+|Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|
+
+## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].HostHedge
+
+|Valor|Descrição|
+|:-|:-|
+|Low|Baixa|
+|Normal|Normal (default)|
+|High|Alta|
+|Off|Não irá afetar o score da análise de fraude|
+
+## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].NonSensicalHedge
+
+|Valor|Descrição|
+|:-|:-|
+|Low|Baixa|
+|Normal|Normal (default)|
+|High|Alta|
+|Off|Não irá afetar o score da análise de fraude|
+
+## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].ObscenitiesHedge
+
+|Valor|Descrição|
+|:-|:-|
+|Low|Baixa|
+|Normal|Normal (default)|
+|High|Alta|
+|Off|Não irá afetar o score da análise de fraude|
+
+## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].TimeHedge
+
+|Valor|Descrição|
+|:-|:-|
+|Low|Baixa|
+|Normal|Normal (default)|
+|High|Alta|
+|Off|Não irá afetar o score da análise de fraude|
+
+## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].PhoneHedge
+
+|Valor|Descrição|
+|:-|:-|
+|Low|Baixa|
+|Normal|Normal (default)|
+|High|Alta|
+|Off|Não irá afetar o score da análise de fraude|
+
+## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].VelocityHedge
+
+|Valor|Descrição|
+|:-|:-|
+|Low|Baixa|
+|Normal|Normal (default)|
+|High|Alta|
+|Off|Não irá afetar o score da análise de fraude|
+
+## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].Type
+
+|Valor|Descrição|
+|:-|:-|
+|AdultContent|Conteúdo adulto|
+|Coupon|Cupom aplicado para todo o pedido|
+|Default|Valor default para o tipo do produto. Quando não enviado nenhum outro valor, assume-se o tipo sendo este|
+|EletronicGood|Produto eletônico diferente de software|
+|EletronicSoftware|Softwares distribuídos eletronicamente via download|
+|GiftCertificate|Vale presente|
+|HandlingOnly|Taxa que você cobra do seu cliente para cobrir os seus custos administrativos de venda. Ex.: Taxa de conveniência / Taxa de instalação|
+|Service|Serviço que será realizado para o cliente|
+|ShippingAndHandling|Valor do frete e e taxa que você cobra do seu cliente para cobrir os seus custos administrativos de venda|
+|ShippingOnly|Valor do frete|
+|Subscription|Assinatura. Ex.: Streaming de vídeos / Assinatura de notícias|
+
+## Lista de Valores - Payment.FraudAnalysis.Shipping.ShippingMethod
+
+|Valor|Descrição|
+|:-|:-|
+|SameDay|Meio de entrega no mesmo dia|
+|NextDay|Meio de entrega no próximo dia|
+|TwoDay|Meio de entrega em dois dias|
+|ThreeDay|Meio de entrega em três dias|
+|LowCost|Meio de entrega de baixo custo|
+|Pickup|Retirada na loja|
+|Other|Outro meio de entrega|
+|None|Sem meio de entrega, pois é um serviço ou assinatura|
+
+## Lista de Valores - Payment.FraudAnalysis.Travel.JourneyType
+
+|Valor|Descrição|
+|:-|:-|
+|OneWayTrip|Viagem somente de ida|
+|RoundTrip|Viagem de ida e volta|
+
+## Lista de Valores - Payment.FraudAnalysis.Travel.Passengers[n].Rating
+
+|Valor|Descrição|
+|:-|:-|
+|Adult|Adulto|
+|Child|Criança|
+|Infant|Infantil|
+
+## Lista de Valores - Payment.FraudAnalysis.Travel.Passengers[n].Status
+
+|Valor|
+|:-|
+|Standard|
+|Gold|
+|Platinum|
+
+## Lista de Valores - Payment.FraudAnalysis.Status
+
+|Valor|Descrição|
+|:-|:-|
+|Accept|Transação aceita após análise de fraude|
+|Review|Transação em revisão após análise de fraude|
+|Reject|Transação rejeitada após análise de fraude|
+|Pendent|Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource|
+|Unfinished|Transação não finalizada por algum motivo de validação de contrato ou erro interno|
+|ProviderError|Transação com erro no provedor ao ser enviada para análise|
+
+## Lista de Valores - Payment.FraudAnalysis.FraudAnalysisReasonCode
+
+|Valor|Descrição|
+|:-|:-|
+|100|Operação realizada com sucesso|
+|101|A transação enviada para análise de fraude está faltando um ou mais campos necessários <br/> Verificar no response o campo `ProviderAnalysisResult.Missing` <br/> Possível ação: Reenviar a transação com a informação completa|
+|102|A transação enviada para análise de fraude possui um ou mais campos com valores inválidos <br/> Verificar no response o campo `ProviderAnalysisResult.Invalid` <br/> Possível ação: Reenviar a transação com as informações corretas|
+|150|Erro interno <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|
+|151|A transação foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|
+|152|O pedido foi recebido, mas ocorreu time-out <br/> Possível ação: Aguarde alguns minutos e tente reenviar a transação|
+|202|Transação recusada pois o cartão expirou ou a data de validade não coincide com a correta <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|
+|231|Transação recusada pois o cartão é inválido <br/> Possível ação: Solicite outro cartão ou outra forma de pagamento|
+|234|Problema com a configuração da loja na Cybersource <br/> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração|
+|400|A pontuação de fraude ultrapassa o seu limite <br/> Possível ação: Reveja a transação do comprador|
+|480|A transação foi marcada como revisão pelo DM (Decision Manager)|
+|481|A transação foi rejeitada pelo DM (Decision Manager)|
+
+## Lista de Valores - Payment.FraudAnalysis.ReplyData.AddressInfoCode
+
+|Valor|Descrição
+|:-|:-|
+|COR-BA|O endereço de cobrança pode ser normalizado|
+|COR-SA|O endereço de entrega pode ser normalizado|
+|INTL-BA|O país do endereço de cobrança está fora dos EUA|
+|INTL-SA|O país do endereço de entrega está fora dos EUA|
+|MIL-USA|Endereço militar nos EUA|
+|MM-A|Os endereços de cobrança e entrega usam nomes de ruas diferentes|
+|MM-BIN|O BIN do cartão (os seis primeiros dígitos do número do cartão) não corresponde ao país|
+|MM-C|Os endereços de cobrança e entrega usam cidades diferentes|
+|MM-CO|Os endereços de cobrança e entrega usam países diferentes|
+|MM-ST|Os endereços de cobrança e entrega usam estados diferentes|
+|MM-Z|Os endereços de cobrança e entrega usam códidos postais diferentes|
+|UNV-ADDR|O endereço é inverificável|
+
+## Lista de Valores - Payment.FraudAnalysis.ReplyData.FactorCode
+
+|Valor|Descrição|
+|:-|:-|
+|A|Mudança de endereço excessiva. O comprador mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses|
+|B|BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão|
+|C|Elevado números de cartões de créditos. O comprador tem usado mais de seis números de cartões de créditos nos últimos seis meses|
+|D|Impacto do endereço de e-mail. O comprador usa um provedor de e-mail gratuito ou o endereço de email é arriscado|
+|E|Lista positiva. O comprador está na sua lista positiva|
+|F|Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa|
+|G|Inconsistências de geolocalização. O domínio do comprador de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito|
+|H|Excessivas mudanças de nome. O comprador mudou o nome duas ou mais vezes nos últimos seis meses|
+|I|Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança|
+|N|Entrada sem sentido. O nome do comprador e os campos de endereço contém palavras sem sentido ou idioma|
+|O|Obscenidades. Dados do comprador contém palavras obscenas|
+|P|Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefones estão ligados a um número de conta única|
+|Q|Inconsistências do telefone. O número de telefone do comprador é suspeito|
+|R|Ordem arriscada. A transação, o comprador e o lojista mostram informações correlacionadas de alto risco|
+|T|Cobertura Time. O comprador está a tentar uma compra fora do horário esperado|
+|U|Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado|
+|V|O cartão foi usado muitas vezes nos últimos 15 minutos|
+|W|Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito|
+|Y|O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam|
+|Z|Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias|
+
+## Lista de Valores - Payment.FraudAnalysis.ReplyData.InternetInfoCode
+
+|Valor|Descrição|
+|:-|:-|
+|FREE-EM|O endereço de e-mail do comprador é de um provedor de e-mail gratuito|
+|INTL-IPCO|O país do endereço de e-mail do comprador está fora dos EUA|
+|INV-EM|O endereço de e-mail do comprador é inválido|
+|MM-EMBCO|O domínio do endereço de e-mail do comprador não é consistente com o país do endereço de cobrança|
+|MM-IPBC|O endereço de e-mail do comprador não é consistente com a cidade do endereço de cobrança|
+|MM-IPBCO|O endereço de e-mail do comprador não é consistente com o país do endereço de cobrança|
+|MM-IPBST|O endereço IP do comprador não é consistente com o estado no endereço de cobrança. No entanto, este código de informação não pode ser devolvido quando a inconsistência é entre estados imediatamente  adjacentes|
+|MM-IPEM|O endereço de e-mail do comprador não é consistente com o endereço IP|
+|RISK-EM|O domínio do e-mail do comprador (por exemplo, mail.example.com) está associado com alto risco|
+|UNV-NID|O endereço IP do comprador é de um proxy anônimo. Estas entidades escondem completamente informações sobre o endereço de IP|
+|UNV-RISK|O endereço IP é de origem de risco|
+|UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|
+
+## Lista de Valores - Payment.FraudAnalysis.ReplyData.IpRoutingMethod
+
+|Valor|Descrição|
+|:-|:-|
+|Anonymizer|Endereços de IP estão escondidos porque o comprador é extremamente cauteloso, quer privacidade absoluta ou é fraudulento|
+|AOL, AOL dialup, AOL POP and AOL proxy|Membros da AOL. Na maioria dos casos, o país pode ser identificado, mas o estado e cidade não podem|
+|Cache proxy|Proxy usado através de um acelerador da Internet ou de uma distribuição de conteúdo de serviço. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP|
+|Fixed|O endereço de IP está próximo ou no mesmo local que o comprador|
+|International proxy|Proxy que contém tráfego de vários países. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP. Em muitos casos, redes corporativas estão roteando o tráfego de escritórios internacionais através de um ponto central, muitas vezes a sede corporativa|
+|Mobile gateway|Gateway para conectar dispositivos móveis à internet. Muitas operadoras, especialmente na Europa, atendem mais do que um país e tráfego ocorre através de hubs de rede centralizados. O comprador pode estar localizado em um país diferente do indicado pelo endereço de IP|
+|POP|Discagem do comprador em um ISP regional provavelmente perto da localização do endereço de IP, mas possivelmente através de limites geográficos|
+|Regional proxy|Proxy que contém tráfego de vários estados dentro de um único país. O comprador pode estar localizado em um estado diferente do indicado pelo endereço de IP. Em muitos casos, redes corporativas estão roteando o tráfego de escritórios internacionais através de um ponto central, muitas vezes a sede corporativa|
+|Satellite|Conexões por satélite. Se o uplink e o downlink estiverem cadastrados, o método roteamento é considerado padrão porque o remetente é conhecido. No entanto, se o downlink não está registrado, o comprador pode estar em qualquer lugar dentro do feixe padrão do satélite, que pode abranger um continente ou mais|
+|SuperPOP|O comprador está discando em um ISP multi-estatal ou multinacional que provavelmente não é provável a localização do endereço de IP. O comprador pode estar discando através de limites geográficos|
+|No value returned|O tipo de roteamento é desconhecido|
+
+## Lista de Valores - Payment.Chargebacks[n].Status
+
+|Valor|Descrição|
+|:-|:-|
+|Received|Chargeback recebido da adquirente|
+|AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a contestação|
+|ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
+
+2017-07-27-braspag-pagador
