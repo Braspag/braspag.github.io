@@ -5187,7 +5187,7 @@ curl
 |`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Número|2|Sim|ID das informações adicionais a serem enviadas <br/> [Tabela de MDDs]({{ site.baseurl_root }}manual/braspag-pagador#tabela-de-mdds)|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Texto|255|Sim|Valor das informações adicionais a serem enviadas <br/> [Tabela de MDDs]({{ site.baseurl_root }}manual/braspag-pagador#tabela-de-mdds)|
 |`Payment.FraudAnalysis.Shipping.Addressee`|Texto|120|Não|Nome completo do responsável a receber o produto no endereço de entrega|
-|`Payment.FraudAnalysis.Shipping.Method`|Texto|8|Não|Meio de entrega do pedido <br/> [Lista de Valores - Payment.Fraudanalysis.ShippingMethod.Shipping]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.shippingmethod)|
+|`Payment.FraudAnalysis.Shipping.Method`|Texto|8|Não|Meio de entrega do pedido <br/> [Lista de Valores - Payment.Fraudanalysis.Shipping.Method]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method)|
 |`Payment.FraudAnalysis.Shipping.Phone`|Texto|15|Não|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|
 |`Payment.FraudAnalysis.Travel.JourneyType`|Texto|32|Não|Tipo de viagem <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.JourneyType]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype)|
 |`Payment.FraudAnalysis.Travel.DepartureDateTime`|DateTime|---|Não|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|
@@ -9571,12 +9571,12 @@ As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mant
 |ShippingOnly|Valor do frete|
 |Subscription|Assinatura. Ex.: Streaming de vídeos / Assinatura de notícias|
 
-## Lista de Valores - Payment.FraudAnalysis.Shipping.ShippingMethod
+## Lista de Valores - Payment.FraudAnalysis.Shipping.Method
 
 |Valor|Descrição|
 |:-|:-|
 |SameDay|Meio de entrega no mesmo dia|
-|NextDay|Meio de entrega no próximo dia|
+|OneDay|Meio de entrega no próximo dia|
 |TwoDay|Meio de entrega em dois dias|
 |ThreeDay|Meio de entrega em três dias|
 |LowCost|Meio de entrega de baixo custo|
