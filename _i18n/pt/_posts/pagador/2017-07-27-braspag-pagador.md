@@ -4908,7 +4908,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
          },
          "Travel":{  
             "JourneyType":"OneWayTrip",
-            "DepartureDateTime":"2018-01-09 18:00",
+            "DepartureTime":"2018-01-09 18:00",
             "Passengers":[  
                {  
                   "Name":"Passenger Test",
@@ -5077,7 +5077,7 @@ curl
          },
          "Travel":{  
             "JourneyType":"OneWayTrip",
-            "DepartureDateTime":"2018-01-09 18:00",
+            "DepartureTime":"2018-01-09 18:00",
             "Passengers":[  
                {  
                   "Name":"Passenger Test",
@@ -5190,7 +5190,7 @@ curl
 |`Payment.FraudAnalysis.Shipping.Method`|Texto|8|Não|Meio de entrega do pedido <br/> [Lista de Valores - Payment.Fraudanalysis.Shipping.Method]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method)|
 |`Payment.FraudAnalysis.Shipping.Phone`|Texto|15|Não|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|
 |`Payment.FraudAnalysis.Travel.JourneyType`|Texto|32|Não|Tipo de viagem <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.JourneyType]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype)|
-|`Payment.FraudAnalysis.Travel.DepartureDateTime`|DateTime|---|Não|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|
+|`Payment.FraudAnalysis.Travel.DepartureTime`|DateTime|---|Não|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|
 |`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto|120|Não|Nome completo do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Identity`|Texto|32|Não|Número do documento do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Status`|Texto|15|Não|Classificação da empresa aérea <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.Passengers{n}.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status)|
@@ -5341,7 +5341,7 @@ curl
          },
          "Travel":{  
             "JourneyType":"OneWayTrip",
-            "DepartureDateTime":"2018-01-09 18:00",
+            "DepartureTime":"2018-01-09 18:00",
             "Passengers":[  
                {  
                   "Name":"Passenger Test",
@@ -5543,7 +5543,7 @@ curl
          },
          "Travel":{  
             "JourneyType":"OneWayTrip",
-            "DepartureDateTime":"2018-01-09 18:00",
+            "DepartureTime":"2018-01-09 18:00",
             "Passengers":[  
                {  
                   "Name":"Passenger Test",
@@ -5691,7 +5691,7 @@ curl
 |`Payment.FraudAnalysis.Shipping.Method`|Texto|Meio de entrega do pedido|
 |`Payment.FraudAnalysis.Shipping.Phone`|Número|Número do telefone do responsável a receber o produto no endereço de entrega|
 |`Payment.FraudAnalysis.Travel.JourneyType`|Texto|Tipo de viagem|
-|`Payment.FraudAnalysis.Travel.DepartureDateTime`|DateTime|Data e hora de partida|
+|`Payment.FraudAnalysis.Travel.DepartureTime`|DateTime|Data e hora de partida|
 |`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto|Nome completo do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Identity`|Texto|Número do documento do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Status`|Texto|Classificação da empresa aérea|
