@@ -17356,96 +17356,624 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 <blockquote>
   <p>Nível de Relevância <br /> 1 - Relevante <br /> 2 - Muito Relevante <br /> 3 - Extremamente Relevante <br /><br />
 Conforme nível de relevância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.<br /><br />
-No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o campo correspondente como vazio, ou seja, apenas não enviar.
-|ID|Valor|Tipo|Nível de Relevância|Segmento|
-|:-|:-|:-|:-:|:-|
-|1|Cliente efetuou Login <br /> Se o cliente final logou no site para comprar, enviar: o login dele <br /> Se fez compra como visitante, enviar: Guest <br /> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|2|Todos|
-|2|Quantidade em dias que o cliente é seu cliente <br /> Ex.: 314|int|3|Todos|
-|3|Quantidade de parcelas do pedido|int|3|Todos|
-|4|Canal de Venda <br /> Possíveis valores: <br /> Call Center -&gt; compra pelo telefone <br /> Web -&gt; compra pela web <br /> Portal -&gt; um agente fazendo a compra para o cliente <br /> Quiosque -&gt; compras em quiosques <br /> Movel -&gt; compras feitas em celulares ou tablets|string|3|Todos|
-|5|Enviar o código do cupom/desconto caso o cliente utilize na compra|string|1|Todos|
-|6|Quantidade em dias desde a última compra realizada pelo cliente <br /> Ex.: 55|int|3|Todos|
-|7|Código ou nome do seller (vendedor)|string|1|Todos|
-|8|Tentativas realizadas pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos|int|2|Todos|
-|9|Identifica se cliente irá retirar o produto na loja <br /> Possíveis valores: SIM ou NAO|string|3|Varejo ou Cosméticos|
-|10|Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br /> Possíveis valores: SIM ou NAO|string|3|Aéreo ou Turismo|
-|11|Categoria do hotel (quantas estrelas) <br /> Possíveis valores: <br /> 1 -&gt; Simples <br /> 2 -&gt; Econômico <br /> 3 -&gt; Turismo <br /> 4 -&gt; Superior <br /> 5 -&gt; Luxo|int|3|Turismo|
-|12|Quantidade em dias desde a data da compra até a data do checkin no hotel <br /> Ex.: 123|int|3|Turismo|
-|13|Quantidade de diárias no hotel <br /> Ex.: 5|int|3|Turismo|
-|14|Categoria da viagem ou pacote <br /> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional|string|3|Aéreo ou Turismo|
-|15|Nome da companhia áerea / locadora de carro / hotel <br /> Enviar o nome de cada uma das empresas, separado por /|string|2|Aéreo ou Turismo|
-|16|Código PNR da reserva <br /> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|3|Aérea|
-|17|Identifica se houve antecipação de reserva <br /> Possíveis valores: SIM ou NAO <br /> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string|3|Aéreo|
-|18|Categoria do veículo alugado <br /> Possíveis valores: <br /> 1 - Básico <br /> 2 - Esportivo <br /> 3 - Prime <br /> 4 - Utilitário <br /> 5 - Blindado|string|3|Turismo|
-|19|Identifica se o pacote refere-se a cruzeiro <br /> Possíveis valores: SIM ou NAO|string|2|Turismo|
-|20|Decisão da análise de fraude referente a última compra <br /> Possíveis valores: ACEITA ou REJEITADA|string|3|Todos|
-|21|Valor do frete <br /> Ex.: 10599 = r$ 105,99|long|1|Varejo ou Cosméticos|
-|22|Código da loja onde o produto será retirado <br /> Este campo deverá ser enviado quando o campo 9 for enviado igual a SIM|string|3|Varejo ou Cosméticos|
-|23|Sufixo (4 últimos dígitos) do cartão de crédito|int|1|Todos|
-|24|Quantidade de dias desde a primeira compra realizada pelo cliente <br /> Ex.: 150|int|3|Todos|
-|25|Sexo do cliente <br /> Possíveis valores: <br /> F -&gt; Feminino <br /> M -&gt; Masculino|string|2|Todos|
-|26|Bin (6 primeiros dígitos) do cartão de crédito|int|1|Todos|
-|27|Tipo do logradouro do endereço de entrega <br /> Possíveis valores: <br /> R -&gt; Residencial <br /> C -&gt; Comercial|string|2|Todos|
-|28|Tempo médio em minutos que o cliente levou para realizar a compra|int|2|Todos|
-|29|Quantidade de tentativas que o cliente realizou para efetuar login|int|2|Todos|
-|30|Quantidade de páginas web que o cliente visitou anteriormente a compra referente a 30 minutos passados|int|2|Todos|
-|31|Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido|int|2|Todos|
-|32|Identifica se o e-mail foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado|string|3|Todos|
-|33|Identifica se o número do cartão de crédito foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado|string|3|Todos|
-|34|Identifica se o e-mail foi confirmado para ativação de conta <br /> Possíveis valores: SIM ou NAO|string|2|Todos|
-|35|Identifica o tipo de cliente <br /> Possíveis valores: Local ou Turista|string|2|Turismo|
-|36|Identifica se foi utilizado cartão presente (GiftCard) na compra como forma de pagamento <br /> Possíveis valores: SIM ou NAO|string|1|Todos|
-|37|Meio de envio do pedido <br /> Possíveis valores: Sedex <br /> Sedex 10 <br /> 1 Dia <br /> 2 Dias <br /> Motoboy <br /> Mesmo Dia <br />|string|3|Varejo ou Cosméticos|
-|38|Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br /> Formato: DDIDDDNúmero - Ex.: 552121114720|string|3|Todos|
-|39|Nome de usuário do Call Center <br /> Este campo deverá ser enviado quando campo 4 for enviado igual a Call Center|string|1|Todos|
-|40|Comentários inseridos quando pedido for presente|string|1|Todos|
-|41|Tipo do documento <br /> Possíveis valores: CPF ou CNPJ ou Passaporte|string|2|Todos|
-|42|Idade do cliente|int|2|Todos|
-|43|Faixa de rendimento do cliente <br /> Ex.: 100000 = r$ 1.000,00|long|2|Todos|
-|44|Quantidade histórica de compras realizadas pelo cliente|int|3|Todos| 
-|45|Identifica se é uma compra realizada por funcionário <br /> Possíveis valores: SIM ou NAO|string|2|Todos|
-|46|Nome impresso (portador) no cartão de crédito|string|3|Todos|
-|47|Identifica se o cartão é private label <br /> Possíveis valores: SIM ou NAO|string|2|Todos|
-|48|Quantidade de meios de pagamentos utilizados para efetuar a compra|int|2|Todos|
-|49|Média das compras realizadas nos últimos 6 meses <br /> Ex.: 159050 = r$ 1.590,99|long|3|Todos|
-|50|Fator de desvio de valor da compra atual sobre a média dos últimos 6 meses|3|Todos|
-|51|Identifica se é um cliente VIP com tratamento de risco diferenciado ou lista positiva <br /> Possíveis valores: SIM ou NAO|string|3|Todos|
-|52|Categoria do produto <br /> Possíveis valores: <br /> Animais e Bichos de Estimação <br /> Roupas e Acessórios <br /> Negócios e Indústria <br /> Câmeras e Óticas <br /> Eletrônicos <br /> Comidas, Bebidas e Cigarro <br /> Móveis <br /> Ferramentas <br /> Saúde e Beleza <br /> Casa e Jardim <br /> Malas e Bagagens <br /> Adulto <br /> Armas e Munição <br /> Materiais de Escritório <br /> Religião e Cerimoniais <br /> Software <br /> Equipamentos de Esporte <br /> Brinquedos e Jogos <br /> Veículos e Peças <br /> Livros <br /> DVDs e Vídeos <br /> Revistas e Jornais <br /> Música <br /> Outras Categorias Não Especificadas|string|2|Todos|
-|53|Identifica se existe rotina de confirmação de celular por SMS <br /> Possíveis valores: SIM ou NAO|string|2|Todos|
-|54|Qual a 2ª forma de pagamento|string|2|Todos|
-|55|Qual a 3ª forma de pagamento|string|2|Todos|
-|56|Se 2ª forma de pagamento for cartão de crédito, enviar a bandeira|string|1|Todos|
-|57|Se 3ª forma de pagamento for cartão de crédito, enviar a bandeira|string|1|Todos|
-|58|Se 2ª forma de pagamento, informar o valor pago <br /> Ex.: 128599 = r$ 1.285,99|long|2|Todos|
-|59|Se 3ª forma de pagamento, informar o valor pago <br /> Ex.: 59089 = r$ 590,89|long|2|Todos|
-|60|Quantidade em dias desde a data da última alteração <br /> Ex.: 57|int|3|Todos|
-|61|Identifica se houve alteração cadastral|string|1|Todos|
-|62|Quantidade de pontos trocados na última compra|long|3|Fidelidade|
-|63|Quantidade de pontos restantes no saldo|long|2|Fidelidade|
-|64|Quantidade de dias desde a última troca de pontos|long|2|Fidelidade|
-|65|Identificador do cliente no programa de fidelidade|string|2|Fidelidade|
-|66|Quantidade de minutos recarregados nos últimos 30 dias|long|2|Digital Goods|
-|67|Quantidade de recargas realizadas nos últimos 30 dias|long|2|Digital Goods|
-|68|Quantidade em dias entre a data de partida e a data de retorno|int|2|Aéreo|
-|69|Quantidade de passageiros viajando independente da faixa etária|int|2|Aéreo|
-|70|Identificador do voô|string|1|Aéreo|
-|71|Número de infants viajando|int|2|Aéreo|
-|72|Número de crianças viajando|int|2|Aéreo|
-|73|Número de adultos viajando|int|2|Aéreo|
-|74|Identifica se é um passageiro frequente (Frequently Flyer) <br /> Possíveis valores: SIM ou NAO|string|2|Aéreo|
-|75|Identificar do passageiro frequente (Frequently Flyer Number)|string|2|Aéreo|
-|76|Categoria do passageiro frequente (Frequently Flyer) <br /> Esta categoria pode variar de acordo com a companhia aérea|int|2|Aéreo|
-|77|Dia da semana do embarque <br /> Possíveis valores: Sunday (Domingo) <br /> Monday (Segunda-feira) <br /> Tuesday (Terça-feira) <br /> Wednesday (Quarta-feira) <br /> Thursday (Quinta-feira) <br /> Friday (Sexta-feira) <br /> Saturday (Sábado)|string|2|Aéreo|
-|78|Código da companhia aérea <br /> Ex.: JJ ou LA ou AA ou UA ou G3 e etc|string|1|Aéreo|
-|79|Classe tarifária da passagem <br /> Ex.: W ou Y ou N e etc|string|2|Aéreo|
-|80|Número do celular do passageiro <br /> Ex.: Formato: DDIDDDNúmero - Ex.: 5521976781114|string|2|Aéreo|
-|81|Identifica se o dono do cartão de crédito irá viajar <br /> Possíveis valores: SIM ou NAO|string|3|Aéreo|
-|82|Identifica se o seller (vendedor) irá trabalhar com revisão manual ou não <br /> Possíveis valores: SIM ou NAO|string|1|Todos|
-|83|Segmento de negócio <br /> Ex.: Varejo|string|2|Todos|
-|84|Nome da plataforma integrada a API Antifraude Gateway Braspag <br /> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA|string|3|Todos|
-|85 a 89|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|-|-|
-|90 a 100|Reservados|-|-|-|</p>
+No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o campo correspondente como vazio, ou seja, apenas não enviar.</p>
 </blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Valor</th>
+      <th>Tipo</th>
+      <th>Nível de Relevância</th>
+      <th>Segmento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Cliente efetuou Login <br /> Se o cliente final logou no site para comprar, enviar: o login dele <br /> Se fez compra como visitante, enviar: Guest <br /> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Quantidade em dias que o cliente é seu cliente <br /> Ex.: 314</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Quantidade de parcelas do pedido</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Canal de Venda <br /> Possíveis valores: <br /> Call Center -&gt; compra pelo telefone <br /> Web -&gt; compra pela web <br /> Portal -&gt; um agente fazendo a compra para o cliente <br /> Quiosque -&gt; compras em quiosques <br /> Movel -&gt; compras feitas em celulares ou tablets</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Enviar o código do cupom/desconto caso o cliente utilize na compra</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Quantidade em dias desde a última compra realizada pelo cliente <br /> Ex.: 55</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Código ou nome do seller (vendedor)</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Tentativas realizadas pelo cliente de efetuar o pagamento do mesmo pedido, podendo ser com diferentes cartões de créditos e/ou através de outros meios de pagamentos</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Identifica se cliente irá retirar o produto na loja <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Varejo ou Cosméticos</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Identifica se o pagamento será realizado por outra pessoa que não esteja presente na viagem ou pacote <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Aéreo ou Turismo</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Categoria do hotel (quantas estrelas) <br /> Possíveis valores: <br /> 1 -&gt; Simples <br /> 2 -&gt; Econômico <br /> 3 -&gt; Turismo <br /> 4 -&gt; Superior <br /> 5 -&gt; Luxo</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Turismo</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Quantidade em dias desde a data da compra até a data do checkin no hotel <br /> Ex.: 123</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Turismo</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Quantidade de diárias no hotel <br /> Ex.: 5</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Turismo</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Categoria da viagem ou pacote <br /> Possíveis valores: Nacional ou Internacional ou Nacional/Internacional</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Aéreo ou Turismo</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Nome da companhia áerea / locadora de carro / hotel <br /> Enviar o nome de cada uma das empresas, separado por /</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Aéreo ou Turismo</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Código PNR da reserva <br /> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Aérea</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Identifica se houve antecipação de reserva <br /> Possíveis valores: SIM ou NAO <br /> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Categoria do veículo alugado <br /> Possíveis valores: <br /> 1 - Básico <br /> 2 - Esportivo <br /> 3 - Prime <br /> 4 - Utilitário <br /> 5 - Blindado</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Turismo</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Identifica se o pacote refere-se a cruzeiro <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Turismo</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Decisão da análise de fraude referente a última compra <br /> Possíveis valores: ACEITA ou REJEITADA</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Valor do frete <br /> Ex.: 10599 = r$ 105,99</td>
+      <td>long</td>
+      <td>1</td>
+      <td>Varejo ou Cosméticos</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Código da loja onde o produto será retirado <br /> Este campo deverá ser enviado quando o campo 9 for enviado igual a SIM</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Varejo ou Cosméticos</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Sufixo (4 últimos dígitos) do cartão de crédito</td>
+      <td>int</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Quantidade de dias desde a primeira compra realizada pelo cliente <br /> Ex.: 150</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Sexo do cliente <br /> Possíveis valores: <br /> F -&gt; Feminino <br /> M -&gt; Masculino</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Bin (6 primeiros dígitos) do cartão de crédito</td>
+      <td>int</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Tipo do logradouro do endereço de entrega <br /> Possíveis valores: <br /> R -&gt; Residencial <br /> C -&gt; Comercial</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Tempo médio em minutos que o cliente levou para realizar a compra</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Quantidade de tentativas que o cliente realizou para efetuar login</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Quantidade de páginas web que o cliente visitou anteriormente a compra referente a 30 minutos passados</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Quantidade de trocas de números de cartão de crédito que o cliente efetuou para realizar o pagamento do pedido</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Identifica se o e-mail foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Identifica se o número do cartão de crédito foi colado ou digitado <br /> Possíveis valores: Digitado ou Colado</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Identifica se o e-mail foi confirmado para ativação de conta <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Identifica o tipo de cliente <br /> Possíveis valores: Local ou Turista</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Turismo</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Identifica se foi utilizado cartão presente (GiftCard) na compra como forma de pagamento <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Meio de envio do pedido <br /> Possíveis valores: Sedex <br /> Sedex 10 <br /> 1 Dia <br /> 2 Dias <br /> Motoboy <br /> Mesmo Dia <br /></td>
+      <td>string</td>
+      <td>3</td>
+      <td>Varejo ou Cosméticos</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Número do telefone do cliente identificado através da bina quando venda realizada através do canal de venda igual a Call Center <br /> Formato: DDIDDDNúmero - Ex.: 552121114720</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Nome de usuário do Call Center <br /> Este campo deverá ser enviado quando campo 4 for enviado igual a Call Center</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Comentários inseridos quando pedido for presente</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Tipo do documento <br /> Possíveis valores: CPF ou CNPJ ou Passaporte</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Idade do cliente</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Faixa de rendimento do cliente <br /> Ex.: 100000 = r$ 1.000,00</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>Quantidade histórica de compras realizadas pelo cliente</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>Identifica se é uma compra realizada por funcionário <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>Nome impresso (portador) no cartão de crédito</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>Identifica se o cartão é private label <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>Quantidade de meios de pagamentos utilizados para efetuar a compra</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>Média das compras realizadas nos últimos 6 meses <br /> Ex.: 159050 = r$ 1.590,99</td>
+      <td>long</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>Fator de desvio de valor da compra atual sobre a média dos últimos 6 meses</td>
+      <td>3</td>
+      <td>Todos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Identifica se é um cliente VIP com tratamento de risco diferenciado ou lista positiva <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Categoria do produto <br /> Possíveis valores: <br /> Animais e Bichos de Estimação <br /> Roupas e Acessórios <br /> Negócios e Indústria <br /> Câmeras e Óticas <br /> Eletrônicos <br /> Comidas, Bebidas e Cigarro <br /> Móveis <br /> Ferramentas <br /> Saúde e Beleza <br /> Casa e Jardim <br /> Malas e Bagagens <br /> Adulto <br /> Armas e Munição <br /> Materiais de Escritório <br /> Religião e Cerimoniais <br /> Software <br /> Equipamentos de Esporte <br /> Brinquedos e Jogos <br /> Veículos e Peças <br /> Livros <br /> DVDs e Vídeos <br /> Revistas e Jornais <br /> Música <br /> Outras Categorias Não Especificadas</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Identifica se existe rotina de confirmação de celular por SMS <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Qual a 2ª forma de pagamento</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>Qual a 3ª forma de pagamento</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>Se 2ª forma de pagamento for cartão de crédito, enviar a bandeira</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>Se 3ª forma de pagamento for cartão de crédito, enviar a bandeira</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Se 2ª forma de pagamento, informar o valor pago <br /> Ex.: 128599 = r$ 1.285,99</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Se 3ª forma de pagamento, informar o valor pago <br /> Ex.: 59089 = r$ 590,89</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Quantidade em dias desde a data da última alteração <br /> Ex.: 57</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>Identifica se houve alteração cadastral</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>Quantidade de pontos trocados na última compra</td>
+      <td>long</td>
+      <td>3</td>
+      <td>Fidelidade</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>Quantidade de pontos restantes no saldo</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Fidelidade</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>Quantidade de dias desde a última troca de pontos</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Fidelidade</td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>Identificador do cliente no programa de fidelidade</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Fidelidade</td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>Quantidade de minutos recarregados nos últimos 30 dias</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Digital Goods</td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>Quantidade de recargas realizadas nos últimos 30 dias</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Digital Goods</td>
+    </tr>
+    <tr>
+      <td>68</td>
+      <td>Quantidade em dias entre a data de partida e a data de retorno</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>69</td>
+      <td>Quantidade de passageiros viajando independente da faixa etária</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Identificador do voô</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>Número de infants viajando</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Número de crianças viajando</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>73</td>
+      <td>Número de adultos viajando</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>Identifica se é um passageiro frequente (Frequently Flyer) <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>Identificar do passageiro frequente (Frequently Flyer Number)</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>Categoria do passageiro frequente (Frequently Flyer) <br /> Esta categoria pode variar de acordo com a companhia aérea</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>Dia da semana do embarque <br /> Possíveis valores: Sunday (Domingo) <br /> Monday (Segunda-feira) <br /> Tuesday (Terça-feira) <br /> Wednesday (Quarta-feira) <br /> Thursday (Quinta-feira) <br /> Friday (Sexta-feira) <br /> Saturday (Sábado)</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>Código da companhia aérea <br /> Ex.: JJ ou LA ou AA ou UA ou G3 e etc</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>79</td>
+      <td>Classe tarifária da passagem <br /> Ex.: W ou Y ou N e etc</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Número do celular do passageiro <br /> Ex.: Formato: DDIDDDNúmero - Ex.: 5521976781114</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>Identifica se o dono do cartão de crédito irá viajar <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Aéreo</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>Identifica se o seller (vendedor) irá trabalhar com revisão manual ou não <br /> Possíveis valores: SIM ou NAO</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>Segmento de negócio <br /> Ex.: Varejo</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>84</td>
+      <td>Nome da plataforma integrada a API Antifraude Gateway Braspag <br /> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td>85 a 89</td>
+      <td>Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>90 a 100</td>
+      <td>Reservados</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="lista-de-http-status-code">Lista de HTTP Status Code</h2>
 
