@@ -9185,8 +9185,9 @@ Status retornados pela API
 > Nível de Relevância <br/> 1 - Relevante <br/> 2 - Muito Relevante <br/> 3 - Extremamente Relevante <br/><br/>
 > Conforme nível de relevância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.<br/><br/>
 > No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o campo correspondente como vazio, ou seja, apenas não enviar.
+
 |ID|Valor|Tipo|Nível de Relevância|Segmento|
-|:-|:-|:-|:-:|:-|
+|--|-----|----|-------------------|--------|
 |1|Cliente efetuou Login <br/> Se o cliente final logou no site para comprar, enviar: o login dele <br/> Se fez compra como visitante, enviar: Guest <br/> Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|string|2|Todos|
 |2|Quantidade em dias que o cliente é seu cliente <br/> Ex.: 314|int|3|Todos|
 |3|Quantidade de parcelas do pedido|int|3|Todos|
