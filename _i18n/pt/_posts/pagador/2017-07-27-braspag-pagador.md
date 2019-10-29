@@ -1184,28 +1184,6 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
-### Transação com QR Code
-
-Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
-
-<aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
-
-#### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na Cielo.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na Cielo.|	Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|	
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
-|`Payment.Type`|Tipo do Meio de Pagamento. Enviar **qrcode** para uma transação de QRCode.|Texto|100|Sim|	
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Installments`|Número de Parcelas.|Número|2|Sim|	
-|`Payment.Capture`|Enviar true para uma trasação de captura automática.|Booleano|-|Não|	
-
 ### Cancelando/Estornando uma transação
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
