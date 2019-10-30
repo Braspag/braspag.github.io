@@ -1192,6 +1192,47 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 
 #### Requisição
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+
+{  
+ "MerchantOrderId":"20191123",
+ "Customer":{  
+  "Name":"QRCode Test"
+  },
+ "Payment":{
+   "Provider":"Cielo30",
+   "Type":"qrcode",
+   "Amount":100,
+   "Installments":1,
+   "Capture":false
+   }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+ "MerchantOrderId":"2019010101",
+ "Customer":{  
+  "Name":"QRCode Test"
+  },
+ "Payment":{
+   "Provider":"Cielo30",
+   "Type":"qrcode",
+   "Amount":100,
+   "Installments":1,
+   "Capture":false
+   }
+}
+
+```
+
 ### Cancelando/Estornando uma transação
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
