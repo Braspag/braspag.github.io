@@ -1237,6 +1237,11 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 |-----------|---------|----|-------|-----------|
 |`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do comprador.|Texto|255|Não|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Atualmente somente disponível na "Cielo"|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. Enviar **qrcode** para pagamento com QR Code.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido (ser enviado em centavos).|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.Capture`|Enviar true para uma transação de captura automática.|Booleano|-|Não|
 
 ### Cancelando/Estornando uma transação
 
