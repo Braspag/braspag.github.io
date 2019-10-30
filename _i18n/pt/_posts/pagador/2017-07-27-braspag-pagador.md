@@ -1188,6 +1188,10 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 
 Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
+<aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
+
+#### Requisição
+
 ### Cancelando/Estornando uma transação
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
