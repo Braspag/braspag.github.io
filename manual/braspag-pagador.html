@@ -2251,6 +2251,41 @@ curl
       <td>255</td>
       <td>Não</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome da provedora do meio de pagamento. Atualmente somente disponível na “Cielo”</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento. Enviar <strong>qrcode</strong> para pagamento com QR Code.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido (ser enviado em centavos).</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td>Enviar true para uma transação de captura automática.</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+    </tr>
   </tbody>
 </table>
 
