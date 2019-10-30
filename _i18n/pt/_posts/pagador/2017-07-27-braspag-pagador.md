@@ -1235,13 +1235,13 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. Atualmente somente a "Cielo" transações com QRCode.|Texto|15|Sim|
-|`Payment.Type`|Tipo do Meio de Pagamento. Enviar **qrcode** para uma transação de QRCode.|Texto|100|Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Installments`|Número de Parcelas.|Número|2|Sim|
-|`Payment.Capture`|Enviar true para uma trasação de captura automática.|Booleano|-|Não|
+|MerchantOrderId|Numero de identificação do Pedido.|Texto|50|Sim|
+|Customer.Name|Nome do Comprador.|Texto|255|Não|
+|Payment.Provider|Nome da provedora do meio de pagamento. Atualmente somente a "Cielo" transações com QRCode.|Texto|15|Sim|
+|Payment.Type|Tipo do Meio de Pagamento. Enviar **qrcode** para uma transação de QRCode.|Texto|100|Sim|
+|Payment.Amount|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
+|Payment.Installments|Número de Parcelas.|Número|2|Sim|
+|Payment.Capture|Enviar true para uma trasação de captura automática.|Booleano|-|Não|
 
 
 ### Cancelando/Estornando uma transação
