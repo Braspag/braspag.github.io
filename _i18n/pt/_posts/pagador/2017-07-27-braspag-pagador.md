@@ -1202,7 +1202,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
   "Name":"QRCode Test"
   },
  "Payment":{
-   "Provider":"Cielo30"
+   "Provider":"Cielo30",
    "Type":"qrcode",
    "Amount":100,
    "Installments":1,
@@ -1223,13 +1223,14 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
   "Name":"QRCode Test"
   },
  "Payment":{
-   "Provider":"Cielo30"
+   "Provider":"Cielo30",
    "Type":"qrcode",
    "Amount":100,
    "Installments":1,
    "Capture":false
    }
 }
+
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
