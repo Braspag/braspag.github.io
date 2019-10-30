@@ -1194,13 +1194,49 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
+```json
+
+{  
+ "MerchantOrderId":"20191123",
+ "Customer":{  
+  "Name":"QRCode Test"
+  },
+ "Payment":{
+   "Provider":"Cielo30"
+   "Type":"qrcode",
+   "Amount":100,
+   "Installments":1,
+   "Capture":false
+   }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+ "MerchantOrderId":"2019010101",
+ "Customer":{  
+  "Name":"QRCode Test"
+  },
+ "Payment":{
+   "Provider":"Cielo30"
+   "Type":"qrcode",
+   "Amount":100,
+   "Installments":1,
+   "Capture":false
+   }
+}
+```
+
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na Cielo.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na Cielo.|	Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|Guid|36|Não|
 |`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|	
 |`Customer.Name`|Nome do Comprador.|Texto|255|Não|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Atualmente somente a "Cielo" transações com QRCode.|Texto|15|Sim|
 |`Payment.Type`|Tipo do Meio de Pagamento. Enviar **qrcode** para uma transação de QRCode.|Texto|100|Sim|	
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
 |`Payment.Installments`|Número de Parcelas.|Número|2|Sim|	
