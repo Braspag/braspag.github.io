@@ -2226,6 +2226,34 @@ curl
 
 </code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="cancelandoestornando-uma-transação">Cancelando/Estornando uma transação</h3>
 
 <p>Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.</p>
