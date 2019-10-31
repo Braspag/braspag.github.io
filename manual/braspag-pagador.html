@@ -2211,7 +2211,7 @@ curl
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>  
- <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2019010101"</span>,
+ <span class="s2">"MerchantOrderId"</span>:<span class="s2">"20191023"</span>,
  <span class="s2">"Customer"</span>:<span class="o">{</span>  
   <span class="s2">"Name"</span>:<span class="s2">"QRCode Test"</span>
   <span class="o">}</span>,
@@ -2290,6 +2290,41 @@ curl
 </table>
 
 <h4 id="resposta-5">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+ </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"20191023"</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRCode Test"</span><span class="w">
+ </span><span class="p">},</span><span class="w">
+ </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52d641fb-2880-4024-89f4-7b452dc5d9cd"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"QrCodeBase64Image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iVBORw0KGgoAAAA(...)"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"403dba6-23e3-468b-92f8-f9af56d3b9d7"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QrCode"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-23 21:30:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRCode gerado com sucesso"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://apiquerysandbox.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
 
 <h3 id="cancelandoestornando-uma-transação">Cancelando/Estornando uma transação</h3>
 
