@@ -2364,6 +2364,55 @@ curl
 
 </code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">QrCodeBase64Image</code></td>
+      <td>QR Code codificado em base 64. Por exemplo, a imagem do QR Code poderá ser apresentada na página utilizando um código HTML como este:</td>
+      <td>Texto</td>
+      <td>Variável</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Status da transação. No caso da transação de geração com QR Code, o status inicial é “12” (Pendente).</td>
+      <td>Byte</td>
+      <td>-</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>Código de retorno da adquirência.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>Mensagem de retorno da adquirênica</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="cancelandoestornando-uma-transação">Cancelando/Estornando uma transação</h3>
 
 <p>Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.</p>
