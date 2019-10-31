@@ -2326,6 +2326,44 @@ curl
 
 </span></code></pre></div></div>
 
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+ <span class="s2">"MerchantOrderId"</span>:<span class="s2">"20191023"</span>,
+ <span class="s2">"Customer"</span>: <span class="o">{</span>
+  <span class="s2">"Name"</span>: <span class="s2">"QRCode Test"</span>
+ <span class="o">}</span>,
+ <span class="s2">"Payment"</span>: <span class="o">{</span>
+  <span class="s2">"Installments"</span>: 1,
+  <span class="s2">"Capture"</span>: <span class="nb">false</span>,
+  <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"52d641fb-2880-4024-89f4-7b452dc5d9cd"</span>,
+  <span class="s2">"QrCodeBase64Image"</span>: <span class="s2">"iVBORw0KGgoAAAA(...)"</span>,
+  <span class="s2">"PaymentId"</span>: <span class="s2">"403dba6-23e3-468b-92f8-f9af56d3b9d7"</span>,
+  <span class="s2">"Type"</span>: <span class="s2">"QrCode"</span>,
+  <span class="s2">"Amount"</span>: 100,
+  <span class="s2">"ReceivedDate"</span>: <span class="s2">"2019-10-23 21:30:00"</span>,
+  <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+  <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+  <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
+  <span class="s2">"ReasonCode"</span>: 0,
+  <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+  <span class="s2">"Status"</span>: 12,
+  <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
+  <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"QRCode gerado com sucesso"</span>,
+  <span class="s2">"Links"</span>: <span class="o">[</span>
+   <span class="o">{</span>
+    <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+    <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+    <span class="s2">"Href"</span>: <span class="s2">"http://apiquerysandbox.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"</span>
+   <span class="o">}</span>
+  <span class="o">]</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
 <h3 id="cancelandoestornando-uma-transação">Cancelando/Estornando uma transação</h3>
 
 <p>Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.</p>
