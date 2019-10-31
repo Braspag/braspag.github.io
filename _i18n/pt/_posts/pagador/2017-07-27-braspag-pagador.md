@@ -1186,7 +1186,8 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 
 ### Transação com QR Code
 
-Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
+Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método `POST` conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status "Pendente" na Braspag e gerar o QR Code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex. "Pago", "Não pago" ou "Não autorizado).
+O exemplo abaixo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
 <aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
 
