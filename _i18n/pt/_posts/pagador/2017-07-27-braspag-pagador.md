@@ -1243,8 +1243,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Payment.Capture`|Enviar **true** para uma transação de captura automática.|Booleano|-|Não|
 
-####Resposta
-
+#### Resposta
 
 ### Cancelando/Estornando uma transação
 
