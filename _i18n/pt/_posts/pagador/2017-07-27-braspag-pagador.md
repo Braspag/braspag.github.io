@@ -1320,6 +1320,14 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 
 ```
 
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`QrCodeBase64Image`|QR Code codificado em base 64. Por exemplo, a imagem do QR Code poderá ser apresentada na página utilizando um código HTML como este: <img src="data:image/png;base64,{código da imagem em base 64}">|Texto|Variável|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Status da transação. No caso da transação de geração com QR Code, o status inicial é "12" (Pendente).|Byte|-|2|
+|`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirênica|Texto|512|Texto alfanumérico|
+
 ### Cancelando/Estornando uma transação
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
