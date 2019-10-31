@@ -1248,35 +1248,35 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 ```json
 
 {
-    "MerchantOrderId": "20191123",
-    "Customer": {
-        "Name": "QRCode Test"
-    },
-    "Payment": {
-        "Installments": 1,
-        "Capture": false,
-        "AcquirerTransactionId": "52d641fb-2880-4024-89f4-7b452dc5d9cd",
-        "QrCodeBase64Image": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51A(...)",
-        "PaymentId": "4031dba6-23e3-468b-92f8-f9af56d3b9d7",
-        "Type": "QrCode",
-        "Amount": 500,
-        "ReceivedDate": "2019-10-23 21:30:00",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Cielo30",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 12,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "QRCode gerado com sucesso",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquery.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"
-            }
-        ]
-    }
+  "MerchantOrderId": "20191123",
+  "Customer": {
+    "Name": "QRCode Test"
+  },
+  "Payment": {
+    "Installments": 1,
+    "Capture": false,
+    "AcquirerTransactionId": "52d641fb-2880-4024-89f4-7b452dc5d9cd",
+    "QrCodeBase64Image": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51A(...)",
+    "PaymentId": "4031dba6-23e3-468b-92f8-f9af56d3b9d7",
+    "Type": "QrCode",
+    "Amount": 500,
+    "ReceivedDate": "2019-10-23 21:30:00",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Cielo30",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 12,
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "QRCode gerado com sucesso",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquery.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"
+      }
+    ]
+  }
 }
 
 ```
@@ -1287,39 +1287,38 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "MerchantOrderId": "20191123",
-    "Customer": {
-        "Name": "QRCode Test"
-    },
-    "Payment": {
-        "Installments": 1,
-        "Capture": false,
-        "AcquirerTransactionId": "52d641fb-2880-4024-89f4-7b452dc5d9cd",
-        "QrCodeBase64Image": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51A(...)",
-        "PaymentId": "4031dba6-23e3-468b-92f8-f9af56d3b9d7",
-        "Type": "QrCode",
-        "Amount": 500,
-        "ReceivedDate": "2019-10-23 21:30:00",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Cielo30",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 12,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "QRCode gerado com sucesso",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquery.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"
-            }
-        ]
-    }
+  "MerchantOrderId": "20191123",
+  "Customer": {
+    "Name": "QRCode Test"
+  },
+  "Payment": {
+    "Installments": 1,
+    "Capture": false,
+    "AcquirerTransactionId": "52d641fb-2880-4024-89f4-7b452dc5d9cd",
+    "QrCodeBase64Image": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51A(...)",
+    "PaymentId": "4031dba6-23e3-468b-92f8-f9af56d3b9d7",
+    "Type": "QrCode",
+    "Amount": 500,
+    "ReceivedDate": "2019-10-23 21:30:00",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Cielo30",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 12,
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "QRCode gerado com sucesso",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquery.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"
+      }
+    ]
+  }
 }
 
 ```
-
 
 ### Cancelando/Estornando uma transação
 
