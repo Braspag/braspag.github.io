@@ -608,7 +608,7 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
-**Exemplo 3)**  
+**Exemplo 3)**
 
 Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
 
@@ -1402,8 +1402,8 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 {
     "VoidSplitPayments":[
         {
-            "SubordinateMerchantId" :"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-            "VoidedAmount":1000
+            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+            "VoidedAmount": 1000
         }
      ]
 }
@@ -1411,9 +1411,206 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 > Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
 
-### Opções de Configuração da Transação de Split
+### Opções de Configuração da Transação
 
+Em uma transação do Split, existem configurações opcionais que podem ser utilizadas para controlar alguns aspectos.
 
+#### Origem do Desconto das Taxas
+
+Por padrão, as taxas e tarifas fixas do Split são descontadas do valor de comissão do Master, porém é possível que o desconto seja feito da parte da venda do Master.
+
+> Para que a opção de desconto da parte da venda seja possível, o Master deve possuir venda na transação.
+
+A opção pode ser utilizada no momento da divisão transacional e pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o suporte do Split para que ela seja criada, removida ou atualizada. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
+
+No caso de uma transação criada com uma forma de desconto, o mesmo será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
+
+> Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
+
+##### Tipos de Desconto Possíveis
+
+| Tipo | Descrição |
+|-|-|
+| `Commission` | Com esta opção, o desconto será feito sobre o valor de comissão que o Master tem a receber na transação. |
+| `Sale` | Com esta opção, o desconto será feito sobre o valor de venda que o Master tem a receber na transação. |
+
+##### No Momento Transacional - Autorização com Captura Automática
+
+Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
+
+**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
+**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
+**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.
+
+> Desconto sendo aplicado sobre a comissão.
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "Type": "SplittedCreditCard",
+        "Amount": 10000,
+        "Installments": 1,
+        "SoftDescriptor": "Marketplace",
+        "Capture": true,
+        "CreditCard": {
+            "CardNumber": "4551870000000181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SecurityCode": "123",
+            "Brand": "Visa"
+        },
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Commission"
+        },
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                }
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                }
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500
+            }
+        ]
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 4245
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 255
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 2865
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 135
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500,
+                "Fares": {
+                    "Mdr": 2,
+                    "Fee": 0
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 2500
+                    }
+                ]
+            }
+        ],
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Commission"
+        },
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1210035540764",
+        "ProofOfSale": "20171210035540764",
+        "AuthorizationCode": "859182",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-10 15:55:38",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-10 15:55:40",
+        "Status": 2,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "34895364-e269-47ad-b779-7e122ed40a9a",
+        "Type": "SplittedCreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "PUT",
+                "Rel": "split",
+                "Href": "https://splitsandbox.braspag.com.br/api/transactions/34895364-e269-47ad-b779-7e122ed40a9a/split"
+            },
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a/void"
+            }
+        ]
+    }
+}
+```
 
 ## Agenda Financeira
 
@@ -1425,8 +1622,8 @@ A agenda é composta por eventos de Crédito e Débito que são gerados de acord
 
 Eventos de Crédito:
 
-| Id | Evento                         | Descrição                                                                                               |
-|----|--------------------------------|---------------------------------------------------------------------------------------------------------|
+| Id | Evento | Descrição |
+|-|-|-|
 | 1  | `Credit`                       | Lançamento de crédito das parcelas de uma transação.                                                    |
 | 3  | `FeeCredit`                    | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
 | 5  | `RefundCredit`                 | Lançamento de crédito devido a um cancelamento.                                                         |
