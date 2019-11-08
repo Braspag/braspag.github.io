@@ -1786,7 +1786,7 @@ Com a mesma transação:
 
 ##### No Momento Pós-Transacional
 
-<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -1800,12 +1800,8 @@ Com a mesma transação:
         }
     },
     {
-        "SubordinateMerchantId" :"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-        "Amount":4000,
-        "Fares":{
-            "Mdr":4,
-            "Fee":15
-        }
+        "SubordinateMerchantId" :"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+        "Amount": 4000
     }
 ]
 ```
@@ -1815,6 +1811,7 @@ Com a mesma transação:
 ```json
 {
     "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
+    "MasterRateDiscountType": "Sale",
     "SplitPayments": [
         {
             "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
@@ -1835,26 +1832,26 @@ Com a mesma transação:
             ]
         },
         {
-            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+            "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Amount": 4000,
             "Fares": {
-                "Mdr": 4,
-                "Fee": 15
+                "Mdr": 2,
+                "Fee": 0
             },
             "Splits": [
                 {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "Amount": 3825
-                },
-                {
                     "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "Amount": 175
+                    "Amount": 4000
                 }
             ]
         }
     ]
 }
 ```
+
+#### Liberação de Transação para Antecipação
+
+
 
 ## Agenda Financeira
 
