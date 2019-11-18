@@ -30,15 +30,15 @@ To perform an operation, combine the base endpoint of the environment with the e
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\authsandbox.braspag.com.br\\\|
-|`Produção`|https:\\\\auth.braspag.com.br\\\|
+|`Sandbox`|https://authsandbox.braspag.com.br/|
+|`Produção`|https://auth.braspag.com.br/|
 
 ## Chargeback API Braspag
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\risknotificationsandbox.braspag.com.br\\\|
-|`Produção`|https:\\\\risknotification.braspag.com.br\\\|
+|`Sandbox`|https://risknotificationsandbox.braspag.com.br/|
+|`Produção`|https://risknotification.braspag.com.br/|
 
 # Authentication
 
