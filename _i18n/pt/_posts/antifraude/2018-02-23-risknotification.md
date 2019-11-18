@@ -31,15 +31,15 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\authsandbox.braspag.com.br\\\|
-|`Produção`|https:\\\\auth.braspag.com.br\\\|
+|`Sandbox`|https://authsandbox.braspag.com.br//|
+|`Produção`|https://auth.braspag.com.br//|
 
 ## Risk Notification API
 
 |Ambiente|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\risknotificationsandbox.braspag.com.br\\\|
-|`Produção`|https:\\\\risknotification.braspag.com.br\\\|
+|`Sandbox`|https://risknotificationsandbox.braspag.com.br//|
+|`Produção`|https://risknotification.braspag.com.br//|
 
 # Autenticação
 
