@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2019-11-18T13:45:33+00:00</updated>
+    <updated>2019-11-18T13:46:35+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3888,11 +3888,11 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\authsandbox.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://authsandbox.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\auth.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://auth.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3909,11 +3909,11 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\risknotificationsandbox.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://risknotificationsandbox.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\risknotification.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://risknotification.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5776,11 +5776,11 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\authsandbox.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://authsandbox.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\auth.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://auth.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5797,11 +5797,11 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\risknotificationsandbox.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://risknotificationsandbox.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https:\\risknotification.braspag.com.br\|&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://risknotification.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
