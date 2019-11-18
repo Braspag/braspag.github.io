@@ -32,15 +32,15 @@ To perform an operation, combine the base endpoint of the environment with the e
 
 |Environment|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\authsandbox.braspag.com.br\\\|
-|`Produção`|https:\\\\auth.braspag.com.br\\\|
+|`Sandbox`|https://authsandbox.braspag.com.br/|
+|`Produção`|https://auth.braspag.com.br/|
 
 ## Antifraud Gateway API
 
 |Environment|URL|
 |:-|:-|
-|`Sandbox`|https:\\\\risksandbox.braspag.com.br\\\|
-|`Produção`|https:\\\\risk.braspag.com.br\\\|
+|`Sandbox`|https://risksandbox.braspag.com.br/|
+|`Produção`|https://risk.braspag.com.br/|
 
 # Authentication
 
