@@ -310,6 +310,151 @@ curl
 |`ProviderReturnCode`|Acquirer or Bank’s return code|Text|32|57|
 |`ProviderReturnMessage`|Acquirer or Issuer’s return message|Text|32|57||Text|512|Transação Aprovada|
 
+### Credit Card Payment with Cielo QR Code
+
+In order to create a transaction using Cielo QR Code it is necessary to send a request using the `POST` method as the example below. This request will create a transaction with the status "Pending" and generate the QR Code for the payment. The buyer will pay using one of the compatible APPs and the transaction status will be updated accordingly (e.g. "Paid", "Not paid" or "Denied").
+The example below shows the minimum fields necessary to create a transaction.
+
+<aside class="notice">Note: it is not possible to create a transaction with the ammount (`Amount`) 0.</aside>
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+
+{  
+ "MerchantOrderId":"20191123",
+ "Customer":{  
+  "Name":"QRCode Test"
+  },
+ "Payment":{
+   "Provider":"Cielo30",
+   "Type":"qrcode",
+   "Amount":100,
+   "Installments":1,
+   "Capture":false
+   }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+ "MerchantOrderId":"20191123",
+ "Customer":{  
+  "Name":"QRCode Test"
+  },
+ "Payment":{
+   "Provider":"Cielo30",
+   "Type":"qrcode",
+   "Amount":500,
+   "Installments":1,
+   "Capture":false
+   }
+}
+
+```
+
+|Property|Description|Type|Size|Mandatory|
+|-----------|---------|----|-------|-----------|
+|`MerchantOrderId`|Order number.|Text|50|Yes|
+|`Customer.Name`|Customer Name.|Text|255|No|
+|`Payment.Provider`|Payment provider name. Currently only available with "Cielo"|Text|15|Yes|
+|`Payment.Type`|Payment type. For payments with QR Code, send **qrcode**.|Text|100|Yes|
+|`Payment.Amount`|Order amount (in cents).|Number|15|Yes|
+|`Payment.Installments`|Installments numbers.|Number|2|Yes|
+|`Payment.Capture`| **true** for automatic capture.|Boolean|-|No|
+
+#### Response
+
+```json
+
+{
+ "MerchantOrderId":"20191123",
+ "Customer": {
+  "Name": "QRCode Test"
+ },
+ "Payment": {
+  "Installments": 1,
+  "Capture": false,
+  "AcquirerTransactionId": "52d641fb-2880-4024-89f4-7b452dc5d9cd",
+  "QrCodeBase64Image": "iVBORw0KGgoAAAA(...)",
+  "PaymentId": "403dba6-23e3-468b-92f8-f9af56d3b9d7",
+  "Type": "QrCode",
+  "Amount": 100,
+  "ReceivedDate": "2019-10-23 21:30:00",
+  "Currency": "BRL",
+  "Country": "BRA",
+  "Provider": "Cielo30",
+  "ReasonCode": 0,
+  "ReasonMessage": "Successful",
+  "Status": 12,
+  "ProviderReturnCode": "0",
+  "ProviderReturnMessage": "QRCode gerado com sucesso",
+  "Links": [
+   {
+    "Method": "GET",
+    "Rel": "self",
+    "Href": "http://apiquerysandbox.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"
+   }
+  ]
+ }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+ "MerchantOrderId":"20191123",
+ "Customer": {
+  "Name": "QRCode Test"
+ },
+ "Payment": {
+  "Installments": 1,
+  "Capture": false,
+  "AcquirerTransactionId": "52d641fb-2880-4024-89f4-7b452dc5d9cd",
+  "QrCodeBase64Image": "iVBORw0KGgoAAAA(...)",
+  "PaymentId": "403dba6-23e3-468b-92f8-f9af56d3b9d7",
+  "Type": "QrCode",
+  "Amount": 100,
+  "ReceivedDate": "2019-10-23 21:30:00",
+  "Currency": "BRL",
+  "Country": "BRA",
+  "Provider": "Cielo30",
+  "ReasonCode": 0,
+  "ReasonMessage": "Successful",
+  "Status": 12,
+  "ProviderReturnCode": "0",
+  "ProviderReturnMessage": "QRCode gerado com sucesso",
+  "Links": [
+   {
+    "Method": "GET",
+    "Rel": "self",
+    "Href": "http://apiquerysandbox.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"
+   }
+  ]
+ }
+}
+
+```
+
+|Property|Description|Tyoe|Size|Format|
+|-----------|---------|----|-------|-------|
+|`QrCodeBase64Image`|QR Code image encoded in base64. The QR Code image can be rendered on the webpage using an HTML code like this: [<img src="data:image/png;base64],{código da imagem em base 64}">|Texto|Variável|Texto alfanumérico|
+|`PaymentId`|Order payment identifier, necessary for any GET/POST/PUT operation.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Transaction status. For QR Code transactions, the initial status is "12" (Pending).|Byte|-|2|
+|`ReturnCode`|Acquirer return code.|Text|32|Alphanumeric|
+|`ReturnMessage`|Acquirer return message|Text|512|Alphanumeric|
+
 ## Credit Card Payments with Customer's Data
 
 This is an example with customer's data, capture behavior, authentication option and extra datas (merchant's customized data).
