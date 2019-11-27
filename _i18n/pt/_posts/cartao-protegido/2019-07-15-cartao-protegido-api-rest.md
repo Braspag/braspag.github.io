@@ -134,7 +134,7 @@ curl
 --request POST "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "Authorization: Barear {access_token}"
+--header "Authorization: Bearer {access_token}"
 --data-binary
 {
     "Alias":"5R2O4042YP",
@@ -150,7 +150,7 @@ curl
 |Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
 |`Content-Type`|Texto|-|Sim|application/json|
 |`Alias`|Texto|64|Não |Alias do cartão. O valor desta informação deve ser único (não pode repetir).|
 |`Card.Number`|Número|16|Sim|Número do Cartão do comprador|
@@ -249,14 +249,14 @@ curl
 --request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "Authorization: Barear {access_token}"
+--header "Authorization: Bearer {access_token}"
 --data-binary
 ```
 
 |Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
 |`Content-Type`|Texto|-|Sim|application/json|
 |`TokenReference`|GUID|36|Sim|Token no Cartão Protegido que representa os dados do cartão|
 
@@ -314,14 +314,14 @@ curl
 --request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "Authorization: Barear {access_token}"
+--header "Authorization: Bearer {access_token}"
 --data-binary
 ```
 
 |Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
 |`Content-Type`|Texto|-|Sim|application/json|
 |`Alias`|Texto|64|Não |Alias (Apelido) do cartão de crédito utilizado anteriormente no método Create Token|
 
@@ -367,7 +367,7 @@ curl
 --request DELETE "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "Authorization: Barear {access_token}"
+--header "Authorization: Bearer {access_token}"
 --data-binary
 {
      "RemovedBy":"Merchant",
@@ -378,7 +378,7 @@ curl
 |Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
 |`Content-Type`|Texto|-|Sim|application/json|
 |`RemovedBy`|Texto|10|Sim|Quem solicitou a remoção. Valores possíveis: 'Merchant' ou 'CardHolder'|
 |`Reason`|Texto|10|Sim|Motivo da remoção do token. Valores possíveis: 'FraudSuspicion' ou 'Other'|
@@ -442,7 +442,7 @@ curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "Authorization: Barear {access_token}"
+--header "Authorization: Bearer {access_token}"
 --data-binary
 {
      "RemovedBy":"Merchant",
@@ -453,7 +453,7 @@ curl
 |Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
 |`Content-Type`|Texto|-|Sim|application/json|
 |`RemovedBy`|Texto|10|Sim|Quem solicitou a remoção. Valores possíveis: 'Merchant' ou 'CardHolder'|
 |`Reason`|Texto|10|Sim|Motivo da remoção do token. Valores possíveis: 'FraudSuspicion' ou 'Other'|
@@ -520,14 +520,14 @@ curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "Authorization: Barear {access_token}"
+--header "Authorization: Bearer {access_token}"
 --data-binary
 ```
 
 |Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|
 |`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Barear** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
+|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
 |`Content-Type`|Texto|-|Sim|application/json|
 
 ### Response
