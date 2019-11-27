@@ -1749,24 +1749,30 @@ curl
 
 Para atualizar o status de um Boleto para Pago, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito [aqui](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-)
 
-### Tabela de Especificação de quantidade de caracteres do campo por Provider
+### Regras Específicas por Banco
 
 | Propriedade | Bradesco | BancoBanco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
-|:-|:-:|:-:|:-:|:-:|:-:|:-:|
-| Provider | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
-| `MerchantOrderId` | 27 (OBS 1) | 50 (OBS 1) | 8 | 50 (OBS 1) | 11 (OBS 1) | 10 (OBS 1) |
-| `Payment.BoletoNumber` | 11 (OBS 2) | 9 (OBS 2) | 8 (OBS 1) | 13 (OBS 2) | 14 (OBS 2) | 11 (OBS 2) |
-| `Customer.Name` | 34 (OBS 3) | 60 (OBS,3) | 30 | 40 (OBS 3) | 40 (OBS 3) | 50 (OBS 3) |
-| `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` | Street: 70 (OBS 4); Number: 10 (OBS 4); Complement: 20 (OBS 4); District: 50 (OBS 4) | Os campos devem totalizar até 60 caracteres / OBS 3 | Street, Number e Complement devem totalizar até 40 caracteres;  District: 15 | Street, Number e Complement devem totalizar até 40 caracteres (OBS 3); District: 15 (OBS 3) | Street, Number e Complement devem totalizar até 40 caracteres (OBS 3); District: 15 (OBS 3) | Street, Number e Complement devem totalizar até 40 caracteres (OBS 3); District: 50 (OBS 3) |
-| `Customer.Address.City` | 50 (OBS 4) | 18 (OBS 3) | 15 | 30 (OBS 3) | 15 (OBS 3) | 50 (OBS 4) |
-| `Payment.Instructions` | 450 | 450 | não é enviado ao banco | 450 | 450 | 450 |
-| `Payment.Demonstrative` | 255 | não é enviado ao banco | não é enviado ao banco | 255 | 255 | 255 |
-| >>>>>>>>>>>>>>>>>>>>>> |  |  |  |  |  |  |
-| Particularidades e Observações: | OBS 1: letras, números e caracteres como "_" e "$" | OBS 1: não é enviado ao banco | OBS geral: o Pagador trunca automaticamente os campos | OBS 1: não é enviado ao banco | OBS 1: quando ultrapassa os 11 dígitos, o pagador considera o número incremental cadastrado no admin | OBS geral: o Pagador não valida os campos, porém é truncado automaticamente pelo Banco |
-|  | OBS 2: o valor é presistido no banco | OBS 2: quando enviado acima de 9 posições, o Pagador trunca automaticamente, considerando os últimos 9 dígitos | OBS 1: o nosso número será sempre igual ao Order ID, sendo que o pagador valida o tamanho do campo | OBS 2: o dado é validado pelo banco | OBS 2: inicia-se com "14" + 14 dígitos + dígito verificador gerado automaticamente. Quando maior que 14, o Pagador trunca pegando os últimos 14 digitos | OBS 1: quando fora do limite, o pagador gera um número incremental configurado a partir do Admin |
-|  | OBS 3: o Pagador trunca automaticamente | OBS 3: são aceitos como caracteres válidos: as letras de A a Z (MAIÚSCULAS); caracteres especiais de conjunção: hífen (-), apóstrofo ('). Quando utilizados não pode conter espaços entre as letras; Exemplos corretos: D'EL-REI, D'ALCORTIVO, SANT'ANA. Exemplos incorretos: D'EL - REI; até um espaço em branco entre palavras |  | OBS 3: o dado é validado pelo Pagador | OBS 3: o dado é validado pelo Pagador | OBS 2: quando fora do limite, o pagador gera um número aleatório |
-|  | OBS 4: o dado é validado pelo Pagador |  |  |  |  | OBS 3: o Pagador trunca até o limite permitido e remove os caracteres especiais e acentuados |
-|  |  |  |  |  |  | OBS 4: não é enviado para banco |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| `Provider` | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
+| `MerchantOrderId` | 27 (vide obs 1) | 50 | 8 | 50 | 11 (vide obs 2) | 10 (vide obs 2) |
+| `Payment.BoletoNumber` | 11 (obs 3) | 9 (obs 4) | 8 (obs 5) | 13 (obs 3) | 12 (obs 6) | 11 (obs 7) |
+| `Customer.Name` | 34 | 60 (obs 8) | 30 | 40 | 40 | 50 (obs 9) |
+| `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` | Street: 70<br>Number: 10<br>Complement: 20<br>District: 50 | Totalizar até 60 caracteres (obs 8) | Street, Number e Complement devem totalizar até 40 caracteres<br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br>District: 15 (OBS 3) | Street, Number e Complement devem totalizar até 40 caracteres<br>District: 15 (OBS 3) | Street, Number e Complement devem totalizar até 40 caracteres<br>District: 50 (obs 9) |
+| `Customer.Address.City` | 50 | 18 (obs 8) | 15 | 30 | 15 | 50 (obs 9) |
+| `Payment.Instructions` | 450 | 450 | N/A | 450 | 450 | 450 |
+| `Payment.Demonstrative` | 255 | N/A | N/A | 255 | 255 | 255 |
+
+|Observações|Detalhes|
+|---|---|
+|**obs 1:**|Apenas letras, números e caracteres como "_" e "$"|
+|**obs 2:**|Caso ultrapasse os 11 dígitos, a API gerará um número incremental a partir da configuração definida |
+|**obs 3:**|O valor deve ser único, ou seja, o banco não permite a repetição de valores previamente utilizados |
+|**obs 4:**|Quando enviado acima de 9 posições, a API considera os últimos 9 dígitos |
+|**obs 5:**|Deverá ser sempre igual ao Número de Pedido (MerchantOrderId) |
+|**obs 6:**|A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador antes de mandar para o banco. Caso o total ultrapasse os 14 dígitos, a API considera últimos 14 dígitos |
+|**obs 7:**|Quando enviado mais que o permitido, a API gera um número aleatório |
+|**obs 8:**|São aceitos como caracteres válidos: as letras de A a Z (MAIÚSCULAS); caracteres especiais de conjunção: hífen (-), apóstrofo (‘). Quando utilizados não pode conter espaços entre as letras; Exemplos corretos: D’EL-REI, D’ALCORTIVO, SANT’ANA. Exemplos incorretos: D’EL - REI; até um espaço em branco entre palavras|
+|**obs 9:**|Caracteres especiais e acentuações serão removidos automaticamente |
 
 ## Recorrência
 
