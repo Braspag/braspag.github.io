@@ -1771,7 +1771,7 @@ Para atualizar o status de um Boleto para Pago, o Pagador deve receber dos banco
 |**obs 5:**|Deverá ser sempre igual ao Número de Pedido (MerchantOrderId) |
 |**obs 6:**|A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador antes de mandar para o banco. Caso o total ultrapasse os 14 dígitos, a API considera últimos 14 dígitos |
 |**obs 7:**|Quando enviado mais que o permitido, a API gera um número aleatório |
-|**obs 8:**|São aceitos como caracteres válidos: as letras de A a Z (MAIÚSCULAS); caracteres especiais de conjunção: hífen (-), apóstrofo (‘). Quando utilizados não pode conter espaços entre as letras; Exemplos corretos: D’EL-REI, D’ALCORTIVO, SANT’ANA. Exemplos incorretos: D’EL - REI; até um espaço em branco entre palavras|
+|**obs 8:**|São aceitos como caracteres válidos: números, as letras de A a Z (MAIÚSCULAS); caracteres especiais de conjunção: hífen (-), apóstrofo (‘). Quando utilizados não pode conter espaços entre as letras; Exemplos corretos: D’EL-REI, D’ALCORTIVO, SANT’ANA. Exemplos incorretos: D’EL - REI; até um espaço em branco entre palavras|
 |**obs 9:**|Caracteres especiais e acentuações serão removidos automaticamente |
 
 ## Recorrência
