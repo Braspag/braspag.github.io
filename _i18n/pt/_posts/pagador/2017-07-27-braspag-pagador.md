@@ -1757,7 +1757,7 @@ Para atualizar o status de um Boleto para Pago, o Pagador deve receber dos banco
 | `MerchantOrderId` | 27 (obs 1) | 50 | 8 | 50 | 11 (obs 2) | 10 (obs 2) |
 | `Payment.BoletoNumber` | 11 (obs 3) | 9 (obs 4) | 8 (obs 5) | 13 (obs 3) | 12 (obs 6) | 11 (obs 7) |
 | `Customer.Name` | 34 | 60 (obs 8) | 30 | 40 | 40 | 50 (obs 9) |
-| `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` | Street: 70<br><br>Number: 10<br><br>Complement: 20<br><br>District: 50 | Totalizar até 60 caracteres (obs 8) | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 (OBS 3) | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 (OBS 3) | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 50 (obs 9) |
+| `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` | Street: 70<br><br>Number: 10<br><br>Complement: 20<br><br>District: 50 | Totalizar até 60 caracteres (obs 8) | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 50 (obs 9) |
 | `Customer.Address.City` | 50 | 18 (obs 8) | 15 | 30 | 15 | 50 (obs 9) |
 | `Payment.Instructions` | 450 | 450 | N/A | 450 | 450 | 450 |
 | `Payment.Demonstrative` | 255 | N/A | N/A | 255 | 255 | 255 |
