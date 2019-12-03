@@ -11,7 +11,6 @@ tags:
   - Soluções para Marketplace
 ---
 
-
 # Split de Pagamentos - Onboarding
 
 ## Introdução
