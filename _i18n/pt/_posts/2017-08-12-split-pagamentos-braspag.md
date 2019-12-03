@@ -300,7 +300,7 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
         },
         "SplitPayments":[
             {
-                "SubordinateMerchantId" :"{{ MerchanId do Subordinado }}",
+                "SubordinateMerchantId" :"f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                 "Amount":10000,
                 "Fares":{
                     "Mdr":5,
@@ -376,7 +376,7 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
         },
         "SplitPayments": [
             {
-                "SubordinateMerchantId": "{{ MerchanId do Subordinado }}",
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                 "Amount": 10000,
                 "Fares": {
                     "Mdr": 5.0,
@@ -384,11 +384,11 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
                 },
                 "Splits": [
                     {
-                        "MerchantId": "{{ MerchanId do Subordinado }}",
+                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                         "Amount": 9500
                     },
                     {
-                        "MerchantId": "{{ MerchanId do Master }}",
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                         "Amount": 500
                     }
                 ]
@@ -923,7 +923,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
         },
         "SplitPayments": [
             {
-                "SubordinateMerchantId": "{{ MerchantId do Master }}",
+                "SubordinateMerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                 "Amount": 10000,
                 "Fares": {
                     "Mdr": 2.00,
@@ -931,7 +931,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
                 },
                 "Splits": [
                     {
-                        "MerchantId": "{{ MerchantId do Master }}",
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                         "Amount": 10000
                     }
                 ]
@@ -1066,7 +1066,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
         },
       "splitpayments":[  
          {  
-            "subordinatemerchantid":"{{ MerchantId do Subordinado 01 }}",
+            "subordinatemerchantid":"f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
             "amount":5000,
             "fares":{  
                "mdr":5,
@@ -1074,7 +1074,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
             }
          },
          {  
-            "subordinatemerchantid":"{{ MerchantId do Subordinado 02 }}",
+            "subordinatemerchantid":"9140ca78-3955-44a5-bd44-793370afef94",
             "amount":5000,
             "fares":{  
                "mdr":4,
@@ -1222,7 +1222,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
         },
         "SplitPayments": [
             {
-                "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                 "Amount": 6000,
                 "Fares": {
                     "Mdr": 5.0,
@@ -1230,17 +1230,17 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
                 },
                 "Splits": [
                     {
-                        "MerchantId": "{{ MerchantId do Subordinado 01 }}",
+                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                         "Amount": 5670
                     },
                     {
-                        "MerchantId": "{{ MerchantId do Master }}",
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                         "Amount": 330
                     }
                 ]
             },
             {
-                "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                 "Amount": 4000,
                 "Fares": {
                     "Mdr": 4.0,
@@ -1248,11 +1248,11 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
                 },
                 "Splits": [
                     {
-                        "MerchantId": "{{ MerchantId do Subordinado 02 }}",
+                        "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                         "Amount": 3825
                     },
                     {
-                        "MerchantId": "{{ MerchantId do Master }}",
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                         "Amount": 175
                     }
                 ]
@@ -1341,7 +1341,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
         },
         "SplitPayments": [
             {
-                "subordinatemerchantid": "{{ MerchantId do Subordinado 01 }}",
+                "subordinatemerchantid": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                 "amount": 5000,
                 "fares": {
                     "mdr": 20,
@@ -1349,7 +1349,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
                 }
             },
             {
-                "subordinatemerchantid": "{{ MerchantId do Subordinado 02 }}",
+                "subordinatemerchantid": "9140ca78-3955-44a5-bd44-793370afef94",
                 "amount": 5000,
                 "fares": {
                     "mdr": 10,
@@ -1401,7 +1401,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
         "Recurrent": false,
         "SplitPayments": [
             {
-                "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                 "Amount": 5000,
                 "Fares": {
                     "Mdr": 20.0,
@@ -1409,17 +1409,17 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
                 },
                 "Splits": [
                     {
-                        "MerchantId": "{{ MerchantId do Subordinado 01 }}",
+                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                         "Amount": 3975
                     },
                     {
-                        "MerchantId": "{{ MerchantId do Master }}",
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                         "Amount": 1025
                     }
                 ]
             },
             {
-                "SubordinateMerchantId": "{{ MerchantId do Subordinado 02 }}",
+                "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                 "Amount": 5000,
                 "Fares": {
                     "Mdr": 10.0,
@@ -1427,11 +1427,11 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
                 },
                 "Splits": [
                     {
-                        "MerchantId": "{{ MerchantId do Subordinado 02 }}",
+                        "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                         "Amount": 4485
                     },
                     {
-                        "MerchantId": "{{ MerchantId do Master }}",
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                         "Amount": 515
                     }
                 ]
@@ -1481,7 +1481,7 @@ No Split Transacional é necessário que o Marketplace envie um "nó" adicional 
 ```json
 "SplitPayments":[
     {
-        "SubordinateMerchantId" :"{{ MerchantId do Subordinado 01 }}",
+        "SubordinateMerchantId" :"f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
         "Amount":10000,
         "Fares":{
             "Mdr":5,
@@ -1503,7 +1503,7 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
 ```json
 "SplitPayments": [
     {
-        "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+        "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
         "Amount": 10000,
         "Fares": {
             "Mdr": 5,
@@ -1511,11 +1511,11 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
         },
         "Splits": [                
             {
-                "MerchantId": "{{ MerchantId do Master }}",
+                "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                 "Amount": 500,
             },
             {
-                "MerchantId": "{{ MerchantId do Subordinado 01 }}",
+                "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                 "Amount": 9500,
             }
         ]
@@ -1544,7 +1544,7 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
 --header "Authorization: Bearer {access_token}"
 [
     {
-        "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+        "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
         "Amount": 6000,
         "Fares": {
             "Mdr": 5,
@@ -1552,7 +1552,7 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
         }
     },
     {
-        "SubordinateMerchantId" :"{{ MerchantId do Subordinado 02 }}",
+        "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
         "Amount":4000,
         "Fares":{
             "Mdr":4,
@@ -1569,7 +1569,7 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
     "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
@@ -1577,17 +1577,17 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
             },
             "Splits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 01 }}",
+                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f,
                     "Amount": 5670
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "Amount": 330
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 02 }}",
+            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
             "Amount": 4000,
             "Fares": {
                 "Mdr": 4,
@@ -1595,11 +1595,11 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
             },
             "Splits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 02 }}",
+                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                     "Amount": 3825
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "Amount": 175
                 }
             ]
@@ -1629,7 +1629,7 @@ x-www-form-urlencoded
 
 ```json
 {
-    "MerchantId": "{{ MerchantId do Master }}",
+    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
     "MerchantOrderId": "2014111701",
     "IsSplitted": true,
     "Customer": {
@@ -1680,7 +1680,7 @@ x-www-form-urlencoded
         ],
         "SplitPayments": [
             {
-                "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                 "Amount": 6000,
                 "Fares": {
                     "Mdr": 5,
@@ -1688,17 +1688,17 @@ x-www-form-urlencoded
                 },
                 "Splits": [
                     {
-                        "MerchantId": "{{ MerchantId do Subordinado 01 }}",
+                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                         "Amount": 5670
                     },
                     {
-                        "MerchantId": "{{ MerchantId do Master }}",
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                         "Amount": 330
                     }
                 ]
             },
             {
-                "SubordinateMerchantId": "{{ MerchantId do Subordinado 02 }}",
+                "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                 "Amount": 4000,
                 "Fares": {
                     "Mdr": 4,
@@ -1706,11 +1706,11 @@ x-www-form-urlencoded
                 },
                 "Splits": [
                     {
-                        "MerchantId": "{{ MerchantId do Subordinado 02 }}",
+                        "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                         "Amount": 3825
                     },
                     {
-                        "MerchantId": "{{ MerchantId do Master }}",
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                         "Amount": 175
                     }
                 ]
@@ -1737,7 +1737,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 {
     "SplitPayments":[
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
@@ -1745,7 +1745,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
             }
         },
         {
-            "SubordinateMerchantId" :"{{ MerchantId do Subordinado 02 }}",
+            "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
             "Amount":4000,
             "Fares":{
                 "Mdr":4,
@@ -1769,7 +1769,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
     "ReturnMessage": "Operation Successful",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
@@ -1777,17 +1777,17 @@ Na captura total de uma transação, o somatório dos valores de participação 
             },
             "Splits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 01 }}",
+                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                     "Amount": 5670
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "Amount": 330
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 02 }}",
+            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
             "Amount": 4000,
             "Fares": {
                 "Mdr": 4,
@@ -1795,11 +1795,11 @@ Na captura total de uma transação, o somatório dos valores de participação 
             },
             "Splits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 02 }}",
+                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                     "Amount": 3825
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "Amount": 175
                 }
             ]
@@ -1842,7 +1842,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 {
     "SplitPayments":[
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
             "Amount": 5000,
             "Fares": {
                 "Mdr": 5,
@@ -1850,7 +1850,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             }
         },
         {
-            "SubordinateMerchantId" :"{{ MerchantId do Subordinado 02 }}",
+            "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
             "Amount":3000,
             "Fares":{
                 "Mdr":4,
@@ -1874,7 +1874,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
     "ReturnMessage": "Operation Successful",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
             "Amount": 5000,
             "Fares": {
                 "Mdr": 5,
@@ -1882,17 +1882,17 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             },
             "Splits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 01 }}",
+                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                     "Amount": 4720
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "Amount": 280
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 02 }}",
+            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
             "Amount": 3000,
             "Fares": {
                 "Mdr": 4,
@@ -1900,11 +1900,11 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             },
             "Splits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 02 }}",
+                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                     "Amount": 2865
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "Amount": 135
                 }
             ]
@@ -1949,7 +1949,7 @@ x-www-form-urlencoded
     "ReturnMessage": "Operation Successful",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "{{ MerchantId do Master }}",
+            "SubordinateMerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
             "Amount": 8000,
             "Fares": {
                 "Mdr": 2,
@@ -1957,7 +1957,7 @@ x-www-form-urlencoded
             },
             "Splits": [
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "Amount": 8000
                 }
             ]
@@ -2015,29 +2015,29 @@ x-www-form-urlencoded
     ],
     "VoidSplitPayments": [
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 02 }}",
+            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
             "VoidedAmount": 4000,
             "VoidedSplits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 02 }}",
+                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                     "VoidedAmount": 3825
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "VoidedAmount": 175
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
             "VoidedAmount": 6000,
             "VoidedSplits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 01 }}",
+                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                     "VoidedAmount": 5670
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "VoidedAmount": 330
                 }
             ]
@@ -2068,11 +2068,11 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 {
     "VoidSplitPayments":[
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
             "VoidedAmount": 1500
         },
         {
-            "SubordinateMerchantId" :"{{ MerchantId do Subordinado 02 }}",
+            "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
             "VoidedAmount":1000
         }
      ]
@@ -2109,29 +2109,29 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
     ],
     "VoidSplitPayments": [
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 01 }}",
+            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
             "VoidedAmount": 1500,
             "VoidedSplits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 01 }}",
+                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                     "VoidedAmount": 1417
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "VoidedAmount": 83
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "{{ MerchantId do Subordinado 02 }}",
+            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
             "VoidedAmount": 1000,
             "VoidedSplits": [
                 {
-                    "MerchantId": "{{ MerchantId do Subordinado 02 }}",
+                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
                     "VoidedAmount": 956
                 },
                 {
-                    "MerchantId": "{{ MerchantId do Master }}",
+                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
                     "VoidedAmount": 44
                 }
             ]
@@ -2146,7 +2146,7 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 {
     "VoidSplitPayments":[
         {
-            "SubordinateMerchantId" :"{{ MerchantId do Subordinado 02 }}",
+            "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
             "VoidedAmount":1000
         }
      ]
