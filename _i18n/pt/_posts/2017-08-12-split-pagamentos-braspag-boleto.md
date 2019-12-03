@@ -13,7 +13,9 @@ tags:
 
 # Boleto Braspag
 
+
 ## Boleto Registrado
+
 
 Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança.
 
