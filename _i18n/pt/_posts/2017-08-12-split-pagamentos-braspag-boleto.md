@@ -11,24 +11,23 @@ tags:
   - Soluções para Marketplace
 ---
 
-# Boletos
+#Boleto Braspag
 
-## Boleto Registrado
+##Boleto Registrado
 
 Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança. 
 
 A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, terão de ser registrados. [Clique aqui](https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos) para acessar o comunicado completo.   
 
-## Criando uma transação de Boleto
+##Criando uma transação de Boleto
 
 Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto. 
 
-### Requisição
+###Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {  
     "MerchantOrderId":"2017091101",
     "Customer":
@@ -50,7 +49,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
     "Payment":
     {  
      "Provider":"Braspag",
-	 "Bank": "BancoDoBrasil",
+"Bank": "BancoDoBrasil",
      "Type":"Boleto",
      "Amount":10000,
      "BoletoNumber":"2017091101",
@@ -69,9 +68,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 }
 
 ```
-
 ```shell
-
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
@@ -99,7 +96,7 @@ curl
     "Payment":
     {  
      "Provider":"Braspag",
-	 "Bank": "BancoDoBrasil",
+"Bank": "BancoDoBrasil",
      "Type":"Boleto",
      "Amount":10000,
      "BoletoNumber":"2017091101",
@@ -117,9 +114,7 @@ curl
     }
 }
 --verbose
-
 ```
-
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
@@ -155,9 +150,7 @@ curl
 |`Payment.InterestAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor absoluto de juros diário após o vencimento em centavos. Não enviar se utilizar InterestRate. Ex: 1000 = R$ 10,00|
 
 ### Resposta
-
 ```json
-
 {
     "MerchantOrderId": "2017091101",
     "Customer": {
@@ -217,9 +210,7 @@ curl
 }
 
 ```
-
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -281,7 +272,6 @@ curl
     }
 }
 ```
-
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
