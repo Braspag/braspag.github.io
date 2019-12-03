@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Manual API de Onboarding &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/split-pagamentos-braspag-boleto" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/split-pagamentos-braspag-boleto" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="http://www.braspag.com.br/suporte/" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-pagamentos-braspag-boleto">Manual API de Onboarding</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="split-de-pagamentos---onboarding">Split de Pagamentos - Onboarding</h1>
+
+<h2 id="introdução">Introdução</h2>
+
+<p>O <strong>Split de Pagamentos</strong> fornece uma API de Onboarding para possibilitar ao Master o gerenciamento de seus subordinados na plataforma.
+O Master deverá coletar as informações do subordinado, para utilizar no processo de Onboarding.</p>
+
+<p>Assim como o Master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de identificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.</p>
+
+<p>O processo de KYC é uma medida obrigatória exigida pelas instituições reguladoras de pagamento.</p>
+
+<p>O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:</p>
+
+<ol>
+  <li>O Master solicita o cadastro do subordinado.</li>
+  <li>O subordinado será criado com status “Em análise” e estará bloqueado para participar da transação, até que o processo de KYC seja finalizado.</li>
+  <li>Ao final da análise, o Master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.</li>
+</ol>
+
+<h2 id="ambientes">Ambientes</h2>
+
+<h3 id="sandbox">Sandbox</h3>
+
+<p><strong>API Onboarding</strong>: https://splitonboardingsandbox.braspag.com.br</p>
+
+<h3 id="produção">Produção</h3>
+
+<p><strong>API Onboarding</strong>: https://splitonboarding.braspag.com.br</p>
+
+<h2 id="cadastro-de-subordinados">Cadastro de Subordinados</h2>
+
+<p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>Master</strong> informando os dados do subordinado.</p>
+
+<p>Para a definição de acordos entre o Master e seus subordinados, o <strong>Split de Pagamentos</strong> dispõe de duas possibilidades:</p>
+
+<ol>
+  <li>É possível definir a porcentagem do MDR (Merchant Discount Rate) cobrado por transação por Arranjos de Pagamento e intervalo de parcelas.</li>
+  <li>Caso o Master não queira definir a porcetagem do MDR para cada Arranjo de Pagamento e intervalor de parcelas, o <strong>Split de Pagamentos</strong> irá replicar os mesmos acordos do Master com a Subadquirente, para o Master com o Subordinado. Dessa forma, o Master deverá informar apenas um MDR único, que erá aplicado para todos os acordos.
+<strong>Exemplo:</strong></li>
+</ol>
+
+<p><strong>MDR do Master com Subordinado: 4%</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ACORDO SUBADQUIRENTE - MASTER</th>
+      <th>Visa</th>
+      <th>Master</th>
+      <th>Elo</th>
+      <th>Diners</th>
+      <th>Amex</th>
+      <th>Hiper</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Débito</td>
+      <td>2.00%</td>
+      <td>2.00%</td>
+      <td>2.00%</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Crédito a Vista</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+      <td>2.50%</td>
+    </tr>
+    <tr>
+      <td>Crédito 2x a 6x</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+      <td>3.00%</td>
+    </tr>
+    <tr>
+      <td>Crédito 7x a 12x</td>
+      <td>3.50%</td>
+      <td>3.50%</td>
+      <td>3.50%</td>
+      <td>3.50%</td>
+      <td>3.50%</td>
+      <td>3.50%</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>ACORDO MASTER - SUBORDINADO</th>
+      <th>Visa</th>
+      <th>Master</th>
+      <th>Elo</th>
+      <th>Diners</th>
+      <th>Amex</th>
+      <th>Hiper</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Débito</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Crédito a Vista</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+    </tr>
+    <tr>
+      <td>Crédito 2x a 6x</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+    </tr>
+    <tr>
+      <td>Crédito 7x a 12x</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+      <td>4.00%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Request</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
+
+<h3 id="informando-a-porcentagem-do-mdr-por-arranjos-de-pagamento--e-intervalo-de-parcelas">Informando a porcentagem do MDR por Arranjos de Pagamento  e intervalo de parcelas</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Operation"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VerifierDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+        </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 255"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"State"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345687"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Agreement"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"Fee"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MerchantDiscountRates"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://site.com.br/api/subordinados"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"AttachmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProofOfBankDomicile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprovante"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iVBORw0KGgoAAAANSUhEUgAAAH4AAAAsCAMAAACUu/xGAAAAq1BMVEUAAABlZVJlZVKsrJthYU+zs6Grq5ylpZazs6FlZVJfX01lZVJlZVKsrJurq5urq5xlZVKtrZ1lZVJlZVKvr52zs6GysqCoqJeqqpmzs6Grq5xlZVJgYE6zs6Gnp5mrq5yiopRjY1CRkX2rq5yzs6FlZVKRkX2goJKKineRkX2Pj3yrq5yIiHWRkX2RkX2RkX1lZVKRkX2rq5yzs6GoqJdfX02goJKHh3SHh3VrpzVsAAAAMHRSTlMAQIDHx3+Ax0Ag7qBgIA9AEFCPMLOgMO7bYKBQ24+zYNuzkY9wcAXu0oiocPFBMHYlVbK0AAAD3UlEQVRYw6SW7Y6qMBCGB0IkLfKdnB9ocFmjru7HERL03P+VnXY6bdmWjcF9f2inxjydvjMDcHy99zP693oEpTpQYjBR7W4VmzA81GoZCDn/ycrValVmYOJcKBWL1/4HnUEpupLGxOI47iQmDkfc4GEBEFyNQkClzYDKQQs3VmJBufu6G7zRWNMeUzEHUnLVWs/gy9vg4NNB4wUIPOG2h7e8NcV0HRt7QPDxfzTd4ptleB5F6ro3NtsIc7UnjMKKXyuN30ZS+PuLRMW7PN+l2vlhAZ6yqCZmcrm05stfOrwVpvEBaJWStIOpVk/gC8Rb62tjRj25Fx/fEsgqE27cluKB8GR9hDFzeX44CFbmJb9/Cn8w1ldA5tO9VD/gc8FpveTbxfi1LXWOl10Z80c0Yx7/jpyyjRtd9zuxU8ZL8FEYJjZFpg6yIfOpKsf1FJ+EUkzddKkabQ+o0zCcwMN/vZm+uLh4UmW7nptTCBVq5nUF4Y0CgBaNVip18jsPn370909cfX708/gusF3fkQfrKZHXHh45Wi8meRefvfVCfwGOZ9zx8TZ9TjWY2M6vVf4jm8e3WYrDJ1Vj4N3FHwVd6vKFCxefBMFmq7ub6UI7TMZw0SEv8ryPDVaoxPiWufhL/02zY0cm3ZH1VgxIIYa1U/nIibH/EZjjp4M/9w/x9FijbyuqdzOVH+BbWQJxHMupd4pjINhDPKVH1lslBl9g6OKb73j0wmoBHrMj691nsJ0QLn4l0/09nrIm6wv7nGdQqwjGucvPJSWjN4z8aXyBlkfK+i2gmDI/HENGjXA9uPhsUJ22p2OQFg3daaFx0/9qnWBRbOl9hHlvOw3OW/xs4Hf4rcnYzj+OeFOIHj4dtG7/2y+b3IhBGAqjUiQWQ9JI/ErDpop6gcei9z9ZIXHIhLaLSGRW8zYxIuaTZccxqsGfHDXvH4cf37Z4e3ihxVOTp5bf4E8N2u+3PWB2SP7tXsfsFl80rtOeZX/gvz6//7tmnFFzD2mkxnFgL710ToHH1eCcm/LU2aA9m027v+kBH8ipyHbACxAMWaV5I4v2ZgAzIxkUGXIqkn3xrhw4wVe8hoMmOwBmYJMiJy+lHPriNcSyrvgEgUS2h/vl1BcvSqgcZsPbbABrhgdgvhgvS6hIYsPP8MwTVR5SLZA4573xHMpCV7xGZBFmxyProfR64yNCgKh4hygjXIuvpdcbPyEayA2vsEpRHcgl6gtzr8A9ho0RlgQnBPoK4tV45gBfGQZ6KQBDqzRcjdeAqQwHUfYp+SohcQdc1/Ukm4Gw4dV6vqTkM+uQpRv8E2VPF/sPp9xSb2qlGH4AAAAASUVORK5CYII="</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">CorporateName</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Razão social</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FancyName</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantCategoryCode</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. <a href="https://www.web-payment-software.com/online-merchant-accounts/mcc-codes/" target="_blank">Lista de Merchant Category Codes</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Nome do contato responsável</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactPhone</code></td>
+      <td>String</td>
+      <td>11</td>
+      <td>Sim</td>
+      <td>Número do telefone do contato responsável (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MailAddress</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Endereço de e-mail</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Website</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Não</td>
+      <td>Endereço do website</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Bank</code></td>
+      <td>String</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Código de compensação do banco. <a href="https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf" target="_blank">Lista de Códigos de compensação</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.BankAccountType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Number</code></td>
+      <td>String</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>Número da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Operation</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Operação da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.VerifierDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito verificador da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyNumber</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número da agência</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito da agência. Caso a agência não tenha dígito, informar o numeral 0</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento da conta (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Rua do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>80</td>
+      <td>Não</td>
+      <td>Complemento do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Neighborhood</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Bairro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Cidade</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Sigla do estado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.Fee</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="highlighter-rouge">"Fee" : 100</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="highlighter-rouge">CreditCard</code> e <code class="highlighter-rouge">DebitCard</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="highlighter-rouge">Visa</code>, <code class="highlighter-rouge">Master</code>, <code class="highlighter-rouge">Amex</code>, <code class="highlighter-rouge">Elo</code>, <code class="highlighter-rouge">Diners</code>, <code class="highlighter-rouge">Discover</code> e <code class="highlighter-rouge">Hipercard</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].Percent</code></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Url</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Sim</td>
+      <td>Url de notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Key</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Value</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].AttachmentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.Name</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Nome do arquivo do documento em anexo do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.FileType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="highlighter-rouge">pdf</code>, <code class="highlighter-rouge">png</code>, <code class="highlighter-rouge">jpg</code> e <code class="highlighter-rouge">jpeg</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.Data</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Documento convertido para <strong>Base64</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Response</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665a33c5-0022-4a40-a0bd-daad04eb3236"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Analysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UnderAnalysis"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Operation"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VerifierDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+        </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 255"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"State"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345687"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Agreement"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"Fee"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MerchantDiscountRates"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"662e340f-07f2-4827-816d-b1878eb03eae"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eb9d6357-7ad1-4fe0-90fe-364cff7ff0fd"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d09fe9d3-98c7-4c37-9bd3-7c1c91ee15de"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e2515c24-fd73-4b8e-92ad-cfe2b95239de"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://site.com.br/api/subordinados"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"AttachmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProofOfBankDomicile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprovante"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MasterMerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do master do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CorporateName</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Razão social</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FancyName</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantCategoryCode</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. <a href="https://www.web-payment-software.com/online-merchant-accounts/mcc-codes/" target="_blank">Lista de Merchant Category Codes</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Nome do contato responsável</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactPhone</code></td>
+      <td>String</td>
+      <td>11</td>
+      <td>Sim</td>
+      <td>Número do telefone do contato responsável (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MailAddress</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Endereço de e-mail</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Website</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Não</td>
+      <td>Endereço do website</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Blocked</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.Status</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Status da análise do processo de KYC. Os Status válidos são <code class="highlighter-rouge">Approved</code>, <code class="highlighter-rouge">ApprovedWithRestriction</code> e <code class="highlighter-rouge">Rejected</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Bank</code></td>
+      <td>String</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Código de compensação do banco. <a href="https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf" target="_blank">Lista de Códigos de compensação</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.BankAccountType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Number</code></td>
+      <td>String</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>Número da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Operation</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Operação da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.VerifierDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito verificador da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyNumber</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número da agência</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito da agência. Caso a agência não tenha dígito, informar o numeral 0</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Rua do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>80</td>
+      <td>Não</td>
+      <td>Complemento do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Neighborhood</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Bairro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Cidade</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Sigla do estado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.Fee</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="highlighter-rouge">"Fee" : 100</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].MerchantDiscountRateId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="highlighter-rouge">CreditCard</code> e <code class="highlighter-rouge">DebitCard</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="highlighter-rouge">Visa</code>, <code class="highlighter-rouge">Master</code>, <code class="highlighter-rouge">Amex</code>, <code class="highlighter-rouge">Elo</code>, <code class="highlighter-rouge">Diners</code>, <code class="highlighter-rouge">Discover</code> e <code class="highlighter-rouge">Hipercard</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].Percent</code></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Url</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Sim</td>
+      <td>Url de notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Key</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Value</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].AttachmentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.Name</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Nome do arquivo do documento em anexo do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.FileType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="highlighter-rouge">pdf</code>, <code class="highlighter-rouge">png</code>, <code class="highlighter-rouge">jpg</code> e <code class="highlighter-rouge">jpeg</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="informando-a-porcentagem-do-mdr-único-aplicado-para-todos-os-acordos">Informando a porcentagem do MDR único aplicado para todos os acordos</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Operation"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VerifierDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+        </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 255"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"State"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345687"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Agreement"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"Fee"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MdrPercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.00</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://site.com.br/api/subordinados"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"AttachmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProofOfBankDomicile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprovante"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iVBORw0KGgoAAAANSUhEUgAAAH4AAAAsCAMAAACUu/xGAAAAq1BMVEUAAABlZVJlZVKsrJthYU+zs6Grq5ylpZazs6FlZVJfX01lZVJlZVKsrJurq5urq5xlZVKtrZ1lZVJlZVKvr52zs6GysqCoqJeqqpmzs6Grq5xlZVJgYE6zs6Gnp5mrq5yiopRjY1CRkX2rq5yzs6FlZVKRkX2goJKKineRkX2Pj3yrq5yIiHWRkX2RkX2RkX1lZVKRkX2rq5yzs6GoqJdfX02goJKHh3SHh3VrpzVsAAAAMHRSTlMAQIDHx3+Ax0Ag7qBgIA9AEFCPMLOgMO7bYKBQ24+zYNuzkY9wcAXu0oiocPFBMHYlVbK0AAAD3UlEQVRYw6SW7Y6qMBCGB0IkLfKdnB9ocFmjru7HERL03P+VnXY6bdmWjcF9f2inxjydvjMDcHy99zP693oEpTpQYjBR7W4VmzA81GoZCDn/ycrValVmYOJcKBWL1/4HnUEpupLGxOI47iQmDkfc4GEBEFyNQkClzYDKQQs3VmJBufu6G7zRWNMeUzEHUnLVWs/gy9vg4NNB4wUIPOG2h7e8NcV0HRt7QPDxfzTd4ptleB5F6ro3NtsIc7UnjMKKXyuN30ZS+PuLRMW7PN+l2vlhAZ6yqCZmcrm05stfOrwVpvEBaJWStIOpVk/gC8Rb62tjRj25Fx/fEsgqE27cluKB8GR9hDFzeX44CFbmJb9/Cn8w1ldA5tO9VD/gc8FpveTbxfi1LXWOl10Z80c0Yx7/jpyyjRtd9zuxU8ZL8FEYJjZFpg6yIfOpKsf1FJ+EUkzddKkabQ+o0zCcwMN/vZm+uLh4UmW7nptTCBVq5nUF4Y0CgBaNVip18jsPn370909cfX708/gusF3fkQfrKZHXHh45Wi8meRefvfVCfwGOZ9zx8TZ9TjWY2M6vVf4jm8e3WYrDJ1Vj4N3FHwVd6vKFCxefBMFmq7ub6UI7TMZw0SEv8ryPDVaoxPiWufhL/02zY0cm3ZH1VgxIIYa1U/nIibH/EZjjp4M/9w/x9FijbyuqdzOVH+BbWQJxHMupd4pjINhDPKVH1lslBl9g6OKb73j0wmoBHrMj691nsJ0QLn4l0/09nrIm6wv7nGdQqwjGucvPJSWjN4z8aXyBlkfK+i2gmDI/HENGjXA9uPhsUJ22p2OQFg3daaFx0/9qnWBRbOl9hHlvOw3OW/xs4Hf4rcnYzj+OeFOIHj4dtG7/2y+b3IhBGAqjUiQWQ9JI/ErDpop6gcei9z9ZIXHIhLaLSGRW8zYxIuaTZccxqsGfHDXvH4cf37Z4e3ihxVOTp5bf4E8N2u+3PWB2SP7tXsfsFl80rtOeZX/gvz6//7tmnFFzD2mkxnFgL710ToHH1eCcm/LU2aA9m027v+kBH8ipyHbACxAMWaV5I4v2ZgAzIxkUGXIqkn3xrhw4wVe8hoMmOwBmYJMiJy+lHPriNcSyrvgEgUS2h/vl1BcvSqgcZsPbbABrhgdgvhgvS6hIYsPP8MwTVR5SLZA4573xHMpCV7xGZBFmxyProfR64yNCgKh4hygjXIuvpdcbPyEayA2vsEpRHcgl6gtzr8A9ho0RlgQnBPoK4tV45gBfGQZ6KQBDqzRcjdeAqQwHUfYp+SohcQdc1/Ukm4Gw4dV6vqTkM+uQpRv8E2VPF/sPp9xSb2qlGH4AAAAASUVORK5CYII="</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">CorporateName</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Razão social</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FancyName</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantCategoryCode</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. <a href="https://www.web-payment-software.com/online-merchant-accounts/mcc-codes/" target="_blank">Lista de Merchant Category Codes</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Nome do contato responsável</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactPhone</code></td>
+      <td>String</td>
+      <td>11</td>
+      <td>Sim</td>
+      <td>Número do telefone do contato responsável (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MailAddress</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Endereço de e-mail</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Website</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Não</td>
+      <td>Endereço do website</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Bank</code></td>
+      <td>String</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Código de compensação do banco. <a href="https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf" target="_blank">Lista de Códigos de compensação</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.BankAccountType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Number</code></td>
+      <td>String</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>Número da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Operation</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Operação da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.VerifierDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito verificador da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyNumber</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número da agência</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito da agência. Caso a agência não tenha dígito, informar o numeral 0</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento da conta (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Rua do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>80</td>
+      <td>Não</td>
+      <td>Complemento do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Neighborhood</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Bairro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Cidade</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Sigla do estado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.Fee</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="highlighter-rouge">"Fee" : 100</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MdrPercentage</code></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Porcentagem da taxa de desconto única que será aplicada para todos os acordos entre Master e Subordinado. Valor com até duas casas decimais</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Url</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Sim</td>
+      <td>Url de notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Key</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Value</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].AttachmentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.Name</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Nome do arquivo do documento em anexo do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.FileType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="highlighter-rouge">pdf</code>, <code class="highlighter-rouge">png</code>, <code class="highlighter-rouge">jpg</code> e <code class="highlighter-rouge">jpeg</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.Data</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Documento convertido para <strong>Base64</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Response</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665a33c5-0022-4a40-a0bd-daad04eb3236"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Analysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UnderAnalysis"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Operation"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VerifierDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+        </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 255"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"State"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345687"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Agreement"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"Fee"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MerchantDiscountRates"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"662e340f-07f2-4827-816d-b1878eb03eae"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eb9d6357-7ad1-4fe0-90fe-364cff7ff0fd"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d09fe9d3-98c7-4c37-9bd3-7c1c91ee15de"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e2515c24-fd73-4b8e-92ad-cfe2b95239de"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://site.com.br/api/subordinados"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"AttachmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProofOfBankDomicile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprovante"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MasterMerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do master do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CorporateName</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Razão social</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FancyName</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantCategoryCode</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. <a href="https://www.web-payment-software.com/online-merchant-accounts/mcc-codes/" target="_blank">Lista de Merchant Category Codes</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Nome do contato responsável</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactPhone</code></td>
+      <td>String</td>
+      <td>11</td>
+      <td>Sim</td>
+      <td>Número do telefone do contato responsável (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MailAddress</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Endereço de e-mail</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Website</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Não</td>
+      <td>Endereço do website</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Blocked</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.Status</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Status da análise do processo de KYC. Os Status válidos são <code class="highlighter-rouge">Approved</code>, <code class="highlighter-rouge">ApprovedWithRestriction</code> e <code class="highlighter-rouge">Rejected</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Bank</code></td>
+      <td>String</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Código de compensação do banco. <a href="https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf" target="_blank">Lista de Códigos de compensação</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.BankAccountType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Number</code></td>
+      <td>String</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>Número da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Operation</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Operação da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.VerifierDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito verificador da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyNumber</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número da agência</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito da agência. Caso a agência não tenha dígito, informar o numeral 0</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Rua do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>80</td>
+      <td>Não</td>
+      <td>Complemento do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Neighborhood</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Bairro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Cidade</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Sigla do estado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.Fee</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="highlighter-rouge">"Fee" : 100</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].MerchantDiscountRateId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="highlighter-rouge">CreditCard</code> e <code class="highlighter-rouge">DebitCard</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="highlighter-rouge">Visa</code>, <code class="highlighter-rouge">Master</code>, <code class="highlighter-rouge">Amex</code>, <code class="highlighter-rouge">Elo</code>, <code class="highlighter-rouge">Diners</code>, <code class="highlighter-rouge">Discover</code> e <code class="highlighter-rouge">Hipercard</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].Percent</code></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Url</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Sim</td>
+      <td>Url de notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Key</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Value</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].AttachmentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.Name</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Nome do arquivo do documento em anexo do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.FileType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="highlighter-rouge">pdf</code>, <code class="highlighter-rouge">png</code>, <code class="highlighter-rouge">jpg</code> e <code class="highlighter-rouge">jpeg</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="consulta-de-subordinados">Consulta de Subordinados</h2>
+
+<p>A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.</p>
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/subordinates/{subordinate-merchant-id}</span></aside>
+
+<p><strong>Response</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665a33c5-0022-4a40-a0bd-daad04eb3236"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Analysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DenialReason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Operation"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VerifierDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+        </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 255"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"State"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345687"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Agreement"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"Fee"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MerchantDiscountRates"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"662e340f-07f2-4827-816d-b1878eb03eae"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eb9d6357-7ad1-4fe0-90fe-364cff7ff0fd"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d09fe9d3-98c7-4c37-9bd3-7c1c91ee15de"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MerchantDiscountRateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e2515c24-fd73-4b8e-92ad-cfe2b95239de"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"InitialInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FinalInstallmentNumber"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://site.com.br/api/subordinados"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"AttachmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProofOfBankDomicile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprovante"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MasterMerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do master do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CorporateName</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Razão social</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FancyName</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantCategoryCode</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. <a href="https://www.web-payment-software.com/online-merchant-accounts/mcc-codes/" target="_blank">Lista de Merchant Category Codes</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Nome do contato responsável</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ContactPhone</code></td>
+      <td>String</td>
+      <td>11</td>
+      <td>Sim</td>
+      <td>Número do telefone do contato responsável (Apenas números)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MailAddress</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Endereço de e-mail</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Website</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Não</td>
+      <td>Endereço do website</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Blocked</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.Status</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Status da análise do processo de KYC. Os Status válidos são <code class="highlighter-rouge">Approved</code>, <code class="highlighter-rouge">ApprovedWithRestriction</code> e <code class="highlighter-rouge">Rejected</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.Score</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Score da análise do processo de KYC. Range de 1 a 100</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.DenialReason</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Motivo de reprovação do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Bank</code></td>
+      <td>String</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Código de compensação do banco. <a href="https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf" target="_blank">Lista de Códigos de compensação</a></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.BankAccountType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <code class="highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Number</code></td>
+      <td>String</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>Número da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.Operation</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Operação da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.VerifierDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito verificador da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyNumber</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número da agência</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.AgencyDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito da agência. Caso a agência não tenha dígito, informar o numeral 0</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento da conta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BankAccount.DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são <code class="highlighter-rouge">Cpf</code>, <code class="highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Rua do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>80</td>
+      <td>Não</td>
+      <td>Complemento do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Neighborhood</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Bairro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Cidade</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Sigla do estado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.Fee</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="highlighter-rouge">"Fee" : 100</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].MerchantDiscountRateId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="highlighter-rouge">CreditCard</code> e <code class="highlighter-rouge">DebitCard</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="highlighter-rouge">Visa</code>, <code class="highlighter-rouge">Master</code>, <code class="highlighter-rouge">Amex</code>, <code class="highlighter-rouge">Elo</code>, <code class="highlighter-rouge">Diners</code>, <code class="highlighter-rouge">Discover</code> e <code class="highlighter-rouge">Hipercard</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Agreement.MerchantDiscountRates[].Percent</code></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Url</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Sim</td>
+      <td>Url de notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Key</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification.Headers[].Value</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].AttachmentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.Name</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Nome do arquivo do documento em anexo do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Attachments[].File.FileType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="highlighter-rouge">pdf</code>, <code class="highlighter-rouge">png</code>, <code class="highlighter-rouge">jpg</code> e <code class="highlighter-rouge">jpeg</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="notificação">Notificação</h2>
+
+<p>Ao final do processo de KYC, o Master receberá a notificação com o resultado da análise. Será feito uma requisição com os cabeçalhos na URL de notificação informados na criação do subordinado.</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{url-notificacao-master}</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Score"</span><span class="p">,</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DenialReason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.Status</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Status da análise do processo de KYC. Os Status válidos são <code class="highlighter-rouge">Approved</code>, <code class="highlighter-rouge">ApprovedWithRestriction</code> e <code class="highlighter-rouge">Rejected</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.Score</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Score da análise do processo de KYC. Range de 1 a 100</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Analysis.DenialReason</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Motivo de reprovação do subordinado</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="http://www.braspag.com.br/fale-conosco/">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//assets/js/search.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:715256,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
