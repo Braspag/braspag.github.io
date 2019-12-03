@@ -1,24 +1,23 @@
 ---
 layout: manual
-title: Split de Pagamentos - LIO (Piloto)
+title: Manual Split de Pagamentos em terminais Cielo LIO
 description: Manual integração do Split de Pagamentos em terminais LIO
 search: true
 toc_footers: false
 categories: manual
-sort_order: 3
+sort_order: 6
 hub_visible: false
 tags:
+  - Soluções para Marketplace
 ---
 
-# Split de Pagamentos - LIO
+# Split de Pagamentos - Cielo LIO
 
 ## Introdução
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
 Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}.
-
-> Esta documentação é confidencial. Não divulgue-a sem prévia autorização.
 
 ## Configuração
 
@@ -42,7 +41,7 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -174,7 +173,7 @@ Caso tente-se criar a transação no Split de Pagamentos após a plataforma já 
 
 Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -254,11 +253,11 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subor
 
 ### Consulta
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/transactions/{Id}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/{Id}</span></aside>
 
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/transactions/e718dc1e-fe8e-497e-9019-6aa48dee6306</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/e718dc1e-fe8e-497e-9019-6aa48dee6306</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
