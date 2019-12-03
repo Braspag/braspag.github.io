@@ -2007,16 +2007,16 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
 
->  No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
+> No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
 
 ### Fluxo transacional
 
 A integração com o antifraude se dá através do próprio fluxo transacional, na mesma requisição da transação.
 
-- Cliente realiza uma transação.
-- A anállise de fraude é realizada.
-- Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
-- A transação é executada normalmente.
+-Cliente realiza uma transação.
+-A anállise de fraude é realizada.
+-Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
+-A transação é executada normalmente.
 
 Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.FraudAnalysis`. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos `Customer.DeliveryAddress` e/ou `Customer.BillingAddress`.
 
