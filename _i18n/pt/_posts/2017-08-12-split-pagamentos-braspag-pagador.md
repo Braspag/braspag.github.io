@@ -13,7 +13,7 @@ tags:
 
 # Split de Pagamentos
 
-**[Solicite sua credencial para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 4003-3058]**
+> [Solicite suas credenciais para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 4003-3058]
 
 ## Introdução
 
