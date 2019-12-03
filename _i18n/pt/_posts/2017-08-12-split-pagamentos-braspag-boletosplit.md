@@ -54,7 +54,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
     "Payment":
     {  
      "Provider":"Braspag",
-	 "Bank": "BancoDoBrasil",
+     "Bank": "BancoDoBrasil",
      "Type":"Boleto",
      "Amount":10000,
      "BoletoNumber":"2017091101",
