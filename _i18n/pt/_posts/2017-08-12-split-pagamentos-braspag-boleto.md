@@ -11,9 +11,7 @@ tags:
   - Soluções para Marketplace
 ---
 
-# Boleto Braspag 
-
-## Boleto Registrado 
+## Boleto Registrado
 
 Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança.
 
@@ -28,7 +26,6 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {
     "MerchantOrderId":"2017091101",
     "Customer":
@@ -163,7 +160,6 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
         ]
     }
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
