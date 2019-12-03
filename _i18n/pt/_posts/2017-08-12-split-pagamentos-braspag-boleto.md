@@ -5,7 +5,7 @@ description: Manual integração do Boleto Braspag
 search: true
 toc_footers: false
 categories: manual
-sort_order: 7
+sort_order: 8
 hub_visible: false
 tags:
   - Soluções para Marketplace
@@ -66,54 +66,6 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
      "InterestAmount": 500
     }
 }
-
-```
-```shell
-curl
---request POST "https://apisandbox.braspag.com.br/v2/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---data-binary
-{  
-    "MerchantOrderId":"2017091101",
-    "Customer":
-    {  
-        "Name":"Nome do Comprador",
-        "Identity":"12345678909",
-        "IdentityType":"CPF",
-        "Address":{  
-            "Street":"Alameda Xingu",
-            "Number":"512",
-            "Complement":"27 andar",
-            "ZipCode":"12345987",
-            "City":"Sao Paulo",
-            "State":"SP",
-            "Country":"BRA",
-            "District":"Alphaville"
-        }
-    },
-    "Payment":
-    {  
-     "Provider":"Braspag",
-"Bank": "BancoDoBrasil",
-     "Type":"Boleto",
-     "Amount":10000,
-     "BoletoNumber":"2017091101",
-     "Assignor": "Empresa Teste",
-     "Demonstrative": "Desmonstrative Teste",
-     "ExpirationDate": "2017-12-31",
-     "Identification": "12346578909",
-     "Instructions": "Aceitar somente até a data de vencimento.",
-     "DaysToFine": 1,
-     "FineRate": 10.00000,
-     "FineAmount": 1000,
-     "DaysToInterest": 1,
-     "InterestRate": 5.00000,
-     "InterestAmount": 500
-    }
-}
---verbose
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -212,68 +164,6 @@ curl
 }
 
 ```
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2017091101",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "Sao Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2017-12-31",
-        "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/d605c399-96b2-4bb9-ae75-33824ec01be9",
-        "BoletoNumber": "0000000155",
-        "BarCodeNumber": "",
-        "DigitableLine": "",
-        "Assignor": "Empresa Teste",
-        "Address": "ESTRADA TENENTE MARQUES, 1818, SALA 6 B",
-        "Identification": "12346578909",
-        "IsRecurring": false,
-        "InterestAmount": 500,
-        "InterestRate": 5.0,
-        "FineRate": 10.0,
-        "FineAmount": 1000,
-        "DaysToFine": 1,
-        "DaysToInterest": 1,
-        "Bank": "BancoDoBrasil",
-        "PaymentId": "d605c399-96b2-4bb9-ae75-33824ec01be9",
-        "Type": "Boleto",
-        "Amount": 10000,
-        "ReceivedDate": "2019-12-03 12:05:37",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Braspag",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "Transação criada com sucesso",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/d605c399-96b2-4bb9-ae75-33824ec01be9"
-            }
-        ]
-    }
-}
-``` 
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
@@ -284,4 +174,4 @@ curl
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
+|`Status`|Status da Transação. |Byte | 2 | E
