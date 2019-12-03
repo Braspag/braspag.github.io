@@ -28,10 +28,11 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-{  
+
+{
     "MerchantOrderId":"2017091101",
     "Customer":
-    {  
+    {
         "Name":"Nome do Comprador",
         "Identity":"12345678909",
         "IdentityType":"CPF",
@@ -47,7 +48,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
         }
     },
     "Payment":
-    {  
+    {
      "Provider":"Braspag",
 "Bank": "BancoDoBrasil",
      "Type":"Boleto",
