@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual Split de Pagamentos em terminais Cielo LIO
+title: Manual Split de Pagamentos em terminais LIO
 description: Manual integração do Split de Pagamentos em terminais LIO
 search: true
 toc_footers: false
