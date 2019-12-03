@@ -1,11 +1,11 @@
 ---
 layout: manual
-title: Split de Pagamentos - Cielo E-Commerce
+title: Split de Pagamentos - Pagador
 description: Manual integração do Split de Pagamentos
 search: true
 toc_footers: false
 categories: manual
-sort_order: 3
+sort_order: 4
 hub_visible: false
 tags:
   - Soluções para Marketplace
@@ -110,56 +110,19 @@ As bandeiras suportadas pelo Split são:
 
 ## Ambientes
 
-O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.
+É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial.
+
+> Embora não seja necessário integrar-se com a API 3.0 da Cielo, é mandatório uma afiliação à Cielo para transacionar com o Split através do Pagador.
 
 ### Sandbox
 
-* **API Cielo E-Commerce**: https://apisandbox.cieloecommerce.cielo.com.br/
-* **API Cielo E-Commerce (Consultas)**: https://apiquerysandbox.cieloecommerce.cielo.com.br/
 * **API Split**: https://splitsandbox.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
 
 ### Produção
 
-* **API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/
-* **API Cielo E-Commerce (Consultas)**: https://apiquery.cieloecommerce.cielo.com.br/
 * **API Split**: https://split.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
-
-## Autenticação
-
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado a API Cielo e-Commerce e a API do Split.
-
-Para obter um token de acesso:
-
-1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
-2. Codifique o resultado da concatenação em Base64.  
-3. Realize uma requisição ao servidor de autorização:  
-
-**Request**  
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
-
-``` shell
-x-www-form-urlencoded
---header "Authorization: Basic {base64}"  
---header "Content-Type: application/x-www-form-urlencoded"  
-grant_type=client_credentials
-```
-
-**Response**
-
-```json
-{
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs",
-    "token_type": "bearer",
-    "expires_in": 1199
-}
-```
-
-> O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
-
-O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
 
 ## QuickStart
 
@@ -211,9 +174,11 @@ Aqui é possível especificar se uma transação será efetuada como crédito ou
 ```json
 {
     "Payment":{
-        "Type":"SplittedCreditCard",
+        "Provider": "Simulado",
+        "Type":"CreditCard",
         "Amount":10000,
         "Capture": true,
+        "DoSplit": true,
         "Installments":1,
         "SoftDescriptor":"LojaDoJoao",
         "CreditCard":{
@@ -231,9 +196,11 @@ Aqui é possível especificar se uma transação será efetuada como crédito ou
 |Campos|Tipo|Tamanho|Obrigatório|Descrição|
 |-----|----|-------|-----------|---------|
 |`Payment`|-|-|Sim|Campos refente ao pagamento e antifraude|
-|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: `SplittedCreditCard` ou `SplittedDebitCard`|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: `CreditCard` ou `DebitCard`|
 |`Payment.Amount`|Inteiro|15|Sim|Valor do pedido em centavos. Ex.: R$ 1.559,85 = 155985|
 |`Payment.Capture`|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja `False` a transação será apenas autorizada. Se for `True`, a captura será realizada automaticamente após a autorização.|
+|`Payment.DoSplit`|Booleano|-|Não (Default false)|Booleano que indica se a transação será dividida entre várias contas (true) ou não (false)|
 |`Payment.Installments`|Inteiro|2|Sim|Número de parcelas do pedido|
 |`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador|
 |`Payment.CreditCard`|-|-|Sim|Nó contendo as informações do cartão|
@@ -270,25 +237,24 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
---header "Authorization: Bearer {access_token}"
---header "Content-Type: application/json"
 
 --body
 {
     "MerchantOrderId":"201904150001",
     "Customer":{
-        "Name": "João da Silva",
+        "Name": "João da Silva Accept",
         "Identity":"12345678900",
         "IdentityType":"CPF"
     },
     "Payment":{
-        "Type":"SplittedCreditCard",
+        "Provider": "Simulado",
+        "Type":"CreditCard",
+        "DoSplit": true,
         "Amount":10000,
-        "Capture":True,
+        "Capture": true,
         "Installments":1,
         "SoftDescriptor":"LojaDoJoao",
         "CreditCard":{
@@ -336,7 +302,7 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
     "Payment": {
         "ServiceTaxAmount": 0,
         "Installments": 1,
-        "Interest": 0,
+        "Interest": "ByMerchant",
         "Capture": true,
         "Authenticate": false,
         "Recurrent": false,
@@ -347,33 +313,32 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
             "SaveCard": false,
             "Brand": "Visa"
         },
-        "Tid": "0415043705142",
-        "ProofOfSale": "20190415043705142",
-        "AuthorizationCode": "910636",
+        "ProofOfSale": "20190829030409594",
+        "AcquirerTransactionId": "0829030409594",
+        "AuthorizationCode": "046879",
         "SoftDescriptor": "LojaDoJoao",
-        "Provider": "Simulado",
         "FraudAnalysis": {
-            "Id": "ebc340d8-b55f-e911-b49e-0003ff358dcf",
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "OnSuccess",
+            "Provider": "Cybersource",
+            "TotalOrderAmount": 10000,
+            "IsRetryTransaction": false,
+            "Id": "b7211f65-87ca-e911-a40a-0003ff21cf74",
             "Status": 1,
             "StatusDescription": "Accept",
+            "FraudAnalysisReasonCode": 100,
             "ReplyData": {
                 "FactorCode": "F^H",
-                "Score": 40,
+                "Score": 38,
                 "HostSeverity": 1,
                 "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-HIST",
                 "ScoreModelUsed": "default",
                 "VelocityInfoCode": "VEL-NAME",
                 "CasePriority": 3,
-                "ProviderTransactionId": "5553570245616166304007"
-            },
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "OnSuccess",
-            "TotalOrderAmount": 10000,
-            "TransactionAmount": 0,
-            "FraudAnalysisReasonCode": 100,
-            "Provider": "Cybersource",
-            "IsRetryTransaction": false
+                "ProviderTransactionId": "5671018489636116404007"
+            }
         },
+        "DoSplit": true,
         "SplitPayments": [
             {
                 "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
@@ -394,34 +359,30 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
                 ]
             }
         ],
-        "IsQrCode": false,
+        "PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
+        "Type": "CreditCard",
         "Amount": 10000,
-        "ReceivedDate": "2019-04-15 16:37:01",
+        "ReceivedDate": "2019-08-29 15:04:02",
         "CapturedAmount": 10000,
-        "CapturedDate": "2019-04-15 16:37:05",
-        "Status": 2,
-        "IsSplitted": true,
-        "ReturnMessage": "Operation Successful",
-        "ReturnCode": "6",
-        "PaymentId": "c8e05b4e-10ce-4f3f-ab64-6a9e8cc06b9a",
-        "Type": "SplittedCreditCard",
+        "CapturedDate": "2019-08-29 15:04:09",
         "Currency": "BRL",
         "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
         "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/c8e05b4e-10ce-4f3f-ab64-6a9e8cc06b9a/split"
-            },
             {
                 "Method": "GET",
                 "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/c8e05b4e-10ce-4f3f-ab64-6a9e8cc06b9a"
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935"
             },
             {
                 "Method": "PUT",
                 "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/c8e05b4e-10ce-4f3f-ab64-6a9e8cc06b9a/void"
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935/void"
             }
         ]
     }
@@ -436,69 +397,99 @@ Nos próximos exemplos explicaremos como aumentar a segurança e manipular os ca
 
 ### Autorização  
 
-A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.
-
-Exemplo:
+Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro Payment.DoSplit como true e adicionar o nó Payment.SplitPayments, conforme exemplo:
 
 **Request - Transação de Crédito**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
---header "Authorization: Bearer {access_token}"
-{  
-   "merchantorderid":"23082019",
-   "customer": {
+{
+    "merchantorderid": "23082019",
+    "customer": {
         "Name": "Comprador Accept",
         "email": "comprador@teste.com.br",
-        "Identity": "12750233713",
+        "Identity": "18160361106",
         "identitytype": "CPF",
-        "Mobile": "5521996660078"
+        "Mobile": "5521995760078"
     },
-    "payment": {
-        "type": "splittedcreditcard",
-        "amount": 10000,
-        "capture": true,
-        "installments": 1,
-        "softdescriptor": "teste",
-        "CreditCard": {
-            "cardNumber": "4481530710186111",
-            "holder": "Oswaldo Soares",
-            "ExpirationDate": "12/2019",
-            "SecurityCode": "693",
-            "Brand": "Visa",
-            "SaveCard": "false"
-        },
-        "fraudanalysis": {
-            "provider": "cybersource", 
-            "Shipping": {
-                "Addressee": "Comprador Accept"
+        "payment": {
+            "Provider": "Simulado",
+            "type": "Creditcard",
+            "DoSplit": "True",
+            "amount": 10000,
+            "capture": true,
+            "installments": 1,
+            "softdescriptor": "teste",
+            "CreditCard": {
+                "cardNumber": "4481530710186111",
+                "holder": "Yamilet Taylor",
+                "ExpirationDate": "12/2019",
+                "SecurityCode": "693",
+                "Brand": "Visa",
+                "SaveCard": "false"
             },
-            "browser": {
-                "ipaddress": "179.221.103.151",
-                "browserfingerprint": "22082019"
-            },
-            "totalorderamount": 10000,
-            "cart": {
-                "isgift": false,
-                "returnsaccepted": true,
-                "items": [
+            "fraudanalysis": {
+                "provider": "cybersource",
+                "Shipping": {
+                    "Addressee": "Teste Accept"
+                },
+                "FingerPrintId": "23082019",
+                "browser": {
+                    "ipaddress": "179.221.103.151"
+                },
+                "totalorderamount": 10000,
+                "cart": {
+                    "isgift": false,
+                    "returnsaccepted": true,
+                    "items": [
+                        {
+                            "name": "Produto teste",
+                            "quantity": 1,
+                            "sku": 563,
+                            "unitprice": 100
+                        }
+                    ]
+                },
+                "MerchantDefinedFields": [
                     {
-                        "name": "Produto teste",
-                        "quantity": 1,
-                        "sku": 563,
-                        "unitprice": 100.00
+                        "Id": 1,
+                        "Value": "Guest"
+                    },
+                    {
+                        "Id": 2,
+                        "Value": "146"
+                    },
+                    {
+                        "Id": 3,
+                        "Value": "1"
+                    },
+                    {
+                        "Id": 4,
+                        "Value": "Web"
                     }
                 ]
             },
-            "MerchantDefinedFields": [
+            "splitpayments": [
                 {
-                    "Id": 1,
-                    "Value": "Guest"
+                    "subordinatemerchantid": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                    "amount": 5000,
+                    "fares": {
+                        "mdr": 20,
+                        "fee": 25
+                    }
+                },
+                {
+                    "subordinatemerchantid": "9140ca78-3955-44a5-bd44-793370afef94",
+                    "amount": 5000,
+                    "fares": {
+                        "mdr": 10,
+                        "fee": 15
+                    }
                 }
             ]
         }
-   }
+    }
 }
 ```
 
@@ -509,37 +500,93 @@ Exemplo:
     "MerchantOrderId": "23082019",
     "Customer": {
         "Name": "Comprador Accept",
-        "Identity": "12750233713",
+        "Identity": "18160361106",
         "IdentityType": "CPF",
         "Email": "comprador@teste.com.br",
-        "Mobile": "5521996660078"
+        "Mobile": "5521995760078"
     },
     "Payment": {
         "ServiceTaxAmount": 0,
         "Installments": 1,
-        "Interest": 0,
+        "Interest": "ByMerchant",
         "Capture": true,
         "Authenticate": false,
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "448153******6111",
-            "Holder": "Oswaldo Soares",
+            "Holder": "Yamilet Taylor",
             "ExpirationDate": "12/2019",
             "SaveCard": false,
             "Brand": "Visa"
         },
-        "Tid": "0823032122562",
-        "ProofOfSale": "20190823032122562",
-        "AuthorizationCode": "329269",
+        "ProofOfSale": "20190829042727956",
+        "AcquirerTransactionId": "0829042727956",
+        "AuthorizationCode": "164843",
         "SoftDescriptor": "teste",
-        "Provider": "Simulado",
         "FraudAnalysis": {
-            "Id": "f74824ce-d2c5-e911-a40a-0003ff21cf74",
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "OnSuccess",
+            "FingerPrintId": "23082019",
+            "Provider": "Cybersource",
+            "TotalOrderAmount": 10000,
+            "IsRetryTransaction": false,
+            "MerchantDefinedFields": [
+                {
+                    "Id": "1",
+                    "Value": "Guest"
+                },
+                {
+                    "Id": "2",
+                    "Value": "146"
+                },
+                {
+                    "Id": "3",
+                    "Value": "1"
+                },
+                {
+                    "Id": "4",
+                    "Value": "Web"
+                }
+            ],
+            "Cart": {
+                "IsGift": false,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Type": "Undefined",
+                        "Name": "Produto teste",
+                        "Risk": "Undefined",
+                        "Sku": "563",
+                        "UnitPrice": 100,
+                        "Quantity": 1,
+                        "HostHedge": "Undefined",
+                        "NonSensicalHedge": "Undefined",
+                        "ObscenitiesHedge": "Undefined",
+                        "PhoneHedge": "Undefined",
+                        "TimeHedge": "Undefined",
+                        "VelocityHedge": "Undefined",
+                        "GiftCategory": "Undefined",
+                        "OriginalPrice": 0,
+                        "Weight": 0,
+                        "CartType": 0
+                    }
+                ]
+            },
+            "Browser": {
+                "CookiesAccepted": false,
+                "IpAddress": "179.221.103.151"
+            },
+            "Shipping": {
+                "Addressee": "Teste Accept",
+                "Method": "Undefined"
+            },
+            "Id": "8ec21c08-93ca-e911-a40a-0003ff21cf74",
             "Status": 1,
             "StatusDescription": "Accept",
+            "FraudAnalysisReasonCode": 100,
             "ReplyData": {
                 "FactorCode": "F^H^P",
-                "Score": 44,
+                "Score": 43,
                 "HostSeverity": 1,
                 "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-HIST",
                 "InternetInfoCode": "INTL-IPCO^RISK-EM",
@@ -548,7 +595,7 @@ Exemplo:
                 "IpRoutingMethod": "fixed",
                 "IpState": "goias",
                 "ScoreModelUsed": "default",
-                "VelocityInfoCode": "VEL-NAME^VELI-TIP^VELL-TIP",
+                "VelocityInfoCode": "VEL-NAME^VELL-FP^VELL-TIP^VELS-CC^VELS-EM",
                 "CasePriority": 3,
                 "FingerPrint": {
                     "CookiesEnabledField": "true",
@@ -561,844 +608,13 @@ Exemplo:
                     "TrueIpAddressCountryField": "BR",
                     "SmartIdField": "d04c4463c5e84fb5ba1993a0482a6c24",
                     "SmartIdConfidenceLevelField": "100.00",
-                    "ScreenResolutionField": "1366x768",
+                    "ScreenResolutionField": "1920x1080",
                     "BrowserLanguageField": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
                 },
-                "ProviderTransactionId": "5665844815656968804011"
-            },
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "OnSuccess",
-            "TotalOrderAmount": 10000,
-            "TransactionAmount": 0,
-            "MerchantDefinedFields": [
-                {
-                    "Id": "1",
-                    "Value": "Guest"
-                }
-            ],
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [
-                    {
-                        "Type": 0,
-                        "Name": "Produto teste",
-                        "Risk": 0,
-                        "Sku": "563",
-                        "OriginalPrice": 0,
-                        "UnitPrice": 100,
-                        "Quantity": 1,
-                        "HostHedge": 0,
-                        "NonSensicalHedge": 0,
-                        "ObscenitiesHedge": 0,
-                        "PhoneHedge": 0,
-                        "TimeHedge": 0,
-                        "VelocityHedge": 0,
-                        "GiftCategory": 0,
-                        "Weight": 0,
-                        "CartType": 0
-                    }
-                ]
-            },
-            "Browser": {
-                "CookiesAccepted": false,
-                "IpAddress": "179.221.103.151",
-                "BrowserFingerPrint": "23082019"
-            },
-            "Shipping": {
-                "Addressee": "Comprador Accept",
-                "Method": 0
-            },
-            "FraudAnalysisReasonCode": 100,
-            "Provider": "Cybersource",
-            "IsRetryTransaction": false
-        },
-        "SplitPayments": [
-            {
-                "SubordinateMerchantId": "247d032d-f917-4a52-8e7a-d850945f065e",
-                "Amount": 10000,
-                "Fares": {
-                    "Mdr": 2.50,
-                    "Fee": 0
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "247d032d-f917-4a52-8e7a-d850945f065e",
-                        "Amount": 10000
-                    }
-                ]
+                "ProviderTransactionId": "5671068469196615904011"
             }
-        ],
-        "IsQrCode": false,
-        "Amount": 10000,
-        "ReceivedDate": "2019-08-23 15:21:12",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2019-08-23 15:21:22",
-        "Status": 2,
-        "IsSplitted": true,
-        "ReturnMessage": "Operation Successful",
-        "ReturnCode": "6",
-        "PaymentId": "ffba7a99-94cb-4397-be83-d125c2933ed5",
-        "Type": "SplittedCreditCard",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/ffba7a99-94cb-4397-be83-d125c2933ed5/split"
-            },
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ffba7a99-94cb-4397-be83-d125c2933ed5"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ffba7a99-94cb-4397-be83-d125c2933ed5/void"
-            }
-        ]
-    }
-}
-```
-
-Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
-
-Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|-----------|----|-------|-----------|---------|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
-|`Customer.Email`|Texto|255|Não|Email do comprador|
-|`Customer.Name`|Texto|255|Sim|Nome do comprador|
-|`Customer.Identity`|Texto |14 |Não|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Mobile`|Texto|14|Não*|Celular do comprador|
-|`Customer.Phone`|Texto|14|Não*|Telefone do comprador|
-|`Customer.DeliveryAddress.Street`|Texto|255|Não*|Endereço do comprador|
-|`Customer.DeliveryAddress.Number`|Texto|15|Não*|Número do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Complement`|Texto|50|Não*|Complemento do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não*|CEP do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.City`|Texto|50|Não*|Cidade do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.State`|Texto|2|Não*|Estado do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Country`|Texto|35|Não*|Pais do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.District`|Texto |50|Não*|Bairro do Comprador. |
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador|
-|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
-|`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
-|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
-|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
-
-**Exemplo 1)**  
-
-Transação no valor de **R$100,00**, com captura automática, sem o nó contendo as regras de divisão.
-
-**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.
-
-**Request**
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
-
-```json
---header "Authorization: Bearer {access_token}"
-{  
-   "merchantorderid":"22082019v1",
-   "customer": {
-        "Name": "Comprador Accept",
-        "email": "comprador@teste.com.br",
-        "Identity": "12750233713",
-        "identitytype": "CPF",
-        "Mobile": "5521996660078",
-        "Phone": "552125553669",
-        "DeliveryAddress": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        }
-    },
-    "payment": {
-        "type": "splittedcreditcard",
-        "amount": 10000,
-        "capture": true,
-        "installments": 1,
-        "softdescriptor": "teste",
-        "CreditCard": {
-            "cardNumber": "4481530710186111",
-            "holder": "Oswaldo Soares",
-            "ExpirationDate": "12/2019",
-            "SecurityCode": "693",
-            "Brand": "Visa",
-            "SaveCard": "false"
         },
-        "fraudanalysis": {
-            "provider": "cybersource", 
-            "Shipping": {
-                "Addressee": "Comprador Accept"
-            },
-            "browser": {
-                "ipaddress": "179.221.103.151",
-                "browserfingerprint": "22082019v1"
-            },
-            "totalorderamount": 10000,
-            "cart": {
-                "isgift": false,
-                "returnsaccepted": true,
-                "items": [
-                    {
-                        "name": "Produto teste",
-                        "quantity": 1,
-                        "sku": 563,
-                        "unitprice": 100.00
-                    }
-                ]
-            },
-            "MerchantDefinedFields": [
-                {
-                    "Id": 1,
-                    "Value": "Guest"
-                },
-                {
-                    "Id": 2,
-                    "Value": "146"
-                },
-                {
-                    "Id": 3,
-                    "Value": "1"
-                },
-                {
-                    "Id": 4,
-                    "Value": "Web"
-                }
-            ]
-        }
-   }
-}
-```
-
-**Response**
-
-```json
-{
-    "MerchantOrderId": "22082019v3",
-    "Customer": {
-        "Name": "Comprador Accept",
-        "Identity": "12750233713",
-        "IdentityType": "CPF",
-        "Email": "comprador@teste.com.br",
-        "DeliveryAddress": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        },
-        "Phone": "552125553669",
-        "Mobile": "5521996660078"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": 0,
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "448153******6111",
-            "Holder": "Oswaldo Soares",
-            "ExpirationDate": "12/2019",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "Tid": "0823032853370",
-        "ProofOfSale": "20190823032853370",
-        "AuthorizationCode": "023609",
-        "SoftDescriptor": "teste",
-        "Provider": "Simulado",
-        "FraudAnalysis": {
-            "Id": "eddf8cda-d3c5-e911-a40a-0003ff21cf74",
-            "Status": 1,
-            "StatusDescription": "Accept",
-            "ReplyData": {
-                "AddressInfoCode": "COR-SA",
-                "FactorCode": "F^H",
-                "Score": 92,
-                "HostSeverity": 1,
-                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-HIST^NEG-SA",
-                "IpCity": "goiania",
-                "IpCountry": "br",
-                "IpRoutingMethod": "fixed",
-                "IpState": "goias",
-                "ScoreModelUsed": "default_lac",
-                "VelocityInfoCode": "VEL-NAME^VELI-TIP^VELL-TIP^VELS-CC^VELS-EM",
-                "CasePriority": 3,
-                "FingerPrint": {
-                    "CookiesEnabledField": "true",
-                    "FlashEnabledField": "false",
-                    "HashField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "ImagesEnabledField": "true",
-                    "JavascriptEnabledField": "true",
-                    "TrueIpAddressField": "200.142.125.158",
-                    "TrueIpAddressCityField": "rio de janeiro",
-                    "TrueIpAddressCountryField": "BR",
-                    "SmartIdField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "SmartIdConfidenceLevelField": "100.00",
-                    "ScreenResolutionField": "1366x768",
-                    "BrowserLanguageField": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
-                },
-                "ProviderTransactionId": "5665849323716897904012"
-            },
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "OnSuccess",
-            "TotalOrderAmount": 10000,
-            "TransactionAmount": 0,
-            "MerchantDefinedFields": [
-                {
-                    "Id": "1",
-                    "Value": "Guest"
-                },
-                {
-                    "Id": "2",
-                    "Value": "146"
-                },
-                {
-                    "Id": "3",
-                    "Value": "1"
-                },
-                {
-                    "Id": "4",
-                    "Value": "Web"
-                }
-            ],
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [
-                    {
-                        "Type": 0,
-                        "Name": "Produto teste",
-                        "Risk": 0,
-                        "Sku": "563",
-                        "OriginalPrice": 0,
-                        "UnitPrice": 100,
-                        "Quantity": 1,
-                        "HostHedge": 0,
-                        "NonSensicalHedge": 0,
-                        "ObscenitiesHedge": 0,
-                        "PhoneHedge": 0,
-                        "TimeHedge": 0,
-                        "VelocityHedge": 0,
-                        "GiftCategory": 0,
-                        "Weight": 0,
-                        "CartType": 0
-                    }
-                ]
-            },
-            "Browser": {
-                "CookiesAccepted": false,
-                "IpAddress": "179.221.103.151",
-                "BrowserFingerPrint": "22082019v3"
-            },
-            "Shipping": {
-                "Addressee": "Comprador Accept",
-                "Method": 0
-            },
-            "FraudAnalysisReasonCode": 100,
-            "Provider": "Cybersource",
-            "IsRetryTransaction": false
-        },
-        "SplitPayments": [
-            {
-                "SubordinateMerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-                "Amount": 10000,
-                "Fares": {
-                    "Mdr": 2.00,
-                    "Fee": 10
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-                        "Amount": 10000
-                    }
-                ]
-            }
-        ],
-        "IsQrCode": false,
-        "Amount": 10000,
-        "ReceivedDate": "2019-08-23 15:28:44",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2019-08-23 15:28:53",
-        "Status": 2,
-        "IsSplitted": true,
-        "ReturnMessage": "Operation Successful",
-        "ReturnCode": "6",
-        "PaymentId": "6b355eb8-d3bd-428d-ba4a-506f299a425f",
-        "Type": "SplittedCreditCard",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/6b355eb8-d3bd-428d-ba4a-506f299a425f/split"
-            },
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/6b355eb8-d3bd-428d-ba4a-506f299a425f"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/6b355eb8-d3bd-428d-ba4a-506f299a425f/void"
-            }
-        ]
-    }
-}
-```
-
-Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
-
-![SplitSample002](https://developercielo.github.io/images/split/split002.png)
-
-**Exemplo 2)**  
-
-Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
-
-**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
-
-**Request**
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
-
-```json
---header "Authorization: Bearer {access_token}"
-{  
-   "merchantorderid":"22082019v4",
-   "customer": {
-        "Name": "Comprador Accept",
-        "email": "comprador@teste.com.br",
-        "Identity": "12750233713",
-        "identitytype": "CPF",
-        "Mobile": "5521996660078",
-        "Phone": "552125553669",
-        "DeliveryAddress": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        }
-    },
-    "payment": {
-        "type": "splittedcreditcard",
-        "amount": 10000,
-        "capture": true,
-        "installments": 1,
-        "softdescriptor": "teste",
-        "CreditCard": {
-            "cardNumber": "4481530710186111",
-            "holder": "Oswaldo Soares",
-            "ExpirationDate": "12/2019",
-            "SecurityCode": "693",
-            "Brand": "Visa",
-            "SaveCard": "false"
-        },
-        "fraudanalysis": {
-            "provider": "cybersource", 
-            "Shipping": {
-                "Addressee": "Comprador Accept"
-            },
-            "browser": {
-                "ipaddress": "179.221.103.151",
-                "browserfingerprint": "22082019v4"
-            },
-            "totalorderamount": 10000,
-            "cart": {
-                "isgift": false,
-                "returnsaccepted": true,
-                "items": [
-                    {
-                        "name": "Produto teste",
-                        "quantity": 1,
-                        "sku": 563,
-                        "unitprice": 100.00
-                    }
-                ]
-            },
-            "MerchantDefinedFields": [
-                {
-                    "Id": 1,
-                    "Value": "Guest"
-                },
-                {
-                    "Id": 2,
-                    "Value": "146"
-                },
-                {
-                    "Id": 3,
-                    "Value": "1"
-                },
-                {
-                    "Id": 4,
-                    "Value": "Web"
-                }
-            ]
-        },
-      "splitpayments":[  
-         {  
-            "subordinatemerchantid":"f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-            "amount":5000,
-            "fares":{  
-               "mdr":5,
-               "fee":30
-            }
-         },
-         {  
-            "subordinatemerchantid":"9140ca78-3955-44a5-bd44-793370afef94",
-            "amount":5000,
-            "fares":{  
-               "mdr":4,
-               "fee":15
-            }
-         }
-      ]
-   }
-}
-```
-
-**Response**
-
-```json
-{
-    "MerchantOrderId": "22082019v5",
-    "Customer": {
-        "Name": "Comprador Accept",
-        "Identity": "12750233713",
-        "IdentityType": "CPF",
-        "Email": "comprador@teste.com.br",
-        "DeliveryAddress": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        },
-        "Phone": "552125553669",
-        "Mobile": "5521996660078"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": 0,
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "448153******6111",
-            "Holder": "Oswaldo Soares",
-            "ExpirationDate": "12/2019",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "Tid": "0823033923354",
-        "ProofOfSale": "20190823033923354",
-        "AuthorizationCode": "664803",
-        "SoftDescriptor": "teste",
-        "Provider": "Simulado",
-        "FraudAnalysis": {
-            "Id": "d61abb4d-d5c5-e911-a40a-0003ff21cf74",
-            "Status": 1,
-            "StatusDescription": "Accept",
-            "ReplyData": {
-                "AddressInfoCode": "COR-SA",
-                "FactorCode": "F^H",
-                "Score": 92,
-                "HostSeverity": 1,
-                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-HIST^NEG-SA",
-                "IpCity": "goiania",
-                "IpCountry": "br",
-                "IpRoutingMethod": "fixed",
-                "IpState": "goias",
-                "ScoreModelUsed": "default_lac",
-                "VelocityInfoCode": "VEL-NAME^VELI-FP^VELI-TIP^VELL-FP^VELL-TIP^VELS-CC^VELS-EM^VELS-FP^VELS-TIP",
-                "CasePriority": 3,
-                "FingerPrint": {
-                    "CookiesEnabledField": "true",
-                    "FlashEnabledField": "false",
-                    "HashField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "ImagesEnabledField": "true",
-                    "JavascriptEnabledField": "true",
-                    "TrueIpAddressField": "200.142.125.158",
-                    "TrueIpAddressCityField": "rio de janeiro",
-                    "TrueIpAddressCountryField": "BR",
-                    "SmartIdField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "SmartIdConfidenceLevelField": "100.00",
-                    "ScreenResolutionField": "1366x768",
-                    "BrowserLanguageField": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
-                },
-                "ProviderTransactionId": "5665855625556351904011"
-            },
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "OnSuccess",
-            "TotalOrderAmount": 10000,
-            "TransactionAmount": 0,
-            "MerchantDefinedFields": [
-                {
-                    "Id": "1",
-                    "Value": "Guest"
-                },
-                {
-                    "Id": "2",
-                    "Value": "146"
-                },
-                {
-                    "Id": "3",
-                    "Value": "1"
-                },
-                {
-                    "Id": "4",
-                    "Value": "Web"
-                }
-            ],
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [
-                    {
-                        "Type": 0,
-                        "Name": "Produto teste",
-                        "Risk": 0,
-                        "Sku": "563",
-                        "OriginalPrice": 0,
-                        "UnitPrice": 100,
-                        "Quantity": 1,
-                        "HostHedge": 0,
-                        "NonSensicalHedge": 0,
-                        "ObscenitiesHedge": 0,
-                        "PhoneHedge": 0,
-                        "TimeHedge": 0,
-                        "VelocityHedge": 0,
-                        "GiftCategory": 0,
-                        "Weight": 0,
-                        "CartType": 0
-                    }
-                ]
-            },
-            "Browser": {
-                "CookiesAccepted": false,
-                "IpAddress": "179.221.103.151",
-                "BrowserFingerPrint": "22082019v5"
-            },
-            "Shipping": {
-                "Addressee": "Comprador Accept",
-                "Method": 0
-            },
-            "FraudAnalysisReasonCode": 100,
-            "Provider": "Cybersource",
-            "IsRetryTransaction": false
-        },
-        "SplitPayments": [
-            {
-                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                "Amount": 6000,
-                "Fares": {
-                    "Mdr": 5.0,
-                    "Fee": 30
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                        "Amount": 5670
-                    },
-                    {
-                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-                        "Amount": 330
-                    }
-                ]
-            },
-            {
-                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                "Amount": 4000,
-                "Fares": {
-                    "Mdr": 4.0,
-                    "Fee": 15
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
-                        "Amount": 3825
-                    },
-                    {
-                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-                        "Amount": 175
-                    }
-                ]
-            }
-        ],
-        "IsQrCode": false,
-        "Amount": 10000,
-        "ReceivedDate": "2019-08-23 15:39:15",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2019-08-23 15:39:23",
-        "Status": 2,
-        "IsSplitted": true,
-        "ReturnMessage": "Operation Successful",
-        "ReturnCode": "6",
-        "PaymentId": "bc0758ca-245b-4c35-9b13-20e48417667e",
-        "Type": "SplittedCreditCard",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/bc0758ca-245b-4c35-9b13-20e48417667e/split"
-            },
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/bc0758ca-245b-4c35-9b13-20e48417667e"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/bc0758ca-245b-4c35-9b13-20e48417667e/void"
-            }
-        ]
-    }
-}
-```
-
-Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada participante.
-
-![SplitSample003](https://developercielo.github.io/images/split/split003.png)
-
-**Request - Transação de Débito**
-
-Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação do banco correspondente e o nó referente a análise de fraude não deve ser informado.
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
-
-```json
---header "Authorization: Bearer {access_token}"
-{
-    "merchantorderid": "22082019v5",
-    "customer": {
-        "Name": "Comprador Accept",
-        "email": "comprador@teste.com.br",
-        "Identity": "12750233713",
-        "identitytype": "CPF",
-        "Mobile": "5521996660078",
-        "Phone": "552125553669",
-        "DeliveryAddress": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        }
-    },
-    "payment": {
-        "type": "splitteddebitcard",
-        "amount": 10000,
-        "capture": true,
-        "installments": 1,
-        "softdescriptor": "teste",
-        "ReturnUrl": "https://www.UrlDeRetornoDoLojista.com.br/",
-        "debitcard": {
-            "cardnumber": "5485904549811361",
-            "holder": "yamilet taylor",
-            "expirationdate": "12/2019",
-            "securitycode": "756",
-            "brand": "Visa",
-            "savecard": "false"
-        },
-        "SplitPayments": [
-            {
-                "subordinatemerchantid": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                "amount": 5000,
-                "fares": {
-                    "mdr": 20,
-                    "fee": 25
-                }
-            },
-            {
-                "subordinatemerchantid": "9140ca78-3955-44a5-bd44-793370afef94",
-                "amount": 5000,
-                "fares": {
-                    "mdr": 10,
-                    "fee": 15
-                }
-            }
-        ]
-    }
-}
-```
-
-**Response**
-
-```json
-{
-    "MerchantOrderId": "22082019v5",
-    "Customer": {
-        "Name": "Comprador Accept",
-        "Identity": "12750233713",
-        "IdentityType": "CPF",
-        "Email": "comprador@teste.com.br",
-        "DeliveryAddress": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "12345987",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BR",
-            "District": "Alphaville"
-        },
-        "Phone": "552125553669",
-        "Mobile": "5521996660078"
-    },
-    "Payment": {
-        "DebitCard": {
-            "CardNumber": "548590******1361",
-            "Holder": "yamilet taylor",
-            "ExpirationDate": "12/2019",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "Provider": "Simulado",
-        "AuthenticationUrl": "https://authenticationmocksandbox.cieloecommerce.cielo.com.br/CardAuthenticator/Receive/ae887a0c-5a6c-45ce-b196-029c419c9210",
-        "SoftDescriptor": "teste",
-        "Tid": "0823034725144",
-        "ProofOfSale": "4725144",
-        "Authenticate": true,
-        "Recurrent": false,
+        "DoSplit": true,
         "SplitPayments": [
             {
                 "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
@@ -1437,21 +653,753 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
                 ]
             }
         ],
+        "PaymentId": "4437f73c-8c13-46ea-937f-494dc878109d",
+        "Type": "CreditCard",
         "Amount": 10000,
-        "ReceivedDate": "2019-08-23 15:47:12",
-        "ReturnUrl": "https://www.UrlDeRetornoDoLojista.com.br/",
-        "Status": 0,
-        "IsSplitted": true,
-        "ReturnCode": "1",
-        "PaymentId": "ae887a0c-5a6c-45ce-b196-029c419c9210",
-        "Type": "SplittedDebitCard",
+        "ReceivedDate": "2019-08-29 16:27:18",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2019-08-29 16:27:27",
         "Currency": "BRL",
         "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
         "Links": [
             {
                 "Method": "GET",
                 "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ae887a0c-5a6c-45ce-b196-029c419c9210"
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/4437f73c-8c13-46ea-937f-494dc878109d"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/4437f73c-8c13-46ea-937f-494dc878109d/void"
+            }
+        ]
+    }
+}
+```
+
+Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
+
+Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
+|`Customer.Email`|Texto|255|Não|Email do comprador|
+|`Customer.Name`|Texto|255|Sim|Nome do comprador|
+|`Customer.Identity`|Texto |14 |Não|Número do RG, CPF ou CNPJ do Cliente| 
+|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
+|`Customer.Mobile`|Texto|14|Não*|Celular do comprador|
+|`Customer.Phone`|Texto|14|Não*|Telefone do comprador|
+|`Customer.DeliveryAddress.Street`|Texto|255|Não*|Endereço do comprador|
+|`Customer.DeliveryAddress.Number`|Texto|15|Não*|Número do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Complement`|Texto|50|Não*|Complemento do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não*|CEP do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.City`|Texto|50|Não*|Cidade do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.State`|Texto|2|Não*|Estado do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Country`|Texto|35|Não*|Pais do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.District`|Texto |50|Não*|Bairro do Comprador. |
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: `CreditCard` ou `DebitCard`|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
+|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador|
+|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
+|`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
+|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
+|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
+
+**Exemplo 1)**  
+
+Transação no valor de **R$100,00**, com captura automática, sem o nó contendo as regras de divisão.
+
+**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.
+
+**Request**
+
+```json
+{
+    "merchantorderid": "30082019",
+    "customer": {
+        "Name": "Comprador Accept",
+        "email": "comprador@teste.com.br",
+        "Identity": "18160361106",
+        "identitytype": "CPF",
+        "Mobile": "5521995760078"
+    },
+    "payment": {
+        "Provider": "Simulado",
+        "type": "Creditcard",
+        "DoSplit": "True",
+        "amount": 10000,
+        "capture": true,
+        "installments": 1,
+        "softdescriptor": "teste",
+        "CreditCard": {
+            "cardNumber": "4481530710186111",
+            "holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2019",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+            "SaveCard": "false"
+        },
+        "fraudanalysis": {
+            "provider": "cybersource",
+            "Shipping": {
+                "Addressee": "Teste Accept"
+            },
+            "FingerPrintId": "30082019",
+            "browser": {
+                "ipaddress": "179.221.103.151"
+            },
+            "totalorderamount": 10000,
+            "cart": {
+                "isgift": false,
+                "returnsaccepted": true,
+                "items": [
+                    {
+                        "name": "Produto teste",
+                        "quantity": 1,
+                        "sku": 563,
+                        "unitprice": 100
+                    }
+                ]
+            },
+            "MerchantDefinedFields": [
+                {
+                    "Id": 1,
+                    "Value": "Guest"
+                },
+                {
+                    "Id": 2,
+                    "Value": "146"
+                },
+                {
+                    "Id": 3,
+                    "Value": "1"
+                },
+                {
+                    "Id": 4,
+                    "Value": "Web"
+                }
+            ]
+        }
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "30082019",
+    "Customer": {
+        "Name": "Comprador Accept",
+        "Identity": "18160361106",
+        "IdentityType": "CPF",
+        "Email": "comprador@teste.com.br",
+        "Mobile": "5521995760078"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2019",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "20190830104433081",
+        "AcquirerTransactionId": "0830104433081",
+        "AuthorizationCode": "042693",
+        "SoftDescriptor": "teste",
+        "FraudAnalysis": {
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "OnSuccess",
+            "FingerPrintId": "30082019",
+            "Provider": "Cybersource",
+            "TotalOrderAmount": 10000,
+            "IsRetryTransaction": false,
+            "MerchantDefinedFields": [
+                {
+                    "Id": "1",
+                    "Value": "Guest"
+                },
+                {
+                    "Id": "2",
+                    "Value": "146"
+                },
+                {
+                    "Id": "3",
+                    "Value": "1"
+                },
+                {
+                    "Id": "4",
+                    "Value": "Web"
+                }
+            ],
+            "Cart": {
+                "IsGift": false,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Type": "Undefined",
+                        "Name": "Produto teste",
+                        "Risk": "Undefined",
+                        "Sku": "563",
+                        "UnitPrice": 100,
+                        "Quantity": 1,
+                        "HostHedge": "Undefined",
+                        "NonSensicalHedge": "Undefined",
+                        "ObscenitiesHedge": "Undefined",
+                        "PhoneHedge": "Undefined",
+                        "TimeHedge": "Undefined",
+                        "VelocityHedge": "Undefined",
+                        "GiftCategory": "Undefined",
+                        "OriginalPrice": 0,
+                        "Weight": 0,
+                        "CartType": 0
+                    }
+                ]
+            },
+            "Browser": {
+                "CookiesAccepted": false,
+                "IpAddress": "179.221.103.151"
+            },
+            "Shipping": {
+                "Addressee": "Teste Accept",
+                "Method": "Undefined"
+            },
+            "Id": "b6f7f24a-2ccb-e911-a40a-0003ff21cf74",
+            "Status": 1,
+            "StatusDescription": "Accept",
+            "FraudAnalysisReasonCode": 100,
+            "ReplyData": {
+                "FactorCode": "F^H^P",
+                "Score": 42,
+                "HostSeverity": 1,
+                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-HIST",
+                "InternetInfoCode": "INTL-IPCO^RISK-EM",
+                "IpCity": "goiania",
+                "IpCountry": "br",
+                "IpRoutingMethod": "fixed",
+                "IpState": "goias",
+                "ScoreModelUsed": "default",
+                "VelocityInfoCode": "VEL-NAME^VELL-FP^VELL-TIP",
+                "CasePriority": 3,
+                "FingerPrint": {
+                    "CookiesEnabledField": "true",
+                    "FlashEnabledField": "false",
+                    "HashField": "d04c4463c5e84fb5ba1993a0482a6c24",
+                    "ImagesEnabledField": "true",
+                    "JavascriptEnabledField": "true",
+                    "TrueIpAddressField": "200.142.125.158",
+                    "TrueIpAddressCityField": "rio de janeiro",
+                    "TrueIpAddressCountryField": "BR",
+                    "SmartIdField": "d04c4463c5e84fb5ba1993a0482a6c24",
+                    "SmartIdConfidenceLevelField": "100.00",
+                    "ScreenResolutionField": "1920x1080",
+                    "BrowserLanguageField": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+                },
+                "ProviderTransactionId": "5671726720836914704008"
+            }
+        },
+        "DoSplit": true,
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                "Amount": 10000,
+                "Fares": {
+                    "Mdr": 2.00,
+                    "Fee": 10
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 10000
+                    }
+                ]
+            }
+        ],
+        "PaymentId": "5b01552e-bf38-430e-bd38-8517c36a1ca2",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2019-08-30 10:44:13",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2019-08-30 10:44:33",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/5b01552e-bf38-430e-bd38-8517c36a1ca2"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/5b01552e-bf38-430e-bd38-8517c36a1ca2/void"
+            }
+        ]
+    }
+}
+```
+
+Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
+
+![SplitSample002](https://developercielo.github.io/images/split/split002.png)
+
+**Exemplo 2)**  
+
+Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
+
+**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
+**Taxa Marketplace com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
+**Taxa Marketplace com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
+
+**Request**
+
+```json
+{
+    "merchantorderid": "30082019",
+    "customer": {
+        "Name": "Comprador Accept",
+        "email": "comprador@teste.com.br",
+        "Identity": "18160361106",
+        "identitytype": "CPF",
+        "Mobile": "5521995760078"
+    },
+    "payment": {
+        "Provider": "Simulado",
+        "type": "Creditcard",
+        "DoSplit": "True",
+        "amount": 10000,
+        "capture": true,
+        "installments": 1,
+        "softdescriptor": "teste",
+        "CreditCard": {
+            "cardNumber": "4481530710186111",
+            "holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2019",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+            "SaveCard": "false"
+        },
+        "fraudanalysis": {
+            "provider": "cybersource",
+            "Shipping": {
+                "Addressee": "Teste Accept"
+            },
+            "FingerPrintId": "30082019",
+            "browser": {
+                "ipaddress": "179.221.103.151"
+            },
+            "totalorderamount": 10000,
+            "cart": {
+                "isgift": false,
+                "returnsaccepted": true,
+                "items": [
+                    {
+                        "name": "Produto teste",
+                        "quantity": 1,
+                        "sku": 563,
+                        "unitprice": 100
+                    }
+                ]
+            },
+            "MerchantDefinedFields": [
+                {
+                    "Id": 1,
+                    "Value": "Guest"
+                },
+                {
+                    "Id": 2,
+                    "Value": "146"
+                },
+                {
+                    "Id": 3,
+                    "Value": "1"
+                },
+                {
+                    "Id": 4,
+                    "Value": "Web"
+                }
+            ]
+        },
+        "splitpayments": [
+            {
+                "subordinatemerchantid": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "amount": 5000,
+                "fares": {
+                    "mdr": 5,
+                    "fee": 30
+                }
+            },
+            {
+                "subordinatemerchantid": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "amount": 5000,
+                "fares": {
+                    "mdr": 4,
+                    "fee": 15
+                }
+            }
+        ]
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "30082019",
+    "Customer": {
+        "Name": "Comprador Accept",
+        "Identity": "18160361106",
+        "IdentityType": "CPF",
+        "Email": "comprador@teste.com.br",
+        "Mobile": "5521995760078"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2019",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "20190830104950554",
+        "AcquirerTransactionId": "0830104950554",
+        "AuthorizationCode": "149867",
+        "SoftDescriptor": "teste",
+        "FraudAnalysis": {
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "OnSuccess",
+            "FingerPrintId": "30082019",
+            "Provider": "Cybersource",
+            "TotalOrderAmount": 10000,
+            "IsRetryTransaction": false,
+            "MerchantDefinedFields": [
+                {
+                    "Id": "1",
+                    "Value": "Guest"
+                },
+                {
+                    "Id": "2",
+                    "Value": "146"
+                },
+                {
+                    "Id": "3",
+                    "Value": "1"
+                },
+                {
+                    "Id": "4",
+                    "Value": "Web"
+                }
+            ],
+            "Cart": {
+                "IsGift": false,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Type": "Undefined",
+                        "Name": "Produto teste",
+                        "Risk": "Undefined",
+                        "Sku": "563",
+                        "UnitPrice": 100,
+                        "Quantity": 1,
+                        "HostHedge": "Undefined",
+                        "NonSensicalHedge": "Undefined",
+                        "ObscenitiesHedge": "Undefined",
+                        "PhoneHedge": "Undefined",
+                        "TimeHedge": "Undefined",
+                        "VelocityHedge": "Undefined",
+                        "GiftCategory": "Undefined",
+                        "OriginalPrice": 0,
+                        "Weight": 0,
+                        "CartType": 0
+                    }
+                ]
+            },
+            "Browser": {
+                "CookiesAccepted": false,
+                "IpAddress": "179.221.103.151"
+            },
+            "Shipping": {
+                "Addressee": "Teste Accept",
+                "Method": "Undefined"
+            },
+            "Id": "93324008-2dcb-e911-a40a-0003ff21cf74",
+            "Status": 1,
+            "StatusDescription": "Accept",
+            "FraudAnalysisReasonCode": 100,
+            "ReplyData": {
+                "FactorCode": "F^H^P",
+                "Score": 49,
+                "HostSeverity": 1,
+                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-HIST",
+                "InternetInfoCode": "INTL-IPCO^RISK-EM",
+                "IpCity": "goiania",
+                "IpCountry": "br",
+                "IpRoutingMethod": "fixed",
+                "IpState": "goias",
+                "ScoreModelUsed": "default",
+                "VelocityInfoCode": "VEL-NAME^VELI-FP^VELI-TIP^VELL-FP^VELL-TIP^VELS-FP^VELS-TIP",
+                "CasePriority": 3,
+                "FingerPrint": {
+                    "CookiesEnabledField": "true",
+                    "FlashEnabledField": "false",
+                    "HashField": "d04c4463c5e84fb5ba1993a0482a6c24",
+                    "ImagesEnabledField": "true",
+                    "JavascriptEnabledField": "true",
+                    "TrueIpAddressField": "200.142.125.158",
+                    "TrueIpAddressCityField": "rio de janeiro",
+                    "TrueIpAddressCountryField": "BR",
+                    "SmartIdField": "d04c4463c5e84fb5ba1993a0482a6c24",
+                    "SmartIdConfidenceLevelField": "100.00",
+                    "ScreenResolutionField": "1920x1080",
+                    "BrowserLanguageField": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+                },
+                "ProviderTransactionId": "5671729896416618104007"
+            }
+        },
+        "DoSplit": true,
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "Amount": 5000,
+                "Fares": {
+                    "Mdr": 5.0,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                        "Amount": 4720
+                    },
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 280
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                "Amount": 5000,
+                "Fares": {
+                    "Mdr": 4.0,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                        "Amount": 4785
+                    },
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 215
+                    }
+                ]
+            }
+        ],
+        "PaymentId": "f1333ea6-8cb9-420f-9674-d66031903080",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2019-08-30 10:49:40",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2019-08-30 10:49:50",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f1333ea6-8cb9-420f-9674-d66031903080"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/f1333ea6-8cb9-420f-9674-d66031903080/void"
+            }
+        ]
+    }
+}
+```
+
+Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada participante.
+
+![SplitSample003](https://developercielo.github.io/images/split/split003.png)
+
+**Request - Transação de Débito**
+
+Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação do banco correspondente e o nó referente a análise de fraude não deve ser informado.
+
+```json
+{
+    "merchantorderid": "30082019",
+    "customer": {
+        "Name": "Comprador Accept",
+        "email": "comprador@teste.com.br",
+        "Identity": "18160361106",
+        "identitytype": "CPF",
+        "Mobile": "5521995760078"
+    },
+    "payment": {
+        "Provider": "Simulado",
+        "type": "Debitcard",
+        "DoSplit": "True",
+        "amount": 10000,
+        "capture": true,
+        "installments": 1,
+        "softdescriptor": "teste",
+        "ReturnUrl": "https://www.UrlDeRetornoDoLojista.com.br/",
+        "DebitCard": {
+            "cardNumber": "4481530710186111",
+            "holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2019",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+            "SaveCard": "false"
+        },
+        "splitpayments": [
+            {
+                "subordinatemerchantid": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "amount": 5000,
+                "fares": {
+                    "mdr": 5,
+                    "fee": 30
+                }
+            },
+            {
+                "subordinatemerchantid": "9140ca78-3955-44a5-bd44-793370afef94",
+                "amount": 5000,
+                "fares": {
+                    "mdr": 4,
+                    "fee": 15
+                }
+            }
+        ]
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "30082019",
+    "Customer": {
+        "Name": "Comprador Accept",
+        "Identity": "18160361106",
+        "IdentityType": "CPF",
+        "Email": "comprador@teste.com.br",
+        "Mobile": "5521995760078"
+    },
+    "Payment": {
+        "DebitCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2019",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Authenticate": true,
+        "ReturnUrl": "https://www.UrlDeRetornoDoLojista.com.br/",
+        "AuthenticationUrl": "https://transactionsandbox.pagador.com.br/post/mpi/auth/5bb92d7c-4f3e-40dc-9f83-bd09c02fea38",
+        "ProofOfSale": "439387",
+        "AcquirerTransactionId": "0830110439387",
+        "SoftDescriptor": "teste",
+        "DoSplit": true,
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "Amount": 5000,
+                "Fares": {
+                    "Mdr": 5.0,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                        "Amount": 4720
+                    },
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 280
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                "Amount": 5000,
+                "Fares": {
+                    "Mdr": 4.0,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                        "Amount": 4785
+                    },
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 215
+                    }
+                ]
+            }
+        ],
+        "PaymentId": "5bb92d7c-4f3e-40dc-9f83-bd09c02fea38",
+        "Type": "DebitCard",
+        "Amount": 10000,
+        "ReceivedDate": "2019-08-30 11:04:33",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 9,
+        "ReasonMessage": "Waiting",
+        "Status": 0,
+        "ProviderReturnCode": "1",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/5bb92d7c-4f3e-40dc-9f83-bd09c02fea38"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/5bb92d7c-4f3e-40dc-9f83-bd09c02fea38/void"
             }
         ]
     }
@@ -1467,21 +1415,20 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
 
-| Tipo                       | Descrição                                                                                                                          |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Split Transacional**     | O **Marketplace** envia na autorização (captura automática) ou no momento de captura as regras de divisão.                         |
-| **Split Pós-Transacional** | O **Marketplace** envia as regras de divisão após a captura da transação.
+| Tipo                       | Descrição                                                                                          |
+| **Split Transacional**     | O **Marketplace** envia na autorização (captura automática) ou no momento de captura as regras de divisão. |
+| **Split Pós-Transacional** | O **Marketplace** envia as regras de divisão após a captura da transação. |
 
 > No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
 
 #### Transacional
 
-No Split Transacional é necessário que o Marketplace envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
+No Split Transacional é necessário que o Marketplace envie um "nó" adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
 
 ```json
 "SplitPayments":[
     {
-        "SubordinateMerchantId" :"f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+        "SubordinateMerchantId" :"5a1a61f0-1630-4873-bf69-a6ff9ae664e9",
         "Amount":10000,
         "Fares":{
             "Mdr":5,
@@ -1498,12 +1445,12 @@ No Split Transacional é necessário que o Marketplace envie um "nó" adicional 
 | `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
 | `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
 
-Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:
+Como resposta, A API retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:
 
 ```json
 "SplitPayments": [
     {
-        "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+        "SubordinateMerchantId": "5a1a61f0-1630-4873-bf69-a6ff9ae664e9",
         "Amount": 10000,
         "Fares": {
             "Mdr": 5,
@@ -1511,11 +1458,11 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
         },
         "Splits": [                
             {
-                "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                "MerchantId": "95506357-f4c7-475f-a6b8-cf4618b9d721",
                 "Amount": 500,
             },
             {
-                "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "MerchantId": "5a1a61f0-1630-4873-bf69-a6ff9ae664e9",
                 "Amount": 9500,
             }
         ]
@@ -1536,6 +1483,40 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
 
 > O período para redividir uma transação poderá ser alterado pela Braspag (Facilitador).
 
+**Autenticação**
+
+O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais.
+
+Para obter um token de acesso:
+
+1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
+2. Codifique o resultado da concatenação em Base64.  
+3. Realize uma requisição ao servidor de autorização:  
+
+**Request**  
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+
+```json
+x-www-form-urlencoded
+--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
+grant_type=client_credentials
+```
+
+**Response**
+
+```json
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs",
+    "token_type": "bearer",
+    "expires_in": 1199
+}
+```
+
+> O ClientSecret deve ser obtido junto à Braspag. <br>
+> O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
+
 **Request**  
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
@@ -1544,7 +1525,7 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
 --header "Authorization: Bearer {access_token}"
 [
     {
-        "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+        "SubordinateMerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
         "Amount": 6000,
         "Fares": {
             "Mdr": 5,
@@ -1552,7 +1533,7 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
         }
     },
     {
-        "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
+        "SubordinateMerchantId" :"f1531485-adb3-4320-9b14-dbc07eea2b3e",
         "Amount":4000,
         "Fares":{
             "Mdr":4,
@@ -1569,7 +1550,7 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
     "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+            "SubordinateMerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
@@ -1577,17 +1558,17 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
             },
             "Splits": [
                 {
-                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f,
+                    "MerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
                     "Amount": 5670
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "Amount": 330
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+            "SubordinateMerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
             "Amount": 4000,
             "Fares": {
                 "Mdr": 4,
@@ -1595,11 +1576,11 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
             },
             "Splits": [
                 {
-                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                    "MerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
                     "Amount": 3825
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "Amount": 175
                 }
             ]
@@ -1612,114 +1593,6 @@ O nó referente ao Split no Split Pós-transacional, tanto no contrato de reques
 
 > O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para **Cartão de Crédito** se estiver enquadrado no regime de pagamento padrão. 
 
-### Consulta
-
-Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
-
-**Request**
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
-
-```shell
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"  
-```
-
-**Response**
-
-```json
-{
-    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-    "MerchantOrderId": "2014111701",
-    "IsSplitted": true,
-    "Customer": {
-        "Name": "Comprador",
-        "Address": {}
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0181",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2021",
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "20171210061821319",
-        "Tid": "1210061821319",
-        "AuthorizationCode": "379918",
-        "PaymentId": "507821c5-7067-49ff-928f-a3eb1e256148",
-        "Type": "SplittedCreditCard",
-        "Amount": 10000,
-        "ReceivedDate": "2017-12-10 18:18:18",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2017-12-10 18:18:21",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Simulado",
-        "Status": 2,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/507821c5-7067-49ff-928f-a3eb1e256148"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/507821c5-7067-49ff-928f-a3eb1e256148/void"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "sales.split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions507821c5-7067-49ff-928f-a3eb1e256148/split"
-            }
-        ],
-        "SplitPayments": [
-            {
-                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                "Amount": 6000,
-                "Fares": {
-                    "Mdr": 5,
-                    "Fee": 30
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                        "Amount": 5670
-                    },
-                    {
-                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-                        "Amount": 330
-                    }
-                ]
-            },
-            {
-                "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
-                "Amount": 4000,
-                "Fares": {
-                    "Mdr": 4,
-                    "Fee": 15
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
-                        "Amount": 3825
-                    },
-                    {
-                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-                        "Amount": 175
-                    }
-                ]
-            }
-        ]
-    }
-}
-```
-
 ### Captura
 
 Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace.
@@ -1730,14 +1603,13 @@ Na captura total de uma transação, o somatório dos valores de participação 
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
 ```json
---header "Authorization: Bearer {access_token}"
 {
     "SplitPayments":[
         {
-            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+            "SubordinateMerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
@@ -1745,7 +1617,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
             }
         },
         {
-            "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
+            "SubordinateMerchantId" :"f1531485-adb3-4320-9b14-dbc07eea2b3e",
             "Amount":4000,
             "Fares":{
                 "Mdr":4,
@@ -1769,7 +1641,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
     "ReturnMessage": "Operation Successful",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+            "SubordinateMerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
@@ -1777,17 +1649,17 @@ Na captura total de uma transação, o somatório dos valores de participação 
             },
             "Splits": [
                 {
-                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                    "MerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
                     "Amount": 5670
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "Amount": 330
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+            "SubordinateMerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
             "Amount": 4000,
             "Fares": {
                 "Mdr": 4,
@@ -1795,11 +1667,11 @@ Na captura total de uma transação, o somatório dos valores de participação 
             },
             "Splits": [
                 {
-                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                    "MerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
                     "Amount": 3825
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "Amount": 175
                 }
             ]
@@ -1826,23 +1698,15 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
-
-```shell
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"  
-```
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
 O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00.
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
-
 ```json
---header "Authorization: Bearer {access_token}"
 {
     "SplitPayments":[
         {
-            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+            "SubordinateMerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
             "Amount": 5000,
             "Fares": {
                 "Mdr": 5,
@@ -1850,7 +1714,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             }
         },
         {
-            "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
+            "SubordinateMerchantId" :"f1531485-adb3-4320-9b14-dbc07eea2b3e",
             "Amount":3000,
             "Fares":{
                 "Mdr":4,
@@ -1874,7 +1738,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
     "ReturnMessage": "Operation Successful",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+            "SubordinateMerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
             "Amount": 5000,
             "Fares": {
                 "Mdr": 5,
@@ -1882,17 +1746,17 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             },
             "Splits": [
                 {
-                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                    "MerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
                     "Amount": 4720
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "Amount": 280
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+            "SubordinateMerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
             "Amount": 3000,
             "Fares": {
                 "Mdr": 4,
@@ -1900,11 +1764,11 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             },
             "Splits": [
                 {
-                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                    "MerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
                     "Amount": 2865
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "Amount": 135
                 }
             ]
@@ -1929,12 +1793,7 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
-
-```shell
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"  
-```
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture/capture?amount=8000</span></aside>
 
 **Response**
 
@@ -1949,7 +1808,7 @@ x-www-form-urlencoded
     "ReturnMessage": "Operation Successful",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+            "SubordinateMerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
             "Amount": 8000,
             "Fares": {
                 "Mdr": 2,
@@ -1957,7 +1816,7 @@ x-www-form-urlencoded
             },
             "Splits": [
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "Amount": 8000
                 }
             ]
@@ -1988,12 +1847,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void</span></aside>
-
-```shell
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"  
-```
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void</span></aside>
 
 **Response**
 
@@ -2015,29 +1869,29 @@ x-www-form-urlencoded
     ],
     "VoidSplitPayments": [
         {
-            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+            "SubordinateMerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
             "VoidedAmount": 4000,
             "VoidedSplits": [
                 {
-                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                    "MerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
                     "VoidedAmount": 3825
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "VoidedAmount": 175
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+            "SubordinateMerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
             "VoidedAmount": 6000,
             "VoidedSplits": [
                 {
-                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                    "MerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
                     "VoidedAmount": 5670
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "VoidedAmount": 330
                 }
             ]
@@ -2052,27 +1906,21 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
-
-```shell
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"  
-```
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void?amount={amount}</span></aside>
 
 No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void?amount=2500</span></aside>
 
 ```json
---header "Authorization: Bearer {access_token}"
 {
     "VoidSplitPayments":[
         {
-            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+            "SubordinateMerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
             "VoidedAmount": 1500
         },
         {
-            "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
+            "SubordinateMerchantId" :"f1531485-adb3-4320-9b14-dbc07eea2b3e",
             "VoidedAmount":1000
         }
      ]
@@ -2109,29 +1957,29 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
     ],
     "VoidSplitPayments": [
         {
-            "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+            "SubordinateMerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
             "VoidedAmount": 1500,
             "VoidedSplits": [
                 {
-                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                    "MerchantId": "e5147542-0c0e-45d4-b6a8-a5a7167e6ae7",
                     "VoidedAmount": 1417
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "VoidedAmount": 83
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+            "SubordinateMerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
             "VoidedAmount": 1000,
             "VoidedSplits": [
                 {
-                    "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                    "MerchantId": "f1531485-adb3-4320-9b14-dbc07eea2b3e",
                     "VoidedAmount": 956
                 },
                 {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                    "MerchantId": "4b3f216c-69d7-44cf-a2d1-dbd1439429c3",
                     "VoidedAmount": 44
                 }
             ]
@@ -2146,7 +1994,7 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 {
     "VoidSplitPayments":[
         {
-            "SubordinateMerchantId" :"9140ca78-3955-44a5-bd44-793370afef94",
+            "SubordinateMerchantId" :"f1531485-adb3-4320-9b14-dbc07eea2b3e",
             "VoidedAmount":1000
         }
      ]
@@ -2159,21 +2007,21 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
 
-> No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
+>  No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
 
 ### Fluxo transacional
 
 A integração com o antifraude se dá através do próprio fluxo transacional, na mesma requisição da transação.
 
-* Cliente realiza uma transação.
-* A anállise de fraude é realizada.
-* Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
-* A transação é executada normalmente.
+- Cliente realiza uma transação.
+- A anállise de fraude é realizada.
+- Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
+- A transação é executada normalmente.
 
 Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.FraudAnalysis`. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos `Customer.DeliveryAddress` e/ou `Customer.BillingAddress`.
 
 |Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|--|--|--|--|--|
+|-----|----|-------|-----------|---------|
 |`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido no sistema do lojista|
 |`Customer`|-|-|Sim|Dados do comprador|
 |`Customer.Name`|Texto|61|Sim|Nome do comprador|
@@ -2201,7 +2049,8 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Customer.BillingAddress.State`|Texto|2|Sim|Estado do endereço de cobrança do comprador|
 |`Customer.BillingAddress.Country`|Texto|2|Sim|País do endereço de cobrança do comprador|
 |`Payment`|-|-|Sim|Campos refente ao pagamento e antifraude|
-|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: `SplittedCreditCard` ou `SplittedDebitCard`|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: `CreditCard` ou `DebitCard`|
 |`Payment.Amount`|Inteiro|15|Sim|Valor do pedido em centavos. Ex.: r$ 1.559,85 = 155985|
 |`Payment.Capture`|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja `False` a transação será apenas autorizada. Se for `True`, a captura será realizada automaticamente após a autorização.|
 |`Payment.ServiceTaxAmount`|Inteiro|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço  |Obs.: Esse valor não é adicionado ao valor da autorização|
@@ -2217,15 +2066,15 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
 |`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: `Cybersource`|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
+|`Payment.FraudAnalysis.FingerPrintId`|Texto|6010|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource)|
 |`Payment.FraudAnalisys.Browser`|-|-|Sim|-|
 |`Payment.FraudAnalysis.Browser.IpAddress`|Texto|255|Sim|Ip do comprador|
-|`Payment.FraudAnalysis.Browser.BrowserFingerPrint`|Texto|6010|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource)|
 |`Payment.FraudAnalysis.Cart`|Lista|-|Não|Nó contendo as informações do carrinho de compras para análise de fraude|
 |`Payment.FraudAnalysis.Cart.Items[].Name`|Texto|50|Não|Nome do produto|
 |`Payment.FraudAnalysis.Cart.Items[].Sku`|Texto|12|Não|Sku do produto|
 |`Payment.FraudAnalysis.Cart.Items[].UnitPrice`|Inteiro|15|Não|Preço original do produto em centavos  |Ex.: R$ 1.559,85 = 155985|
 |`Payment.FraudAnalysis.Cart.Items[].Quantity`|Inteiro|-|Não|Quantidade do produto|
-|`Payment.FraudAnalysis.MerchantDefinedFields`|Lista|-|Sim|Nó contendo dados adicionais para análise de fraude [Tabela de Merchant Defined Data](https://braspag.github.io//manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|
+|`Payment.FraudAnalysis.MerchantDefinedFields`|Lista|-|Sim|Nó contendo dados |adicionais para análise de fraude [Tabela de Merchant Defined Data](https://braspag.github.io//manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Items[].Id`|Inteiro|-|Sim|Identificador de uma informação adicional a ser enviada|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Items[].Value`|Texto|255|Sim|Valor de uma informação adicional a ser enviada|
 |`Payment.FraudAnalysis.Shipping`|-|-|Não|Nó contendo informações adicionais da entrega do pedido para análise de fraude|
@@ -2307,7 +2156,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialPaymentDate=2018-08-22&finalPaymentDate=2018-08-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-```shell
+```json
 x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"
 ```
@@ -2435,7 +2284,7 @@ Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate=2017-12-01&finalCaptureDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-```shell
+```json
 x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
@@ -2520,7 +2369,7 @@ Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-```shell
+```json
 x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"
 ```
