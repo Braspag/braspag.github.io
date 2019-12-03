@@ -2733,11 +2733,11 @@ Este bloqueio, conhecido como custódia, pode durar até 180 dias. Após este pr
 ```json
 [
     {
-        "SubordinateMerchantId": "{{ Guid }}",
+        "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
         "Locked": [true | false]
     },
     {
-        "SubordinateMerchantId": "{{ Guid }}",
+        "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
         "Locked": [true | false]
     },
 ]
