@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Split de Pagamentos - API de Onboarding
+title: API de Onboarding
 description: Split de Pagamentos - Onboarding
 search: true
 toc_footers: false
