@@ -13,6 +13,8 @@ tags:
 
 # Split de Pagamentos
 
+> Solicite suas credenciais para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 4003-3058
+
 ## Introdução
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
