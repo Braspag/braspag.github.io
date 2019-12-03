@@ -5,7 +5,7 @@ description: Manual integração do Boleto Braspag
 search: true
 toc_footers: false
 categories: manual
-sort_order: 8
+sort_order: 7
 hub_visible: false
 tags:
   - Soluções para Marketplace
@@ -175,4 +175,4 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte | 2 | E
+|`Status`|Status da Transação. |Byte | 2 | 1 |
