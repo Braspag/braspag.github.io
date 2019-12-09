@@ -166,7 +166,7 @@
 
 <p><strong>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}</strong></p>
 
-<p>No lugar do {mid} deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag.</p>
+<p>No lugar do <strong>{mid}</strong> deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag.</p>
 
 <p>Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
@@ -210,10 +210,10 @@
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
-    <span class="s2">"MerchantId"</span>: <span class="s2">"{5ed36d2f-65f2-e411-9408-000af7120b62}"</span>,
-    <span class="s2">"AccessToken"</span>: <span class="s2">"NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ=="</span>,
-    <span class="s2">"Issued"</span>: <span class="s2">"2018-07-23T11:09:32"</span>,
-    <span class="s2">"ExpiresIn"</span>: <span class="s2">"2018-07-23T11:29:32"</span>
+    <span class="s2">"MerchantId"</span>: <span class="s2">"B898E624-EF0F-455C-9509-3FAE12FB1F81"</span>,
+    <span class="s2">"AccessToken"</span>: <span class="s2">"MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg=="</span>,
+    <span class="s2">"Issued"</span>: <span class="s2">"2019-12-09T17:47:14"</span>,
+    <span class="s2">"ExpiresIn"</span>: <span class="s2">"2019-12-09T18:07:14"</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
@@ -259,13 +259,13 @@
   </tbody>
 </table>
 
-<aside class="notice">Para uso este recurso, por questões de segurança, será requerido obrigatoriamente **um IP válido do estabelecimento**. Caso contrário a requisição não será autorizada (**HTTP 401 NotAuthorized**)</aside>
+<aside class="notice">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário a requisição não será autorizada (HTTP 401 NotAuthorized). Por favor, identificar qual será o IP de saída que acessará a API e na sequência solicitar o cadastro do mesmo através do canal de atendimento Braspag: https://suporte.braspag.com.br/hc/pt-br</aside>
 
 <p><strong>PASSO 2</strong></p>
 
 <p>O estabelecimento deverá fazer o download do script disponibilizado pela Braspag, e anexá-lo a sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento. O download poderá ser realizado a partir da seguinte URL:</p>
 
-<aside class="notice">**https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**</aside>
+<aside class="notice">https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js</aside>
 
 <p>O estabelecimento deverá parametrizar os elementos formulário com as seguintes classes:</p>
 
@@ -326,6 +326,8 @@
 <aside class="notice">Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado.</aside>
 
 <p>Exemplo de uma parametrização na página de checkout:</p>
+
+<p>Para baixar o código, clique <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html">aqui</a></p>
 
 <p><img src="https://braspag.github.io//images/consulta-bin.jpg" alt="Pagina Checkout" /></p>
 
