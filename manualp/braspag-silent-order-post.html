@@ -331,6 +331,68 @@
 
 <p><img src="https://braspag.github.io//images/consulta-bin.jpg" alt="Pagina Checkout" /></p>
 
+<p><strong>PARÂMETROS DO SCRIPT</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accessToken</td>
+      <td>Token de Acesso obtido via API de autenticação da Braspag</td>
+    </tr>
+    <tr>
+      <td>environment</td>
+      <td><strong>sandbox</strong> ou <strong>production</strong></td>
+    </tr>
+    <tr>
+      <td>language</td>
+      <td><strong>pt</strong> ou <strong>en</strong> ou <strong>es</strong></td>
+    </tr>
+    <tr>
+      <td>enableBinQuery</td>
+      <td><strong>true</strong> se quiser habilitar o ZeroAuth e Consulta BIN. <strong>false</strong> caso contrário.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>RETORNOS DO SCRIPT</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PaymentToken</td>
+      <td>Token de Pagamento no formato de um GUID (36)</td>
+    </tr>
+    <tr>
+      <td>brand</td>
+      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard)</td>
+    </tr>
+    <tr>
+      <td>forerignCard</td>
+      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. O campo retorna <strong>true</strong> se é um cartão emitido fora do brasil. <strong>false</strong> caso contrário</td>
+    </tr>
+    <tr>
+      <td>binQueryReturnCode</td>
+      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código 82-cartão inválido</td>
+    </tr>
+    <tr>
+      <td>binQueryReturnMessage</td>
+      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Ex. “Transacao Autorizada”</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
