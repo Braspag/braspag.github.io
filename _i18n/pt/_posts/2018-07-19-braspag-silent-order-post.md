@@ -40,7 +40,7 @@ Para solicitar o AccessToken, o estabelecimento deve realizar um POST para a seg
 
 **https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}**
 
-No lugar do {mid} deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag. 
+No lugar do **{mid}** deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag. 
 
 Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
 
@@ -69,10 +69,10 @@ Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo e
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "MerchantId": "{5ed36d2f-65f2-e411-9408-000af7120b62}",
-    "AccessToken": "NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==",
-    "Issued": "2018-07-23T11:09:32",
-    "ExpiresIn": "2018-07-23T11:29:32"
+    "MerchantId": "B898E624-EF0F-455C-9509-3FAE12FB1F81",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2019-12-09T17:47:14",
+    "ExpiresIn": "2019-12-09T18:07:14"
 }
 ```
 
@@ -83,13 +83,13 @@ Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo e
 |`Issued`|Data e hora da geração |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Data e hora da expiração |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-<aside class="notice">Para uso este recurso, por questões de segurança, será requerido obrigatoriamente **um IP válido do estabelecimento**. Caso contrário a requisição não será autorizada (**HTTP 401 NotAuthorized**)</aside>
+<aside class="notice">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário a requisição não será autorizada (HTTP 401 NotAuthorized). Por favor, identificar qual será o IP de saída que acessará a API e na sequência solicitar o cadastro do mesmo através do canal de atendimento Braspag: https://suporte.braspag.com.br/hc/pt-br</aside>
 
 **PASSO 2**
 
 O estabelecimento deverá fazer o download do script disponibilizado pela Braspag, e anexá-lo a sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento. O download poderá ser realizado a partir da seguinte URL: 
 
-<aside class="notice">**https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**</aside>
+<aside class="notice">https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js</aside>
 
 O estabelecimento deverá parametrizar os elementos formulário com as seguintes classes:
 
@@ -113,5 +113,7 @@ O script fornecido pela Braspag fornece três eventos para manipulação e trata
 <aside class="notice">Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado.</aside>
 
 Exemplo de uma parametrização na página de checkout:
+
+Para baixar o código, clique [aqui](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)
 
 ![Pagina Checkout]({{ site.baseurl_root }}/images/consulta-bin.jpg)
