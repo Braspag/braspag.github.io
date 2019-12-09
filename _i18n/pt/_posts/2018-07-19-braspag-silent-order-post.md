@@ -13,19 +13,18 @@ language_tabs:
 
 # Silent Order Post
 
-Integração que a Braspag oferece aos lojistas, onde os dados de pagamentos são trafegue de forma segura, mantendo o controle total sobre a experiência de Ckeck Out.
+Integração que a Braspag oferece aos lojistas, onde os dados de pagamentos são trafegados de forma segura, mantendo o controle total sobre a experiência de checkout.
 
-Esse método possibilita o envio dos dados do pagamento do seu cliente final de forma segura diretamente em nosso sistema. Os campos de pagamento são guardados do lado da Braspag, que conta com a certificação PCI DSS 3.2.
+Esse método possibilita o envio dos dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados de pagamento, tais como número do cartão e data de validade são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.
 
-É ideal para lojistas que exigem um alto nível de segurança, sem perder a identidade de sua página. Esse método permite um alto nível de personalização na sua página de checkout.
+É ideal para lojistas que exigem um alto grau de segurança, sem perder a identidade de sua página, permitindo total personalização na sua página de checkout.
 
 # Características
 
-* Captura de dados de pagamento diretamente para os sistemas da Braspag por meio dos campos hospedados na sua página através de um script (javascript).
-* Compatibilidade com todos os meios de pagamentos disponibilizados ao Gateway (Nacional e Internacional)
-* Autenticação do comprador (disponível)
+* Captura de dados de pagamento diretamente para os sistemas da Braspag por meio dos campos definidos no seu checkout através de um script (javascript).
+* Compatibilidade com todos os meios de pagamentos disponibilizados no Gateway Pagador (Nacional e Internacional)
 * Redução do escopo de PCI DSS
-* Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.
+* Mantenha controle total sobre a experiência de checkout mantendo o look & feel de sua marca
 
 # Fluxo Transacional
 
@@ -35,19 +34,19 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente final de 
 
 **PASSO 1**
 
-O cliente acaba o checkout, e vai para o processamento do pagamento.
+Quando o comprador acessar o checkout, o estabelecimento deve gerar o AccessToken a partir da API de autenticação da Braspag (oAuth). Em caso de sucesso, a API retornará um AccessToken que deve ser preenchido no script a ser carregado na página. 
 
-**PASSO 2**
+Para solicitar o AccessToken, o estabelecimento deve realizar um POST para a seguinte endpoint no modelo server-to-server:
 
-a) O estabelecimento deverá solicitar um ticket (server to server) enviando um POST para a seguinte URL:
+**https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}**
 
-**https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}**
+No lugar do {mid} deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag. 
 
 Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
 
 ## Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
 
 ```shell
 curl
@@ -59,9 +58,11 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`mid_loja`|Identificador da loja na API |Guid |36 |Sim|
+|`mid`|Identificador da loja no Pagador |Guid |36 |Sim|
 
 ## Resposta
+
+Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo entre outras informações o ticket (AccessToken)
 
 ```shell
 --header "Content-Type: application/json"
@@ -77,43 +78,40 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`AccessToken`|Token de Acesso|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`MerchantId`|Identificador da loja no Pagador |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Token de Acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo de já estipulado na resposta, através do atributo ExpiresIn (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
 |`Issued`|Data e hora da geração |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Data e hora da expiração |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-b) Para uso este recurso, por questões de segurança, obrigatoriamente será requerido do lado da Braspag, **no mínimo um IP válido do estabelecimento**. Caso contrário a requisição não será autorizada (**HTTP 401 NotAuthorized**).
+<aside class="notice">Para uso este recurso, por questões de segurança, será requerido obrigatoriamente **um IP válido do estabelecimento**. Caso contrário a requisição não será autorizada (**HTTP 401 NotAuthorized**)</aside>
+
+**PASSO 2**
+
+O estabelecimento deverá fazer o download do script disponibilizado pela Braspag, e anexá-lo a sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento. O download poderá ser realizado a partir da seguinte URL: 
+
+<aside class="notice">**https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**</aside>
+
+O estabelecimento deverá parametrizar os elementos formulário com as seguintes classes:
+
+|Propriedade|Nome da Classe|
+|-----------|---------|
+|Nome do portador do cartão de crédito/débito|**bp-sop-cardholdername** |
+|Número do cartão de crédito/débito|**bp-sop-cardnumber** |
+|Data de Validade do cartão de crédito/débito|**bp-sop-cardexpirationdate** |
+|Código de Segurança do cartão de crédito/débito|**bp-sop-cardcvvc**|
 
 **PASSO 3**
 
-a) Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo entre outras informações o ticket (AccessToken), como por exemplo:
+O script fornecido pela Braspag fornece três eventos para manipulação e tratamento por parte do estabelecimento. 
 
-![Response Ticket]({{ site.baseurl_root }}/images/response-ticket.jpg)
+|Evento|Descrição|
+|-----------|---------|
+|**onSuccess**| Evento em caso de sucesso. Será retornado o PaymentToken, e também os dados do cartão caso tenha solicitado realizar a verificação do cartão. Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado. |
+|**onError**| Evento em caso de erro. Será retornado o código e a descrição do erro |
+|**onInvalid**| Evento em caso de fornecimento de dados incorretos. Serão retornados detalhes de campos com erro. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol. |
 
-Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo de já estipulado na resposta, através do atributo ExpiresIn (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.
+<aside class="notice">Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado.</aside>
 
-**PASSO 4 ao 6**
-
-a) O estabelecimento deverá fazer o download de um script fornecido pela Braspag, e anexá-lo a sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento.
-O download poderá ser realizado a partir da seguinte URL: 
-
-**https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**
-
-b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes classes:
-
-* Para o portador do cartão de crédito/débito: **bp-sop-cardholdername** 
-* Para o número do cartão de crédito/débito: **bp-sop-cardnumber** 
-* Para a validade do cartão de crédito/débito: **bp-sop-cardexpirationdate** 
-* Para o código de segurança do cartão de crédito/débito: **bp-sop-cardcvvc**
-
-c) O script fornecido pela Braspag fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: **onSuccess** (onde será retornado o **“PaymentToken”** após processar os dados do cartão), **onError** (caso haja algum erro no consumo dos serviços da Braspag) e **onInvalid** (onde será retornado o resultado da validação dos inputs).
-
-* Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Braspag e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol.
-
-* O **PaymentToken** será o token que representará todos os dados de cartão fornecido pelo comprador. O mesmo será utilizado pelo estabelecimento para não haver necessidade de tratar e processar dados de cartão do seu lado.
-
-**Por questões de segurança esse PaymentToken poderá ser usado apenas para 1 autorização na Braspag. Após o processamento do mesmo, este será invalidado.**
-
-Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:
+Exemplo de uma parametrização na página de checkout:
 
 ![Pagina Checkout]({{ site.baseurl_root }}/images/consulta-bin.jpg)
