@@ -12,7 +12,7 @@
 
     <title>
         
-        Split de Pagamentos - LIO (Piloto) &middot; Documentações e tutoriais
+        Manual Split de Pagamentos em terminais LIO &middot; Documentações e tutoriais
         
     </title>
 
@@ -95,7 +95,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-pagamentos-braspag-lio">Split de Pagamentos - LIO (Piloto)</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-pagamentos-braspag-lio">Manual Split de Pagamentos em terminais LIO</a></li>
                                     
                                 
                             
@@ -105,17 +105,13 @@
             </div>
 
             <div class="post">
-  <h1 id="split-de-pagamentos---lio">Split de Pagamentos - LIO</h1>
+  <h1 id="split-de-pagamentos---cielo-lio">Split de Pagamentos - Cielo LIO</h1>
 
 <h2 id="introdução">Introdução</h2>
 
 <p>O <strong>Split de Pagamentos</strong> permite a divisão de uma transação entre diferentes participantes de uma venda.</p>
 
 <p>Para maiores detalhes e informações sobre a plataforma, consulte <a href="https://braspag.github.io//manual/split-pagamentos-braspag" target="_blank">Split de Pagamentos</a>.</p>
-
-<blockquote>
-  <p>Esta documentação é confidencial. Não divulgue-a sem prévia autorização.</p>
-</blockquote>
 
 <h2 id="configuração">Configuração</h2>
 
@@ -141,7 +137,7 @@
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">  
@@ -406,7 +402,7 @@
 
 <p>Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.</p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">  
@@ -486,11 +482,11 @@
 
 <h3 id="consulta">Consulta</h3>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/transactions/{Id}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/{Id}</span></aside>
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/transactions/e718dc1e-fe8e-497e-9019-6aa48dee6306</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/e718dc1e-fe8e-497e-9019-6aa48dee6306</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
 </code></pre>

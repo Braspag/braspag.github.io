@@ -719,6 +719,241 @@
   </tbody>
 </table>
 
+<h3 id="credit-card-payment-with-cielo-qr-code">Credit Card Payment with Cielo QR Code</h3>
+
+<p>In order to create a transaction using Cielo QR Code it is necessary to send a request using the <code class="highlighter-rouge">POST</code> method as the example below. This request will create a transaction with the status “Pending” and generate the QR Code for the payment. The buyer will pay using one of the compatible APPs and the transaction status will be updated accordingly (e.g. “Paid”, “Not paid” or “Denied”).
+The example below shows the minimum fields necessary to create a transaction.</p>
+
+<aside class="notice">Note: it is not possible to create a transaction with the ammount (`Amount`) 0.</aside>
+
+<h4 id="requisição">Requisição</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">  
+ </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"20191123"</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
+  </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"QRCode Test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+ </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+   </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"qrcode"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>  
+ <span class="s2">"MerchantOrderId"</span>:<span class="s2">"20191123"</span>,
+ <span class="s2">"Customer"</span>:<span class="o">{</span>  
+  <span class="s2">"Name"</span>:<span class="s2">"QRCode Test"</span>
+  <span class="o">}</span>,
+ <span class="s2">"Payment"</span>:<span class="o">{</span>
+   <span class="s2">"Provider"</span>:<span class="s2">"Cielo30"</span>,
+   <span class="s2">"Type"</span>:<span class="s2">"qrcode"</span>,
+   <span class="s2">"Amount"</span>:500,
+   <span class="s2">"Installments"</span>:1,
+   <span class="s2">"Capture"</span>:false
+   <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order number.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Customer Name.</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Payment provider name. Currently only available with “Cielo”</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Payment type. For payments with QR Code, send <strong>qrcode</strong>.</td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount (in cents).</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Installments numbers.</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td><strong>true</strong> for automatic capture.</td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-1">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+ </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"20191123"</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRCode Test"</span><span class="w">
+ </span><span class="p">},</span><span class="w">
+ </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52d641fb-2880-4024-89f4-7b452dc5d9cd"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"QrCodeBase64Image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iVBORw0KGgoAAAA(...)"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"403dba6-23e3-468b-92f8-f9af56d3b9d7"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QrCode"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-23 21:30:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRCode gerado com sucesso"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://apiquerysandbox.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+ <span class="s2">"MerchantOrderId"</span>:<span class="s2">"20191123"</span>,
+ <span class="s2">"Customer"</span>: <span class="o">{</span>
+  <span class="s2">"Name"</span>: <span class="s2">"QRCode Test"</span>
+ <span class="o">}</span>,
+ <span class="s2">"Payment"</span>: <span class="o">{</span>
+  <span class="s2">"Installments"</span>: 1,
+  <span class="s2">"Capture"</span>: <span class="nb">false</span>,
+  <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"52d641fb-2880-4024-89f4-7b452dc5d9cd"</span>,
+  <span class="s2">"QrCodeBase64Image"</span>: <span class="s2">"iVBORw0KGgoAAAA(...)"</span>,
+  <span class="s2">"PaymentId"</span>: <span class="s2">"403dba6-23e3-468b-92f8-f9af56d3b9d7"</span>,
+  <span class="s2">"Type"</span>: <span class="s2">"QrCode"</span>,
+  <span class="s2">"Amount"</span>: 100,
+  <span class="s2">"ReceivedDate"</span>: <span class="s2">"2019-10-23 21:30:00"</span>,
+  <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+  <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+  <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
+  <span class="s2">"ReasonCode"</span>: 0,
+  <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+  <span class="s2">"Status"</span>: 12,
+  <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
+  <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"QRCode gerado com sucesso"</span>,
+  <span class="s2">"Links"</span>: <span class="o">[</span>
+   <span class="o">{</span>
+    <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+    <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+    <span class="s2">"Href"</span>: <span class="s2">"http://apiquerysandbox.braspag.com.br/v2/sales/4031dba6-23e3-468b-92f8-f9af56d3b9d7"</span>
+   <span class="o">}</span>
+  <span class="o">]</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Tyoe</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">QrCodeBase64Image</code></td>
+      <td>QR Code image encoded in base64. The QR Code image can be rendered on the webpage using an HTML code like this: [</td>
+      <td>Texto</td>
+      <td>Variável</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Order payment identifier, necessary for any GET/POST/PUT operation.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Transaction status. For QR Code transactions, the initial status is “12” (Pending).</td>
+      <td>Byte</td>
+      <td>-</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>Acquirer return code.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>Acquirer return message</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="credit-card-payments-with-customers-data">Credit Card Payments with Customer’s Data</h2>
 
 <p>This is an example with customer’s data, capture behavior, authentication option and extra datas (merchant’s customized data).</p>
@@ -1226,7 +1461,7 @@
   </tbody>
 </table>
 
-<h3 id="response-1">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -2123,7 +2358,7 @@
   </tbody>
 </table>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-3">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -2679,7 +2914,7 @@
   </tbody>
 </table>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-4">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051101"</span><span class="p">,</span><span class="w">
@@ -3134,7 +3369,7 @@
   </tbody>
 </table>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051101"</span><span class="p">,</span><span class="w">
@@ -4361,7 +4596,7 @@
   </tbody>
 </table>
 
-<h3 id="response-5">Response</h3>
+<h3 id="response-6">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051102"</span><span class="p">,</span><span class="w">
@@ -6136,7 +6371,7 @@
   </tbody>
 </table>
 
-<h3 id="response-6">Response</h3>
+<h3 id="response-7">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201411170314344356"</span><span class="p">,</span><span class="w">
@@ -6918,7 +7153,7 @@
   </tbody>
 </table>
 
-<h3 id="response-7">Response</h3>
+<h3 id="response-8">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051104"</span><span class="p">,</span><span class="w">
@@ -7335,7 +7570,7 @@
   </tbody>
 </table>
 
-<h3 id="response-8">Response</h3>
+<h3 id="response-9">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051105"</span><span class="p">,</span><span class="w">
@@ -7735,7 +7970,7 @@
   </tbody>
 </table>
 
-<h3 id="response-9">Response</h3>
+<h3 id="response-10">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051105"</span><span class="p">,</span><span class="w">
@@ -8050,7 +8285,7 @@
   </tbody>
 </table>
 
-<h3 id="response-10">Response</h3>
+<h3 id="response-11">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -8201,7 +8436,7 @@
   </tbody>
 </table>
 
-<h3 id="response-11">Response</h3>
+<h3 id="response-12">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -8662,7 +8897,7 @@
   </tbody>
 </table>
 
-<h3 id="response-12">Response</h3>
+<h3 id="response-13">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051202"</span><span class="p">,</span><span class="w">
@@ -9030,7 +9265,7 @@
   </tbody>
 </table>
 
-<h3 id="response-13">Response</h3>
+<h3 id="response-14">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051201"</span><span class="p">,</span><span class="w">
@@ -9362,7 +9597,7 @@
   </tbody>
 </table>
 
-<h3 id="response-14">Response</h3>
+<h3 id="response-15">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051107"</span><span class="p">,</span><span class="w">
@@ -9773,7 +10008,7 @@
   </tbody>
 </table>
 
-<h3 id="response-15">Response</h3>
+<h3 id="response-16">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -10076,7 +10311,7 @@
   </tbody>
 </table>
 
-<h3 id="response-16">Response</h3>
+<h3 id="response-17">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -10370,7 +10605,7 @@
   </tbody>
 </table>
 
-<h3 id="response-17">Response</h3>
+<h3 id="response-18">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
@@ -10975,7 +11210,7 @@
   </tbody>
 </table>
 
-<h3 id="response-18">Response</h3>
+<h3 id="response-19">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051113"</span><span class="p">,</span><span class="w">
@@ -11354,7 +11589,7 @@
   </tbody>
 </table>
 
-<h3 id="response-19">Response</h3>
+<h3 id="response-20">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051113"</span><span class="p">,</span><span class="w">
@@ -11756,7 +11991,7 @@
   </tbody>
 </table>
 
-<h3 id="response-20">Response</h3>
+<h3 id="response-21">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051114"</span><span class="p">,</span><span class="w">
@@ -12202,7 +12437,7 @@
   </tbody>
 </table>
 
-<h3 id="response-21">Response</h3>
+<h3 id="response-22">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12280,7 +12515,7 @@
   </tbody>
 </table>
 
-<h3 id="response-22">Response</h3>
+<h3 id="response-23">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12358,7 +12593,7 @@
   </tbody>
 </table>
 
-<h3 id="response-23">Response</h3>
+<h3 id="response-24">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12456,7 +12691,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-24">Response</h3>
+<h3 id="response-25">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12536,7 +12771,7 @@ New Next scheduled recurrence date: Oct 2th <br />
 
 <aside class="warning">This change will affect from the next recurrency date</aside>
 
-<h3 id="response-25">Response</h3>
+<h3 id="response-26">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12614,7 +12849,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-26">Response</h3>
+<h3 id="response-27">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12785,7 +13020,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-27">Response</h3>
+<h3 id="response-28">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12852,7 +13087,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-28">Response</h3>
+<h3 id="response-29">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12919,7 +13154,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-29">Response</h3>
+<h3 id="response-30">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12988,7 +13223,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-30">Response</h3>
+<h3 id="response-31">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -13614,7 +13849,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-31">Response</h3>
+<h3 id="response-32">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -14144,7 +14379,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-32">Response</h3>
+<h3 id="response-33">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -14260,7 +14495,7 @@ New Next scheduled recurrence date: Oct 2th <br />
   </tbody>
 </table>
 
-<h3 id="response-33">Response</h3>
+<h3 id="response-34">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
