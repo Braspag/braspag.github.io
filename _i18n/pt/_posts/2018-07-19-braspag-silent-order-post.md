@@ -117,3 +117,22 @@ Exemplo de uma parametrização na página de checkout:
 Para baixar o código, clique [aqui](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)
 
 ![Pagina Checkout]({{ site.baseurl_root }}/images/consulta-bin.jpg)
+
+**PARÂMETROS DO SCRIPT**
+
+|Propriedade|Descrição|
+|-----------|---------|
+|accessToken| Token de Acesso obtido via API de autenticação da Braspag|
+|environment| **sandbox** ou **production**|
+|language| **pt** ou **en** ou **es** |
+|enableBinQuery| **true** se quiser habilitar o ZeroAuth e Consulta BIN. **false** caso contrário. |
+
+**RETORNOS DO SCRIPT**
+
+|Propriedade|Descrição|
+|-----------|---------|
+|PaymentToken| Token de Pagamento no formato de um GUID (36) |
+|brand| Retornado quando a opção enableBinQuery for **true**. Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard) |
+|forerignCard| Retornado quando a opção enableBinQuery for **true**. O campo retorna **true** se é um cartão emitido fora do brasil. **false** caso contrário |
+|binQueryReturnCode| Retornado quando a opção enableBinQuery for **true**. 	Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código 82-cartão inválido  |
+|binQueryReturnMessage| Retornado quando a opção enableBinQuery for **true**. Ex. “Transacao Autorizada”  |
