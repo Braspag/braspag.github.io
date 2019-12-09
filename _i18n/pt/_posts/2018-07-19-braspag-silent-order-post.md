@@ -30,9 +30,7 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente de forma 
 
 ![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-sop-br.jpg)
 
-# Integração
-
-**PASSO 1**
+# Obtendo AccessToken
 
 Quando o comprador acessar o checkout, o estabelecimento deve gerar o AccessToken a partir da API de autenticação da Braspag (oAuth). Em caso de sucesso, a API retornará um AccessToken que deve ser preenchido no script a ser carregado na página. 
 
@@ -85,7 +83,9 @@ Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo e
 
 <aside class="notice">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário a requisição não será autorizada (HTTP 401 NotAuthorized). Por favor, identificar qual será o IP de saída que acessará a API e na sequência solicitar o cadastro do mesmo através do canal de atendimento Braspag: https://suporte.braspag.com.br/hc/pt-br</aside>
 
-**PASSO 2**
+# Implementando o script
+
+## Mapeando classes
 
 O estabelecimento deverá fazer o download do script disponibilizado pela Braspag, e anexá-lo a sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento. O download poderá ser realizado a partir da seguinte URL: 
 
@@ -100,7 +100,7 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 |Data de Validade do cartão de crédito/débito|**bp-sop-cardexpirationdate** |
 |Código de Segurança do cartão de crédito/débito|**bp-sop-cardcvvc**|
 
-**PASSO 3**
+## Implementando eventos
 
 O script fornecido pela Braspag fornece três eventos para manipulação e tratamento por parte do estabelecimento. 
 
@@ -135,4 +135,4 @@ Para baixar o código, clique [aqui](https://github.com/Braspag/braspag.github.i
 |brand| Retornado quando a opção enableBinQuery for **true**. Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard) |
 |forerignCard| Retornado quando a opção enableBinQuery for **true**. O campo retorna **true** se é um cartão emitido fora do brasil. **false** caso contrário |
 |binQueryReturnCode| Retornado quando a opção enableBinQuery for **true**. Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código 82-cartão inválido|
-|binQueryReturnMessage| Retornado quando a opção enableBinQuery for **true**. Ex. “Transacao Autorizada” |
+|binQueryReturnMessage| Retornado quando a opção enableBinQuery for **true**. Ex. “Transacao Autorizada”  |
