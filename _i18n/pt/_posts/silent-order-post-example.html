@@ -1,0 +1,63 @@
+<!DOCTPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Silent Order Post Example</title>
+    <script src="https://www.pagador.com.br/post/Scripts/silentorderpost-1.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+        
+        function sendCardData(){
+
+            var options = {
+                accessToken: document.getElementById("accessToken").value,
+                onSuccess: function(e){			
+                    var paymentToken = e.PaymentToken;
+                    var brand = e.Brand;
+                    var foreignCard = e.ForeignCard;
+                    var binQueryReturnCode = e.BinQueryReturnCode;
+                    var binQueryReturnMessage = e.BinQueryReturnMessage;
+
+                    document.getElementById("txt_brand").value = brand;
+                    document.getElementById("txt_paymenttoken").value = paymentToken;
+                    document.getElementById("txt_foreignCard").value = foreignCard;
+                    document.getElementById("txt_binQueryReturnCode").value = binQueryReturnCode;
+                    document.getElementById("txt_binQueryReturnMessage").value = binQueryReturnMessage;
+                },
+                onError: function(e){				
+                    var errorCode = e.Code;
+                    var errorMessage = e.Text;
+                },
+                onInvalid: function(e){
+					
+                    for(var i=0; i<e.length; i++){
+                        var field = e[i].Field;
+                        var message = e[i].Message;				
+                    }
+                },
+                environment: "sandbox",
+                language: "pt",
+                enableBinQuery: true
+			};
+            
+            bpSop_silentOrderPost(options);
+        }	
+	</script>
+</head>
+<body>
+    <form method="POST">
+        <table border=0 cellpadding="10px" cellspacing="10px">
+            <tr><td>Access Token: </td><td><input type="text" id="accessToken" size="64" /></td></tr>
+            <tr><td>Nome do Portador: </td><td><input type="text" class="bp-sop-cardholdername" size="50" /><td></tr>          
+            <tr><td>Número do Cartão: </td><td><input type="text" class="bp-sop-cardnumber" size="16"  /><td></tr>
+            <tr><td>Data de Validade (dd/aaaa): </td><td><input type="text" class="bp-sop-cardexpirationdate" size="7"  /><td></tr>
+            <tr><td>CVV: </td><td><input type="text" class="bp-sop-cardcvv" maxlength="3" size=5" /><td></tr>
+            <tr><td><input type="button" onClick="sendCardData();" value="Submeter" /><td></tr>
+            <tr><td>paymentToken: </td><td><input type="text" size="36" id="txt_paymenttoken" /><td></tr>
+            <tr><td>brand: </td><td><input type="text" size="36" id="txt_brand" /><td></tr>
+            <tr><td>foreignCard: </td><td><input type="text" size="36" id="txt_foreignCard" /><td></tr>
+            <tr><td>binQueryReturnCode: </td><td><input type="text" size="36" id="txt_binQueryReturnCode" /><td></tr>
+            <tr><td>binQueryReturnMessage: </td><td><input type="text" size="36" id="txt_binQueryReturnMessage" /><td></tr>
+        </table>
+    </form>
+</body>
+</html>
