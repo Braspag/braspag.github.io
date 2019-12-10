@@ -156,7 +156,9 @@
 
 <p><img src="https://braspag.github.io//images/fluxo-sop-br.jpg" alt="Fluxo Silent Order Post" /></p>
 
-<h1 id="obtendo-accesstoken">Obtendo AccessToken</h1>
+<h1 id="integração">Integração</h1>
+
+<h2 id="1-obtendo-accesstoken">1. Obtendo AccessToken</h2>
 
 <p>Quando o comprador acessar o checkout, o estabelecimento deve gerar o AccessToken a partir da API de autenticação da Braspag (oAuth). Em caso de sucesso, a API retornará um AccessToken que deve ser preenchido no script a ser carregado na página.</p>
 
@@ -168,7 +170,7 @@
 
 <p>Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h2 id="requisição">Requisição</h2>
+<h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
 
@@ -200,7 +202,7 @@
   </tbody>
 </table>
 
-<h2 id="resposta">Resposta</h2>
+<h3 id="resposta">Resposta</h3>
 
 <p>Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo entre outras informações o ticket (AccessToken)</p>
 
@@ -259,9 +261,9 @@
 
 <aside class="notice">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário a requisição não será autorizada (HTTP 401 NotAuthorized). Por favor, identificar qual será o IP de saída que acessará a API e na sequência solicitar o cadastro do mesmo através do canal de atendimento Braspag: https://suporte.braspag.com.br/hc/pt-br</aside>
 
-<h1 id="implementando-o-script">Implementando o script</h1>
+<h2 id="2-implementando-o-script">2. Implementando o script</h2>
 
-<h2 id="mapeando-classes">Mapeando classes</h2>
+<h3 id="mapeando-classes">Mapeando classes</h3>
 
 <p>O estabelecimento deverá fazer o download do script disponibilizado pela Braspag, e anexá-lo a sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento. O download poderá ser realizado a partir da seguinte URL:</p>
 
@@ -296,40 +298,7 @@
   </tbody>
 </table>
 
-<h2 id="implementando-eventos">Implementando eventos</h2>
-
-<p>O script fornecido pela Braspag fornece três eventos para manipulação e tratamento por parte do estabelecimento.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Evento</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>onSuccess</strong></td>
-      <td>Evento em caso de sucesso. Será retornado o PaymentToken, e também os dados do cartão caso tenha solicitado realizar a verificação do cartão. Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado.</td>
-    </tr>
-    <tr>
-      <td><strong>onError</strong></td>
-      <td>Evento em caso de erro. Será retornado o código e a descrição do erro</td>
-    </tr>
-    <tr>
-      <td><strong>onInvalid</strong></td>
-      <td>Evento em caso de fornecimento de dados incorretos. Serão retornados detalhes de campos com erro. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol.</td>
-    </tr>
-  </tbody>
-</table>
-
-<aside class="notice">Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado.</aside>
-
-<p>Exemplo de uma parametrização na página de checkout:</p>
-
-<p>Para baixar o código, clique <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html">aqui</a></p>
-
-<p><img src="https://braspag.github.io//images/consulta-bin.jpg" alt="Pagina Checkout" /></p>
+<h3 id="defindo-parâmetros">Defindo parâmetros</h3>
 
 <p><strong>PARÂMETROS DO SCRIPT</strong></p>
 
@@ -392,6 +361,43 @@
     </tr>
   </tbody>
 </table>
+
+<h3 id="implementando-eventos">Implementando eventos</h3>
+
+<p>O script fornecido pela Braspag fornece três eventos para manipulação e tratamento por parte do estabelecimento.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>onSuccess</strong></td>
+      <td>Evento em caso de sucesso. Será retornado o PaymentToken, e também os dados do cartão caso tenha solicitado realizar a verificação do cartão. Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado.</td>
+    </tr>
+    <tr>
+      <td><strong>onError</strong></td>
+      <td>Evento em caso de erro. Será retornado o código e a descrição do erro</td>
+    </tr>
+    <tr>
+      <td><strong>onInvalid</strong></td>
+      <td>Evento em caso de fornecimento de dados incorretos. Serão retornados detalhes de campos com erro. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol.</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado.</aside>
+
+<h3 id="exemplo">Exemplo</h3>
+
+<p>Exemplo de uma parametrização na página de checkout:</p>
+
+<p>Para baixar o código, clique <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html">aqui</a></p>
+
+<p><img src="https://braspag.github.io//images/consulta-bin.jpg" alt="Pagina Checkout" /></p>
 
 </div>
 
