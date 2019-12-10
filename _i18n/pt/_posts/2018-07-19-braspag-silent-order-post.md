@@ -142,3 +142,62 @@ Exemplo de uma parametrização na página de checkout:
 Para baixar o código, clique [aqui](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)
 
 ![Pagina Checkout]({{ site.baseurl_root }}/images/consulta-bin.jpg)
+
+## 3. Autorizando com PaymentToken
+
+Após a obtenção do PaymentToken através do script, executa-se o processo de autorização, enviando o PaymentToken no lugar de dados do cartão. 
+
+Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador:
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
+
+### Request
+
+```json
+{  
+   "MerchantOrderId":"2017051002",
+   "Customer":
+   {  
+     (...)
+   },
+   "Payment":
+   {  
+     (...)
+     "Card":{  
+         "PaymentToken":"eedcb896-40e1-465b-b34c-6d1119dbb6cf"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+--header "MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+--data-binary
+--verbose
+{  
+   "MerchantOrderId":"2017051002",
+   "Customer":
+   {  
+     (...)
+   },
+   "Payment":
+   {  
+     (...)
+     "Card":{  
+         "PaymentToken":"eedcb896-40e1-465b-b34c-6d1119dbb6cf"
+     }
+   }
+}
+```
+
+| **Campo** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| Payment.Card.PaymentToken | Fornecer o PaymentToken gerado através do script. Esta informação substitui os dados do cartão | GUID (36) | Sim |
+
+### Response
+
+Vide https://braspag.github.io/manual/braspag-pagador
