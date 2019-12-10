@@ -399,6 +399,78 @@
 
 <p><img src="https://braspag.github.io//images/consulta-bin.jpg" alt="Pagina Checkout" /></p>
 
+<h2 id="3-autorizando-com-paymenttoken">3. Autorizando com PaymentToken</h2>
+
+<p>Após a obtenção do PaymentToken através do script, executa-se o processo de autorização, enviando o PaymentToken no lugar de dados do cartão.</p>
+
+<p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador:</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
+
+<h3 id="request">Request</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">  
+     </span><span class="err">(...)</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">  
+     </span><span class="err">(...)</span><span class="w">
+     </span><span class="nl">"Card"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"PaymentToken"</span><span class="p">:</span><span class="s2">"eedcb896-40e1-465b-b34c-6d1119dbb6cf"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+<span class="o">{</span>  
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2017051002"</span>,
+   <span class="s2">"Customer"</span>:
+   <span class="o">{</span>  
+     <span class="o">(</span>...<span class="o">)</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>:
+   <span class="o">{</span>  
+     <span class="o">(</span>...<span class="o">)</span>
+     <span class="s2">"Card"</span>:<span class="o">{</span>  
+         <span class="s2">"PaymentToken"</span>:<span class="s2">"eedcb896-40e1-465b-b34c-6d1119dbb6cf"</span>
+     <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Campo</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment.Card.PaymentToken</td>
+      <td>Fornecer o PaymentToken gerado através do script. Esta informação substitui os dados do cartão</td>
+      <td>GUID (36)</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<p>Vide https://braspag.github.io/manual/braspag-pagador</p>
+
 </div>
 
 
