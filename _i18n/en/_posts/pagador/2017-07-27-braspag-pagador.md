@@ -5163,7 +5163,7 @@ curl
 |`MerchantKey`|Text|40|Yes|Merchant Key need to access the API|
 |`RequestId`|Guid|36|No|Request Identifier defined by merchant, applicable to any operation GET/POST/PUT|
 |`MerchantOrderId`|Text|50|Yes|Merchant Order ID|
-|`Customer.Name`|Text|See the table below|Yes|Customer's Name|
+|`Customer.Name`|Text|See the table below|Yes|Customer's Name and Surname, or Trading Name in case of a legal person|
 |`Customer.Identity`|Text|14 |No|Customer's RG, CPF or CNPJ| 
 |`Customer.IdentityType`|Text|See the table below|No|Customer Identification Type  (CPF or CNPJ)|
 |`Customer.Address.Street`|Text|See the table below|No|Customer's main contact address|
@@ -5192,22 +5192,28 @@ curl
 
 ### Fields max length specification for each bank
 
-|Property|Bradesco|BancoBanco do Brasil|Itaú|Santander|Caixa Econômica|Citibank|
-|---|---|---|---|---|---|---|
-|Provider|Bradesco2|BancoDoBrasil2|ItauShopline|Santander2|Caixa2|Citibank2|
-|`MerchantOrderId`|27 (OBS 1)|50 (OBS 1)|8|50 (OBS 1)|11 (OBS 1)|10 (OBS 1)|
-|`Payment.BoletoNumber`|11 (OBS 2)|9 (OBS 2)|8 (OBS 1)|13 (OBS 2)|14 (OBS 2)|11 (OBS 2)|
-|`Customer.Name`|34 (OBS 3)|60 (OBS,3)|30|40 (OBS 3)|40 (OBS 3)|50 (OBS 3)|
-|`Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District`|Street: 70 (OBS 4); Number: 10 (OBS 4); Complement: 20 (OBS 4); District: 50 (OBS 4)|These fields must have up to 60 characters / OBS 3 |Street, Number e Complement must have up to 40 characters;  District: 15|Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)|Street, Number e Complement must have up to 40 characters (OBS 3); District: 15 (OBS 3)|Street, Number e Complement must have up to 40 characters (OBS 3); District: 50 (OBS 3)|
-|`Customer.Address.City`|50 (OBS 4)|18 (OBS 3)|15|30 (OBS 3)|15 (OBS 3)|50 (OBS 4)|
-|`Payment.Instructions`|450|450|this field is not sent to the bank|450|450|450|
-|`Payment.Demonstrative`|255|this field is not sent to the bank|this field is not sent to the bank|255|255|255|
-|>>>>>>>>>>>>>>>>>>>>>>|||||||
-|Additional Obsrevations:|OBS 1: alphabets, numbers e characters like "_" and "$"|OBS 1: this field is not sent to the bank|OBS geral: the Pagador truncates the fields automatically|OBS 1: this field is not sent to the bank|OBS 1: when the value is greater than 11 digits, the Pagador will generate a number based on configured number in the admin panel|General OBS: the Pagador does not validate the fields, but the Bank truncates the fields automatically|
-||OBS 2: the bank validates the limit|OBS 2: the value is truncated when pass 9 digits, considering the last 9 positions|OBS 1: the "nosso número" alwats will be the same value as "Order ID", and pagador validates the limit|OBS 2: the bank validates the limit|OBS 2: start with "14" + 14 digits + verification digit generates automatically. When greater than 14 digits, the Pagador truncate the value considering the last 14 digits|OBS 1: when greather than the max limit, the Pagador generates a incremental number configured in the admin panel|
-||OBS 3: the Pagador truncate automatically|OBS 3: accepted characteres: alphabets A a Z (CAPS LOCK); special characters: (-), ('), without space between these characters; Correct Examples: D'EL-REI, D'ALCORTIVO, SANT'ANA. Incorrect Examples: D'EL - REI; you can use one space between two words||OBS 3: the Pagador validates the limit|OBS 3: the Pagador validates the limit|OBS 2: when the value is greater than limit, the Pagador generates one randomic number|
-||OBS 4: the Pagador validates the limit|||||OBS 3: te Pagador removes the special characters 
-|||||||OBS 4: this field is not sent to the bank|
+| Property | Bradesco | BancoBanco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| `Provider` | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
+| `MerchantOrderId` | 27 (obs 1) | 50 | 8 | 50 | 11 (obs 2) | 10 (obs 2) |
+| `Payment.BoletoNumber` | 11 (obs 3) | 9 (obs 4) | 8 (obs 5) | 13 (obs 3) | 12 (obs 6) | 11 (obs 7) |
+| `Customer.Name` | 34 | 60 (obs 8) | 30 | 40 | 40 | 50 (obs 9) |
+| `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` | Street: 70<br><br>Number: 10<br><br>Complement: 20<br><br>District: 50 | Up to 60 characters (obs 8) | Street, Number and Complement must total up to 40 characters<br><br>District: 15 | Street, Number and Complement must total up to 40 characters<br><br>District: 15 | Street, Number and Complement must total up to 40 characters<br><br>District: 15 | Street, Number and Complement must up to 40 characters<br><br>District: 50 (obs 9) |
+| `Customer.Address.City` | 50 | 18 (obs 8) | 15 | 30 | 15 | 50 (obs 9) |
+| `Payment.Instructions` | 450 | 450 | N/A | 450 | 450 | 450 |
+| `Payment.Demonstrative` | 255 | N/A | N/A | 255 | 255 | 255 |
+
+|Observarions|Details|
+|---|---|
+|**obs 1:**|alphabets, numbers e characters like "_" and "$"|
+|**obs 2:**|If it exceeds 11 digits, the API will generate an incremental number from the value configured for the merchant |
+|**obs 3:**|The value must be unique. The bank does not allow the repetition of previously used values.|
+|**obs 4:**|When submitted over 9 positions, API considers last 9 digits |
+|**obs 5:**|Must be always equals to Order Number (MerchantOrderId) |
+|**obs 6:**|The API automatically concatenates “14” + 12 digits + check digit before sending to the bank. If the total exceeds 14 digits, the API considers the last 14 digits |
+|**obs 7:**|Quando enviado mais que o permitido, a API gera um número aleatório |
+|**obs 8:**|Accepted as allowed characters: numbers, letters A through Z (UPPERCASE); special characters: hyphen (-), apostrophe (‘). It cannot contain spaces between letters; Correct examples: D’EL-REI, D’ALCORTIVO, SANT’ANA. Incorrect examples: D’EL - REI; up to one blank space between word|
+|**obs 9:**|Special characters and accents will be removed automatically |
 
 ### Response
 
