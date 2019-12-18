@@ -151,7 +151,8 @@ Para baixar o código, clique [aqui](https://github.com/Braspag/braspag.github.i
 
 Após a obtenção do PaymentToken através do script, executa-se o processo de autorização, enviando o PaymentToken no lugar de dados do cartão. 
 
-Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador:
+Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador. 
+Para maior detalhe sobre a implementação, acesse: [API Pagador](https://braspag.github.io//manual/braspag-pagador):
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
 
