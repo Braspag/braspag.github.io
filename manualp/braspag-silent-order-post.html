@@ -324,7 +324,11 @@
     </tr>
     <tr>
       <td>enableBinQuery</td>
-      <td><strong>true</strong> se quiser habilitar o ZeroAuth e Consulta BIN. <strong>false</strong> caso contrário.</td>
+      <td><strong>true</strong> se quiser habilitar o Consulta BIN (retorna as características do cartão). <strong>false</strong> caso contrário.</td>
+    </tr>
+    <tr>
+      <td>enableVerifyCard</td>
+      <td><strong>true</strong> se quiser habilitar o ZeroAuth (retorna se o cartão é válido ou não). <strong>false</strong> caso contrário.</td>
     </tr>
   </tbody>
 </table>
@@ -353,10 +357,22 @@
     </tr>
     <tr>
       <td>binQueryReturnCode</td>
-      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código 82-cartão inválido</td>
+      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. “00” se a análise do BIN for um sucesso.</td>
     </tr>
     <tr>
       <td>binQueryReturnMessage</td>
+      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Ex. “Transacao Autorizada” se a análise do BIN for um sucessso</td>
+    </tr>
+    <tr>
+      <td>VerifyCardStatus</td>
+      <td>Retornado quando a opção enableVerifyCard for <strong>true</strong>. 0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida</td>
+    </tr>
+    <tr>
+      <td>VerifyCardReturnCode</td>
+      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código “00” significa sucesso na validação</td>
+    </tr>
+    <tr>
+      <td>VerifyCardReturnMessage</td>
       <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Ex. “Transacao Autorizada”</td>
     </tr>
   </tbody>
