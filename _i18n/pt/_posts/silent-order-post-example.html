@@ -1,4 +1,12 @@
-<!DOCTPE html>
+<!--
+EXEMPLO PARA OBTER O ACCESSTOKEN
+sandbox
+POST /post/api/public/v1/accesstoken?merchantid=B898E624-EF0F-455C-9509-3FAE12FB1F81 HTTP/1.1
+Host: transactionsandbox.pagador.com.br
+User-Agent: PostmanRuntime/7.20.1
+Accept: */*
+Host: transactionsandbox.pagador.com.br
+-->
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -22,21 +30,29 @@
                     document.getElementById("txt_foreignCard").value = foreignCard;
                     document.getElementById("txt_binQueryReturnCode").value = binQueryReturnCode;
                     document.getElementById("txt_binQueryReturnMessage").value = binQueryReturnMessage;
+                    document.getElementById("txt_VerifyCard").value = foreignCard;
+                    document.getElementById("txt_VerifyCardReturnCode").value = binQueryReturnCode;
+                    document.getElementById("txt_VerifyCardReturnMessage").value = binQueryReturnMessage;					
+					
+					document.getElementById("txt_error").value = "-";
                 },
                 onError: function(e){				
                     var errorCode = e.Code;
                     var errorMessage = e.Text;
+                    document.getElementById("txt_error").value = errorCode + " " + errorMessage;
                 },
                 onInvalid: function(e){
 					
                     for(var i=0; i<e.length; i++){
                         var field = e[i].Field;
-                        var message = e[i].Message;				
+                        var message = e[i].Message;
+                        document.getElementById("txt_error").value += field + " " + message + " | ";						
                     }
                 },
                 environment: "sandbox",
                 language: "pt",
-                enableBinQuery: true
+                enableBinQuery: true,
+				enableVerifyCard: true,
 			};
             
             bpSop_silentOrderPost(options);
@@ -47,16 +63,20 @@
     <form method="POST">
         <table border=0 cellpadding="10px" cellspacing="10px">
             <tr><td>Access Token: </td><td><input type="text" id="accessToken" size="64" /></td></tr>
-            <tr><td>Nome do Portador: </td><td><input type="text" class="bp-sop-cardholdername" size="50" /><td></tr>          
-            <tr><td>Número do Cartão: </td><td><input type="text" class="bp-sop-cardnumber" size="16"  /><td></tr>
-            <tr><td>Data de Validade (dd/aaaa): </td><td><input type="text" class="bp-sop-cardexpirationdate" size="7"  /><td></tr>
-            <tr><td>CVV: </td><td><input type="text" class="bp-sop-cardcvv" maxlength="3" size=5" /><td></tr>
+            <tr><td>Nome do Portador: </td><td><input type="text" class="bp-sop-cardholdername" size="50" value="joao da silva" /><td></tr>          
+            <tr><td>Número do Cartão: </td><td><input type="text" class="bp-sop-cardnumber" size="16" value="4257517610776861"  /><td></tr>
+            <tr><td>Data de Validade (dd/aaaa): </td><td><input type="text" class="bp-sop-cardexpirationdate" size="7" value="05/2022" /><td></tr>
+            <tr><td>CVV: </td><td><input type="text" class="bp-sop-cardcvv" maxlength="3" size=5" value="123"/><td></tr>
             <tr><td><input type="button" onClick="sendCardData();" value="Submeter" /><td></tr>
             <tr><td>paymentToken: </td><td><input type="text" size="36" id="txt_paymenttoken" /><td></tr>
             <tr><td>brand: </td><td><input type="text" size="36" id="txt_brand" /><td></tr>
             <tr><td>foreignCard: </td><td><input type="text" size="36" id="txt_foreignCard" /><td></tr>
             <tr><td>binQueryReturnCode: </td><td><input type="text" size="36" id="txt_binQueryReturnCode" /><td></tr>
             <tr><td>binQueryReturnMessage: </td><td><input type="text" size="36" id="txt_binQueryReturnMessage" /><td></tr>
+            <tr><td>VerifyCard: </td><td><input type="text" size="36" id="txt_VerifyCard" /><td></tr>
+            <tr><td>VerifyCardReturnCode: </td><td><input type="text" size="36" id="txt_VerifyCardReturnCode" /><td></tr>
+            <tr><td>VerifyCardReturnMessage: </td><td><input type="text" size="36" id="txt_VerifyCardReturnMessage" /><td></tr>			
+            <tr><td>Error: </td><td><input type="text" size="36" id="txt_error" /><td></tr>
         </table>
     </form>
 </body>
