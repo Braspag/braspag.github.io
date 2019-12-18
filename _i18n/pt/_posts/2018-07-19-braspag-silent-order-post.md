@@ -111,7 +111,8 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 |accessToken| Token de Acesso obtido via API de autenticação da Braspag|
 |environment| **sandbox** ou **production**|
 |language| **pt** ou **en** ou **es** |
-|enableBinQuery| **true** se quiser habilitar o ZeroAuth e Consulta BIN. **false** caso contrário. |
+|enableBinQuery| **true** se quiser habilitar o Consulta BIN (retorna as características do cartão). **false** caso contrário. |
+|enableVerifyCard| **true** se quiser habilitar o ZeroAuth (retorna se o cartão é válido ou não). **false** caso contrário. |
 
 **RETORNOS DO SCRIPT**
 
@@ -120,8 +121,11 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 |PaymentToken| Token de Pagamento no formato de um GUID (36) |
 |brand| Retornado quando a opção enableBinQuery for **true**. Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard) |
 |forerignCard| Retornado quando a opção enableBinQuery for **true**. O campo retorna **true** se é um cartão emitido fora do brasil. **false** caso contrário |
-|binQueryReturnCode| Retornado quando a opção enableBinQuery for **true**. Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código 82-cartão inválido|
-|binQueryReturnMessage| Retornado quando a opção enableBinQuery for **true**. Ex. “Transacao Autorizada”  |
+|binQueryReturnCode| Retornado quando a opção enableBinQuery for **true**. "00" se a análise do BIN for um sucesso. |
+|binQueryReturnMessage| Retornado quando a opção enableBinQuery for **true**. Ex. “Transacao Autorizada” se a análise do BIN for um sucessso  |
+|VerifyCardStatus| Retornado quando a opção enableVerifyCard for **true**. 0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida |
+|VerifyCardReturnCode| Retornado quando a opção enableBinQuery for **true**. Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código "00" significa sucesso na validação|
+|VerifyCardReturnMessage| Retornado quando a opção enableBinQuery for **true**. Ex. “Transacao Autorizada”  |
 
 ### Implementando eventos
 
