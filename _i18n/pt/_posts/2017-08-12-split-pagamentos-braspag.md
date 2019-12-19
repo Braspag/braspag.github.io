@@ -1579,7 +1579,7 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
             },
             "Splits": [
                 {
-                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f,
+                    "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
                     "Amount": 5670
                 },
                 {
