@@ -2157,6 +2157,717 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 > Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
 
+### Opções de Configuração da Transação
+
+Em uma transação do Split, existem configurações opcionais que podem ser utilizadas para controlar alguns aspectos.
+
+#### Origem do Desconto das Taxas
+
+Por padrão, as taxas e tarifas fixas do Split são descontadas do valor de comissão do Master, porém é possível que o desconto seja feito da parte da venda do Master.
+
+> Para que a opção de desconto da parte da venda seja possível, o Master deve possuir venda na transação.
+
+A opção pode ser utilizada no momento da divisão transacional e pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o suporte do Split para que ela seja criada, removida ou atualizada. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
+
+No caso de uma transação criada com uma forma de desconto, o mesmo será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
+
+> Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
+
+##### Tipos de Desconto Possíveis
+
+| Tipo | Descrição |
+|-|-|
+| `Commission` | Com esta opção, o desconto será feito sobre o valor de comissão que o Master tem a receber na transação. |
+| `Sale` | Com esta opção, o desconto será feito sobre o valor de venda que o Master tem a receber na transação. |
+
+##### No Momento Transacional
+
+Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
+
+**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
+**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
+**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.
+
+> Desconto sendo aplicado sobre a comissão.
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "Type": "SplittedCreditCard",
+        "Amount": 10000,
+        "Installments": 1,
+        "SoftDescriptor": "Marketplace",
+        "Capture": true,
+        "CreditCard": {
+            "CardNumber": "4551870000000181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SecurityCode": "123",
+            "Brand": "Visa"
+        },
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Commission"
+        },
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                }
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                }
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500
+            }
+        ]
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 4245
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 255
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 2865
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 135
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500,
+                "Fares": {
+                    "Mdr": 2,
+                    "Fee": 0
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 2500
+                    }
+                ]
+            }
+        ],
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Commission"
+        },
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1210035540764",
+        "ProofOfSale": "20171210035540764",
+        "AuthorizationCode": "859182",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-10 15:55:38",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-10 15:55:40",
+        "Status": 2,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "34895364-e269-47ad-b779-7e122ed40a9a",
+        "Type": "SplittedCreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "PUT",
+                "Rel": "split",
+                "Href": "https://splitsandbox.braspag.com.br/api/transactions/34895364-e269-47ad-b779-7e122ed40a9a/split"
+            },
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a/void"
+            }
+        ]
+    }
+}
+```
+
+Com a mesma transação:
+
+> Desconto sendo aplicado sobre a venda.
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "Type": "SplittedCreditCard",
+        "Amount": 10000,
+        "Installments": 1,
+        "SoftDescriptor": "Marketplace",
+        "Capture": true,
+        "CreditCard": {
+            "CardNumber": "4551870000000181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SecurityCode": "123",
+            "Brand": "Visa"
+        },
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Sale"
+        },
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                }
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                }
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500
+            }
+        ]
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 4245
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 255
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 2865
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 135
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500,
+                "Fares": {
+                    "Mdr": 2,
+                    "Fee": 0
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 2500
+                    }
+                ]
+            }
+        ],
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Sale"
+        },
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1210035540764",
+        "ProofOfSale": "20171210035540764",
+        "AuthorizationCode": "859182",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-10 15:55:38",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-10 15:55:40",
+        "Status": 2,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "34895364-e269-47ad-b779-7e122ed40a9a",
+        "Type": "SplittedCreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "PUT",
+                "Rel": "split",
+                "Href": "https://splitsandbox.braspag.com.br/api/transactions/34895364-e269-47ad-b779-7e122ed40a9a/split"
+            },
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a/void"
+            }
+        ]
+    }
+}
+```
+
+##### No Momento Pós-Transacional
+
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+[
+    {
+        "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+        "Amount": 6000,
+        "Fares": {
+            "Mdr": 5,
+            "Fee": 30
+        }
+    },
+    {
+        "SubordinateMerchantId" :"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+        "Amount": 4000
+    }
+]
+```
+
+**Response**
+
+```json
+{
+    "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
+    "MasterRateDiscountType": "Sale",
+    "SplitPayments": [
+        {
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+            "Amount": 6000,
+            "Fares": {
+                "Mdr": 5,
+                "Fee": 30
+            },
+            "Splits": [
+                {
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                    "Amount": 5670
+                },
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "Amount": 330
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+            "Amount": 4000,
+            "Fares": {
+                "Mdr": 2,
+                "Fee": 0
+            },
+            "Splits": [
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "Amount": 4000
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### Liberação de Transação para Antecipação
+
+No Split de Pagamentos, para os clientes que estejam habilitados e optem por fazer uso de antecipações, existe a possibilidade de determinar quais transações podem participar de operações de antecipação.
+
+O comportamento padrão é que todas as transações possam fazer parte de operações de antecipação, porém o Master pode determinar quais transações e quando estarão disponíveis.
+
+Existem 4 momentos em que se pode liberar uma transação para participar de operações de antecipação:
+1. Na criação da transação, usando valor pré-configurado;
+2. Na criação da transação, usando valor passado através do request;
+3. Na redivisão pós-transacional da transação;
+4. Através de endpoint específico para liberação de transação para antecipação.
+
+> Uma vez que a transação está liberada para participar de operações de antecipação, a mesma não pode mais ser bloqueada!
+
+##### Usando valor pré-configurado
+
+Entre em contato com o suporte para criar, atualizar ou remover a configuração com o estado (liberado ou bloqueado) com o qual a transação deve ser criada caso nenhum valor seja passado no request.
+
+##### Usando valor passado através do request
+
+Nome do campo: ReleasedToAnticipation
+
+| Valor | Descrição |
+|-|-|
+| **true** | Com esta opção, a transação ficará liberada para antecipação e não poderá mais ser bloqueada. |
+| **false** | Com esta opção, a transação estará bloqueada para ser usada em operações de antecipação e poderá ser liberada em um momento posterior. |
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "Type": "SplittedCreditCard",
+        "Amount": 10000,
+        "Installments": 1,
+        "SoftDescriptor": "Marketplace",
+        "Capture": true,
+        "CreditCard": {
+            "CardNumber": "4551870000000181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SecurityCode": "123",
+            "Brand": "Visa"
+        },
+        "SplitTransaction": {
+            "ReleasedToAnticipation": false
+        },
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                }
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                }
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500
+            }
+        ]
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 4245
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 255
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 2865
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 135
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500,
+                "Fares": {
+                    "Mdr": 2,
+                    "Fee": 0
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 2500
+                    }
+                ]
+            }
+        ],
+        "SplitTransaction": {
+            "ReleasedToAnticipation": false
+        },
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1210035540764",
+        "ProofOfSale": "20171210035540764",
+        "AuthorizationCode": "859182",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-10 15:55:38",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-10 15:55:40",
+        "Status": 2,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "34895364-e269-47ad-b779-7e122ed40a9a",
+        "Type": "SplittedCreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "PUT",
+                "Rel": "split",
+                "Href": "https://splitsandbox.braspag.com.br/api/transactions/34895364-e269-47ad-b779-7e122ed40a9a/split"
+            },
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a/void"
+            }
+        ]
+    }
+}
+```
+
+##### No Momento Pós-Transacional
+
+**Request**
+
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?releasedToAnticipation=Sale&releasedToAnticipation=true</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+[
+    {
+        "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+        "Amount": 6000,
+        "Fares": {
+            "Mdr": 5,
+            "Fee": 30
+        }
+    },
+    {
+        "SubordinateMerchantId" :"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+        "Amount": 4000
+    }
+]
+```
+
+**Response**
+
+```json
+{
+    "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
+    "MasterRateDiscountType": "Sale",
+    "ReleasedToAnticipation": true,
+    "SplitPayments": [
+        {
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+            "Amount": 6000,
+            "Fares": {
+                "Mdr": 5,
+                "Fee": 30
+            },
+            "Splits": [
+                {
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                    "Amount": 5670
+                },
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "Amount": 330
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+            "Amount": 4000,
+            "Fares": {
+                "Mdr": 2,
+                "Fee": 0
+            },
+            "Splits": [
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "Amount": 4000
+                }
+            ]
+        }
+    ]
+}
+```
+
+##### Usando endpoint de liberação para antecipação
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/anticipation-api/{PaymentId}/release-to-anticipation</span></aside>
+
+**Response**
+
+<aside class="request"><span class="method post">200 OK</span></aside>
+
 ## Antifraude
 
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
