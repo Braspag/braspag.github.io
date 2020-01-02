@@ -49,7 +49,7 @@ Já estou pronto para entrar em Produção!
 
 ## Características da Solução
 
-A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, entre outras.
+A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP.Net, Java, PHP, Ruby, Python, entre outras.
 
 Entre outras características, os atributos que mais se destacam na plataforma Braspag eCommerce:
 
@@ -80,7 +80,7 @@ Para que você possa desfrutar de todos os recursos disponíveis em nossa API, �
 * **Estorno**: O estorno é aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida no processo de estorno pela adquirente.
 * **Autenticação**: O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.
 * **Cartão Protegido**: É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de "token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "Compra com 1 clique” e "Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.
-* **Antifraude**: É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.
+* **AntiFraude**: É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.
 
 # Pagamentos
 
@@ -88,11 +88,11 @@ Para que você possa desfrutar de todos os recursos disponíveis em nossa API, �
 
 ### Criando uma transação
 
-Para autoriazar uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó `Payment.Credentials`, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.
+Para autorizar uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó `Payment.Credentials`, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.
 
-Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para requisitar o cadastro de afiliações, clique [Aqui](http://suporte.braspag.com.br/).
+Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para requisitar o cadastro de afiliações, clique [aqui](http://suporte.braspag.com.br/).
 
-<aside class="notice">Os parâmetros contidos nos nós Address e DeliveryAddress são obrigatórios quando a transação é submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um * na coluna de obrigatoriedade.</aside>
+<aside class="notice">Os parâmetros contidos nos nós `Address` e `DeliveryAddress` são obrigatórios quando a transação é submetida ao AntiFraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um * na coluna de obrigatoriedade.</aside>
 
 #### Requisição
 
@@ -248,12 +248,12 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantId`|GUID|36|Sim|Identificador da loja na Braspag|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
+|`RequestId`|GUID|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
 |`Customer.Name`|Texto|255|Sim|Nome do comprador|
-|`Customer.Identity`|Texto |14 |Não|Número do RG, CPF ou CNPJ do Cliente| 
+|`Customer.Identity`|Texto |14 |Não|Número do CPF ou CNPJ do Cliente|
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
 |`Customer.Email`|Texto|255|Não|Email do comprador|
 |`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador no formato AAAA-MM-DD|
@@ -264,7 +264,7 @@ curl
 |`Customer.Address.City`|Texto|50|Não*|Cidade do endereço de contato do comprador|
 |`Customer.Address.State`|Texto|2|Não*|Estado do endereço de contato do comprador|
 |`Customer.Address.Country`|Texto|35|Não*|Pais do endereço de contato do comprador|
-|`Customer.Address.District`|Texto |50 |Não*|Bairro do Comprador. |
+|`Customer.Address.District`|Texto |50 |Não*|Bairro do comprador|
 |`Customer.DeliveryAddress.Street`|Texto|255|Não*|Endereço do comprador|
 |`Customer.DeliveryAddress.Number`|Texto|15|Não*|Número do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.Complement`|Texto|50|Não*|Complemento do endereço de entrega do pedido|
@@ -272,7 +272,7 @@ curl
 |`Customer.DeliveryAddress.City`|Texto|50|Não*|Cidade do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.State`|Texto|2|Não*|Estado do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.Country`|Texto|35|Não*|Pais do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.District`|Texto |50|Não*|Bairro do Comprador. |
+|`Customer.DeliveryAddress.District`|Texto |50|Não*|Bairro da entrega|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
@@ -288,10 +288,10 @@ curl
 |`Payment.DoSplit`|Booleano|---|Não (Default false)|Booleano que indica se a transação será dividida entre várias contas (true) ou não (false)|
 |`Payment.ExtraDataCollection.Name`|Texto|50|Não|Nome do campo que será gravado o Dado Extra|
 |`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo que será gravado o Dado Extra|
-|`Payment.Credentials.Code`|Texto|100|Sim|afiliação gerada pela adquirente|
-|`Payment.Credentials.Key`|Texto|100|Sim|chave de afiliação/token gerado pela adquirente|
-|`Payment.Credentials.Username`|Texto|50|Não|usuário gerado no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet)|
-|`Payment.Credentials.Password`|Texto|50|Não|senha gerada no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet)|
+|`Payment.Credentials.Code`|Texto|100|Sim|Afiliação gerada pela adquirente|
+|`Payment.Credentials.Key`|Texto|100|Sim|Chave de afiliação/token gerado pela adquirente|
+|`Payment.Credentials.Username`|Texto|50|Não|Usuário gerado no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)|
+|`Payment.Credentials.Password`|Texto|50|Não|Senha gerada no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)|
 |`Payment.Credentials.Signature`|Texto|3|Não|Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001|
 |`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
@@ -500,8 +500,8 @@ curl
 |`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
 |`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`CapturedDate`|Data em que a transação foi capturada a transação|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`CapturedAmount`|Valor capturado (sem pontuação)|Número|15|100 equivale a R$ 1,00|
 |`ECI`|Eletronic Commerce Indicator. Representa o resultado da autenticação|Texto|2|Exemplos: 5|
@@ -513,9 +513,9 @@ curl
 
 ### Capturando uma transação
 
-Uma transação submetida com o parâmetro `Payment.Capture` igual a _false_ necessita de uma operação PUT de "Captura" para confirmar a transação posteriormente.
+Uma transação submetida com o parâmetro `Payment.Capture` igual a _false_ necessita de uma solicitação de captura para confirmar a transação posteriormente.
 
-Transações que não forem capturadas em até 15 dias são automaticamente desfeitas pelas Processadoras. Clientes podem ter negociações específicas com as Processadoras que aumentam esse prazo.
+Transações que não forem capturadas em até 15 dias são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes que aumentam esse prazo.
 
 #### Requisição
 
@@ -535,10 +535,10 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. | Guid | 36 | Sim|
+|`MerchantId`|Identificador da loja na API. | GUID | 36 | Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API. | Texto | 40 | Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
-|`PaymentId`|Campo Identificador do Pedido. | Guid | 36 | Sim|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
+|`PaymentId`|Campo Identificador do Pedido. | GUID | 36 | Sim|
 |`Amount`|Valor a ser capturado (em centavos). Verificar se a adquirente utilizada suporta uma captura parcial | Número | 15 | Não|
 |`ServiceTaxAmount`|Aplicável para companhias aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. | Número | 15 | Não|
 
@@ -807,8 +807,8 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 |`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
 |`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
 |`Status`|Status da Transação|Byte|2|Ex. 1|
@@ -1175,8 +1175,8 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 |`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
 |`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
 |`Status`|Status da Transação|Byte|2|Ex. 1|
@@ -1324,7 +1324,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`QrCodeBase64Image`|QR Code codificado em base 64. Por exemplo, a imagem do QR Code poderá ser apresentada na página utilizando um código HTML como este: <img src="data:image/png;base64,{código da imagem em base 64}">|Texto|Variável|Texto alfanumérico|
-|`PaymentId`|Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da transação. No caso da transação de geração com QR Code, o status inicial é "12" (Pendente).|Byte|-|2|
 |`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirênica|Texto|512|Texto alfanumérico|
@@ -1333,14 +1333,14 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
 
-Abaixo segue a lista de adquirentes com as quais temos integração para solicitações de estorno: 
+Abaixo segue a lista de adquirentes com as quais temos integração para solicitações de estorno:
 
 |Adquirente|Prazo Máximo para Solicitação de Estorno|
 |-----------|----|
 |Cielo|300 dias|
-|Rede| Tecnologia Komerci: 90 dias; Tecnologia eRede: 60 dias|
+|Rede| Integração Komerci: 90 dias; Integração eRede: 60 dias|
 |Getnet|90 dias|
-|Transbank|90 dias| 
+|Transbank|90 dias|
 |Banorte|30 dias|
 |First Data|90 dias|
 |Alelo|300 dias|
@@ -1365,10 +1365,10 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API. |Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
-|`PaymentId`|Campo Identificador do Pedido. |Guid |36 |Sim|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
+|`PaymentId`|Campo Identificador do Pedido. |GUID |36 |Sim|
 |`Amount`|Valor a ser cancelado/estornado (ser enviado em centavos). Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno|Número |15 |Não|
 
 #### Resposta
@@ -1414,12 +1414,12 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
-|`ReasonCode`|Código de retorno da Adquirência. |Texto |32 |Texto alfanumérico 
-|`ReasonMessage`|Mensagem de retorno da Adquirência. |Texto |512 |Texto alfanumérico 
+|`ReasonCode`|Código de retorno da Adquirência. |Texto |32 |Texto alfanumérico
+|`ReasonMessage`|Mensagem de retorno da Adquirência. |Texto |512 |Texto alfanumérico
 
 ### Transação com Velocity Check
 
-O Velocity Check é uma ferramenta de combate à fraudes massivas, que disparam rajadas de transações com dados de pagamento repetidos.  Ele analisa a frequência de elementos de rastreabilidade tais como Número do Cartão, CPF, CEP de entrega, entre outros, e bloqueia transações suspeitas. 
+O Velocity Check é uma ferramenta de combate à fraudes massivas, que disparam rajadas de transações com dados de pagamento repetidos.  Ele analisa a frequência de elementos de rastreabilidade tais como Número do Cartão, CPF, CEP de entrega, entre outros, e bloqueia transações suspeitas.
 
 A funcionalidade deve ser contratada à parte, e posteriormente habilitada em sua loja via painel. Quando o Velocity está ativo, a resposta da transação trará um nó específico chamado "Velocity", com os detalhes da análise.
 
@@ -1476,17 +1476,17 @@ No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP 171 
 
 ### Boleto Registrado
 
-Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança. 
+Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança.
 
 A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, terão de ser registrados. [Clique aqui](https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos) para acessar o comunicado completo.   
 
-Abaixo seguem os procedimentos de migração/filiação de cada banco: 
+Abaixo seguem os procedimentos de migração/filiação de cada banco:
 
 [Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)<BR>[Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)<BR>[Itaú](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf)<BR>[Santander](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf)<BR>[Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf)
 
 ### Criando uma transação de Boleto
 
-Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto. 
+Para gerar um boleto, inclusive em ambiente de Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.
 
 #### Requisição
 
@@ -1586,12 +1586,12 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantId`|GUID|36|Sim|Identificador da loja na Braspag|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
+|`RequestId`|GUID|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
 |`MerchantOrderId`|Texto|vide tabela abaixo|Sim|Numero de identificação do Pedido. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Customer.Name`|Texto|vide tabela abaixo|Sim|Nome do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente| 
+|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente|
 |`Customer.IdentityType`|Texto|255|Sim|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
 |`Customer.Address.Street`|Texto|vide tabela abaixo|Sim|Endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Customer.Address.Number`|Texto|vide tabela abaixo|Sim|Número endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
@@ -1736,7 +1736,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`PaymentId`|Campo Identificador do Pedido. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
 |`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
 |`BoletoNumber`|"NossoNumero" gerado. |Texto|50 |2017091101 |
@@ -1751,7 +1751,7 @@ Para atualizar o status de um Boleto para Pago, o Pagador deve receber dos banco
 
 ### Regras Específicas por Banco
 
-| Propriedade | Bradesco | BancoBanco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
+| Propriedade | Bradesco | Banco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | `Provider` | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
 | `MerchantOrderId` | 27 (obs 1) | 50 | 8 | 50 | 11 (obs 2) | 10 (obs 2) |
@@ -1776,9 +1776,9 @@ Para atualizar o status de um Boleto para Pago, o Pagador deve receber dos banco
 
 ## Recorrência
 
-Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os pagamentos recorrentes se repetem automaticamente por períodos e em intervalos determinados, cobrando sempre o mesmo valor de um mesmo cartão ou conta. 
+Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os pagamentos recorrentes se repetem automaticamente por períodos e em intervalos determinados, cobrando sempre o mesmo valor de um mesmo cartão ou conta.
 
-É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que o estabelecimento comercial do cliente esteja habilitado na processadora para receber pagamentos recorrentes.
+É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que o estabelecimento comercial do cliente esteja habilitado na adquirente para receber pagamentos recorrentes.
 
 O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.
 
@@ -1968,7 +1968,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`RecurrentPaymentId`|ID que representa a recorrência, utilizada para consultas e alterações futuras |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`RecurrentPaymentId`|ID que representa a recorrência, utilizada para consultas e alterações futuras |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`NextRecurrency`|Data de quando acontecerá a próxima recorrência |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência |Texto |7 |05/2019 (MM/YYYY) |
 |`Interval`|Intervalo entre as recorrência. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
@@ -1976,7 +1976,7 @@ curl
 
 ### Agendamento de uma recorrência
 
-Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura. 
+Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura.
 
 Para programar a primeira transação da série de recorrência, passe o parâmetro `Payment.RecurrentPayment.AuthorizeNow` como _"false"_ e adicione o parâmetro `Payment.RecurrentPayment.StartDate`.
 
@@ -2149,7 +2149,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`RecurrentPaymentId`|Campo Identificador da próxima recorrência. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`RecurrentPaymentId`|Campo Identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`StartDate`|Data do inicio da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
@@ -2239,9 +2239,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
 |`Customer.Name`|Nome do Comprador. |Texto |255|Sim|
 |`Customer.Email`|Email do Comprador. |Texto |255|Não|
@@ -2305,9 +2305,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
 |`EndDate`|Data para termino da recorrência|Texto |10 |Sim|
 
@@ -2351,9 +2351,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
 |`Interval`|Intervalo da recorrência. <ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Texto |2 |Sim|
 
@@ -2399,9 +2399,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
 |`RecurrencyDay`|Dia da Recorrência|Número |2 |Sim|
 
@@ -2445,9 +2445,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
 |`Payment.Amount`|Valor do Pedido em centavos: 156 equivale a R$ 1,56|Número|15|Sim|
 
@@ -2465,7 +2465,7 @@ Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP 
 
 ### Alterar a data do próximo Pagamento
 
-Para alterar somente a data do próximo pagamento, basta fazer um PUT conforme o exemplo. 
+Para alterar somente a data do próximo pagamento, basta fazer um PUT conforme o exemplo.
 
 Esta operação modifica somente a data do próximo pagamento, ou seja, a recorrências futuras permanecerão com as características originais.
 
@@ -2495,9 +2495,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
 |`NextPaymentDate`|Data de pagamento da próxima recorrência|Texto |10 |Sim|
 
@@ -2515,10 +2515,10 @@ Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP 
 
 Durante o ciclo de vida de uma recorrência, é possível alterar:
 
-* Processadora (de Rede para Cielo, por exemplo)
+* adquirente (de Rede para Cielo, por exemplo)
 * Cartão (em caso de cartão vencido)
 * Meio de pagamento (de Cartão para Boleto e vice e versa)
- 
+
 Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.
 
 <aside class="notice"><strong>Atenção:</strong> Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofrer alterações com os mesmos valores que já estavam salvos.</aside>
@@ -2591,9 +2591,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
 |`Payment.Provider`|Nome da provedora de Meio de Pagamento|Texto|15|Sim|
 |`Payment.Type`|Tipo do Meio de Pagamento. |Texto |100|Sim|
@@ -2640,9 +2640,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
 
 #### Resposta
@@ -2674,9 +2674,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
 
 #### Resposta
@@ -2691,7 +2691,7 @@ Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP 
 
 ### Transação com Renova Fácil
 
-O Renova fácil é um serviço desenvolvido pela CIELO junto com os bancos emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito. 
+O Renova fácil é um serviço desenvolvido pela CIELO junto com os bancos emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.
 
 Através da identificação de cartões vencidos no momento da transação, é feita a autorização com um novo cartão e é retornado o novo cartão para armazenagem.
 
@@ -2798,7 +2798,7 @@ Bancos Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamerica
 
 ## Transferência Eletrônica
 
-Semelhante ao Pagamento com Cartão de Débito, a Transferência Eletrônica conecta o consumidor ao seu banco para autenticar uma venda à débito. A diferença entre ambos é que as Transferências não são submetidas à processadora nem dependem de dados de cartão.
+Semelhante ao Pagamento com Cartão de Débito, a Transferência Eletrônica conecta o consumidor ao seu banco para autenticar uma venda à débito. A diferença entre ambos é que as Transferências não são submetidas à adquirente nem dependem de dados de cartão.
 
 ### Criando uma transação
 
@@ -2896,9 +2896,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API. |Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`MerchantOrderId`|Numero de identificação do Pedido. |Texto |50 |Sim|
 |`Customer.Name`|Nome do comprador|Texto|255|Sim|
 |`Customer.Identity`|Número do RG, CPF ou CNPJ do Cliente| Texto |14 |Sim|
@@ -2999,7 +2999,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Url`|URL para a qual o comprador deverá ser redirecionado para autenticação da Transferência Eletrônica |Texto |256 |Url de Autenticação|
 |`Status`|Status da Transação|Byte|2|Ex. 1|
 
@@ -3009,21 +3009,21 @@ curl
 
 São repositórios de cartões e dados de pagamentos para consumidores do e-commerce e mundo físico. As Carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.
 
-> *Para utilizar carteiras no Pagador, o lojista deverá possuir as carteiras integradas em seu checkout*. 
+> *Para utilizar carteiras no Pagador, o lojista deverá possuir as carteiras integradas em seu checkout*.
 
-Para maiores informações, entre em contato com o provedor de sua preferência para contratar o serviço. 
+Para maiores informações, entre em contato com o provedor de sua preferência para contratar o serviço.
 
 ### E-Wallets Disponíveis
 
 O Pagador possui suporte para:
 
-|| Carteira                                                           | | 
+|| Carteira                                                           | |
 |-|:------------------------------------------------------------------:|-|
 || [*Apple Pay*](https://www.apple.com/br/apple-pay/)                 | |
 || [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)            | |
-|| [*Android Pay*](https://www.android.com/intl/pt-BR_br/pay/)        | | 
-|| [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout) | | 
-|| [*MasterPass*](https://masterpass.com/pt-br/)                      | | 
+|| [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)        | |
+|| [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout) | |
+|| [*MasterPass*](https://masterpass.com/pt-br/)                      | |
 
 <aside class="notice"><strong>Atenção:</strong> Quando o nó “Wallet” for enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
 
@@ -3061,9 +3061,9 @@ O Pagador possui suporte para:
 
 | Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
+| `MerchantId`               | GUID   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
 | `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
-| `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
+| `RequestId`                | GUID   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
 | `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
 | `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
 | `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
@@ -3085,7 +3085,7 @@ Formato de `WalletKeys` que devem ser repassados ao Pagador API
 |----------------|----------------|-|
 | *Apple Pay*    | 9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc   |.|
 | *Samsung Pay*  | eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ`   |.|
-| *Android Pay*  | {\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}  |.|
+| *Google Pay*  | {\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}  |.|
 | *VisaCheckout* | 1140812334225873901   |.|
 | *Masterpass* | a561da1c18a89cfdafas875f9d43fc46cd9bf3e1   |.|
 
@@ -3101,7 +3101,7 @@ Formato de `Signature` que devem ser repassados ao Pagador API
 
 | Carteira       | Exemplo                                                                                                                          |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
-| *Android Pay*  | `MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d`                                       |
+| *Google Pay*  | `MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d`                                       |
 
 #### Respostas
 
@@ -3174,7 +3174,7 @@ Formato de `Signature` que devem ser repassados ao Pagador API
 | `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
 | `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
-| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
 | `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
@@ -3182,7 +3182,7 @@ Formato de `Signature` que devem ser repassados ao Pagador API
 | `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | --     | Texto alfanumérico                   |
 | `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | --     | Ver tabela `WalletKey`               |       
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                                       | Texto | --     | Ver Tabela `EphemeralPublicKey`      |  
-| `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | --     | 3                                    | 
+| `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | --     | 3                                    |
 | `AdditionalData.Signature` | Token retornado pela Wallet. Deve ser enviado em Integrações: `AndroidPay`                                               | Texto | --     | Ver Tabela `Signature`      |  
 
 ### Exemplos
@@ -3199,29 +3199,29 @@ Formato de `Signature` que devem ser repassados ao Pagador API
 
 ##### Passo 2. Obtenção do MerchantIdentifier
 
-Uma vez que a contratação estiver efetivada, receberá acesso ao painel "Apple Developer", e será necessária a criação do `MerchantIdentifier`. Para tanto, realize os passos abaixo: 
+Uma vez que a contratação estiver efetivada, receberá acesso ao painel "Apple Developer", e será necessária a criação do `MerchantIdentifier`. Para tanto, realize os passos abaixo:
 1. Faça login em [Apple Developer](https://developer.apple.com/)
 2. Selecione **Certificate, IDs & Profile**
 3. Dentro da área "Identifiers" clique em "Merchant IDs"
 4. Clique no **+** no canto direito, abaixo do "Registering a Merchant ID"
 5. Defina a descrição do MerchantID e o identificador. Exemplo.: "merchant.com.BRASPAG.merchantAccount"
 6. Clique em "continuar" e verifique se as informações inseridas estão corretas
-7. Finalize o processo. 
+7. Finalize o processo.
 
-<P>O `MerchantIdentifier` deve ser enviado à Braspag por meio do [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br) para criação de um **Certificado CSR no formato PEM**. 
+<P>O `MerchantIdentifier` deve ser enviado à Braspag por meio do [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br) para criação de um **Certificado CSR no formato PEM**.
 
 ##### Passo 3. Upload do Certificado CSR
 
-Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o certificado de extensão `PEM` e deverá seguir os seguintes passos: 
+Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o certificado de extensão `PEM` e deverá seguir os seguintes passos:
 
 1. Faça login em [Apple Developer](https://developer.apple.com/)
 2. Selecione **Certificate, IDs & Profiles**
-![Aplle Pay]({{ site.baseurl_root }}/images/apple-paymid.jpg)
+![Apple Pay]({{ site.baseurl_root }}/images/apple-paymid.jpg)
 3. Realize o upload do certificado
-![Aplle Pay]({{ site.baseurl_root }}/images/apple-pay.jpg)
-4. Finalize o processo 
+![Apple Pay]({{ site.baseurl_root }}/images/apple-pay.jpg)
+4. Finalize o processo
 
-<P>O Certificado PEM contém o código CSR solicitado pela Apple. 
+<P>O Certificado PEM contém o código CSR solicitado pela Apple.
 
 <P>Formato de um PEM:
 
@@ -3276,9 +3276,9 @@ Exemplo de Requisição padrão *Apple Pay*
 
 | Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
+| `MerchantId`               | GUID   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
 | `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
-| `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
+| `RequestId`                | GUID   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
 | `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
 | `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
 | `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
@@ -3361,7 +3361,7 @@ Exemplo de Requisição padrão *Apple Pay*
 | `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
 | `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
-| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
 | `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
@@ -3405,9 +3405,9 @@ Exemplo de Requisição padrão *Samsung Pay*
 
 | Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
+| `MerchantId`               | GUID   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
 | `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
-| `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
+| `RequestId`                | GUID   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
 | `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
 | `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
 | `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
@@ -3486,7 +3486,7 @@ Exemplo de Requisição padrão *Samsung Pay*
 | `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
 | `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
-| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
 | `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
@@ -3531,9 +3531,9 @@ Exemplo de Requisição padrão *Android Pay*
 
 | Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
+| `MerchantId`               | GUID   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
 | `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
-| `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
+| `RequestId`                | GUID   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
 | `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
 | `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
 | `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
@@ -3616,7 +3616,7 @@ Exemplo de Requisição padrão *Android Pay*
 | `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
 | `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
-| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
 | `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
@@ -3657,9 +3657,9 @@ Para utilizar o MasterPass é necessário a contratação do serviço através d
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantId`|GUID|36|Sim|Identificador da loja na Braspag|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
+|`RequestId`|GUID|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
 |`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
@@ -3729,7 +3729,7 @@ Para utilizar o MasterPass é necessário a contratação do serviço através d
 |`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Campo Identificador do Pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
 |`Status`|Status da Transação.|Byte| 2 | Ex. 1 |
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
@@ -3770,9 +3770,9 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantId`|GUID|36|Sim|Identificador da loja na Braspag|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
+|`RequestId`|GUID|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
 |`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
@@ -3837,7 +3837,7 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
 |`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Campo Identificador do Pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
 |`Status`|Status da Transação.|Byte| 2 | Ex. 1 |
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
@@ -3997,8 +3997,8 @@ curl
 |`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
 |`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
 |`Status`|Status da Transação|Byte|2|Ex. 1|
@@ -4019,7 +4019,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 Quando o estabelecimento possui o produto DCC habilitado, o processo de autorização é realizado em 3 etapas.
 
-Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, em seguida retorna as informações de conversão.
+Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, em seGUIDa retorna as informações de conversão.
 
 Na segunda etapa, o sistema da loja deverá apresentar ao comprador as opções de pagar em Reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira, onde:
 
@@ -4030,9 +4030,9 @@ Na segunda etapa, o sistema da loja deverá apresentar ao comprador as opções 
 
 Exemplo disponibilizado pela Global Payments
 
-Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. A resposta da autorização será retornada neste ponto. 
+Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. A resposta da autorização será retornada neste ponto.
 
-**PASSO 1** - Solicitação de autorização da transação: 
+**PASSO 1** - Solicitação de autorização da transação:
 
 ##### Requisição
 
@@ -4150,8 +4150,8 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 | `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento                            | Texto | 40      | Texto alfanumérico                   |
 | `ProofOfSale`           | Número do Comprovante de Venda                                              | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode`     | Código de autorização                                                       | Texto | 300     | Texto alfanumérico                   |
-| `PaymentId`             | Campo Identificador do Pedido                                               | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReceivedDate`          | Data em que a transação foi recebida pela Brapag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
+| `PaymentId`             | Campo Identificador do Pedido                                               | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReceivedDate`          | Data em que a transação foi recebida pela Braspag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
 | `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
 | `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
 | `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
@@ -4171,7 +4171,7 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 
 Exemplo disponibilizado pela Global Payments
 
-**PASSO 3** - Confirmação da transação com a moeda escolhida pelo comprador: 
+**PASSO 3** - Confirmação da transação com a moeda escolhida pelo comprador:
 
 ##### Requisição
 
@@ -4226,7 +4226,7 @@ curl
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "123412******1234",
-            "Holder": "TerteDcc",
+            "Holder": "TesteDcc",
             "ExpirationDate": "12/2022",
             "SecurityCode": "***",
             "Brand": "Visa"
@@ -4271,7 +4271,7 @@ curl
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "123412******1234",
-            "Holder": "TerteDcc",
+            "Holder": "TesteDcc",
             "ExpirationDate": "12/2022",
             "SecurityCode": "***",
             "Brand": "Visa"
@@ -4305,8 +4305,8 @@ curl
 | `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento                            | Texto | 40      | Texto alfanumérico                   |
 | `ProofOfSale`           | Número do Comprovante de Venda                                              | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode`     | Código de autorização                                                       | Texto | 300     | Texto alfanumérico                   |
-| `PaymentId`             | Campo Identificador do Pedido                                               | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReceivedDate`          | Data em que a transação foi recebida pela Brapag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
+| `PaymentId`             | Campo Identificador do Pedido                                               | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReceivedDate`          | Data em que a transação foi recebida pela Braspag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
 | `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
 | `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
 | `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
@@ -4514,14 +4514,14 @@ curl
 |`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
 |`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
 |`Status`|Status da Transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
-|`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Criando uma transação com Card Token
 
@@ -4603,8 +4603,8 @@ curl
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão. Para processar vendar sem o CVV, é necessário solicitar liberação na adquirente. |
+|`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente. |
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 
 ### Resposta
@@ -4703,8 +4703,8 @@ curl
 |`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
 |`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
 |`Status`|Status da Transação|Byte|2|Ex. 1|
@@ -4789,8 +4789,8 @@ curl
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão. Para processar vendar sem o CVV, é necessário solicitar liberação na adquirente.|
+|`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 |`CreditCard.Alias`|Texto|64|Não |Alias (Apelido) do cartão de crédito|
 
@@ -4890,8 +4890,8 @@ curl
 |`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
 |`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
 |`Status`|Status da Transação|Byte|2|Ex. 1|
@@ -4904,10 +4904,10 @@ curl
 
 |Tipo de Integração|Descrição|Parâmetros necessários|
 |-|-|-|
-|Análise antes da autorização|Antes da transação ser enviada para a autorização, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` igual a _AnalyseFirst_|
-|Análise após a autorização|Antes da transação ser enviada para o Antifraude, a mesma será enviada para a autorização|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_|
-|Análise de risco somente se a transação for autorizada|O Antifraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` igual a _OnSuccess_|
-|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o Antifraude analisará o risco|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
+|Análise antes da autorização|Antes da transação ser enviada para a autorização, o AntiFraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` igual a _AnalyseFirst_|
+|Análise após a autorização|Antes da transação ser enviada para o AntiFraude, a mesma será enviada para a autorização|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_|
+|Análise de risco somente se a transação for autorizada|O AntiFraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` igual a _OnSuccess_|
+|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o AntiFraude analisará o risco|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
 |Autorização em qualquer hipótese|Independente do score de fraude da transação, ela sempre será enviada para a autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
 |Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_, `FraudAnalysis.CaptureOnLowRisk` igual a _true_ e `Payment.Capture` igual a _false_| |
 |Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a rejeitada, a transação será cancelada ou estornada automaticamente|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.VoidOnHighRisk` igual a _true_|
@@ -5255,12 +5255,12 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
+|`MerchantId`|GUID|36|Sim|Identificador da loja na Braspag|
 |`MerchantKey`|Texto|40|Sim|Chave pública para autenticação dupla na Braspag|
-|`RequestId`|Guid|36|Não|Identificador do request definido pela loja|
+|`RequestId`|GUID|36|Não|Identificador do request definido pela loja|
 |`MerchantOrderId`|Texto|50|Sim|Número do pedido da loja|
 |`Customer.Name`|Texto|120|Sim|Nome completo do comprador|
-|`Customer.Identity`|Texto|16|Sim|Número do documento de identificação do comprador| 
+|`Customer.Identity`|Texto|16|Sim|Número do documento de identificação do comprador|
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador <br/> Possíveis valores: CPF ou CNPJ|
 |`Customer.Email`|Texto|100|Sim|E-mail do comprador|
 |`Customer.Birthdate`|Date|10|Sim|Data de nascimento do comprador <br/> Ex.: 1991-01-10|
@@ -5282,7 +5282,7 @@ curl
 |`Customer.DeliveryAddress.Country`|Texto|2|Não|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
 |`Customer.DeliveryAddress.District`|Texto|45|Não|Bairro do endereço de entrega|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora da autorização|
-|`Payment.Type`|Texto|100|Sim|Tipo do meio de magamento. <br/> Obs.: Somente o tipo _CreditCard_ funciona com análise de fraude|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. <br/> Obs.: Somente o tipo _CreditCard_ funciona com análise de fraude|
 |`Payment.Amount`|Número|15|Sim|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|
 |`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço <br/> Obs.: Esse valor não é adicionado ao valor da autorização|
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito <br/> Possíveis valores: BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
@@ -5298,8 +5298,8 @@ curl
 |`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo extra que será enviado|
 |`Payment.Credentials.Code`|Texto|100|Sim|Afiliação gerada pela adquirente|
 |`Payment.Credentials.Key`|Texto|100|Sim|Chave de afiliação/token gerado pela adquirente|
-|`Payment.Credentials.Username`|Texto|50|Não|Usuário gerado no credenciamento com a adquirente GetnNet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet|
-|`Payment.Credentials.Password`|Texto|50|Não|Senha gerada no credenciamento com a adquirente GetnNet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet|
+|`Payment.Credentials.Username`|Texto|50|Não|Usuário gerado no credenciamento com a adquirente Getnet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet|
+|`Payment.Credentials.Password`|Texto|50|Não|Senha gerada no credenciamento com a adquirente Getnet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet|
 |`Payment.Credentials.Signature`|Texto|3|Não|ID do terminal no credenciamento com a adquirente Global Payments <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Global Payments|
 |`Payment.CreditCard.CardNumber`|Texto|16|Sim|Número do cartão de crédito|
 |`Payment.CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão de crédito|
@@ -5310,7 +5310,7 @@ curl
 |`Payment.CreditCard.Alias`|Texto|64|Não|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|
 |`Payment.FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de fluxo da análise de fraude <br/> Possíveis valores: AnalyseFirst / AuthorizeFirst|
 |`Payment.FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo da análise de fraude <br/> Possíveis valores: OnSuccess / Always|
-|`Payment.FraudAnalysis.Provider`|Texto|10|Sim|Provedor de antifraude <br/> Possíveis valores: Cybersource|
+|`Payment.FraudAnalysis.Provider`|Texto|10|Sim|Provedor de AntiFraude <br/> Possíveis valores: Cybersource|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será capturada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será cancelada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de alto risco (Reject) a transação anteriormente autorizada será cancelada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será cancelada após a Braspag receber a notificação da alteração de status e esta for alto risco (Reject) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|
@@ -5760,7 +5760,7 @@ curl
 |:-|:-|:-|
 |`MerchantOrderId`|Texto|Número do pedido da loja|
 |`Customer.Name`|Texto|Nome completo do comprador|
-|`Customer.Identity`|Texto|Número do documento de identificação do comprador| 
+|`Customer.Identity`|Texto|Número do documento de identificação do comprador|
 |`Customer.IdentityType`|Texto|Tipo de documento de identificação do comprador|
 |`Customer.Email`|Texto|E-mail do comprador|
 |`Customer.Birthdate`|Date|Data de nascimento do comprador|
@@ -5782,7 +5782,7 @@ curl
 |`Customer.DeliveryAddress.Country`|Texto|País do endereço de entrega|
 |`Customer.DeliveryAddress.District`|Texto|Bairro do endereço de entrega|
 |`Payment.Provider`|Texto|Nome da provedora da autorização|
-|`Payment.Type`|Texto|Tipo do meio de magamento|
+|`Payment.Type`|Texto|Tipo do meio de pagamento|
 |`Payment.Amount`|Número|Valor da transação financeira em centavos|
 |`Payment.ServiceTaxAmount`|Número|Montante do valor da autorização que deve ser destinado à taxa de serviço|
 |`Payment.Currency`|Texto|Moeda na qual o pagamento será feito|
@@ -5798,8 +5798,8 @@ curl
 |`Payment.ExtraDataCollection.Value`|Texto|Valor do campo extra que será enviado|
 |`Payment.Credentials.Code`|Texto|Afiliação gerada pela adquirente|
 |`Payment.Credentials.Key`|Texto|Chave de afiliação/token gerado pela adquirente|
-|`Payment.Credentials.Username`|Texto|Usuário gerado no credenciamento com a adquirente GetnNet|
-|`Payment.Credentials.Password`|Texto|Senha gerada no credenciamento com a adquirente GetnNet|
+|`Payment.Credentials.Username`|Texto|Usuário gerado no credenciamento com a adquirente Getnet|
+|`Payment.Credentials.Password`|Texto|Senha gerada no credenciamento com a adquirente Getnet|
 |`Payment.Credentials.Signature`|Texto|ID do terminal no credenciamento com a adquirente Global Payments|
 |`Payment.CreditCard.CardNumber`|Texto|Número do cartão de crédito truncado|
 |`Payment.CreditCard.Holder`|Texto|Nome do portador impresso no cartão de crédito|
@@ -5808,10 +5808,10 @@ curl
 |`Payment.CreditCard.Brand`|Texto|Bandeira do cartão de crédito|
 |`Payment.CreditCard.SaveCard`|Booleano|Indica se os dados do cartão de crédito foram armazenados no Cartão Protegido|
 |`Payment.CreditCard.Alias`|Texto|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|
-|`Payment.CreditCard.CardToken`|Guid|Identificador do cartão de crédito salvo no Cartão Protegido|
+|`Payment.CreditCard.CardToken`|GUID|Identificador do cartão de crédito salvo no Cartão Protegido|
 |`Payment.FraudAnalysis.Sequence`|Texto|Tipo de fluxo da análise de fraude|
 |`Payment.FraudAnalysis.SequenceCriteria`|Texto|Critério do fluxo da análise de fraude|
-|`Payment.FraudAnalysis.Provider`|Texto|Provedor de antifraude|
+|`Payment.FraudAnalysis.Provider`|Texto|Provedor de AntiFraude|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|Indica se a transação após a análise de fraude será capturada|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|Indica se a transação após a análise de fraude será cancelada|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Número|Valor total do pedido em centavos|
@@ -5851,8 +5851,8 @@ curl
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Número|Telefone do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|Código do aeroporto de partida|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|Código do aeroporto de chegada|
-|`Payment.FraudAnalysis.Id`|Guid|Id da transação no Antifraude Braspag|
-|`Payment.FraudAnalysis.Status`|Número|Status da transação no Antifraude Braspag <br/> [Lista de Vaores - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status)|
+|`Payment.FraudAnalysis.Id`|GUID|Id da transação no AntiFraude Braspag|
+|`Payment.FraudAnalysis.Status`|Número|Status da transação no AntiFraude Braspag <br/> [Lista de Vaores - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status)|
 |`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Número|Código de retorno da Cybersouce <br/> [Lista de Valores - Payment.FraudAnalysis.FraudAnalysisReasonCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode)|
 |`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Texto|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: COR-BA^MM-BIN <br/> [Lista de Valores - Payment.FraudAnalysis.ReplyData.AddressInfoCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode)|
 |`Payment.FraudAnalysis.ReplyData.FactorCode`|Texto|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: B^D^R^Z <br/>[Lista de Valores - ProviderAnalysisResult.AfsReply.FactorCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode)|
@@ -5865,12 +5865,12 @@ curl
 |`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Texto|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Lista de Valores - Payment.FraudAnalysis.ReplyData.IpRoutingMethod]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod)|
 |`Payment.FraudAnalysis.ReplyData.ScoreModelUsed`|Texto|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|
 |`Payment.FraudAnalysis.ReplyData.CasePriority`|Número|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|
-|`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Texto|Id da transação na Cybersource| 
-|`Payment.PaymentId`|Guid|Identificador da transação no Pagador Braspag|
+|`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Texto|Id da transação na Cybersource|
+|`Payment.PaymentId`|GUID|Identificador da transação no Pagador Braspag|
 |`Payment.AcquirerTransactionId`|Texto|Identificador da transação na adquirente|
 |`Payment.ProofOfSale`|Texto|Número do comprovante de venda na adquirente (NSU - Número sequencial único da transação)|
 |`Payment.AuthorizationCode`|Texto|Código de autorização na adquirente|
-|`Payment.ReceivedDate`|Datetime|Data em que a transação foi recebida no Pagador Brapag <br/> Ex.: 2018-01-16 16:38:19|
+|`Payment.ReceivedDate`|Datetime|Data em que a transação foi recebida no Pagador Braspag <br/> Ex.: 2018-01-16 16:38:19|
 |`Payment.CapturedDate`|Datetime|Data em que a transação foi capturada na adquirente <br/> Ex.: 2018-01-16 16:38:20|
 |`Payment.CapturedAmount`|Número|Valor capturado da transação <br/> Ex.: 123456 = r$ 1.234,56|
 |`Payment.ECI`|Texto|Eletronic Commerce Indicator. Código gerado em uma transação de crédito com autenticação externa|
@@ -5929,7 +5929,7 @@ Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de f
 ### Integração em aplicativos mobile
 
 **Baixando o SDK**
-Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br/> [Download Deviceprint SDK iOS]({{ site.baseurl_root }}/files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip) <br/> [Download Deviceprint SDK Android]({{ site.baseurl_root }}/files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip)
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br/> [Download Deviceprint SDK iOS]({{ site.baseurl_root }}/files/braspag/AntiFraude/cybersource-iossdk-fingerprint-v5.0.32.zip) <br/> [Download Deviceprint SDK Android]({{ site.baseurl_root }}/files/braspag/AntiFraude/cybersource-androidsdk-fingerprint-v5.0.96.zip)
 
 # Consultas
 
@@ -5962,9 +5962,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`PaymentId`|Numero de identificação do Pagamento. |Texto |36 |Sim|
 
 ### Resposta
@@ -6165,8 +6165,8 @@ curl
 |`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback|Texto|512|Texto alfanumérico|
 |`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
 |`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|Texto|512|Texto alfanumérico|
-|`Payment.PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
 |`Payment.ReasonMessage`|Mensagem de retorno da Adquirência|Texto|512|Texto alfanumérico|
 |`Payment.Status`|Status da Transação|Byte|2| Ex. 1|
@@ -6208,10 +6208,10 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
-|`PaymentId`|Numero de identificação do Pagamento. |Guid |36 |Sim|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
+|`PaymentId`|Numero de identificação do Pagamento. |GUID |36 |Sim|
 
 ### Resposta
 
@@ -6382,13 +6382,13 @@ curl
 |`Payment.ExpirationDate`|Data de vencimento do boleto|Texto|AAAA-MM-DD|Ex. "2018-06-21"|
 |`Payment.CreditDate`|Data de crédito do valor pago do boleto|Texto|AAAA-MM-DD|Ex. "2018-06-19"|
 |`Payment.CapturedDate`|Data de pagamento do boleto|Texto|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
-|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
 |`Payment.ReturnUrl`|URL da loja para onde redireciona o cliente|Texto|-|Ex. "https://www.loja.com.br"|
 |`Payment.Currency`|Moeda na qual o pagamento será feito|Texto|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
 |`Payment.Country`|País na qual o pagamento será feito|Texto|3|BRA|
 |`Payment.ExtraDataCollection.Name`|Nome do campo que será gravado o Dado Extra|Texto|50|Texto alfanumérico|
 |`Payment.ExtraDataCollection.Value`|Valor do campo que será gravado o Dado Extra|Texto|1024|Texto alfanumérico|
-|`Payment.PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
 |`Payment.Status`|Status da Transação|Byte|2| Ex. 1|
 
@@ -6404,7 +6404,7 @@ curl
 
 Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.
 
-Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.
+Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recurso /sales conforme o exemplo.
 
 ### Requisição
 
@@ -6423,9 +6423,9 @@ curls
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`MerchantOrderId`|Campo Identificador do Pedido na Loja. |Texto |36 |Sim|
 
 ### Resposta
@@ -6467,7 +6467,7 @@ curls
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Consultando um pedido Recorrente
 
@@ -6490,9 +6490,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |Guid |36 |Sim|
+|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid | 36 |Não|
+|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Campo Identificador da Recorrência. |Texto |36 |Sim|
 
 ### Resposta
@@ -6598,7 +6598,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`RecurrentPaymentId`|Campo Identificador da próxima recorrência. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`RecurrentPaymentId`|Campo Identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`StartDate`|Data do inicio da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
@@ -6608,8 +6608,8 @@ curl
 |`Status`|Status do pedido recorrente |Número|1 |<UL><LI>1 - Ativo</LI><LI>2 - Finalizado</LI><LI>3,4,5 - Inativo</LI></UL> |
 |`RecurrencyDay`|O dia da recorrência |Número|2 |22 |
 |`SuccessfulRecurrences`|Quantidade de recorrência realizada com sucesso|Número|2 |5|
-|`RecurrentTransactions.RecurrentPaymentId`|Id da Recorrência|Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`RecurrentTransactions.TransactionId`|Payment ID da transação gerada na recorrência|Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`RecurrentTransactions.RecurrentPaymentId`|Id da Recorrência|GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`RecurrentTransactions.TransactionId`|Payment ID da transação gerada na recorrência|GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`RecurrentTransactions.PaymentNumber`|Número da Recorrência. A primeira é zero |Número|2 |3 |
 |`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica |Número|2 |1 |
 
@@ -6639,7 +6639,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |----------|---------|
 |1|Mudança de status do pagamento|
 |2|Recorrência criada|
-|3|Mudança de status do Antifraude|
+|3|Mudança de status do AntiFraude|
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|Estorno negado (aplicável para Rede)|
 |6|Boleto registrado pago a menor|
@@ -6656,12 +6656,13 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Simulado|---|Provider de Sandbox|
 |Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma legado Cielo 1.5|
 |Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|Provider para transações na plataforma de e-commerce Cielo 3.0|
+|Getnet|Visa, Master, Elo, Amex|Provider para transações na plataforma de e-commerce Getnet|
 |Redecard|Visa, Master, Hipercard, Hiper, Diners|Provider para transações na plataforma legado Rede Komerci|
-|Rede|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede e-Rede na versão SOAP|
-|Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede e-Rede na versão REST|
-|Getnet|Visa, Master, Elo, Amex|Provider para transações na plataforma de e-commerce GetNet|
+|Rede|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede (e-Rede) na versão SOAP|
+|Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST|
 |GlobalPayments|Visa, Master|Provider para transações na plataforma de e-commerce Global Payments|
 |Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone|
+|Safra|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Safra|
 |FirstData|Visa, Master, Cabal|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data|
 |Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte|
@@ -6669,8 +6670,9 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Transbank|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank|
 |RedeSitef|Visa, Master, Hipercard, Diners|Provider para transações na plataforma Rede com tecnologia TEF|
 |CieloSitef|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma Cielo com tecnologia TEF|
-|SantanderSitef|Visa, Master|Provider para transações na plataforma GetNet com tecnologia TEF|
-|DMCard|---|---|
+|SantanderSitef|Visa, Master|Provider para transações na plataforma Getnet com tecnologia TEF|
+|DMCard|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
+|Credsystem|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
 
 ### Providers pra Débito
 
@@ -6678,7 +6680,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |--------|-----|---------|
 |Cielo|Visa, Master|Provider para transações de débito na plataforma legado Cielo 1.5|
 |Cielo30|Visa, Master|Provider para transações de débito na plataforma de e-commerce Cielo 3.0|
-|Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce GetNet|
+|Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce Getnet|
 |FirstData|Visa, Master|Provider para transações de débito na plataforma de e-commerce First Data|
 |GlobalPayments|Visa, Master|Provider para transações de débito na plataforma de e-commerce Global Payments|
 
@@ -6716,7 +6718,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 
 |Provider|
 |--------|
-|Bradesco, BancoDoBrasil, SafetyPay, Itau|
+|Bradesco, BancoDoBrasil, SafetyPay, Itau, PayMeeRedirectCheckout, PayMeeSemiTransparent|
 
 ## Lista de Status da Transação
 
@@ -6734,7 +6736,7 @@ Status retornados pela API
 |13|Aborted|Todos|Pagamento cancelado por falha no processamento|
 |20|Scheduled|Cartão de crédito|Recorrência agendada|
 
-## Lista de Status do Antifraude
+## Lista de Status do AntiFraude
 
 | Código | Descrição  |
 |--------|------------|
@@ -6796,7 +6798,7 @@ Status retornados pela API
 |41|Tipo do documento <br/> Possíveis valores: CPF ou CNPJ ou Passaporte|string|2|Todos|
 |42|Idade do cliente|int|2|Todos|
 |43|Faixa de rendimento do cliente <br/> Ex.: 100000 = r$ 1.000,00|long|2|Todos|
-|44|Quantidade histórica de compras realizadas pelo cliente|int|3|Todos| 
+|44|Quantidade histórica de compras realizadas pelo cliente|int|3|Todos|
 |45|Identifica se é uma compra realizada por funcionário <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
 |46|Nome impresso (portador) no cartão de crédito|string|3|Todos|
 |47|Identifica se o cartão é private label <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
@@ -6836,8 +6838,8 @@ Status retornados pela API
 |81|Identifica se o dono do cartão de crédito irá viajar <br/> Possíveis valores: SIM ou NAO|string|3|Aéreo|
 |82|Identifica se o seller (vendedor) irá trabalhar com revisão manual ou não <br/> Possíveis valores: SIM ou NAO|string|1|Todos|
 |83|Segmento de negócio <br/> Ex.: Varejo|string|2|Todos|
-|84|Nome da plataforma integrada a API Antifraude Gateway Braspag <br/> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA|string|3|Todos|
-|85 a 89|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|-|-|
+|84|Nome da plataforma integrada a API AntiFraude Gateway Braspag <br/> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA|string|3|Todos|
+|85 a 89|Campos livres e definidos junto ao provedor de AntiFraude, conforme as regras de negócio|-|-|-|
 |90 a 100|Reservados|-|-|-|
 
 ## Lista de HTTP Status Code
@@ -6963,7 +6965,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |162|Boleto Demostrative length exceeded|Dado enviado excede o tamanho do campo|
 |163|Return Url is required|URL de retorno não é valida - Não é aceito paginação ou extenções (EX .PHP) na URL de retorno|
 |166|AuthorizeNow is required|---|
-|167|Antifraud not configured|Antifraude não vinculado ao cadastro do lojista|
+|167|Antifraud not configured|AntiFraude não vinculado ao cadastro do lojista|
 |168|Recurrent Payment not found|Recorrencia não encontrada|
 |169|Recurrent Payment is not active|Recorrencia não está ativa. Execução paralizada|
 |170|Cartão Protegido not configured|Cartão protegido não vinculado ao cadastro do lojista|
@@ -7048,14 +7050,14 @@ Os status das transações serão conforme a utilização de cada cartão.
 
 |Status da Transação|Cartões para realização dos testes|Código de Retorno|Mensagem de Retorno|
 |-------------------|----------------------------------|-----------------|-------------------|
-|Autorizado|0000.0000.0000.0001 / 0000.0000.0000.0004|4|Operação realizada com sucesso|
+|Autorizado|0000.0000.0000.0000 / 0000.0000.0000.0001 / 0000.0000.0000.0004|4|Operação realizada com sucesso|
 |Não Autorizado|0000.0000.0000.0002|05|Não Autorizada|
-|Autorização Aleatória|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
+|Não Autorizado|0000.0000.0000.0003|57|Cartão Expirado|
+|Não Autorizado|0000.0000.0000.0005|78|Cartão Bloqueado|
+|Não Autorizado|0000.0000.0000.0006|99|Time Out|
 |Não Autorizado|0000.0000.0000.0007|77|Cartão Cancelado|
 |Não Autorizado|0000.0000.0000.0008|70|Problemas com o Cartão de Crédito|
-|Não Autorizado|0000.0000.0000.0005|78|Cartão Bloqueado|
-|Não Autorizado|0000.0000.0000.0003|57|Cartão Expirado|
-|Não Autorizado|0000.0000.0000.0006|99|Time Out|
+|Autorização Aleatória|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
 
 As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).
 
