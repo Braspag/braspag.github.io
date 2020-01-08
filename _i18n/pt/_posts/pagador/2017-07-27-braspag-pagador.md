@@ -2515,7 +2515,7 @@ Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP 
 
 Durante o ciclo de vida de uma recorrência, é possível alterar:
 
-* adquirente (de Rede para Cielo, por exemplo)
+* Adquirente (de Rede para Cielo, por exemplo)
 * Cartão (em caso de cartão vencido)
 * Meio de pagamento (de Cartão para Boleto e vice e versa)
 
@@ -4019,7 +4019,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 Quando o estabelecimento possui o produto DCC habilitado, o processo de autorização é realizado em 3 etapas.
 
-Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, em seGUIDa retorna as informações de conversão.
+Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, em seguida retorna as informações de conversão.
 
 Na segunda etapa, o sistema da loja deverá apresentar ao comprador as opções de pagar em Reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira, onde:
 
