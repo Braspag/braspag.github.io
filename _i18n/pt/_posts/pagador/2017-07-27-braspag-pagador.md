@@ -6662,6 +6662,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Getnet|Visa, Master, Elo, Amex|Provider para transações na plataforma de e-commerce GetNet|
 |GlobalPayments|Visa, Master|Provider para transações na plataforma de e-commerce Global Payments|
 |Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone|
+|Safra|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Safra|
 |FirstData|Visa, Master, Cabal|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data|
 |Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte|
@@ -6679,6 +6680,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Cielo|Visa, Master|Provider para transações de débito na plataforma legado Cielo 1.5|
 |Cielo30|Visa, Master|Provider para transações de débito na plataforma de e-commerce Cielo 3.0|
 |Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce GetNet|
+|Rede2|Visa, Master|Provider para transações de débito na plataforma de e-commerce Rede|
 |FirstData|Visa, Master|Provider para transações de débito na plataforma de e-commerce First Data|
 |GlobalPayments|Visa, Master|Provider para transações de débito na plataforma de e-commerce Global Payments|
 
@@ -6710,7 +6712,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 
 |Provider|
 |--------|
-|Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
+|Braspag, Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
 
 ### Providers para Transferência Eletronica (Débito Online)
 
