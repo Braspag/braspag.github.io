@@ -27,19 +27,19 @@ Try our APIs for free!
 
 |Information|Description|
 |----|----|
-|API Access Credentials|Visit [Sandbox Signup] (https://cadastrosandbox.braspag.com.br/) and create a test account.<BR>At the end of registration you will receive a `MerchantId` and a` MerchantKey`<BR> which will be used to authenticate all requests made to the API|
-|Transactional Endpoint|https: //apisandbox.braspag.com.br/|
-|Endpoint for Query Services|https: //apiquerysandbox.braspag.com.br/|
+|API Access Credentials|Visit [Sandbox Signup] (https://cadastrosandbox.braspag.com.br/) and create a test account.<BR>At the end of registration you will receive a `MerchantId` and a `MerchantKey`<BR> which will be used to authenticate all requests made to the API|
+|Transactional Endpoint|https://apisandbox.braspag.com.br/|
+|Endpoint for Query Services|https://apiquerysandbox.braspag.com.br/|
 
 ### Production Environment
 
-I am ready for transactions in Production!
+I am ready to Go Live!
 
 |Information|Description|
 |---|---|
 |API Access Credentials|Send an email to comercial@braspag.com.br for more information about Braspag and how we can help your business!|
-|Transactional Endpoint|https: //apisandbox.braspag.com.br/|
-|Endpoint for Query Services|https: //apiquerysandbox.braspag.com.br/|
+|Transactional Endpoint|https://apisandbox.braspag.com.br/|
+|Endpoint for Query Services|https://apiquerysandbox.braspag.com.br/|
 
 ## Braspag's Support
 
@@ -47,11 +47,11 @@ I am ready for transactions in Production!
 
 * Web Support: [Zendesk] (http://suporte.braspag.com.br/)
 
-## Solution Features
+## About the API
 
 The Pagador API solution was developed with REST technology, which is industry standard and independent of the technology used by our customers. This way, it is possible to integrate using various programming languages, such as: ASP, ASP. Net, Java, PHP, Ruby, Python, among others.
 
-Among other features, the most outstanding attributes in the Braspag's eCommerce platform:
+Most outstanding attributes in the Braspag's eCommerce platform:
 
 * **No proprietary apps**: No apps need to be installed in the online store environment.
 * **Simplicity**: The protocol used is purely HTTPS.
@@ -65,7 +65,7 @@ Among other features, the most outstanding attributes in the Braspag's eCommerce
 Integration is made through services as Web Services. The model employed is quite simple: There are two endpoints, one specific for authorizing, capturing and canceling transactions, and another for operations such as transaction query. These two URLs will receive HTTP messages via POST, GET, or PUT methods. Each type of message must be sent to an address identified through "path".
 
 * **POST**- The HTTP POST method is used in the creation of a transaction.
-* **GET**- The HTTP GET method is used for querying existing resources. For example, capturing or canceling a previously authorized transaction.
+* **PUT**- The HTTP PUT method is used for update existing resources. For example, capturing or canceling a previously authorized transaction.
 * **GET**- The HTTP GET method is used for querying existing resources. For example, transaction query.
 
 In order for you to enjoy all the features available in our API, it is important that you first understand the concepts involved in processing a credit card transaction.
@@ -94,7 +94,7 @@ If your store uses Retry or Loadbalance services, affiliations must be registere
 
 <aside class="notice">The parameters contained in the `Address` and `DeliveryAddress` nodes are required when the transaction is submitted to the Velocity or Antifraud Analysis. In the parameter table below, they are marked with an * in the required column.</aside>
 
-#### Requisition
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -142,8 +142,8 @@ If your store uses Retry or Loadbalance services, affiliations must be registere
       "SoftDescriptor":"Message",
       "DoSplit":false,
       "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
@@ -219,8 +219,8 @@ curl
       "SoftDescriptor":"Message",
       "DoSplit":false,
       "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
@@ -265,7 +265,7 @@ curl
 |`Customer.Address.State`|Text|2|No*|Shopper's State contact address|
 |`Customer.Address.Country`|Text|35|No*|Shopper's country contact address|
 |`Customer.Address.District`|Text|50|No*|Shopper's Neighborhood|
-|`Customer.DeliveryAddress.Street`|Text|255|No*|Shopper's delivery address|
+|`Customer.DeliveryAddress.Street`|Text|255|No*|Shopper's delivery address street|
 |`Customer.DeliveryAddress.Number`|Text|15|No*|Order's delivery address number|
 |`Customer.DeliveryAddress.Complement`|Text|50|No*|Order's delivery address compplement|
 |`Customer.DeliveryAddress.ZipCode`|Text|9|No*|Order's delivery address ZIP Code|
@@ -275,9 +275,9 @@ curl
 |`Customer.Address.District`|Text|50|No*|Order's neighborhood|
 |`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Amount`|Number|15|Yes|Order Amount (cents)|
 |`Payment.ServiceTaxAmount`|Number|15|No|Applicable for airlines only. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value|
-|`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP)|
+|`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL/USD/MXN/COP/CLP/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP)|
 |`Payment.Country`|Text|3|No|Country in which payment will be made|
 |`Payment.Installments`|Number|2|Yes|Number of installments|
 |`Payment.Interest`|Text|10|No|Installment Type - Store (ByMerchant) or Issuer (ByIssuer)|
@@ -289,7 +289,7 @@ curl
 |`Payment.ExtraDataCollection.Name`|Text|50|No|Name of the field to save the Extra Data|
 |`Payment.ExtraDataCollection.Value`|Text|1024|No|Value of the field to save the Extra Data|
 |`Payment.Credentials.Code`|Text|100|Yes|Affiliation generated|
-|`Payment.Credentials.Key`|Text|100|Yes|Affiliation key / token generated by acquirer|
+|`Payment.Credentials.Key`|Text|100|Yes|Affiliation key/token generated by acquirer|
 |`Payment.Credentials.Username`|Text|50|No|User generated on credential process with Getnet acquirer (field must be submitted if transaction is directed to Getnet)|
 |`Payment.Credentials.Password`|Text|50|No|Password generated on credential process with Getnet acquirer (field must be submitted if transaction is directed to Getnet)|
 |`Payment.Credentials.Signature`|Text|3|No|Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). Ex. 001|
@@ -343,7 +343,7 @@ curl
         "DoSplit":false,
         "CreditCard":{
             "CardNumber": "455187******0181",
-            "Holder": "Holder Name",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SaveCard":"false",
             "Brand":"Visa",
@@ -441,7 +441,7 @@ curl
         "DoSplit":false,
         "CreditCard":{
             "CardNumber": "455187******0181",
-            "Holder": "Holder Name",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SaveCard":"false",
             "Brand":"Visa",
@@ -497,16 +497,16 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric Text|
+|`AcquirerTransactionId`|Transaction Id at Payment Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`CapturedDate`|Date the transaction was captured the transaction|Text|19|YYYY-MM-DD HH: mm: SS|
-|`CapturedAmount`|Captured amount (without separator)|Number|15|100 equivalent of R$ 1,00|
+|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`CapturedDate`|Date the transaction was captured |Text|19|YYYY-MM-DD HH:mm:SS|
+|`CapturedAmount`|Captured amount (in cents)|Number|15|100 equivalent of R$ 1,00|
 |`ECI`|Electronic Commerce Indicator. Represents authentication result|Text|2|Examples: 5|
-|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric Text|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
 |`Status`|Transaction Status|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
@@ -515,9 +515,9 @@ curl
 
 A transaction submitted with the `Payment.Capture` parameter equal to _false_ needs a capture request to commit the transaction later.
 
-Transactions not captured within 15 days are automatically terminated by Acquirers. Customers may have specific negotiations with Acquirers that extend this time.
+Transactions not captured within 15 days (or less, depending on the acquirer) are automatically terminated by Acquirers. Customers may have specific negotiations with Acquirers that extend this time.
 
-#### Requisition
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
@@ -598,12 +598,12 @@ curl
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
 |`Status`|Transaction Status.|Byte|2|Ex. 1|
-|`ReasonCode`|Return code from the acquirer.|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return message from the acquirer.|Text 512|Alphanumeric Text|
+|`ReasonCode`|Return code from the acquirer.|Text|32|Alphanumeric|
+|`ReasonMessage`|Return message from the acquirer.|Text 512|Alphanumeric|
 
 ### Transaction with Authentication
 
-When a transaction is submitted to the authentication process, the shopper will be redirected to the issuer's environment, where they must confirm their data. When validated correctly, the risk of chargeback of the transaction becomes the issuer, ie, the store will not receive disputes.
+When a transaction is sucessfully authenticated the liabity shifts to the issuer, i.e. the merchant will not be liable in the event of any dispute and chargeback.
 
 There are two ways to authenticate transactions with Braspag:**Standard**when the merchant does not have a direct connection to an authenticator (MPI), and expects the payment method to redirect the customer to the authentication environment.**External**when the merchant has its own authenticator (MPI) and does not expect the payment method to redirect its consumer to the authentication environment.  
 
@@ -633,8 +633,8 @@ The `Payment.Authenticate` parameter should be sent as *true* as shown below
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa",
@@ -672,8 +672,8 @@ curl
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa",
@@ -689,15 +689,15 @@ curl
 
 |Property|Type|Size|Mandatory|Description|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
+|`Payment.Provider`|Text|15|Yes|Name of Payment Provider|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the shopper will be directed to the issuing Bank for card authentication. For authenticated transactions, in this field, you must send the value "True". You should check with the acquirer for the availability of this feature|
 |`Payment.ReturnUrl`|Text|1024|Yes (when Autenticate is true)|URL to which the user will be redirected after authentication ends|
 |`CreditCard.CardNumber`|Text|16|Yes|Shopper's card number|
 |`CreditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM / YYYY format|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM/YYYY format|
 |`CreditCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
 |`CreditCard.Brand`|Text|10|Yes|Card brand|
 
@@ -723,8 +723,8 @@ A transaction with default authentication will receive, in addition to the defau
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa",
@@ -773,8 +773,8 @@ A transaction with default authentication will receive, in addition to the defau
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa",
@@ -804,17 +804,17 @@ A transaction with default authentication will receive, in addition to the defau
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric Text|
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric Text|
+|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
 |`Status`|Transaction Status|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
-|`AuthenticationUrl`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de autenticação|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
+|`AuthenticationUrl`|URL to which the holder will be redirected for authentication|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
 #### External Authentication
 
@@ -841,8 +841,8 @@ Add the `Payment.ExternalAuthentication` node to the default contract as shown. 
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa",
@@ -884,8 +884,8 @@ curl
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa",
@@ -906,7 +906,7 @@ curl
 
 |Property|Type|Size|Mandatory|Description|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`|Text 28|Yes Cavv value is returned by external authentication mechanism|
+|`Payment.ExternalAuthentication.Cavv`|Text 28|Yes| Cavv value is returned by external authentication mechanism|
 |`Payment.ExternalAuthentication.Xid`|Text|28|Yes|The Xid value is returned by the external authentication mechanism|
 |`Payment.ExternalAuthentication.Eci`|Number|1|Yes|The Eci value is returned by the external authentication mechanism|
 
@@ -928,7 +928,7 @@ A transaction with external authentication will receive, in addition to the stan
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand":"Visa",
@@ -979,7 +979,7 @@ A transaction with external authentication will receive, in addition to the stan
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand":"Visa",
@@ -1015,7 +1015,7 @@ A transaction with external authentication will receive, in addition to the stan
 
 |Property|Type|Size|Description|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`|Text 28|Cavv value submitted in authorization request|
+|`Payment.ExternalAuthentication.Cavv`|Text|28|Cavv value submitted in authorization request|
 |`Payment.ExternalAuthentication.Xid`|Text|28|Xid value submitted in authorization request|
 |`Payment.ExternalAuthentication.Eci`|Number|1|ECI value submitted in authorization request|
 
@@ -1023,7 +1023,7 @@ A transaction with external authentication will receive, in addition to the stan
 
 A transaction with a Debit Card is similar to a Credit Card, but you must submit it to the authentication process.
 
-#### Requisition
+#### Request
 
 ```json
 
@@ -1043,8 +1043,8 @@ A transaction with a Debit Card is similar to a Credit Card, but you must submit
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "DebitCard":{
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
@@ -1076,8 +1076,8 @@ A transaction with a Debit Card is similar to a Credit Card, but you must submit
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "DebitCard":{
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
@@ -1090,16 +1090,16 @@ A transaction with a Debit Card is similar to a Credit Card, but you must submit
 
 |Property|Type|Size|Mandatory|Description|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Text|15|Yes|Payment method provider's name|Currently only "Cielo" supports this form of payment via Pagador|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|In the case of a debit card (DebitCard)|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Provider`|Text|15|Yes|Payment method provider's name|
+|`Payment.Type`|Text|100|Yes|Payment Method Type. In the case "DebitCard"|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`Payment.ReturnUrl`|URL to which the user will be redirected after the end of the payment|Text|1024|Yes|
+|`Payment.ReturnUrl`|Text|1024|Yes|URL to which the user will be redirected at the end of the payment|
 |`DeditCard.CardNumber`|Text|16|Yes|Shopper's card number|
 |`DeditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`DebitCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM / YYYY format|
+|`DebitCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM/YYYY format|
 |`DebitCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
-|`DebitCard.Brand`|Text|10|Yes|Card Banner|
+|`DebitCard.Brand`|Text|10|Yes|Card Brand|
 
 #### Response
 
@@ -1110,7 +1110,7 @@ A transaction with a Debit Card is similar to a Credit Card, but you must submit
   "Payment":{
     "DebitCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand":"Visa",
@@ -1145,7 +1145,7 @@ A transaction with a Debit Card is similar to a Credit Card, but you must submit
   "Payment":{
     "DebitCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand":"Visa",
@@ -1172,13 +1172,13 @@ A transaction with a Debit Card is similar to a Credit Card, but you must submit
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric Text|
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric Text|
+|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
 |`Status`|Transaction Status|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
@@ -1323,13 +1323,13 @@ The example below covers the minimum required fields to be submitted for authori
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`QrCodeBase64Image`|Base 64 QR Code coded. For example, the QR Code image could be displayed on the page using an HTML code like this: <img src="data:image/png;base64,{código da imagem em base 64}">|Text|Variable|Alphanumeric text|
+|`QrCodeBase64Image`|Base 64 QR Code coded. For example, the QR Code image could be displayed on the page using an HTML code like this: <img src="data:image/png;base64,{image code in base 64}">|Text|Variable|Alphanumeric text|
 |`PaymentId`|Order identifier field, required for operations such as query, capture and cancellation.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Transaction Status. For transactions with QR Code, the initial status is "12" (Pending).|Byte|-|2|
-|`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric Text|
-|`ReturnMessage`|Return message from the acquirer|Text|512|Alphanumeric Text|
+|`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from the acquirer|Text|512|Alphanumeric|
 
-### Canceling / Refunding a Transaction
+### Canceling/Refunding a Transaction
 
 To cancel a credit card transaction, you must PUT the Payment feature as shown.
 
@@ -1342,7 +1342,7 @@ Below is the list of acquirers with whom we have integration for refund requests
 |Getnet|90 days|
 |Transbank|90 days|
 |Banorte|30 days|
-|First Date|90 days|
+|First Data|90 days|
 |Alelo|300 days|
 
 <aside class="warning">Availability of Refund service varies from acquirer to acquirer.</aside>
@@ -1369,7 +1369,7 @@ curl
 |`MerchantKey`|Public Key for Dual Authentication in the API.|Text|40|Sim|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`PaymentId`|Order Identifier field.|GUID|36|Yes|
-|`Amount`|Amount to be canceled / refunded (to be sent in cents). Check if your acquirer support cancel or refund operations|Number|15|No|
+|`Amount`|Amount to be canceled/refunded (in cents). Check if your acquirer support cancel or refund operations|Number|15|No|
 
 #### Response
 
@@ -1414,8 +1414,8 @@ curl
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
 |`Status`|Transaction Status.|Byte|2|Ex. 1|
-|`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return message from Acquiring.|Text|512|Alphanumeric Text
+|`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
+|`ReasonMessage`|Return message from Acquiring.|Text|512|Alphanumeric
 
 ### Transaction with Velocity Check
 
@@ -1469,24 +1469,24 @@ In case of rejection by Velocity rule, ProviderReasonCode will be BP 171 - Rejec
 |`VelocityAnalysis.Id`|Identification of the analysis performed|GUID|36|
 |`VelocityAnalysis.ResultMessage`|Accept or Reject|Text|25|
 |`VelocityAnalysis.Score`|100|Number|10|
-|`VelocityAnalysis.RejectReasons.RuleId`|Rejected Rule Code|Number|10|
-|`VelocityAnalysis.RejectReasons.Message`|Description of the rule that cause rejection|Text|512|
+|`VelocityAnalysis.RejectReasons.RuleId|Rejected Rule Code|Number|10|
+|`VelocityAnalysis.RejectReasons.Message|Description of the rule that cause rejection|Text|512|
 
 ## Boleto
 
 ### Registered Boleto
 
-In order to promote greater control and security to the transactional boleto in e-commerce and ensure more reliability and convenience to users, Febraban in conjunction with the Banks launched the New Charging Platform.
+In order to promote greater control and security to the transactional boleto in e-commerce and ensure more reliability and convenience to users, Febraban together with the Banks launched the New Charging Platform.
 
 From July 21, 2018, all boletos issued in e-commerce must be registered. [Click here] (https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos) to access the full announcement.   
 
-Follow below the migration / membership procedures for each bank:
+Follow below the migration/membership procedures for each bank:
 
 [Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)<BR>[Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)<BR>[Itaú](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf)<BR>[Santander](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf)<BR>[Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf)
 
 ### Creating a Boleto Transaction
 
-To generate boletos, in Sandbox environment also, you must provide shopper's data such as ID number (CPF or CNPJ) and address. Below is an example of how to create a boleto as payment method.
+To generate boletos, you must provide shopper's data such as ID number (CPF or CNPJ) and address. Below is an example of how to create a boleto as payment method.
 
 #### Request
 
@@ -1603,7 +1603,7 @@ curl
 |`Customer.Address.Country`|Text|35|No|Shopper's country contact address|
 |`Payment.Provider`|Text|15|Yes|Payment method provider's name|[Click here] (https://braspag.github.io/manual/braspag-payment#providers-para-boleto-with-registration) to access the list of providers.|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|In this case "Boleto"|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.BoletoNumber`|Text|see table below|No|Boleto Number (" Nosso Número "). If completed, overrides the value set on the payment method. The rule varies according to the Provider used (see table below)|
 |`Payment.Assignor`|Text|200|No|Name of the Assignor. If filled, overrides the value set on the payment method.
 |`Payment.Demonstrative`|Text|see table below|No|Statement Text. If filled, overrides the value set on the payment method. The rule varies according to the Provider used (see table below)|
@@ -1743,11 +1743,11 @@ curl
 |`BarCodeNumber`|Numeric representation of the barcode.|Text|44|00091628800000157000494250100000001200656560|
 |`DigitableLine`|Digitable line.|Texto|256|00090.49420 50100.000004 12006.565605 1 62880000015700|
 |`Address`|Store Address registered in the bank|Text|256|Av. Teste, 160|
-|`Status`|Transaction Status.|Byte|2|Ex. 1|
+|`Status`|Transaction Status.|Byte|2|E.g.: 1|
 
-### Boleto's Conciliation
+### Boleto Conciliation
 
-In order to update the status of a Boleto to Pago, the Pagado must receive CNAB files with the related settlements from the banks. To enable your store to receive bank files, simply follow the procedure outlined [here](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-)
+In order to update the status of a Boleto to Pago, the Pagador must receive CNAB files with the related settlements from the banks. To enable your store to receive bank files, simply follow the procedure bellow [here](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-)
 
 ### Bank Specific Rules
 
@@ -1757,7 +1757,7 @@ In order to update the status of a Boleto to Pago, the Pagado must receive CNAB 
 |`MerchantOrderId`|27 (obs 1)|50|8|50|11 (obs 2)|10 (obs 2)|
 |`Payment.BoletoNumber`|11 (obs 3)|9 (obs 4)|8 (obs 5)|13 (obs 3)|12 (obs 6)|11 (obs 7)|
 |`Customer.Name`|34|60 (obs 8)|30|40|40|50 (obs 9)|
-|`Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District`|Street:<br><br>70Number: 10Complement: 20District<br><br>: 50<br><br>|Total up to 60 characters (obs 8)|Street, Number, and Complement must total up to 40 charactersDistrict<br><br>: 15|Street, Number, and Complement must total up to 40 charactersDistrict<br><br>: 15|Street, Number, and Complement must total up to 40 charactersDistrict<br><br>: 15|Street, Number and Complement must total up to 40 charactersDistrict<br><br>: 50 (obs 9)|
+| `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` | Street: 70<br><br>Number: 10<br><br>Complement: 20<br><br>District: 50 | Total up to 60 characters (obs 8) | Street, Number and Complement must total up to 40 characters<br><br>District: 15 | Street, Number and Complement must total up to 40 characters<br><br>District: 15 | Street, Number e Complement must total up to 40 characters<br><br>District: 15 | Street, Number e Complement must total up to 40 characters<br><br>District: 50 (obs 9) |
 |`Customer.Address.City`|50|18 (obs 8)|15|30|15|50 (obs 9)|
 |`Payment.Instructions`|450|450|N/A|450|450|450|
 |`Payment.Demonstrative`|255|N/A|N/A|255|255|255|
@@ -1802,8 +1802,8 @@ Add the `RecurrentPayment` node to the` Payment` node to schedule future recurre
         "Amount":10000,
         "Installments":1,
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa"
@@ -1835,8 +1835,8 @@ curl
         "Amount":10000,
         "Installments":1,
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa"
@@ -1856,14 +1856,14 @@ curl
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`Payment.RecurrentPayment.EndDate`|Text|10|No|Recurring End Date|
-|`Payment.RecurrentPayment.Interval`|Text|10|No|Recurrence Interval.Monthly<br /><ul><li>(Default) Bimonthly  </li><li></li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
-|`Payment.RecurrentPayment.AuthorizeNow`|Boolean|---|Yes|If true, authorizes at moment of request. false for future scheduling|
+|`Payment.RecurrentPayment.Interval`|Text|10|No|Recurrence Interval.Monthly<br/><ul><li>(Default) Bimonthly  </li><li></li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Payment.RecurrentPayment.AuthorizeNow`|Boolean|---|Yes|If true, authorizes at moment of request. False for future scheduling|
 |`CreditCard.CardNumber`|Text|16|Yes|Shopper's card number|
 |`CreditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM / YYYY format|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM/YYYY format|
 |`CreditCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
 |`CreditCard.Brand`|Text|10|Yes|Card brand|
 
@@ -1882,7 +1882,7 @@ curl
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand":"Visa",
@@ -1932,7 +1932,7 @@ curl
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand":"Visa",
@@ -1971,7 +1971,7 @@ curl
 |`RecurrentPaymentId`|ID that represents the recurrence, used for future queries and changes|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`NextRecurrency`|Date when the next recurrence will happen|Text|7|05/2019 (MM/YYYY)|
 |`EndDate`|End of recurrence date|Text|7|05/2019 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Text|10|<ul><li></li><li>MonthlyBimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly</li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Boolean to know if the first recurrence will already be Authorized or not.|Boolean|---|true or false|
 
 ### Scheduling a Recurrence
@@ -1994,8 +1994,8 @@ To schedule the first transaction in the recurrence series, pass the `Payment.Re
      "Amount":10000,
      "Installments":1,
      "CreditCard":{
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
@@ -2028,8 +2028,8 @@ curl
      "Amount":10000,
      "Installments":1,
      "CreditCard":{
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
@@ -2050,15 +2050,15 @@ curl
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`Payment.RecurrentPayment.StartDate`|Text|10|No|Recurrence Start Date|
 |`Payment.RecurrentPayment.EndDate`|Text|10|No|Recurring End Date|
-|`Payment.RecurrentPayment.Interval`|Text|10|No|Recurrence Interval.Monthly<br /><ul><li>(Default) Bimonthly  </li><li></li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Payment.RecurrentPayment.Interval`|Text|10|No|Recurrence Interval.Monthly<br/><ul><li>(Default) Bimonthly  </li><li></li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`Payment.RecurrentPayment.AuthorizeNow`|Boolean|---|Yes|If true, authorizes at moment of request. false for future scheduling|
 |`CreditCard.CardNumber`|Text|16|Yes|Shopper's card number|
 |`CreditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM / YYYY format|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM/YYYY format|
 |`CreditCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
 |`CreditCard.Brand`|Text|10|Yes|Card brand|
 
@@ -2077,7 +2077,7 @@ curl
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand": "Undefined"
@@ -2120,7 +2120,7 @@ curl
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand": "Undefined"
@@ -2130,7 +2130,7 @@ curl
     "Currency":"BRL",
     "Country":"BRA",
     "Provider":"Simulado",
-    Status 20
+    "Status":20,
     "RecurrentPayment": {
       "RecurrentPaymentId": "32703035-7dfb-4369-ac53-34c7ff7b84e8",
       "ReasonCode": 0,
@@ -2153,7 +2153,7 @@ curl
 |`NextRecurrency`|Date of next recurrence.|Text|7|05/2019 (MM/YYYY)|
 |`StartDate`|Date of start of recurrence.|Text|7|05/2019 (MM/YYYY)|
 |`EndDate`|Date of end of recurrence.|Text|7|05/2019 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Text|10|<ul><li></li><li>MonthlyBimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly</li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Boolean to know if the first recurrence will already be Authorized or not.|Boolean|---|true or false|
 
 ### Change Shopper Data
@@ -2239,7 +2239,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
@@ -2305,7 +2305,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
@@ -2325,7 +2325,7 @@ See Appendix HTTP Status Code for a list of all HTTP status codes possibly retur
 
 To change the range of an existing recurrence, just make a PUT as per the example.
 
-#### Requisition
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -2351,11 +2351,11 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
-|`Interval`|Recurrence Interval. <ul><li>MonthlyBimonthlyQuarterly</li><li> </li><li>SemiAnnual </li><li>Annual </li><li>|</li></ul>Text|2|Yes|
+|`Interval`|Recurrence Interval. <ul><li>Monthly</li><li>Bimonthly</li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Text|2|Yes|
 
 #### Response
 
@@ -2399,7 +2399,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
@@ -2445,7 +2445,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
@@ -2467,7 +2467,7 @@ See Appendix HTTP Status Code for a list of all HTTP status codes possibly retur
 
 To change only the next payment date, just make a PUT as per the example.
 
-This operation only modifies the date of the next payment, ie future recurrences will remain with the original characteristics.
+This operation only modifies the date of the next payment, i.e. future recurrences will remain with the original characteristics.
 
 #### Request
 
@@ -2495,7 +2495,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
@@ -2539,7 +2539,7 @@ To change the payment details, simply make a PUT as per the example.
    "Provider":"Simulado",
    "CreditCard":{  
       "Brand":"Master",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "CardNumber":"4111111111111111",
       "ExpirationDate":"05/2019"
       },
@@ -2573,7 +2573,7 @@ curl
    "Provider":"Simulado",
    "CreditCard":{  
       "Brand":"Master",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "CardNumber":"4111111111111111",
       "ExpirationDate":"05/2019"
       },
@@ -2591,13 +2591,13 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
 |`Payment.Provider`|Name of the Payment Method Provider|Text|15|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
-|`Payment.Amount`|Order Amount (to be sent in cents)|Number|15|Yes|
+|`Payment.Amount`|Order Amount (in cents)|Number|15|Yes|
 |`Payment.Installments`|Number of Installments|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text to be printed on the credit card invoice|Text|13|No|
 |`CreditCard.CardNumber`|Card Number|Text|16|Yes|
@@ -2606,7 +2606,7 @@ curl
 |`CreditCard.SecurityCode`|Security code printed on back of the card|Text|4|Yes|
 |`CreditCard.Brand`|Card brand|Text|10|Yes|
 |`Payment.Credentials.Code`|acquirer affiliation|Text|100|Yes|
-|`Payment.Credentials.Key`|affiliate key / token by acquirer|Text|100|Yes|
+|`Payment.Credentials.Key`|affiliate key/token by acquirer|Text|100|Yes|
 |`Payment.Credentials.Username`|user generated in the accreditation with the acquirer (providers like Rede and Getnet use username and password in communications, so the field must be sent.)|Text|50|No|
 |`Payment.Credentials.Password`|password generated in the accreditation with the acquirer (providers like Rede and Getnet use username and password in communications, so the field must be sent.)|Text|50|No|
 |`Payment.Credentials.Signature`|Text|3|No|Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). E.g.: 001|Text|3|No|
@@ -2640,7 +2640,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
@@ -2653,9 +2653,9 @@ HTTP Status 200
 
 See Appendix HTTP Status Code for a list of all HTTP status codes possibly returned by the API.
 
-### Rehabilitating a Recurring Order
+### Reactivating a Recurring Order
 
-To disable a recurring request, simply make a PUT as per the example.
+To reactivate a recurring request, simply make a PUT as per the example.
 
 #### Request
 
@@ -2674,7 +2674,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
@@ -2713,7 +2713,7 @@ Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citiban
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187* *** **0183",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate": "12/2016",
       "SaveCard":"false",
       "Brand":"Visa",
@@ -2721,7 +2721,7 @@ Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citiban
     "AcquirerTransactionId": "0512105630844",
     "NewCard": {
       "CardNumber": "4551870000512353",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate": "05/2020",
       "SaveCard":"false",
       "Brand": "Visa"
@@ -2757,7 +2757,7 @@ Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citiban
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187* *** **0183",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate": "12/2016",
       "SaveCard":"false",
       "Brand":"Visa",
@@ -2765,7 +2765,7 @@ Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citiban
     "AcquirerTransactionId": "0512105630844",
     "NewCard": {
       "CardNumber": "4551870000512353",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate": "05/2020",
       "SaveCard":"false",
       "Brand":"Visa",
@@ -2818,7 +2818,7 @@ To create a sale, you must POST the Payment feature as shown.
         "IdentityType":"CPF",
         "Email": "shopper@braspag.com.br",
         "Address":
-        {split
+        {
              "Street":"Alameda Xingu",
              "Number":"512",
              "Complement":"27th floor",
@@ -2910,14 +2910,14 @@ curl
 |`Customer.Address.ZipCode`|Shopper's contact address Zip Code|Text|8|No|
 |`Customer.Address.City`|Shopper's City Address|Text|50|Yes|
 |`Customer.Address.State`|Shopper's Contact State|Text|2|Yes|
-|`Customer.Address.Country`|Shoppe's contact address country|Text|35|Yes|
+|`Customer.Address.Country`|Shopper's contact address country|Text|35|Yes|
 |`Customer.Address.District`|Shopper's contact address neighborhood|Text|35|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
-|`Payment.Amount`|Order Amount (to be sent in cents)|Number|15|Yes|
-|`Payment.Provider`|Name of the Payment Method Provider|Text|15|Yes|
-|`Payment.Beneficiary.Bank`|Payer Bank (required for eletronic transfer only with Provider PayMeeSemiTransparent).|Text|100|Conditional|
-|`Payment.Shopper.Branch`|Paying Agency (required for electronic transfer only with Provider PayMeeSemiTransparent).|Text|100|Conditional|
-|`Payment.Shopper.Account`|Payer Account (only required for eletronic transfer with Provider PayMeeSemiTransparent).|Text|100|Conditional|
+|`Payment.Amount`|Order Amount (in cents)|Number|15|Yes|
+|`Payment.Provider`|Name of the Payment Provider|Text|15|Yes|
+|`Payment.Beneficiary.Bank`|Payer Bank (required for eletronic transfer only with Provider PayMeeSemiTransparent)|Text|100|Conditional|
+|`Payment.Shopper.Branch`|Paying Agency (required for electronic transfer only with Provider PayMeeSemiTransparent)|Text|100|Conditional|
+|`Payment.Shopper.Account`|Payer Account (only required for eletronic transfer with Provider PayMeeSemiTransparent)|Text|100|Conditional|
 
 #### Response
 
@@ -2925,7 +2925,7 @@ curl
 {
     "MerchantOrderId": "2017051109",
     "Customer":{
-        "Name": "shopper Name",
+        "Name": "Shopper Name",
         "Identity":"12345678909",
         "IdentityType":"CPF",
         "Email": "shopper@braspag.com.br",
@@ -3001,7 +3001,7 @@ curl
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Url`|URL to which the buyer should be redirected for Eletronic Transfer authentication|Text|256|Authentication Url|
-|`Status`|Transaction Status|Byte|2|Ex. 1|
+|`Status`|Transaction Status|Byte|2|E.g.: 1|
 
 ## E-Wallets
 
@@ -3009,7 +3009,7 @@ curl
 
 They are card and payment data repositories for e-commerce consumers and the physical world. Digital Wallets allow a consumer to register their payment data, making the purchase process more convenient and secure.
 
-> * To use wallets at the Pagador, the merchant must have the wallets integrated in his checkout *.
+> *To use wallets at the Pagador, the merchant must have the wallets integrated in his checkout*.
 
 For more information, contact the provider of your choice to contract the service.
 
@@ -3060,22 +3060,22 @@ Pagador currently supports:
 ```
 
 |Property|Type|Size|Mandatory|Description|
-|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
+|----------------------------|--------|---------|-------------|--------------------------------------------------------|
 |`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
 |`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET / POST / PUT. |
-|`MerchantOrderId`|Text|50|Yes|Order ID Number|                                                                   |
-|`Customer.Name`|Text|255|Yes|Shopper Name|                                                                                   |
-|`Customer.Status`|Text 255|No|Shopper Registration Status (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|                                                                           |
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|                                                           |
-|Payment.Provider|Text|15|Yes|Cielo providers only (`Cielo` /` Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|                                                                                  |
-|`Wallet.Type`             |Texto |--    |Sim        |Indicates which wallet type: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`|
-|`Wallet.Walletkey`        |Texto |--    |Sim        |Cryptographic key that identifies stores in Wallets - See WalletKey table for more information     |
-|`Wallet.AdditionalData.EphemeralPublicKey`|Texto |--   |Sim |Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|
-|`Wallet.AdditionalData.capturecode`      |Texto |--   |Sim |Code informed by `MasterPass` to the merchant                                                   |                                                    
-|`Wallet.AdditionalData.EphemeralPublicKey`|Texto |--   |Yes|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|
+|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT|
+|`MerchantOrderId`|Text|50|Yes|Order ID Number|
+|`Customer.Name`|Text|255|Yes|Shopper Name|
+|`Customer.Status`|Text 255|No|Shopper Registration Status (NEW/EXISTING)|
+|`Payment.Type`|Text|100|Yes|Payment Method Type|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
+|Payment.Provider|Text|15|Yes|Cielo providers only (`Cielo`/` Cielo30`)|
+|`Payment.Installments`|Number|2|Yes|Number of Installments|
+|`Wallet.Type`|Texto |--|Sim|Indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|
+|`Wallet.Walletkey`|Texto|--|Sim|Cryptographic key that identifies stores in Wallets - See WalletKey table for more information|
+|`Wallet.AdditionalData.EphemeralPublicKey`|Texto|--|Sim|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|
+|`Wallet.AdditionalData.capturecode`|Texto|--|Sim|Code informed by `MasterPass` to the merchant|
+|`Wallet.AdditionalData.EphemeralPublicKey`|Texto|--|Yes|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|
 
 ##### Walletkey
 
@@ -3083,25 +3083,25 @@ Pagador currently supports:
 
 |Wallet|Example|.|
 |----------------|----------------|-|
-|*Apple Pay*   |9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc  |.|
-|*Samsung Pay* |eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ`  |.|
-|*Android Pay* |{\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"} |.|
-|*VisaCheckout*|1140812334225873901  |.|
-|*Masterpass*|a561da1c18a89cfdafas875f9d43fc46cd9bf3e1  |.|
+|*Apple Pay*|9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc|.|
+|*Samsung Pay*|eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ|.|
+|*Android Pay*|{\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}|.|
+|*VisaCheckout*|1140812334225873901|.|
+|*Masterpass*|a561da1c18a89cfdafas875f9d43fc46cd9bf3e1|.|
 
 ##### EphemeralPublicKey
 
 `WalletKeys` format to pass to the Pagador API
 
-|Wallet|Example|.
+|Wallet|Example|
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
-|*Apple Pay*   |`MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==`  |
+|*Apple Pay*|`MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==`|
 
 `Signature` format to pass to Payer API
 
-|Wallet|Example|.
+|Wallet|Example|
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
-|*Android Pay* |`MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA=`                                      |
+|*Android Pay*|`MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA=`|
 
 #### Responses
 
@@ -3170,20 +3170,20 @@ Pagador currently supports:
 
 |Property|Description|Type|Size|Format|
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|ProofOfSale|Authorization number, identical to NSU.                                                                                       |Text|6|Alphanumeric Text
-|Tid|Transaction Id on the acquirer.                                                                                                |Text|20|Alphanumeric Text
-|`AuthorizationCode`|Authorization Code                                                                                                        |Text|6|Alphanumeric Text
-|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA / MASTER only - does not allow special characters|Text 13|Alphanumeric Text|
-|`PaymentId`|Order Identifier field.                                                                                                |Guid |36     |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.                                                       |Text 2|Examples: 7|
-|`Status`|Transaction Status.                                                                                                          |Byte|2|E.g.: 1|
-|`ReturnCode`|Return code from the acquirer.                                                                                             |Text|32|Alphanumeric Text|
-|`ReturnMessage`|Return message from Acquirer.                                                                                           |Texto|--    |Alphanumeric Text                |
-|`Type`             |indicates which wallet type: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                      |Text|--    |Alphanumeric Text                  |
-|Walletkey|Cryptographic key that identifies stores in Wallets - See WalletKey table for more information|Text -|See table `WalletKey`|     
-|`AdditionalData.EphemeralPublicKey`|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`                                      |Text|--    |View Table `EphemeralPublicKey`     |
-|`AdditionalData.CaptureCode`       |Code informed by `MasterPass` to the merchant                                                                 |Text|--    |3                                   |
-|`AdditionalData.Signature`|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`                                              |Text|--    |See Table `Signature`     |
+|ProofOfSale|Authorization number, identical to NSU.|Text|6|Alphanumeric
+|TID|Transaction Id on the acquirer.|Text|20|Alphanumeric
+|`AuthorizationCode`|Authorization Code|Text|6|Alphanumeric
+|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters|Text 13|Alphanumeric|
+|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is|Text 2|Examples: 7|
+|`Status`|Transaction Status.|Byte|2|E.g.: 1|
+|`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from Acquirer.|Texto|--|Alphanumeric|
+|`Type`|indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|Text|--|Alphanumeric|
+|`Walletkey`|Cryptographic key that identifies stores in Wallets - See WalletKey table for more information|Text|--|See table `WalletKey`|     
+|`AdditionalData.EphemeralPublicKey`|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|Text|--|View Table `EphemeralPublicKey`|
+|`AdditionalData.CaptureCode`|Code informed by `MasterPass` to the merchant|Text|--|3|
+|`AdditionalData.Signature`|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|Text|--|See Table `Signature`|
 
 ### Examples
 
@@ -3201,21 +3201,21 @@ Apple Pay must be hired from Apple through the business contact below:
 
 Once hiring is effective, you will be given access to the "Apple Developer" panel, and you will need to create `MerchantIdentifier`. To do so, perform the steps below:
 1. Log in to [Apple Developer] (https://developer.apple.com/)
-2. Select**Certificate, IDs & Profile**
+2. Select **Certificate, IDs & Profile**
 3. Within the "Identifiers" area click "Merchant IDs"
-4. Click on the**+**in the right corner below the "Registering a Merchant ID"
+4. Click on the **+** in the right corner below the "Registering a Merchant ID"
 5. Define the MerchantID description and identifier. Example: "merchant.com.BRASPAG.merchantAccount"
 6. Click "continue" and verify that the information you entered is correct
 7. Finish the process.
 
-<P>The `MerchantIdentifier` must be sent to Braspag via the [support channel](https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br) to create a**PEM CSR Certificate**.
+<P>The `MerchantIdentifier` must be sent to Braspag via the [support channel](https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br) to create a **PEM CSR Certificate**.
 
 ##### Step 3. CSR Certificate Upload
 
-After submitting the `MerchantIdentifier` to the Braspag team, the store will receive the` PEM` extension certificate and should follow these steps:
+After submitting the `MerchantIdentifier` to the Braspag team, the store will receive the `PEM` extension certificate and should follow these steps:
 
 1. Log in to [Apple Developer] (https://developer.apple.com/)
-2. Select**Certificate, IDs & Profiles**
+2. Select **Certificate, IDs & Profiles**
 ![Apple Pay]({{ site.baseurl_root }}/images/apple-paymid.jpg)
 3. Upload the certificate
 ![[Apple Pay]({{ site.baseurl_root }}/images/apple-pay.jpg)
@@ -3244,7 +3244,7 @@ The second integration step is to effect the authorization flow via Braspag's ga
 
 #### Request
 
-Default Request Example * Apple Pay *
+Default Request Example *Apple Pay*
 
 > It is necessary that the store already has registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API>
 
@@ -3279,16 +3279,16 @@ Default Request Example * Apple Pay *
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
 |`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
 |`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET / POST / PUT. |
-|`MerchantOrderId`|Text|50|Yes|Order ID Number|                                                                   |
-|`Customer.Name`|Text|255|Yes|Shopper Name|                                                                                   |
-|`Customer.Status`|Text 255|No|Shopper Registration Status (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|                                                                           |
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|                                                           |
-|Payment.Provider|Text|15|Yes|Cielo providers only (`Cielo` /` Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|                                                                                  |
-|Wallet.Type|Text|255|Yes|indicates which wallet type: `ApplePay` /` SamsungPay` / `AndroidPay` /` VisaCheckout` / `Masterpass`|
-|Wallet.Walletkey|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
+|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT|
+|`MerchantOrderId`|Text|50|Yes|Order ID Number|
+|`Customer.Name`|Text|255|Yes|Shopper Name|
+|`Customer.Status`|Text 255|No|Shopper Registration Status (NEW/EXISTING)|
+|`Payment.Type`|Text|100|Yes|Payment Method Type|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
+|Payment.Provider|Text|15|Yes|Cielo providers only (`Cielo`/` Cielo30`)|
+|`Payment.Installments`|Number|2|Yes|Number of Installments|
+|`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|
+|`Wallet.Walletkey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
 |`Wallet.AdditionalData.EphemeralPublicKey`|Text|255|Yes|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|
 
 ##### Response
@@ -3358,24 +3358,24 @@ Default Request Example * Apple Pay *
 
 |Property|Description|Type|Size|Format|
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|ProofOfSale|Authorization number, identical to NSU.                                                                                       |Text|6|Alphanumeric Text
-|Tid|Transaction Id on the acquirer.                                                                                                |Text|20|Alphanumeric Text
-|`AuthorizationCode`|Authorization Code                                                                                                        |Text|6|Alphanumeric Text
-|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA / MASTER only - does not allow special characters|Text 13|Alphanumeric Text|
-|`PaymentId`|Order Identifier field.                                                                                                |Guid |36     |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.                                                       |Text 2|Examples: 7|
-|`Status`|Transaction Status.                                                                                                          |Byte|2|E.g.: 1|
-|`ReturnCode`|Return code from the acquirer.                                                                                             |Text|32|Alphanumeric Text|
-|`ReturnMessage`|Return message from Acquirer.                                                                                           |Text|512|Alphanumeric Text|
-|`Type`|indicates which wallet type: `ApplePay` /` SamsungPay` / `AndroidPay` /` VisaCheckout` / `Masterpass`|Text|255|Alphanumeric Text|
-|Walletkey|Cryptographic key that identifies stores in Wallets - Check WalletKey table for more information|Text|255|See table `WalletKey`|     
+|ProofOfSale|Authorization number, identical to NSU.|Text|6|Alphanumeric|
+|TID|Transaction Id on the acquirer.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization Code|Text|6|Alphanumeric|
+|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric|
+|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
+|`Status`|Transaction Status|Byte|2|E.g.: 1|
+|`ReturnCode`|Return code from the acquirer|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from Acquirer|Text|512|Alphanumeric|
+|`Type`|indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
+|`Walletkey`|Cryptographic key that identifies stores in Wallets - Check WalletKey table for more information|Text|255|See table `WalletKey`|     
 |`AdditionalData.EphemeralPublicKey`|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|Text|255|Check Table `EphemeralPublicKey`|
 
 #### Samsung Pay
 
 #### Request
 
-Default Request Example * Samsung Pay *
+Default Request Example *Samsung Pay*
 
 > It is necessary that the store already has registration and a Samsung Pay integration, otherwise it will not be possible to integrate with the API>
 
@@ -3408,16 +3408,16 @@ Default Request Example * Samsung Pay *
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
 |`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
 |`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET / POST / PUT. |
-|`MerchantOrderId`|Text|50|Yes|Order ID Number|                                                                   |
-|`Customer.Name`|Text|255|Yes|Shopper Name|                                                                                   |
-|`Customer.Status`|Text 255|No|Shopper Registration Status (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|                                                                           |
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|                                                           |
-|Payment.Provider|Text|15|Yes|Cielo providers only (`Cielo` /` Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|                                                                                  |
-|Wallet.Type|Text|255|Yes|indicates which wallet type: `ApplePay` /` SamsungPay` / `AndroidPay` /` VisaCheckout` / `Masterpass`|
-|Wallet.Walletkey|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
+|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|50|Yes|Order ID Number|
+|`Customer.Name`|Text|255|Yes|Shopper Name|
+|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW/EXISTING)|
+|`Payment.Type`|Text|100|Yes|Payment Method Type|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
+|`Payment.Provider`|Text|15|Yes|Cielo providers only (`Cielo`/`Cielo30`)|
+|`Payment.Installments`|Number|2|Yes|Number of Installments|
+|`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/`SamsungPay/`AndroidPay`/`VisaCheckout`/`Masterpass`|
+|`Wallet.Walletkey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
 
 ##### Response
 
@@ -3483,23 +3483,23 @@ Default Request Example * Samsung Pay *
 
 |Property|Description|Type|Size|Format|
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|ProofOfSale|Authorization number, identical to NSU.                                                                                       |Text|6|Alphanumeric Text
-|Tid|Transaction Id on the acquirer.                                                                                                |Text|20|Alphanumeric Text
-|`AuthorizationCode`|Authorization Code                                                                                                        |Text|6|Alphanumeric Text
-|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA / MASTER only - does not allow special characters|Text 13|Alphanumeric Text|
-|`PaymentId`|Order Identifier field.                                                                                                |Guid |36     |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.                                                       |Text 2|Examples: 7|
-|`Status`|Transaction Status.                                                                                                          |Byte|2|E.g.: 1|
-|`ReturnCode`|Return code from the acquirer.                                                                                             |Text|32|Alphanumeric Text|
-|`ReturnMessage`|Return message from Acquirer.                                                                                           |Text|512|Alphanumeric Text|
-|`Type`|indicates which wallet type: `ApplePay` /` SamsungPay` / `AndroidPay` /` VisaCheckout` / `Masterpass`|Text|255|Alphanumeric Text|
-|Walletkey|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
+|`TID`|Transaction Id on the acquirer|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization Code|Text|6|Alphanumeric|
+|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric|
+|`PaymentId`|Order Identifier field|GUID |36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is|Text|2|Examples: 7|
+|`Status`|Transaction Status|Byte|2|E.g.: 1|
+|`ReturnCode`|Return code from the acquirer|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from Acquirer|Text|512|Alphanumeric|
+|`Type`|indicates which wallet type: `ApplePay`/` SamsungPay`/`AndroidPay`/` VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
+|`Walletkey`|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|
 
 #### Google Pay
 
 #### Request
 
-Default Request Example * Google Pay *
+Default Request Example *Google Pay*
 
 > The store must already have registration and an Google Pay integration, otherwise it will not be possible to integrate with the API>
 
@@ -3534,17 +3534,17 @@ Default Request Example * Google Pay *
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
 |`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
 |`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET / POST / PUT. |
-|`MerchantOrderId`|Text|50|Yes|Order ID Number|                                                                   |
-|`Customer.Name`|Text|255|Yes|Shopper Name|                                                                                   |
-|`Customer.Status`|Text 255|No|Shopper Registration Status (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|                                                                           |
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|                                                           |
-|Payment.Provider|Text|15|Yes|Cielo providers only (`Cielo` /` Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|                                                                                  |
-|Wallet.Type|Text|255|Yes|indicates which wallet type: `ApplePay` /` SamsungPay` / `AndroidPay` /` VisaCheckout` / `Masterpass`|
-|Wallet.Walletkey|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
-|`Wallet.AdditionalData.Signature`|Text |255   |Yes|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|
+|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT|
+|`MerchantOrderId`|Text|50|Yes|Order ID Number|
+|`Customer.Name`|Text|255|Yes|Shopper Name|
+|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW/EXISTING)|
+|`Payment.Type`|Text|100|Yes|Payment Method Type|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
+|`Payment.Provider`|Text|15|Yes|Cielo providers only (`Cielo`/` Cielo30`)|
+|`Payment.Installments`|Number|2|Yes|Number of Installments|
+|`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/` SamsungPay`/`AndroidPay`/` VisaCheckout`/`Masterpass`|
+|`Wallet.Walletkey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
+|`Wallet.AdditionalData.Signature`|Text|255|Yes|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|
 
 ##### Response
 
@@ -3613,17 +3613,17 @@ Default Request Example * Google Pay *
 
 |Property|Description|Type|Size|Format|
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|ProofOfSale|Authorization number, identical to NSU.                                                                                       |Text|6|Alphanumeric Text
-|Tid|Transaction Id on the acquirer.                                                                                                |Text|20|Alphanumeric Text
-|`AuthorizationCode`|Authorization Code                                                                                                        |Text|6|Alphanumeric Text
-|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA / MASTER only - does not allow special characters|Text 13|Alphanumeric Text|
-|`PaymentId`|Order Identifier field.                                                                                                |Guid |36     |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.                                                       |Text 2|Examples: 7|
-|`Status`|Transaction Status.                                                                                                          |Byte|2|E.g.: 1|
-|`ReturnCode`|Return code from the acquirer.                                                                                             |Text|32|Alphanumeric Text|
-|`ReturnMessage`|Return message from Acquirer.                                                                                           |Text|512|Alphanumeric Text|
-|`Type`|indicates which wallet type: `ApplePay` /` SamsungPay` / `AndroidPay` /` VisaCheckout` / `Masterpass`|Text|255|Alphanumeric Text|
-|Walletkey|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|     
+|`ProofOfSale`|Authorization number, identical to NSU|Text|6|Alphanumeric|
+|`TID`|Transaction Id on the acquirer|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization Code|Text|6|Alphanumeric|
+|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric|
+|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is|Text|2|Examples: 7|
+|`Status`|Transaction Status|Byte|2|E.g.: 1|
+|`ReturnCode`|Return code from the acquirer|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from Acquirer|Text|512|Alphanumeric|
+|`Type`|Indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
+|`Walletkey`|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|     
 |`AdditionalData.Signature`|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|Text|255|Check Table `Signature`|
 
 #### MasterPass
@@ -3660,13 +3660,13 @@ To use MasterPass it is necessary to contract the service by contacting Masterca
 |---|---|---|---|---|
 |`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
 |`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`RequestId`|Guid|36|No|Request identifier, used when the merchant uses different servers for each GET / POST / PUT.|
+|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
 |`MerchantOrderId`|Text|50|Yes|Order ID.|
 |`Customer.Name`|Text|255|No|Shopper's Name.|
-|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW / EXISTING)|
+|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW/EXISTING)|
 |`Payment.Type`|Text|100|Yes|Payment Method Type||
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be shipped in cents).|
-|`Payment.Provider`|Text|15|Yes|Only Cielo as provider (` Cielo` / `Cielo30`)|
+|`Payment.Provider`|Text|15|Yes|Only Cielo as provider (` Cielo`/`Cielo30`)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Wallet.Type`|Text|255|Yes|indicates which type of wallet:" Masterpass "|
 |`Wallet.Walletkey`|Text|255|Yes|Cryptographic key representing card data - See WalletKey table for more information|
@@ -3726,21 +3726,21 @@ To use MasterPass it is necessary to contract the service by contacting Masterca
 
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric Text|
-|`Tid`|Id of the transaction on the acquirer.|Text|20|Alphanumeric Text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric Text|
-|`SoftDescriptor`|Text to be printed on shopper's invoice - Available for VISA / MASTER only - does not allow special characters|Text|13|Alphanumeric text|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
+|`TID`|Id of the transaction on the acquirer.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
+|`SoftDescriptor`|Text to be printed on shopper's invoice - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric|
 |`PaymentId`|Order Identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
 |`Status`|Transaction Status.|Byte|2|E.g.: 1|
-|`ReturnCode`|Return Code from Acquiring.|Text|32|Alphanumeric Text|
-|`ReturnMessage`|Return message from Acquiring.|Text|512|Alphanumeric Text|
-|`Type`|indicates which wallet type:" VisaCheckout "or" Masterpass "|Text|255|Yes|
+|`ReturnCode`|Return Code from Acquiring.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from Acquiring.|Text|512|Alphanumeric|
+|`Type`|indicates which wallet type: "VisaCheckout" or "Masterpass"|Text|255|Yes|
 |`Capturecode`|Code entered by MasterPass to shopkeeper|Text|255|Yes|
 
 #### Visa Checkout
 
-To use Visa Checkout you need to contract the service by contacting Visa directly.
+To use *Visa Checkout* you need to contract the service by contacting Visa directly.
 
 #### Request
 
@@ -3773,13 +3773,13 @@ To use Visa Checkout you need to contract the service by contacting Visa directl
 |---|---|---|---|---|
 |`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
 |`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`RequestId`|Guid|36|No|Request identifier, used when the merchant uses different servers for each GET / POST / PUT.|
+|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
 |`MerchantOrderId`|Text|50|Yes|Order ID.|
 |`Customer.Name`|Text|255|No|Shopper's Name.|
-|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW / EXISTING)|
+|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW/EXISTING)|
 |`Payment.Type`|Text|100|Yes|Payment Method Type||
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be shipped in cents).|
-|`Payment.Provider`|Text|15|Yes|Only Cielo as provider (` Cielo` / `Cielo30`)|
+|`Payment.Provider`|Text|15|Yes|Only Cielo as provider (`Cielo`/`Cielo30`)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Payment.ReturnUrl`|Text|1024|---|Required for debit card|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Appendix.|
@@ -3834,15 +3834,15 @@ To use Visa Checkout you need to contract the service by contacting Visa directl
 
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric Text|
-|`Tid`|Id of the transaction on the acquirer.|Text|20|Alphanumeric Text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric Text|
-|`SoftDescriptor`|Text to be printed on shopper's invoice - Available for VISA / MASTER only - does not allow special characters|Text|13|Alphanumeric text|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
+|`TID`|Id of the transaction on the acquirer.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
+|`SoftDescriptor`|Text to be printed on shopper's invoice - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric text|
 |`PaymentId`|Order Identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
 |`Status`|Transaction Status.|Byte|2|E.g.: 1|
-|`ReturnCode`|Return Code from Acquiring.|Text|32|Alphanumeric Text|
-|`ReturnMessage`|Return message from Acquiring.|Text|512|Alphanumeric Text|
+|`ReturnCode`|Return Code from Acquiring.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from Acquiring.|Text|512|Alphanumeric|
 |`Type`|indicates which wallet type:" VisaCheckout "or" Masterpass "|Text|255|Yes|
 |`Capturecode`|Code entered by MasterPass to shopkeeper|Text|255|Yes|
 
@@ -3850,7 +3850,7 @@ To use Visa Checkout you need to contract the service by contacting Visa directl
 
 ### Creating a Alelo Voucher Transaction
 
-A transaction with an Alelo Card is similar to a Debit Card, but without the authentication process. <BR><BR>Currently, only the "Alelo" Provider supports processing of this mode.
+A transaction with an *Alelo* Card is similar to a Debit Card, but without the authentication process. <BR><BR>Currently, only the "Alelo" Provider supports processing of this mode.
 
 #### Request
 
@@ -3866,10 +3866,10 @@ A transaction with an Alelo Card is similar to a Debit Card, but without the aut
         "Amount": 10,
         "Installments":1,
         "DebitCard":{
-            "CardNumber": "* ***4903",
+            "CardNumber": "************4901",
             "Holder": "TestBraspag",
             "ExpirationDate": "02/2019",
-            "SecurityCode": "* **",
+            "SecurityCode": "***",
             "Brand": "Elo"
         },
         [...]
@@ -3894,10 +3894,10 @@ curl
         "Amount": 10,
         "Installments":1,
         "DebitCard":{
-            "CardNumber": "* ***4903",
+            "CardNumber": "************4901",
             "Holder": "TestBraspag",
             "ExpirationDate": "02/2019",
-            "SecurityCode": "* **",
+            "SecurityCode": "***",
             "Brand": "Elo"
         },
         [...]
@@ -3909,14 +3909,14 @@ curl
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|Currently only "Cielo" supports this form of payment via Pagador|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|In the case of a debit card (DebitCard)|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`Payment.ReturnUrl`|URL to which the user will be redirected after the end of the payment|Text|1024|Yes|
+|`Payment.ReturnUrl`|Text|1024|Yes|URL to which the user will be redirected after the end of the payment|
 |`DeditCard.CardNumber`|Text|16|Yes|Shopper's card number|
 |`DeditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`DebitCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM / YYYY format|
+|`DebitCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM/YYYY format|
 |`DebitCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
-|`DebitCard.Brand`|Text|10|Yes|Card Banner|
+|`DebitCard.Brand`|Text|10|Yes|Card Brand|
 
 #### Response
 
@@ -3925,7 +3925,7 @@ curl
     [...]
     "Payment":{
         "DebitCard":{
-            "CardNumber": "527637* *** **4903",
+            "CardNumber": "527637******4903",
             "Holder": "TestBraspag",
             "ExpirationDate": "02/2019",
             "SaveCard":"false",
@@ -3963,7 +3963,7 @@ curl
     [...]
     "Payment":{
         "DebitCard":{
-            "CardNumber": "527637* *** **4903",
+            "CardNumber": "527637******4903",
             "Holder": "TestBraspag",
             "ExpirationDate": "02/2019",
             "SaveCard":"false",
@@ -3995,21 +3995,21 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric Text|
-|`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric Text|
-|`Status`|Transaction Status|Byte|2|Ex. 1|
+|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DDHH:mm:SS|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
+|`Status`|Transaction Status|Byte|2|E.g.: 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
 |`AuthenticationUrl`|URL to which the holder will be redirected for authentication|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 ## Payments with Purchaser Global Payments (DCC)
 
-Example of a transaction with Dynamic Payment Conversion (DCC), a currency converter from acquirer Global Payments that allows a foreign cardholder to choose to pay in Reais or in their Local currency, converting the order amount at the time of purchase in full transparency for the shopper.
+Example of a transaction with Dynamic Currency Conversion (DCC), a currency converter from acquirer Global Payments that allows a foreign cardholder to choose to pay in Reais or in their Local currency, converting the order amount at the time of purchase in full transparency for the shopper.
 The solution is suitable for establishments that receive payments with cards issued abroad such as hotels, inns, shopping centers and tourist shops.
 
 <aside class="notice"><strong>Authentication:</strong> To use this feature, the merchant must contact the acquirer Global Payments and request DCC activation at their merchant.</aside>
@@ -4054,7 +4054,7 @@ There is no difference between a standard authorization request and a DCC author
         "Authenticate":false,
         "Recurrent":false,
         "CreditCard":{
-            "CardNumber": "123412* *** **1234",
+            "CardNumber": "123412******1234",
             "Holder": "Shopper Test",
             "ExpirationDate": "12/2022",
             "SaveCard":"false",
@@ -4101,14 +4101,14 @@ There is no difference between a standard authorization request and a DCC author
     [...]
     },
     "Payment":{
-        "ServiceTaxAmount": 0,
+        "ServiceTaxAmount":0,
         "Installments":1,
         "Interest":"ByMerchant",
         "Capture":true,
         "Authenticate":false,
         "Recurrent":false,
         "CreditCard":{
-            "CardNumber": "123412* *** **1234",
+            "CardNumber": "123412******1234",
             "Holder": "Shopper Test",
             "ExpirationDate": "12/2022",
             "SaveCard":"false",
@@ -4148,22 +4148,22 @@ There is no difference between a standard authorization request and a DCC author
 
 |Property|Description|Type|Size|Format|
 |-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|ProofOfSale|Proof of Sale Number|Text|20|Alphanumeric Text|
-|`AuthorizationCode`|Authorization Code|Text|300|Alphanumeric Text|
-|PaymentId|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date the transaction was received by Brapag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric Text|
-|`Status`|Transaction Status|Byte|2|E.g.:                                 |
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Number|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization Code|Text|300|Alphanumeric|
+|`PaymentId`|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
+|`Status`|Transaction Status|Byte|2|E.g.: 12|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
 |`CurrencyExchangeData.Id`|Currency Exchange Action Id|Text|50|1b05456446c116374005602dcbaf8db8879515a0|
-|`CurrencyExchangeData.CurrencyExchanges.Currency`|Shopper's local currency / credit card.|Numeric|4|EUR|
+|`CurrencyExchangeData.CurrencyExchanges.Currency`|Shopper's local currency/credit card.|Numeric|4|EUR|
 |`CurrencyExchangeData.CurrencyExchanges.ConvertedAmount`|Converted value.|Numeric|12|23|
 |`CurrencyExchangeData.CurrencyExchanges.ConversionRate`|Conversion rate.|Numeric|9|3.218626|
-|`CurrencyExchangeData.CurrencyExchanges.ClosingDate`|Transaction end date.|Texto|19    |AAAA-MM-DD HH:mm:SS                 |
-|`CurrencyExchangeData.CurrencyExchanges.Currency`|Real currency code|Text 3|BRA|
+|`CurrencyExchangeData.CurrencyExchanges.ClosingDate`|Transaction end date.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`CurrencyExchangeData.CurrencyExchanges.Currency`|Real currency code|Text|3|BRA|
 |`CurrencyExchangeData.CurrencyExchanges.ConvertedAmount`|Order value in Reais.|Numeric|12|100|
 
 **STEP 2**- Display Payment Options (Pay in Reais or Card Currency):
@@ -4226,10 +4226,10 @@ curl
         "Authenticate":false,
         "Recurrent":false,
         "CreditCard":{
-            "CardNumber": "123412* *** **1234",
+            "CardNumber": "123412******1234",
             "Holder": "TestDcc",
             "ExpirationDate": "12/2022",
-            "SecurityCode": "* **",
+            "SecurityCode": "***",
             "Brand":"Visa",
         },
         "ProofOfSale": "20170510053219433",
@@ -4271,10 +4271,10 @@ curl
         "Authenticate":false,
         "Recurrent":false,
         "CreditCard":{
-            "CardNumber": "123412* *** **1234",
+            "CardNumber": "123412******1234",
             "Holder": "TestDcc",
             "ExpirationDate": "12/2022",
-            "SecurityCode": "* **",
+            "SecurityCode": "***",
             "Brand":"Visa",
         },
         "ProofOfSale": "20170510053219433",
@@ -4303,20 +4303,20 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|ProofOfSale|Proof of Sale Number|Text|20|Alphanumeric Text|
-|`AuthorizationCode`|Authorization Code|Text|300|Alphanumeric Text|
-|PaymentId|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date the transaction was received by Brapag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric Text|
-|`Status`|Transaction Status|Byte|2|E.g.:                                 |
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Number|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization Code|Text|300|Alphanumeric|
+|`PaymentId`|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
+|`Status`|Transaction Status|Byte|2|E.g.: 12|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
 
 # Saving and reusing cards
 
-If you hired the Cartão Protegido, you can save a Token-shaped card to overwrite the card data in a future transaction from the same shopper. Importantly, for security reasons, the CVV (Security Code) is not tokenized.
+With the Cartão Protegido, you can save your client's credit card on Braspag and use it for future "one-click" transactions, from returning buyers, or recurrent payments. Important: for security reasons, Braspag will never store the credit card security code (CVV).
 
 In addition to Card Token generation, you can associate a name, an identifier in text format, with the saved card. This identifier will be the Alias.
 
@@ -4346,8 +4346,8 @@ To save a credit card used in a transaction, simply send the `Payment.SaveCard` 
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa",
@@ -4385,8 +4385,8 @@ curl
         "Recurrent":false,
         "SoftDescriptor":"Message",
         "CreditCard":{
-            "CardNumber":"4551870000000181",
-            "Holder": "Holder Name",
+            "CardNumber":"455187******0181",
+            "Holder": "Cardholder Name",
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Visa",
@@ -4404,11 +4404,11 @@ curl
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`CreditCard.CardNumber`|Text|16|Yes|Shopper's card number|
 |`CreditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM / YYYY format|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM/YYYY format|
 |`CreditCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
 |`CreditCard.Brand`|Text|10|Yes|Card brand|
 |`CreditCard.SaveCard`|Boolean|10|No (Default false)|true to save the card and false to not save|
@@ -4432,7 +4432,7 @@ The `CreditCard.CardToken` parameter will return the token to be saved for futur
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard": true,
       "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
@@ -4481,7 +4481,7 @@ curl
     "Recurrent":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "SaveCard": true,
       "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
@@ -4512,13 +4512,13 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric Text|
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric Text|
+|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
 |`Status`|Transaction Status|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
@@ -4602,7 +4602,7 @@ curl
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`CreditCard.CardToken`|Cartão Protegido Token representing card data|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card. To make transactions without the CVV, you must request permission with your acquirer.|
@@ -4701,13 +4701,13 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric Text|
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric Text|
+|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
 |`Status`|Transaction Status|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
@@ -4716,7 +4716,7 @@ curl
 
 This is an example of how to use the previously saved Alias to create a transaction. For security reasons, an Alias has not kept the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.
 
-#### Requisition
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4788,7 +4788,7 @@ curl
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents)|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`CreditCard.CardToken`|Cartão Protegido Token representing card data|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card. To make transactions without the CVV, you must request permission with your acquirer.|
@@ -4888,13 +4888,13 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric Text|
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric Text|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric Text|
+|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
 |`Status`|Transaction Status|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
@@ -4911,7 +4911,7 @@ You can verify whether a transaction is likely to be a fraud or not during an au
 |Risk analysis in any event|Regardless of transaction status after authorization, Antifraud will analyze risk|`FraudAnalysis.Sequence` equal to _AuthorizeFirst_ and` FraudAnalysis.SequenceCriteria` as _Always_|
 |Authorization in any event|Regardless of the transaction fraud score, it will always be submitted for authorization|`FraudAnalysis.Sequence` as _AnalyseFirst_ and` FraudAnalysis.SequenceCriteria` as _Always_|
 |Capture only if a transaction is secure|After fraud analysis, automatically captures an already authorized transaction if set low risk. This same parameter is for you that will work with manual review, which after Braspag receives notification of the new status and is equal to accepted, the transaction will be automatically captured|`FraudAnalysis.Sequence` equal to _AuthorizeFirst_,` FraudAnalysis.CaptureOnLowRisk` _true_ and `Payment.Capture` equal to _false_||
-|Cancel a compromised transaction|If fraud analysis returns a high risk for an already authorized or captured transaction, it will be immediately canceled or reversed. This same parameter is for you who will work with manual review, that after Braspag receives notification of the new status and is equal to rejected, the transaction will be automatically canceled or reversed|`FraudAnalysis.Sequence` as _AuthorizeFirst_ and` FraudAnalysis.VoidOnHighRisk` equal to _true_|
+|Cancel a suspect transaction|If fraud analysis returns a high risk for an already authorized or captured transaction, it will be immediately canceled or reversed. This same parameter is for you who will work with manual review, that after Braspag receives notification of the new status and is equal to rejected, the transaction will be automatically canceled or reversed|`FraudAnalysis.Sequence` as _AuthorizeFirst_ and` FraudAnalysis.VoidOnHighRisk` equal to _true_|
 
 If not specified otherwise during authorization, Braspag will process your transaction through the flow `FraudAnalysis.Sequence` _AuthorizeFirst_, `FraudAnalysis.SequenceCriteria` _OnSuccess_, `FraudAnalysis.VoidOnHighRisk` _false_ and `FraudAnalysis.CaptureOnLowRisk` _false_.
 
@@ -4968,8 +4968,8 @@ For CyberSource fraud analysis to be performed during a credit card transaction,
       "SoftDescriptor":"Message",
       "DoSplit":false,
       "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
@@ -5137,8 +5137,8 @@ curl
       "SoftDescriptor":"Message",
       "DoSplit":false,
       "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
@@ -5286,19 +5286,19 @@ curl
 |`Payment.Type`|Text|100|Yes|Type of payment method. <br/> Note: Only _CreditCard_ type works with Fraud Analysis|
 |`Payment.Amount`|Number|15|Yes|Financial transaction amount in cents  <br/> Ex: 150000 = $ 1,500.00|
 |`Payment.ServiceTaxAmount`|Number|15|No|Applicable for airlines only. Amount of authorization amount to be allocated to service fee  <br/> Note: This amount is not added to authorization value|
-|`Payment.Currency`|Text|3|No|Currency in which payment will be made <br/> possible values: BRL / USD / MXN / COP / PLC / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Currency`|Text|3|No|Currency in which payment will be made <br/> possible values: BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
 |`Payment.Country`|Text|3|No|Country in which payment will be made|
 |`Payment.Installments`|Number|2|Yes|Number of installments|
-|`Payment.Interest`|Text|10|No|Installment type  <br/> Possible values: ByMerchant / ByIssuer|
-|`Payment.Capture`|Boolean|---|No|Indicates whether authorization should be auto-capture  <br/> Possible values: true / false (default)  <br/> Note: You should check with the acquirer for the availability of this feature  <br/> . Note2: This field should be completed according to fraud analysis flow|
-|`Payment.Authenticate`|Boolean|---|No|Indicates whether the transaction should be authenticated  <br/> Possible values: true / false (default)  <br/> Note: You should check with the acquirer for the availability of this feature|
-|`Payment.Recurrent`|Boolean|---|No|Indicates whether the transaction is of a recurring type  <br/> Possible values: true / false (default)  <br/> Note: This field equal to _true_ will not create a recurrence, it will only allow to perform of a transaction without the need to send the CVV and serving as an indication to the acquirer that is charging a transaction of a recurrence  <br/> Note2: For Cielo transactions only  <br/> Note3: The `Payment.Authenticate` field must be equal to _false_ when this equals _true_|
+|`Payment.Interest`|Text|10|No|Installment type  <br/> Possible values: ByMerchant/ByIssuer|
+|`Payment.Capture`|Boolean|---|No|Indicates whether authorization should be auto-capture  <br/> Possible values: true/false (default)  <br/> Note: You should check with the acquirer for the availability of this feature  <br/> . Note2: This field should be completed according to fraud analysis flow|
+|`Payment.Authenticate`|Boolean|---|No|Indicates whether the transaction should be authenticated  <br/> Possible values: true/false (default)  <br/> Note: You should check with the acquirer for the availability of this feature|
+|`Payment.Recurrent`|Boolean|---|No|Indicates whether the transaction is of a recurring type  <br/> Possible values: true/false (default)  <br/> Note: This field equal to _true_ will not create a recurrence, it will only allow to perform of a transaction without the need to send the CVV and serving as an indication to the acquirer that is charging a transaction of a recurrence  <br/> Note2: For Cielo transactions only  <br/> Note3: The `Payment.Authenticate` field must be equal to _false_ when this equals _true_|
 |`Payment.SoftDescriptor`|Text|13|No|Text that will be printed on the carrier  's invoice <br/> Note: The value of this field must be clear and easy to identify by the carrier the place of purchase as it is one of the Top Chargeback Offenders|
-|`Payment.DoSplit`|Boolean|---|No|Indicates whether the transaction will be split among multiple participants  <br/> Possible values: true / false (default)  <br/> To use the split payment functionality, you must contract the solution with Braspag|
+|`Payment.DoSplit`|Boolean|---|No|Indicates whether the transaction will be split among multiple participants  <br/> Possible values: true/false (default)  <br/> To use the split payment functionality, you must contract the solution with Braspag|
 |`Payment.ExtraDataCollection.Name`|Text|50|No|Extra field identifier to be sent|
 |`Payment.ExtraDataCollection.Value`|Text|1024|No|Extra field value to be sent|
 |`Payment.Credentials.Code`|Text|100|Yes|Acquirer affiliation|
-|`Payment.Credentials.Key`|Text|100|Yes|Affiliate / Token Key Generated by acquirer|
+|`Payment.Credentials.Key`|Text|100|Yes|Affiliate/Token Key Generated by acquirer|
 |`Payment.Credentials.Username`|Text|50|No|User generated by Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet|
 |`Payment.Credentials.Password`|Text|50|No|Password generated with the Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet|
 |`Payment.Credentials.Signature`|Text|3|No|Terminal ID with Acquirer Global Payments  <br/> Note: This field must be submitted if the transaction is directed to Global Payments|
@@ -5309,20 +5309,20 @@ curl
 |`Payment.CreditCard.Brand`|Text|10|Yes|Credit Card brand|
 |`Payment.CreditCard.SaveCard`|Boolean|---|No|Indicates whether credit card data will be stored on Cartão Protegido|
 |`Payment.CreditCard.Alias`|Text|64|No|Credit Card Alias (alias) saved to Cartão Protegido|
-|`Payment.FraudAnalysis.Sequence`|Text|14|Yes|Fraud Analysis Flow Type  <br/> Possible Values: AnalyseFirst / AuthorizeFirst|
-|`Payment.FraudAnalysis.SequenceCriteria`|Text|9|Yes|Fraud Analysis Flow Criteria  <br/> Possible Values: OnSuccess / Always|
+|`Payment.FraudAnalysis.Sequence`|Text|14|Yes|Fraud Analysis Flow Type  <br/> Possible Values: AnalyseFirst/AuthorizeFirst|
+|`Payment.FraudAnalysis.SequenceCriteria`|Text|9|Yes|Fraud Analysis Flow Criteria  <br/> Possible Values: OnSuccess/Always|
 |`Payment.FraudAnalysis.Provider`|Text|10|Yes|Anti-fraud provider  <br/> Possible values: Cybersource|
-|`Payment.FraudAnalysis.CaptureOnLowRisk`|Boolean|---|No|Indicates whether transaction after fraud analysis will be captured  <br/> Possible values: true / false (default)  <br/> Note: When sent equal to _true_ and return of analysis of fraud is low risk (Accept) the previously authorized transaction will be captured  <br/> Note2: When sent equal to _true_ and the return of fraud analysis is Review the transaction will be authorized. It will be captured after Braspag receives notification of the status change and it is low risk (Accept)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|
-|`Payment.FraudAnalysis.VoidOnHighRisk`|Boolean|---|No|Indicates if transaction after fraud analysis will be canceled  <br/> Possible values: true / false (default)  <br/> Note: When sent equal to _true_ and return of analysis If a fraud is high risk (Reject) the previously authorized transaction will be canceled  <br/> . Note2: When sent equal to _true_ and the return of the fraud analysis is Review the transaction will be authorized. It will be canceled after Braspag receives notification of the status change and it is high risk (Reject)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|
+|`Payment.FraudAnalysis.CaptureOnLowRisk`|Boolean|---|No|Indicates whether transaction after fraud analysis will be captured  <br/> Possible values: true/false (default)  <br/> Note: When sent equal to _true_ and return of analysis of fraud is low risk (Accept) the previously authorized transaction will be captured  <br/> Note2: When sent equal to _true_ and the return of fraud analysis is Review the transaction will be authorized. It will be captured after Braspag receives notification of the status change and it is low risk (Accept)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|
+|`Payment.FraudAnalysis.VoidOnHighRisk`|Boolean|---|No|Indicates if transaction after fraud analysis will be canceled  <br/> Possible values: true/false (default)  <br/> Note: When sent equal to _true_ and return of analysis If a fraud is high risk (Reject) the previously authorized transaction will be canceled  <br/> . Note2: When sent equal to _true_ and the return of the fraud analysis is Review the transaction will be authorized. It will be canceled after Braspag receives notification of the status change and it is high risk (Reject)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Number|15|Yes|Total order value in cents  <br/> Ex: 123456 = R $ 1,234.56|
 |`Payment.FraudAnalysis.FingerPrintId`|Text|100|Yes|Identifier used to crosscheck information obtained from the shopper's device. This same identifier must be used to generate the value that will be assigned to the `session_id` field of the script that will be included in the checkout page. <br/> Note: This identifier can be any value or order number, but must be unique for 48 hours|
 |`Payment.FraudAnalysis.Browser.HostName`|Text|60|No|Host name entered by the shopper's browser and identified through the HTTP header|
-|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Boolean|---|Yes|Identifies if the shopper's browser accepts cookies  <br/> Possible values: true / false (default)|
+|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Boolean|---|Yes|Identifies if the shopper's browser accepts cookies  <br/> Possible values: true/false (default)|
 |`Payment.FraudAnalysis.Browser.Email`|Text|100|No|Email registered in the shopper's browser. May differ from store registration email (`Customer.Email`)|
 |`Payment.FraudAnalysis.Browser.Type`|Text|40|No|Name of browser used by shopper and identified via HTTP header  <br/> E.g.: Google Chrome, Mozilla Firefox, Safari, etc|
 |`Payment.FraudAnalysis.Browser.IpAddress`|Text|45|Yes|Shopper's IP Address. IPv4 or IPv6 format|
 |`Payment.FraudAnalysis.Cart.IsGift`|Boolean|---|No|Indicates if the order placed by the shopper is for gift|
-|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Boolean|---|No|Indicates whether the shopper's order can be returned to the store<br/> Possible values: true / false (default)|
+|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Boolean|---|No|Indicates whether the shopper's order can be returned to the store<br/> Possible values: true/false (default)|
 |`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Text|9|No|Identifies that it will evaluate the billing and delivery addresses for different cities, states or countries  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n} .GiftCategory]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.tems[n].giftcategory|
 |`Payment.FraudAnalysis.Cart.Items.HostHedge`|Text|6|No|Importance Level of Shopper IP Address and Email Address in Fraud Analysis  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n }.HostHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge)|
 |`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Text|6|No|Importance level of meaningless buyer data checks in fraud analysis  <br/> [List of Values - Cart.Items {n}.NonSensicalHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge)|
@@ -5401,8 +5401,8 @@ curl
       "SoftDescriptor":"Message",
       "DoSplit":false,
       "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
@@ -5603,8 +5603,8 @@ curl
       "SoftDescriptor":"Message",
       "DoSplit":false,
       "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder": "Holder Name",
+         "CardNumber":"455187******0181",
+         "Holder": "Cardholder Name",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
@@ -5798,7 +5798,7 @@ curl
 |`Payment.ExtraDataCollection.Name`|Text|Extra field identifier to be sent|
 |`Payment.ExtraDataCollection.Value`|Text|Extra field value to be sent|
 |`Payment.Credentials.Code`|Text|Acquirer affiliation|
-|`Payment.Credentials.Key`|Text|Affiliate / Token Key generated by acquirer|
+|`Payment.Credentials.Key`|Text|Affiliate/Token Key generated by acquirer|
 |`Payment.Credentials.Username`|Text|User generated on Accreditation with acquirer Getnet|
 |`Payment.Credentials.Password`|Text|Password generated on Accreditation with Buyer Getnet|
 |`Payment.Credentials.Signature`|Text|Terminal ID on affiliation with Acquirer Global Payments|
@@ -5867,7 +5867,7 @@ curl
 |`Payment.FraudAnalysis.ReplyData.ScoreModelUsed`|Text|Name of the score model used in the analysis. If you have no template defined, the default template from Cybersource was used|
 |`Payment.FraudAnalysis.ReplyData.CasePriority`|Number|Defines the priority level of merchant rules or profiles. The priority level ranges from 1 (highest) to 5 (lowest) and the default value is 3, and this will be assigned if you have not set the priority of rules or profiles. This field is only returned if the store subscribes to Enhanced Case Management|
 |`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Text|Transaction Id in Cybersource|
-|`Payment.PaymentId`|Guid|Transaction identifier in Pagador Braspag|
+|`Payment.PaymentId`|GUID|Transaction identifier in Pagador Braspag|
 |`Payment.AcquirerTransactionId`|Text|Transaction identifier on acquirer|
 |`Payment.ProofOfSale`|Text|Voucher number at the acquirer (NSU - Unique Transaction Sequence Number)|
 |`Payment.AuthorizationCode`|Text|Authorization Code on Purchaser|
@@ -5963,7 +5963,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`PaymentId`|Payment identification number.|Text|36|Yes|
@@ -5994,7 +5994,7 @@ curl
     "Authenticate":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "Brand":"Visa",
     },
@@ -6065,7 +6065,7 @@ curl
     "Authenticate":false,
     "CreditCard":{
       "CardNumber": "455187******0181",
-      "Holder": "Holder Name",
+      "Holder": "Cardholder Name",
       "ExpirationDate":"12/2021",
       "Brand":"Visa",
     },
@@ -6120,33 +6120,33 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`MerchantOrderId`|Order ID|Text|50|Alphanumeric Text|
-|`Customer.Name`|Shopper's Name|Text|255|Alphanumeric Text|
+|`MerchantOrderId`|Order ID|Text|50|Alphanumeric|
+|`Customer.Name`|Shopper's Name|Text|255|Alphanumeric|
 |`Customer.Identity`|Customer ID, CPF or CNPJ number|Text|14|Alphanumeric text|
 |`Customer.IdentityType`|Type of shopper identification document (CPF or CNPJ)|Text|255|CPF or CNPJ|
-|`Customer.Email`|Shopper Email|Text|255|Alphanumeric Text|
+|`Customer.Email`|Shopper Email|Text|255|Alphanumeric|
 |`Customer.Birthdate`|Shopper's Date of Birth|Date|10|format YYYY-MM-DD|
-|`Customer.Address.Street`|Shopper's Contact Address|Text|255|Alphanumeric Text|
-|`Customer.Address.Number`|Shopper's Contact Number|Text|15|Alphanumeric Text|
-|`Customer.Address.Complement`|Shopper's Contact Address Supplement|Text|50|Alphanumeric Text|
-|`Customer.Address.ZipCode`|Shopper's Contact Address Zip Code|Text|9|Alphanumeric Text|
+|`Customer.Address.Street`|Shopper's Contact Address|Text|255|Alphanumeric|
+|`Customer.Address.Number`|Shopper's Contact Number|Text|15|Alphanumeric|
+|`Customer.Address.Complement`|Shopper's Contact Address Supplement|Text|50|Alphanumeric|
+|`Customer.Address.ZipCode`|Shopper's Contact Address Zip Code|Text|9|Alphanumeric|
 |`Customer.Address.City`|City of Shopper's contact address|Text|50|Alphanumeric text|
-|`Customer.Address.State`|Shopper's Contact Address Status|Text|2|Alphanumeric Text|
-|`Customer.Address.Country`|Shopper's Contact Address Country|Text|35|Alphanumeric Text|
-|`Customer.Address.District`|Shopper's Neighborhood|Text|50|Alphanumeric Text|
-|`Customer.DeliveryAddress.Street`|Shopper's Address|Text|255|Alphanumeric Text|
-|`Customer.DeliveryAddress.Number`|Order Delivery Address Number|Text|15|Alphanumeric Text|
-|`Customer.DeliveryAddress.Complement`|Order Delivery Address Supplement|Text|50|Alphanumeric Text|
-|`Customer.DeliveryAddress.ZipCode`|Order Delivery Address Zip Code|Text|9|Alphanumeric Text|
-|`Customer.DeliveryAddress.City`|Order Delivery Address City|Text|50|Alphanumeric Text|
-|`Customer.DeliveryAddress.State`|Order Delivery Address Status|Text|2|Alphanumeric Text|
-|`Customer.DeliveryAddress.Country`|Order Delivery Address Country|Text|35|Alphanumeric Text|
-|`Customer.DeliveryAddress.District`|Shopper's neighborhood.|Text|50|Alphanumeric Text|
+|`Customer.Address.State`|Shopper's Contact Address Status|Text|2|Alphanumeric|
+|`Customer.Address.Country`|Shopper's Contact Address Country|Text|35|Alphanumeric|
+|`Customer.Address.District`|Shopper's Neighborhood|Text|50|Alphanumeric|
+|`Customer.DeliveryAddress.Street`|Shopper's Address|Text|255|Alphanumeric|
+|`Customer.DeliveryAddress.Number`|Order Delivery Address Number|Text|15|Alphanumeric|
+|`Customer.DeliveryAddress.Complement`|Order Delivery Address Supplement|Text|50|Alphanumeric|
+|`Customer.DeliveryAddress.ZipCode`|Order Delivery Address Zip Code|Text|9|Alphanumeric|
+|`Customer.DeliveryAddress.City`|Order Delivery Address City|Text|50|Alphanumeric|
+|`Customer.DeliveryAddress.State`|Order Delivery Address Status|Text|2|Alphanumeric|
+|`Customer.DeliveryAddress.Country`|Order Delivery Address Country|Text|35|Alphanumeric|
+|`Customer.DeliveryAddress.District`|Shopper's neighborhood.|Text|50|Alphanumeric|
 |`Payment.Provider`|Name of Payment Provider|Text|15|Consult the providers available in the annexes|
 |`Payment.Type`|Payment Medium Type|Text|100|E.g.: CreditCard|
-|`Payment.Amount`|Order Value (to be sent in cents)|Number|15|10000|
+|`Payment.Amount`|Order Value (in cents)|Number|15|10000|
 |`Payment.ServiceTaxAmount`|Number|Amount of authorization amount to be used for service charge|Note: This value is not added to the authorization value|Number|15|10000|
-|`Payment.Currency`|Currency in which payment will be made|Text|3|BRL / USD / MXN / COP / PLC / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Currency`|Currency in which payment will be made|Text|3|BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
 |`Payment.Country`|Country in which payment will be made|Text|3|BRA|
 |`Payment.Installments`|Number of Installments|Number|2|6|
 |`Payment.Interest`|Installment Type|Text|10|Shop (ByMerchant) or Issuer (ByIssuer)|
@@ -6156,20 +6156,20 @@ curl
 |`Payment.SoftDescriptor`|Text to be printed on invoice|Text|13|Alphanumeric text|
 |`Payment.ExtraDataCollection.Name`|Name of the field to be written Extra Data|Text|50|Alphanumeric text|
 |`Payment.ExtraDataCollection.Value`|Value of the field to be written Extra Data|Text|1024|Alphanumeric text|
-|`AcquirerTransactionId`|Transaction Id at Payment Method Provider|Text|40|Alphanumeric Text|
-|ProofOfSale|Proof of Sale Number|Text|20|Alphanumeric Text|
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|ProofOfSale|Proof of Sale Number|Text|20|Alphanumeric|
 |`Payment.AuthorizationCode`|Authorization code|Text|300|Alphanumeric text|
 |`Payment.Chargebacks [n].Amount`|Chargeback amount|Number|15|10000|
 |`Payment.Chargebacks [n].CaseNumber`|Chargeback-related case number|Text|16|Alphanumeric text|
 |`Payment.Chargebacks [n].Date`|Chargeback Date|Date|10|YYYY-MM-DD|
-|`Payment.Chargebacks [n].ReasonCode`|Chargeback Reason Code|Text|10|Alphanumeric Text|
-|`Payment.Chargebacks [n].ReasonMessage`|Chargeback Reason Message|Text|512|Alphanumeric Text|
+|`Payment.Chargebacks [n].ReasonCode`|Chargeback Reason Code|Text|10|Alphanumeric|
+|`Payment.Chargebacks [n].ReasonMessage`|Chargeback Reason Message|Text|512|Alphanumeric|
 |`Payment.Chargebacks [n].Chargeback Status <br/> [Value List - Payment.Chargebacks {n}.Status] ({{ site.baseurl_root }}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
 |`Payment.Chargebacks [n].RawData`|Data sent by the acquirer and may be the cardholder or other message|Text|512|Alphanumeric text|
 |PaymentId|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date the transaction was received by Braspag|Text|19|YYYY-MM-DD HH: mm: SS|
-|`Payment.ReasonCode`|Acquisition Return Code|Text|32|Alphanumeric Text|
-|`Payment.ReasonMessage`|Acquisition Return Message|Text|512|Alphanumeric Text|
+|`ReceivedDate`|Date the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`Payment.ReasonCode`|Acquisition Return Code|Text|32|Alphanumeric|
+|`Payment.ReasonMessage`|Acquisition Return Message|Text|512|Alphanumeric|
 |`Payment.Status`|Transaction Status|Byte|2|E.g.: 1|
 |`Payment.ProviderReturnCode`|Code returned by the payment method provider (acquirer and banks)|Text|32|57|
 |`Payment.ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Approved Transaction|
@@ -6209,7 +6209,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`PaymentId`|Payment identification number.|GUID|36|Yes|
@@ -6345,31 +6345,31 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`MerchantOrderId`|Order ID|Text|50|Alphanumeric Text|
-|`Customer.Name`|Shopper's Name|Text|255|Alphanumeric Text|
+|`MerchantOrderId`|Order ID|Text|50|Alphanumeric|
+|`Customer.Name`|Shopper's Name|Text|255|Alphanumeric|
 |`Customer.Identity`|Customer ID, CPF or CNPJ number|Text|14|Alphanumeric text|
 |`Customer.IdentityType`|Type of shopper identification document (CPF or CNPJ)|Text|255|CPF or CNPJ|
-|`Customer.Email`|Shopper Email|Text|255|Alphanumeric Text|
+|`Customer.Email`|Shopper Email|Text|255|Alphanumeric|
 |`Customer.Birthdate`|Shopper's Date of Birth|Date|10|format YYYY-MM-DD|
-|`Customer.Address.Street`|Shopper's Contact Address|Text|255|Alphanumeric Text|
-|`Customer.Address.Number`|Shopper's Contact Number|Text|15|Alphanumeric Text|
-|`Customer.Address.Complement`|Shopper's Contact Address Supplement|Text|50|Alphanumeric Text|
-|`Customer.Address.ZipCode`|Shopper's Contact Address Zip Code|Text|9|Alphanumeric Text|
+|`Customer.Address.Street`|Shopper's Contact Address|Text|255|Alphanumeric|
+|`Customer.Address.Number`|Shopper's Contact Number|Text|15|Alphanumeric|
+|`Customer.Address.Complement`|Shopper's Contact Address Supplement|Text|50|Alphanumeric|
+|`Customer.Address.ZipCode`|Shopper's Contact Address Zip Code|Text|9|Alphanumeric|
 |`Customer.Address.City`|City of Shopper's contact address|Text|50|Alphanumeric text|
-|`Customer.Address.State`|Shopper's Contact Address Status|Text|2|Alphanumeric Text|
-|`Customer.Address.Country`|Shopper's Contact Address Country|Text|35|Alphanumeric Text|
-|`Customer.Address.District`|Shopper's Neighborhood|Text|50|Alphanumeric Text|
-|`Customer.DeliveryAddress.Street`|Shopper's Address|Text|255|Alphanumeric Text|
-|`Customer.DeliveryAddress.Number`|Order Delivery Address Number|Text|15|Alphanumeric Text|
-|`Customer.DeliveryAddress.Complement`|Order Delivery Address Supplement|Text|50|Alphanumeric Text|
-|`Customer.DeliveryAddress.ZipCode`|Order Delivery Address Zip Code|Text|9|Alphanumeric Text|
-|`Customer.DeliveryAddress.City`|Order Delivery Address City|Text|50|Alphanumeric Text|
-|`Customer.DeliveryAddress.State`|Order Delivery Address Status|Text|2|Alphanumeric Text|
-|`Customer.DeliveryAddress.Country`|Order Delivery Address Country|Text|35|Alphanumeric Text|
-|`Customer.DeliveryAddress.District`|Shopper's neighborhood.|Text|50|Alphanumeric Text|
+|`Customer.Address.State`|Shopper's Contact Address Status|Text|2|Alphanumeric|
+|`Customer.Address.Country`|Shopper's Contact Address Country|Text|35|Alphanumeric|
+|`Customer.Address.District`|Shopper's Neighborhood|Text|50|Alphanumeric|
+|`Customer.DeliveryAddress.Street`|Shopper's Address|Text|255|Alphanumeric|
+|`Customer.DeliveryAddress.Number`|Order Delivery Address Number|Text|15|Alphanumeric|
+|`Customer.DeliveryAddress.Complement`|Order Delivery Address Supplement|Text|50|Alphanumeric|
+|`Customer.DeliveryAddress.ZipCode`|Order Delivery Address Zip Code|Text|9|Alphanumeric|
+|`Customer.DeliveryAddress.City`|Order Delivery Address City|Text|50|Alphanumeric|
+|`Customer.DeliveryAddress.State`|Order Delivery Address Status|Text|2|Alphanumeric|
+|`Customer.DeliveryAddress.Country`|Order Delivery Address Country|Text|35|Alphanumeric|
+|`Customer.DeliveryAddress.District`|Shopper's neighborhood.|Text|50|Alphanumeric|
 |`Payment.Provider`|Name of Payment Provider|Text|15|Consult the providers available in the annexes|
 |`Payment.Type`|Payment Medium Type|Text|100|E.g.: Boleto|
-|`Payment.Amount`|Order Value (to be sent in cents)|Number|15|10000|
+|`Payment.Amount`|Order Value (in cents)|Number|15|10000|
 |`Payment.CapturedAmount`|Amount paid from the ticket (in cents)|Number|15|10000|
 |`Payment.Instructions`|Text about some specific statement for the boleto|Text|See Banks table|E.g.: "Do not pay after expiration date"|
 |`Payment.Demonstrative`|Text about some  boleto specific information|Text|See Banks table|E.g: "Boleto for the Order #99999"|
@@ -6382,15 +6382,15 @@ curl
 |`Payment.Identification`|CNPJ of the assignor|Text|18|E.g.: "11.355.111/0001-11"|
 |`Payment.ExpirationDate`|Boleto Due Date|Text|YYYY-MM-DD|E.g.: "2018-06-21"|
 |`Payment.CreditDate`|Boleto's liquidation date|Text|YYYY-MM-DD|E.g.: "2018-06-19"|
-|`Payment.CapturedDate`|Bill Payment Date|Text|YYYY-MM-DD HH: mm: SS|E.g.: "2018-06-19 01:45:57"|
-|`Payment.ReceivedDate`|Date the transaction was received by Braspag|Text|YYYY-MM-DD HH: mm: SS|"2018-06-19 01:45:57"|
+|`Payment.CapturedDate`|Bill Payment Date|Text|YYYY-MM-DD HH:mm:SS|E.g.: "2018-06-19 01:45:57"|
+|`Payment.ReceivedDate`|Date the transaction was received by Braspag|Text|YYYY-MM-DD HH:mm:SS|"2018-06-19 01:45:57"|
 |`Payment.ReturnUrl`|URL of the store to which the customer redirects|Text|-|E.g.: "https://www.loja.com.br"|
-|`Payment.Currency`|Currency in which payment will be made|Text|3|BRL / USD / MXN / COP / PLC / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Currency`|Currency in which payment will be made|Text|3|BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
 |`Payment.Country`|Country in which payment will be made|Text|3|BRA|
 |`Payment.ExtraDataCollection.Name`|Name of the field to be written Extra Data|Text|50|Alphanumeric text|
 |`Payment.ExtraDataCollection.Value`|Value of the field to be written Extra Data|Text|1024|Alphanumeric text|
 |PaymentId|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Payment.ReasonCode`|Acquisition Return Code|Text|32|Alphanumeric Text|
+|`Payment.ReasonCode`|Acquisition Return Code|Text|32|Alphanumeric|
 |`Payment.Status`|Transaction Status|Byte|2|E.g.: 1|
 
 ## Querying a Sale by Store Identifier
@@ -6405,11 +6405,11 @@ curl
 
 You cannot directly query a payment for the store-submitted identifier (MerchantOrderId), but you can get all PaymentIds associated with the identifier.
 
-To query a sale by store identifier, you must GET the resource /sales as shown.
+To query a sale by store identifier, you must GET the resource/sales as shown.
 
 #### Request
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/ v2 / sales?merchantOrderId = {merchantOrderId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
 ```shell
 curls
@@ -6424,7 +6424,7 @@ curls
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`MerchantOrderId`|Store Order Identifier field.|Text|36|Yes|
@@ -6491,7 +6491,7 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|Guid|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes|
 |`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
 |`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
 |`RecurrentPaymentId`|Recurrence Identifier field.|Text|36|Yes|
@@ -6603,7 +6603,7 @@ curl
 |`NextRecurrency`|Date of next recurrence.|Text|7|05/2019 (MM/YYYY)|
 |`StartDate`|Date of start of recurrence.|Text|7|05/2019 (MM/YYYY)|
 |`EndDate`|Date of end of recurrence.|Text|7|05/2019 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Text|10|<ul><li></li><li>MonthlyBimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly</li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`CurrentRecurrencyTry`|Indicates the current recurrence retry number|Number|1|1|
 |`OrderNumber`|Store Order ID|Text|50|2017051101|
 |`Status`|Recurring Order Status|Number|1<UL><LI>|</LI><LI> 1 -Active2 -Finished3,4,5</LI><LI> - Inactive</LI></UL>|
@@ -6663,6 +6663,7 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |Getnet|Visa, Master, Elo, Amex|Provider for transactions on Getnet e-commerce platform|
 |GlobalPayments|Visa, Master|Provider for transactions on Global Payments e-commerce platform|
 |Stone|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Stone|
+|Safra|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Safra|
 |FirstData|Visa, Master, Cabal|Provider for Guarani (PYG), Argentine Pesos (ARG) and Real (BRL) transactions on the First Data e-commerce platform|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Orange and Nevada|Provider for Argentine Peso (ARG) transactions on the Sub1 First Data legacy platform|
 |Banorte|Visa, Master, Carnet|Provider for Mexican Peso (MXN) transactions on Banorte e-commerce platform|
@@ -6679,6 +6680,7 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |--------|-----|---------|
 |Cielo|Visa, Master|Provider for debit transactions on legacy platform Cielo 1.5|
 |Cielo30|Visa, Master|Provider for debit transactions on e-commerce platform Cielo 3.0|
+|Rede2|Visa, Master|Provider for transactions on Rede e-commerce platform|
 |Getnet|Visa, Master|Provider for transactions on Getnet e-commerce platform|
 |FirstData|Visa, Master|Provider for debit transactions on the First Data e-commerce platform|
 |GlobalPayments|Visa, Master|Provider for transactions on Global Payments e-commerce platform|
@@ -6694,30 +6696,30 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |Provider|
 |--------|
 |Simulado|
-Cielo30 (Cielo 3.0)|
+|Cielo30 (Cielo 3.0)|
 |Rede2 (REST e-Rede)|
 |Getnet|
 |FirstData|
-GlobalPayments|
+|GlobalPayments|
 
 ### Providers for BIN Query via VerifyCard
 
 |Provider|
 |--------|
 |Simulado|
-Cielo30 (Cielo 3.0)|
+|Cielo30 (Cielo 3.0)|
 
 ### Providers for Registered Boleto
 
 |Provider|
 |--------|
-|Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
+|Braspag, Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
 
 ### Providers for Electronic Transfer (Online Debit)
 
 |Provider|
 |--------|
-Bradesco, BancoDoBrasil, SafetyPay, Itau, PayMeeRedirectCheckout, PayMeeSemiTransparent|
+|Bradesco, BancoDoBrasil, SafetyPay, Itau, PayMeeRedirectCheckout, PayMeeSemiTransparent|
 
 ## Transaction Status List
 
@@ -6730,7 +6732,7 @@ Status returned by API
 |2|PaymentConfirmed|All|Payment confirmed and finalized|
 |3|Denied|Credit & Debit Card (Wire Transfer)|
 |10|Voided|All|Payment canceled|
-|11|Refunded|Credit & Debit Card|Payment Canceled / Refunded|
+|11|Refunded|Credit & Debit Card|Payment Canceled/Refunded|
 |12|Pending|Credit & Debit Card (Wire Transfer)|Awaiting Return from Financial Institution|
 |13|Aborted|All|Payment canceled due to processing failure|
 |20|Scheduled|Credit Card|Scheduled Recurrence|
@@ -6758,17 +6760,17 @@ Status returned by API
 |2|Quantity in days the customer is your customer  <br/> E.g.: 314|int|3|All|
 |3|Quantity of order's installments|int|3|All|
 |4|Sales Channel   <br/> Possible values:   <br/> Call Center -> Web phone purchase   <br/> -> Web purchase   <br/> Portal -> one agent making the purchase for the customer   <br/> Kiosk -> Kiosk  purchases  <br/> -> Mobile or tablet purchases|string|3|All|
-|5|Send coupon / discount code if customer uses purchase|string|1|All|
+|5|Send coupon/discount code if customer uses purchase|string|1|All|
 |6|Quantity in days since last customer purchase  <br/> E.g.: 55|int|3|All|
 |7|Seller's code or name (seller)|string|1|All|
-|8|Attempts by the customer to make the payment for the same order, which may be with different credit cards and / or other means of payment|int|2|All|
+|8|Attempts by the customer to make the payment for the same order, which may be with different credit cards and/or other means of payment|int|2|All|
 |9|Identifies if customer will pick up product in store  <br/> Possible values: YES or NO|string|3|Retail or Cosmetics|
 |10|Identifies whether payment will be made by someone not present on the trip or package  <br/> Possible values: YES or NO|string|3|Air or Tourism|
 |11|Hotel category (how many stars)  <br/> Possible values:  <br/> 1 -> Simple 2  -> <br/> Budget 3  -> <br> Tourism 4  -> <br/> Superior 5  -> <br/> Luxury|int|3|Tourism|
 |12|Amount in days from purchase date to hotel check-in  <br/> E.g.: 123|int|3|Tourism|
 |13|Amount of hotel nights  <br/> E.g.: 5|int|3|Tourism|
-|14|Category of trip or package  <br> Possible values: National or International or National / International|string|3|Air or Tourism|
-|15|Name of airline / car rental / hotel  <br/> Name each company name, separated by /|string|2|Air or Tourism|
+|14|Category of trip or package  <br> Possible values: National or International or National/International|string|3|Air or Tourism|
+|15|Name of airline/car rental/hotel  <br/> Name each company name, separated by/|string|2|Air or Tourism|
 |16|Reservation PNR Code  <br/> When there is a reservation change for this PNR, in advance of the flight date, it is important to do a new fraud analysis by resubmitting this PNR|string|3|Air|
 |17|Identifies if the reservation was anticipated  <br/> Possible values: YES or NO  <br/> If yes, it is also essential to send field 16 - Reservation PNR code|string|3|Air|
 |18|Rental vehicle category  <br/> Possible values:  <br/> 1 - Basic 2  <br/> - Sport  <br/> 3 - Prime  <br/> 4 - Utility  <br/> 5 - Armored|string|3|Tourism|
@@ -6860,7 +6862,7 @@ Status returned by API
 |4|DisabledMaxAttempts|
 |5|DisabledExpiredCreditCard|
 
-## ReasonCode / ReasonMessage List
+## ReasonCode/ReasonMessage List
 
 |Reason Code|Reason Message|
 |-------------|------------------------------|
@@ -7049,16 +7051,16 @@ Transaction status will be as each card is used.
 
 |Transaction Status|Testing Cards|Return Code|Return Message|
 |-------------------|----------------------------------|-----------------|-------------------|
-|Authorized|0000.0000.0000.0000 / 0000.0000.0000.0001 / 0000.0000.0000.0004|4|Operação realizada com sucesso|
+|Authorized|0000.0000.0000.0000/0000.0000.0000.0001/0000.0000.0000.0004|4|Operação realizada com sucesso|
 |Not Authorized|0000.0000.0000.0002|05|Not Authorized|
 |Not Authorized|0000.0000.0000.0003|57|Expired Card|
 |Not Authorized|0000.0000.0000.0005|78|Bloqued Card|
 |Not Authorized|0000.0000.0000.0006|99|Time Out|
 |Not Authorized|0000.0000.0000.0007|77|Canceled Card|
 |Not Authorized|0000.0000.0000.0008|70|Problems with the Credit Card|
-|Random Authorization|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
+|Random Authorization|0000.0000.0000.0009|4/99|Operation Successful/Time Out|
 
-Security Code (CVV) and validity information can be random, keeping the format - CVV (3 digits) Validity (MM / YYYY).
+Security Code (CVV) and validity information can be random, keeping the format - CVV (3 digits) Validity (MM/YYYY).
 
 ## List of Values - Payment.FraudAnalysis.Cart.Items [n].GiftCategory
 
@@ -7132,11 +7134,11 @@ Security Code (CVV) and validity information can be random, keeping the format -
 |EletronicGood|Electronic product other than software|
 |EletronicSoftware|Downloaded electronically distributed software|
 |GiftCertificate|Gift Certificate|
-|HandlingOnly|Fee you charge your customer to cover your administrative selling costs. E.g.: Convenience Fee / Installation Fee|
+|HandlingOnly|Fee you charge your customer to cover your administrative selling costs. E.g.: Convenience Fee/Installation Fee|
 |Service|Service to be performed for the customer|
 |ShippingAndHandling|Shipping amount and fee you charge your customer to cover their administrative costs of selling|
 |ShippingOnly|Shipping Value|
-|Subscription|Subscription. E.g.: Video Streaming / News Subscription|
+|Subscription|Subscription. E.g.: Video Streaming/News Subscription|
 
 ## Value List - Payment.FraudAnalysis.Shipping.Method
 
@@ -7210,7 +7212,7 @@ Security Code (CVV) and validity information can be random, keeping the format -
 |COR-SA|Shipping address can be standardized|
 |INTL-BA|Billing address country is outside the US|
 |INTL-SA|Shipping Address Country is outside the US|
-MIL-USA Military Address in the USA
+|MIL-USA Military Address in the USA|
 |MM-A|Billing and delivery addresses use different street names|
 |MM-BIN|Card BIN (first six digits of card number) does not match country|
 |MM-C|Billing and shipping addresses use different cities|
@@ -7224,7 +7226,7 @@ MIL-USA Military Address in the USA
 |Value|Description|
 |:-|:-|
 |A|Excessive address change. Buyer has changed billing address two or more times in the last six months|
-|B|BIN of the card or risk authorization. Risk factors relate to credit card BIN and / or card authorization checks|
+|B|BIN of the card or risk authorization. Risk factors relate to credit card BIN and/or card authorization checks|
 |C|High numbers of credit cards. Buyer has used more than six credit card numbers in the last six months|
 |D|Impact of email address. Buyer uses a free email provider or email address is risky|
 |E|Positive list. Buyer is on your positive list|
