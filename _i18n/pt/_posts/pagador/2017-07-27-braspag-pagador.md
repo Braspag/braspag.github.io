@@ -5943,6 +5943,9 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 </ul>
 </aside>
 
+> O nó Chargeback para estar contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Através deste recebimento, além da gestão de chargeback que ficará no Backoffice Braspag para você acatar, contestar e acompanhar as contestações (operações também disponíveis via API), poderá também receber através do Post de Notificação a trasação que sofreu o chargeback.
+> O nó FraudAlert para estar contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja. Através deste recebimento, o mesmo ficará disponível no Backoffice Braspag e poderá também receber através do Post de Notificação a transação que sofreu o alerta de fraude.
+
 Para consultar uma transação de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
 ### Requisição
