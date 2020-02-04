@@ -6198,11 +6198,11 @@ curl
 
 ## Consultando uma transação de Boleto via PaymentID
 
-<aside class="notice"><strong>Regra:</strong>
+<aside class="notice"><strong>Regra:<br/></strong>
 <ul>
-<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
-<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
-<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
+<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag<br/></li>
+<li>Transação com vida de 3 meses a 12 meses - somente via consulta no Painel Admin Braspag com a opção “Histórico” selecionada<br/></li>
+<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag<br/></li>
 </ul>
 </aside>
 
