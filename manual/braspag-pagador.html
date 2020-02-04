@@ -11643,6 +11643,11 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
             </span><span class="nl">"RawData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client did not participate and did not authorize transaction"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"FraudAlert"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-20"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uso Ind Numeração"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IncomingChargeback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"VelocityAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f8078b32-be17-4c35-b164-ad74c3cd0725"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ResultMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
@@ -11713,6 +11718,11 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
             <span class="s2">"RawData"</span>: <span class="s2">"Client did not participate and did not authorize transaction"</span>
         <span class="o">}</span>
     <span class="o">]</span>,
+    <span class="s2">"FraudAlert"</span>: <span class="o">{</span>
+        <span class="s2">"Date"</span>: <span class="s2">"2017-05-20"</span>,
+        <span class="s2">"ReasonMessage"</span>: <span class="s2">"Uso Ind Numeração"</span>,
+        <span class="s2">"IncomingChargeback"</span>: <span class="nb">false</span>
+    <span class="o">}</span>,
     <span class="s2">"VelocityAnalysis"</span>: <span class="o">{</span>
       <span class="s2">"Id"</span>: <span class="s2">"f8078b32-be17-4c35-b164-ad74c3cd0725"</span>,
       <span class="s2">"ResultMessage"</span>: <span class="s2">"Accept"</span>,
@@ -12080,6 +12090,27 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAlert.Date</code></td>
+      <td>Data do alerta de fraude</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>AAAA-MM-DD</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAlert.ReasonMessage</code></td>
+      <td>Mensagem de motivo do alerta de fraude</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FraudAlert.IncomingChargeback</code></td>
+      <td>Flag que identifica se a transação possui um chargeback ocorrido antes do alerta de fraude</td>
+      <td>Booleano</td>
+      <td>5</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.PaymentId</code></td>
