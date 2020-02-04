@@ -6011,6 +6011,11 @@ curl
             "RawData": "Client did not participate and did not authorize transaction"
         }
     ],
+    "FraudAlert": {
+        "Date": "2017-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
     "VelocityAnalysis": {
       "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
       "ResultMessage": "Accept",
@@ -6082,6 +6087,11 @@ curl
             "RawData": "Client did not participate and did not authorize transaction"
         }
     ],
+    "FraudAlert": {
+        "Date": "2017-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
     "VelocityAnalysis": {
       "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
       "ResultMessage": "Accept",
@@ -6165,6 +6175,9 @@ curl
 |`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback|Texto|512|Texto alfanumérico|
 |`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
 |`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|Texto|512|Texto alfanumérico|
+|`Payment.FraudAlert.Date`|Data do alerta de fraude|Date|10|AAAA-MM-DD|
+|`Payment.FraudAlert.ReasonMessage`|Mensagem de motivo do alerta de fraude|Texto|512|Texto alfanumérico|
+|`Payment.FraudAlert.IncomingChargeback`|Flag que identifica se a transação possui um chargeback ocorrido antes do alerta de fraude|Booleano|5|Texto|
 |`Payment.PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
@@ -6176,7 +6189,7 @@ curl
 |`CreditCard.Holder`|Nome do portador impresso no cartão|Texto|25|
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão|Texto|7|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão|Texto|4|
-|`CreditCard.Brand`|Bandeira do cartão|Texto|10 |
+|`CreditCard.Brand`|Bandeira do cartão|Texto|10|
 |`CreditCard.SaveCard`|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|Booleano|--- (Default false)|
 
 ## Consultando uma transação de Boleto via PaymentID
