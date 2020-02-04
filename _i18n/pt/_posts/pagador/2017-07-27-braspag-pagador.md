@@ -515,7 +515,7 @@ curl
 
 Uma transação submetida com o parâmetro `Payment.Capture` igual a _false_ necessita de uma operação PUT de "Captura" para confirmar a transação posteriormente.
 
-Transações que não forem capturadas em até 15 dias são automaticamente desfeitas pelas Processadoras. Clientes podem ter negociações específicas com as Processadoras que aumentam esse prazo.
+Transações que não forem capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.
 
 #### Requisição
 
