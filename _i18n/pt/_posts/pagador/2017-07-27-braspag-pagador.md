@@ -6661,6 +6661,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |5|Estorno negado (aplicável para Rede)|
 |6|Boleto registrado pago a menor|
 |7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//manual/risknotification)|
+|8|Alerta de fraude|
 
 # Anexos
 
