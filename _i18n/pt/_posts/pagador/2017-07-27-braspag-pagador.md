@@ -515,7 +515,7 @@ curl
 
 Uma transação submetida com o parâmetro `Payment.Capture` igual a _false_ necessita de uma operação PUT de "Captura" para confirmar a transação posteriormente.
 
-Transações que não forem capturadas em até 15 dias são automaticamente desfeitas pelas Processadoras. Clientes podem ter negociações específicas com as Processadoras que aumentam esse prazo.
+Transações que não forem capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.
 
 #### Requisição
 
@@ -1333,17 +1333,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
 
-Abaixo segue a lista de adquirentes com as quais temos integração para solicitações de estorno: 
-
-|Adquirente|Prazo Máximo para Solicitação de Estorno|
-|-----------|----|
-|Cielo|300 dias|
-|Rede| Tecnologia Komerci: 90 dias; Tecnologia eRede: 60 dias|
-|Getnet|90 dias|
-|Transbank|90 dias| 
-|Banorte|30 dias|
-|First Data|90 dias|
-|Alelo|300 dias|
+Cada adqurirente tem seus prazos limites para permitir o estorno de uma transação. Nesse (artigo)[https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno] você poderá conferir cada um deles.
 
 <aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
