@@ -109,3 +109,16 @@ curl
 ### Response
 
 Vide https://braspag.github.io/manual/braspag-pagador
+
+
+# Tabela de ECI
+
+| **Bandeira** | **ECI** | **Significado da Transação** |
+| --- | --- | --- |
+| Visa | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
+| Visa | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
+| Visa | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento |
+| Mastercard | 01 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
+| Mastercard | 02 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
+| Mastercard | 04 | Não autenticada, transação caracterizada como Data Only – risco de chargeback permanece com o estabelecimento |
+| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento |
