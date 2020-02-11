@@ -211,7 +211,7 @@
 
 <h2 id="características-da-solução">Características da Solução</h2>
 
-<p>A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, entre outras.</p>
+<p>A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP.Net, Java, PHP, Ruby, Python, entre outras.</p>
 
 <p>Entre outras características, os atributos que mais se destacam na plataforma Braspag eCommerce:</p>
 
@@ -249,7 +249,7 @@
   <li><strong>Estorno</strong>: O estorno é aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida no processo de estorno pela adquirente.</li>
   <li><strong>Autenticação</strong>: O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.</li>
   <li><strong>Cartão Protegido</strong>: É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de “token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como “Compra com 1 clique” e “Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.</li>
-  <li><strong>Antifraude</strong>: É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.</li>
+  <li><strong>AntiFraude</strong>: É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.</li>
 </ul>
 
 <h1 id="pagamentos">Pagamentos</h1>
@@ -258,11 +258,11 @@
 
 <h3 id="criando-uma-transação">Criando uma transação</h3>
 
-<p>Para autoriazar uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó <code class="highlighter-rouge">Payment.Credentials</code>, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.</p>
+<p>Para autorizar uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó <code class="highlighter-rouge">Payment.Credentials</code>, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.</p>
 
-<p>Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para requisitar o cadastro de afiliações, clique <a href="http://suporte.braspag.com.br/">Aqui</a>.</p>
+<p>Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para requisitar o cadastro de afiliações, clique <a href="http://suporte.braspag.com.br/">aqui</a>.</p>
 
-<aside class="notice">Os parâmetros contidos nos nós Address e DeliveryAddress são obrigatórios quando a transação é submetida ao Antifraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um * na coluna de obrigatoriedade.</aside>
+<aside class="notice">Os parâmetros contidos nos nós `Address` e `DeliveryAddress` são obrigatórios quando a transação é submetida ao AntiFraude ou análise do Velocity. Na tabela de parâmetros abaixo, eles estão marcados com um * na coluna de obrigatoriedade.</aside>
 
 <h4 id="requisição">Requisição</h4>
 
@@ -435,7 +435,7 @@ curl
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
@@ -449,7 +449,7 @@ curl
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
@@ -473,7 +473,7 @@ curl
       <td>Texto</td>
       <td>14</td>
       <td>Não</td>
-      <td>Número do RG, CPF ou CNPJ do Cliente</td>
+      <td>Número do CPF ou CNPJ do Cliente</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
@@ -550,7 +550,7 @@ curl
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
-      <td>Bairro do Comprador.</td>
+      <td>Bairro do comprador</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
@@ -606,7 +606,7 @@ curl
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
-      <td>Bairro do Comprador.</td>
+      <td>Bairro da entrega</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Provider</code></td>
@@ -718,28 +718,28 @@ curl
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>afiliação gerada pela adquirente</td>
+      <td>Afiliação gerada pela adquirente</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Credentials.Key</code></td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>chave de afiliação/token gerado pela adquirente</td>
+      <td>Chave de afiliação/token gerado pela adquirente</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Credentials.Username</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>usuário gerado no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet)</td>
+      <td>Usuário gerado no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Credentials.Password</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>senha gerada no credenciamento com a adquirente GetnNet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para GetNet)</td>
+      <td>Senha gerada no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Credentials.Signature</code></td>
@@ -1049,13 +1049,13 @@ curl
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -1121,7 +1121,7 @@ curl
 
 <h3 id="capturando-uma-transação">Capturando uma transação</h3>
 
-<p>Uma transação submetida com o parâmetro <code class="highlighter-rouge">Payment.Capture</code> igual a <em>false</em> necessita de uma operação PUT de “Captura” para confirmar a transação posteriormente.</p>
+<p>Uma transação submetida com o parâmetro <code class="highlighter-rouge">Payment.Capture</code> igual a <em>false</em> necessita de uma solicitação de captura para confirmar a transação posteriormente.</p>
 
 <p>Transações que não forem capturadas até a <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">data limite</a> são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.</p>
 
@@ -1154,7 +1154,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -1168,14 +1168,14 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -1591,13 +1591,13 @@ curl
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -2153,13 +2153,13 @@ curl
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -2416,7 +2416,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -2481,7 +2481,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -2495,14 +2495,14 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -2697,7 +2697,7 @@ curl
 
 <h3 id="criando-uma-transação-de-boleto">Criando uma transação de Boleto</h3>
 
-<p>Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.</p>
+<p>Para gerar um boleto, inclusive em ambiente de Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.</p>
 
 <h4 id="requisição-7">Requisição</h4>
 
@@ -2806,7 +2806,7 @@ curl
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
@@ -2820,7 +2820,7 @@ curl
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
@@ -3152,7 +3152,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -3219,7 +3219,7 @@ curl
     <tr>
       <th style="text-align: center">Propriedade</th>
       <th style="text-align: center">Bradesco</th>
-      <th style="text-align: center">BancoBanco do Brasil</th>
+      <th style="text-align: center">Banco do Brasil</th>
       <th style="text-align: center">Itaú Shopline</th>
       <th style="text-align: center">Santander</th>
       <th style="text-align: center">Caixa Econômica</th>
@@ -3353,7 +3353,7 @@ curl
 
 <p>Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os pagamentos recorrentes se repetem automaticamente por períodos e em intervalos determinados, cobrando sempre o mesmo valor de um mesmo cartão ou conta.</p>
 
-<p>É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que o estabelecimento comercial do cliente esteja habilitado na processadora para receber pagamentos recorrentes.</p>
+<p>É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que o estabelecimento comercial do cliente esteja habilitado na adquirente para receber pagamentos recorrentes.</p>
 
 <p>O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.</p>
 
@@ -3634,7 +3634,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
       <td>ID que representa a recorrência, utilizada para consultas e alterações futuras</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -3941,7 +3941,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Campo Identificador da próxima recorrência.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -4076,7 +4076,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -4090,7 +4090,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -4300,7 +4300,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -4314,7 +4314,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -4384,7 +4384,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -4398,7 +4398,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -4470,7 +4470,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -4484,7 +4484,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -4554,7 +4554,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -4568,7 +4568,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -4642,7 +4642,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -4656,7 +4656,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -4691,7 +4691,7 @@ HTTP Status 200
 <p>Durante o ciclo de vida de uma recorrência, é possível alterar:</p>
 
 <ul>
-  <li>Processadora (de Rede para Cielo, por exemplo)</li>
+  <li>Adquirente (de Rede para Cielo, por exemplo)</li>
   <li>Cartão (em caso de cartão vencido)</li>
   <li>Meio de pagamento (de Cartão para Boleto e vice e versa)</li>
 </ul>
@@ -4778,7 +4778,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -4792,7 +4792,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -4950,7 +4950,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -4964,7 +4964,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -5017,7 +5017,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -5031,7 +5031,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -5202,7 +5202,7 @@ HTTP Status 200
 
 <h2 id="transferência-eletrônica">Transferência Eletrônica</h2>
 
-<p>Semelhante ao Pagamento com Cartão de Débito, a Transferência Eletrônica conecta o consumidor ao seu banco para autenticar uma venda à débito. A diferença entre ambos é que as Transferências não são submetidas à processadora nem dependem de dados de cartão.</p>
+<p>Semelhante ao Pagamento com Cartão de Débito, a Transferência Eletrônica conecta o consumidor ao seu banco para autenticar uma venda à débito. A diferença entre ambos é que as Transferências não são submetidas à adquirente nem dependem de dados de cartão.</p>
 
 <h3 id="criando-uma-transação-1">Criando uma transação</h3>
 
@@ -5310,7 +5310,7 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -5324,7 +5324,7 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -5554,7 +5554,7 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -5612,7 +5612,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td> </td>
-      <td style="text-align: center"><a href="https://www.android.com/intl/pt-BR_br/pay/"><em>Android Pay</em></a></td>
+      <td style="text-align: center"><a href="https://pay.google.com/intl/pt-BR_br/about/"><em>Google Pay</em></a></td>
       <td> </td>
     </tr>
     <tr>
@@ -5674,7 +5674,7 @@ HTTP Status 200
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
@@ -5688,7 +5688,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
@@ -5804,7 +5804,7 @@ HTTP Status 200
       <td>.</td>
     </tr>
     <tr>
-      <td><em>Android Pay</em></td>
+      <td><em>Google Pay</em></td>
       <td>{"encryptedMessage":"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\u003d\u003d","ephemeralPublicKey":"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\u003d","tag":"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\u003d"}</td>
       <td>.</td>
     </tr>
@@ -5851,7 +5851,7 @@ HTTP Status 200
   </thead>
   <tbody>
     <tr>
-      <td><em>Android Pay</em></td>
+      <td><em>Google Pay</em></td>
       <td><code class="highlighter-rouge">MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d</code></td>
     </tr>
   </tbody>
@@ -5963,7 +5963,7 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -6067,9 +6067,9 @@ HTTP Status 200
 <ol>
   <li>Faça login em <a href="https://developer.apple.com/">Apple Developer</a></li>
   <li>Selecione <strong>Certificate, IDs &amp; Profiles</strong>
-<img src="https://braspag.github.io//images/apple-paymid.jpg" alt="Aplle Pay" /></li>
+<img src="https://braspag.github.io//images/apple-paymid.jpg" alt="Apple Pay" /></li>
   <li>Realize o upload do certificado
-<img src="https://braspag.github.io//images/apple-pay.jpg" alt="Aplle Pay" /></li>
+<img src="https://braspag.github.io//images/apple-pay.jpg" alt="Apple Pay" /></li>
   <li>Finalize o processo</li>
 </ol>
 
@@ -6140,7 +6140,7 @@ HTTP Status 200
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
@@ -6154,7 +6154,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
@@ -6338,7 +6338,7 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -6441,7 +6441,7 @@ HTTP Status 200
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
@@ -6455,7 +6455,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
@@ -6629,7 +6629,7 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -6727,7 +6727,7 @@ HTTP Status 200
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
@@ -6741,7 +6741,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
@@ -6925,7 +6925,7 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -7023,7 +7023,7 @@ HTTP Status 200
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
@@ -7037,7 +7037,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
@@ -7214,7 +7214,7 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -7306,7 +7306,7 @@ HTTP Status 200
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
@@ -7320,7 +7320,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
@@ -7492,7 +7492,7 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -7790,13 +7790,13 @@ HTTP Status 200
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -8020,13 +8020,13 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -8205,7 +8205,7 @@ curl
         </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1234"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TerteDcc"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TesteDcc"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"***"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
@@ -8249,7 +8249,7 @@ curl
         <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
         <span class="s2">"CreditCard"</span>: <span class="o">{</span>
             <span class="s2">"CardNumber"</span>: <span class="s2">"123412******1234"</span>,
-            <span class="s2">"Holder"</span>: <span class="s2">"TerteDcc"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"TesteDcc"</span>,
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2022"</span>,
             <span class="s2">"SecurityCode"</span>: <span class="s2">"***"</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
@@ -8313,13 +8313,13 @@ curl
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -8666,13 +8666,13 @@ curl
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -8715,7 +8715,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">CreditCard.CardToken</code></td>
       <td>Token no Cartão Protegido que representa os dados do cartão</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -8836,7 +8836,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">CreditCard.CardToken</code></td>
       <td>Token no Cartão Protegido que representa os dados do cartão</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -8845,7 +8845,7 @@ curl
       <td>Texto</td>
       <td>4</td>
       <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão. Para processar vendar sem o CVV, é necessário solicitar liberação na adquirente.</td>
+      <td>Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
@@ -8981,13 +8981,13 @@ curl
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -9142,7 +9142,7 @@ curl
     <tr>
       <td><code class="highlighter-rouge">CreditCard.CardToken</code></td>
       <td>Token no Cartão Protegido que representa os dados do cartão</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -9151,7 +9151,7 @@ curl
       <td>Texto</td>
       <td>4</td>
       <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão. Para processar vendar sem o CVV, é necessário solicitar liberação na adquirente.</td>
+      <td>Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
@@ -9294,13 +9294,13 @@ curl
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -9359,25 +9359,25 @@ curl
   <tbody>
     <tr>
       <td>Análise antes da autorização</td>
-      <td>Antes da transação ser enviada para a autorização, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização</td>
+      <td>Antes da transação ser enviada para a autorização, o AntiFraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização</td>
       <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AnalyseFirst</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Análise após a autorização</td>
-      <td>Antes da transação ser enviada para o Antifraude, a mesma será enviada para a autorização</td>
+      <td>Antes da transação ser enviada para o AntiFraude, a mesma será enviada para a autorização</td>
       <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Análise de risco somente se a transação for autorizada</td>
-      <td>O Antifraude será acionado apenas para analisar transações com o staus <em>autorizada</em>. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas</td>
+      <td>O AntiFraude será acionado apenas para analisar transações com o staus <em>autorizada</em>. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas</td>
       <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a <em>OnSuccess</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Análise de risco em qualquer hipótese</td>
-      <td>Independente do status da transação após a autorização, o Antifraude analisará o risco</td>
+      <td>Independente do status da transação após a autorização, o AntiFraude analisará o risco</td>
       <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em> e <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> como <em>Always</em></td>
       <td> </td>
     </tr>
@@ -9754,7 +9754,7 @@ curl
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
@@ -9768,7 +9768,7 @@ curl
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do request definido pela loja</td>
@@ -9946,7 +9946,7 @@ curl
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do meio de magamento. <br /> Obs.: Somente o tipo <em>CreditCard</em> funciona com análise de fraude</td>
+      <td>Tipo do meio de pagamento. <br /> Obs.: Somente o tipo <em>CreditCard</em> funciona com análise de fraude</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Amount</code></td>
@@ -10058,14 +10058,14 @@ curl
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Usuário gerado no credenciamento com a adquirente GetnNet <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet</td>
+      <td>Usuário gerado no credenciamento com a adquirente Getnet <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Credentials.Password</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Senha gerada no credenciamento com a adquirente GetnNet <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para GetNet</td>
+      <td>Senha gerada no credenciamento com a adquirente Getnet <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Credentials.Signature</code></td>
@@ -10142,7 +10142,7 @@ curl
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Provedor de antifraude <br /> Possíveis valores: Cybersource</td>
+      <td>Provedor de AntiFraude <br /> Possíveis valores: Cybersource</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
@@ -10957,7 +10957,7 @@ curl
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Type</code></td>
       <td style="text-align: left">Texto</td>
-      <td style="text-align: left">Tipo do meio de magamento</td>
+      <td style="text-align: left">Tipo do meio de pagamento</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Amount</code></td>
@@ -11037,12 +11037,12 @@ curl
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Username</code></td>
       <td style="text-align: left">Texto</td>
-      <td style="text-align: left">Usuário gerado no credenciamento com a adquirente GetnNet</td>
+      <td style="text-align: left">Usuário gerado no credenciamento com a adquirente Getnet</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Password</code></td>
       <td style="text-align: left">Texto</td>
-      <td style="text-align: left">Senha gerada no credenciamento com a adquirente GetnNet</td>
+      <td style="text-align: left">Senha gerada no credenciamento com a adquirente Getnet</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Signature</code></td>
@@ -11086,7 +11086,7 @@ curl
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.CardToken</code></td>
-      <td style="text-align: left">Guid</td>
+      <td style="text-align: left">GUID</td>
       <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
     </tr>
     <tr>
@@ -11102,7 +11102,7 @@ curl
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
       <td style="text-align: left">Texto</td>
-      <td style="text-align: left">Provedor de antifraude</td>
+      <td style="text-align: left">Provedor de AntiFraude</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
@@ -11301,13 +11301,13 @@ curl
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Id</code></td>
-      <td style="text-align: left">Guid</td>
-      <td style="text-align: left">Id da transação no Antifraude Braspag</td>
+      <td style="text-align: left">GUID</td>
+      <td style="text-align: left">Id da transação no AntiFraude Braspag</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Status</code></td>
       <td style="text-align: left">Número</td>
-      <td style="text-align: left">Status da transação no Antifraude Braspag <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status">Lista de Vaores - Payment.FraudAnalysis.Status</a></td>
+      <td style="text-align: left">Status da transação no AntiFraude Braspag <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status">Lista de Vaores - Payment.FraudAnalysis.Status</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.FraudAnalysisReasonCode</code></td>
@@ -11376,7 +11376,7 @@ curl
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.PaymentId</code></td>
-      <td style="text-align: left">Guid</td>
+      <td style="text-align: left">GUID</td>
       <td style="text-align: left">Identificador da transação no Pagador Braspag</td>
     </tr>
     <tr>
@@ -11397,7 +11397,7 @@ curl
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
       <td style="text-align: left">Datetime</td>
-      <td style="text-align: left">Data em que a transação foi recebida no Pagador Brapag <br /> Ex.: 2018-01-16 16:38:19</td>
+      <td style="text-align: left">Data em que a transação foi recebida no Pagador Braspag <br /> Ex.: 2018-01-16 16:38:19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CapturedDate</code></td>
@@ -11519,7 +11519,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
 <h3 id="integração-em-aplicativos-mobile">Integração em aplicativos mobile</h3>
 
 <p><strong>Baixando o SDK</strong>
-Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip">Download Deviceprint SDK iOS</a> <br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip">Download Deviceprint SDK Android</a></p>
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar. Para isso acesse um dos links abaixo de acordo com o desejado.<br /> <a href="https://braspag.github.io//files/braspag/AntiFraude/cybersource-iossdk-fingerprint-v5.0.32.zip">Download Deviceprint SDK iOS</a> <br /> <a href="https://braspag.github.io//files/braspag/AntiFraude/cybersource-androidsdk-fingerprint-v5.0.96.zip">Download Deviceprint SDK Android</a></p>
 
 <h1 id="consultas">Consultas</h1>
 
@@ -11571,7 +11571,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -11585,7 +11585,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -12245,7 +12245,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -12259,14 +12259,14 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Numero de identificação do Pagamento.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -12679,7 +12679,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag</td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
       <td>Texto</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
       <td>Ex. “2018-06-19 01:45:57”</td>
@@ -12722,7 +12722,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">Payment.PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -12755,7 +12755,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.</p>
 
-<p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.</p>
+<p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recurso /sales conforme o exemplo.</p>
 
 <h3 id="requisição-33">Requisição</h3>
 
@@ -12785,7 +12785,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -12799,7 +12799,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -12862,7 +12862,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -12901,7 +12901,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja na API</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -12915,7 +12915,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
@@ -13042,7 +13042,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Campo Identificador da próxima recorrência.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -13112,14 +13112,14 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td><code class="highlighter-rouge">RecurrentTransactions.RecurrentPaymentId</code></td>
       <td>Id da Recorrência</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RecurrentTransactions.TransactionId</code></td>
       <td>Payment ID da transação gerada na recorrência</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
@@ -13208,7 +13208,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     </tr>
     <tr>
       <td>3</td>
-      <td>Mudança de status do Antifraude</td>
+      <td>Mudança de status do AntiFraude</td>
     </tr>
     <tr>
       <td>4</td>
@@ -13264,6 +13264,11 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
       <td>Provider para transações na plataforma de e-commerce Cielo 3.0</td>
     </tr>
     <tr>
+      <td>Getnet</td>
+      <td>Visa, Master, Elo, Amex</td>
+      <td>Provider para transações na plataforma de e-commerce Getnet</td>
+    </tr>
+    <tr>
       <td>Redecard</td>
       <td>Visa, Master, Hipercard, Hiper, Diners</td>
       <td>Provider para transações na plataforma legado Rede Komerci</td>
@@ -13271,17 +13276,12 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td>Rede</td>
       <td>Visa, Master, Hipercard, Hiper, Diners, Elo, Amex</td>
-      <td>Provider para transações na plataforma de e-commerce Rede e-Rede na versão SOAP</td>
+      <td>Provider para transações na plataforma de e-commerce Rede (e-Rede) na versão SOAP</td>
     </tr>
     <tr>
       <td>Rede2</td>
       <td>Visa, Master, Hipercard, Hiper, Diners, Elo, Amex</td>
-      <td>Provider para transações na plataforma de e-commerce Rede e-Rede na versão REST</td>
-    </tr>
-    <tr>
-      <td>Getnet</td>
-      <td>Visa, Master, Elo, Amex</td>
-      <td>Provider para transações na plataforma de e-commerce GetNet</td>
+      <td>Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST</td>
     </tr>
     <tr>
       <td>GlobalPayments</td>
@@ -13336,12 +13336,17 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
     <tr>
       <td>SantanderSitef</td>
       <td>Visa, Master</td>
-      <td>Provider para transações na plataforma GetNet com tecnologia TEF</td>
+      <td>Provider para transações na plataforma Getnet com tecnologia TEF</td>
     </tr>
     <tr>
       <td>DMCard</td>
       <td>—</td>
+      <td>Sistema de cartões em regime de bandeira privativa (Private Label Brand)</td>
+    </tr>
+    <tr>
+      <td>Credsystem</td>
       <td>—</td>
+      <td>Sistema de cartões em regime de bandeira privativa (Private Label Brand)</td>
     </tr>
   </tbody>
 </table>
@@ -13482,7 +13487,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   </thead>
   <tbody>
     <tr>
-      <td>Bradesco, BancoDoBrasil, SafetyPay, Itau</td>
+      <td>Bradesco, BancoDoBrasil, SafetyPay, Itau, PayMeeRedirectCheckout, PayMeeSemiTransparent</td>
     </tr>
   </tbody>
 </table>
@@ -13558,7 +13563,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   </tbody>
 </table>
 
-<h2 id="lista-de-status-do-antifraude">Lista de Status do Antifraude</h2>
+<h2 id="lista-de-status-do-antifraude">Lista de Status do AntiFraude</h2>
 
 <table>
   <thead>
@@ -14197,14 +14202,14 @@ No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o
     </tr>
     <tr>
       <td>84</td>
-      <td>Nome da plataforma integrada a API Antifraude Gateway Braspag <br /> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA</td>
+      <td>Nome da plataforma integrada a API AntiFraude Gateway Braspag <br /> Caso seja uma integração direta entre a loja e Braspag, enviar valor igual a PROPRIA</td>
       <td>string</td>
       <td>3</td>
       <td>Todos</td>
     </tr>
     <tr>
       <td>85 a 89</td>
-      <td>Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio</td>
+      <td>Campos livres e definidos junto ao provedor de AntiFraude, conforme as regras de negócio</td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
@@ -14748,7 +14753,7 @@ No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o
     <tr>
       <td>167</td>
       <td>Antifraud not configured</td>
-      <td>Antifraude não vinculado ao cadastro do lojista</td>
+      <td>AntiFraude não vinculado ao cadastro do lojista</td>
     </tr>
     <tr>
       <td>168</td>
@@ -15138,7 +15143,7 @@ No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o
   <tbody>
     <tr>
       <td>Autorizado</td>
-      <td>0000.0000.0000.0001 / 0000.0000.0000.0004</td>
+      <td>0000.0000.0000.0000 / 0000.0000.0000.0001 / 0000.0000.0000.0004</td>
       <td>4</td>
       <td>Operação realizada com sucesso</td>
     </tr>
@@ -15149,10 +15154,22 @@ No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o
       <td>Não Autorizada</td>
     </tr>
     <tr>
-      <td>Autorização Aleatória</td>
-      <td>0000.0000.0000.0009</td>
-      <td>4 / 99</td>
-      <td>Operation Successful / Time Out</td>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0003</td>
+      <td>57</td>
+      <td>Cartão Expirado</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0005</td>
+      <td>78</td>
+      <td>Cartão Bloqueado</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0006</td>
+      <td>99</td>
+      <td>Time Out</td>
     </tr>
     <tr>
       <td>Não Autorizado</td>
@@ -15167,22 +15184,10 @@ No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o
       <td>Problemas com o Cartão de Crédito</td>
     </tr>
     <tr>
-      <td>Não Autorizado</td>
-      <td>0000.0000.0000.0005</td>
-      <td>78</td>
-      <td>Cartão Bloqueado</td>
-    </tr>
-    <tr>
-      <td>Não Autorizado</td>
-      <td>0000.0000.0000.0003</td>
-      <td>57</td>
-      <td>Cartão Expirado</td>
-    </tr>
-    <tr>
-      <td>Não Autorizado</td>
-      <td>0000.0000.0000.0006</td>
-      <td>99</td>
-      <td>Time Out</td>
+      <td>Autorização Aleatória</td>
+      <td>0000.0000.0000.0009</td>
+      <td>4 / 99</td>
+      <td>Operation Successful / Time Out</td>
     </tr>
   </tbody>
 </table>
