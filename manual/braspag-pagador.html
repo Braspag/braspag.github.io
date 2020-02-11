@@ -317,7 +317,11 @@
          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Alias"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+         </span><span class="nl">"Alias"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"Credentials"</span><span class="p">:{</span><span class="w">  
          </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
@@ -393,7 +397,11 @@ curl
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>,
-         <span class="s2">"Alias"</span>:<span class="s2">""</span>
+         <span class="s2">"Alias"</span>:<span class="s2">""</span>,
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
+         <span class="o">}</span>
       <span class="o">}</span>,
       <span class="s2">"Credentials"</span>:<span class="o">{</span>  
          <span class="s2">"code"</span>:<span class="s2">"9999999"</span>,
@@ -789,6 +797,20 @@ curl
       <td>Não</td>
       <td>Nome atribuído pelo lojista ao cartão salvo como CardToken</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Não</td>
+      <td><strong>Aplicável somente para Provider=Cielo30</strong><br /><strong>First</strong> se o cartão foi armazenado e é seu primeiro uso.<br /><strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Condicional</td>
+      <td><strong>Aplicável somente para Provider=Cielo30</strong><br />Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.<br /><strong>Recurring</strong> - Compra recorrente programada (ex. assinaturas)<br /><strong>Unscheduled</strong> - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br /><strong>Installments</strong> - Parcelamento através da recorrência<br /><a href="https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas">Veja Mais</a></td>
+    </tr>
   </tbody>
 </table>
 
@@ -837,7 +859,11 @@ curl
             </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
-            </span><span class="nl">"Alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="nl">"Alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
@@ -934,7 +960,11 @@ curl
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
-            <span class="s2">"Alias"</span>: <span class="s2">""</span>
+            <span class="s2">"Alias"</span>: <span class="s2">""</span>,
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
+         <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"credentials"</span>: <span class="o">{</span>
             <span class="s2">"code"</span>: <span class="s2">"9999999"</span>,
@@ -1093,7 +1123,7 @@ curl
 
 <p>Uma transação submetida com o parâmetro <code class="highlighter-rouge">Payment.Capture</code> igual a <em>false</em> necessita de uma operação PUT de “Captura” para confirmar a transação posteriormente.</p>
 
-<p>Transações que não forem capturadas em até 15 dias são automaticamente desfeitas pelas Processadoras. Clientes podem ter negociações específicas com as Processadoras que aumentam esse prazo.</p>
+<p>Transações que não forem capturadas até a <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">data limite</a> são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.</p>
 
 <h4 id="requisição-1">Requisição</h4>
 
@@ -2418,46 +2448,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 <p>Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.</p>
 
-<p>Abaixo segue a lista de adquirentes com as quais temos integração para solicitações de estorno:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Adquirente</th>
-      <th>Prazo Máximo para Solicitação de Estorno</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cielo</td>
-      <td>300 dias</td>
-    </tr>
-    <tr>
-      <td>Rede</td>
-      <td>Tecnologia Komerci: 90 dias; Tecnologia eRede: 60 dias</td>
-    </tr>
-    <tr>
-      <td>Getnet</td>
-      <td>90 dias</td>
-    </tr>
-    <tr>
-      <td>Transbank</td>
-      <td>90 dias</td>
-    </tr>
-    <tr>
-      <td>Banorte</td>
-      <td>30 dias</td>
-    </tr>
-    <tr>
-      <td>First Data</td>
-      <td>90 dias</td>
-    </tr>
-    <tr>
-      <td>Alelo</td>
-      <td>300 dias</td>
-    </tr>
-  </tbody>
-</table>
+<p>Cada adqurirente tem seus prazos limites para permitir o estorno de uma transação. Nesse <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">artigo</a> você poderá conferir cada um deles.</p>
 
 <aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
