@@ -148,7 +148,11 @@ Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliaçõ
          "SecurityCode":"123",
          "Brand":"Visa",
          "SaveCard":"false",
-         "Alias":""
+         "Alias":"",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
       },
       "Credentials":{  
          "code":"9999999",
@@ -225,7 +229,11 @@ curl
          "SecurityCode":"123",
          "Brand":"Visa",
          "SaveCard":"false",
-         "Alias":""
+         "Alias":"",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
       },
       "Credentials":{  
          "code":"9999999",
@@ -300,6 +308,8 @@ curl
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 |`CreditCard.Alias`|Texto|64|Não|Nome atribuído pelo lojista ao cartão salvo como CardToken|
+|`CreditCard.CardOnFile.Usage`|Texto|-|Não|**Aplicável somente para Provider=Cielo30**<br><br>**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|**Aplicável somente para Provider=Cielo30**<br><br>Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
 
 #### Resposta
 
@@ -347,7 +357,11 @@ curl
             "ExpirationDate": "12/2021",
             "SaveCard": false,
             "Brand": "Visa"
-            "Alias": ""
+            "Alias": "",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
         },
         "credentials": {
             "code": "9999999",
@@ -445,7 +459,11 @@ curl
             "ExpirationDate": "12/2021",
             "SaveCard": false,
             "Brand": "Visa"
-            "Alias": ""
+            "Alias": "",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
         },
         "credentials": {
             "code": "9999999",
