@@ -1351,7 +1351,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
 
-Cada adqurirente tem seus prazos limites para permitir o estorno de uma transação. Nesse (artigo)[https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno] você poderá conferir cada um deles.
+Cada adqurirente tem seus prazos limites para permitir o estorno de uma transação. Nesse [artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
 
 <aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
