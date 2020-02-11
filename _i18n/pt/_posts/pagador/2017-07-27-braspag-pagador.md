@@ -148,7 +148,11 @@ Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliaçõ
          "SecurityCode":"123",
          "Brand":"Visa",
          "SaveCard":"false",
-         "Alias":""
+         "Alias":"",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
       },
       "Credentials":{  
          "code":"9999999",
@@ -225,7 +229,11 @@ curl
          "SecurityCode":"123",
          "Brand":"Visa",
          "SaveCard":"false",
-         "Alias":""
+         "Alias":"",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
       },
       "Credentials":{  
          "code":"9999999",
@@ -300,6 +308,8 @@ curl
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 |`CreditCard.Alias`|Texto|64|Não|Nome atribuído pelo lojista ao cartão salvo como CardToken|
+|`CreditCard.CardOnFile.Usage`|Texto|-|Não|**Aplicável somente para Provider=Cielo30**<br><br>**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|**Aplicável somente para Provider=Cielo30**<br><br>Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência|
 
 #### Resposta
 
@@ -347,7 +357,11 @@ curl
             "ExpirationDate": "12/2021",
             "SaveCard": false,
             "Brand": "Visa"
-            "Alias": ""
+            "Alias": "",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
         },
         "credentials": {
             "code": "9999999",
@@ -445,7 +459,11 @@ curl
             "ExpirationDate": "12/2021",
             "SaveCard": false,
             "Brand": "Visa"
-            "Alias": ""
+            "Alias": "",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
         },
         "credentials": {
             "code": "9999999",
@@ -515,7 +533,7 @@ curl
 
 Uma transação submetida com o parâmetro `Payment.Capture` igual a _false_ necessita de uma solicitação de captura para confirmar a transação posteriormente.
 
-Transações que não forem capturadas em até 15 dias são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes que aumentam esse prazo.
+Transações que não forem capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.
 
 #### Requisição
 
@@ -1333,17 +1351,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
 
-Abaixo segue a lista de adquirentes com as quais temos integração para solicitações de estorno:
-
-|Adquirente|Prazo Máximo para Solicitação de Estorno|
-|-----------|----|
-|Cielo|300 dias|
-|Rede| Integração Komerci: 90 dias; Integração eRede: 60 dias|
-|Getnet|90 dias|
-|Transbank|90 dias|
-|Banorte|30 dias|
-|First Data|90 dias|
-|Alelo|300 dias|
+Cada adqurirente tem seus prazos limites para permitir o estorno de uma transação. Nesse [artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
 
 <aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
@@ -5935,13 +5943,17 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 ## Consultando uma transação via PaymentID
 
-<aside class="notice"><strong>Regra:</strong>
+<aside class="notice"><strong>Regra:<br/></strong>
 <ul>
-<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
-<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
-<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
+<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag<br/></li>
+<li>Transação com vida de 3 meses a 12 meses - somente via consulta no Painel Admin Braspag com a opção “Histórico” selecionada<br/></li>
+<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag<br/></li>
 </ul>
 </aside>
+
+> O nó Chargeback para estar contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Através deste recebimento, no Painel Admin Braspag você poderá acatar, contestar e acompanhar os resultados das contestações. Sua loja também poderá receber através do Post de Notificação a transação que sofreu o chargeback. As operações contidas no Painel Admin Braspag, também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification).
+
+> O nó FraudAlert para estar contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja. Através deste recebimento, o mesmo ficará disponível no Painel Admin Braspag. E através do Post de Notificação, a sua loja irá receber transação que sofreu o alerta de fraude.
 
 Para consultar uma transação de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
@@ -6011,6 +6023,11 @@ curl
             "RawData": "Client did not participate and did not authorize transaction"
         }
     ],
+    "FraudAlert": {
+        "Date": "2017-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
     "VelocityAnalysis": {
       "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
       "ResultMessage": "Accept",
@@ -6082,6 +6099,11 @@ curl
             "RawData": "Client did not participate and did not authorize transaction"
         }
     ],
+    "FraudAlert": {
+        "Date": "2017-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
     "VelocityAnalysis": {
       "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
       "ResultMessage": "Accept",
@@ -6165,8 +6187,11 @@ curl
 |`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback|Texto|512|Texto alfanumérico|
 |`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
 |`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|Texto|512|Texto alfanumérico|
-|`Payment.PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.FraudAlert.Date`|Data do alerta de fraude|Date|10|AAAA-MM-DD|
+|`Payment.FraudAlert.ReasonMessage`|Mensagem de motivo do alerta de fraude|Texto|512|Texto alfanumérico|
+|`Payment.FraudAlert.IncomingChargeback`|Flag que identifica se a transação possui um chargeback ocorrido antes do alerta de fraude|Booleano|5|Texto|
+|`Payment.PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
 |`Payment.ReasonMessage`|Mensagem de retorno da Adquirência|Texto|512|Texto alfanumérico|
 |`Payment.Status`|Status da Transação|Byte|2| Ex. 1|
@@ -6176,16 +6201,16 @@ curl
 |`CreditCard.Holder`|Nome do portador impresso no cartão|Texto|25|
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão|Texto|7|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão|Texto|4|
-|`CreditCard.Brand`|Bandeira do cartão|Texto|10 |
+|`CreditCard.Brand`|Bandeira do cartão|Texto|10|
 |`CreditCard.SaveCard`|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|Booleano|--- (Default false)|
 
 ## Consultando uma transação de Boleto via PaymentID
 
-<aside class="notice"><strong>Regra:</strong>
+<aside class="notice"><strong>Regra:<br/></strong>
 <ul>
-<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
-<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
-<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
+<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag<br/></li>
+<li>Transação com vida de 3 meses a 12 meses - somente via consulta no Painel Admin Braspag com a opção “Histórico” selecionada<br/></li>
+<li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag<br/></li>
 </ul>
 </aside>
 
@@ -6644,6 +6669,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |5|Estorno negado (aplicável para Rede)|
 |6|Boleto registrado pago a menor|
 |7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//manual/risknotification)|
+|8|Alerta de fraude|
 
 # Anexos
 
@@ -6680,7 +6706,8 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |--------|-----|---------|
 |Cielo|Visa, Master|Provider para transações de débito na plataforma legado Cielo 1.5|
 |Cielo30|Visa, Master|Provider para transações de débito na plataforma de e-commerce Cielo 3.0|
-|Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce Getnet|
+|Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce GetNet|
+|Rede2|Visa, Master|Provider para transações de débito na plataforma de e-commerce Rede|
 |FirstData|Visa, Master|Provider para transações de débito na plataforma de e-commerce First Data|
 |GlobalPayments|Visa, Master|Provider para transações de débito na plataforma de e-commerce Global Payments|
 
@@ -6712,7 +6739,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 
 |Provider|
 |--------|
-|Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
+|Braspag, Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
 
 ### Providers para Transferência Eletronica (Débito Online)
 
