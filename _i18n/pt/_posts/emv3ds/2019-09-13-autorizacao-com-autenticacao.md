@@ -110,7 +110,6 @@ curl
 
 Vide https://braspag.github.io/manual/braspag-pagador
 
-
 # Tabela de ECI
 
 | **Bandeira** | **ECI** | **Significado da Transação** |
