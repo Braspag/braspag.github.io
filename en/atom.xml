@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-12T17:46:19+00:00</updated>
+    <updated>2020-02-12T18:06:30+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13,12 +13,16 @@
     </author>
     
     <entry>
-        <title>Integration Manual</title>
-        <category term="tutorial" />
-        <link href="https://braspag.github.io//en/tutorial/cartao-protegido-api-rest"/>
+        <title>Cartão Protegido Manual integration</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//en/manual/cartao-protegido-api-rest"/>
         <updated>2019-07-15T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/tutorial/cartao-protegido-api-rest</id>
-        <content type="html">
+        <id>https://braspag.github.io//en/manual/cartao-protegido-api-rest</id>
+        <content type="html">&lt;h1 id=&quot;what-is-cartão-protegido&quot;&gt;What is Cartão Protegido?&lt;/h1&gt;
+
+&lt;p&gt;The &lt;strong&gt;Cartão Protegido&lt;/strong&gt; is a platform that enables secure storage of credit and debit cards. We have a fully certified environment by the respected PCI Security Standards Council, which ensures that Braspag fully follows the strict requirements and standards determined by it.&lt;/p&gt;
+
+&lt;p&gt;The platform is compatible with Braspag’s Pagador gateway, facilitating the processing of credit and debit card transactions via token.&lt;/p&gt;
 </content>
     </entry>
     
