@@ -1,20 +1,19 @@
 ---
-layout: tutorial
-title: Integration Manual
-description: Integração técnica Tokenização Braspag
+layout: manual
+title: Cartão Protegido Manual integration
+description: Technical integration Tokenization via REST API Braspag
 search: true
-categories: tutorial
 translated: true
+categories: manual
 tags:
   - Cartão Protegido
+language_tabs:
+  json: JSON
+  shell: cURL
 ---
 
-# Card Tokenization Overview
+# What is Cartão Protegido?
 
-CARTÃO PROTEGIDO (card tokenization) is a safe credit card information storage platform. The data stored at the Protected Card Platform follows PCI standards that ensure the integrity of the card information stored.
+The **Cartão Protegido** is a platform that enables secure storage of credit and debit cards. We have a fully certified environment by the respected PCI Security Standards Council, which ensures that Braspag fully follows the strict requirements and standards determined by it.
 
-The CARTÃO PROTEGIDO (card tokenization) integrates with gateway PAGADOR (BRASPAG), facilitating the submission and processing of credit card transactions via token.
-
-# Teste
-
-Teste
+The platform is compatible with Braspag's Pagador gateway, facilitating the processing of credit and debit card transactions via token.
