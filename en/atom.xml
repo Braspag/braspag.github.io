@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-11T21:24:03+00:00</updated>
+    <updated>2020-02-12T13:29:35+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7629,16 +7629,31 @@ The Master must provide Subordinate information in order to use it during the On
     </entry>
     
     <entry>
-        <title>API Rest Integration Guide</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/braspag-pagador"/>
+        <title>Braspag Pagador</title>
+        <category term="" />
+        <link href="https://braspag.github.io//en/braspag-pagador"/>
         <updated>2017-07-27T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/braspag-pagador</id>
-        <content type="html">&lt;h1 id=&quot;introduction-to-the-pagador-api&quot;&gt;Introduction to the Pagador API&lt;/h1&gt;
+        <id>https://braspag.github.io//en/braspag-pagador</id>
+        <content type="html">&lt;p&gt;site.baseurl_root—
+layout: manual
+title: API Rest Integration Guide
+description: Gateway Braspag technical integration
+search: true
+translated: true
+categories: manual
+tags:
+    - Pagador
+language_tabs:
+  json: JSON
+  shell: cURL
+  html: HTML
+—&lt;/p&gt;
+
+&lt;h1 id=&quot;introduction-to-the-pagador-api&quot;&gt;Introduction to the Pagador API&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;The purpose of this documentation is to guide the developer on how to integrate with the Pagador API, Braspag’s payment gateway, describing the services available with request and response examples.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:&lt;strong&gt;Sandbox&lt;/strong&gt; and &lt;strong&gt;Production&lt;/strong&gt;. [To perform] (https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.&lt;/p&gt;
+&lt;p&gt;All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:&lt;strong&gt;Sandbox&lt;/strong&gt; and &lt;strong&gt;Production&lt;/strong&gt;. &lt;a href=&quot;https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md&quot;&gt;To perform&lt;/a&gt; an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.&lt;/p&gt;
 
 &lt;h2 id=&quot;environments&quot;&gt;Environments&lt;/h2&gt;
 
@@ -7656,7 +7671,7 @@ The Master must provide Subordinate information in order to use it during the On
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;API Access Credentials&lt;/td&gt;
-      &lt;td&gt;Visit [Sandbox Signup] (https://cadastrosandbox.braspag.com.br/) and create a test account.&lt;br /&gt;At the end of registration you will receive a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;br /&gt; which will be used to authenticate all requests made to the API&lt;/td&gt;
+      &lt;td&gt;Visit &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Sandbox Signup&lt;/a&gt; and create a test account.&lt;br /&gt;At the end of registration you will receive a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;br /&gt; which will be used to authenticate all requests made to the API&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Transactional Endpoint&lt;/td&gt;
@@ -7698,11 +7713,10 @@ The Master must provide Subordinate information in order to use it during the On
 
 &lt;h2 id=&quot;braspags-support&quot;&gt;Braspag’s Support&lt;/h2&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish&lt;/aside&gt;
-&lt;p&gt;.&lt;/p&gt;
+&lt;aside class=&quot;notice&quot;&gt;Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish.&lt;/aside&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Web Support: [Zendesk] (http://suporte.braspag.com.br/)&lt;/li&gt;
+  &lt;li&gt;Web Support: &lt;a href=&quot;http://suporte.braspag.com.br/&quot;&gt;Zendesk&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;about-the-api&quot;&gt;About the API&lt;/h2&gt;
@@ -7756,7 +7770,7 @@ The Master must provide Subordinate information in order to use it during the On
 
 &lt;p&gt;To authorize a credit transaction, you must follow the agreement below. Your affiliation data is submitted in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials&lt;/code&gt; node, and must be submitted whenever a new authorization request is submitted for approval.&lt;/p&gt;
 
-&lt;p&gt;If your store uses Retry or Loadbalance services, affiliations must be registered by the customer support team. To request an affiliation registration, click [here] (http://suporte.braspag.com.br/).&lt;/p&gt;
+&lt;p&gt;If your store uses Retry or Loadbalance services, affiliations must be registered by the customer support team. To request an affiliation registration, click &lt;a href=&quot;http://suporte.braspag.com.br/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;The parameters contained in the `Address` and `DeliveryAddress` nodes are required when the transaction is submitted to the Velocity or Antifraud Analysis. In the parameter table below, they are marked with an * in the required column.&lt;/aside&gt;
 
@@ -7807,13 +7821,17 @@ The Master must provide Subordinate information in order to use it during the On
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;DoSplit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
-         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;455187******0181&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4551870000000181&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cardholder Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Alias&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Alias&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Credentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;9999999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -7889,7 +7907,11 @@ curl
          &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;Alias&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Alias&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
       &lt;span class=&quot;s2&quot;&gt;&quot;Credentials&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
          &lt;span class=&quot;s2&quot;&gt;&quot;code&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;9999999&quot;&lt;/span&gt;,
@@ -8234,7 +8256,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). Ex. 001&lt;/td&gt;
+      &lt;td&gt;Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). E.g.: 001&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
@@ -8285,13 +8307,26 @@ curl
       &lt;td&gt;No&lt;/td&gt;
       &lt;td&gt;Name given by merchant to card saved as CardToken&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Applicable only on Provider=Cielo30&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;First&lt;/strong&gt; if the card has been stored and is your first use.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; if the card has been stored and it has been used previously in another transaction&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Condicional&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Applicable only on Provider=Cielo30&lt;/strong&gt;&lt;br /&gt;Indicates the purpose of card storage, if the field “Usage” is “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring purchase (e.g.: subscription services)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring purchase (e.g.: serices apps)&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments trough recurrency&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&quot;response&quot;&gt;Response&lt;/h4&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Shopper Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -8333,7 +8368,11 @@ curl
             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Alias&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Alias&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Credentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;9999999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -8381,11 +8420,9 @@ curl
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -8430,7 +8467,11 @@ curl
             &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Alias&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Alias&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
+            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;Credentials&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;code&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;9999999&quot;&lt;/span&gt;,
@@ -8566,7 +8607,7 @@ curl
       &lt;td&gt;Transaction Status&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. 1&lt;/td&gt;
+      &lt;td&gt;E.g.: 1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -8589,7 +8630,7 @@ curl
 
 &lt;p&gt;A transaction submitted with the &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt; parameter equal to &lt;em&gt;false&lt;/em&gt; needs a capture request to commit the transaction later.&lt;/p&gt;
 
-&lt;p&gt;Transactions not captured within 15 days (or less, depending on the acquirer) are automatically terminated by Acquirers. Customers may have specific negotiations with Acquirers that extend this time.&lt;/p&gt;
+&lt;p&gt;Authorizations that are not captured until the &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno&quot;&gt;deadline&lt;/a&gt; are automatically released by the Acquires. Merchants may have specific negotiations with the Acquires to change this capture deadline.&lt;/p&gt;
 
 &lt;h4 id=&quot;request-1&quot;&gt;Request&lt;/h4&gt;
 
@@ -8729,7 +8770,7 @@ curl
       &lt;td&gt;Transaction Status.&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. 1&lt;/td&gt;
+      &lt;td&gt;E.g.: 1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonCode&lt;/code&gt;&lt;/td&gt;
@@ -8752,7 +8793,7 @@ curl
 
 &lt;p&gt;When a transaction is sucessfully authenticated the liabity shifts to the issuer, i.e. the merchant will not be liable in the event of any dispute and chargeback.&lt;/p&gt;
 
-&lt;p&gt;There are two ways to authenticate transactions with Braspag:&lt;strong&gt;Standard&lt;/strong&gt;when the merchant does not have a direct connection to an authenticator (MPI), and expects the payment method to redirect the customer to the authentication environment.&lt;strong&gt;External&lt;/strong&gt;when the merchant has its own authenticator (MPI) and does not expect the payment method to redirect its consumer to the authentication environment.&lt;/p&gt;
+&lt;p&gt;There are two ways to authenticate transactions with Braspag: &lt;strong&gt;Standard&lt;/strong&gt; when the merchant does not have a direct connection to an authenticator (MPI), and expects the payment method to redirect the customer to the authentication environment. &lt;strong&gt;External&lt;/strong&gt; when the merchant has its own authenticator (MPI) and does not expect the payment method to redirect its consumer to the authentication environment.&lt;/p&gt;
 
 &lt;h4 id=&quot;standard-authentication&quot;&gt;Standard Authentication&lt;/h4&gt;
 
@@ -9087,7 +9128,7 @@ curl
       &lt;td&gt;Transaction Status&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. 1&lt;/td&gt;
+      &lt;td&gt;E.g.: 1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -9649,7 +9690,7 @@ curl
       &lt;td&gt;Transaction Status&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. 1&lt;/td&gt;
+      &lt;td&gt;E.g.: 1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -9761,7 +9802,7 @@ The example below covers the minimum required fields to be submitted for authori
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Payment method type. Send&lt;strong&gt;qrcode&lt;/strong&gt;for payment with QR Code.&lt;/td&gt;
+      &lt;td&gt;Payment method type. Send &lt;strong&gt;qrcode&lt;/strong&gt; for payment with QR Code.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -9785,7 +9826,7 @@ The example below covers the minimum required fields to be submitted for authori
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Submit&lt;strong&gt;true&lt;/strong&gt;for a transaction with auto capture.&lt;/td&gt;
+      &lt;td&gt;Submit &lt;strong&gt;true&lt;/strong&gt; for a transaction with auto capture.&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -9922,48 +9963,9 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;p&gt;To cancel a credit card transaction, you must PUT the Payment feature as shown.&lt;/p&gt;
 
-&lt;p&gt;Below is the list of acquirers with whom we have integration for refund requests:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Acquirer&lt;/th&gt;
-      &lt;th&gt;Maximum Deadline for Requesting Reversal&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Cielo&lt;/td&gt;
-      &lt;td&gt;300 days&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Rede&lt;/td&gt;
-      &lt;td&gt;Komerci integration: 90 days; eRede integration: 60 days&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Getnet&lt;/td&gt;
-      &lt;td&gt;90 days&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Transbank&lt;/td&gt;
-      &lt;td&gt;90 days&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Banorte&lt;/td&gt;
-      &lt;td&gt;30 days&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;First Data&lt;/td&gt;
-      &lt;td&gt;90 days&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Alelo&lt;/td&gt;
-      &lt;td&gt;300 days&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
 &lt;aside class=&quot;warning&quot;&gt;Availability of Refund service varies from acquirer to acquirer.&lt;/aside&gt;
+
+&lt;p&gt;Each acquirer has its deadlines to allow the refund of a transaction. In this &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno&quot;&gt;article&lt;/a&gt; you can check each one.&lt;/p&gt;
 
 &lt;h4 id=&quot;request-6&quot;&gt;Request&lt;/h4&gt;
 
@@ -10083,7 +10085,7 @@ curl
       &lt;td&gt;Transaction Status.&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. 1&lt;/td&gt;
+      &lt;td&gt;E.g.: 1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -10180,14 +10182,14 @@ curl
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;`VelocityAnalysis.RejectReasons.RuleId&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VelocityAnalysis.RejectReasons.RuleId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Rejected Rule Code&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;`VelocityAnalysis.RejectReasons.Message&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VelocityAnalysis.RejectReasons.Message&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Description of the rule that cause rejection&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
@@ -10202,7 +10204,7 @@ curl
 
 &lt;p&gt;In order to promote greater control and security to the transactional boleto in e-commerce and ensure more reliability and convenience to users, Febraban together with the Banks launched the New Charging Platform.&lt;/p&gt;
 
-&lt;p&gt;From July 21, 2018, all boletos issued in e-commerce must be registered. [Click here] (https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos) to access the full announcement.&lt;/p&gt;
+&lt;p&gt;From July 21, 2018, all boletos issued in e-commerce must be registered. &lt;a href=&quot;https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos&quot;&gt;Click here&lt;/a&gt; to access the full announcement.&lt;/p&gt;
 
 &lt;p&gt;Follow below the migration/membership procedures for each bank:&lt;/p&gt;
 
@@ -10444,7 +10446,7 @@ curl
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Payment method provider’s name&lt;/td&gt;
-      &lt;td&gt;[Click here] (https://braspag.github.io/manual/braspag-payment#providers-para-boleto-with-registration) to access the list of providers.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://braspag.github.io/manual/braspag-payment#providers-para-boleto-with-registration&quot;&gt;Click here&lt;/a&gt; to access the list of providers.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
@@ -10847,17 +10849,52 @@ curl
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Remarks/Details:
-|—|—|
-|&lt;strong&gt;obs 1:&lt;/strong&gt;|Only letters, numbers, and characters like “_” and “$”|
-|&lt;strong&gt;obs 2:&lt;/strong&gt;|If it exceeds 11 digits, the API will generate an incremental number from the defined configuration|
-|&lt;strong&gt;obs 3:&lt;/strong&gt;|The value must be unique, ie the bank does not allow repeating previously used values|
-|&lt;strong&gt;obs 4:&lt;/strong&gt;|When submitted over 9 positions, the API considers the last 9 digits|
-|&lt;strong&gt;obs 5:&lt;/strong&gt;|Must always be the same as Order Number (MerchantOrderId)|
-|&lt;strong&gt;obs 6:&lt;/strong&gt;|The API automatically concatenates the value “14” + 12 free digits + check digit before sending it to the bank. If the total exceeds 14 digits, the API considers last 14 digits|
-|&lt;strong&gt;obs 7:&lt;/strong&gt;|When sent more than allowed, the API generates a random number|
-|&lt;strong&gt;obs 8:&lt;/strong&gt;|The following are accepted as valid characters: numbers, letters A through Z (UPPERCASE); conjunction special characters: hyphen (-), apostrophe (‘). When used it cannot contain spaces between letters; Correct examples: D’EL-REI, D’ALCORTIVO, SANT’ANA. Incorrect examples: D’EL - REI; up to a blank space between words|
-|&lt;strong&gt;obs 9:&lt;/strong&gt;|Special characters and accents will be removed automatically|&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Remarks&lt;/th&gt;
+      &lt;th&gt;Details&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;obs 1:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Only letters, numbers, and characters like “_” and “$”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;obs 2:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;If it exceeds 11 digits, the API will generate an incremental number from the defined configuration&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;obs 3:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The value must be unique, i.e., the bank does not allow repeating previously used values&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;obs 4:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;When submitted over 9 positions, the API considers the last 9 digits&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;obs 5:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Must always be the same as Order Number (MerchantOrderId)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;obs 6:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The API automatically concatenates the value “14” + 12 free digits + check digit before sending it to the bank. If the total exceeds 14 digits, the API considers last 14 digits&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;obs 7:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;When sent more than allowed, the API generates a random number&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;obs 8:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The following are accepted as valid characters: numbers, letters A through Z (UPPERCASE); conjunction special characters: hyphen (-), apostrophe (‘). When used it cannot contain spaces between letters; Correct examples: D’EL-REI, D’ALCORTIVO, SANT’ANA. Incorrect examples: D’EL - REI; up to a blank space between words&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;obs 9:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Special characters and accents will be removed automatically&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;recurring&quot;&gt;Recurring&lt;/h2&gt;
 
@@ -10871,7 +10908,7 @@ curl
 
 &lt;h3 id=&quot;authorize-a-recurring-transaction&quot;&gt;Authorize a recurring transaction&lt;/h3&gt;
 
-&lt;p&gt;Add the &lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPayment&lt;/code&gt; node to the&lt;code class=&quot;highlighter-rouge&quot;&gt; Payment&lt;/code&gt; node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.&lt;/p&gt;
+&lt;p&gt;Add the &lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPayment&lt;/code&gt; node to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt; node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.&lt;/p&gt;
 
 &lt;h4 id=&quot;request-8&quot;&gt;Request&lt;/h4&gt;
 
@@ -11183,7 +11220,7 @@ curl
 
 &lt;p&gt;Unlike the previous recurrence, this example does not immediately authorize, but schedules a future authorization.&lt;/p&gt;
 
-&lt;p&gt;To schedule the first transaction in the recurrence series, pass the &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt; parameter to &lt;em&gt;” false “&lt;/em&gt; and add the&lt;code class=&quot;highlighter-rouge&quot;&gt; Payment.RecurrentPayment.StartDate&lt;/code&gt; parameter.&lt;/p&gt;
+&lt;p&gt;To schedule the first transaction in the recurrence series, pass the &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt; parameter to &lt;em&gt;“false”&lt;/em&gt; and add the &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.StartDate&lt;/code&gt; parameter.&lt;/p&gt;
 
 &lt;h4 id=&quot;request-9&quot;&gt;Request&lt;/h4&gt;
 
@@ -13187,12 +13224,12 @@ HTTP Status 200
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[* VisaCheckout *] (https://vaidevisa.visa.com.br/site/visa-checkout)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://vaidevisa.visa.com.br/site/visa-checkout&quot;&gt;&lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[* MasterPass *] (https://masterpass.com/)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://masterpass.com/&quot;&gt;&lt;em&gt;MasterPass&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -13503,14 +13540,14 @@ HTTP Status 200
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;ProofOfSale&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProofOfSale&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Authorization number, identical to NSU.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;TID&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TID&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Transaction Id on the acquirer.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
@@ -13621,7 +13658,7 @@ HTTP Status 200
 
 &lt;p&gt;Once hiring is effective, you will be given access to the “Apple Developer” panel, and you will need to create &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantIdentifier&lt;/code&gt;. To do so, perform the steps below:&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;Log in to [Apple Developer] (https://developer.apple.com/)&lt;/li&gt;
+  &lt;li&gt;Log in to &lt;a href=&quot;https://developer.apple.com/&quot;&gt;Apple Developer&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Select &lt;strong&gt;Certificate, IDs &amp;amp; Profile&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Within the “Identifiers” area click “Merchant IDs”&lt;/li&gt;
   &lt;li&gt;Click on the &lt;strong&gt;+&lt;/strong&gt; in the right corner below the “Registering a Merchant ID”&lt;/li&gt;
@@ -13637,12 +13674,12 @@ HTTP Status 200
 &lt;p&gt;After submitting the &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantIdentifier&lt;/code&gt; to the Braspag team, the store will receive the &lt;code class=&quot;highlighter-rouge&quot;&gt;PEM&lt;/code&gt; extension certificate and should follow these steps:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Log in to [Apple Developer] (https://developer.apple.com/)&lt;/li&gt;
+  &lt;li&gt;Log in to &lt;a href=&quot;https://developer.apple.com/&quot;&gt;Apple Developer&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Select &lt;strong&gt;Certificate, IDs &amp;amp; Profiles&lt;/strong&gt;
 &lt;img src=&quot;https://braspag.github.io//images/apple-paymid.jpg&quot; alt=&quot;Apple Pay&quot; /&gt;&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Upload the certificate
-![&lt;a href=&quot;https://braspag.github.io//images/apple-pay.jpg&quot;&gt;Apple Pay&lt;/a&gt;&lt;/p&gt;
+![&lt;a href=&quot;/images/apple-pay.jpg&quot;&gt;Apple Pay&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;End the process&lt;/li&gt;
 &lt;/ol&gt;
@@ -13659,7 +13696,7 @@ HTTP Status 200
 
 &lt;h5 id=&quot;step-4-apple-pay-integration&quot;&gt;Step 4. Apple Pay Integration&lt;/h5&gt;
 
-&lt;p&gt;Integration requires two steps: The first is direct integration with the Apple solution to make the “Pay with Apple Pay” button available on your website or application. To this end, the Apple team will follow closely. [Click here] (https://developer.apple.com/apple-pay/) to access Apple technical documentation.&lt;/p&gt;
+&lt;p&gt;Integration requires two steps: The first is direct integration with the Apple solution to make the “Pay with Apple Pay” button available on your website or application. To this end, the Apple team will follow closely. &lt;a href=&quot;https://developer.apple.com/apple-pay/&quot;&gt;Click here&lt;/a&gt; to access Apple technical documentation.&lt;/p&gt;
 
 &lt;p&gt;At this stage, you do not need to perform the process of encrypting data returned by Apple. This work will be performed by Braspag through the procedures described in the next step.&lt;/p&gt;
 
@@ -13672,7 +13709,7 @@ HTTP Status 200
 &lt;p&gt;Default Request Example &lt;em&gt;Apple Pay&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;It is necessary that the store already has registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API&amp;gt;&lt;/p&gt;
+  &lt;p&gt;It is necessary that the store already has registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
@@ -13769,7 +13806,7 @@ HTTP Status 200
       &lt;td&gt;Order Amount (in cents)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Payment.Provider&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -13882,14 +13919,14 @@ HTTP Status 200
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;ProofOfSale&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProofOfSale&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Authorization number, identical to NSU.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;TID&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TID&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Transaction Id on the acquirer.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
@@ -13975,7 +14012,7 @@ HTTP Status 200
 &lt;p&gt;Default Request Example &lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;It is necessary that the store already has registration and a Samsung Pay integration, otherwise it will not be possible to integrate with the API&amp;gt;&lt;/p&gt;
+  &lt;p&gt;It is necessary that the store already has registration and a Samsung Pay integration, otherwise it will not be possible to integrate with the API&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
@@ -14557,7 +14594,9 @@ HTTP Status 200
 
 &lt;h4 id=&quot;masterpass&quot;&gt;MasterPass&lt;/h4&gt;
 
-&lt;p&gt;To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;request-23&quot;&gt;Request&lt;/h4&gt;
 
@@ -14854,7 +14893,9 @@ HTTP Status 200
 
 &lt;h4 id=&quot;visa-checkout&quot;&gt;Visa Checkout&lt;/h4&gt;
 
-&lt;p&gt;To use &lt;em&gt;Visa Checkout&lt;/em&gt; you need to contract the service by contacting Visa directly.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To use &lt;em&gt;Visa Checkout&lt;/em&gt; you need to contract the service by contacting Visa directly.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;request-24&quot;&gt;Request&lt;/h4&gt;
 
@@ -16311,7 +16352,7 @@ curl
       &lt;td&gt;Transaction Status&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. 1&lt;/td&gt;
+      &lt;td&gt;E.g.: 1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -16626,7 +16667,7 @@ curl
       &lt;td&gt;Transaction Status&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. 1&lt;/td&gt;
+      &lt;td&gt;E.g.: 1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -16939,7 +16980,7 @@ curl
       &lt;td&gt;Transaction Status&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. 1&lt;/td&gt;
+      &lt;td&gt;E.g.: 1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -17484,7 +17525,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Billing Address Country. More information at [ISO 2-Digit Alpha Country Code] (https://www.iso.org/obp/ui)&lt;/td&gt;
+      &lt;td&gt;Billing Address Country. More information at &lt;a href=&quot;https://www.iso.org/obp/ui&quot;&gt;ISO 2-Digit Alpha Country Code&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.District&lt;/code&gt;&lt;/td&gt;
@@ -17540,7 +17581,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Delivery address country. More information at [ISO 2-Digit Alpha Country Code] (https://www.iso.org/obp/ui)&lt;/td&gt;
+      &lt;td&gt;Delivery address country. More information at &lt;a href=&quot;https://www.iso.org/obp/ui&quot;&gt;ISO 2-Digit Alpha Country Code&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.District&lt;/code&gt;&lt;/td&gt;
@@ -18023,20 +18064,20 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Departure airport code. More information at [IATA 3-Letter Codes] (http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)&lt;/td&gt;
+      &lt;td&gt;Departure airport code. More information at &lt;a href=&quot;http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm&quot;&gt;IATA 3-Letter Codes&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Airport code of arrival. More information at [IATA 3-Letter Codes] (http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)&lt;/td&gt;
+      &lt;td&gt;Airport code of arrival. More information at &lt;a href=&quot;http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm&quot;&gt;IATA 3-Letter Codes&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The fields of the &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Travel&lt;/code&gt; node become mandatory if your business segment is aerial.&amp;gt;&lt;/p&gt;
+  &lt;p&gt;The fields of the &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Travel&lt;/code&gt; node become mandatory if your business segment is an airline company.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h5 id=&quot;response-33&quot;&gt;Response&lt;/h5&gt;
@@ -18446,857 +18487,613 @@ curl
       &lt;th style=&quot;text-align: left&quot;&gt;Property&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Type&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;50&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Store Order Number&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Store Order Number&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Shopper’s full name&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Shopper’s identification number&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.IdentityType&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Shopper ID Type&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Email&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Shopper’s Email&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Birthdate&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Date&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Shopper’s Date of Birth&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Phone&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Shopper’s Phone Number&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Street&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Billing Address Street&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Number&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Billing Address Number&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Complement&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Billing Address Supplement&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.ZipCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Billing Address Postcode&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;City of Billing Address&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.State&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Billing Address State&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Country&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Billing Address Country&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.District&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Billing Address Neighborhood&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Street&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Delivery Address Street&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Number&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Delivery Address Number&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Complement&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Delivery Address Supplement&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.ZipCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Delivery Address Zipcode&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.City&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Delivery Address City&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.State&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Delivery Address Status&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Country&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Delivery address country.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.District&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Delivery Address Neighborhood&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Name of authorization provider&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Type of payment method&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Transaction amount in cents&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ServiceTaxAmount&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Amount of authorization amount to be used for service charge&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Currency&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Currency in which payment will be made&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Country&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Country in which payment will be made&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number of installments&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Interest&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Installment Type&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Indicates whether authorization should be with automatic capture&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Indicates whether the transaction should be authenticated&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Indicates whether the transaction is a recurring type&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.SoftDescriptor&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text that will be printed on the invoice&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.DoSplit&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Indicates whether the transaction will be split among multiple participants&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExtraDataCollection.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Extra field identifier to be sent&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExtraDataCollection.Value&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Extra field value to be sent&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Code&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Acquirer affiliation&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Key&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Affiliate/Token Key generated by acquirer&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Username&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;User generated on Accreditation with acquirer Getnet&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Password&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Password generated on Accreditation with Buyer Getnet&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Signature&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Terminal ID on affiliation with Acquirer Global Payments&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Credit Card Number&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.Holder&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Holder name printed on credit card&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Credit Card Expiration Date&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Security Code printed on the back of Credit Card&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Credit Card brand&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.SaveCard&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Indicates whether credit card data will be stored on Cartão Protegido&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.Alias&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Credit Card Alias saved to Cartão Protegido&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CreditCard.CardToken&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;GUID&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Credit card identifier saved on Cartão Protegido&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Sequence&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Fraud Analysis Flow Type&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.SequenceCriteria&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Fraud Analysis Flow Criteria&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Provider&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Anti-fraud provider&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.CaptureOnLowRisk&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Indicates if transaction after fraud analysis will be captured&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.VoidOnHighRisk&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Indicates whether the transaction after fraud analysis will be canceled&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.TotalOrderAmount&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Total order value in cents&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.FingerPrintId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Identifier used to crosscheck information obtained from the shopper’s device.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Browser.HostName&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Host name entered by the shopper’s browser and identified through the HTTP header&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Browser.CookiesAccepted&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Identifies if the buyer’s browser accepts cookies&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Browser.Email&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Email registered in the shopper’s browser. May differ from store registration email (&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Email&lt;/code&gt;)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Browser.Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Name of browser used by shopper and identified through HTTP header&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Browser.IpAddress&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Shopper’s IP Address. IPv4 or IPv6 format&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.IsGift&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Indicates if the order placed by the shopper is for gift&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.ReturnsAccepted&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Boolean&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Indicates if the order placed by the buyer can be returned to the store&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.GiftCategory&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Identifies that will evaluate the billing and delivery addresses for different cities, states or countries&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.HostHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Importance level of buyer IP and email addresses in fraud analysis&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.NonSensicalHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Importance level of meaningless buyer data checks in fraud analysis&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Importance level of buyer data checks with obscenity in fraud analysis&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.PhoneHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Importance level of buyer phone number checks in fraud analysis&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Product Name&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.Quantity&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Product Quantity&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.Sku&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Stock Keeping Unit (SKU) of the product&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.UnitPrice&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Unit price of the product&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.Risk&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Product risk level associated with chargeback amount&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.TimeHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Level of importance of the time of day in the fraud analysis the buyer placed the order&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.Type&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Product Category&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Cart.Items.VelocityHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Importance level of buyer purchase frequency in fraud analysis within 15 minutes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.MerchantDefinedFields.Id&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;ID of the additional information to be sent&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.MerchantDefinedFields.Value&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Value of additional information to be sent&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping.Addressee&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Full name of person responsible for receiving product at shipping address&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping.Method&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Order Delivery&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Shipping.Phone&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Phone number of the receiving party at shipping address&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.JourneyType&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Trip Type&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.DepartureTime&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;DateTime&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Date and time of departure&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.Passengers.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Passenger Full Name&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.Passengers.Identity&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Passenger Document Number&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.Passengers.Status&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Airline Classification&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.Passengers.Rating&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Passenger Type&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.Passengers.Email&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Passenger Email&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.Passengers.Phone&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Passenger Phone&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Departure airport code&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Airport code of arrival&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Id&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;GUID&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Antifraud Transaction Id Braspag&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Status&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Antifraude Transaction Status Braspag  &lt;br /&gt; [List of Values - Payment.FraudAnalysis.Status] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Antifraude Transaction Status Braspag  &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status&quot;&gt;List of Values - Payment.FraudAnalysis.Status&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.FraudAnalysisReasonCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersouce Return Code [  &lt;br /&gt; List of Values - Payment.FraudAnalysis.FraudAnalysisReasonCode] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersouce Return Code &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode&quot;&gt;  &lt;br /&gt; List of Values - Payment.FraudAnalysis.FraudAnalysisReasonCode&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.AddressInfoCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Codes indicate incompatibilities between buyer billing and delivery addresses  &lt;br /&gt; Codes are concatenated using the character ^ E.g.: COR-BA ^ MM-BIN  &lt;br /&gt; [List of Payments - Payment. FraudAnalysis.ReplyData.AddressInfoCode] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Codes indicate incompatibilities between buyer billing and delivery addresses  &lt;br /&gt; Codes are concatenated using the character ^ E.g.: COR-BA ^ MM-BIN  &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode&quot;&gt;List of Payments - Payment. FraudAnalysis.ReplyData.AddressInfoCode&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.FactorCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Codes that affected the analysis score  &lt;br /&gt; Codes are concatenated using the ^ character. E.g.: B ^ D ^ R ^ Z &lt;br /&gt;[List of Values - ProviderAnalysisResult.AfsReply.FactorCode] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Codes that affected the analysis score  &lt;br /&gt; Codes are concatenated using the ^ character. E.g.: B ^ D ^ R ^ Z &lt;br /&gt;&lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode&quot;&gt;List of Values - ProviderAnalysisResult.AfsReply.FactorCode&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.Score&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Score from fraud analysis. Value between 0 and 100&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.BinCountry&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Card BIN country code used in the analysis. More information at [ISO 2-Digit Alpha Country Code] (https://www.iso.org/obp/ui)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Card BIN country code used in the analysis. More information at &lt;a href=&quot;https://www.iso.org/obp/ui&quot;&gt;ISO 2-Digit Alpha Country Code&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.CardIssuer&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Name of bank or credit card issuer&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.CardScheme&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Card Brand&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.HostSeverity&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Shopper’s email domain risk level, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.InternetInfoCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Codes that indicate problems with the email address, IP address, or billing address  &lt;br /&gt; Codes are concatenated using the ^ character. E.g.: FREE-EM ^  RISK-EM &lt;br /&gt; [List of Payments - Payment.FraudAnalysis.ReplyData.InternetInfoCode] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Codes that indicate problems with the email address, IP address, or billing address  &lt;br /&gt; Codes are concatenated using the ^ character. E.g.: FREE-EM ^  RISK-EM &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode&quot;&gt;List of Payments - Payment.FraudAnalysis.ReplyData.InternetInfoCode&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.IpRoutingMethod&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Buyer routing method obtained from the IP Address  &lt;br /&gt; [Value List - Payment.FraudAnalysis.ReplyData.IpRoutingMethod] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Buyer routing method obtained from the IP Address  &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod&quot;&gt;Value List - Payment.FraudAnalysis.ReplyData.IpRoutingMethod&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.ScoreModelUsed&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Name of the score model used in the analysis. If you have no template defined, the default template from Cybersource was used&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.CasePriority&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Defines the priority level of merchant rules or profiles. The priority level ranges from 1 (highest) to 5 (lowest) and the default value is 3, and this will be assigned if you have not set the priority of rules or profiles. This field is only returned if the store subscribes to Enhanced Case Management&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.FraudAnalysis.ReplyData.ProviderTransactionId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Transaction Id in Cybersource&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.PaymentId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;GUID&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Transaction identifier in Pagador Braspag&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.AcquirerTransactionId&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Transaction identifier on acquirer&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ProofOfSale&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Voucher number at the acquirer (NSU - Unique Transaction Sequence Number)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.AuthorizationCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Authorization Code on Purchaser&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReceivedDate&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Datetime&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Date the transaction was received at the Brapag Payer &lt;br /&gt; E.g.: 2018-01-16 16: 38: 19&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CapturedDate&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Datetime&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Date the transaction was captured on the acquirer  &lt;br /&gt; E.g.: 2018-01-16 16: 38: 20&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.CapturedAmount&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Amount captured from transaction  &lt;br /&gt; E.g.: 123456 = $ 1,234.56&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ECI&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Electronic Commerce Indicator. Code generated in a credit transaction with external authentication&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReasonCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Return Code of Operation&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReasonMessage&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Return Message from Operation&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Status&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transaction Status on Pagador &lt;br /&gt; [Transaction Status List] (https://braspag.github.io/manual/braspag-pagador#lista-de-status-transação)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction Status on Pagador &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-status-transação&quot;&gt;Transaction Status List&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Code returned by acquirer or bank&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ProviderReturnMessage&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Message returned by acquirer or bank&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -19352,7 +19149,7 @@ There are two variables to fill in the Javascript URL. The &lt;code class=&quot;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;session_id&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; ProviderMerchantId&lt;/code&gt; = Identifier of your Cybersource store. If not, contact Braspag  &lt;br /&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.FingerPrintId&lt;/code&gt; = Identifier used to crosscheck information obtained from the shopper’s device.  &lt;br /&gt; Note: This identifier can be any value or order number, but must be unique for 48 hours.&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; = Identifier of your Cybersource store. If not, contact Braspag  &lt;br /&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.FingerPrintId&lt;/code&gt; = Identifier used to crosscheck information obtained from the shopper’s device.  &lt;br /&gt; Note: This identifier can be any value or order number, but must be unique for 48 hours.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -19365,7 +19162,7 @@ There are two variables to fill in the Javascript URL. The &lt;code class=&quot;
 
 &lt;p&gt;The variables, when properly filled in, would provide a URL similar to the example below:&lt;/p&gt;
 
-&lt;p&gt;![Url Example] (https://braspag.github.io/images/braspag/af/urldfp.png)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/af/urldfp.png&quot; alt=&quot;Url Example&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;Be sure to copy all data correctly and have replaced the variables correctly with their values.&lt;/aside&gt;
 
@@ -19378,7 +19175,7 @@ There are two variables to fill in the Javascript URL. The &lt;code class=&quot;
 &lt;h3 id=&quot;mobile-application-integration&quot;&gt;Mobile Application Integration&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Downloading the SDK&lt;/strong&gt;
-If you have not yet downloaded the iOS or Android SDK, you must do so before continuing. To do so, access one of the links below as desired.&lt;br /&gt; [Download iOS SDK Deviceprint] (https://braspag.github.io//files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip)  &lt;br /&gt; [Download Android SDK Deviceprint] (https://braspag.github.io//files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip)&lt;/p&gt;
+If you have not yet downloaded the iOS or Android SDK, you must do so before continuing. To do so, access one of the links below as desired.&lt;br /&gt; &lt;a href=&quot;https://braspag.github.io//files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip&quot;&gt;Download iOS SDK Deviceprint&lt;/a&gt;  &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io//files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip&quot;&gt;Download Android SDK Deviceprint&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;queries&quot;&gt;Queries&lt;/h1&gt;
 
@@ -19599,7 +19396,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;|Property|Description|Type|Size|Format|
-|———–|———|—-|——-|——-|
+|——–|———–|—-|—-|——-|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;|Order ID|Text|50|Alphanumeric|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;|Shopper’s Name|Text|255|Alphanumeric|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt;|Customer ID, CPF or CNPJ number|Text|14|Alphanumeric text|
@@ -19610,7 +19407,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Number&lt;/code&gt;|Shopper’s Contact Number|Text|15|Alphanumeric|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Complement&lt;/code&gt;|Shopper’s Contact Address Supplement|Text|50|Alphanumeric|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.ZipCode&lt;/code&gt;|Shopper’s Contact Address Zip Code|Text|9|Alphanumeric|
-|&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;|City of Shopper’s contact address|Text|50|Alphanumeric text|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;|City of Shopper’s contact address|Text|50|Alphanumeric|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.State&lt;/code&gt;|Shopper’s Contact Address Status|Text|2|Alphanumeric|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Country&lt;/code&gt;|Shopper’s Contact Address Country|Text|35|Alphanumeric|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.District&lt;/code&gt;|Shopper’s Neighborhood|Text|50|Alphanumeric|
@@ -19637,16 +19434,16 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExtraDataCollection.Name&lt;/code&gt;|Name of the field to be written Extra Data|Text|50|Alphanumeric text|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExtraDataCollection.Value&lt;/code&gt;|Value of the field to be written Extra Data|Text|1024|Alphanumeric text|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;AcquirerTransactionId&lt;/code&gt;|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|ProofOfSale|Proof of Sale Number|Text|20|Alphanumeric|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;ProofOfSale&lt;/code&gt;|Proof of Sale Number|Text|20|Alphanumeric|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.AuthorizationCode&lt;/code&gt;|Authorization code|Text|300|Alphanumeric text|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks [n].Amount&lt;/code&gt;|Chargeback amount|Number|15|10000|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks [n].CaseNumber&lt;/code&gt;|Chargeback-related case number|Text|16|Alphanumeric text|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks [n].Date&lt;/code&gt;|Chargeback Date|Date|10|YYYY-MM-DD|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks [n].ReasonCode&lt;/code&gt;|Chargeback Reason Code|Text|10|Alphanumeric|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks [n].ReasonMessage&lt;/code&gt;|Chargeback Reason Message|Text|512|Alphanumeric|
-|&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks [n].Chargeback Status &amp;lt;br/&amp;gt; [Value List - Payment.Chargebacks {n}.Status] (https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks [n].Chargeback Status &amp;lt;br/&amp;gt; [Value List - Payment.Chargebacks {n}.Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
 |&lt;/code&gt;Payment.Chargebacks [n].RawData&lt;code class=&quot;highlighter-rouge&quot;&gt;|Data sent by the acquirer and may be the cardholder or other message|Text|512|Alphanumeric text|
-|PaymentId|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|&lt;/code&gt;PaymentId&lt;code class=&quot;highlighter-rouge&quot;&gt;|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |&lt;/code&gt;ReceivedDate&lt;code class=&quot;highlighter-rouge&quot;&gt;|Date the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
 |&lt;/code&gt;Payment.ReasonCode&lt;code class=&quot;highlighter-rouge&quot;&gt;|Acquisition Return Code|Text|32|Alphanumeric|
 |&lt;/code&gt;Payment.ReasonMessage&lt;code class=&quot;highlighter-rouge&quot;&gt;|Acquisition Return Message|Text|512|Alphanumeric|
@@ -20679,7 +20476,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;Chargeback Notification  &lt;br /&gt; For More Details [Risk Notification] (https://braspag.github.io//manual/risknotification)&lt;/td&gt;
+      &lt;td&gt;Chargeback Notification  &lt;br /&gt; For More Details &lt;a href=&quot;https://braspag.github.io//manual/risknotification&quot;&gt;Risk Notification&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

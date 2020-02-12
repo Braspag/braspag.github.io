@@ -1,149 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="theme-color" content="#00aeef">
-    <meta http-equiv="Content-Language" content="en">
+<p>site.baseurl_root—
+layout: manual
+title: API Rest Integration Guide
+description: Gateway Braspag technical integration
+search: true
+translated: true
+categories: manual
+tags:
+    - Pagador
+language_tabs:
+  json: JSON
+  shell: cURL
+  html: HTML
+—</p>
 
-    <!-- Enable responsiveness on mobile devices-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-    <title>
-        
-        API Rest Integration Guide &middot; Documentações e tutoriais
-        
-    </title>
-
-    <link rel="shortcut icon" href="https://braspag.github.io//en/assets/favicon.png">
-
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
-    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/poole.css">
-    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/syntax.css">
-    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/hyde.css">
-
-    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/jquery.tocify.css">
-    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/prettify.css">
-    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/custom.css">
-    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/braspag.css">
-
-    
-        
-            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//en/manual/braspag-pagador" />
-        
-    
-        
-            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/en/manual/braspag-pagador" />
-        
-    
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//en/atom.xml">
-</head>
-
-    <body>
-        
-        <div class="content-container">
-            <div class="language-tabs">
-                <a class='hide-btn' id="hide-button" title="Toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="language-buttons">
-                    
-                    <li><a data-language-name='json'>JSON</a></li>
-                    
-                    <li><a data-language-name='shell'>cURL</a></li>
-                    
-                    <li><a data-language-name='html'>HTML</a></li>
-                    
-                </ul>
-            </div>
-            <div class="dark-box"></div>
-            <div class="overlay"></div>
-        
-            <div id="submenu">
-                <div class="submenu-container">
-                    <div class="submenu-row sub-items">
-                        <div class="submenu-itens">
-                            <a href="http://www.braspag.com.br/suporte/" class="help">Help</a>
-
-                            
-                            <div class="lang">
-                                <span>Languages</span>
-
-                                
-                                    
-                                    <a href="https://braspag.github.io//manual/braspag-pagador">
-                                    
-
-                                        <img alt="Português" src="https://braspag.github.io//en/assets/images/pt.png"/>
-                                    </a>
-                                
-                                    
-                                    <a href="https://braspag.github.io//en/manual/braspag-pagador">
-                                    
-
-                                        <img alt="English" src="https://braspag.github.io//en/assets/images/en.png"/>
-                                    </a>
-                                
-                            </div>
-                            
-                        </div>
-
-                        
-                        <div class="search">
-                            <input type="text" class="search" id="input-search">
-                        </div>
-                    </div>
-                    <div class="submenu-row results">
-                        <div class="search-results-container">
-                            <ul class="search-results"></ul>
-                        </div>
-                    </div>
-                        
-
-                    <div class="submenu-row breads">
-                        <ol class="breadcrumb">
-                            
-                            <li><a href="https://braspag.github.io//en/">Home</a></li>
-                            
-                            
-                            
-                            
-                                
-                                    
-                                    
-                                    
-                                    
-                                    
-                                        
-                                    
-                                        
-                                    
-                                        
-                                    
-                                
-                            
-                                
-                                    
-                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/braspag-pagador">API Rest Integration Guide</a></li>
-                                    
-                                
-                            
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-            <div class="post">
-  <h1 id="introduction-to-the-pagador-api">Introduction to the Pagador API</h1>
+<h1 id="introduction-to-the-pagador-api">Introduction to the Pagador API</h1>
 
 <p><strong>The purpose of this documentation is to guide the developer on how to integrate with the Pagador API, Braspag’s payment gateway, describing the services available with request and response examples.</strong></p>
 
-<p>All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:<strong>Sandbox</strong> and <strong>Production</strong>. [To perform] (https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.</p>
+<p>All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:<strong>Sandbox</strong> and <strong>Production</strong>. <a href="https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md">To perform</a> an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.</p>
 
 <h2 id="environments">Environments</h2>
 
@@ -161,7 +35,7 @@
   <tbody>
     <tr>
       <td>API Access Credentials</td>
-      <td>Visit [Sandbox Signup] (https://cadastrosandbox.braspag.com.br/) and create a test account.<br />At the end of registration you will receive a <code class="highlighter-rouge">MerchantId</code> and a <code class="highlighter-rouge">MerchantKey</code><br /> which will be used to authenticate all requests made to the API</td>
+      <td>Visit <a href="https://cadastrosandbox.braspag.com.br/">Sandbox Signup</a> and create a test account.<br />At the end of registration you will receive a <code class="highlighter-rouge">MerchantId</code> and a <code class="highlighter-rouge">MerchantKey</code><br /> which will be used to authenticate all requests made to the API</td>
     </tr>
     <tr>
       <td>Transactional Endpoint</td>
@@ -203,11 +77,10 @@
 
 <h2 id="braspags-support">Braspag’s Support</h2>
 
-<aside class="notice">Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish</aside>
-<p>.</p>
+<aside class="notice">Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish.</aside>
 
 <ul>
-  <li>Web Support: [Zendesk] (http://suporte.braspag.com.br/)</li>
+  <li>Web Support: <a href="http://suporte.braspag.com.br/">Zendesk</a></li>
 </ul>
 
 <h2 id="about-the-api">About the API</h2>
@@ -261,7 +134,7 @@
 
 <p>To authorize a credit transaction, you must follow the agreement below. Your affiliation data is submitted in the <code class="highlighter-rouge">Payment.Credentials</code> node, and must be submitted whenever a new authorization request is submitted for approval.</p>
 
-<p>If your store uses Retry or Loadbalance services, affiliations must be registered by the customer support team. To request an affiliation registration, click [here] (http://suporte.braspag.com.br/).</p>
+<p>If your store uses Retry or Loadbalance services, affiliations must be registered by the customer support team. To request an affiliation registration, click <a href="http://suporte.braspag.com.br/">here</a>.</p>
 
 <aside class="notice">The parameters contained in the `Address` and `DeliveryAddress` nodes are required when the transaction is submitted to the Velocity or Antifraud Analysis. In the parameter table below, they are marked with an * in the required column.</aside>
 
@@ -312,13 +185,17 @@
       </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Message"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"DoSplit"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000181"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cardholder Name"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Alias"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+         </span><span class="nl">"Alias"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"Credentials"</span><span class="p">:{</span><span class="w">  
          </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
@@ -394,7 +271,11 @@ curl
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>,
-         <span class="s2">"Alias"</span>:<span class="s2">""</span>
+         <span class="s2">"Alias"</span>:<span class="s2">""</span>,
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
+         <span class="o">}</span>
       <span class="o">}</span>,
       <span class="s2">"Credentials"</span>:<span class="o">{</span>  
          <span class="s2">"code"</span>:<span class="s2">"9999999"</span>,
@@ -739,7 +620,7 @@ curl
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). Ex. 001</td>
+      <td>Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). E.g.: 001</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -790,13 +671,26 @@ curl
       <td>No</td>
       <td>Name given by merchant to card saved as CardToken</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>No</td>
+      <td><strong>Applicable only on Provider=Cielo30</strong><br /><strong>First</strong> if the card has been stored and is your first use.<br /><strong>Used</strong> if the card has been stored and it has been used previously in another transaction</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Condicional</td>
+      <td><strong>Applicable only on Provider=Cielo30</strong><br />Indicates the purpose of card storage, if the field “Usage” is “Used”.<br /><strong>Recurring</strong> - Scheduled recurring purchase (e.g.: subscription services)<br /><strong>Unscheduled</strong> - Unscheduled recurring purchase (e.g.: serices apps)<br /><strong>Installments</strong> - Installments trough recurrency</td>
+    </tr>
   </tbody>
 </table>
 
 <h4 id="response">Response</h4>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Shopper Name"</span><span class="p">,</span><span class="w">
@@ -838,7 +732,11 @@ curl
             </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Alias"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+            </span><span class="nl">"Alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"Credentials"</span><span class="p">:{</span><span class="w">
             </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
@@ -886,11 +784,9 @@ curl
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
@@ -935,7 +831,11 @@ curl
             <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
             <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>,
             <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-            <span class="s2">"Alias"</span>:<span class="s2">""</span>
+            <span class="s2">"Alias"</span>: <span class="s2">""</span>,
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
+         <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"Credentials"</span>:<span class="o">{</span>
             <span class="s2">"code"</span>:<span class="s2">"9999999"</span>,
@@ -1071,7 +971,7 @@ curl
       <td>Transaction Status</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
@@ -1094,7 +994,7 @@ curl
 
 <p>A transaction submitted with the <code class="highlighter-rouge">Payment.Capture</code> parameter equal to <em>false</em> needs a capture request to commit the transaction later.</p>
 
-<p>Transactions not captured within 15 days (or less, depending on the acquirer) are automatically terminated by Acquirers. Customers may have specific negotiations with Acquirers that extend this time.</p>
+<p>Authorizations that are not captured until the <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">deadline</a> are automatically released by the Acquires. Merchants may have specific negotiations with the Acquires to change this capture deadline.</p>
 
 <h4 id="request-1">Request</h4>
 
@@ -1234,7 +1134,7 @@ curl
       <td>Transaction Status.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReasonCode</code></td>
@@ -1257,7 +1157,7 @@ curl
 
 <p>When a transaction is sucessfully authenticated the liabity shifts to the issuer, i.e. the merchant will not be liable in the event of any dispute and chargeback.</p>
 
-<p>There are two ways to authenticate transactions with Braspag:<strong>Standard</strong>when the merchant does not have a direct connection to an authenticator (MPI), and expects the payment method to redirect the customer to the authentication environment.<strong>External</strong>when the merchant has its own authenticator (MPI) and does not expect the payment method to redirect its consumer to the authentication environment.</p>
+<p>There are two ways to authenticate transactions with Braspag: <strong>Standard</strong> when the merchant does not have a direct connection to an authenticator (MPI), and expects the payment method to redirect the customer to the authentication environment. <strong>External</strong> when the merchant has its own authenticator (MPI) and does not expect the payment method to redirect its consumer to the authentication environment.</p>
 
 <h4 id="standard-authentication">Standard Authentication</h4>
 
@@ -1592,7 +1492,7 @@ curl
       <td>Transaction Status</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
@@ -2154,7 +2054,7 @@ curl
       <td>Transaction Status</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
@@ -2266,7 +2166,7 @@ The example below covers the minimum required fields to be submitted for authori
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
-      <td>Payment method type. Send<strong>qrcode</strong>for payment with QR Code.</td>
+      <td>Payment method type. Send <strong>qrcode</strong> for payment with QR Code.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
@@ -2290,7 +2190,7 @@ The example below covers the minimum required fields to be submitted for authori
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Capture</code></td>
-      <td>Submit<strong>true</strong>for a transaction with auto capture.</td>
+      <td>Submit <strong>true</strong> for a transaction with auto capture.</td>
       <td>Boolean</td>
       <td>-</td>
       <td>No</td>
@@ -2427,48 +2327,9 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>To cancel a credit card transaction, you must PUT the Payment feature as shown.</p>
 
-<p>Below is the list of acquirers with whom we have integration for refund requests:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Acquirer</th>
-      <th>Maximum Deadline for Requesting Reversal</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cielo</td>
-      <td>300 days</td>
-    </tr>
-    <tr>
-      <td>Rede</td>
-      <td>Komerci integration: 90 days; eRede integration: 60 days</td>
-    </tr>
-    <tr>
-      <td>Getnet</td>
-      <td>90 days</td>
-    </tr>
-    <tr>
-      <td>Transbank</td>
-      <td>90 days</td>
-    </tr>
-    <tr>
-      <td>Banorte</td>
-      <td>30 days</td>
-    </tr>
-    <tr>
-      <td>First Data</td>
-      <td>90 days</td>
-    </tr>
-    <tr>
-      <td>Alelo</td>
-      <td>300 days</td>
-    </tr>
-  </tbody>
-</table>
-
 <aside class="warning">Availability of Refund service varies from acquirer to acquirer.</aside>
+
+<p>Each acquirer has its deadlines to allow the refund of a transaction. In this <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">article</a> you can check each one.</p>
 
 <h4 id="request-6">Request</h4>
 
@@ -2588,7 +2449,7 @@ curl
       <td>Transaction Status.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
@@ -2685,14 +2546,14 @@ curl
       <td> </td>
     </tr>
     <tr>
-      <td>`VelocityAnalysis.RejectReasons.RuleId</td>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
       <td>Rejected Rule Code</td>
       <td>Number</td>
       <td>10</td>
       <td> </td>
     </tr>
     <tr>
-      <td>`VelocityAnalysis.RejectReasons.Message</td>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
       <td>Description of the rule that cause rejection</td>
       <td>Text</td>
       <td>512</td>
@@ -2707,7 +2568,7 @@ curl
 
 <p>In order to promote greater control and security to the transactional boleto in e-commerce and ensure more reliability and convenience to users, Febraban together with the Banks launched the New Charging Platform.</p>
 
-<p>From July 21, 2018, all boletos issued in e-commerce must be registered. [Click here] (https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos) to access the full announcement.</p>
+<p>From July 21, 2018, all boletos issued in e-commerce must be registered. <a href="https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos">Click here</a> to access the full announcement.</p>
 
 <p>Follow below the migration/membership procedures for each bank:</p>
 
@@ -2949,7 +2810,7 @@ curl
       <td>15</td>
       <td>Yes</td>
       <td>Payment method provider’s name</td>
-      <td>[Click here] (https://braspag.github.io/manual/braspag-payment#providers-para-boleto-with-registration) to access the list of providers.</td>
+      <td><a href="https://braspag.github.io/manual/braspag-payment#providers-para-boleto-with-registration">Click here</a> to access the list of providers.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
@@ -3352,17 +3213,52 @@ curl
   </tbody>
 </table>
 
-<p>Remarks/Details:
-|—|—|
-|<strong>obs 1:</strong>|Only letters, numbers, and characters like “_” and “$”|
-|<strong>obs 2:</strong>|If it exceeds 11 digits, the API will generate an incremental number from the defined configuration|
-|<strong>obs 3:</strong>|The value must be unique, ie the bank does not allow repeating previously used values|
-|<strong>obs 4:</strong>|When submitted over 9 positions, the API considers the last 9 digits|
-|<strong>obs 5:</strong>|Must always be the same as Order Number (MerchantOrderId)|
-|<strong>obs 6:</strong>|The API automatically concatenates the value “14” + 12 free digits + check digit before sending it to the bank. If the total exceeds 14 digits, the API considers last 14 digits|
-|<strong>obs 7:</strong>|When sent more than allowed, the API generates a random number|
-|<strong>obs 8:</strong>|The following are accepted as valid characters: numbers, letters A through Z (UPPERCASE); conjunction special characters: hyphen (-), apostrophe (‘). When used it cannot contain spaces between letters; Correct examples: D’EL-REI, D’ALCORTIVO, SANT’ANA. Incorrect examples: D’EL - REI; up to a blank space between words|
-|<strong>obs 9:</strong>|Special characters and accents will be removed automatically|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Remarks</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>obs 1:</strong></td>
+      <td>Only letters, numbers, and characters like “_” and “$”</td>
+    </tr>
+    <tr>
+      <td><strong>obs 2:</strong></td>
+      <td>If it exceeds 11 digits, the API will generate an incremental number from the defined configuration</td>
+    </tr>
+    <tr>
+      <td><strong>obs 3:</strong></td>
+      <td>The value must be unique, i.e., the bank does not allow repeating previously used values</td>
+    </tr>
+    <tr>
+      <td><strong>obs 4:</strong></td>
+      <td>When submitted over 9 positions, the API considers the last 9 digits</td>
+    </tr>
+    <tr>
+      <td><strong>obs 5:</strong></td>
+      <td>Must always be the same as Order Number (MerchantOrderId)</td>
+    </tr>
+    <tr>
+      <td><strong>obs 6:</strong></td>
+      <td>The API automatically concatenates the value “14” + 12 free digits + check digit before sending it to the bank. If the total exceeds 14 digits, the API considers last 14 digits</td>
+    </tr>
+    <tr>
+      <td><strong>obs 7:</strong></td>
+      <td>When sent more than allowed, the API generates a random number</td>
+    </tr>
+    <tr>
+      <td><strong>obs 8:</strong></td>
+      <td>The following are accepted as valid characters: numbers, letters A through Z (UPPERCASE); conjunction special characters: hyphen (-), apostrophe (‘). When used it cannot contain spaces between letters; Correct examples: D’EL-REI, D’ALCORTIVO, SANT’ANA. Incorrect examples: D’EL - REI; up to a blank space between words</td>
+    </tr>
+    <tr>
+      <td><strong>obs 9:</strong></td>
+      <td>Special characters and accents will be removed automatically</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="recurring">Recurring</h2>
 
@@ -3376,7 +3272,7 @@ curl
 
 <h3 id="authorize-a-recurring-transaction">Authorize a recurring transaction</h3>
 
-<p>Add the <code class="highlighter-rouge">RecurrentPayment</code> node to the<code class="highlighter-rouge"> Payment</code> node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.</p>
+<p>Add the <code class="highlighter-rouge">RecurrentPayment</code> node to the <code class="highlighter-rouge">Payment</code> node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.</p>
 
 <h4 id="request-8">Request</h4>
 
@@ -3688,7 +3584,7 @@ curl
 
 <p>Unlike the previous recurrence, this example does not immediately authorize, but schedules a future authorization.</p>
 
-<p>To schedule the first transaction in the recurrence series, pass the <code class="highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> parameter to <em>” false “</em> and add the<code class="highlighter-rouge"> Payment.RecurrentPayment.StartDate</code> parameter.</p>
+<p>To schedule the first transaction in the recurrence series, pass the <code class="highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> parameter to <em>“false”</em> and add the <code class="highlighter-rouge">Payment.RecurrentPayment.StartDate</code> parameter.</p>
 
 <h4 id="request-9">Request</h4>
 
@@ -5692,12 +5588,12 @@ HTTP Status 200
     </tr>
     <tr>
       <td> </td>
-      <td style="text-align: center">[* VisaCheckout *] (https://vaidevisa.visa.com.br/site/visa-checkout)</td>
+      <td style="text-align: center"><a href="https://vaidevisa.visa.com.br/site/visa-checkout"><em>VisaCheckout</em></a></td>
       <td> </td>
     </tr>
     <tr>
       <td> </td>
-      <td style="text-align: center">[* MasterPass *] (https://masterpass.com/)</td>
+      <td style="text-align: center"><a href="https://masterpass.com/"><em>MasterPass</em></a></td>
       <td> </td>
     </tr>
   </tbody>
@@ -6008,14 +5904,14 @@ HTTP Status 200
   </thead>
   <tbody>
     <tr>
-      <td>ProofOfSale</td>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
       <td>Authorization number, identical to NSU.</td>
       <td>Text</td>
       <td>6</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td>TID</td>
+      <td><code class="highlighter-rouge">TID</code></td>
       <td>Transaction Id on the acquirer.</td>
       <td>Text</td>
       <td>20</td>
@@ -6126,7 +6022,7 @@ HTTP Status 200
 
 <p>Once hiring is effective, you will be given access to the “Apple Developer” panel, and you will need to create <code class="highlighter-rouge">MerchantIdentifier</code>. To do so, perform the steps below:</p>
 <ol>
-  <li>Log in to [Apple Developer] (https://developer.apple.com/)</li>
+  <li>Log in to <a href="https://developer.apple.com/">Apple Developer</a></li>
   <li>Select <strong>Certificate, IDs &amp; Profile</strong></li>
   <li>Within the “Identifiers” area click “Merchant IDs”</li>
   <li>Click on the <strong>+</strong> in the right corner below the “Registering a Merchant ID”</li>
@@ -6142,12 +6038,12 @@ HTTP Status 200
 <p>After submitting the <code class="highlighter-rouge">MerchantIdentifier</code> to the Braspag team, the store will receive the <code class="highlighter-rouge">PEM</code> extension certificate and should follow these steps:</p>
 
 <ol>
-  <li>Log in to [Apple Developer] (https://developer.apple.com/)</li>
+  <li>Log in to <a href="https://developer.apple.com/">Apple Developer</a></li>
   <li>Select <strong>Certificate, IDs &amp; Profiles</strong>
 <img src="https://braspag.github.io//images/apple-paymid.jpg" alt="Apple Pay" /></li>
   <li>
     <p>Upload the certificate
-![<a href="https://braspag.github.io//images/apple-pay.jpg">Apple Pay</a></p>
+![<a href="/images/apple-pay.jpg">Apple Pay</a></p>
   </li>
   <li>End the process</li>
 </ol>
@@ -6164,7 +6060,7 @@ HTTP Status 200
 
 <h5 id="step-4-apple-pay-integration">Step 4. Apple Pay Integration</h5>
 
-<p>Integration requires two steps: The first is direct integration with the Apple solution to make the “Pay with Apple Pay” button available on your website or application. To this end, the Apple team will follow closely. [Click here] (https://developer.apple.com/apple-pay/) to access Apple technical documentation.</p>
+<p>Integration requires two steps: The first is direct integration with the Apple solution to make the “Pay with Apple Pay” button available on your website or application. To this end, the Apple team will follow closely. <a href="https://developer.apple.com/apple-pay/">Click here</a> to access Apple technical documentation.</p>
 
 <p>At this stage, you do not need to perform the process of encrypting data returned by Apple. This work will be performed by Braspag through the procedures described in the next step.</p>
 
@@ -6177,7 +6073,7 @@ HTTP Status 200
 <p>Default Request Example <em>Apple Pay</em></p>
 
 <blockquote>
-  <p>It is necessary that the store already has registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API&gt;</p>
+  <p>It is necessary that the store already has registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API</p>
 </blockquote>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
@@ -6274,7 +6170,7 @@ HTTP Status 200
       <td>Order Amount (in cents)</td>
     </tr>
     <tr>
-      <td>Payment.Provider</td>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
@@ -6387,14 +6283,14 @@ HTTP Status 200
   </thead>
   <tbody>
     <tr>
-      <td>ProofOfSale</td>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
       <td>Authorization number, identical to NSU.</td>
       <td>Text</td>
       <td>6</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td>TID</td>
+      <td><code class="highlighter-rouge">TID</code></td>
       <td>Transaction Id on the acquirer.</td>
       <td>Text</td>
       <td>20</td>
@@ -6480,7 +6376,7 @@ HTTP Status 200
 <p>Default Request Example <em>Samsung Pay</em></p>
 
 <blockquote>
-  <p>It is necessary that the store already has registration and a Samsung Pay integration, otherwise it will not be possible to integrate with the API&gt;</p>
+  <p>It is necessary that the store already has registration and a Samsung Pay integration, otherwise it will not be possible to integrate with the API</p>
 </blockquote>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
@@ -7062,7 +6958,9 @@ HTTP Status 200
 
 <h4 id="masterpass">MasterPass</h4>
 
-<p>To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.</p>
+<blockquote>
+  <p>To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.</p>
+</blockquote>
 
 <h4 id="request-23">Request</h4>
 
@@ -7359,7 +7257,9 @@ HTTP Status 200
 
 <h4 id="visa-checkout">Visa Checkout</h4>
 
-<p>To use <em>Visa Checkout</em> you need to contract the service by contacting Visa directly.</p>
+<blockquote>
+  <p>To use <em>Visa Checkout</em> you need to contract the service by contacting Visa directly.</p>
+</blockquote>
 
 <h4 id="request-24">Request</h4>
 
@@ -8816,7 +8716,7 @@ curl
       <td>Transaction Status</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
@@ -9131,7 +9031,7 @@ curl
       <td>Transaction Status</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
@@ -9444,7 +9344,7 @@ curl
       <td>Transaction Status</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
@@ -9989,7 +9889,7 @@ curl
       <td>Text</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Billing Address Country. More information at [ISO 2-Digit Alpha Country Code] (https://www.iso.org/obp/ui)</td>
+      <td>Billing Address Country. More information at <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.District</code></td>
@@ -10045,7 +9945,7 @@ curl
       <td>Text</td>
       <td>2</td>
       <td>No</td>
-      <td>Delivery address country. More information at [ISO 2-Digit Alpha Country Code] (https://www.iso.org/obp/ui)</td>
+      <td>Delivery address country. More information at <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
@@ -10528,20 +10428,20 @@ curl
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Departure airport code. More information at [IATA 3-Letter Codes] (http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)</td>
+      <td>Departure airport code. More information at <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Airport code of arrival. More information at [IATA 3-Letter Codes] (http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)</td>
+      <td>Airport code of arrival. More information at <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p>The fields of the <code class="highlighter-rouge">FraudAnalysis.Travel</code> node become mandatory if your business segment is aerial.&gt;</p>
+  <p>The fields of the <code class="highlighter-rouge">FraudAnalysis.Travel</code> node become mandatory if your business segment is an airline company.</p>
 </blockquote>
 
 <h5 id="response-33">Response</h5>
@@ -10951,857 +10851,613 @@ curl
       <th style="text-align: left">Property</th>
       <th style="text-align: left">Type</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
       <td style="text-align: left">Text</td>
-      <td style="text-align: left">50</td>
-      <td>Yes</td>
-      <td>Store Order Number</td>
+      <td style="text-align: left">Store Order Number</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Name</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Shopper’s full name</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Identity</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Shopper’s identification number</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.IdentityType</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Shopper ID Type</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Shopper’s Email</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Birthdate</code></td>
       <td style="text-align: left">Date</td>
       <td style="text-align: left">Shopper’s Date of Birth</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Phone</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Shopper’s Phone Number</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Street</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Billing Address Street</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Number</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Billing Address Number</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Complement</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Billing Address Supplement</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Billing Address Postcode</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.City</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">City of Billing Address</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.State</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Billing Address State</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Country</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Billing Address Country</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.District</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Billing Address Neighborhood</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Delivery Address Street</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Delivery Address Number</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Delivery Address Supplement</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Delivery Address Zipcode</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Delivery Address City</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Delivery Address Status</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Delivery address country.</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Delivery Address Neighborhood</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Provider</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Name of authorization provider</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Type</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Type of payment method</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Amount</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Transaction amount in cents</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Amount of authorization amount to be used for service charge</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Currency</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Currency in which payment will be made</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Country</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Country in which payment will be made</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Installments</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Number of installments</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Interest</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Installment Type</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Capture</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Indicates whether authorization should be with automatic capture</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Authenticate</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Indicates whether the transaction should be authenticated</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Recurrent</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Indicates whether the transaction is a recurring type</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Text that will be printed on the invoice</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.DoSplit</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Indicates whether the transaction will be split among multiple participants</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Extra field identifier to be sent</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Extra field value to be sent</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Code</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Acquirer affiliation</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Key</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Affiliate/Token Key generated by acquirer</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Username</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">User generated on Accreditation with acquirer Getnet</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Password</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Password generated on Accreditation with Buyer Getnet</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Signature</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Terminal ID on affiliation with Acquirer Global Payments</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Credit Card Number</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Holder name printed on credit card</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Credit Card Expiration Date</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Security Code printed on the back of Credit Card</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Credit Card brand</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Indicates whether credit card data will be stored on Cartão Protegido</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Alias</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Credit Card Alias saved to Cartão Protegido</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.CardToken</code></td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Credit card identifier saved on Cartão Protegido</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Fraud Analysis Flow Type</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Fraud Analysis Flow Criteria</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Anti-fraud provider</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Indicates if transaction after fraud analysis will be captured</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Indicates whether the transaction after fraud analysis will be canceled</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Total order value in cents</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Identifier used to crosscheck information obtained from the shopper’s device.</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.HostName</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Host name entered by the shopper’s browser and identified through the HTTP header</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.CookiesAccepted</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Identifies if the buyer’s browser accepts cookies</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.Email</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Email registered in the shopper’s browser. May differ from store registration email (<code class="highlighter-rouge">Customer.Email</code>)</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.Type</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Name of browser used by shopper and identified through HTTP header</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Shopper’s IP Address. IPv4 or IPv6 format</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Indicates if the order placed by the shopper is for gift</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Indicates if the order placed by the buyer can be returned to the store</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.GiftCategory</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Identifies that will evaluate the billing and delivery addresses for different cities, states or countries</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.HostHedge</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Importance level of buyer IP and email addresses in fraud analysis</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Importance level of meaningless buyer data checks in fraud analysis</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Importance level of buyer data checks with obscenity in fraud analysis</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.PhoneHedge</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Importance level of buyer phone number checks in fraud analysis</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Product Name</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Product Quantity</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Stock Keeping Unit (SKU) of the product</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Unit price of the product</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Risk</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Product risk level associated with chargeback amount</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.TimeHedge</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Level of importance of the time of day in the fraud analysis the buyer placed the order</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Type</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Product Category</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.VelocityHedge</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Importance level of buyer purchase frequency in fraud analysis within 15 minutes</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Id</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">ID of the additional information to be sent</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Value</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Value of additional information to be sent</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Full name of person responsible for receiving product at shipping address</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Order Delivery</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Phone number of the receiving party at shipping address</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.JourneyType</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Trip Type</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date and time of departure</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Passenger Full Name</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Identity</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Passenger Document Number</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Status</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Airline Classification</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Rating</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Passenger Type</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Email</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Passenger Email</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Phone</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Passenger Phone</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Departure airport code</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Airport code of arrival</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Id</code></td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Antifraud Transaction Id Braspag</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Status</code></td>
       <td style="text-align: left">Number</td>
-      <td style="text-align: left">Antifraude Transaction Status Braspag  <br /> [List of Values - Payment.FraudAnalysis.Status] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status)</td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: left">Antifraude Transaction Status Braspag  <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status">List of Values - Payment.FraudAnalysis.Status</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.FraudAnalysisReasonCode</code></td>
       <td style="text-align: left">Number</td>
-      <td style="text-align: left">Cybersouce Return Code [  <br /> List of Values - Payment.FraudAnalysis.FraudAnalysisReasonCode] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode)</td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: left">Cybersouce Return Code <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode">  <br /> List of Values - Payment.FraudAnalysis.FraudAnalysisReasonCode</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.AddressInfoCode</code></td>
       <td style="text-align: left">Text</td>
-      <td style="text-align: left">Codes indicate incompatibilities between buyer billing and delivery addresses  <br /> Codes are concatenated using the character ^ E.g.: COR-BA ^ MM-BIN  <br /> [List of Payments - Payment. FraudAnalysis.ReplyData.AddressInfoCode] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode)</td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: left">Codes indicate incompatibilities between buyer billing and delivery addresses  <br /> Codes are concatenated using the character ^ E.g.: COR-BA ^ MM-BIN  <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode">List of Payments - Payment. FraudAnalysis.ReplyData.AddressInfoCode</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.FactorCode</code></td>
       <td style="text-align: left">Text</td>
-      <td style="text-align: left">Codes that affected the analysis score  <br /> Codes are concatenated using the ^ character. E.g.: B ^ D ^ R ^ Z <br />[List of Values - ProviderAnalysisResult.AfsReply.FactorCode] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode)</td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: left">Codes that affected the analysis score  <br /> Codes are concatenated using the ^ character. E.g.: B ^ D ^ R ^ Z <br /><a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode">List of Values - ProviderAnalysisResult.AfsReply.FactorCode</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.Score</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Score from fraud analysis. Value between 0 and 100</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.BinCountry</code></td>
       <td style="text-align: left">Text</td>
-      <td style="text-align: left">Card BIN country code used in the analysis. More information at [ISO 2-Digit Alpha Country Code] (https://www.iso.org/obp/ui)</td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: left">Card BIN country code used in the analysis. More information at <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.CardIssuer</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Name of bank or credit card issuer</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.CardScheme</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Card Brand</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.HostSeverity</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Shopper’s email domain risk level, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.InternetInfoCode</code></td>
       <td style="text-align: left">Text</td>
-      <td style="text-align: left">Codes that indicate problems with the email address, IP address, or billing address  <br /> Codes are concatenated using the ^ character. E.g.: FREE-EM ^  RISK-EM <br /> [List of Payments - Payment.FraudAnalysis.ReplyData.InternetInfoCode] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode)</td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: left">Codes that indicate problems with the email address, IP address, or billing address  <br /> Codes are concatenated using the ^ character. E.g.: FREE-EM ^  RISK-EM <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode">List of Payments - Payment.FraudAnalysis.ReplyData.InternetInfoCode</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.IpRoutingMethod</code></td>
       <td style="text-align: left">Text</td>
-      <td style="text-align: left">Buyer routing method obtained from the IP Address  <br /> [Value List - Payment.FraudAnalysis.ReplyData.IpRoutingMethod] (https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod)</td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: left">Buyer routing method obtained from the IP Address  <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod">Value List - Payment.FraudAnalysis.ReplyData.IpRoutingMethod</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.ScoreModelUsed</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Name of the score model used in the analysis. If you have no template defined, the default template from Cybersource was used</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.CasePriority</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Defines the priority level of merchant rules or profiles. The priority level ranges from 1 (highest) to 5 (lowest) and the default value is 3, and this will be assigned if you have not set the priority of rules or profiles. This field is only returned if the store subscribes to Enhanced Case Management</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.ProviderTransactionId</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Transaction Id in Cybersource</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.PaymentId</code></td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Transaction identifier in Pagador Braspag</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.AcquirerTransactionId</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Transaction identifier on acquirer</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ProofOfSale</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Voucher number at the acquirer (NSU - Unique Transaction Sequence Number)</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.AuthorizationCode</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Authorization Code on Purchaser</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
       <td style="text-align: left">Datetime</td>
       <td style="text-align: left">Date the transaction was received at the Brapag Payer <br /> E.g.: 2018-01-16 16: 38: 19</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CapturedDate</code></td>
       <td style="text-align: left">Datetime</td>
       <td style="text-align: left">Date the transaction was captured on the acquirer  <br /> E.g.: 2018-01-16 16: 38: 20</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.CapturedAmount</code></td>
       <td style="text-align: left">Number</td>
       <td style="text-align: left">Amount captured from transaction  <br /> E.g.: 123456 = $ 1,234.56</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ECI</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Electronic Commerce Indicator. Code generated in a credit transaction with external authentication</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ReasonCode</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Return Code of Operation</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ReasonMessage</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Return Message from Operation</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.Status</code></td>
       <td style="text-align: left">Number</td>
-      <td style="text-align: left">Transaction Status on Pagador <br /> [Transaction Status List] (https://braspag.github.io/manual/braspag-pagador#lista-de-status-transação)</td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: left">Transaction Status on Pagador <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-status-transação">Transaction Status List</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ProviderReturnCode</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Code returned by acquirer or bank</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Payment.ProviderReturnMessage</code></td>
       <td style="text-align: left">Text</td>
       <td style="text-align: left">Message returned by acquirer or bank</td>
-      <td> </td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -11857,7 +11513,7 @@ There are two variables to fill in the Javascript URL. The <code class="highligh
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">session_id</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge"> ProviderMerchantId</code> = Identifier of your Cybersource store. If not, contact Braspag  <br /> <code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code> = Identifier used to crosscheck information obtained from the shopper’s device.  <br /> Note: This identifier can be any value or order number, but must be unique for 48 hours.</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProviderMerchantId</code> = Identifier of your Cybersource store. If not, contact Braspag  <br /> <code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code> = Identifier used to crosscheck information obtained from the shopper’s device.  <br /> Note: This identifier can be any value or order number, but must be unique for 48 hours.</td>
     </tr>
   </tbody>
 </table>
@@ -11870,7 +11526,7 @@ There are two variables to fill in the Javascript URL. The <code class="highligh
 
 <p>The variables, when properly filled in, would provide a URL similar to the example below:</p>
 
-<p>![Url Example] (https://braspag.github.io/images/braspag/af/urldfp.png)</p>
+<p><img src="https://braspag.github.io/images/braspag/af/urldfp.png" alt="Url Example" /></p>
 
 <aside class="warning">Be sure to copy all data correctly and have replaced the variables correctly with their values.</aside>
 
@@ -11883,7 +11539,7 @@ There are two variables to fill in the Javascript URL. The <code class="highligh
 <h3 id="mobile-application-integration">Mobile Application Integration</h3>
 
 <p><strong>Downloading the SDK</strong>
-If you have not yet downloaded the iOS or Android SDK, you must do so before continuing. To do so, access one of the links below as desired.<br /> [Download iOS SDK Deviceprint] (https://braspag.github.io//files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip)  <br /> [Download Android SDK Deviceprint] (https://braspag.github.io//files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip)</p>
+If you have not yet downloaded the iOS or Android SDK, you must do so before continuing. To do so, access one of the links below as desired.<br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip">Download iOS SDK Deviceprint</a>  <br /> <a href="https://braspag.github.io//files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip">Download Android SDK Deviceprint</a></p>
 
 <h1 id="queries">Queries</h1>
 
@@ -12104,7 +11760,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 </code></pre></div></div>
 
 <p>|Property|Description|Type|Size|Format|
-|———–|———|—-|——-|——-|
+|——–|———–|—-|—-|——-|
 |<code class="highlighter-rouge">MerchantOrderId</code>|Order ID|Text|50|Alphanumeric|
 |<code class="highlighter-rouge">Customer.Name</code>|Shopper’s Name|Text|255|Alphanumeric|
 |<code class="highlighter-rouge">Customer.Identity</code>|Customer ID, CPF or CNPJ number|Text|14|Alphanumeric text|
@@ -12115,7 +11771,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 |<code class="highlighter-rouge">Customer.Address.Number</code>|Shopper’s Contact Number|Text|15|Alphanumeric|
 |<code class="highlighter-rouge">Customer.Address.Complement</code>|Shopper’s Contact Address Supplement|Text|50|Alphanumeric|
 |<code class="highlighter-rouge">Customer.Address.ZipCode</code>|Shopper’s Contact Address Zip Code|Text|9|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Address.City</code>|City of Shopper’s contact address|Text|50|Alphanumeric text|
+|<code class="highlighter-rouge">Customer.Address.City</code>|City of Shopper’s contact address|Text|50|Alphanumeric|
 |<code class="highlighter-rouge">Customer.Address.State</code>|Shopper’s Contact Address Status|Text|2|Alphanumeric|
 |<code class="highlighter-rouge">Customer.Address.Country</code>|Shopper’s Contact Address Country|Text|35|Alphanumeric|
 |<code class="highlighter-rouge">Customer.Address.District</code>|Shopper’s Neighborhood|Text|50|Alphanumeric|
@@ -12142,16 +11798,16 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 |<code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code>|Name of the field to be written Extra Data|Text|50|Alphanumeric text|
 |<code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code>|Value of the field to be written Extra Data|Text|1024|Alphanumeric text|
 |<code class="highlighter-rouge">AcquirerTransactionId</code>|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|ProofOfSale|Proof of Sale Number|Text|20|Alphanumeric|
+|<code class="highlighter-rouge">ProofOfSale</code>|Proof of Sale Number|Text|20|Alphanumeric|
 |<code class="highlighter-rouge">Payment.AuthorizationCode</code>|Authorization code|Text|300|Alphanumeric text|
 |<code class="highlighter-rouge">Payment.Chargebacks [n].Amount</code>|Chargeback amount|Number|15|10000|
 |<code class="highlighter-rouge">Payment.Chargebacks [n].CaseNumber</code>|Chargeback-related case number|Text|16|Alphanumeric text|
 |<code class="highlighter-rouge">Payment.Chargebacks [n].Date</code>|Chargeback Date|Date|10|YYYY-MM-DD|
 |<code class="highlighter-rouge">Payment.Chargebacks [n].ReasonCode</code>|Chargeback Reason Code|Text|10|Alphanumeric|
 |<code class="highlighter-rouge">Payment.Chargebacks [n].ReasonMessage</code>|Chargeback Reason Message|Text|512|Alphanumeric|
-|<code class="highlighter-rouge">Payment.Chargebacks [n].Chargeback Status &lt;br/&gt; [Value List - Payment.Chargebacks {n}.Status] (https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
+|<code class="highlighter-rouge">Payment.Chargebacks [n].Chargeback Status &lt;br/&gt; [Value List - Payment.Chargebacks {n}.Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
 |</code>Payment.Chargebacks [n].RawData<code class="highlighter-rouge">|Data sent by the acquirer and may be the cardholder or other message|Text|512|Alphanumeric text|
-|PaymentId|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|</code>PaymentId<code class="highlighter-rouge">|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |</code>ReceivedDate<code class="highlighter-rouge">|Date the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
 |</code>Payment.ReasonCode<code class="highlighter-rouge">|Acquisition Return Code|Text|32|Alphanumeric|
 |</code>Payment.ReasonMessage<code class="highlighter-rouge">|Acquisition Return Message|Text|512|Alphanumeric|
@@ -13184,7 +12840,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     </tr>
     <tr>
       <td>7</td>
-      <td>Chargeback Notification  <br /> For More Details [Risk Notification] (https://braspag.github.io//manual/risknotification)</td>
+      <td>Chargeback Notification  <br /> For More Details <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a></td>
     </tr>
   </tbody>
 </table>
@@ -15907,169 +15563,3 @@ If you do not have the data to send, please kindly do not send the corresponding
     </tr>
   </tbody>
 </table>
-
-</div>
-
-
-            <div class="footer-conteudo">
-    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
-            <img src="https://braspag.github.io//en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
-    </div>
-
-    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-        <h2>Need Help?</h2>
-        <p>If you didn't find your answer, <a href="http://www.braspag.com.br/fale-conosco/">send us a message</a>.</p>
-    </div>
-</div>
-
-        </div>
-
-        <div class="sidebar">
-  <div class="sidebar-sticky">
-    <div class="sidebar-about">
-      <a title="Toggle left column" class="hamburger">
-        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
-      </a>
-      <a href="https://braspag.github.io//en">
-        <img src="https://braspag.github.io//en/assets/images/logo.png" alt="Documentações e tutoriais">
-      </a>
-      <div></div>
-    </div>
-
-    <div id="toc"></div>
-
-    <div class="fixed-footer">
-        
-
-    <div class="toc-contact">
-      <div class="contact">
-        <a title="Contact" href="http://www.braspag.com.br/fale-conosco/">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Contact</span>
-        </a>
-      </div>
-      <div class="github">
-        <a title="GitHub" href="https://github.com/braspag">
-          <i class="fa fa-github" aria-hidden="true"></i>
-          <span>GitHub</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-
-        <script src="https://braspag.github.io//en/assets/js/jquery.min.js"></script>
-        <script src="https://braspag.github.io//en/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="https://braspag.github.io//en/assets/js/bootstrap.js"></script>
-        <script src="https://braspag.github.io//en/assets/js/jquery.tocify.js"></script>
-        <script src="https://braspag.github.io//en/assets/js/prettify.js"></script>
-        <script>
-        $(function() {
-            var openedHeader = null;
-
-            $("#toc").tocify({
-                
-                selectors: "h1,h2,h3,h4,h5,h6",
-                
-                hashGenerator: "pretty",
-                ignoreSelector: ".no-toc",
-                scrollTo: 100,
-                smoothScroll: false,
-                showEffect: "none"
-            }).data("toc-tocify");
-
-            $('ul').prev('li').addClass('has-subitens');
-            $(window).scroll(function () {
-                if ($('li.active').closest('.tocify-header') !== openedHeader) {
-                    $('li.is-open').removeClass('is-open');
-
-                    openedHeader = $('li.active').closest('.tocify-header');
-                }
-
-                openedHeader.find('ul:visible').prev('li').addClass('is-open');
-            });
-
-            $('.hamburger').click(function() {
-                $('body').toggleClass('sidebar-closed');
-            });
-
-            $('.code-menu').click(function() {
-                $('body').toggleClass('code-menu-closed');
-            });
-
-            prettyPrint();
-        });
-        </script>
-
-        
-        <script src="https://braspag.github.io//en/assets/js/jquery.highlight.js"></script>
-        <script src="https://braspag.github.io//en/assets/js/lunr.js"></script>
-        <script src="https://braspag.github.io//en/assets/js/search.js"></script>
-        
-
-        
-        <script>
-        let langs = '';
-
-        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Toggle"><i class="fa fa-expand" aria-hidden=true></i></a>' );
-        $('div.highlighter-rouge').each(function (index) {
-            if(!$(this).parent().hasClass('language-group')) {
-                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
-            }
-        });
-
-        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
-            let height = $(this).outerHeight();
-
-            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
-        });
-
-        $('.hide-btn').click(function() {
-            $('.content-container').toggleClass('no-dark-box');
-            $('.dark-box').toggle();
-
-            $('.overlay').removeClass('opened');
-            $('.code-fullscreen').removeClass('opened');
-        });
-
-        $('.expand-btn').click(function() {
-            $('.overlay').toggleClass('opened');
-            $(this).parent().parent().parent().toggleClass('opened');
-            $(this).children('i.fa').toggleClass('fa-compress');
-        });
-
-        
-        langs += "<a data-language-name='json'>JSON</a>";
-        
-        langs += "<a data-language-name='shell'>cURL</a>";
-        
-        langs += "<a data-language-name='html'>HTML</a>";
-        
-
-        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
-        </script>
-
-        <script src="https://braspag.github.io//en/assets/js/lang.js"></script>
-        <script>
-            $(function() {
-                setupLanguages([  "json",  "shell",  "html", ]);
-            });
-        </script>
-        
-
-        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:715256,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
-    </body>
-</html>
