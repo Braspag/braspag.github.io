@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-12T18:14:49+00:00</updated>
+    <updated>2020-02-12T18:19:28+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -268,6 +268,369 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Silent Order Post Integration Manual</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//en/manual/silentorderpost"/>
+        <updated>2020-02-12T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//en/manual/silentorderpost</id>
+        <content type="html">&lt;h1 id=&quot;silent-order-post&quot;&gt;Silent Order Post&lt;/h1&gt;
+
+&lt;p&gt;Integration that Braspag offers to retailers, where payment data is securely trafficked, maintaining complete control over the checkout experience.&lt;/p&gt;
+
+&lt;p&gt;This method enables you to securely send your customer payment data directly to our system. Payment data such as card number and expiration date are stored in the Braspag environment, which is PCI DSS 3.2 certified.&lt;/p&gt;
+
+&lt;p&gt;It is ideal for retailers who demand a high degree of security without losing the identity of their page, allowing full customization on their checkout page.&lt;/p&gt;
+
+&lt;h1 id=&quot;features&quot;&gt;Features&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Capture payment data directly to Braspag systems through the fields defined in your checkout using a javascript script.&lt;/li&gt;
+  &lt;li&gt;Compatibility with all payment methods available at the Pagador’s gateway (National and International)&lt;/li&gt;
+  &lt;li&gt;PCI DSS scope reduction&lt;/li&gt;
+  &lt;li&gt;Maintain full control over the checkout experience while maintaining your brand’s look &amp;amp; feel.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;transactional-flow&quot;&gt;Transactional Flow&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/fluxo-sop-br.jpg&quot; alt=&quot;Silent Order Post Flux&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;integration&quot;&gt;Integration&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-getting-accesstoken&quot;&gt;1. Getting AccessToken&lt;/h2&gt;
+
+&lt;p&gt;When the shopper accesses the checkout, the merchant must generate AccessToken from the Braspag Authentication API (oAuth). On success, the API will return an AccessToken that must be populated in the script to load on the page.&lt;/p&gt;
+
+&lt;p&gt;To request AccessToken, the establishment must POST to the following endpoint in the server-to-server template:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In place of &lt;strong&gt;{mid}&lt;/strong&gt; you must fill in the MerchantID of your store in Braspag’s Pagador platform.&lt;/p&gt;
+
+&lt;p&gt;Example: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&lt;/p&gt;
+
+&lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/v1/accesstoken?merchantid={mid}&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mid&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Payer Store Identifier&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
+
+&lt;p&gt;In response, the establishment will receive a json (HTTP 201 Created) containing among other information the ticket (AccessToken)&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;B898E624-EF0F-455C-9509-3FAE12FB1F81&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;AccessToken&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Issued&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2019-12-09T17:47:14&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;ExpiresIn&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2019-12-09T18:07:14&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Format&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Pagador Store Identifier&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AccessToken&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Access Token. For security reasons, this ticket will give the merchant permission to save only 1 card within the time limit stipulated in the response via the ExpiresIn attribute (by default 20 minutes). Whatever happens first will invalidate this same ticket for future use.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Issued&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Date and time of generation&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DDTHH:MM:SS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExpiresIn&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Expiration Date and Time&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;YYYY-MM-DDTHH:MM:SS&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;For security reasons, registration of a valid IP of the establishment in Braspag will be required. Otherwise the request will not be authorized (HTTP 401 NotAuthorized). Please identify which will be the outgoing IP that will access the API and then request the registration through the Braspag service channel: https://suporte.braspag.com.br/hc/en&lt;/aside&gt;
+
+&lt;h2 id=&quot;2-implementing-the-script&quot;&gt;2. Implementing the script&lt;/h2&gt;
+
+&lt;h3 id=&quot;mapping-classes&quot;&gt;Mapping Classes&lt;/h3&gt;
+
+&lt;p&gt;The establishment must download the script provided by Braspag, and attach it to their checkout page. This script will allow Braspag to process all card information without merchant intervention. The download can be done from the following URL:&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js&lt;/aside&gt;
+
+&lt;p&gt;The establishment shall parameterize the form elements with the following classes:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Class Name&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Credit/Debit Cardholder Name&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;bp-sop-cardholdername&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Credit/Debit Card Number&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;bp-sop-cardnumber&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Credit/Debit Card Expiration Date&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;bp-sop-cardexpirationdate&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Credit/Debit Card Security Code&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;bp-sop-cardcvvc&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;setting-parameters&quot;&gt;Setting Parameters&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;SCRIPT PARAMETERS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;accessToken&lt;/td&gt;
+      &lt;td&gt;Access Token obtained via Braspag Authentication API&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;environment&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;sandbox&lt;/strong&gt; or &lt;strong&gt;production&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;language&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;pt&lt;/strong&gt; or &lt;strong&gt;en&lt;/strong&gt; or &lt;strong&gt;es&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;enableBinQuery&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;true&lt;/strong&gt; if you want to enable BIN Query (returns card characteristics). &lt;strong&gt;false&lt;/strong&gt; otherwise.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;enableVerifyCard&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;true&lt;/strong&gt; if you want to enable ZeroAuth (returns if the card is valid or not). &lt;strong&gt;false&lt;/strong&gt; otherwise.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;SCRIPT RESPONSE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PaymentToken&lt;/td&gt;
+      &lt;td&gt;Payment Token in the Format of a GUID (36)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;brand&lt;/td&gt;
+      &lt;td&gt;Returned when enableBinQuery option is &lt;strong&gt;true&lt;/strong&gt;. Card Brand Name (Visa, Master, Bond, Amex, Diners, JCB, Hipercard)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;forerignCard&lt;/td&gt;
+      &lt;td&gt;Returned when enableBinQuery option is &lt;strong&gt;true&lt;/strong&gt;. The field returns &lt;strong&gt;true&lt;/strong&gt; if it is a card issued outside Brazil. &lt;strong&gt;false&lt;/strong&gt; otherwise&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;binQueryReturnCode&lt;/td&gt;
+      &lt;td&gt;Returned when enableBinQuery option is &lt;strong&gt;true&lt;/strong&gt;. “00” if BIN parsing is successful.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;binQueryReturnMessage&lt;/td&gt;
+      &lt;td&gt;Returned when enableBinQuery option is &lt;strong&gt;true&lt;/strong&gt;. E.g. “Authorized Transaction” if BIN analysis succeeds&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;VerifyCardStatus&lt;/td&gt;
+      &lt;td&gt;Returned when enableVerifyCard option is ** true **. Invalid Card 0; 1-Valid Card; 99-Unknown Situation&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;binQueryReturnMessage&lt;/td&gt;
+      &lt;td&gt;Returned when enableBinQuery option is &lt;strong&gt;true&lt;/strong&gt;. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 provider code “00” means validation success&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;binQueryReturnMessage&lt;/td&gt;
+      &lt;td&gt;Returned when enableBinQuery option is &lt;strong&gt;true&lt;/strong&gt;. E.g. “Authorized Transaction”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;implementing-events&quot;&gt;Implementing Events&lt;/h3&gt;
+
+&lt;p&gt;The script provided by Braspag provides three events for handling and managed by the merchant.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Event&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;onSuccess&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Event on success. PaymentToken will be returned, as well as card details if you have requested to verify the card. For security reasons this PaymentToken may only be used for authorization. After processing it will be invalidated.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;onError&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Event on error. Error code and description will be returned&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;onInvalid&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Event in case of incorrect data supply. Error field details will be returned. Messages returned in the validation result are available in the following languages: Portuguese (default), English and Spanish.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;For security reasons this PaymentToken may only be used for authorization. After processing it will be invalidated.&lt;/aside&gt;
+
+&lt;h3 id=&quot;example&quot;&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;Example of a parameterization on the checkout page:&lt;/p&gt;
+
+&lt;p&gt;To download the code, click [here] (https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/en/_posts/silent-order-post-example.html)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/consultation-bin.jpg&quot; alt=&quot;Checkout Page&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-authorizing-with-paymenttoken&quot;&gt;3. Authorizing with PaymentToken&lt;/h2&gt;
+
+&lt;p&gt;After obtaining PaymentToken through the script, the authorization process is performed by sending PaymentToken in place of card data.&lt;/p&gt;
+
+&lt;p&gt;See example below, describing the submission of authentication data from the Pagador API authorization request.
+For more details on implementation, please visit: [Pagador API] (https://braspag.github.io//manual/braspag-pagador):&lt;/p&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales&lt;/span&gt;&lt;/aside&gt;
+
+&lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Card&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;PaymentToken&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;eedcb896-40e1-465b-b34c-6d1119dbb6cf&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/sales/&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;:
+   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:
+   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;s2&quot;&gt;&quot;Card&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;PaymentToken&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;eedcb896-40e1-465b-b34c-6d1119dbb6cf&quot;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Card.PaymentToken&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Provide the PaymentToken generated through the script. This information replaces the card data&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
+
+&lt;p&gt;See https://braspag.github.io/manual/braspag-pagador&lt;/p&gt;
 </content>
     </entry>
     
