@@ -99,3 +99,4 @@ When the customer returns to the site for a new purchase and logs in, the site c
 # AUTHORIZATION PROCESS VIA PAGADOR
 
 Below are the processes of request for saving a customer card during a sale transaction and a purchase via CARTÃO PROTEGIDO (PROTECTED CARD) platform, both using the PAGADOR/CARTÃO PROTEGIDO integration
+ 
