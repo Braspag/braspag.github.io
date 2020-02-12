@@ -1,4 +1,4 @@
-site.baseurl_root---
+---
 layout: manual
 title: API Rest Integration Guide
 description: Gateway Braspag technical integration
