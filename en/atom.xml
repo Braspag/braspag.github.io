@@ -5,12 +5,22 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-12T13:43:33+00:00</updated>
+    <updated>2020-02-12T17:46:19+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Integration Manual</title>
+        <category term="tutorial" />
+        <link href="https://braspag.github.io//en/tutorial/cartao-protegido-api-rest"/>
+        <updated>2019-07-15T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//en/tutorial/cartao-protegido-api-rest</id>
+        <content type="html">
+</content>
+    </entry>
     
     <entry>
         <title>Split Payments</title>
@@ -3460,234 +3470,169 @@ The Master must provide Subordinate information in order to use it during the On
     </entry>
     
     <entry>
-        <title>Integration Manual Verify Card</title>
+        <title>1. Introduction to 3DS 2.0</title>
         <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/braspag-verify-card"/>
-        <updated>2018-07-23T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/braspag-verify-card</id>
-        <content type="html">&lt;h1 id=&quot;querying-data-from-a-card-via-zero-auth-and-bin-query-service&quot;&gt;Querying data from a card via Zero Auth and BIN Query Service&lt;/h1&gt;
+        <link href="https://braspag.github.io//en/manual/emv3ds"/>
+        <updated>2018-09-09T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//en/manual/emv3ds</id>
+        <content type="html">&lt;h1 id=&quot;3ds-20-authentication&quot;&gt;3DS 2.0 Authentication&lt;/h1&gt;
 
-&lt;p&gt;To query card data, a POST request is required on the VerifyCard service. The VerifyCard consists of two services: Zero Auth and BIN Query Service. Zero Auth is a service that identifies if a card is valid or not, through an operation similar to an authorization, but sending zero as transaction amount. The BIN Query Service is a service available for merchats that use Cielo 3.0 and it returns card BIN information such as brand and card type. Both services can be consumed simultaneously through the VerifyCard, as shown in the example below. It is also possible that the authorization process is automatically conditioned to a successful return of ZeroAuth. To enable this feature, please contact our support team.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-3ds-20&quot;&gt;What is 3DS 2.0?&lt;/h2&gt;
 
-&lt;h2 id=&quot;request&quot;&gt;Request&lt;/h2&gt;
+&lt;p&gt;In order to minimize the fraud rate without spoil the conversion rate, the payment industry has developed a new authentication standard called &lt;strong&gt;EMV 3DS&lt;/strong&gt;, or also called &lt;strong&gt;3DS 2.0&lt;/strong&gt;. The new version is able to analyze dozens of variables that are used as criteria to determine if a shopper is in fact the cardholder, allowing in some cases the silent authentication of the cardholder (authentication without challenge), without prejudice to the issue of &lt;em&gt;Liability Shift&lt;/em&gt; of establishments.&lt;/p&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/verifycard&lt;/span&gt;&lt;/aside&gt;
+&lt;p&gt;Main Benefits:&lt;/p&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Card&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;999999******9999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Joao da Silva&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;03/2026&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;***&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Easy integration via Java Script;&lt;/li&gt;
+  &lt;li&gt;Authentication interface is responsive to mobile;&lt;/li&gt;
+  &lt;li&gt;Possibility of authentication “silent” (exemption from challenge);&lt;/li&gt;
+  &lt;li&gt;Minimizes transactions with frauds;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
-&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.braspag.com.br/v2/verifycard&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;,
-   &lt;span class=&quot;s2&quot;&gt;&quot;Card&quot;&lt;/span&gt; :
-   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-       &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;999999******9999&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Joao da Silva&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;03/2026&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;***&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;
-   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Keywords:&lt;/strong&gt; Credit and Debit Card Authentication, EMVCO, 3DS 2.0, Visa, Mastercard, E-Commerce&lt;/p&gt;
+
+&lt;h2 id=&quot;who-can-use-3ds-20&quot;&gt;Who can use 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;Any business that has e-Commerce or an application can use the solution. It is particularly suitable for establishments belonging to the high risk segment.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-are-requirements-for-using-3ds-20&quot;&gt;What are requirements for using 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;The merchant must meet the following requirements for using 3DS 2.0:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Have Cielo E-Commerce 3.0 affiliation;&lt;/li&gt;
+  &lt;li&gt;Complete the technical integration of the authentication flow;&lt;/li&gt;
+  &lt;li&gt;Complete the technical integration of the authorization flow;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;If you have implemented authentication mechanism outside Cielo (External MPI), skip straight to &quot;Authorization Step&quot;&lt;/aside&gt;
+
+&lt;h2 id=&quot;flags-and-issuers-available&quot;&gt;Flags and Issuers Available&lt;/h2&gt;
+
+&lt;p&gt;For sending transactions with 3DS 2.0 authentication request it is essential that, in addition to Cielo, the Issuer and Flag are ready with the solution. Among the market flags, Visa and Mastercard are currently available in 3DS 2.0 Cielo. Both have a Stand-In model if the Issuer is not yet able to respond to an authentication request using EMV 3DS 2.0. In this scenario, the flag evaluates the submitted data, such as customer behavioral and transactional history, classifying authentication requests as “Low Risk” and “Not Low Risk”. From this information, Issuers can be protected even without having their own 3DS 2.0 solution, and will have greater confidence in authenticated transactions. In Stand-In cases, authentication occurs silently (without challenge to the card holder) and once the transaction has been authenticated, liability in case of fraud will be with the Issuer. The decision to authorize the transaction or not is up to the Issuer.&lt;/p&gt;
+
+&lt;p&gt;Soon Elo and Amex flags will also be available.&lt;/p&gt;
 
 &lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Property&lt;/th&gt;
-      &lt;th&gt;Type&lt;/th&gt;
-      &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Guid&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Merchant ID&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;BRAND&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;40&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Merchant Key&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;CARD ISSUER&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MASTERCARD&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;VISA&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;15&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Payment Method Provider’s name&lt;/td&gt;
+      &lt;td&gt;Banco do Brasil&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit/Debit&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.CardNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;16&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Credit Card number. In case of doing just BIN Query Service, put the first six digits of card (BIN)&lt;/td&gt;
+      &lt;td&gt;Caixa Econômica&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Holder&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;25&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Cardholder name&lt;/td&gt;
+      &lt;td&gt;Santander&lt;/td&gt;
+      &lt;td&gt;Credit/Debit&lt;/td&gt;
+      &lt;td&gt;Credit/Debit&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.ExpirationDate&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Expiration Date (MM/YYYY)&lt;/td&gt;
+      &lt;td&gt;Itaú&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.SecurityCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Security Code (CVV2)&lt;/td&gt;
+      &lt;td&gt;Midway&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Brand&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card’s Brand&lt;/td&gt;
+      &lt;td&gt;PagSeguro&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Card.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;CreditCard ou DebitCard&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Identify the cart type to be queried. This information is relevant for multiple function card.&lt;/td&gt;
+      &lt;td&gt;Acesso&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Banco Neon&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Realize&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;C6&lt;/td&gt;
+      &lt;td&gt;Credit/Debit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Porto Seguro&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
+&lt;h2 id=&quot;what-is-data-only---notification-only&quot;&gt;What is Data Only - Notification Only&lt;/h2&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Transacao autorizada&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;BinData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Master&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Crédito&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ForeignCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Analise autorizada&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Data Only is an optional merchant field that can be used exclusively for Mastercard cards.&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;: 1,
-    &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Transacao autorizada&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;BinData&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Master&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;CardType&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Crédito&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ForeignCard&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Code&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Message&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Analise autorizada&quot;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;To use it, the &lt;strong&gt;bpmpi_auth_notifyonly&lt;/strong&gt; field described in item &lt;strong&gt;Authentication Step - step 3 - Class Mapping&lt;/strong&gt; must be parameterized. In the Data Only model, additional 3DS 2.0 fields are mapped the same way, and sent to Mastercard and Issuing Banks, however, without requesting authentication.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Property&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Type&lt;/th&gt;
-      &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Format&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Zero Auth status&lt;/td&gt;
-      &lt;td&gt;Number&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0-Failed Zero Auth response; 1-Success Zero Auth response; 99-The query was succeeded but the card status is inconclusive;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Zero Auth query response code returned by the provider.&lt;/td&gt;
-      &lt;td&gt;Number&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;The same code returned by the provider upon authorization. Ex: provider Cielo30 code 82-cartão invalido&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnMessage&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Zero Auth query response message returned by the provider.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;512&lt;/td&gt;
-      &lt;td&gt;Ex. “Transacao Autorizada”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Service provider&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;15&lt;/td&gt;
-      &lt;td&gt;Ex. Cielo30&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.CardType&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Card Type&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;15&lt;/td&gt;
-      &lt;td&gt;Ex. Crédito, Débito, Múltiplo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.ForeignCard&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Identify if the card was issues in Brazil or not&lt;/td&gt;
-      &lt;td&gt;booleano&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Ex. true ou false&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Code&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;BIN query service return code&lt;/td&gt;
-      &lt;td&gt;Number&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex. For provider Cielo30, 00 means that the query was succeeded&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BinData.Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;query service return message&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;512&lt;/td&gt;
-      &lt;td&gt;Ex. For provider Cielo30, “Analise autorizada” means that the query was succeeded.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;The benefit of using Data Only is to enrich the Issuing Banks and Mastercard databases, which will receive more information about the bearers of each merchant. This field seeks to improve Issuers’ silent authentication and approval rating, given the current context in which the market is evolving into integration with the new 2.0 authentication protocol. In addition, as of May 2019, Mastercard will charge an additional &lt;em&gt;fee&lt;/em&gt; per unauthenticated transaction from the acquirer, which may impact the price negotiated between the acquirer and the merchant. Data Only exempts the amount of &lt;em&gt;fee&lt;/em&gt; charged.&lt;/p&gt;
+
+&lt;p&gt;Note that in this model, since there is no authentication of the Issuer, the risk of chargeback for fraud remains with the merchant.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-does-authorization-with-3ds-20-authentication-work&quot;&gt;How does authorization with 3DS 2.0 authentication work?&lt;/h2&gt;
+
+&lt;p&gt;The card authorization process authenticated via 3DS 2.0 takes place in two steps:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Step 1: Authentication&lt;/li&gt;
+  &lt;li&gt;Step 2: Authorization&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The flow below describes the high level steps:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/fluxo-env3ds.jpg&quot; alt=&quot;3DS 2.0 Flux&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The holder chooses to pay by credit or debit card&lt;/li&gt;
+  &lt;li&gt;The establishment requests authentication through the Cielo solution.&lt;/li&gt;
+  &lt;li&gt;The authentication platform may follow one of two streams: requesting bearer authentication or performing authentication silently. In the first case, the platform will return the Authentication URL to the merchant. In the second case, the next step is already the return with the authentication result.&lt;/li&gt;
+  &lt;li&gt;Store has authentication interface in &lt;em&gt;lightbox&lt;/em&gt; (Issuer Authentication URL)&lt;/li&gt;
+  &lt;li&gt;The card holder authenticates to the sender (process known as &lt;strong&gt;performing the challenge&lt;/strong&gt;)&lt;/li&gt;
+  &lt;li&gt;The sender returns the authentication result to the 3DS platform, which in turn passes it to the establishment&lt;/li&gt;
+  &lt;li&gt;The establishment may or may not proceed with the authorization process. When you choose to authorize you must submit the authentication result in the technical authorization&lt;/li&gt;
+  &lt;li&gt;Cielo returns the result of the authorization to the establishment, which in turn returns to the card holder&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;authentication&quot;&gt;Authentication&lt;/h2&gt;
+
+&lt;p&gt;The solution consists of the API access token request step.
+Click one of the options below to view the manual that best suits your needs:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Authentication via Java Script: Ideal for deployment on [websites] (https://braspag.github.io/manual/integracao-javascript)&lt;/li&gt;
+  &lt;li&gt;Android SDK Authentication: Ideal for In-App Deployment [Android] (https://braspag.github.io/manual/integracao-sdk-android)&lt;/li&gt;
+  &lt;li&gt;IOS SDK Authentication: Ideal for In-App Deployment [IOS] (https://braspag.github.io/manual/integracao-sdk-ios)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;authorization-with-authentication&quot;&gt;Authorization with Authentication&lt;/h2&gt;
+
+&lt;p&gt;After authentication is completed, it undergoes the authorization process by submitting the authentication data in the “external authentication” (node &lt;strong&gt;ExternalAuthentication&lt;/strong&gt;).
+See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticacao[(https://braspag.github.io/manual/autorizacao-com-autenticacao)&lt;/p&gt;
 </content>
     </entry>
     
