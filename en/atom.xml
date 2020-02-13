@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-13T21:42:01+00:00</updated>
+    <updated>2020-02-13T21:45:08+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2173,9 +2173,9 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;productCode&lt;/td&gt;
-      &lt;td&gt;Purchase Type&lt;/td&gt;
-      &lt;td&gt;&lt;em&gt;ProductCode&lt;/em&gt;&lt;br /&gt; HOTEL: Hospitality&lt;br /&gt;FINANCEACCOUNT: Account Financing&lt;br /&gt;CHECKACCEPTANCE: Check acceptance&lt;br /&gt;DIGITALGOODS: Digital Goods&lt;br /&gt;CASHDISPENSER: Cash Disponder&lt;br /&gt;FUEL: Fuel&lt;br /&gt;RETAIL: General Retail&lt;br /&gt;LUXURYGOODS: Luxury Goods&lt;br /&gt;RECHARGE: Top-up&lt;br /&gt;GOODSPURCHASE: Goods Purchase&lt;br /&gt;QUASIMONEYTRANSACTION: Almost-money Transaction&lt;br /&gt;CARRENTAL: Car Rental&lt;br /&gt;RESTAURANT: Restaurant&lt;br /&gt;SERVICES: Services&lt;br /&gt;OTHER: Outhers&lt;br /&gt;TURISM: Turism&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Tipo da compra&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;ProductCode&lt;/em&gt;&lt;br /&gt;GOODSPURCHASE: Purchase of goods&lt;br /&gt;CHECKACCEPTANCE: Check acceptance&lt;br /&gt;FINANCEACCOUNT: Account financing&lt;br /&gt;QUASIMONEYTRANSACTION: Quasi-money transaction&lt;br /&gt;RECHARGE: Recharge&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;countLast24Hours&lt;/td&gt;
