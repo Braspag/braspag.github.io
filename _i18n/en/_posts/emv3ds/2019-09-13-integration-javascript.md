@@ -165,7 +165,7 @@ Once the class is mapped in a given field, the script is able to retrieve the va
 |bpmpi_recurring_frequency|Indicates frequency of recurrence|Number<br>1 - Monthly<br>2 - Bimonthly<br>3 - Quarterly<br>4 - Four-month period<br>6 - Half-yearly<br>12 - Annual|No|
 |bpmpi_recurring_originalpurchasedate|Identifies the date of the 1st transaction that originated the recurrence|Text (YYYY-MM-DD)|No|
 |bpmpi_order_recurrence|Indicates if it is an order that generates future recurrences|Boolean<br>true<br>false|No|
-|bpmpi_order_productcode|Purchase type|ACC: Hospitality<br>ACF: Financing check<br>CHA: Check acceptance<br>DIG: Digital Goods<br>DSP: Money Dispensing<br>GAS: Fuel<br>GEN: General Retailer<br>LUX: Luxury Goods<br>PAL: recharges<br>PHY: Gods purchase<br>QCT: Almost-money transactions<br>REN: Car Rental<br>RES: Restaurant<br>SVC: Services<br>TBD: Outers<br>TRA: Turism|No|
+| bpmpi_order_productcode | Product Type | **PHY**: purchase Goods<br>**CHA**: Check acceptance<br>**ACF**: Account financing<br>**QCT**: Quasi-Cash Transaction <br>**PAL**: Prepaid Activation and Load<br>| Yes |
 |bpmpi_order_countlast24hours|Quantity of orders placed by this shopper in the last 24h|Numeric [up to 3 positions]|No|
 |bpmpi_order_countlast6months|Number of orders placed by this shopper in the last 6 months|Numeric [up to 4 positions]|No|
 |bpmpi_order_countlast1year|Number of orders placed by this shopper in the last year|Numeric [up to 3 positions]|No|
