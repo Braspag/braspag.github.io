@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-13T21:37:47+00:00</updated>
+    <updated>2020-02-13T21:39:53+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3264,9 +3264,9 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_order_productcode&lt;/td&gt;
-      &lt;td&gt;Purchase type&lt;/td&gt;
-      &lt;td&gt;ACC: Hospitality&lt;br /&gt;ACF: Financing check&lt;br /&gt;CHA: Check acceptance&lt;br /&gt;DIG: Digital Goods&lt;br /&gt;DSP: Money Dispensing&lt;br /&gt;GAS: Fuel&lt;br /&gt;GEN: General Retailer&lt;br /&gt;LUX: Luxury Goods&lt;br /&gt;PAL: recharges&lt;br /&gt;PHY: Gods purchase&lt;br /&gt;QCT: Almost-money transactions&lt;br /&gt;REN: Car Rental&lt;br /&gt;RES: Restaurant&lt;br /&gt;SVC: Services&lt;br /&gt;TBD: Outers&lt;br /&gt;TRA: Turism&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Product Type&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;PHY&lt;/strong&gt;: purchase Goods&lt;br /&gt;&lt;strong&gt;CHA&lt;/strong&gt;: Check acceptance&lt;br /&gt;&lt;strong&gt;ACF&lt;/strong&gt;: Account financing&lt;br /&gt;&lt;strong&gt;QCT&lt;/strong&gt;: Quasi-Cash Transaction &lt;br /&gt;&lt;strong&gt;PAL&lt;/strong&gt;: Prepaid Activation and Load&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_order_countlast24hours&lt;/td&gt;
