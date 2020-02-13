@@ -193,7 +193,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 |paymentMethod|Type of card to be authenticated. In the case of a multiple card, you must specify either Credit or Debit|* <br><br>PaymentMethod * CREDIT - Credit<br>Card DEBIT - Debit Card|Yes|
 |installments|Number of Transaction Installments|Numeric [up to 2 positions]|Yes|
 |recurrence|Indicates if it is an order that generates future recurrences<br>|<br>Booleanotruefalse|No|
-|productCode|Purchase Type|*ProductCode*<br><br> HOTEL: Hospitality<br>FINANCEACCOUNT: Account Financing<br>CHECKACCEPTANCE: Check acceptance<br>DIGITALGOODS: Digital Goods<br>CASHDISPENSER: Cash Disponder<br>FUEL: Fuel<br>RETAIL: General Retail<br>LUXURYGOODS: Luxury Goods<br>RECHARGE: Top-up<br>GOODSPURCHASE: Goods Purchase<br>QUASIMONEYTRANSACTION: Almost-money Transaction<br>CARRENTAL: Car Rental<br>RESTAURANT: Restaurant<br>SERVICES: Services<br>OTHER: Outhers<br>TURISM: Turism|No|
+| productCode | Tipo da compra | *ProductCode*<br><br>GOODSPURCHASE: Purchase of goods<br>CHECKACCEPTANCE: Check acceptance<br>FINANCEACCOUNT: Account financing<br>QUASIMONEYTRANSACTION: Quasi-money transaction<br>RECHARGE: Recharge<br>| Yes |
 |countLast24Hours|Quantity of orders placed by this buyer in the last 24h|Numeric [up to 3 positions]|No|
 |countLast6Months|Number of orders placed by this shopper in the last 6 months|Numeric [up to 4 positions]|No|
 |countLast1Year|Number of orders placed by this shopper in the last year|Numeric [up to 3 positions]|No|
