@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-19T23:06:11+00:00</updated>
+    <updated>2020-02-19T23:11:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7492,66 +7492,85 @@ The Master must provide Subordinate information in order to use it during the On
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;BRAND&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;CARD ISSUER&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;MASTERCARD&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;VISA&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Banco do Brasil&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Credit/Debit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Caixa Econômica&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Santander&lt;/td&gt;
       &lt;td&gt;Credit/Debit&lt;/td&gt;
       &lt;td&gt;Credit/Debit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Itaú&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Midway&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;PagSeguro&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Acesso&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Banco Neon&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Realize&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;C6&lt;/td&gt;
       &lt;td&gt;Credit/Debit&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Porto Seguro&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pernambucanas&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit/Debit&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
