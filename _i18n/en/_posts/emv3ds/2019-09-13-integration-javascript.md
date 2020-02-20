@@ -121,8 +121,8 @@ Description of outputs
 
 |**Exit**|**Description**|**Type/Size**|
 |---|---|---|
-|Cavv|Data representing authentication signature|Alphanumeric [28 positions]|
-|Xid|ID representing the authentication request|Alphanumeric [28 positions]|
+|Cavv|Data representing authentication signature|Text|
+|Xid|ID representing the authentication request|Text|
 |Eci|E-commerce indicator code, which represents the result of authentication|Numeric [up to 2 positions]|
 |Version|3DS Version Applied|Numeric [1 position] 1 - 3DS 1.02 - 3DS 2.0|
 |ReferenceID|ID representing the authentication request|GUID [36 positions]|
