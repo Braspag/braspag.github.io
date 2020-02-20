@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-20T12:24:11+00:00</updated>
+    <updated>2020-02-20T12:25:45+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13013,15 +13013,15 @@ curl
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.Cavv&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text 28&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Cavv value is returned by external authentication mechanism&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.Xid&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;28&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;The Xid value is returned by the external authentication mechanism&lt;/td&gt;
     &lt;/tr&gt;
@@ -13149,13 +13149,13 @@ curl
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.Cavv&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;28&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Cavv value submitted in authorization request&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.Xid&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;28&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Xid value submitted in authorization request&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
