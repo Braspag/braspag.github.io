@@ -924,8 +924,8 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`| Texto | 28 | Sim | O valor Cavv é retornado pelo mecanismo de autenticação externa |
-|`Payment.ExternalAuthentication.Xid`|Texto|28|Sim|O valor Xid é retornado pelo mecanismo de autenticação externa|
+|`Payment.ExternalAuthentication.Cavv`| Texto | - | Sim | O valor Cavv é retornado pelo mecanismo de autenticação externa |
+|`Payment.ExternalAuthentication.Xid`|Texto| - |Sim|O valor Xid é retornado pelo mecanismo de autenticação externa|
 |`Payment.ExternalAuthentication.Eci`|Número|1|Sim|O valor Eci é retornado pelo mecanismo de autenticação externa|
 
 ##### Resposta
@@ -1033,8 +1033,8 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
 
 |Propriedade|Tipo|Tamanho|Descrição|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`| Texto | 28 |Valor Cavv submetido na requisição de autorização|
-|`Payment.ExternalAuthentication.Xid`|Texto|28|Valor Xid submetido na requisição de autorização|
+|`Payment.ExternalAuthentication.Cavv`| Texto | - |Valor Cavv submetido na requisição de autorização|
+|`Payment.ExternalAuthentication.Xid`|Texto| - |Valor Xid submetido na requisição de autorização|
 |`Payment.ExternalAuthentication.Eci`|Número|1|Valor ECI submetido na requisição de autorização|
 
 ### Transação com cartão de débito
