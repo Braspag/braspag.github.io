@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-20T12:18:13+00:00</updated>
+    <updated>2020-02-20T12:19:17+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3944,13 +3944,13 @@ This procedure is also valid for establishments that performed authentication ou
     &lt;tr&gt;
       &lt;td&gt;Payment.ExternalAuthentication.Cavv&lt;/td&gt;
       &lt;td&gt;Signature that is returned in successful authentication scenarios&lt;/td&gt;
-      &lt;td&gt;Alphanumeric [28 positions]&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;Yes, when authentication was a success&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Payment.ExternalAuthentication.Xid&lt;/td&gt;
       &lt;td&gt;XID returned in authentication process&lt;/td&gt;
-      &lt;td&gt;Alphanumeric [28 positions]&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;Yes, when the 3DS version is “1”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
