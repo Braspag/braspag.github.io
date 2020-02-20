@@ -100,8 +100,8 @@ curl
 | --- | --- | --- | --- |
 | Payment.Authenticate | Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão | Booleano (true ou false) | Sim, quando a autenticação foi um sucesso |
 | Payment.ExternalAuthentication.ReturnUrl | URL de Retorno aplicável somente se a versão for &quot;1&quot; | Alfanumérico [1024 posições] | Sim |
-| Payment.ExternalAuthentication.Cavv | Assinatura que é retornada nos cenários de sucesso na autenticação | Alfanumérico [28 posições] | Sim, quando a autenticação foi um sucesso |
-| Payment.ExternalAuthentication.Xid | XID retornado no processo de autenticação | Alfanumérico [28 posições] | Sim, quando a versão do 3DS for &quot;1&quot; |
+| Payment.ExternalAuthentication.Cavv | Assinatura que é retornada nos cenários de sucesso na autenticação | Texto | Sim, quando a autenticação foi um sucesso |
+| Payment.ExternalAuthentication.Xid | XID retornado no processo de autenticação | Texto | Sim, quando a versão do 3DS for &quot;1&quot; |
 | Payment.ExternalAuthentication.Eci | E-Commerce Indicator retornado no processo de autenticação | Numérico [1 posição] | Sim |
 | Payment.ExternalAuthentication.Version | Versão do 3DS utilizado no processo de autenticação | Alfanumérico [1 posição] | Sim, quando a versão do 3DS for &quot;2&quot; |
 | Payment.ExternalAuthentication.ReferenceID | RequestID retornado no processo de autenticação | GUID [36 posições] | Sim, quando a versão do 3DS for &quot;2&quot; |
