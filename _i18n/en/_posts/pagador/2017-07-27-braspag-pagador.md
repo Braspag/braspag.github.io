@@ -921,8 +921,8 @@ curl
 
 |Property|Type|Size|Mandatory|Description|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`|Text 28|Yes| Cavv value is returned by external authentication mechanism|
-|`Payment.ExternalAuthentication.Xid`|Text|28|Yes|The Xid value is returned by the external authentication mechanism|
+|`Payment.ExternalAuthentication.Cavv`|Text | - |Yes| Cavv value is returned by external authentication mechanism|
+|`Payment.ExternalAuthentication.Xid`|Text| - |Yes|The Xid value is returned by the external authentication mechanism|
 |`Payment.ExternalAuthentication.Eci`|Number|1|Yes|The Eci value is returned by the external authentication mechanism|
 
 ##### Response
@@ -1030,8 +1030,8 @@ A transaction with external authentication will receive, in addition to the stan
 
 |Property|Type|Size|Description|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`|Text|28|Cavv value submitted in authorization request|
-|`Payment.ExternalAuthentication.Xid`|Text|28|Xid value submitted in authorization request|
+|`Payment.ExternalAuthentication.Cavv`|Text| - |Cavv value submitted in authorization request|
+|`Payment.ExternalAuthentication.Xid`|Text| - |Xid value submitted in authorization request|
 |`Payment.ExternalAuthentication.Eci`|Number|1|ECI value submitted in authorization request|
 
 ### Debit Card Transaction
