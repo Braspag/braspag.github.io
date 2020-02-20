@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-20T13:15:48+00:00</updated>
+    <updated>2020-02-20T13:33:59+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -926,12 +926,12 @@ For more details on implementation, please visit: [Pagador API] (https://braspag
     &lt;tr&gt;
       &lt;td&gt;cavv&lt;/td&gt;
       &lt;td&gt;Data representing authentication signature&lt;/td&gt;
-      &lt;td&gt;Alphanumeric [28 positions]&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;xid&lt;/td&gt;
       &lt;td&gt;ID representing the authentication request&lt;/td&gt;
-      &lt;td&gt;Alphanumeric [28 positions]&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;eci&lt;/td&gt;
