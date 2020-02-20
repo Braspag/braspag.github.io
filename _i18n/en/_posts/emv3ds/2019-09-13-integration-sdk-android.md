@@ -162,8 +162,8 @@ braspag3dsSdk.authenticate(
 
 |**Exit**|**Description**|**Type/Size**|
 |---|---|---|
-|cavv|Data representing authentication signature|Alphanumeric [28 positions]|
-|xid|ID representing the authentication request|Alphanumeric [28 positions]|
+|cavv|Data representing authentication signature|Text|
+|xid|ID representing the authentication request|Text|
 |eci|E-commerce indicator code, which represents the result of authentication|Numeric [up to 2 positions]|
 |version|3DS Version Applied|Numeric [1 position] 1 - 3DS 1.02 - 3DS 2.0|
 |referenceID|ID representing the authentication request|GUID [36 positions]|
