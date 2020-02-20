@@ -100,8 +100,8 @@ curl
 |---|---|---|---|
 |Payment.Authenticate|Boolean defines if the buyer will be directed to the issuing Bank for card authentication|Boolean (true or false)|Yes, when authentication was a success|
 |Payment.ExternalAuthentication.ReturnUrl|Return URL only applicable if version is "1"|Alphanumeric [1024 positions]|Yes|
-|Payment.ExternalAuthentication.Cavv|Signature that is returned in successful authentication scenarios|Alphanumeric [28 positions]|Yes, when authentication was a success|
-|Payment.ExternalAuthentication.Xid|XID returned in authentication process|Alphanumeric [28 positions]|Yes, when the 3DS version is "1"|
+|Payment.ExternalAuthentication.Cavv|Signature that is returned in successful authentication scenarios| Text |Yes, when authentication was a success|
+|Payment.ExternalAuthentication.Xid|XID returned in authentication process| Text |Yes, when the 3DS version is "1"|
 |Payment.ExternalAuthentication.Eci|E-Commerce Indicator Returned in Authentication Process|Numeric [1 position]|Yes
 |Payment.ExternalAuthentication.Version|3DS version used in authentication process|Alphanumeric [1 position]|Yes, when the version of 3DS is "2"|
 |Payment.ExternalAuthentication.ReferenceID|RequestID Returned in Authentication Process|GUID [36 positions]|Yes, when the version of 3DS is "2"|
