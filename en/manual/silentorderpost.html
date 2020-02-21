@@ -320,7 +320,7 @@
     </tr>
     <tr>
       <td>language</td>
-      <td><strong>pt</strong> or <strong>en</strong> or <strong>es</strong></td>
+      <td><strong>PT</strong> or <strong>EN</strong> or <strong>ES</strong></td>
     </tr>
     <tr>
       <td>enableBinQuery</td>
@@ -365,15 +365,27 @@
     </tr>
     <tr>
       <td>VerifyCardStatus</td>
-      <td>Returned when enableVerifyCard option is ** true **. Invalid Card 0; 1-Valid Card; 99-Unknown Situation</td>
+      <td>Returned when enableVerifyCard option is <strong>true</strong>. Invalid Card 0; 1-Valid Card; 99-Unknown Situation</td>
     </tr>
     <tr>
-      <td>binQueryReturnMessage</td>
+      <td>VerifyCardReturnCode</td>
+      <td>Returned when enableVerifyCard option is <strong>true</strong>. Zero Auth query code returned by the provider.</td>
+    </tr>
+    <tr>
+      <td>BinQueryReturnMessage</td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 provider code “00” means validation success</td>
     </tr>
     <tr>
-      <td>binQueryReturnMessage</td>
+      <td>BinQueryReturnMessage</td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. E.g. “Authorized Transaction”</td>
+    </tr>
+    <tr>
+      <td>CardBin</td>
+      <td>Returned when enableBinQuery option is <strong>true</strong>. E.g. “455187”</td>
+    </tr>
+    <tr>
+      <td>CardLast4Digits</td>
+      <td>Returned when enableBinQuery option is <strong>true</strong>. E.g. “0181”</td>
     </tr>
   </tbody>
 </table>
