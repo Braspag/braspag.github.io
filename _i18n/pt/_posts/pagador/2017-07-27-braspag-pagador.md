@@ -2615,9 +2615,9 @@ curl
 |`CreditCard.Brand`|Bandeira do cartão|Texto|10|Sim|
 |`Payment.Credentials.Code`|afiliação gerada pela adquirente|Texto|100|Sim|
 |`Payment.Credentials.Key`|chave de afiliação/token gerado pela adquirente|Texto|100|Sim|
-|`Payment.Credentials.Username`|usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|Texto|50|Não|
-|`Payment.Credentials.Password`|senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|Texto|50|Não|
-|`Payment.Credentials.Signature`|Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001|Texto|3|Não|
+|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|Texto|50|Não|
+|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|Texto|50|Não|
+|`Payment.Credentials.Signature`|Enviar o TerminalID da adquirete Global Payments Ex.: 001. Para Safra colocar o Nome do Estabelecimento, Cidade e o Estado concatenado com ponto-e-vírgula (;). Ex: NomedaLoja;São Paulo;SP|Texto|--|Não|
 
 #### Resposta
 
@@ -6682,7 +6682,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Simulado|---|Provider de Sandbox|
 |Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma legado Cielo 1.5|
 |Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|Provider para transações na plataforma de e-commerce Cielo 3.0|
-|Getnet|Visa, Master, Elo, Amex|Provider para transações na plataforma de e-commerce Getnet|
+|Getnet|Visa, Master, Elo, Amex, Hipercard|Provider para transações na plataforma de e-commerce Getnet|
 |Redecard|Visa, Master, Hipercard, Hiper, Diners|Provider para transações na plataforma legado Rede Komerci|
 |Rede|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede (e-Rede) na versão SOAP|
 |Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST|
