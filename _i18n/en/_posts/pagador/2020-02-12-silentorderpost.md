@@ -110,7 +110,7 @@ The establishment shall parameterize the form elements with the following classe
 |-----------|---------|
 |accessToken|Access Token obtained via Braspag Authentication API|
 |environment|**sandbox** or **production**|
-|language|**pt** or **en** or **es**|
+|language|**PT** or **EN** or **ES**|
 |enableBinQuery|**true** if you want to enable BIN Query (returns card characteristics). **false** otherwise.|
 |enableVerifyCard|**true** if you want to enable ZeroAuth (returns if the card is valid or not). **false** otherwise.|
 
@@ -123,9 +123,12 @@ The establishment shall parameterize the form elements with the following classe
 |forerignCard|Returned when enableBinQuery option is **true**. The field returns **true** if it is a card issued outside Brazil. **false** otherwise|
 |binQueryReturnCode|Returned when enableBinQuery option is **true**. "00" if BIN parsing is successful.|
 |binQueryReturnMessage|Returned when enableBinQuery option is **true**. E.g. “Authorized Transaction” if BIN analysis succeeds|
-|VerifyCardStatus|Returned when enableVerifyCard option is ** true **. Invalid Card 0; 1-Valid Card; 99-Unknown Situation|
-|binQueryReturnMessage|Returned when enableBinQuery option is **true**. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 provider code "00" means validation success|
-|binQueryReturnMessage|Returned when enableBinQuery option is **true**. E.g. “Authorized Transaction”|
+|VerifyCardStatus|Returned when enableVerifyCard option is **true**. Invalid Card 0; 1-Valid Card; 99-Unknown Situation|
+|VerifyCardReturnCode|Returned when enableVerifyCard option is **true**. Zero Auth query code returned by the provider.|
+|BinQueryReturnMessage|Returned when enableBinQuery option is **true**. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 provider code "00" means validation success|
+|BinQueryReturnMessage|Returned when enableBinQuery option is **true**. E.g. “Authorized Transaction”|
+|CardBin|Returned when enableBinQuery option is **true**. E.g. “455187”|
+|CardLast4Digits|Returned when enableBinQuery option is **true**. E.g. “0181”|
 
 ### Implementing Events
 
