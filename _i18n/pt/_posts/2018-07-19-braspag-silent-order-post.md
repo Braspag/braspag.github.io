@@ -126,6 +126,8 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 |VerifyCardStatus| Retornado quando a opção enableVerifyCard for **true**. 0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida |
 |VerifyCardReturnCode| Retornado quando a opção enableBinQuery for **true**. Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código "00" significa sucesso na validação|
 |VerifyCardReturnMessage| Retornado quando a opção enableBinQuery for **true**. Ex. “Transacao Autorizada”  |
+|CardBin|Retornado quando a opção enableBinQuery for **true**. Ex: “455187”|
+|CardLast4Digits|Retornado quando a opção enableBinQuery for **true**. Ex: “0181”|
 
 ### Implementando eventos
 
