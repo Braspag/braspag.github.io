@@ -6665,7 +6665,7 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |Redecard|Visa, Master, Hipercard, Hiper, Diners|Provider for Transactions on Legacy Platform Komerci's Rede|
 |Rede|Visa, Master, Hipercard, Hyper, Diners, Elo, Amex|Provider for transactions in e-commerce platform Rede (e-Rede) in SOAP version|
 |Rede2|Visa, Master, Hipercard, Hyper, Diners, Link, Amex|Provider for transactions in e-commerce platform Rede (e-Rede) in REST version|
-|Getnet|Visa, Master, Elo, Amex, Getnet|Provider for transactions on Getnet e-commerce platform|
+|Getnet|Visa, Master, Elo, Amex, Hipercard|Provider for transactions on Getnet e-commerce platform|
 |GlobalPayments|Visa, Master|Provider for transactions on Global Payments e-commerce platform|
 |Stone|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Stone|
 |Safra|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Safra|
