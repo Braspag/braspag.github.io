@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-21T12:23:21+00:00</updated>
+    <updated>2020-02-21T13:31:52+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -12016,7 +12016,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). E.g.: 001&lt;/td&gt;
+      &lt;td&gt;Submit TerminalID from Global Payments E.g.: 001. For Safra as acquirer, use establishment name, City and State concatenated with a semicolon (;). Ex: StoreName; Sao Paulo; SP&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
@@ -16079,9 +16079,6 @@ curl
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
       &lt;th&gt;Required&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -16091,9 +16088,6 @@ curl
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
@@ -16101,9 +16095,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
@@ -16111,9 +16102,6 @@ curl
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;&lt;/td&gt;
@@ -16121,9 +16109,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
@@ -16131,9 +16116,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
@@ -16141,9 +16123,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -16151,9 +16130,6 @@ curl
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
@@ -16161,9 +16137,6 @@ curl
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.SoftDescriptor&lt;/code&gt;&lt;/td&gt;
@@ -16171,9 +16144,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;13&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
@@ -16181,9 +16151,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;16&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Holder&lt;/code&gt;&lt;/td&gt;
@@ -16191,9 +16158,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;25&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
@@ -16201,9 +16165,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
@@ -16211,9 +16172,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
@@ -16221,9 +16179,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Code&lt;/code&gt;&lt;/td&gt;
@@ -16231,9 +16186,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Key&lt;/code&gt;&lt;/td&gt;
@@ -16241,9 +16193,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Username&lt;/code&gt;&lt;/td&gt;
@@ -16251,9 +16200,6 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Password&lt;/code&gt;&lt;/td&gt;
@@ -16261,18 +16207,12 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Credentials.Signature&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Submit TerminalID from Global Payments E.g.: 001. For Safra as acquirer, use establishment name, City and State concatenated with a semicolon (;). Ex: StoreName; Sao Paulo; SP&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;3&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). E.g.: 001&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -24288,7 +24228,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Getnet&lt;/td&gt;
-      &lt;td&gt;Visa, Master, Elo, Amex&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Elo, Amex, Getnet&lt;/td&gt;
       &lt;td&gt;Provider for transactions on Getnet e-commerce platform&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
