@@ -300,7 +300,7 @@ curl
 |`Payment.Credentials.Key`|Texto|100|Sim|Chave de afiliação/token gerado pela adquirente|
 |`Payment.Credentials.Username`|Texto|50|Não|Usuário gerado no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)|
 |`Payment.Credentials.Password`|Texto|50|Não|Senha gerada no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)|
-|`Payment.Credentials.Signature`|Texto|3|Não|Enviar o TerminalID da adquirete Global Payments (aplicável para lojistas filiados a esta adquirente). Ex.: 001|
+|`Payment.Credentials.Signature`|Texto|--|Não|Enviar o TerminalID da adquirente Global Payments Ex.: 001. Para Safra colocar o Nome do Estabelecimento, Cidade e o Estado concatenado com ponto-e-vírgula (;). Ex: NomedaLoja;São Paulo;SP|
 |`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
