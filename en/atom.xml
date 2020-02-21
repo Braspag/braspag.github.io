@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-02-21T13:31:52+00:00</updated>
+    <updated>2020-02-21T13:32:31+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24228,7 +24228,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Getnet&lt;/td&gt;
-      &lt;td&gt;Visa, Master, Elo, Amex, Getnet&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Elo, Amex, Hipercard&lt;/td&gt;
       &lt;td&gt;Provider for transactions on Getnet e-commerce platform&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
