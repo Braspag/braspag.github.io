@@ -2,7 +2,7 @@
 layout: tutorial
 title: Integration Manual
 description: Integração técnica Tokenização Braspag
-search: true
+search: false
 categories: tutorial
 translated: true
 tags:
