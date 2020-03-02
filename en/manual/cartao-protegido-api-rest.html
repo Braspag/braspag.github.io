@@ -143,6 +143,1157 @@
 
 <p>The platform is compatible with Braspag’s Pagador gateway, facilitating the processing of credit and debit card transactions via token.</p>
 
+<h2 id="main-benefits">Main benefits</h2>
+
+<ul>
+  <li>
+    <p><strong>Atualiza Fácil</strong>: The platform has <em>Atualiza Fácil</em>, which is a very interesting feature especially for those working on the recurrence model. Through the brand’s technology, any update to the card number that has been blocked or canceled by the issuer is automatically informed to Braspag, which in turn associates the new card with the existing token, all of which is fully transparent to merchants and shoppers. This feature is available for Mastercard and Visa cards and you should request to enable it through Braspsag’s support channel.</p>
+  </li>
+  <li>
+    <p><strong>Higher conversion rate</strong>: Tokenized transactions processed at Braspag via Pagador may result in a higher than average market conversion rate. This is because tokenized cards in the flags are allowed along with the cryptogram, which provides greater security in the process, so issuers tend to approve more easily. This feature is available for Mastercard cards processing via Cielo 3.0. Request the activation through Braspsag’s support channel.</p>
+  </li>
+  <li>
+    <p><strong>PCI DSS Secure Environment</strong>: Braspag has a PCI DSS certified environment, which ensures the integrity and security of sensitive data such as credit card data.</p>
+  </li>
+  <li>
+    <p><strong>Guaranteed use of valid cards</strong>: Cartão Protegido will only accept saving cards that pass the Luhn Algorithm check, also known as “mod10”. This will give you greater security and certainty that saved cards have the least validation of their veracity.</p>
+  </li>
+</ul>
+
+<h2 id="use-cases">Use Cases</h2>
+
+<p>The purpose of the platform is to help establishments that have several use cases, including:</p>
+
+<ul>
+  <li>
+    <p><strong>Scheduled Recurring Payments</strong>: Merchants that already have an internal recurrence management solution can use the platform to store credit card data and process through payment tokens. Example: Subscription Services.</p>
+  </li>
+  <li>
+    <p><strong>Unscheduled Recurring Payments</strong>: Establishments that charge their registered customers, but without a defined periodicity. Example: Car ride Applications.</p>
+  </li>
+  <li>
+    <p><strong>One Click Payment</strong>: <em>One Click Payment</em> allows an online credit card payment to be made by skipping the step of filling in payment details or even the entire payment process. shopping cart process, as the card details have been previously informed by the shopper on past purchases and will be replicated on future purchases upon their authorization.</p>
+  </li>
+  <li>
+    <p><strong>Sales Recovery</strong>: Merchants can contact customers again who may have had problems purchasing, offering a new billing attempt.</p>
+  </li>
+</ul>
+
+<h2 id="architecture">Architecture</h2>
+
+<p>Integration is made through services as Web Services. The model used is quite simple: Through the endpoint https://cartaoprotegidoapisandbox.braspag.com.br/v1/ all requests related to this service will be sent. This URL will receive HTTP messages via POST, GET, or DEL methods. Each type of message must be sent to an address identified through “path”.</p>
+
+<ul>
+  <li><strong>POST</strong> - The HTTP POST method is used to create the token.</li>
+  <li><strong>DEL</strong> - The HTTP DEL method is used for token removal.</li>
+  <li><strong>GET</strong> - The HTTP GET method is used for querying existing resources. For example, query for tokens already created.</li>
+</ul>
+
+<h1 id="how-does-it-integrate">How does it integrate?</h1>
+
+<h2 id="postman-collection">Postman Collection</h2>
+
+<p>For those who want to try out the APIs directly via Postman, follow the link to download the collection:</p>
+
+<ul>
+  <li>Postman Collection: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE)</li>
+  <li>Sandbox Variables: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE)</li>
+</ul>
+
+<h2 id="authentication-step">Authentication Step</h2>
+
+<p>To consume API methods, you must get AccessToken in the OAuth 2.0 standard.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Endpoint</th>
+      <th>Authorization</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SANDBOX</strong></td>
+      <td>https://authsandbox.braspag.com.br/oauth2/token</td>
+      <td><strong>Basic <em>(Authorization)</em></strong><br />The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”<br />E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br />and then encode the result in base 64. <br />This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: ClientID<br />: ** b4c14ad4-5184-4ca0-8d1a-d3a7276cead9<strong><br />ClientSecret:</strong>qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><strong>PRODUCTION</strong></td>
+      <td>https://auth.braspag.com.br/oauth2/token</td>
+      <td>Request the “ClientID” and “ClientSecret” data from the support team after completing sandbox development.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://authsandbox.braspag.com.br/oauth2/token"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic _(Authorization)_"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="nt">--body</span> <span class="s2">"grant_type=client_credentials"</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Basic <em>(Authorization)</em></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>application/x-www-form-urlencoded</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">grant_type</code></td>
+      <td>client_credentials</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="o">{</span>
+  <span class="s2">"access_token"</span>: <span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span>,
+  <span class="s2">"token_type"</span>: <span class="s2">"bearer"</span>,
+  <span class="s2">"expires_in"</span>: 599
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Response</th>
+      <th>Properties</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">access_token</code></td>
+      <td>The requested access token. The application can use this token to authenticate with the protected resource</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">token_type</code></td>
+      <td>Indicates the value of the token type</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">expires_in</code></td>
+      <td>Expiration of the access token, in seconds <br /> The token when expiring, it is necessary to get a new</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="create-token-reference">Create Token Reference</h2>
+
+<p>The purpose of this method is to save a card and get the token reference (Token Reference) as a response.</p>
+
+<h3 id="request-1">Request</h3>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/Token</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Alias"</span><span class="p">:</span><span class="s2">"5R2O4042YP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4551870000000183"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao da Silva"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"Alias"</span>:<span class="s2">"5R2O4042YP"</span>,
+    <span class="s2">"Card"</span>: <span class="o">{</span>
+        <span class="s2">"Number"</span>: <span class="s2">"4551870000000183"</span>,
+        <span class="s2">"Holder"</span>: <span class="s2">"Joao da Silva"</span>,
+        <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
+        <span class="s2">"SecurityCode"</span>: <span class="s2">"123"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>Cartão Protegido’s Merchant ID in their environment (Sandbox / Production)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>** Bearer ** _ (Authorization) _<br />(is the access token generated in the previous step)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>application / json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Alias</code></td>
+      <td>Text</td>
+      <td>64</td>
+      <td>No</td>
+      <td>Card Alias. The value of this information must be unique (cannot repeat).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.Number</code></td>
+      <td>Number</td>
+      <td>16</td>
+      <td>Yes</td>
+      <td>Shopper Card Number</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.Holder</code></td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Yes</td>
+      <td>Shopper’s Name Printed on Card</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+      <td>Expiration date printed on card in MM / YYYY format</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.SecurityCode</code></td>
+      <td>Number</td>
+      <td>4</td>
+      <td>Yes</td>
+      <td>Security code printed on back of card</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-1">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5R2O4042YP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2e0d46e-6a78-409b-9ad4-75bcb3985762"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-31"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************0183"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao da Silva"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"***"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"HRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"remove"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"HRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"suspend"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"HRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762/suspend"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"Alias"</span>: <span class="s2">"5R2O4042YP"</span>,
+    <span class="s2">"TokenReference"</span>: <span class="s2">"c2e0d46e-6a78-409b-9ad4-75bcb3985762"</span>,
+    <span class="s2">"ExpirationDate"</span>: <span class="s2">"2021-12-31"</span>,
+    <span class="s2">"Card"</span>: <span class="o">{</span>
+        <span class="s2">"Number"</span>: <span class="s2">"************0183"</span>,
+        <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
+        <span class="s2">"Holder"</span>: <span class="s2">"Joao da Silva"</span>,
+        <span class="s2">"SecurityCode"</span>: <span class="s2">"***"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Links"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+            <span class="s2">"HRef"</span>: <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762"</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"DELETE"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"remove"</span>,
+            <span class="s2">"HRef"</span>: <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762"</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"suspend"</span>,
+            <span class="s2">"HRef"</span>: <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/c2e0d46e-6a78-409b-9ad4-75bcb3985762/suspend"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Properties</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Alias</code></td>
+      <td>Credit Card Alias</td>
+      <td>Text</td>
+      <td>64</td>
+      <td>Any text that is unique to the establishment’s token base</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td>Token on Cartão Protegido representing card data</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ExpirationDate</code></td>
+      <td>Token Expiration Date, format MM/YYYY</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>MM/YYYY</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.Number</code></td>
+      <td>Número</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td>Masked card number</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Yes</td>
+      <td>Name of cardholder printed on card</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+      <td>Expiration date printed on card in MM/YYYY format</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Card.SecurityCode</code></td>
+      <td>Number</td>
+      <td>4</td>
+      <td>Yes</td>
+      <td>Security code printed on back of masked card</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-token-reference-information">Get Token Reference Information</h2>
+
+<p>The purpose of this method is to obtain information related to a token reference, such as Status, Masked Card, Expiration Date, and Card Holder Name.</p>
+
+<h3 id="request-2">Request</h3>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
+<span class="nt">--data-binary</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>Cartão Protegido’s Merchant ID in their environment (Sandbox / Production)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td><strong>Bearer</strong> _ (Authorization) _<br />(is the access token generated in the previous step)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Yes</td>
+      <td>Token on Protected Card representing card data</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-2">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1fdb4ef8-17f3-4f26-87e9-3a5f34bca8a0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************0183"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Runscope Teste"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"TokenReference"</span>: <span class="s2">"1fdb4ef8-17f3-4f26-87e9-3a5f34bca8a0"</span>,
+    <span class="s2">"Status"</span>: <span class="s2">"Active"</span>,
+    <span class="s2">"Provider"</span>: <span class="s2">"Braspag"</span>,
+    <span class="s2">"Account"</span>: <span class="o">{</span>
+        <span class="s2">"Number"</span>: <span class="s2">"************0183"</span>,
+        <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
+        <span class="s2">"Holder"</span>: <span class="s2">"Runscope Teste"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Properties</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td>Token on Cartão Protegido representing card data</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Current Cartão Protegido token status</td>
+      <td> </td>
+      <td>-</td>
+      <td>Possible values: Active, Removed, Suspended</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Provider</code></td>
+      <td>Indicates the provider that stored the card.</td>
+      <td>-</td>
+      <td>Possible values: Braspag or Master</td>
+      <td>Text</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Account.Number</code></td>
+      <td>Masked Buyer Card Number</td>
+      <td>Text</td>
+      <td>16</td>
+      <td>-</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Account.Holder</code></td>
+      <td>Shopper’s Name printed on card, without accented characters</td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Example: Jose da Silva</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Account.ExpirationDate</code></td>
+      <td>Expiration date printed on card in MM / YYYY format</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Example: 12/2021</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-token-reference">Get Token Reference</h2>
+
+<p>The purpose of this method is to get the token reference from a previously entered alias.</p>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Alias/_{Alias}_/TokenReference</span></aside>
+
+<h3 id="request-3">Request</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
+<span class="nt">--data-binary</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Alias</code></td>
+      <td>Text</td>
+      <td>64</td>
+      <td>No</td>
+      <td>Alias of credit card previously used in Create Token method</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-3">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a36ffc37-e472-4d85-af2a-6f64c52bcccf"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"TokenReference"</span>: <span class="s2">"a36ffc37-e472-4d85-af2a-6f64c52bcccf"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td>Token on Cartão Protegido representing card data</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="delete-token-reference">Delete Token Reference</h2>
+
+<p>The purpose of this method is to remove the base token reference permanently. The Token Reference removed by this method does not allow it to be recovered in the future.</p>
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
+
+<h3 id="request-4">Request</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+     </span><span class="nl">"RemovedBy"</span><span class="p">:</span><span class="s2">"Merchant"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Other"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> DELETE <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+     <span class="s2">"RemovedBy"</span>:<span class="s2">"Merchant"</span>,
+     <span class="s2">"Reason"</span>:<span class="s2">"Other"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>** Bearer ** <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RemovedBy</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Who requested the removal. Possible values: ‘Merchant’ or ‘CardHolder’</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Reason</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Reason for token removal. Possible values: ‘FraudSuspicion’ or ‘Other’</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-4">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26eb7cb4-c2b4-4409-8d2e-810215c42eee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Removed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"HRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/26eb7cb4-c2b4-4409-8d2e-810215c42eee"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> DELETE <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"TokenReference"</span>: <span class="s2">"26eb7cb4-c2b4-4409-8d2e-810215c42eee"</span>,
+    <span class="s2">"Status"</span>: <span class="s2">"Removed"</span>,
+    <span class="s2">"Links"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+            <span class="s2">"HRef"</span>: <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/26eb7cb4-c2b4-4409-8d2e-810215c42eee"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td>Token on Cartão Protegido representing card data</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Current Cartão Protegido token status</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="suspend-token-reference">Suspend Token Reference</h2>
+
+<p>The purpose of this method is to suspend a token reference temporarily. Token Reference suspended by this method can be reactivated via the Unsuspend Token Reference method.</p>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
+
+<h3 id="request-5">Request</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+     </span><span class="nl">"RemovedBy"</span><span class="p">:</span><span class="s2">"Merchant"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"FraudSuspicion"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+     <span class="s2">"RemovedBy"</span>:<span class="s2">"Merchant"</span>,
+     <span class="s2">"Reason"</span>:<span class="s2">"FraudSuspicion"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RemovedBy</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Who requested the removal. Possible values: ‘Merchant’ or ‘CardHolder’</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Reason</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Reason for token removal. Possible values: ‘FraudSuspicion’ or ‘Other’</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-5">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a69a878-e50a-4252-bccc-24942a6225a9"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suspended"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"HRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"remove"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"HRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"TokenReference"</span>: <span class="s2">"0a69a878-e50a-4252-bccc-24942a6225a9"</span>,
+    <span class="s2">"Status"</span>: <span class="s2">"Suspended"</span>,
+    <span class="s2">"Links"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+            <span class="s2">"HRef"</span>: <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"DELETE"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"remove"</span>,
+            <span class="s2">"HRef"</span>: <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td>Token on Cartão Protegido representing card data</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Current Cartão Protegido token status</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="unsuspend-token-reference">Unsuspend Token Reference</h2>
+
+<p>The purpose of this method is to reactivate a token reference.</p>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/unsuspend</span></aside>
+
+<h3 id="request-6">Request</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
+<span class="nt">--data-binary</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes</td>
+      <td>application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-6">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a69a878-e50a-4252-bccc-24942a6225a9"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"HRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"remove"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"HRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"suspend"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"HRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9/suspend"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"TokenReference"</span>: <span class="s2">"0a69a878-e50a-4252-bccc-24942a6225a9"</span>,
+    <span class="s2">"Status"</span>: <span class="s2">"Active"</span>,
+    <span class="s2">"Links"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+            <span class="s2">"HRef"</span>: <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"DELETE"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"remove"</span>,
+            <span class="s2">"HRef"</span>: <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9"</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"suspend"</span>,
+            <span class="s2">"HRef"</span>: <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/0a69a878-e50a-4252-bccc-24942a6225a9/suspend"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td>Token on Cartão Protegido representing card data</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Current Cartão Protegido token status</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="error-codes">Error codes</h1>
+
+<p>In case of error in the request, the error codes and their description will be informed, as the example.</p>
+
+<h3 id="response-7">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CP903"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token alias already exists"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"Errors"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"Code"</span>: <span class="s2">"CP903"</span>,
+            <span class="s2">"Message"</span>: <span class="s2">"Token alias already exists"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CP903</td>
+      <td>Token alias already exists</td>
+      <td>Happens when Alias has been previously used.</td>
+    </tr>
+    <tr>
+      <td>CP990</td>
+      <td>‘XXXXX’ must not be empty.</td>
+      <td>Happens when any field is invalid.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="implementation-tips">Implementation Tips</h1>
+
+<h2 id="card-security-code">Card Security Code</h2>
+
+<p>The security code is required for an authorization to be accepted by the card issuing bank. It is another security mechanism in the anti-fraud process, where it seeks to validate that the person who is using the card is in fact its owner.
+For this reason, PCI rules allow you to store the card number and validity, but never the security code, not even the PCI certified Braspag.
+The recommendation is that the CVV is always requested at the time of purchase.</p>
+
+<aside class="notice">Establishments that have the recurrence-based business model, such as service subscriptions, must request from the contracted acquirer the release of transactions without CVV.</aside>
+
+<h2 id="one-click-payment">One click payment</h2>
+
+<p>A tip to improve your conversion is to save the masked card number to show the customer which card they have enabled for the “1 click payment” on the site;</p>
+
+<ul>
+  <li>Optionally also save the expiration date, to actively communicate to the customer that the card they have stored has expired and suggest the exchange;</li>
+  <li>Always ask if the buyer wants to store the card details for next purchase;</li>
+  <li>Security of login and password of users of the site - very weak passwords are easily discovered and the fraudster can make a purchase even without the card (in case of not requesting CVV by the site);</li>
+  <li>Control session variables to prevent the user (customer login) from being logged in to the site and someone else accessing it later by making “one click payments” with this login (E.g.: users logged into lan houses).</li>
+</ul>
+
 </div>
 
 
