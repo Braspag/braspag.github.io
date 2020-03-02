@@ -28,7 +28,7 @@ The platform is compatible with Braspag's Pagador gateway, facilitating the proc
 
 * **Guaranteed use of valid cards**: Cartão Protegido will only accept saving cards that pass the Luhn Algorithm check, also known as "mod10". This will give you greater security and certainty that saved cards have the least validation of their veracity.
 
-##Use Cases
+## Use Cases
 
 The purpose of the platform is to help establishments that have several use cases, including:
 
@@ -589,7 +589,7 @@ curl
 |`TokenReference`|Token on Cartão Protegido representing card data|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Text|10|No|Current Cartão Protegido token status||
 
-#Error codes
+# Error codes
 
 In case of error in the request, the error codes and their description will be informed, as the example.
 
