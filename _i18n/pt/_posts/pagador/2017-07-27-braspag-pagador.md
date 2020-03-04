@@ -5983,37 +5983,51 @@ curl
 
 ```json
 {
-  "MerchantOrderId": "2017051001",
-  "Customer": {
-    "Name": "Nome do Cliente",
-    "Identity": "12345678909",
-    "Address": {
-        "Street": "GONCALO DA CUNHA",
-        "Number": "111",
-        "ZipCode": "04140040",
-        "City": "SAO PAULO",
-        "State": "SP",
-        "Country": "BRA",
-        "District": "CHACARA INGLESA"
-     }
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "Authenticate": false,
-    "CreditCard": {
-      "CardNumber": "455187******0181",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "12/2021",
-      "Brand": "Visa"
-    },
-    "ProofOfSale": "2539492",
-    "AcquirerTransactionId": "0510042539492",
-    "AuthorizationCode": "759497",
-    "Chargebacks": [
-        {
+   "MerchantOrderId": "2017051001",
+   "Customer": {
+      "Name": "Nome do Cliente",
+      "Identity": "01234567789",
+      "Email": "cliente@email.com.br",
+      "Address": {
+         "Street": "GONCALO DA CUNHA",
+         "Number": "111",
+         "ZipCode": "04140040",
+         "City": "SAO PAULO",
+         "State": "SP",
+         "Country": "BRA",
+         "District": "CHACARA INGLESA"
+      }
+   },
+   "Merchant": {
+      "Id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "TradeName": "Lojas Teste"
+   },
+   "Payment": {
+      "ServiceTaxAmount": 0,
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "CreditCard": {
+         "CardNumber": "455187******0181",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2021",
+         "Brand": "Visa"
+      },
+      "ProofOfSale": "2539492",
+      "AcquirerTransactionId": "0510042539492",
+      "AuthorizationCode": "759497",
+      "Eci": "0",
+      "Refunds": [
+         {
+            "Amount": 10000,
+            "Status": 3,
+            "ReceivedDate": "2017-05-15 16:25:38"
+         }
+      ],
+      "Chargebacks": [
+         {
             "Amount": 10000,
             "CaseNumber": "123456",
             "Date": "2017-06-04",
@@ -6021,45 +6035,50 @@ curl
             "ReasonMessage": "Outras Fraudes - Cartao Ausente",
             "Status": "Received",
             "RawData": "Client did not participate and did not authorize transaction"
-        }
-    ],
-    "FraudAlert": {
-        "Date": "2017-05-20",
-        "ReasonMessage": "Uso Ind Numeração",
-        "IncomingChargeback": false
-    },
-    "VelocityAnalysis": {
-      "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
-      "ResultMessage": "Accept",
-      "Score": 0
-    },
-    "PaymentId": "f8078b32-be17-4c35-b164-ad74c3cd0725",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "ReceivedDate": "2017-05-10 16:25:38",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ReasonCode": 0,
-    "Status": 1,
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"
+         }
+      ],
+      "FraudAlert": {
+         "Date": "2017-05-20",
+         "ReasonMessage": "Uso Ind Numeração",
+         "IncomingChargeback": false
       },
-      {
-        "Method": "PUT",
-        "Rel": "capture",
-        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"
+      "VelocityAnalysis": {
+         "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
+         "ResultMessage": "Accept",
+         "Score": 0
       },
-      {
-        "Method": "PUT",
-        "Rel": "void",
-        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"
-      }
-    ]
-  }
+      "PaymentId": "f8078b32-be17-4c35-b164-ad74c3cd0725",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "ReceivedDate": "2017-05-10 16:25:38",
+      "CapturedAmount": 10000,
+      "CapturedDate": "2017-05-10 16:25:38",
+      "VoidedAmount": 10000,
+      "VoidedDate": "2017-05-15 16:25:38",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ProviderDescription": "Simulado",
+      "ReasonCode": 0,
+      "Status": 1,
+      "Links": [
+         {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"
+         },
+         {
+            "Method": "PUT",
+            "Rel": "capture",
+            "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"
+         },
+         {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"
+         }
+      ]
+   }
 }
 ```
 
@@ -6068,28 +6087,51 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-  "MerchantOrderId": "2017051001",
-  "Customer": {
-    "Name": "Nome do Cliente",
-    "Address": {}
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "Authenticate": false,
-    "CreditCard": {
-      "CardNumber": "455187******0181",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "12/2021",
-      "Brand": "Visa"
-    },
-    "ProofOfSale": "2539492",
-    "AcquirerTransactionId": "0510042539492",
-    "AuthorizationCode": "759497",
-    "Chargebacks": [
-        {
+   "MerchantOrderId": "2017051001",
+   "Customer": {
+      "Name": "Nome do Cliente",
+      "Identity": "01234567789",
+      "Email": "cliente@email.com.br",
+      "Address": {
+         "Street": "GONCALO DA CUNHA",
+         "Number": "111",
+         "ZipCode": "04140040",
+         "City": "SAO PAULO",
+         "State": "SP",
+         "Country": "BRA",
+         "District": "CHACARA INGLESA"
+      }
+   },
+   "Merchant": {
+      "Id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "TradeName": "Lojas Teste"
+   },
+   "Payment": {
+      "ServiceTaxAmount": 0,
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "CreditCard": {
+         "CardNumber": "455187******0181",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2021",
+         "Brand": "Visa"
+      },
+      "ProofOfSale": "2539492",
+      "AcquirerTransactionId": "0510042539492",
+      "AuthorizationCode": "759497",
+      "Eci": "0",
+      "Refunds": [
+         {
+            "Amount": 10000,
+            "Status": 3,
+            "ReceivedDate": "2017-05-15 16:25:38"
+         }
+      ],
+      "Chargebacks": [
+         {
             "Amount": 10000,
             "CaseNumber": "123456",
             "Date": "2017-06-04",
@@ -6097,45 +6139,50 @@ curl
             "ReasonMessage": "Outras Fraudes - Cartao Ausente",
             "Status": "Received",
             "RawData": "Client did not participate and did not authorize transaction"
-        }
-    ],
-    "FraudAlert": {
-        "Date": "2017-05-20",
-        "ReasonMessage": "Uso Ind Numeração",
-        "IncomingChargeback": false
-    },
-    "VelocityAnalysis": {
-      "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
-      "ResultMessage": "Accept",
-      "Score": 0
-    },
-    "PaymentId": "f8078b32-be17-4c35-b164-ad74c3cd0725",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "ReceivedDate": "2017-05-10 16:25:38",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ReasonCode": 0,
-    "Status": 1,
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"
+         }
+      ],
+      "FraudAlert": {
+         "Date": "2017-05-20",
+         "ReasonMessage": "Uso Ind Numeração",
+         "IncomingChargeback": false
       },
-      {
-        "Method": "PUT",
-        "Rel": "capture",
-        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"
+      "VelocityAnalysis": {
+         "Id": "f8078b32-be17-4c35-b164-ad74c3cd0725",
+         "ResultMessage": "Accept",
+         "Score": 0
       },
-      {
-        "Method": "PUT",
-        "Rel": "void",
-        "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"
-      }
-    ]
-  }
+      "PaymentId": "f8078b32-be17-4c35-b164-ad74c3cd0725",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "ReceivedDate": "2017-05-10 16:25:38",
+      "CapturedAmount": 10000,
+      "CapturedDate": "2017-05-10 16:25:38",
+      "VoidedAmount": 10000,
+      "VoidedDate": "2017-05-15 16:25:38",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ProviderDescription": "Simulado",
+      "ReasonCode": 0,
+      "Status": 1,
+      "Links": [
+         {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725"
+         },
+         {
+            "Method": "PUT",
+            "Rel": "capture",
+            "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/capture"
+         },
+         {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.braspag.com.br/v2/sales/f8078b32-be17-4c35-b164-ad74c3cd0725/void"
+         }
+      ]
+   }
 }
 ```
 
@@ -6162,7 +6209,9 @@ curl
 |`Customer.DeliveryAddress.City`|Cidade do endereço de entrega do pedido|Texto|50|Texto alfanumérico|
 |`Customer.DeliveryAddress.State`|Estado do endereço de entrega do pedido|Texto|2|Texto alfanumérico|
 |`Customer.DeliveryAddress.Country`|Pais do endereço de entrega do pedido|Texto|35|Texto alfanumérico|
-|`Customer.DeliveryAddress.District`|Bairro do Comprador. |Texto |50 |Texto alfanumérico|
+|`Customer.DeliveryAddress.District`|Bairro do Comprador. |Texto |50|Texto alfanumérico|
+|'Merchant.Id'|MerchantID da loja que efetuou essa transação|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|'Merchant.TradeName'|Nome da loja|50|Texto alfanumérico|
 |`Payment.Provider`|Nome da provedora de Meio de Pagamento|Texto|15| Consulta os provedores disponíveis nos anexos|
 |`Payment.Type`|Tipo do Meio de Pagamento|Texto|100|Ex. CreditCard|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos)|Número|15|10000|
@@ -6180,6 +6229,9 @@ curl
 |`Payment.AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
 |`Payment.ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
 |`Payment.AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
+|`Payment.Refunds.Amount`|Valor Reembolsado|Numero|15|Valor em centavos|
+|`Payment.Refunds.Status`|Status do Reembolso|Number|1|Received = 1, Sent = 2, Approved = 3, Denied = 4, Rejected = 5|
+|`Payment.Refunds.ReceivedDate`|Data de recebimento do reembolso|Texto|19|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
 |`Payment.Chargebacks[n].Amount`|Valor do chargeback|Número|15|10000|
 |`Payment.Chargebacks[n].CaseNumber`|Número do caso relacionado ao chargeback|Texto|16|Texto alfanumérico|
 |`Payment.Chargebacks[n].Date`|Data do chargeback|Date|10|AAAA-MM-DD|
@@ -6194,13 +6246,16 @@ curl
 |`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Código de retorno da Adquirência|Texto|32|Texto alfanumérico|
 |`Payment.ReasonMessage`|Mensagem de retorno da Adquirência|Texto|512|Texto alfanumérico|
+|`Payment.CapturedAmount`|Valor capturado|Número|15|10000|
+|`Payment.CapturedDate`|Data da captura|Texto|19|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
+|`Payment.VoidedAmount`|Valor cancelado/estornado|Número|15|10000|
+|`Payment.VoidedDate`|Data do cancelamento/estorno|Texto|19|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
 |`Payment.Status`|Status da Transação|Byte|2| Ex. 1|
-|`Payment.ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`Payment.ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
+|`Payment.Provider`|Provider utilizado|Texto|32|Simulado|
+|`Payment.ProviderDescription`|Nome do adquirente que processou a transação|Texto|512|Simulado|
 |`CreditCard.CardNumber`|Número do Cartão do comprador|Texto|16|
 |`CreditCard.Holder`|Nome do portador impresso no cartão|Texto|25|
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão|Texto|7|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão|Texto|4|
 |`CreditCard.Brand`|Bandeira do cartão|Texto|10|
 |`CreditCard.SaveCard`|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|Booleano|--- (Default false)|
 
