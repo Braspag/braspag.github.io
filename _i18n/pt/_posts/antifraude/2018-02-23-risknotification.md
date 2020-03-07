@@ -251,11 +251,13 @@ Exemplo:
 
 # Contestação
 
-## Contestando um chargeback
+## V1 (DEPRECATED)
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span><span class="method delete">DEPRECATED</span></aside>
+### Contestando um chargeback
 
-### Request
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span><span class="method get">DEPRECATED</span></aside>
+
+#### Request
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -279,7 +281,7 @@ Exemplo:
 |:-|:-|:-|
 |`Content-Type`|form-data <br/> Arquivo extensão jpeg, jpg ou png <br/> Obs.: A soma de todos arquivos deve ter no máximo 7mb de tamanho <br/> Obs2.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019|sim|
 
-### Response
+#### Response
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -288,11 +290,11 @@ Exemplo:
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-## Contestando um chargeback inexistente
+### Contestando um chargeback inexistente
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-### Request
+#### Request
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -310,7 +312,7 @@ Exemplo:
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso do chargeback|sim|
 
-### Response
+#### Response
 
 ``` json
 {
@@ -333,11 +335,11 @@ Exemplo:
 |`Code`|Código que o chargeback não foi encontrado|
 |`Message`|Mensagem que o chargeback não foi encontrado|
 
-## Contestando um chargeback contestado anteriormente
+### Contestando um chargeback contestado anteriormente
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-### Request
+#### Request
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -355,7 +357,7 @@ Exemplo:
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso do chargeback|sim|
 
-### Response
+#### Response
 
 ``` json
 {
@@ -378,11 +380,11 @@ Exemplo:
 |`Code`|Código que o chargeback foi contestado ou aceito anteriomente|
 |`Message`|Mensagem que o chargeback foi contestado ou aceito anteriormente|
 
-## Contestando um chargeback e não enviando o arquivo de contestação
+### Contestando um chargeback e não enviando o arquivo de contestação
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-### Request
+#### Request
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -400,7 +402,7 @@ Exemplo:
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso do chargeback|sim|
 
-### Response
+#### Response
 
 ``` json
 {
@@ -423,11 +425,11 @@ Exemplo:
 |`Code`|Código que não foi enviado com o arquivo de contestação|
 |`Message`|Mensagem que não foi enviado com o arquivo de contestação|
 
-## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png
+### Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-### Request
+#### Request
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -445,7 +447,7 @@ Exemplo:
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso do chargeback|sim|
 
-### Response
+#### Response
 
 ``` json
 {
@@ -468,11 +470,11 @@ Exemplo:
 |`Code`|Código que o arquivo de contestação foi enviado com extensão inválida, diferente de jpeg, pfg ou png|
 |`Message`|Mensagem que o arquivo de contestação foi enviado com extensão inválida, diferente de jpeg, pfg ou png|
 
-## Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb
+### Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-### Request
+#### Request
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -490,7 +492,7 @@ Exemplo:
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso do chargeback|sim|
 
-### Response
+#### Response
 
 ``` json
 {
@@ -512,6 +514,8 @@ Exemplo:
 |:-|:-|
 |`Code`|Código que o arquivo de contestação foi enviado com tamanho superior a 7mb|
 |`Message`|Mensagem que o arquivo de contestação foi enviado com tamanho superior a 7mb|
+
+## V2
 
 # Consultas
 
