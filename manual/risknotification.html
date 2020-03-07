@@ -670,11 +670,13 @@
 
 <h1 id="contestação">Contestação</h1>
 
-<h2 id="contestando-um-chargeback">Contestando um chargeback</h2>
+<h2 id="v1-deprecated">V1 (DEPRECATED)</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span><span class="method delete">DEPRECATED</span></aside>
+<h3 id="contestando-um-chargeback">Contestando um chargeback</h3>
 
-<h3 id="request-4">Request</h3>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span><span class="method get">DEPRECATED</span></aside>
+
+<h4 id="request-4">Request</h4>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -759,7 +761,7 @@
   </tbody>
 </table>
 
-<h3 id="response-4">Response</h3>
+<h4 id="response-4">Response</h4>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -782,11 +784,11 @@
   </tbody>
 </table>
 
-<h2 id="contestando-um-chargeback-inexistente">Contestando um chargeback inexistente</h2>
+<h3 id="contestando-um-chargeback-inexistente">Contestando um chargeback inexistente</h3>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-<h3 id="request-5">Request</h3>
+<h4 id="request-5">Request</h4>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -852,7 +854,7 @@
   </tbody>
 </table>
 
-<h3 id="response-5">Response</h3>
+<h4 id="response-5">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
@@ -902,11 +904,11 @@
   </tbody>
 </table>
 
-<h2 id="contestando-um-chargeback-contestado-anteriormente">Contestando um chargeback contestado anteriormente</h2>
+<h3 id="contestando-um-chargeback-contestado-anteriormente">Contestando um chargeback contestado anteriormente</h3>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-<h3 id="request-6">Request</h3>
+<h4 id="request-6">Request</h4>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -972,7 +974,7 @@
   </tbody>
 </table>
 
-<h3 id="response-6">Response</h3>
+<h4 id="response-6">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
@@ -1022,11 +1024,11 @@
   </tbody>
 </table>
 
-<h2 id="contestando-um-chargeback-e-não-enviando-o-arquivo-de-contestação">Contestando um chargeback e não enviando o arquivo de contestação</h2>
+<h3 id="contestando-um-chargeback-e-não-enviando-o-arquivo-de-contestação">Contestando um chargeback e não enviando o arquivo de contestação</h3>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-<h3 id="request-7">Request</h3>
+<h4 id="request-7">Request</h4>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1092,7 +1094,7 @@
   </tbody>
 </table>
 
-<h3 id="response-7">Response</h3>
+<h4 id="response-7">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FileNotFound"</span><span class="p">,</span><span class="w">
@@ -1142,11 +1144,11 @@
   </tbody>
 </table>
 
-<h2 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-extensão-diferente-de-jpeg-pfg-ou-png">Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png</h2>
+<h3 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-extensão-diferente-de-jpeg-pfg-ou-png">Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png</h3>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-<h3 id="request-8">Request</h3>
+<h4 id="request-8">Request</h4>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1212,7 +1214,7 @@
   </tbody>
 </table>
 
-<h3 id="response-8">Response</h3>
+<h4 id="response-8">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileExtension"</span><span class="p">,</span><span class="w">
@@ -1262,11 +1264,11 @@
   </tbody>
 </table>
 
-<h2 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-tamanho-maior-que-7mb">Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb</h2>
+<h3 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-tamanho-maior-que-7mb">Contestando um chargeback enviando o arquivo de contestação com tamanho maior que 7mb</h3>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
 
-<h3 id="request-9">Request</h3>
+<h4 id="request-9">Request</h4>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1332,7 +1334,7 @@
   </tbody>
 </table>
 
-<h3 id="response-9">Response</h3>
+<h4 id="response-9">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileLength"</span><span class="p">,</span><span class="w">
@@ -1381,6 +1383,8 @@
     </tr>
   </tbody>
 </table>
+
+<h2 id="v2">V2</h2>
 
 <h1 id="consultas">Consultas</h1>
 
