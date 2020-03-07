@@ -519,7 +519,7 @@ Exemplo:
 
 ### Contestando um chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 ``` json
 {
