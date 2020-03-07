@@ -517,6 +517,346 @@ Exemplo:
 
 ## V2
 
+### Contestando um chargeback
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span>
+
+``` json
+{
+	"Files":
+	    [{
+			"FileName": "file1.png",
+			"Content": "asdfghjkle ********** lkjhgfdsa"
+		},
+		{
+		    "FileName": "file2.jpg",
+			"Content": "zxcvbnmasd ********** qwertyuio"
+		},
+		{
+		    "FileName": "file3.jpg",
+			"Content": "qwertyuiop ********** asdfghjkl"
+		}]
+}
+```
+
+#### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+**Parâmetros no corpo (Body)**
+
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|:-|:-|:-|
+|`Files[n].FileName`|Nome do arquivo com extensão <br/> Obs.: Extensões permitidas: png, jpg ou jpeg </br> Obs2.: A soma de todos arquivos deve ter no máximo 7mb de tamanho </br> Obs3.: O prazo para realizar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a realizar a mesma até 19/02/2019|string|sim|100|
+|`Files[n].Content`|Conteúdo do arquivo convertido para base64|string|sim|-|
+
+#### Response
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+### Contestando um chargeback inexistente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+#### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+#### Response
+
+``` json
+{
+    "Code": "ChargebackNotFounded",
+    "Message": "Chargeback not found"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback não foi encontrado|
+|`Message`|Mensagem que o chargeback não foi encontrado|
+
+### Contestando um chargeback contestado anteriormente
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+#### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+#### Response
+
+``` json
+{
+    "Code": "ChargebackAlreadyUpdated",
+    "Message": "Chargeback already updated"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Key|Value|
+|:-|:-|
+|`Code`|Código que o chargeback foi contestado ou aceito anteriomente|
+|`Message`|Mensagem que o chargeback foi contestado ou aceito anteriormente|
+
+### Contestando um chargeback e não enviando o arquivo de contestação
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+#### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+#### Response
+
+``` json
+{
+  "Message": "The request is invalid.",
+  "ModelState": {
+    "contestationRequest.Files[0].FileName": [
+      "FileName can not be null or empty."
+    ],
+    "contestationRequest.Files[0].Content": [
+      "Content can not be null or empty."
+    ]
+  }
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Parâmetro|Descrição|
+|:-|:-|
+|`Message`|Mensagem informando que a requisição é inválida|
+|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o nome do arquivo não foi enviado|
+|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o conteúdo do arquivo não foi enviado|
+
+### Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+#### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+#### Response
+
+``` json
+{
+  "Message": "The request is invalid.",
+  "ModelState": {
+    "contestationRequest.Files[0].FileName": [
+      "The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"
+    ]
+  }
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Parâmetro|Descrição|
+|:-|:-|
+|`Message`|Mensagem informando que a requisição é inválida|
+|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o arquivo foi enviado com a extensão inválida|
+
+### Contestando um chargeback enviando arquivo para contestação com tamanho maior que 7mb
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+#### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+#### Response
+
+``` json
+{
+  "Message": "The request is invalid.",
+  "ModelState": {
+    "contestationRequest.Files[0].Content": [
+        "File file1.png has length bigger than the size limit of 7MB."
+    ]
+  }
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Parâmetro|Descrição|
+|:-|:-|
+|`Message`|Mensagem informando que a requisição é inválida|
+|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o arquivo foi enviado com tamanho superior a 7mb|
+
+### Contestando um chargeback enviando arquivos e a a soma do tamanho de todos é maior que 7mb
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+#### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`CaseNumber`|Número do caso do chargeback|sim|
+
+#### Response
+
+``` json
+{
+  "Message": "Files has length bigger than the size limit of 7MB.",
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Parâmetro|Descrição|
+|:-|:-|
+|`Message`|Mensagem informando que todos os arquivos enviados somando seus tamanhos é superior a 7mb|
+
 # Consultas
 
 ### Request
