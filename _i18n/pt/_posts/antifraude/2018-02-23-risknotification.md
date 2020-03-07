@@ -561,7 +561,7 @@ Exemplo:
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-|
-|`Files[n].FileName`|Nome do arquivo com extensão <br/> Obs.: Extensões permitidas: png, jpg ou jpeg </br> Obs2.: A soma de todos arquivos deve ter no máximo 7mb de tamanho </br> Obs3.: O prazo para realizar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a realizar a mesma até 19/02/2019|string|sim|100|
+|`Files[n].FileName`|Nome do arquivo com extensão <br/> Obs.: Extensões permitidas: png, jpg ou jpeg <br/> Obs2.: A soma de todos arquivos deve ter no máximo 7mb de tamanho <br/> Obs3.: O prazo para realizar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a realizar a mesma até 19/02/2019|string|sim|100|
 |`Files[n].Content`|Conteúdo do arquivo convertido para base64|string|sim|-|
 
 #### Response
