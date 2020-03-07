@@ -255,7 +255,7 @@ Exemplo:
 
 ### Contestando um chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span><span class="method get">DEPRECATED</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span><span class="method get">`DEPRECATED`</span></aside>
 
 #### Request
 
