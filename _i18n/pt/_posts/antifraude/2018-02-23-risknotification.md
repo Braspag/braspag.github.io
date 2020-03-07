@@ -689,15 +689,14 @@ Exemplo:
 
 ``` json
 {
-  "Message": "The request is invalid.",
-  "ModelState": {
-    "contestationRequest.Files[0].FileName": [
-      "FileName can not be null or empty."
+    "Message": "The request is invalid.",
+    "ModelState": {
+        "contestationRequest.Files[0].FileName": [
+        "FileName can not be null or empty."
     ],
     "contestationRequest.Files[0].Content": [
-      "Content can not be null or empty."
-    ]
-  }
+        "Content can not be null or empty."
+    ]}
 }
 ```
 
@@ -742,12 +741,11 @@ Exemplo:
 
 ``` json
 {
-  "Message": "The request is invalid.",
-  "ModelState": {
+    "Message": "The request is invalid.",
+    "ModelState": {
     "contestationRequest.Files[0].FileName": [
-      "The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"
-    ]
-  }
+        "The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"
+    ]}
 }
 ```
 
@@ -791,12 +789,11 @@ Exemplo:
 
 ``` json
 {
-  "Message": "The request is invalid.",
-  "ModelState": {
+    "Message": "The request is invalid.",
+    "ModelState": {
     "contestationRequest.Files[0].Content": [
         "File file1.png has length bigger than the size limit of 7MB."
-    ]
-  }
+    ]}
 }
 ```
 
@@ -840,7 +837,7 @@ Exemplo:
 
 ``` json
 {
-  "Message": "Files has length bigger than the size limit of 7MB.",
+    "Message": "Files has length bigger than the size limit of 7MB.",
 }
 ```
 
