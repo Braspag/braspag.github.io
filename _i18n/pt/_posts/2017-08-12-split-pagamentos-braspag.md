@@ -2884,7 +2884,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
 --header "Content-Type: application/json"
