@@ -2878,7 +2878,7 @@ A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigat
 
 ### Criando uma transação de Boleto
 
-Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.
+Para gerar um boleto em Sandbox, é necessár Tokenio fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.
 
 #### Criando uma transação  
 
@@ -2888,6 +2888,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 
 ```json
 --header "Content-Type: application/json"
+--header "Authorization: Bearer Token"
 
 {  
     "MerchantOrderId":"2017091101",
