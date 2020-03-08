@@ -2868,7 +2868,6 @@ Nome do campo: ReleasedToAnticipation
 
 <aside class="request"><span class="method post">200 OK</span></aside>
 
-
 ## Boleto Braspag
 
 ### Boleto Registrado
