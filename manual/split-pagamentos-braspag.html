@@ -3515,7 +3515,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <h3 id="criando-uma-transação-de-boleto">Criando uma transação de Boleto</h3>
 
-<p>Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.</p>
+<p>Para gerar um boleto em Sandbox, é necessár Tokenio fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.</p>
 
 <h4 id="criando-uma-transação">Criando uma transação</h4>
 
@@ -3524,6 +3524,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer Token"</span><span class="w">
 
 </span><span class="p">{</span><span class="w">  
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
