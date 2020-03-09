@@ -763,7 +763,7 @@ Exemplo:
 |`Message`|Mensagem informando que a requisição é inválida|
 |`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o arquivo foi enviado com a extensão inválida|
 
-### Contestando um chargeback enviando arquivo para contestação com tamanho maior que 7mb
+### Contestando um chargeback enviando arquivo(s) para contestação com tamanho maior que 7mb
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
@@ -789,11 +789,7 @@ Exemplo:
 
 ``` json
 {
-    "Message": "The request is invalid.",
-    "ModelState": {
-    "contestationRequest.Files[0].Content": [
-        "File file1.png has length bigger than the size limit of 7MB."
-    ]}
+    "Message": "File(s) file1.png, file2.png has length bigger than the size limit of 7MB."
 }
 ```
 
@@ -808,8 +804,7 @@ Exemplo:
 
 |Parâmetro|Descrição|
 |:-|:-|
-|`Message`|Mensagem informando que a requisição é inválida|
-|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o arquivo foi enviado com tamanho superior a 7mb|
+|`Message`|Mensagem informando qual(is) arquivo(s) possuem tamanho superior a 7mb|
 
 ### Contestando um chargeback enviando arquivos e a a soma do tamanho de todos é maior que 7mb
 
