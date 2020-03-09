@@ -2019,7 +2019,7 @@
   </tbody>
 </table>
 
-<h3 id="contestando-um-chargeback-enviando-arquivo-para-contestação-com-tamanho-maior-que-7mb">Contestando um chargeback enviando arquivo para contestação com tamanho maior que 7mb</h3>
+<h3 id="contestando-um-chargeback-enviando-arquivos-para-contestação-com-tamanho-maior-que-7mb">Contestando um chargeback enviando arquivo(s) para contestação com tamanho maior que 7mb</h3>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
@@ -2092,11 +2092,7 @@
 <h4 id="response-15">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"contestationRequest.Files[0].Content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"File file1.png has length bigger than the size limit of 7MB."</span><span class="w">
-    </span><span class="p">]}</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File(s) file1.png, file2.png has length bigger than the size limit of 7MB."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -2133,11 +2129,7 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem informando que a requisição é inválida</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
-      <td style="text-align: left">Mensagem informando que o arquivo foi enviado com tamanho superior a 7mb</td>
+      <td style="text-align: left">Mensagem informando qual(is) arquivo(s) possuem tamanho superior a 7mb</td>
     </tr>
   </tbody>
 </table>
