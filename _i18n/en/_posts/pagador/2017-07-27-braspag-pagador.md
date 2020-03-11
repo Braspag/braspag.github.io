@@ -565,8 +565,8 @@ curl
     "Status": 2,
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
-    "ProviderReasonCode": "6",
-    "ProviderReasonMessage": "Operation Successful",
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
     "Links": [
         {
             "Method": "GET",
@@ -592,8 +592,8 @@ curl
     "Status": 2,
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
-    "ProviderReasonCode": "6",
-    "ProviderReasonMessage": "Operation Successful",
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
     "Links": [
         {
             "Method": "GET",
@@ -1384,8 +1384,8 @@ curl
     "Status": 10,
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
-    "ProviderReasonCode": "9",
-    "ProviderReasonMessage": "Operation Successful",
+    "ProviderReturnCode": "9",
+    "ProviderReturnMessage": "Operation Successful",
     "Links": [
         {
             "Method": "GET",
@@ -1403,8 +1403,8 @@ curl
     "Status": 10,
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
-    "ProviderReasonCode": "9",
-    "ProviderReasonMessage": "Operation Successful",
+    "ProviderReturnCode": "9",
+    "ProviderReturnMessage": "Operation Successful",
     "Links": [
         {
             "Method": "GET",
