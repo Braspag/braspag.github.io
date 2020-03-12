@@ -6752,7 +6752,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |GlobalPayments|Visa, Master|Provider para transações na plataforma de e-commerce Global Payments|
 |Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone|
 |Safra|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Safra|
-|FirstData|Visa, Master, Cabal|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data|
+|FirstData|Visa, Master, Elo, Hipercard, Cabal|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data|
 |Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte|
 |Credibanco|Visa, Master, Diners, Amex, Credential|Provider para transações em pesos colombianos (COP) na plataforma de e-commerce Credibanco|
