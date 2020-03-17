@@ -6734,7 +6734,7 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |GlobalPayments|Visa, Master|Provider for transactions on Global Payments e-commerce platform|
 |Stone|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Stone|
 |Safra|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Safra|
-|FirstData|Visa, Master, Cabal|Provider for Guarani (PYG), Argentine Pesos (ARG) and Real (BRL) transactions on the First Data e-commerce platform|
+|FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider for Guarani (PYG), Argentine Pesos (ARG) and Real (BRL) transactions on the First Data e-commerce platform|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Orange and Nevada|Provider for Argentine Peso (ARG) transactions on the Sub1 First Data legacy platform|
 |Banorte|Visa, Master, Carnet|Provider for Mexican Peso (MXN) transactions on Banorte e-commerce platform|
 |Credibanco|Visa, Master, Diners, Amex, Credential|Provider for Colombian Peso (COP) transactions on Credibanco e-commerce platform|
