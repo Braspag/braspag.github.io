@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-03-17T14:02:01+00:00</updated>
+    <updated>2020-03-17T14:03:15+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25536,7 +25536,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;FirstData&lt;/td&gt;
-      &lt;td&gt;Visa, Master, Cabal&lt;/td&gt;
+      &lt;td&gt;Visa, Master, Elo, Hipercard, Cabal, Amex&lt;/td&gt;
       &lt;td&gt;Provider for Guarani (PYG), Argentine Pesos (ARG) and Real (BRL) transactions on the First Data e-commerce platform&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
