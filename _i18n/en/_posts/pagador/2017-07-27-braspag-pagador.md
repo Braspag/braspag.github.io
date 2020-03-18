@@ -38,8 +38,8 @@ I am ready to Go Live!
 |Information|Description|
 |---|---|
 |API Access Credentials|Send an email to comercial@braspag.com.br for more information about Braspag and how we can help your business!|
-|Transactional Endpoint|https://apisandbox.braspag.com.br/|
-|Endpoint for Query Services|https://apiquerysandbox.braspag.com.br/|
+|Transactional Endpoint|https://api.braspag.com.br/|
+|Endpoint for Query Services|https://apiquery.braspag.com.br/|
 
 ## Braspag's Support
 
