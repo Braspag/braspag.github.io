@@ -6204,8 +6204,8 @@ curl
 |`Customer.DeliveryAddress.State`|Order Delivery Address Status|Text|2|Alphanumeric|
 |`Customer.DeliveryAddress.Country`|Order Delivery Address Country|Text|35|Alphanumeric|
 |`Customer.DeliveryAddress.District`|Shopper's neighborhood.|Text|50|Alphanumeric|
-|'Merchant.Id'|MerchantID where the transaction was made|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|'Merchant.TradeName'|Store name|50|Alphanumeric|
+|`Merchant.Id`|MerchantID where the transaction was made|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Merchant.TradeName`|Store name|50|Alphanumeric|--|
 |`Payment.Provider`|Name of Payment Provider|Text|15|Consult the providers available in the annexes|
 |`Payment.Country`|Country in which payment will be made|Text|3|BRA|
 |`Payment.Type`|Payment Medium Type|Text|100|E.g.: CreditCard|
@@ -6231,7 +6231,7 @@ curl
 |`Payment.Chargebacks [n].Date`|Chargeback Date|Date|10|YYYY-MM-DD|
 |`Payment.Chargebacks [n].ReasonCode`|Chargeback Reason Code|Text|10|Alphanumeric|
 |`Payment.Chargebacks [n].ReasonMessage`|Chargeback Reason Message|Text|512|Alphanumeric|
-|`Payment.Chargebacks [n].Chargeback Status <br/> [Value List - Payment.Chargebacks {n}.Status]({{site.baseurl_root}}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
+|`Payment.Chargebacks [n].Chargeback Status`|[Value List - Payment.Chargebacks {n}.Status]({{site.baseurl_root}}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
 |`Payment.Chargebacks [n].RawData`|Data sent by the acquirer and may be the cardholder or other message|Text|512|Alphanumeric text|
 |`PaymentId`|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Date the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
