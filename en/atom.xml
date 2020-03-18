@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-03-18T11:55:05+00:00</updated>
+    <updated>2020-03-18T11:56:10+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -12639,7 +12639,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 &lt;aside class=&quot;notice&quot;&gt;Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish.&lt;/aside&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Web Support: &lt;a href=&quot;http://suporte.braspag.com.br/&quot;&gt;Zendesk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Web Support: &lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us&quot;&gt;Zendesk&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;about-the-api&quot;&gt;About the API&lt;/h2&gt;
