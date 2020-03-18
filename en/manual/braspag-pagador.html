@@ -11942,75 +11942,624 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>|Property|Description|Type|Size|Format|
-|——–|———–|—-|—-|——-|
-|<code class="highlighter-rouge">MerchantOrderId</code>|Order ID|Text|50|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Name</code>|Shopper’s Name|Text|255|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Identity</code>|Customer ID, CPF or CNPJ number|Text|14|Alphanumeric text|
-|<code class="highlighter-rouge">Customer.IdentityType</code>|Type of shopper identification document (CPF or CNPJ)|Text|255|CPF or CNPJ|
-|<code class="highlighter-rouge">Customer.Email</code>|Shopper Email|Text|255|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Birthdate</code>|Shopper’s Date of Birth|Date|10|format YYYY-MM-DD|
-|<code class="highlighter-rouge">Customer.Address.Street</code>|Shopper’s Contact Address|Text|255|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Address.Number</code>|Shopper’s Contact Number|Text|15|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Address.Complement</code>|Shopper’s Contact Address Supplement|Text|50|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Address.ZipCode</code>|Shopper’s Contact Address Zip Code|Text|9|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Address.City</code>|City of Shopper’s contact address|Text|50|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Address.State</code>|Shopper’s Contact Address Status|Text|2|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Address.Country</code>|Shopper’s Contact Address Country|Text|35|Alphanumeric|
-|<code class="highlighter-rouge">Customer.Address.District</code>|Shopper’s Neighborhood|Text|50|Alphanumeric|
-|<code class="highlighter-rouge">Customer.DeliveryAddress.Street</code>|Shopper’s Address|Text|255|Alphanumeric|
-|<code class="highlighter-rouge">Customer.DeliveryAddress.Number</code>|Order Delivery Address Number|Text|15|Alphanumeric|
-|<code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code>|Order Delivery Address Supplement|Text|50|Alphanumeric|
-|<code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code>|Order Delivery Address Zip Code|Text|9|Alphanumeric|
-|<code class="highlighter-rouge">Customer.DeliveryAddress.City</code>|Order Delivery Address City|Text|50|Alphanumeric|
-|<code class="highlighter-rouge">Customer.DeliveryAddress.State</code>|Order Delivery Address Status|Text|2|Alphanumeric|
-|<code class="highlighter-rouge">Customer.DeliveryAddress.Country</code>|Order Delivery Address Country|Text|35|Alphanumeric|
-|<code class="highlighter-rouge">Customer.DeliveryAddress.District</code>|Shopper’s neighborhood.|Text|50|Alphanumeric|
-|’Merchant.Id’|MerchantID where the transaction was made|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|’Merchant.TradeName’|Store name|50|Alphanumeric|
-|<code class="highlighter-rouge">Payment.Provider</code>|Name of Payment Provider|Text|15|Consult the providers available in the annexes|
-|<code class="highlighter-rouge">Payment.Country</code>|Country in which payment will be made|Text|3|BRA|
-|<code class="highlighter-rouge">Payment.Type</code>|Payment Medium Type|Text|100|E.g.: CreditCard|
-|<code class="highlighter-rouge">Payment.Amount</code>|Order Value (in cents)|Number|15|10000|
-|<code class="highlighter-rouge">Payment.ServiceTaxAmount</code>|Number|Amount of authorization amount to be used for service charge|Note: This value is not added to the authorization value|Number|15|10000|
-|<code class="highlighter-rouge">Payment.Currency</code>|Currency in which payment will be made|Text|3|BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
-|<code class="highlighter-rouge">Payment.Installments</code>|Number of Installments|Number|2|6|
-|<code class="highlighter-rouge">Payment.Interest</code>|Installment Type|Text|10|Shop (ByMerchant) or Issuer (ByIssuer)|
-|<code class="highlighter-rouge">Payment.Capture</code>|Boolean which indicates whether the authorization should be with automatic capture (true) or not (false). You should check with the acquirer for the availability of this feature|Boolean|— (Default false)|Boolean|
-|<code class="highlighter-rouge">AcquirerTransactionId</code>|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|<code class="highlighter-rouge">Payment.Authenticate</code>|Boolean indicating whether the transaction should be authenticated (true) or not (false). You should check with the acquirer for the availability of this feature|Boolean|— (Default false)|Boolean|
-|<code class="highlighter-rouge">Payment.Recurrent</code>|Boolean that indicates whether the transaction is a recurring (true) or not (false) transaction. This value of true will not give rise to a new Recurrence, it will only allow the execution of a transaction without the need to send CVV. For Cielo transactions only. Authenticate must be false when Recurrent is true|Boolean|— (Default false)|Boolean|
-|<code class="highlighter-rouge">Payment.SoftDescriptor</code>|Text to be printed on invoice|Text|13|Alphanumeric text|
-|<code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code>|Name of the field to be written Extra Data|Text|50|Alphanumeric text|
-|<code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code>|Value of the field to be written Extra Data|Text|1024|Alphanumeric text|
-|<code class="highlighter-rouge">ProofOfSale</code>|Proof of Sale Number|Text|20|Alphanumeric|
-|<code class="highlighter-rouge">Payment.AuthorizationCode</code>|Authorization code|Text|300|Alphanumeric text|
-|<code class="highlighter-rouge">Payment.Refunds.Amount</code>|Refunded Amount|Number|15|Amount in cents|
-|<code class="highlighter-rouge">Payment.Refunds.Status</code>|Refund status|Number|1|Received = 1, Sent = 2, Approved = 3, Denied = 4, Rejected = 5|
-|<code class="highlighter-rouge">Payment.Refunds.ReceivedDate</code>|Refund date|Text|19|AAAA-MM-DD HH:mm:SS|E.g.: “2018-06-19 01:45:57”|
-|<code class="highlighter-rouge">Payment.Chargebacks [n].Amount</code>|Chargeback amount|Number|15|10000|
-|<code class="highlighter-rouge">Payment.Chargebacks [n].CaseNumber</code>|Chargeback-related case number|Text|16|Alphanumeric text|
-|<code class="highlighter-rouge">Payment.Chargebacks [n].Date</code>|Chargeback Date|Date|10|YYYY-MM-DD|
-|<code class="highlighter-rouge">Payment.Chargebacks [n].ReasonCode</code>|Chargeback Reason Code|Text|10|Alphanumeric|
-|<code class="highlighter-rouge">Payment.Chargebacks [n].ReasonMessage</code>|Chargeback Reason Message|Text|512|Alphanumeric|
-|<code class="highlighter-rouge">Payment.Chargebacks [n].Chargeback Status &lt;br/&gt; [Value List - Payment.Chargebacks {n}.Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
-|</code>Payment.Chargebacks [n].RawData<code class="highlighter-rouge">|Data sent by the acquirer and may be the cardholder or other message|Text|512|Alphanumeric text|
-|</code>PaymentId<code class="highlighter-rouge">|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|</code>ReceivedDate<code class="highlighter-rouge">|Date the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
-|</code>Payment.ReasonCode<code class="highlighter-rouge">|Acquisition Return Code|Text|32|Alphanumeric|
-|</code>Payment.ReasonMessage<code class="highlighter-rouge">|Acquisition Return Message|Text|512|Alphanumeric|
-|</code>Payment.CapturedAmount<code class="highlighter-rouge">|Valor capturado|Número|15|10000|
-|</code>Payment.CapturedDate<code class="highlighter-rouge">|Data da captura|Texto|19|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
-|</code>Payment.VoidedAmount<code class="highlighter-rouge">|Valor cancelado/estornado|Número|15|10000|
-|</code>Payment.VoidedDate<code class="highlighter-rouge">|Data do cancelamento/estorno|Texto|19|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
-|</code>Payment.Status<code class="highlighter-rouge">|Transaction Status|Byte|2|E.g.: 1|
-|</code>Payment.Provider<code class="highlighter-rouge">|Provider used|Texto|32|Simulado|
-|</code>Payment.ProviderDescription<code class="highlighter-rouge">|Acquirer's name|Texto|512|Simulado|
-|</code>CreditCard.CardNumber<code class="highlighter-rouge">|Shopper's Card Number|Text|16|
-|</code>CreditCard.Holder<code class="highlighter-rouge">|Name of cardholder printed on card|Text|25|
-|</code>CreditCard.ExpirationDate<code class="highlighter-rouge">|Expiration Date Printed on Card|Text|7|
-|</code>CreditCard.Brand<code class="highlighter-rouge">|Card Brand|Text|10|
-|</code>CreditCard.SaveCard`|Boolean which identifies whether the card will be saved to generate the token (CardToken)|Boolean|— (Default false)|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order ID</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Shopper’s Name</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Customer ID, CPF or CNPJ number</td>
+      <td>Text</td>
+      <td>14</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Type of shopper identification document (CPF or CNPJ)</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>CPF or CNPJ</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Shopper Email</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Birthdate</code></td>
+      <td>Shopper’s Date of Birth</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>format YYYY-MM-DD</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Shopper’s Contact Address</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Shopper’s Contact Number</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Shopper’s Contact Address Supplement</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Shopper’s Contact Address Zip Code</td>
+      <td>Text</td>
+      <td>9</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td>City of Shopper’s contact address</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td>Shopper’s Contact Address Status</td>
+      <td>Text</td>
+      <td>2</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Shopper’s Contact Address Country</td>
+      <td>Text</td>
+      <td>35</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td>Shopper’s Neighborhood</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Shopper’s Address</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Order Delivery Address Number</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Order Delivery Address Supplement</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Order Delivery Address Zip Code</td>
+      <td>Text</td>
+      <td>9</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Order Delivery Address City</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Order Delivery Address Status</td>
+      <td>Text</td>
+      <td>2</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Order Delivery Address Country</td>
+      <td>Text</td>
+      <td>35</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td>Shopper’s neighborhood.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Merchant.Id</code></td>
+      <td>MerchantID where the transaction was made</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Merchant.TradeName</code></td>
+      <td>Store name</td>
+      <td>50</td>
+      <td>Alphanumeric</td>
+      <td>–</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Name of Payment Provider</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Consult the providers available in the annexes</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Country</code></td>
+      <td>Country in which payment will be made</td>
+      <td>Text</td>
+      <td>3</td>
+      <td>BRA</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Payment Medium Type</td>
+      <td>Text</td>
+      <td>100</td>
+      <td>E.g.: CreditCard</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Order Value (in cents)</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>10000</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td>Number</td>
+      <td>Amount of authorization amount to be used for service charge</td>
+      <td>Note: This value is not added to the authorization value</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Currency</code></td>
+      <td>Currency in which payment will be made</td>
+      <td>Text</td>
+      <td>3</td>
+      <td>BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of Installments</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>6</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Interest</code></td>
+      <td>Installment Type</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Shop (ByMerchant) or Issuer (ByIssuer)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td>Boolean which indicates whether the authorization should be with automatic capture (true) or not (false). You should check with the acquirer for the availability of this feature</td>
+      <td>Boolean</td>
+      <td>— (Default false)</td>
+      <td>Boolean</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AcquirerTransactionId</code></td>
+      <td>Transaction Id of the Payment Method Provider</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Boolean indicating whether the transaction should be authenticated (true) or not (false). You should check with the acquirer for the availability of this feature</td>
+      <td>Boolean</td>
+      <td>— (Default false)</td>
+      <td>Boolean</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Recurrent</code></td>
+      <td>Boolean that indicates whether the transaction is a recurring (true) or not (false) transaction. This value of true will not give rise to a new Recurrence, it will only allow the execution of a transaction without the need to send CVV. For Cielo transactions only. Authenticate must be false when Recurrent is true</td>
+      <td>Boolean</td>
+      <td>— (Default false)</td>
+      <td>Boolean</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Text to be printed on invoice</td>
+      <td>Text</td>
+      <td>13</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Name of the field to be written Extra Data</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Value of the field to be written Extra Data</td>
+      <td>Text</td>
+      <td>1024</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td>Proof of Sale Number</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.AuthorizationCode</code></td>
+      <td>Authorization code</td>
+      <td>Text</td>
+      <td>300</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Refunds.Amount</code></td>
+      <td>Refunded Amount</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Amount in cents</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Refunds.Status</code></td>
+      <td>Refund status</td>
+      <td>Number</td>
+      <td>1</td>
+      <td>Received = 1, Sent = 2, Approved = 3, Denied = 4, Rejected = 5</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Refunds.ReceivedDate</code></td>
+      <td>Refund date</td>
+      <td>Text</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+      <td>E.g.: “2018-06-19 01:45:57”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks [n].Amount</code></td>
+      <td>Chargeback amount</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>10000</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks [n].CaseNumber</code></td>
+      <td>Chargeback-related case number</td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks [n].Date</code></td>
+      <td>Chargeback Date</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>YYYY-MM-DD</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks [n].ReasonCode</code></td>
+      <td>Chargeback Reason Code</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks [n].ReasonMessage</code></td>
+      <td>Chargeback Reason Message</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks [n].Chargeback Status</code></td>
+      <td><a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status">Value List - Payment.Chargebacks {n}.Status</a></td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Text</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks [n].RawData</code></td>
+      <td>Data sent by the acquirer and may be the cardholder or other message</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Order Identifier Field</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReceivedDate</code></td>
+      <td>Date the transaction was received by Braspag</td>
+      <td>Text</td>
+      <td>19</td>
+      <td>YYYY-MM-DD HH:mm:SS</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReasonCode</code></td>
+      <td>Acquisition Return Code</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReasonMessage</code></td>
+      <td>Acquisition Return Message</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CapturedAmount</code></td>
+      <td>Valor capturado</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>10000</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CapturedDate</code></td>
+      <td>Data da captura</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+      <td>Ex. “2018-06-19 01:45:57”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.VoidedAmount</code></td>
+      <td>Valor cancelado/estornado</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>10000</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.VoidedDate</code></td>
+      <td>Data do cancelamento/estorno</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+      <td>Ex. “2018-06-19 01:45:57”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Status</code></td>
+      <td>Transaction Status</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>E.g.: 1</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Provider used</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Simulado</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ProviderDescription</code></td>
+      <td>Acquirer’s name</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Simulado</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Shopper’s Card Number</td>
+      <td>Text</td>
+      <td>16</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Name of cardholder printed on card</td>
+      <td>Text</td>
+      <td>25</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Expiration Date Printed on Card</td>
+      <td>Text</td>
+      <td>7</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Card Brand</td>
+      <td>Text</td>
+      <td>10</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Boolean which identifies whether the card will be saved to generate the token (CardToken)</td>
+      <td>Boolean</td>
+      <td>— (Default false)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="querying-a-boleto-transaction-via-paymentid">Querying a Boleto transaction via PaymentID</h2>
 
