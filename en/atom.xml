@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-03-17T14:03:15+00:00</updated>
+    <updated>2020-03-18T11:55:05+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -12625,11 +12625,11 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Transactional Endpoint&lt;/td&gt;
-      &lt;td&gt;https://apisandbox.braspag.com.br/&lt;/td&gt;
+      &lt;td&gt;https://api.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Endpoint for Query Services&lt;/td&gt;
-      &lt;td&gt;https://apiquerysandbox.braspag.com.br/&lt;/td&gt;
+      &lt;td&gt;https://apiquery.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
