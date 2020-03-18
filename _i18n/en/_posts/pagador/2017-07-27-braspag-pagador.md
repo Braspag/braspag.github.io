@@ -45,7 +45,7 @@ I am ready to Go Live!
 
 <aside class="notice">Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish.</aside>
 
-* Web Support: [Zendesk](http://suporte.braspag.com.br/)
+* Web Support: [Zendesk](https://suporte.braspag.com.br/hc/en-us)
 
 ## About the API
 
