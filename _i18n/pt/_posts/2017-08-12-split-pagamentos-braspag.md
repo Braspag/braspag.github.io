@@ -3624,7 +3624,7 @@ Este bloqueio, conhecido como custódia, pode durar até 180 dias. Após este pr
 |`SubordinateMerchantId`|Texto|36|Sim|Merchantid identificador do subordinado|
 |`Locked`|Booleano|---|Sim|Booleano que identifica se o a liquidação será travada para o subordinado ou não|
 
-# Post de Notificação
+## Post de Notificação
 
 Para receber a notificação de alteração de status deve-se ter configurado no cadastro de sua loja na Braspag, o campo URL Status Pagamento para receber os parametros conforme o exemplo ao lado.
 
