@@ -3623,3 +3623,36 @@ Este bloqueio, conhecido como custódia, pode durar até 180 dias. Após este pr
 |-----------|----|-------|-----------|---------|
 |`SubordinateMerchantId`|Texto|36|Sim|Merchantid identificador do subordinado|
 |`Locked`|Booleano|---|Sim|Booleano que identifica se o a liquidação será travada para o subordinado ou não|
+
+# Post de Notificação
+
+Para receber a notificação de alteração de status deve-se ter configurado no cadastro de sua loja na Braspag, o campo URL Status Pagamento para receber os parametros conforme o exemplo ao lado.
+
+Resposta esperada da Loja: HTTP Status Code 200 OK
+
+Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes enviar o Post de Notificação.
+
+```json
+{
+   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "ChangeType": "2"
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|---------|----|-------|-----------|
+|`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4|GUID|36|Não|
+|`PaymentId`|Identificador que representa a transação|GUID|36|Sim|
+|`ChangeType`|Especifica o tipo de notificação. Vide tabela abaixo | Número | 1 |Sim|
+
+|ChangeType|Descrição|
+|----------|---------|
+|1|Mudança de status do pagamento|
+|2|Recorrência criada|
+|3|Mudança de status do AntiFraude|
+|4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
+|5|Estorno negado (aplicável para Rede)|
+|6|Boleto registrado pago a menor|
+|7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//manual/risknotification)|
+|8|Alerta de fraude|
