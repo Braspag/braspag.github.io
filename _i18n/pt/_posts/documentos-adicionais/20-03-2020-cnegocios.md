@@ -9,7 +9,7 @@ tags:
   - Documentos Adicionais
 ---
 
-# Sistema de Gestão de Continuidade de Negócios (SGCN) da Braspagag
+# Sistema de Gestão de Continuidade de Negócios (SGCN) da Braspag
 
 A Braspag fortalece a sua estrutura de continuidade de negócio, atendendo os requisitos aplicáveis para uma efetiva governança corporativa,
 oferecendo maior segurança para o seu controlador, colaboradores, 
