@@ -4135,6 +4135,99 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
+<h1 id="post-de-notificação">Post de Notificação</h1>
+
+<p>Para receber a notificação de alteração de status deve-se ter configurado no cadastro de sua loja na Braspag, o campo URL Status Pagamento para receber os parametros conforme o exemplo ao lado.</p>
+
+<p>Resposta esperada da Loja: HTTP Status Code 200 OK</p>
+
+<p>Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes enviar o Post de Notificação.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Identificador que representa a transação</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ChangeType</code></td>
+      <td>Especifica o tipo de notificação. Vide tabela abaixo</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>ChangeType</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Mudança de status do pagamento</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recorrência criada</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mudança de status do AntiFraude</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Mudança de status do pagamento recorrente (Ex. desativação automática)</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Estorno negado (aplicável para Rede)</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Boleto registrado pago a menor</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Notificação de chargeback <br /> Para mais detalhes <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Alerta de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
