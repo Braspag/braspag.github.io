@@ -233,27 +233,22 @@
 
 <h1 id="passo-2---utilizando-o-sdk">Passo 2 - Utilizando o SDK</h1>
 
-<p>Para utilizar o SDK é necessário copiar e colar o arquivo Braspag3dsSdk na libs do app:</p>
+<p>Para utilizar o SDK é necessário baixar o arquivo aar da versão mais recente em <a href="https://github.com/Braspag/braspag-3ds-android/releases">releases</a>, após isso, recomendamos adicioná-lo a pasta libs em seu app module</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds-1</span><span class="p">.</span><span class="m">0</span><span class="p">-</span><span class="n">release</span><span class="p">.</span><span class="n">aar</span>
-</code></pre></div></div>
-
-<p>Em seguida alterar no (gradle:app)</p>
+<p>Desta forma, poderá importar adicionando a seguinte dependência ao seu <strong>build.gradle</strong> no app module:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">dependecies</span><span class="p">{</span>
-
-  <span class="n">implementation</span> <span class="nf">fileTree</span><span class="p">(</span><span class="n">dir</span><span class="p">:</span> <span class="err">'</span><span class="n">libs</span><span class="err">'</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="p">[</span><span class="err">'</span><span class="p">*.</span><span class="n">jar</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="p">*.</span><span class="n">aar</span><span class="err">'</span><span class="p">])</span>
-  
   <span class="o">..</span><span class="p">.</span>
+  <span class="n">implementation</span> <span class="nf">files</span><span class="p">(</span><span class="err">'</span><span class="n">libs</span><span class="p">/</span><span class="n">braspag3ds-1</span><span class="p">.</span><span class="m">1.0</span><span class="p">-</span><span class="n">release</span><span class="p">.</span><span class="n">aar</span><span class="err">'</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Em seguida é necessário passar para o lado cliente(APP) o <em>access_token</em> gerado no passo anterior:</p>
+<p>Em seguida é necessário passar para o lado cliente(APP) o <strong>access_token</strong> gerado no passo anterior:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span>
-                       <span class="n">accessToken</span> <span class="p">=</span> <span class="s">"[Access_Token gerado no passo 1]"</span><span class="p">,</span>
-                       <span class="n">environment</span> <span class="p">=</span> <span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span>
-                   <span class="p">)</span>
+                         <span class="n">accessToken</span> <span class="p">=</span> <span class="s">"[Access_Token gerado no passo 1]"</span><span class="p">,</span>
+                         <span class="n">environment</span> <span class="p">=</span> <span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span>
+                     <span class="p">)</span>
 </code></pre></div></div>
 
 <p>Em seguida é necessário utilizar o método <code class="highlighter-rouge">authenticate</code>, informando os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
