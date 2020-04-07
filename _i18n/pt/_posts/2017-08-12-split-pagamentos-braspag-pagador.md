@@ -114,8 +114,6 @@ As bandeiras suportadas pelo Split são:
 
 É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial.
 
-> Embora não seja necessário integrar-se com a API 3.0 da Cielo, é mandatório uma afiliação à Cielo para transacionar com o Split através do Pagador.
-
 ### Sandbox
 
 * **API Split**: https://splitsandbox.braspag.com.br/
