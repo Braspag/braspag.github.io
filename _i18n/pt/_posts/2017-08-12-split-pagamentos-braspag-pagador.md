@@ -116,11 +116,15 @@ As bandeiras suportadas pelo Split são:
 
 ### Sandbox
 
+* **API Transacional Pagador**: https://apisandbox.braspag.com.br/
+* **API para Serviços de Consultas Pagador**: https://apiquerysandbox.braspag.com.br/
 * **API Split**: https://splitsandbox.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
 
 ### Produção
 
+* **API Transacional Pagador**: https://api.braspag.com.br/
+* **API para Serviços de Consultas Pagador**: https://apiquery.braspag.com.br/
 * **API Split**: https://split.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
 
