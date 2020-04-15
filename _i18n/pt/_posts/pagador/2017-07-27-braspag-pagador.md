@@ -1210,6 +1210,161 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
+### Transação com "Coronavoucher"
+
+O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição é do tipo Cartão de Débito, porém, será **sem autenticação**, conforme o exemplo abaixo. 
+
+#### Requisição
+
+```json
+
+{  
+   [...]
+   },
+     "Payment": {
+        "Provider": "Cielo30",
+        "Type": "DebitCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Capture": true,
+        "Authenticate": false,
+        "DebitCard":{
+         "CardNumber":"5067220000000001",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Elo"
+        },
+        [...]
+    }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   [...]
+   },
+     "Payment": {
+        "Provider": "Cielo30",
+        "Type": "DebitCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Capture": true,
+        "Authenticate": false,
+        "DebitCard":{
+         "CardNumber":"5067220000000001",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Elo"
+        },
+        [...]
+    }
+}
+
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento. Atualmente somente a **"Cielo30" suporta esta forma de pagamento via Pagador|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas. Fixo 1 para cartão de débito|
+|`DebitCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
+|`DebitCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
+|`DebitCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
+|`DebitCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
+|`DebitCard.Brand`|Texto|10|Sim |Bandeira do cartão, para este tipo de transação, sempre **Elo**|
+
+#### Resposta
+
+```json
+
+{
+ [...]
+  "Payment": {
+    "DebitCard": {
+      "CardNumber": "506722******0001",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Elo"
+    },
+    "AcquirerTransactionId": "10069930690009D366FA",
+    "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
+    "Type": "DebitCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:19:58",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Cielo30",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 2,
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
+    [...]
+  }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+ [...]
+  "Payment": {
+    "DebitCard": {
+      "CardNumber": "506722******0001",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Elo"
+    },
+    "AcquirerTransactionId": "10069930690009D366FA",
+    "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
+    "Type": "DebitCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:19:58",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Cielo30",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 2,
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
+    [...]
+  }
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
+|`Status`|Status da Transação|Byte|2|Ex. 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
+
 ### Transação com QR Code
 
 Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método `POST` conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status "Pendente" na Braspag e gerar o QR Code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex. "Pago", "Não pago" ou "Não autorizado).
