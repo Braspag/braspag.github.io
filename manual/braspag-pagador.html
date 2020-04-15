@@ -1379,7 +1379,7 @@ curl
         </span><span class="p">},</span><span class="w">
         </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -1559,7 +1559,7 @@ curl
     </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -1871,7 +1871,7 @@ curl
      </span><span class="p">},</span><span class="w">
      </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -1987,7 +1987,7 @@ curl
         </span><span class="p">},</span><span class="w">
         </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -2265,6 +2265,293 @@ curl
   </tbody>
 </table>
 
+<h3 id="transação-com-coronavoucher">Transação com “Coronavoucher”</h3>
+
+<p>O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição é do tipo Cartão de Débito, porém, será <strong>sem autenticação</strong>, conforme o exemplo abaixo.</p>
+
+<h4 id="requisição-5">Requisição</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">  
+   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="err">,</span><span class="w">
+     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"5067220000000001"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Elo"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>  
+   <span class="o">[</span>...]
+   <span class="o">}</span>,
+     <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
+        <span class="s2">"Amount"</span>: 10000,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"Installments"</span>: 1,
+        <span class="s2">"Capture"</span>: <span class="nb">true</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+        <span class="s2">"DebitCard"</span>:<span class="o">{</span>
+         <span class="s2">"CardNumber"</span>:<span class="s2">"5067220000000001"</span>,
+         <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
+         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+         <span class="s2">"Brand"</span>:<span class="s2">"Elo"</span>
+        <span class="o">}</span>,
+        <span class="o">[</span>...]
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Nome da provedora de Meio de Pagamento. Atualmente somente a **“Cielo30” suporta esta forma de pagamento via Pagador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do Pedido (ser enviado em centavos)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de Parcelas. Fixo 1 para cartão de débito</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DebitCard.CardNumber</code></td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td>Número do Cartão do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DebitCard.Holder</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Sim</td>
+      <td>Nome do Comprador impresso no cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Código de segurança impresso no verso do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DebitCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão, para este tipo de transação, sempre <strong>Elo</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-5">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+ </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"DebitCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"506722******0001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elo"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10069930690009D366FA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11 15:19:58"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+ <span class="o">[</span>...]
+  <span class="s2">"Payment"</span>: <span class="o">{</span>
+    <span class="s2">"DebitCard"</span>: <span class="o">{</span>
+      <span class="s2">"CardNumber"</span>: <span class="s2">"506722******0001"</span>,
+      <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+      <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
+      <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+      <span class="s2">"Brand"</span>: <span class="s2">"Elo"</span>
+    <span class="o">}</span>,
+    <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"10069930690009D366FA"</span>,
+    <span class="s2">"PaymentId"</span>: <span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span>,
+    <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
+    <span class="s2">"Amount"</span>: 10000,
+    <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-11 15:19:58"</span>,
+    <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+    <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+    <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
+    <span class="s2">"ReasonCode"</span>: 0,
+    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+    <span class="s2">"Status"</span>: 2,
+    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"6"</span>,
+    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
+    <span class="o">[</span>...]
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">AcquirerTransactionId</code></td>
+      <td>Id da transação no provedor de meio de pagamento</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td>Número do Comprovante de Venda</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Campo Identificador do Pedido</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReceivedDate</code></td>
+      <td>Data em que a transação foi recebida pela Braspag</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReasonCode</code></td>
+      <td>Código de retorno da Operação</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReasonMessage</code></td>
+      <td>Mensagem de retorno da Operação</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Status da Transação</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>Ex. 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Transação Aprovada</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="transação-com-qr-code">Transação com QR Code</h3>
 
 <p>Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método <code class="highlighter-rouge">POST</code> conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status “Pendente” na Braspag e gerar o QR Code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex. “Pago”, “Não pago” ou “Não autorizado).
@@ -2272,7 +2559,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 <aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
 
-<h4 id="requisição-5">Requisição</h4>
+<h4 id="requisição-6">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2376,7 +2663,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
   </tbody>
 </table>
 
-<h4 id="resposta-5">Resposta</h4>
+<h4 id="resposta-6">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2508,7 +2795,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 <aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
 
-<h4 id="requisição-6">Requisição</h4>
+<h4 id="requisição-7">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -2572,7 +2859,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-6">Resposta</h4>
+<h4 id="resposta-7">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2653,7 +2940,7 @@ curl
 
 <p>No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP 171 - Rejected by fraud risk (velocity, com ReasonCode 16 - AbortedByFraud).</p>
 
-<h4 id="resposta-7">Resposta</h4>
+<h4 id="resposta-8">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2755,7 +3042,7 @@ curl
 
 <p>Para gerar um boleto, inclusive em ambiente de Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.</p>
 
-<h4 id="requisição-7">Requisição</h4>
+<h4 id="requisição-8">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3080,7 +3367,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-8">Resposta</h4>
+<h4 id="resposta-9">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -3419,7 +3706,7 @@ curl
 
 <p>Adicione o nó <code class="highlighter-rouge">RecurrentPayment</code> ao nó <code class="highlighter-rouge">Payment</code> para agendar as recorrência futuras ao autorizar uma transação pela primeira vez na série de recorrências.</p>
 
-<h4 id="requisição-8">Requisição</h4>
+<h4 id="requisição-9">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3579,7 +3866,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-9">Resposta</h4>
+<h4 id="resposta-10">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -3731,7 +4018,7 @@ curl
 
 <p>Para programar a primeira transação da série de recorrência, passe o parâmetro <code class="highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> como <em>“false”</em> e adicione o parâmetro <code class="highlighter-rouge">Payment.RecurrentPayment.StartDate</code>.</p>
 
-<h4 id="requisição-9">Requisição</h4>
+<h4 id="requisição-10">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3900,7 +4187,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-10">Resposta</h4>
+<h4 id="resposta-11">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -4043,7 +4330,7 @@ curl
 
 <p>Para alterar os dados do comprador em uma recorrência já existente, basta fazer um PUT conforme o exemplo.</p>
 
-<h4 id="requisição-10">Requisição</h4>
+<h4 id="requisição-11">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -4075,7 +4362,7 @@ curl
       </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -4307,7 +4594,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-11">Resposta</h4>
+<h4 id="resposta-12">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4320,7 +4607,7 @@ HTTP Status 200
 
 <p>Para alterar a data final da recorrência já existente, basta fazer um PUT conforme o exemplo.</p>
 
-<h4 id="requisição-11">Requisição</h4>
+<h4 id="requisição-12">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -4391,7 +4678,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-12">Resposta</h4>
+<h4 id="resposta-13">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4404,7 +4691,7 @@ HTTP Status 200
 
 <p>Para alterar o Intervalo de uma recorrência já existente, basta fazer um PUT conforme o exemplo.</p>
 
-<h4 id="requisição-12">Requisição</h4>
+<h4 id="requisição-13">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -4475,7 +4762,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-13">Resposta</h4>
+<h4 id="resposta-14">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4490,7 +4777,7 @@ HTTP Status 200
 
 <aside class="notice">Regra: Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
 
-<h4 id="requisição-13">Requisição</h4>
+<h4 id="requisição-14">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -4561,7 +4848,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-14">Resposta</h4>
+<h4 id="resposta-15">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4647,7 +4934,7 @@ curl
 
 <aside class="warning">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
 
-<h4 id="resposta-15">Resposta</h4>
+<h4 id="resposta-16">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4662,7 +4949,7 @@ HTTP Status 200
 
 <p>Esta operação modifica somente a data do próximo pagamento, ou seja, a recorrências futuras permanecerão com as características originais.</p>
 
-<h4 id="requisição-14">Requisição</h4>
+<h4 id="requisição-15">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -4733,7 +5020,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-16">Resposta</h4>
+<h4 id="resposta-17">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4756,7 +5043,7 @@ HTTP Status 200
 
 <aside class="notice">Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofrer alterações com os mesmos valores que já estavam salvos.</aside>
 
-<h4 id="requisição-15">Requisição</h4>
+<h4 id="requisição-16">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -4967,7 +5254,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-17">Resposta</h4>
+<h4 id="resposta-18">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -4978,7 +5265,7 @@ curl
 
 <p>Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo.</p>
 
-<h4 id="requisição-16">Requisição</h4>
+<h4 id="requisição-17">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -5034,7 +5321,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-18">Resposta</h4>
+<h4 id="resposta-19">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -5045,7 +5332,7 @@ curl
 
 <p>Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
 
-<h4 id="requisição-17">Requisição</h4>
+<h4 id="requisição-18">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -5101,7 +5388,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-19">Resposta</h4>
+<h4 id="resposta-20">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5120,7 +5407,7 @@ HTTP Status 200
 
 <p>Bancos Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank</p>
 
-<h4 id="resposta-20">Resposta</h4>
+<h4 id="resposta-21">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5264,7 +5551,7 @@ HTTP Status 200
 
 <p>Para criar uma venda, é necessário fazer um POST para o recurso Payment conforme o exemplo.</p>
 
-<h4 id="requisição-18">Requisição</h4>
+<h4 id="requisição-19">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5520,7 +5807,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-21">Resposta</h4>
+<h4 id="resposta-22">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
@@ -6149,7 +6436,7 @@ HTTP Status 200
 
 <p>O segundo passo de integração é efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para tanto, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive WalletKey e EphemeralPublicKey.</p>
 
-<h5 id="requisição-19">Requisição</h5>
+<h5 id="requisição-20">Requisição</h5>
 
 <p>Exemplo de Requisição padrão <em>Apple Pay</em></p>
 
@@ -6288,7 +6575,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="resposta-22">Resposta</h5>
+<h5 id="resposta-23">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -6452,7 +6739,7 @@ HTTP Status 200
 
 <h4 id="samsung-pay">Samsung Pay</h4>
 
-<h5 id="requisição-20">Requisição</h5>
+<h5 id="requisição-21">Requisição</h5>
 
 <p>Exemplo de Requisição padrão <em>Samsung Pay</em></p>
 
@@ -6582,7 +6869,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="resposta-23">Resposta</h5>
+<h5 id="resposta-24">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -6736,7 +7023,7 @@ HTTP Status 200
 
 <h4 id="android-pay">Android Pay</h4>
 
-<h5 id="requisição-21">Requisição</h5>
+<h5 id="requisição-22">Requisição</h5>
 
 <p>Exemplo de Requisição padrão <em>Android Pay</em></p>
 
@@ -6875,7 +7162,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="resposta-24">Resposta</h5>
+<h5 id="resposta-25">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -7041,7 +7328,7 @@ HTTP Status 200
 
 <p>Para utilizar o MasterPass é necessário a contratação do serviço através do contato diretamente com a Mastercard, selecionando a Braspag como service provider</p>
 
-<h5 id="requisição-22">Requisição</h5>
+<h5 id="requisição-23">Requisição</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7178,7 +7465,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="resposta-25">Resposta</h5>
+<h5 id="resposta-26">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -7323,7 +7610,7 @@ HTTP Status 200
 
 <p>Para utilizar o Visa Checkout é necessário a contratação do serviço através do contato diretamente com a Visa.</p>
 
-<h5 id="requisição-23">Requisição</h5>
+<h5 id="requisição-24">Requisição</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7461,7 +7748,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="resposta-26">Resposta</h5>
+<h5 id="resposta-27">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -7603,7 +7890,7 @@ HTTP Status 200
 
 <p>Uma transação com um Cartão Alelo se efetua de uma forma semelhante a um Cartão de Débito, porém, sem o processo de autenticação. <br />Atualmente, somente o Provider “Alelo” suporta processamento desta modalidade.</p>
 
-<h4 id="requisição-24">Requisição</h4>
+<h4 id="requisição-25">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7738,7 +8025,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-27">Resposta</h4>
+<h4 id="resposta-28">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -7932,11 +8219,11 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p><strong>PASSO 1</strong> - Solicitação de autorização da transação:</p>
 
-<h5 id="requisição-25">Requisição</h5>
+<h5 id="requisição-26">Requisição</h5>
 
 <p>Não há diferença entre uma requisição de autorização padrão e uma de DCC.</p>
 
-<h5 id="resposta-28">Resposta</h5>
+<h5 id="resposta-29">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -8182,7 +8469,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p><strong>PASSO 3</strong> - Confirmação da transação com a moeda escolhida pelo comprador:</p>
 
-<h5 id="requisição-26">Requisição</h5>
+<h5 id="requisição-27">Requisição</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
 
@@ -8247,7 +8534,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="resposta-29">Resposta</h5>
+<h5 id="resposta-30">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -8426,7 +8713,7 @@ curl
 
 <h2 id="salvando-um-cartão-durante-uma-autorização">Salvando um cartão durante uma autorização</h2>
 
-<h3 id="requisição-27">Requisição</h3>
+<h3 id="requisição-28">Requisição</h3>
 
 <p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="highlighter-rouge">Payment.SaveCard</code> como <em>true</em> na requisição padrão de autorização.</p>
 
@@ -8459,7 +8746,7 @@ curl
         </span><span class="p">},</span><span class="w">
         </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -8593,7 +8880,7 @@ curl
   </tbody>
 </table>
 
-<h3 id="resposta-30">Resposta</h3>
+<h3 id="resposta-31">Resposta</h3>
 
 <p>O parâmetro <code class="highlighter-rouge">CreditCard.CardToken</code> retornará o token a ser salvo para transações futuras com o mesmo cartão.</p>
 
@@ -8634,7 +8921,7 @@ curl
     </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -8782,7 +9069,7 @@ curl
 
 <p>Este é um exemplo de como utilizar o Card Token, previamente salvo, para criar uma transação. Por questão de segurança, um Card Token não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como Recorrente, você poderá submeter transações sem o CVV.</p>
 
-<h4 id="requisição-28">Requisição</h4>
+<h4 id="requisição-29">Requisição</h4>
 
 <p>O nó <code class="highlighter-rouge">CreditCard</code> dentro do nó <code class="highlighter-rouge">Payment</code> será alterado conforme exemplo a seguir.</p>
 
@@ -8811,7 +9098,7 @@ curl
             </span><span class="p">},</span><span class="w">
         </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -8913,7 +9200,7 @@ curl
   </tbody>
 </table>
 
-<h3 id="resposta-31">Resposta</h3>
+<h3 id="resposta-32">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">  
@@ -8953,7 +9240,7 @@ curl
     </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -9090,7 +9377,7 @@ curl
 
 <p>Este é um exemplo de como utilizar o Alias, previamente salvo, para criar uma transação. Por questão de segurança, um Alias não tem guardado o Código de Segurança. Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como Recorrente, você poderá submeter transações sem o CVV.</p>
 
-<h4 id="requisição-29">Requisição</h4>
+<h4 id="requisição-30">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9117,7 +9404,7 @@ curl
             </span><span class="p">},</span><span class="w">
         </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -9226,7 +9513,7 @@ curl
   </tbody>
 </table>
 
-<h3 id="resposta-32">Resposta</h3>
+<h3 id="resposta-33">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">  
@@ -9266,7 +9553,7 @@ curl
     </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -9464,7 +9751,7 @@ curl
 
 <p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós “FraudAnalysis”, “Cart”, “MerchantDefinedFields” e “Travel (somente para venda de passagens aéreas)”.</p>
 
-<h3 id="requisição-30">Requisição</h3>
+<h3 id="requisição-31">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10480,7 +10767,7 @@ curl
   <p>Os campos do nó <code class="highlighter-rouge">FraudAnalysis.Travel</code> se tornam obrigatórios caso o segmento do seu negócio seja aéreas.</p>
 </blockquote>
 
-<h3 id="resposta-33">Resposta</h3>
+<h3 id="resposta-34">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -11599,7 +11886,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar uma transação de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-31">Requisição</h3>
+<h3 id="requisição-32">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -11655,7 +11942,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   </tbody>
 </table>
 
-<h3 id="resposta-34">Resposta</h3>
+<h3 id="resposta-35">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -12447,7 +12734,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar uma transação de boleto registrado, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-32">Requisição</h3>
+<h3 id="requisição-33">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -12503,7 +12790,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   </tbody>
 </table>
 
-<h3 id="resposta-35">Resposta</h3>
+<h3 id="resposta-36">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -12987,7 +13274,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recurso /sales conforme o exemplo.</p>
 
-<h3 id="requisição-33">Requisição</h3>
+<h3 id="requisição-34">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -13043,7 +13330,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   </tbody>
 </table>
 
-<h3 id="resposta-36">Resposta</h3>
+<h3 id="resposta-37">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -13103,7 +13390,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <p>Para consultar um pedido de Recorrência, é necessário fazer um GET conforme o exemplo.</p>
 
-<h3 id="requisição-34">Requisição</h3>
+<h3 id="requisição-35">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -13159,7 +13446,7 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
   </tbody>
 </table>
 
-<h3 id="resposta-37">Resposta</h3>
+<h3 id="resposta-38">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
