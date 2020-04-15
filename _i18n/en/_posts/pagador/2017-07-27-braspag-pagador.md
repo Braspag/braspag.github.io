@@ -1199,6 +1199,161 @@ A transaction with a Debit Card is similar to a Credit Card, but you must submit
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
 |`AuthenticationUrl`|URL to which the holder will be redirected for authentication|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
+### "Coronavoucher" Transaction
+
+The emergency aid provided by the government can be consumed through the Caixa Econômica Federal Virtual Debit Card. The request must contains Debit Card information, however, it will be **without authentication**, according to the example below.
+
+#### Requisição
+
+```json
+
+{  
+   [...]
+   },
+     "Payment": {
+        "Provider": "Cielo30",
+        "Type": "DebitCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Capture": true,
+        "Authenticate": false,
+        "DebitCard":{
+         "CardNumber":"5067220000000001",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Elo"
+        },
+        [...]
+    }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   [...]
+   },
+     "Payment": {
+        "Provider": "Cielo30",
+        "Type": "DebitCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Capture": true,
+        "Authenticate": false,
+        "DebitCard":{
+         "CardNumber":"5067220000000001",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Elo"
+        },
+        [...]
+    }
+}
+
+```
+
+|Property|Type|Size|Mandatory|Description|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Text|15|Yes|Payment method provider's name. For this type of transaction must be **"Cielo30"**.|
+|`Payment.Type`|Text|100|Yes|Payment Method Type. In the case "DebitCard"|
+|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
+|`Payment.Installments`|Number|2|Yes|Number of Installments. For this type, use always "1"|
+|`DeditCard.CardNumber`|Text|16|Yes|Shopper's card number|
+|`DeditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
+|`DebitCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM/YYYY format|
+|`DebitCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
+|`DebitCard.Brand`|Text|10|Yes|Card Brand. For this type, use always "Elo"|
+
+#### Resposta
+
+```json
+
+{
+ [...]
+  "Payment": {
+    "DebitCard": {
+      "CardNumber": "506722******0001",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Elo"
+    },
+    "AcquirerTransactionId": "10069930690009D366FA",
+    "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
+    "Type": "DebitCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:19:58",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Cielo30",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 2,
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
+    [...]
+  }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+ [...]
+  "Payment": {
+    "DebitCard": {
+      "CardNumber": "506722******0001",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Elo"
+    },
+    "AcquirerTransactionId": "10069930690009D366FA",
+    "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
+    "Type": "DebitCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:19:58",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Cielo30",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 2,
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
+    [...]
+  }
+}
+
+```
+
+|Property|Description|Type|Size|Format|
+|-----------|---------|----|-------|-------|
+|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
+|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Return Code from Operation|Text|32|Alphanumeric|
+|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
+|`Status`|Transaction Status|Byte|2|E.g.: 1|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
+
 ### QR Code Transaction
 
 To create a QR code transaction you must submit a request using the `POST` method as shown below. This request will create the transaction, which will have the status "Pending" in Braspag and generate the QR Code to make the payment. Using one of the supported applications, the shopper makes the payment and the transaction changes status (ex. "Pago", "Não pago" or "Não autorizado).
