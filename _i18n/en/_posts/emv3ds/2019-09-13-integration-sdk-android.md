@@ -59,12 +59,13 @@ The solution comprises the API access token request step and authentication requ
 
 # Step 2 - Using the SDK
 
+
 Add the following dependency to dependency node in your **build.gradle** on module level:
 
 ```kotlin
 dependecies{
   ...
-  implementation 'br.com.braspag:braspag3ds:<LATEST_VERSION>'
+  implementation 'br.com.braspag:braspag3ds:<*LATEST_VERSION*>'
 }
 ```
 
@@ -77,16 +78,8 @@ Then it's necessary to instantiate **Braspag3ds** with the desired environment:
 Then you must use the method `authenticate`, informing the *access_token* from previous step, the buyer details and the *callback* that will receive the response:
 
 ```kotlin
-val braspag3dsSdk = Braspag3ds(
-                       accessToken = "[Access_Token generated in step 1]",
-                       environment = Environment.SANDBOX
-                   )
-```
-
-Then it is necessary to use the `authenticate` method, informing the buyer data and the *callback* that will receive the answer:
-
-```kotlin
 braspag3dsSdk.authenticate(
+           accessToken = “<*Access_Token*>“,
            orderData = OrderData(
                orderNumber = ORDER_NUMBER,
                currencyCode = CURRENCY_BRL,
