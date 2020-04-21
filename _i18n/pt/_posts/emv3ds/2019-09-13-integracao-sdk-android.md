@@ -45,9 +45,9 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 ```json
 {
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
-      "token_type": "barear",
-      "expires_in": "2018-07-23T11:29:32"
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
+  "token_type": "barear",
+  "expires_in": "2018-07-23T11:29:32"
 }
 ```
 
@@ -64,7 +64,7 @@ Para utilizar o SDK é necessário adicioná-lo como dependência ao **build.gra
 ```kotlin
 dependecies{
   ...
-  implementation 'br.com.braspag:braspag3ds:<*LATEST_VERSION*>'
+  implementation 'br.com.braspag:braspag3ds:< **LATEST_VERSION** >'
 }
 ```
 
@@ -78,7 +78,7 @@ Em seguida é necessário utilizar o método `authenticate`, informando o *acces
 
 ```kotlin
 braspag3dsSdk.authenticate(
-  accessToken = “<*Access_Token*>“,
+  accessToken = “< **Access_Token** >“,
   orderData = OrderData(
      orderNumber = ORDER_NUMBER,
      currencyCode = CURRENCY_BRL,
