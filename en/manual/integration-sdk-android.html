@@ -241,22 +241,20 @@
 
 <h1 id="step-2---using-the-sdk">Step 2 - Using the SDK</h1>
 
-<p>To use the SDK you need to copy and paste the Braspag3dsSdk file into app libs:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds-1</span><span class="p">.</span><span class="m">0</span><span class="p">-</span><span class="n">release</span><span class="p">.</span><span class="n">aar</span>
-</code></pre></div></div>
-
-<p>Next change in (gradle: app)</p>
+<p>Add the following dependency to dependency node in your <strong>build.gradle</strong> on module level:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">dependecies</span><span class="p">{</span>
-
-  <span class="n">implementation</span> <span class="nf">fileTree</span><span class="p">(</span><span class="n">dir</span><span class="p">:</span> <span class="err">'</span><span class="n">libs</span><span class="err">'</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="p">[</span><span class="err">'</span><span class="p">*.</span><span class="n">jar</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="p">*.</span><span class="n">aar</span><span class="err">'</span><span class="p">])</span>
-
   <span class="o">..</span><span class="p">.</span>
+  <span class="n">implementation</span> <span class="err">'</span><span class="n">br</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">braspag</span><span class="p">:</span><span class="n">braspag3ds</span><span class="p">:</span><span class="err">'</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Then you must pass to the client side (APP) the <em>access_token</em> generated in the previous step:</p>
+<p>Then it’s necessary to instantiate <strong>Braspag3ds</strong> with the desired environment:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span><span class="n">environment</span> <span class="p">=</span> <span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then you must use the method <code class="highlighter-rouge">authenticate</code>, informing the <em>access_token</em> from previous step, the buyer details and the <em>callback</em> that will receive the response:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span>
                        <span class="n">accessToken</span> <span class="p">=</span> <span class="s">"[Access_Token generated in step 1]"</span><span class="p">,</span>
