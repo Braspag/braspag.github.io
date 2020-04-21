@@ -76,18 +76,9 @@ Em seguida é necessário informar o ambiente que deseja ao instanciar o **Brasp
 
 Em seguida é necessário utilizar o método `authenticate`, informando o *access_token* gerado no passo anterior, os dados do comprador e o *callback* que receberá a resposta:
 
-
-```kotlin
-val braspag3dsSdk = Braspag3ds(
-                         accessToken = "[Access_Token gerado no passo 1]",
-                         environment = Environment.SANDBOX
-                     )
-```
-
-Em seguida é necessário utilizar o método `authenticate`, informando os dados do comprador e o *callback* que receberá a resposta:
-
 ```kotlin
 braspag3dsSdk.authenticate(
+           accessToken = “<Access_Token>“,
            orderData = OrderData(
                orderNumber = ORDER_NUMBER,
                currencyCode = CURRENCY_BRL,
