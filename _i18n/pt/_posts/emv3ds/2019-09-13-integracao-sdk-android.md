@@ -45,7 +45,7 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 ```json
 {
-  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
+  "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
   "token_type": "barear",
   "expires_in": "2018-07-23T11:29:32"
 }
@@ -138,7 +138,7 @@ braspag3dsSdk.authenticate(
 
 ## Descrição dos Status do Callback
 
-| **Status** | **Descrição** | 
+| **Status** | **Descrição** |
 | --- | --- |
 | success | É retornado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.|
 | unenrolled | É retornado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
@@ -197,7 +197,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | --- | --- | --- | --- |
 | number | Número do Cartão | Numérico [até 19 posições] | Sim |
 | expirationMonth | Mês do vencimento do cartão | Numérico [2 posições] | Sim |
-| cardexpirationYear | Ano do vencimento do cartão | Numérico [4 posições] | Sim | 
+| cardexpirationYear | Ano do vencimento do cartão | Numérico [4 posições] | Sim |
 | cardAlias | Alias do cartão | Alphanumérico [até 128 posições] | Não |
 | defaultCard | Indica se é um cartão padrão do cliente na loja | Booleano<br>true - sim<br>false - não | Não |
 
@@ -225,9 +225,9 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | phoneNumber | Telefone de contato do endereço de entrega | Numérico [até 15 posições], no formato: 5511999999999 | Não |
 | email | E-mail do contato do endereço de entrega | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Não |
 | street1 | Logradouro e Número do endereço de entrega | Alfanumérico [até 60] | Não |
-| street2 | Complemento e bairro do endereço de entrega | Alfanumérico [até 60] | Não | 
+| street2 | Complemento e bairro do endereço de entrega | Alfanumérico [até 60] | Não |
 | city | Cidade do endereço de entrega | Alfanumérico [até 50] | Não |
-| state | Sigla do estado do endereço de entrega | Texto [2 posições] | Não | 
+| state | Sigla do estado do endereço de entrega | Texto [2 posições] | Não |
 | zipCode | CEP do endereço de entrega | Alfanumérico [até 8 posições], no formato: 99999999 | Não |
 | country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Não |
 | shippingMethod | Tipo do método de envio | *ShippingMethodEnum*<br><br>LOWCOST: envio econômico<br>SAMEDAY: envio no mesmo dia<br>ONEDAY: envio no dia seguinte<br>TWODAY: envio em dois dias<br>THREEDAY: envio em três dias<br>PICKUP: retirada na loja<br>OTHER: outrosnone: não há envio | Não |
