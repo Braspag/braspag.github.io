@@ -202,9 +202,9 @@
 <h3 id="response">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-      </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T11:29:32"</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T11:29:32"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -256,55 +256,46 @@
 
 <p>Then you must use the method <code class="highlighter-rouge">authenticate</code>, informing the <em>access_token</em> from previous step, the buyer details and the <em>callback</em> that will receive the response:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span>
-                       <span class="n">accessToken</span> <span class="p">=</span> <span class="s">"[Access_Token generated in step 1]"</span><span class="p">,</span>
-                       <span class="n">environment</span> <span class="p">=</span> <span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span>
-                   <span class="p">)</span>
-</code></pre></div></div>
-
-<p>Then it is necessary to use the <code class="highlighter-rouge">authenticate</code> method, informing the buyer data and the <em>callback</em> that will receive the answer:</p>
-
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3dsSdk</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span>
-           <span class="n">orderData</span> <span class="p">=</span> <span class="nc">OrderData</span><span class="p">(</span>
-               <span class="n">orderNumber</span> <span class="p">=</span> <span class="nc">ORDER_NUMBER</span><span class="p">,</span>
-               <span class="n">currencyCode</span> <span class="p">=</span> <span class="nc">CURRENCY_BRL</span><span class="p">,</span>
-               <span class="n">totalAmount</span> <span class="p">=</span> <span class="nc">TOTAL_AMOUNT</span><span class="p">,</span>
-               <span class="n">paymentMethod</span> <span class="p">=</span> <span class="nc">PaymentMethod</span><span class="p">.</span><span class="n">credit</span><span class="p">,</span>
-               <span class="n">transactionMode</span> <span class="p">=</span> <span class="nc">TransactionMode</span><span class="p">.</span><span class="n">eCommerce</span><span class="p">,</span>
-               <span class="n">installments</span> <span class="p">=</span> <span class="m">3</span><span class="p">,</span>
-               <span class="n">merchantUrl</span> <span class="p">=</span> <span class="s">"https://www.exemplo.com.br"</span>
-           <span class="p">),</span>
-           <span class="n">cardData</span> <span class="p">=</span> <span class="nc">CardData</span><span class="p">(</span>
-               <span class="n">number</span> <span class="p">=</span> <span class="n">selectedCard</span><span class="p">,</span>
-               <span class="n">expirationMonth</span> <span class="p">=</span> <span class="nc">EXPIRATION_MONTH</span><span class="p">,</span>
-               <span class="n">expirationYear</span> <span class="p">=</span> <span class="nc">EXPIRATION_YEAR</span>
-           <span class="p">),</span>
-           <span class="n">authOptions</span> <span class="p">=</span> <span class="nc">OptionsData</span><span class="p">(</span>
-               <span class="n">notifyOnly</span> <span class="p">=</span> <span class="n">notifyOnly</span><span class="p">,</span>
-               <span class="n">suppressChallenge</span> <span class="p">=</span> <span class="n">suppressChallenge</span>
-           <span class="p">),</span>
-           <span class="n">shipToData</span> <span class="p">=</span> <span class="nc">ShipToData</span><span class="p">(</span>
-               <span class="n">sameAsBillTo</span> <span class="p">=</span> <span class="k">true</span><span class="p">,</span>
-               <span class="n">addressee</span> <span class="p">=</span> <span class="s">"Rua Jose Joao, 666"</span><span class="p">,</span>
-               <span class="n">city</span> <span class="p">=</span> <span class="s">"Jundiaí"</span><span class="p">,</span>
-               <span class="n">country</span> <span class="p">=</span> <span class="s">"BR"</span><span class="p">,</span>
-               <span class="n">email</span> <span class="p">=</span> <span class="s">"josejoao@gmail.com"</span><span class="p">,</span>
-               <span class="n">state</span> <span class="p">=</span> <span class="s">"SP"</span><span class="p">,</span>
-               <span class="n">shippingMethod</span> <span class="p">=</span> <span class="s">"lowcost"</span><span class="p">,</span>
-               <span class="n">zipCode</span> <span class="p">=</span> <span class="s">"13306270"</span>
-           <span class="p">),</span>
-           <span class="n">recurringData</span> <span class="p">=</span> <span class="nc">RecurringData</span><span class="p">(</span>
-               <span class="n">frequency</span> <span class="p">=</span> <span class="nc">RecurringFrequency</span><span class="p">.</span><span class="nc">MONTHLY</span>
-           <span class="p">),</span>
-           <span class="n">userData</span> <span class="p">=</span> <span class="nc">UserData</span><span class="p">(</span>
-               <span class="n">newCustomer</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
-               <span class="n">authenticationMethod</span> <span class="p">=</span> <span class="nc">AuthenticationMethod</span><span class="p">.</span><span class="n">noAuthentication</span>
-           <span class="p">),</span>
-           <span class="n">activity</span> <span class="p">=</span> <span class="n">activity</span><span class="p">,</span>
-           <span class="n">callback</span> <span class="p">=</span> <span class="n">callback</span>
-       <span class="p">)</span>
-   <span class="p">}</span>
-  <span class="p">}</span>
+    <span class="n">accessToken</span> <span class="p">=</span> <span class="err">““</span><span class="p">,</span>
+    <span class="n">orderData</span> <span class="p">=</span> <span class="nc">OrderData</span><span class="p">(</span>
+        <span class="n">orderNumber</span> <span class="p">=</span> <span class="nc">ORDER_NUMBER</span><span class="p">,</span>
+        <span class="n">currencyCode</span> <span class="p">=</span> <span class="nc">CURRENCY_BRL</span><span class="p">,</span>
+        <span class="n">totalAmount</span> <span class="p">=</span> <span class="nc">TOTAL_AMOUNT</span><span class="p">,</span>
+        <span class="n">paymentMethod</span> <span class="p">=</span> <span class="nc">PaymentMethod</span><span class="p">.</span><span class="n">credit</span><span class="p">,</span>
+        <span class="n">transactionMode</span> <span class="p">=</span> <span class="nc">TransactionMode</span><span class="p">.</span><span class="n">eCommerce</span><span class="p">,</span>
+        <span class="n">installments</span> <span class="p">=</span> <span class="m">3</span><span class="p">,</span>
+        <span class="n">merchantUrl</span> <span class="p">=</span> <span class="s">"https://www.exemplo.com.br"</span>
+    <span class="p">),</span>
+    <span class="n">cardData</span> <span class="p">=</span> <span class="nc">CardData</span><span class="p">(</span>
+        <span class="n">number</span> <span class="p">=</span> <span class="n">selectedCard</span><span class="p">,</span>
+        <span class="n">expirationMonth</span> <span class="p">=</span> <span class="nc">EXPIRATION_MONTH</span><span class="p">,</span>
+        <span class="n">expirationYear</span> <span class="p">=</span> <span class="nc">EXPIRATION_YEAR</span>
+    <span class="p">),</span>
+    <span class="n">authOptions</span> <span class="p">=</span> <span class="nc">OptionsData</span><span class="p">(</span>
+        <span class="n">notifyOnly</span> <span class="p">=</span> <span class="n">notifyOnly</span><span class="p">,</span>
+        <span class="n">suppressChallenge</span> <span class="p">=</span> <span class="n">suppressChallenge</span>
+    <span class="p">),</span>
+    <span class="n">shipToData</span> <span class="p">=</span> <span class="nc">ShipToData</span><span class="p">(</span>
+        <span class="n">sameAsBillTo</span> <span class="p">=</span> <span class="k">true</span><span class="p">,</span>
+        <span class="n">addressee</span> <span class="p">=</span> <span class="s">"Rua Jose Joao, 666"</span><span class="p">,</span>
+        <span class="n">city</span> <span class="p">=</span> <span class="s">"Jundiaí"</span><span class="p">,</span>
+        <span class="n">country</span> <span class="p">=</span> <span class="s">"BR"</span><span class="p">,</span>
+        <span class="n">email</span> <span class="p">=</span> <span class="s">"josejoao@gmail.com"</span><span class="p">,</span>
+        <span class="n">state</span> <span class="p">=</span> <span class="s">"SP"</span><span class="p">,</span>
+        <span class="n">shippingMethod</span> <span class="p">=</span> <span class="s">"lowcost"</span><span class="p">,</span>
+        <span class="n">zipCode</span> <span class="p">=</span> <span class="s">"13306270"</span>
+    <span class="p">),</span>
+    <span class="n">recurringData</span> <span class="p">=</span> <span class="nc">RecurringData</span><span class="p">(</span>
+        <span class="n">frequency</span> <span class="p">=</span> <span class="nc">RecurringFrequency</span><span class="p">.</span><span class="nc">MONTHLY</span>
+    <span class="p">),</span>
+    <span class="n">userData</span> <span class="p">=</span> <span class="nc">UserData</span><span class="p">(</span>
+        <span class="n">newCustomer</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
+        <span class="n">authenticationMethod</span> <span class="p">=</span> <span class="nc">AuthenticationMethod</span><span class="p">.</span><span class="n">noAuthentication</span>
+    <span class="p">),</span>
+    <span class="n">activity</span> <span class="p">=</span> <span class="n">activity</span><span class="p">,</span>
+    <span class="n">callback</span> <span class="p">=</span> <span class="n">callback</span>
+<span class="p">)</span>
 </code></pre></div></div>
 
 <h2 id="parâmetros-de-entrada-do-método-authenticate">Parâmetros de entrada do método <em>authenticate</em></h2>
