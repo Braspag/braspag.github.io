@@ -80,39 +80,39 @@ Em seguida é necessário utilizar o método `authenticate`, informando o *acces
 braspag3dsSdk.authenticate(
   accessToken = “< **Access_Token** >“,
   orderData = OrderData(
-     orderNumber = ORDER_NUMBER,
-     currencyCode = CURRENCY_BRL,
-     totalAmount = TOTAL_AMOUNT,
-     paymentMethod = PaymentMethod.credit,
-     transactionMode = TransactionMode.eCommerce,
-     installments = 3,
-     merchantUrl = "https://www.exemplo.com.br"
+    orderNumber = ORDER_NUMBER,
+    currencyCode = CURRENCY_BRL,
+    totalAmount = TOTAL_AMOUNT,
+    paymentMethod = PaymentMethod.credit,
+    transactionMode = TransactionMode.eCommerce,
+    installments = 3,
+    merchantUrl = "https://www.exemplo.com.br"
   ),
   cardData = CardData(
-     number = selectedCard,
-     expirationMonth = EXPIRATION_MONTH,
-     expirationYear = EXPIRATION_YEAR
+    number = selectedCard,
+    expirationMonth = EXPIRATION_MONTH,
+    expirationYear = EXPIRATION_YEAR
   ),
   authOptions = OptionsData(
-     notifyOnly = notifyOnly,
-     suppressChallenge = suppressChallenge
+    notifyOnly = notifyOnly,
+    suppressChallenge = suppressChallenge
   ),
   shipToData = ShipToData(
-     sameAsBillTo = true,
-     addressee = "Rua Jose Joao, 666",
-     city = "Jundiaí",
-     country = "BR",
-     email = "josejoao@gmail.com",
-     state = "SP",
-     shippingMethod = "lowcost",
-     zipCode = "13306270"
+    sameAsBillTo = true,
+    addressee = "Rua Jose Joao, 666",
+    city = "Jundiaí",
+    country = "BR",
+    email = "josejoao@gmail.com",
+    state = "SP",
+    shippingMethod = "lowcost",
+    zipCode = "13306270"
   ),
   recurringData = RecurringData(
-     frequency = RecurringFrequency.MONTHLY
+    frequency = RecurringFrequency.MONTHLY
   ),
   userData = UserData(
-     newCustomer = false,
-     authenticationMethod = AuthenticationMethod.noAuthentication
+    newCustomer = false,
+    authenticationMethod = AuthenticationMethod.noAuthentication
   ),
   activity = activity,
   callback = callback
