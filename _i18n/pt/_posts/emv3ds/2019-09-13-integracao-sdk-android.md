@@ -29,9 +29,9 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 ```json
 {
-     "EstablishmentCode":"1006993069",
-     "MerchantName": "Loja Exemplo Ltda",
-     "MCC": "5912"
+  "EstablishmentCode": "1006993069",
+  "MerchantName": "Loja Exemplo Ltda",
+  "MCC": "5912"
 }
 ```
 
@@ -45,7 +45,7 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 ```json
 {
-  "access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
   "token_type": "barear",
   "expires_in": "2018-07-23T11:29:32"
 }
@@ -63,15 +63,15 @@ Para utilizar o SDK é necessário adicioná-lo como dependência ao **build.gra
 
 ```kotlin
 dependecies{
-  ...
-  implementation 'br.com.braspag:braspag3ds:< **LATEST_VERSION** >'
+    ...
+    implementation 'br.com.braspag:braspag3ds:< **LATEST_VERSION** >'
 }
 ```
 
 Em seguida é necessário informar o ambiente que deseja ao instanciar o **Braspag3ds**:
 
 ```kotlin
-  val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
+    val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
 ```
 
 Em seguida é necessário utilizar o método `authenticate`, informando o *access_token* gerado no passo anterior, os dados do comprador e o *callback* que receberá a resposta:
@@ -322,7 +322,7 @@ Utilize os cartões de **teste** abaixo para simular diversos cenários no ambie
 | 4000000000001000 | SUCCESS | Autenticação Silenciosa e portador autenticou com sucesso |
 | 4000000000001018 | FAILURE | Autenticação Silenciosa e portador finalizou com falha|
 | 4000000000001034 | UNENROLLED | Cartão não elegível para autenticação |
-| 4000000000001091 | SUCCESS | Autenticação com desafio e portador autenticou com sucesso|
+| 4000000000001091 | SUCCESS | Autenticação com desafio e portador autenticou com sucesso |
 | 4000000000001117 | UNENROLLED | Autenticação com desafio e Cartão não elegível |
 | 4000000000001109 | FAILURE | Autenticação com desafio e portador falhou na autenticação |
 
@@ -334,4 +334,3 @@ Veja maiores detalhes em: [https://braspag.github.io/manual/autorizacao-com-aute
 # Últimas atualizações
 
 Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-13-integracao-sdk-android.md)
-
