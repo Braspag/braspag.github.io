@@ -62,9 +62,9 @@ The solution comprises the API access token request step and authentication requ
 Add the following dependency to dependency node in your **build.gradle** on module level:
 
 ```kotlin
-dependecies{
+dependecies {
   ...
-  implementation 'br.com.braspag:braspag3ds:<LATEST_VERSION>'
+  implementation 'br.com.braspag:braspag3ds:LATEST_VERSION'
 }
 ```
 
@@ -78,24 +78,24 @@ Then you must use the method `authenticate`, informing the *access_token* from p
 
 ```kotlin
 braspag3dsSdk.authenticate(
-    accessToken = "<ACCESS_TOKEN>",
+    accessToken = "ACCESS_TOKEN",
     orderData = OrderData(
-        orderNumber = ORDER_NUMBER,
-        currencyCode = CURRENCY_BRL,
-        totalAmount = TOTAL_AMOUNT,
+        orderNumber = "123456",
+        currencyCode = "986",
+        totalAmount = 1000L,
         paymentMethod = PaymentMethod.credit,
         transactionMode = TransactionMode.eCommerce,
         installments = 3,
         merchantUrl = "https://www.exemplo.com.br"
     ),
     cardData = CardData(
-        number = selectedCard,
-        expirationMonth = EXPIRATION_MONTH,
-        expirationYear = EXPIRATION_YEAR
+        number = "4000000000001091",
+        expirationMonth = "01",
+        expirationYear = "2023"
     ),
     authOptions = OptionsData(
-        notifyOnly = notifyOnly,
-        suppressChallenge = suppressChallenge
+        notifyOnly = false,
+        suppressChallenge = false
     ),
     shipToData = ShipToData(
         sameAsBillTo = true,
@@ -114,8 +114,8 @@ braspag3dsSdk.authenticate(
         newCustomer = false,
         authenticationMethod = AuthenticationMethod.noAuthentication
     ),
-    activity = activity,
-    callback = callback
+    activity = this@MainActivity,
+    callback = myCallback
 )
 ```
 
