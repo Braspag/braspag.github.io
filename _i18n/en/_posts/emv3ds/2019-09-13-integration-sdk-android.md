@@ -99,13 +99,13 @@ braspag3dsSdk.authenticate(
     ),
     shipToData = ShipToData(
         sameAsBillTo = true,
-        addressee = "Rua Jose Joao, 666",
-        city = "Jundiaí",
+        addressee = "Rua do Meio, 666",
+        city = "Praia Grande",
         country = "BR",
-        email = "josejoao@gmail.com",
+        email = "contato@email.com",
         state = "SP",
         shippingMethod = "lowcost",
-        zipCode = "13306270"
+        zipCode = "11726000"
     ),
     recurringData = RecurringData(
         frequency = RecurringFrequency.MONTHLY
