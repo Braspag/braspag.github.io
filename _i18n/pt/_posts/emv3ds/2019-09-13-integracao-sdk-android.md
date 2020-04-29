@@ -78,45 +78,45 @@ Em seguida é necessário utilizar o método `authenticate`, informando o *acces
 
 ```kotlin
 braspag3dsSdk.authenticate(
-  accessToken = “ACCESS_TOKEN“,
-  orderData = OrderData(
-    orderNumber = ORDER_NUMBER,
-    currencyCode = CURRENCY_BRL,
-    totalAmount = TOTAL_AMOUNT,
-    paymentMethod = PaymentMethod.credit,
-    transactionMode = TransactionMode.eCommerce,
-    installments = 3,
-    merchantUrl = "https://www.exemplo.com.br"
-  ),
-  cardData = CardData(
-    number = selectedCard,
-    expirationMonth = EXPIRATION_MONTH,
-    expirationYear = EXPIRATION_YEAR
-  ),
-  authOptions = OptionsData(
-    notifyOnly = notifyOnly,
-    suppressChallenge = suppressChallenge
-  ),
-  shipToData = ShipToData(
-    sameAsBillTo = true,
-    addressee = "Rua Jose Joao, 666",
-    city = "Jundiaí",
-    country = "BR",
-    email = "josejoao@gmail.com",
-    state = "SP",
-    shippingMethod = "lowcost",
-    zipCode = "13306270"
-  ),
-  recurringData = RecurringData(
-    frequency = RecurringFrequency.MONTHLY
-  ),
-  userData = UserData(
-    newCustomer = false,
-    authenticationMethod = AuthenticationMethod.noAuthentication
-  ),
-  activity = activity,
-  callback = callback
-  )
+    accessToken = "ACCESS_TOKEN",
+    orderData = OrderData(
+        orderNumber = "123456",
+        currencyCode = "986",
+        totalAmount = 1000L,
+        paymentMethod = PaymentMethod.credit,
+        transactionMode = TransactionMode.eCommerce,
+        installments = 3,
+        merchantUrl = "https://www.exemplo.com.br"
+    ),
+    cardData = CardData(
+        number = "4000000000001091",
+        expirationMonth = "01",
+        expirationYear = "2023"
+    ),
+    authOptions = OptionsData(
+        notifyOnly = false,
+        suppressChallenge = false
+    ),
+    shipToData = ShipToData(
+        sameAsBillTo = true,
+        addressee = "Rua Jose Joao, 666",
+        city = "Jundiaí",
+        country = "BR",
+        email = "josejoao@gmail.com",
+        state = "SP",
+        shippingMethod = "lowcost",
+        zipCode = "13306270"
+    ),
+    recurringData = RecurringData(
+        frequency = RecurringFrequency.MONTHLY
+    ),
+    userData = UserData(
+        newCustomer = false,
+        authenticationMethod = AuthenticationMethod.noAuthentication
+    ),
+    activity = this@MainActivity,
+    callback = myCallback
+)
 ```
 
 ## Parâmetros de entrada do método *authenticate*
