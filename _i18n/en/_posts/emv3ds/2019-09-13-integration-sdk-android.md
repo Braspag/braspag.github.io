@@ -64,21 +64,21 @@ Add the following dependency to dependency node in your **build.gradle** on modu
 ```kotlin
 dependecies{
   ...
-  implementation 'br.com.braspag:braspag3ds:LATEST_VERSION'
+  implementation 'br.com.braspag:braspag3ds:<LATEST_VERSION>'
 }
 ```
 
 Then it's necessary to instantiate **Braspag3ds** with the desired environment:
 
 ```kotlin
-  val braspag3dsSdk = Braspag3ds(environment = Environment.SANDBOX)
+  val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
 ```
 
 Then you must use the method `authenticate`, informing the *access_token* from previous step, the buyer details and the *callback* that will receive the response:
 
 ```kotlin
 braspag3dsSdk.authenticate(
-    accessToken = “ACCESS_TOKEN“,
+    accessToken = "<ACCESS_TOKEN>",
     orderData = OrderData(
         orderNumber = ORDER_NUMBER,
         currencyCode = CURRENCY_BRL,
