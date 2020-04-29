@@ -53,7 +53,9 @@
                 <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
                 <ul class="language-buttons">
                     
-                    <li><a data-language-name=''></a></li>
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='kotlin'>KOTLIN</a></li>
                     
                 </ul>
             </div>
@@ -1347,7 +1349,9 @@ Veja maiores detalhes em: <a href="https://braspag.github.io/manual/autorizacao-
         });
 
         
-        langs += "<a data-language-name=''></a>";
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+        langs += "<a data-language-name='kotlin'>KOTLIN</a>";
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
@@ -1356,7 +1360,7 @@ Veja maiores detalhes em: <a href="https://braspag.github.io/manual/autorizacao-
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "", ]);
+                setupLanguages([  "json",  "kotlin", ]);
             });
         </script>
         
