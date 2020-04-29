@@ -7,10 +7,6 @@ translated: true
 categories: manual
 tags:
   - Autenticação 3DS 2.0
-language_tabs:
-  json: JSON
-  kotlin: KOTLIN
-  
 ---
 
 # O que é 3DS 2.0?
