@@ -42,7 +42,12 @@ A plataforma tem como propósito ajudar os estabelecimentos que possuem diversos
 
 ## Arquitetura
 
-A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Através do endpoint https://cartaoprotegidoapisandbox.braspag.com.br/v1/ serão enviadas todas as requisições relativas à esse serviço. Essa URL recebera as mensagens HTTP através dos métodos POST, GET ou Del. Cada tipo de mensagem deve ser enviada para um endereço identificado através do "path".
+A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Através do endpoint serão enviadas todas as requisições relativas à esse serviço. Essa URL recebera as mensagens HTTP através dos métodos POST, GET ou DEL. Cada tipo de mensagem deve ser enviada para um endereço identificado através do "path".
+
+| Endpoint | Ambiente |
+| --- | --- |
+| https://cartaoprotegidoapisandbox.braspag.com.br/v1/ | Sandbox |
+| https://cartaoprotegidoapi.braspag.com.br/v1/ | Produção |
 
 * **POST** - O método HTTP POST é utilizado na criação do token.
 * **DEL** - O método HTTP DEL é utilizado para remoção de token.
@@ -64,7 +69,6 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
 |Ambiente | Endpoint | Authorization |
 |---|---|---|
 | **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | **Basic _(Authorization)_**<br><br>O valor do Authorization deve ser obtido concatenando-se o valor do "ClientID", sinal de dois-pontos (":") e "ClientSecret"<br><br>Ex. b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br><br>e na sequência, codificar o resultado na base 64. <br>Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br><br>ClientID: **b4c14ad4-5184-4ca0-8d1a-d3a7276cead9**<br>ClientSecret: **qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**|
-| --- | --- |
 | **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token | Solicite os dados "ClientID" e "ClientSecret" à equipe de suporte após concluir o desenvolvimento em sandbox. |
 
 ### Request
