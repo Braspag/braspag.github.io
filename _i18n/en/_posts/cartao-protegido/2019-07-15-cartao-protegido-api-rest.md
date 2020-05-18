@@ -42,7 +42,12 @@ The purpose of the platform is to help establishments that have several use case
 
 ## Architecture
 
-Integration is made through services as Web Services. The model used is quite simple: Through the endpoint https://cartaoprotegidoapisandbox.braspag.com.br/v1/ all requests related to this service will be sent. This URL will receive HTTP messages via POST, GET, or DEL methods. Each type of message must be sent to an address identified through "path".
+Integration is made through services as Web Services. The model used is quite simple: Through the endpoint all requests related to this service will be sent. This URL will receive HTTP messages via POST, GET, or DEL methods. Each type of message must be sent to an address identified through "path".
+
+| Endpoint | Environment |
+| --- | --- |
+| https://cartaoprotegidoapisandbox.braspag.com.br/v1/ | Sandbox |
+| https://cartaoprotegidoapi.braspag.com.br/v1/ | Production |
 
 * **POST** - The HTTP POST method is used to create the token.
 * **DEL** - The HTTP DEL method is used for token removal.
@@ -64,7 +69,6 @@ To consume API methods, you must get AccessToken in the OAuth 2.0 standard.
 |Environment|Endpoint|Authorization|
 |---|---|---|
 |**SANDBOX**|https://authsandbox.braspag.com.br/oauth2/token|**Basic _(Authorization)_**<br><br>The Authorization value must be obtained by concatenating the value of the "ClientID", colon (":"), and "ClientSecret"<br><br>E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br><br>and then encode the result in base 64. <br>This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: ClientID<br><br>: ** b4c14ad4-5184-4ca0-8d1a-d3a7276cead9**<br>ClientSecret:**qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**|
-|---|---|
 |**PRODUCTION**|https://auth.braspag.com.br/oauth2/token|Request the "ClientID" and "ClientSecret" data from the support team after completing sandbox development.|
 
 ### Request
