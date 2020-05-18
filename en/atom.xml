@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-05-15T19:52:31+00:00</updated>
+    <updated>2020-05-18T17:26:35+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4113,7 +4113,26 @@ This procedure is also valid for establishments that performed authentication ou
 
 &lt;h2 id=&quot;architecture&quot;&gt;Architecture&lt;/h2&gt;
 
-&lt;p&gt;Integration is made through services as Web Services. The model used is quite simple: Through the endpoint https://cartaoprotegidoapisandbox.braspag.com.br/v1/ all requests related to this service will be sent. This URL will receive HTTP messages via POST, GET, or DEL methods. Each type of message must be sent to an address identified through “path”.&lt;/p&gt;
+&lt;p&gt;Integration is made through services as Web Services. The model used is quite simple: Through the endpoint all requests related to this service will be sent. This URL will receive HTTP messages via POST, GET, or DEL methods. Each type of message must be sent to an address identified through “path”.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Endpoint&lt;/th&gt;
+      &lt;th&gt;Environment&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;https://cartaoprotegidoapisandbox.braspag.com.br/v1/&lt;/td&gt;
+      &lt;td&gt;Sandbox&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;https://cartaoprotegidoapi.braspag.com.br/v1/&lt;/td&gt;
+      &lt;td&gt;Production&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;POST&lt;/strong&gt; - The HTTP POST method is used to create the token.&lt;/li&gt;
@@ -4150,8 +4169,6 @@ This procedure is also valid for establishments that performed authentication ou
       &lt;td&gt;https://authsandbox.braspag.com.br/oauth2/token&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;Basic &lt;em&gt;(Authorization)&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”&lt;br /&gt;E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=&lt;br /&gt;and then encode the result in base 64. &lt;br /&gt;This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: ClientID&lt;br /&gt;: ** b4c14ad4-5184-4ca0-8d1a-d3a7276cead9&lt;strong&gt;&lt;br /&gt;ClientSecret:&lt;/strong&gt;qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**&lt;/td&gt;
     &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;PRODUCTION&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;https://auth.braspag.com.br/oauth2/token&lt;/td&gt;

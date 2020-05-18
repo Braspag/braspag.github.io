@@ -181,7 +181,26 @@
 
 <h2 id="architecture">Architecture</h2>
 
-<p>Integration is made through services as Web Services. The model used is quite simple: Through the endpoint https://cartaoprotegidoapisandbox.braspag.com.br/v1/ all requests related to this service will be sent. This URL will receive HTTP messages via POST, GET, or DEL methods. Each type of message must be sent to an address identified through “path”.</p>
+<p>Integration is made through services as Web Services. The model used is quite simple: Through the endpoint all requests related to this service will be sent. This URL will receive HTTP messages via POST, GET, or DEL methods. Each type of message must be sent to an address identified through “path”.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Endpoint</th>
+      <th>Environment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>https://cartaoprotegidoapisandbox.braspag.com.br/v1/</td>
+      <td>Sandbox</td>
+    </tr>
+    <tr>
+      <td>https://cartaoprotegidoapi.braspag.com.br/v1/</td>
+      <td>Production</td>
+    </tr>
+  </tbody>
+</table>
 
 <ul>
   <li><strong>POST</strong> - The HTTP POST method is used to create the token.</li>
@@ -218,8 +237,6 @@
       <td>https://authsandbox.braspag.com.br/oauth2/token</td>
       <td><strong>Basic <em>(Authorization)</em></strong><br />The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”<br />E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br />and then encode the result in base 64. <br />This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: ClientID<br />: ** b4c14ad4-5184-4ca0-8d1a-d3a7276cead9<strong><br />ClientSecret:</strong>qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**</td>
     </tr>
-  </tbody>
-  <tbody>
     <tr>
       <td><strong>PRODUCTION</strong></td>
       <td>https://auth.braspag.com.br/oauth2/token</td>
