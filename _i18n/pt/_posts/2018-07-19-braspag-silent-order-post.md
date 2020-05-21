@@ -113,12 +113,14 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 |language| **pt** ou **en** ou **es** |
 |enableBinQuery| **true** se quiser habilitar o Consulta BIN (retorna as características do cartão). **false** caso contrário. |
 |enableVerifyCard| **true** se quiser habilitar o ZeroAuth (retorna se o cartão é válido ou não). **false** caso contrário. |
+|enableTokenize| **true** se quiser salvar o cartão diretamente no Cartão Protegido (retorna um cardToken ao invés de um paymentToken). **false** caso contrário. |
 
 **RETORNOS DO SCRIPT**
 
 |Propriedade|Descrição|
 |-----------|---------|
-|PaymentToken| Token de Pagamento no formato de um GUID (36) |
+|PaymentToken| Token efêmero utilizado para pagamento no formato de um GUID (36)|
+|CardToken| Token permanente utilizado para pagamento no formato de um GUID (36) Obs.: Apenas se enableTokenize estiver como "true"|
 |brand| Retornado quando a opção enableBinQuery for **true**. Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard) |
 |forerignCard| Retornado quando a opção enableBinQuery for **true**. O campo retorna **true** se é um cartão emitido fora do brasil. **false** caso contrário |
 |binQueryReturnCode| Retornado quando a opção enableBinQuery for **true**. "00" se a análise do BIN for um sucesso. |
