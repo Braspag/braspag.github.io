@@ -330,6 +330,10 @@
       <td>enableVerifyCard</td>
       <td><strong>true</strong> se quiser habilitar o ZeroAuth (retorna se o cartão é válido ou não). <strong>false</strong> caso contrário.</td>
     </tr>
+    <tr>
+      <td>enableTokenize</td>
+      <td><strong>true</strong> se quiser salvar o cartão diretamente no Cartão Protegido (retorna um cardToken ao invés de um paymentToken). <strong>false</strong> caso contrário.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -345,7 +349,11 @@
   <tbody>
     <tr>
       <td>PaymentToken</td>
-      <td>Token de Pagamento no formato de um GUID (36)</td>
+      <td>Token efêmero utilizado para pagamento no formato de um GUID (36)</td>
+    </tr>
+    <tr>
+      <td>CardToken</td>
+      <td>Token permanente utilizado para pagamento no formato de um GUID (36) Obs.: Apenas se enableTokenize estiver como “true”</td>
     </tr>
     <tr>
       <td>brand</td>
