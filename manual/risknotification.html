@@ -409,7 +409,7 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Brand</code></td>
-      <td style="text-align: left">Nome da bandeira</td>
+      <td style="text-align: left">Nome da bandeira informado na criação da transação</td>
       <td style="text-align: left">string</td>
       <td>sim</td>
       <td>32</td>
@@ -451,14 +451,14 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].CardHolder</code></td>
-      <td style="text-align: left">Nome do portador do cartão informado na criação da transação através do campo <code class="highlighter-rouge">Payment.CrediCard.Holder</code> <br /> Em produção, este campo pode estar vazio ou contendo outra informação diferente da do nome do portador</td>
+      <td style="text-align: left">Nome do portador do cartão <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.CrediCard.Holder</code> na criação da transação <br /> Em produção, este campo pode estar vazio ou contendo outra informação diferente da do nome do portador</td>
       <td style="text-align: left">string</td>
       <td>não</td>
       <td>100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].EstablishmentCode</code></td>
-      <td style="text-align: left">Número do estabelecimento ou código de afiliação utilizado na criação da transação  <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.Credentials.Code</code> na criação da transação</td>
+      <td style="text-align: left">Número do estabelecimento ou código de afiliação <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.Credentials.Code</code> na criação da transação</td>
       <td style="text-align: left">string</td>
       <td>sim</td>
       <td>10</td>
@@ -493,14 +493,14 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].TransactionAmount</code></td>
-      <td style="text-align: left">Valor da transação em centavos informado na criação da transação através do campo <code class="highlighter-rouge">Payment.Amount</code> <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: left">Valor da transação em centavos <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.Amount</code> na criação da transação <br /> Ex: 123456 = r$ 1.234,56</td>
       <td style="text-align: left">int</td>
       <td>sim</td>
       <td>-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ProofOfSale</code></td>
-      <td style="text-align: left">Comprovante de venda ou NSU <br /> Informar o mesmo valor recebido no response referente ao campo <code class="highlighter-rouge">Payment.ProofOfSale</code> do response da criação da transação</td>
+      <td style="text-align: left">Comprovante de venda ou NSU <br /> Informar o mesmo valor recebido no campo <code class="highlighter-rouge">Payment.ProofOfSale</code> do response da criação da transação</td>
       <td style="text-align: left">string</td>
       <td>sim</td>
       <td>20</td>
