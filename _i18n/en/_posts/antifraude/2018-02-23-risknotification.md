@@ -109,6 +109,89 @@ Exemple:
 |`token_type`|Indicates the value of the token type|
 |`expires_in`|Expiry of the access token, in seconds <br/> The token when it expires, it is necessary to get a new one|
 
+# Simulating Chargeback
+
+> Through this option you will be able to create chargeback for transactions only in the sandbox environment. To do this, perform a POST according to the guidelines below.
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">chargeback/test</span></aside>
+
+## Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Description|Required|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Request content type|yes|
+|`Authorization`|Bearer {access_token}|Authorization type|yes|
+|`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
+
+``` json
+{
+    "ChargebackBrandGroups": [{
+        "Brand": "Visa",
+        "Details": [{
+            "Acquirer": "Cielo",
+            "AcquirerCaseNumber": "2020052301",
+            "AcquirerTransactionId": "0523103051968",
+            "Amount": 100,
+            "AuthorizationCode": "433946",
+            "CardHolder": "Teste Holder",
+            "EstablishmentCode": "TestAffiliation",
+            "MaskedCardNumber": "402400******2931",
+            "ReasonCode": "101",
+            "ReasonMessage": "Responsabilidade EMV - Falsifcação",
+            "SaleDate": "2020-05-23",
+            "TransactionAmount": 100,
+            "ProofOfSale": "3051968"
+        }]
+    },
+    {
+        "Brand": "Master",
+        "Details": [{
+            "Acquirer": "Cielo",
+            "AcquirerCaseNumber": "2020052302",
+            "AcquirerTransactionId": "0523103114691",
+            "Amount": 100,
+            "AuthorizationCode": "722134",
+            "CardHolder": "Teste Holder",
+            "EstablishmentCode": "TestAffiliation",
+            "MaskedCardNumber": "402400******2931",
+            "ReasonCode": "101",
+            "ReasonMessage": "Responsabilidade EMV - Falsifcação",
+            "SaleDate": "2020-05-23",
+            "TransactionAmount": 100,
+            "ProofOfSale": "3114691"
+        }]
+    }]
+}
+```
+
+|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|:-|:-|:-|
+|`ChargebackBrandGroups[n].Brand`|Nome da bandeira <br/> Informar o mesmo valor informado no campo `Payment.CreditCard.Brand` na criação da transação|string|sim|32|
+|`ChargebackBrandGroups[n].Details[n].Acquirer`|Nome da adquirente <br/> Enviar fixo Cielo|string|sim|16|
+|`ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber`|Número do caso do chargeback <br/> Este valor será usado para realizar as operações de `Aceitação` e `Contestação`|string|sim|10|
+|`ChargebackBrandGroups[n].Details[n].AcquirerTransactionId`|Id da transação na adquirente <br/> Se transação criada a partir do Pagador Braspag, informar o mesmo valor recebido no campo `Payment.AcquirerTransactionId` do response <br/> Se transação criada a partir da API Cielo 3.0 ou API Split Braspag, informar o mesmo valor recebido no campo `Payment.Tid` do response|string|sim|20| 
+|`ChargebackBrandGroups[n].Details[n].Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|int|sim|-|
+|`ChargebackBrandGroups[n].Details[n].AuthorizationCode`|Código de autorização da transação na adquirente <br/> Informar o mesmo valor recebido no campo `Payment.AuthorizationCode` do response da criação da transação|string|sim|8|
+|`ChargebackBrandGroups[n].Details[n].CardHolder`|Nome do portador do cartão <br/> Informar o mesmo valor informado no campo `Payment.CrediCard.Holder` na criação da transação <br/> Em produção, este campo pode estar vazio ou contendo outra informação diferente da do nome do portador|string|não|100|
+|`ChargebackBrandGroups[n].Details[n].EstablishmentCode`|Número do estabelecimento ou código de afiliação <br/> Informar o mesmo valor informado no campo `Payment.Credentials.Code` na criação da transação|string|sim|10|
+|`ChargebackBrandGroups[n].Details[n].MaskedCardNumber`|Cartão mascarado <br/> Informar o mesmo valor recebido no campo `Payment.CreditCard.Number` do response da criação da transação|string|sim|16|
+|`ChargebackBrandGroups[n].Details[n].ReasonCode`|Código do motivo do chargeback <br/> Informar o código de acordo com a tabela XXXXXXX|string|sim|5|
+|`ChargebackBrandGroups[n].Details[n].ReasonMessage`|Mensagem do motivo do chargeback <br/> Informar a mensagem de acordo com a tabela XXXXXXX|string|sim|128|
+|`ChargebackBrandGroups[n].Details[n].SaleDate`|Data de autorização da transação <br/> Formato: YYYY-MM-DD|string|sim|10|
+|`ChargebackBrandGroups[n].Details[n].TransactionAmount`|Valor da transação em centavos <br/> Informar o mesmo valor informado no campo `Payment.Amount` na criação da transação <br/> Ex: 123456 = r$ 1.234,56|int|sim|-|
+|`ChargebackBrandGroups[n].Details[n].ProofOfSale`|Comprovante de venda ou NSU <br/> Informar o mesmo valor recebido no campo `Payment.ProofOfSale` do response da criação da transação|string|sim|20|
+
+## Response
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
 # Acceptance
 
 ## Accepting a chargeback
