@@ -301,13 +301,15 @@
   </tbody>
 </table>
 
-<h1 id="aceitação">Aceitação</h1>
+<h1 id="simulando-chargeback">Simulando Chargeback</h1>
 
-<h2 id="aceitando-um-chargeback">Aceitando um chargeback</h2>
+<blockquote>
+  <p>Através desta opção será possível você criar chargeback para as transações apenas no ambiente de sandbox. Para isso, realizar um POST de acordo com as orientações abaixo.</p>
+</blockquote>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">chargeback/test</span></aside>
 
-<h3 id="request-1">Request</h3>
+<h2 id="request-1">Request</h2>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -354,35 +356,159 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros na querystring</strong></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ChargebackBrandGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Details"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"Acquirer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AcquirerCaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020052301"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0523103051968"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"433946"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CardHolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestAffiliation"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"MaskedCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"402400******2931"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Responsabilidade EMV - Falsifcação"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-23"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3051968"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Details"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nl">"Acquirer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AcquirerCaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020052302"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0523103114691"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"722134"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CardHolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestAffiliation"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"MaskedCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"402400******2931"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Responsabilidade EMV - Falsifcação"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-23"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3114691"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Parâmetro</th>
       <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
+      <th style="text-align: left">Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Brand</code></td>
+      <td style="text-align: left">Nome da bandeira</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].Acquirer</code></td>
+      <td style="text-align: left">Nome da adquirente <br /> Enviar fixo Cielo</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber</code></td>
+      <td style="text-align: left">Número do caso relacionado do chargeback <br /> Este valor será usado para realizar as operações de <code class="highlighter-rouge">Aceitação</code> e <code class="highlighter-rouge">Contestação</code></td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].AcquirerTransactionId</code></td>
+      <td style="text-align: left">Id da transação na adquirente <br /> Se transação criada a partir do Pagador Braspag, informar o mesmo valor recebido no campo <code class="highlighter-rouge">Payment.AcquirerTransactionId</code> do response <br /> Se transação criada a partir da API Cielo 3.0 ou API Split, informar o mesmo valor recebido no campo <code class="highlighter-rouge">Payment.Tid</code> do response</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].Amount</code></td>
+      <td style="text-align: left">Valor do chargeback em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: left">int</td>
+      <td>sim</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].AuthorizationCode</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Informar o mesmo valor recebido no response referente ao campo <code class="highlighter-rouge">Payment.AuthorizationCode</code> do response da criação da transação</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].CardHolder</code></td>
+      <td style="text-align: left">Nome do portador do cartão informado na criação da transação através do campo <code class="highlighter-rouge">Payment.CrediCard.Holder</code> <br /> Em produção, este campo pode estar vazio ou contendo outra informação diferente da do nome do portador</td>
+      <td style="text-align: left">string</td>
+      <td>não</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].EstablishmentCode</code></td>
+      <td style="text-align: left">Número do estabelecimento ou código de afiliação utilizado na criação da transação  <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.Credentials.Code</code> na criação da transação</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].MaskedCardNumber</code></td>
+      <td style="text-align: left">Cartão mascarado <br /> Informar o mesmo valor recebido no campo <code class="highlighter-rouge">Payment.CreditCard.Number</code> do response da criação da transação</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ReasonCode</code></td>
+      <td style="text-align: left">Código do motivo do chargeback <br /> Informar o código de acordo com a tabela XXXXXXX</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ReasonMessage</code></td>
+      <td style="text-align: left">Mensagem do motivo do chargeback <br /> Informar a mensagem de acordo com a tabela XXXXXXX</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].SaleDate</code></td>
+      <td style="text-align: left">Data de autorização da transação <br /> Formato: YYYY-MM-DD</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].TransactionAmount</code></td>
+      <td style="text-align: left">Valor da transação em centavos informado na criação da transação através do campo <code class="highlighter-rouge">Payment.Amount</code> <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: left">int</td>
+      <td>sim</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ProofOfSale</code></td>
+      <td style="text-align: left">Comprovante de venda ou NSU <br /> Informar o mesmo valor recebido no response referente ao campo <code class="highlighter-rouge">Payment.ProofOfSale</code> do response da criação da transação</td>
+      <td style="text-align: left">string</td>
+      <td>sim</td>
+      <td>20</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="response-1">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedByMerchant"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<h2 id="response-1">Response</h2>
 
 <table>
   <thead>
@@ -403,32 +529,9 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no body (Corpo)</strong></p>
+<h1 id="aceitação">Aceitação</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso do chargeback</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-4-status">Tabela 3 - Chargebacks{n}.Status</a></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">StatusDescription</code></td>
-      <td style="text-align: left">Descrição do status do chargeback</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="aceitando-um-chargeback-inexistente">Aceitando um chargeback inexistente</h2>
+<h2 id="aceitando-um-chargeback">Aceitando um chargeback</h2>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
@@ -492,13 +595,138 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="response-2">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedByMerchant"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">200 OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Status do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-4-status">Tabela 3 - Chargebacks{n}.Status</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">StatusDescription</code></td>
+      <td style="text-align: left">Descrição do status do chargeback</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="aceitando-um-chargeback-inexistente">Aceitando um chargeback inexistente</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+
+<h3 id="request-3">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo da autorização</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">condicional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">condicional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-3">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
@@ -552,7 +780,7 @@
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
 
-<h3 id="request-3">Request</h3>
+<h3 id="request-4">Request</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -618,7 +846,7 @@
   </tbody>
 </table>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-4">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
@@ -691,7 +919,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="request-4">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -787,7 +1015,7 @@
   </tbody>
 </table>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -811,126 +1039,6 @@
 </table>
 
 <h2 id="contestando-um-chargeback-inexistente">Contestando um chargeback inexistente</h2>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
-
-<h3 id="request-5">Request</h3>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo da autorização</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
-      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
-      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
-      <td style="text-align: left">Identificador da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros na querystring</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso do chargeback</td>
-      <td style="text-align: center">sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-5">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">404 Not Found</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parâmetros no body (Corpo)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback não foi encontrado</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback não foi encontrado</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="contestando-um-chargeback-contestado-anteriormente">Contestando um chargeback contestado anteriormente</h2>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
@@ -1003,8 +1111,8 @@
 <h3 id="response-6">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1024,7 +1132,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
+      <td style="text-align: left">404 Not Found</td>
     </tr>
   </tbody>
 </table>
@@ -1041,16 +1149,16 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Código que o chargeback foi contestado ou aceito anteriomente</td>
+      <td style="text-align: left">Código que o chargeback não foi encontrado</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem que o chargeback foi contestado ou aceito anteriormente</td>
+      <td style="text-align: left">Mensagem que o chargeback não foi encontrado</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="contestando-um-chargeback-e-não-enviando-o-arquivo-de-contestação">Contestando um chargeback e não enviando o arquivo de contestação</h2>
+<h2 id="contestando-um-chargeback-contestado-anteriormente">Contestando um chargeback contestado anteriormente</h2>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
@@ -1123,14 +1231,8 @@
 <h3 id="response-7">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"contestationRequest.Files[0].FileName"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"FileName can not be null or empty."</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"contestationRequest.Files[0].Content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"Content can not be null or empty."</span><span class="w">
-    </span><span class="p">]}</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1160,27 +1262,23 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left">Código que o chargeback foi contestado ou aceito anteriomente</td>
+    </tr>
+    <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem informando que a requisição é inválida</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
-      <td style="text-align: left">Mensagem informando que o nome do arquivo não foi enviado</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
-      <td style="text-align: left">Mensagem informando que o conteúdo do arquivo não foi enviado</td>
+      <td style="text-align: left">Mensagem que o chargeback foi contestado ou aceito anteriormente</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-extensão-diferente-de-jpeg-pfg-ou-png">Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png</h2>
+<h2 id="contestando-um-chargeback-e-não-enviando-o-arquivo-de-contestação">Contestando um chargeback e não enviando o arquivo de contestação</h2>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
@@ -1255,8 +1353,11 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"contestationRequest.Files[0].FileName"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"</span><span class="w">
+        </span><span class="nl">"contestationRequest.Files[0].FileName"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"FileName can not be null or empty."</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"contestationRequest.Files[0].Content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Content can not be null or empty."</span><span class="w">
     </span><span class="p">]}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1298,12 +1399,16 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
-      <td style="text-align: left">Mensagem informando que o arquivo foi enviado com a extensão inválida</td>
+      <td style="text-align: left">Mensagem informando que o nome do arquivo não foi enviado</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
+      <td style="text-align: left">Mensagem informando que o conteúdo do arquivo não foi enviado</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="contestando-um-chargeback-enviando-arquivos-para-contestação-com-tamanho-maior-que-7mb">Contestando um chargeback enviando arquivo(s) para contestação com tamanho maior que 7mb</h2>
+<h2 id="contestando-um-chargeback-enviando-o-arquivo-de-contestação-com-extensão-diferente-de-jpeg-pfg-ou-png">Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png</h2>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
@@ -1376,7 +1481,11 @@
 <h3 id="response-9">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File(s) file1.png, file2.png has length bigger than the size limit of 7MB."</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"contestationRequest.Files[0].FileName"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"</span><span class="w">
+    </span><span class="p">]}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1413,12 +1522,16 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Mensagem informando qual(is) arquivo(s) possuem tamanho superior a 7mb</td>
+      <td style="text-align: left">Mensagem informando que a requisição é inválida</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
+      <td style="text-align: left">Mensagem informando que o arquivo foi enviado com a extensão inválida</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="contestando-um-chargeback-enviando-arquivos-e-a-a-soma-do-tamanho-de-todos-é-maior-que-7mb">Contestando um chargeback enviando arquivos e a a soma do tamanho de todos é maior que 7mb</h2>
+<h2 id="contestando-um-chargeback-enviando-arquivos-para-contestação-com-tamanho-maior-que-7mb">Contestando um chargeback enviando arquivo(s) para contestação com tamanho maior que 7mb</h2>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
@@ -1491,6 +1604,121 @@
 <h3 id="response-10">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File(s) file1.png, file2.png has length bigger than the size limit of 7MB."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Mensagem informando qual(is) arquivo(s) possuem tamanho superior a 7mb</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contestando-um-chargeback-enviando-arquivos-e-a-a-soma-do-tamanho-de-todos-é-maior-que-7mb">Contestando um chargeback enviando arquivos e a a soma do tamanho de todos é maior que 7mb</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-11">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo da autorização</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: center">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-11">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Files has length bigger than the size limit of 7MB."</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1535,7 +1763,7 @@
 
 <h1 id="consultas">Consultas</h1>
 
-<h2 id="request-11">Request</h2>
+<h2 id="request-12">Request</h2>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
 
@@ -1631,7 +1859,7 @@
   </tbody>
 </table>
 
-<h2 id="response-11">Response</h2>
+<h2 id="response-12">Response</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
