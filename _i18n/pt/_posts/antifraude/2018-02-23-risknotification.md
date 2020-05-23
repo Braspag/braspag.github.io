@@ -377,7 +377,7 @@ Exemplo:
 **Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
-|:-|:-|:-|
+|:-|:-|:-|:-|
 |`Files[n].FileName`|Nome do arquivo com extensão <br/> Obs.: Extensões permitidas: png, jpg ou jpeg <br/> Obs2.: A soma de todos arquivos deve ter no máximo 7mb de tamanho <br/> Obs3.: O prazo para realizar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a realizar a mesma até 19/02/2019|string|sim|100|
 |`Files[n].Content`|Conteúdo do arquivo em base64|string|sim|-|
 
@@ -530,7 +530,7 @@ Exemplo:
 |:-|:-|
 |`Message`|Mensagem informando que a requisição é inválida|
 |`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o nome do arquivo não foi enviado|
-|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o conteúdo do arquivo não foi enviado|
+|`Message.ModelState.ContestationRequest.Files[n].Content`|Mensagem informando que o conteúdo do arquivo não foi enviado|
 
 ## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png
 
@@ -623,7 +623,7 @@ Exemplo:
 |:-|:-|
 |`Message`|Mensagem informando qual(is) arquivo(s) possuem tamanho superior a 7mb|
 
-## Contestando um chargeback enviando arquivos e a a soma do tamanho de todos é maior que 7mb
+## Contestando um chargeback enviando arquivos e a soma do tamanho de todos é maior que 7mb
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
