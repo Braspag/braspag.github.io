@@ -309,7 +309,7 @@
 
 <h2 id="request-1">Request</h2>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parameters in the header (Header)</strong></p>
 
 <table>
   <thead>
@@ -397,110 +397,110 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Type</th>
+      <th>Required</th>
+      <th>Size</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Brand</code></td>
-      <td style="text-align: left">Nome da bandeira <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.CreditCard.Brand</code> na criação da transação</td>
+      <td style="text-align: left">Brand <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.CreditCard.Brand</code> na criação da transação</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>32</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].Acquirer</code></td>
-      <td style="text-align: left">Nome da adquirente <br /> Enviar fixo Cielo</td>
+      <td style="text-align: left">Acquirer identifier <br /> Send fixed Cielo</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>16</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber</code></td>
-      <td style="text-align: left">Número do caso do chargeback <br /> Este valor será usado para realizar as operações de <code class="highlighter-rouge">Aceitação</code> e <code class="highlighter-rouge">Contestação</code></td>
+      <td style="text-align: left">Chargeback case number <br /> This value will be used to carry out the <code class="highlighter-rouge">Acceptance</code> and <code class="highlighter-rouge">Contestation</code> operations</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].AcquirerTransactionId</code></td>
-      <td style="text-align: left">Id da transação na adquirente <br /> Se transação criada a partir do Pagador Braspag, informar o mesmo valor recebido no campo <code class="highlighter-rouge">Payment.AcquirerTransactionId</code> do response <br /> Se transação criada a partir da API Cielo 3.0 ou API Split Braspag, informar o mesmo valor recebido no campo <code class="highlighter-rouge">Payment.Tid</code> do response</td>
+      <td style="text-align: left">Acquirer transaction ID <br /> If a transaction was created using Pagador Braspag API, inform the same value received in the field <code class="highlighter-rouge">Payment.AcquirerTransactionId</code> of the response <br /> If a transaction was created using the Cielo 3.0 API or the Split Braspag API, inform the same value received in the <code class="highlighter-rouge">Payment.Tid</code> field of the response</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>20</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].Amount</code></td>
-      <td style="text-align: left">Valor do chargeback em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
-      <td style="text-align: left">int</td>
-      <td>sim</td>
+      <td style="text-align: left">Chargeback amount in cents <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: left">long</td>
+      <td>yes</td>
       <td>-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].AuthorizationCode</code></td>
-      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Informar o mesmo valor recebido no campo <code class="highlighter-rouge">Payment.AuthorizationCode</code> do response da criação da transação</td>
+      <td style="text-align: left">Acquirer authorization code <br /> Inform the same value received in the <code class="highlighter-rouge">Payment.AuthorizationCode</code> field of the response of the creation of the transaction</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>8</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].CardHolder</code></td>
-      <td style="text-align: left">Nome do portador do cartão <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.CrediCard.Holder</code> na criação da transação <br /> Em produção, este campo pode estar vazio ou contendo outra informação diferente da do nome do portador</td>
+      <td style="text-align: left">Card holder <br /> Inform the same value informed in the field <code class="highlighter-rouge">Payment.CrediCard.Holder</code> when creating the transaction <br /> In production, this field may be empty or may contain information other than the card holder</td>
       <td style="text-align: left">string</td>
-      <td>não</td>
+      <td>no</td>
       <td>100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].EstablishmentCode</code></td>
-      <td style="text-align: left">Número do estabelecimento ou código de afiliação <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.Credentials.Code</code> na criação da transação</td>
+      <td style="text-align: left">Establishment code or affiliation code <br /> Inform the same value informed in the field <code class="highlighter-rouge">Payment.Credentials.Code</code> when creating the transaction</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].MaskedCardNumber</code></td>
-      <td style="text-align: left">Cartão mascarado <br /> Informar o mesmo valor recebido no campo <code class="highlighter-rouge">Payment.CreditCard.Number</code> do response da criação da transação</td>
+      <td style="text-align: left">Masked card number <br /> Inform the same value received in the <code class="highlighter-rouge">Payment.CreditCard.Number</code> field of the response of the creation of the transaction</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>16</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ReasonCode</code></td>
-      <td style="text-align: left">Código do motivo do chargeback <br /> Informar o código de acordo com a tabela XXXXXXX</td>
+      <td style="text-align: left">Chargeback reason code <br /> Inform the code according to the table XXXXXXX</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ReasonMessage</code></td>
-      <td style="text-align: left">Mensagem do motivo do chargeback <br /> Informar a mensagem de acordo com a tabela XXXXXXX</td>
+      <td style="text-align: left">Chargeback reason nessage <br /> Inform the message according to the table XXXXXXX</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>128</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].SaleDate</code></td>
-      <td style="text-align: left">Data de autorização da transação <br /> Formato: YYYY-MM-DD</td>
-      <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td style="text-align: left">Acquirer authorization date <br /> Format: YYYY-MM-DD</td>
+      <td style="text-align: left">date</td>
+      <td>yes</td>
       <td>10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].TransactionAmount</code></td>
-      <td style="text-align: left">Valor da transação em centavos <br /> Informar o mesmo valor informado no campo <code class="highlighter-rouge">Payment.Amount</code> na criação da transação <br /> Ex: 123456 = r$ 1.234,56</td>
-      <td style="text-align: left">int</td>
-      <td>sim</td>
+      <td style="text-align: left">Transaction amount in cents <br /> Inform the same value informed in the field <code class="highlighter-rouge">Payment.Amount</code> when creating the transaction <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: left">long</td>
+      <td>yes</td>
       <td>-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ProofOfSale</code></td>
-      <td style="text-align: left">Comprovante de venda ou NSU <br /> Informar o mesmo valor recebido no campo <code class="highlighter-rouge">Payment.ProofOfSale</code> do response da criação da transação</td>
+      <td style="text-align: left">Acquirer unique sequential number (NSU) <br /> Inform the same value received in the <code class="highlighter-rouge">Payment.ProofOfSale</code> field of the response of the creation of the transaction</td>
       <td style="text-align: left">string</td>
-      <td>sim</td>
+      <td>yes</td>
       <td>20</td>
     </tr>
   </tbody>
@@ -1762,9 +1762,9 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: center">Tipo</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Type</th>
     </tr>
   </thead>
   <tbody>
