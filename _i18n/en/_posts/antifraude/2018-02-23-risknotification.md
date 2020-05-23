@@ -117,7 +117,7 @@ Exemple:
 
 ## Request
 
-**Parâmetros no cabeçalho (Header)**
+**Parameters in the header (Header)**
 
 |Key|Value|Description|Required|
 |:-|:-|:-|:-|
@@ -168,22 +168,22 @@ Exemple:
 }
 ```
 
-|Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
+|Parameter|Description|Type|Required|Size|
 |:-|:-|:-|
-|`ChargebackBrandGroups[n].Brand`|Nome da bandeira <br/> Informar o mesmo valor informado no campo `Payment.CreditCard.Brand` na criação da transação|string|sim|32|
-|`ChargebackBrandGroups[n].Details[n].Acquirer`|Nome da adquirente <br/> Enviar fixo Cielo|string|sim|16|
-|`ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber`|Número do caso do chargeback <br/> Este valor será usado para realizar as operações de `Aceitação` e `Contestação`|string|sim|10|
-|`ChargebackBrandGroups[n].Details[n].AcquirerTransactionId`|Id da transação na adquirente <br/> Se transação criada a partir do Pagador Braspag, informar o mesmo valor recebido no campo `Payment.AcquirerTransactionId` do response <br/> Se transação criada a partir da API Cielo 3.0 ou API Split Braspag, informar o mesmo valor recebido no campo `Payment.Tid` do response|string|sim|20| 
-|`ChargebackBrandGroups[n].Details[n].Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|int|sim|-|
-|`ChargebackBrandGroups[n].Details[n].AuthorizationCode`|Código de autorização da transação na adquirente <br/> Informar o mesmo valor recebido no campo `Payment.AuthorizationCode` do response da criação da transação|string|sim|8|
-|`ChargebackBrandGroups[n].Details[n].CardHolder`|Nome do portador do cartão <br/> Informar o mesmo valor informado no campo `Payment.CrediCard.Holder` na criação da transação <br/> Em produção, este campo pode estar vazio ou contendo outra informação diferente da do nome do portador|string|não|100|
-|`ChargebackBrandGroups[n].Details[n].EstablishmentCode`|Número do estabelecimento ou código de afiliação <br/> Informar o mesmo valor informado no campo `Payment.Credentials.Code` na criação da transação|string|sim|10|
-|`ChargebackBrandGroups[n].Details[n].MaskedCardNumber`|Cartão mascarado <br/> Informar o mesmo valor recebido no campo `Payment.CreditCard.Number` do response da criação da transação|string|sim|16|
-|`ChargebackBrandGroups[n].Details[n].ReasonCode`|Código do motivo do chargeback <br/> Informar o código de acordo com a tabela XXXXXXX|string|sim|5|
-|`ChargebackBrandGroups[n].Details[n].ReasonMessage`|Mensagem do motivo do chargeback <br/> Informar a mensagem de acordo com a tabela XXXXXXX|string|sim|128|
-|`ChargebackBrandGroups[n].Details[n].SaleDate`|Data de autorização da transação <br/> Formato: YYYY-MM-DD|string|sim|10|
-|`ChargebackBrandGroups[n].Details[n].TransactionAmount`|Valor da transação em centavos <br/> Informar o mesmo valor informado no campo `Payment.Amount` na criação da transação <br/> Ex: 123456 = r$ 1.234,56|int|sim|-|
-|`ChargebackBrandGroups[n].Details[n].ProofOfSale`|Comprovante de venda ou NSU <br/> Informar o mesmo valor recebido no campo `Payment.ProofOfSale` do response da criação da transação|string|sim|20|
+|`ChargebackBrandGroups[n].Brand`|Brand <br/> Informar o mesmo valor informado no campo `Payment.CreditCard.Brand` na criação da transação|string|yes|32|
+|`ChargebackBrandGroups[n].Details[n].Acquirer`|Acquirer identifier <br/> Send fixed Cielo|string|yes|16|
+|`ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber`|Chargeback case number <br/> This value will be used to carry out the `Acceptance` and `Contestation` operations|string|yes|10|
+|`ChargebackBrandGroups[n].Details[n].AcquirerTransactionId`|Acquirer transaction ID <br/> If a transaction was created using Pagador Braspag API, inform the same value received in the field `Payment.AcquirerTransactionId` of the response <br/> If a transaction was created using the Cielo 3.0 API or the Split Braspag API, inform the same value received in the `Payment.Tid` field of the response|string|yes|20| 
+|`ChargebackBrandGroups[n].Details[n].Amount`|Chargeback amount in cents <br/> Ex: 123456 = r$ 1.234,56|long|yes|-|
+|`ChargebackBrandGroups[n].Details[n].AuthorizationCode`|Acquirer authorization code <br/> Inform the same value received in the `Payment.AuthorizationCode` field of the response of the creation of the transaction|string|yes|8|
+|`ChargebackBrandGroups[n].Details[n].CardHolder`|Card holder <br/> Inform the same value informed in the field `Payment.CrediCard.Holder` when creating the transaction <br/> In production, this field may be empty or may contain information other than the card holder|string|no|100|
+|`ChargebackBrandGroups[n].Details[n].EstablishmentCode`|Establishment code or affiliation code <br/> Inform the same value informed in the field `Payment.Credentials.Code` when creating the transaction|string|yes|10|
+|`ChargebackBrandGroups[n].Details[n].MaskedCardNumber`|Masked card number <br/> Inform the same value received in the `Payment.CreditCard.Number` field of the response of the creation of the transaction|string|yes|16|
+|`ChargebackBrandGroups[n].Details[n].ReasonCode`|Chargeback reason code <br/> Inform the code according to the table XXXXXXX|string|yes|5|
+|`ChargebackBrandGroups[n].Details[n].ReasonMessage`|Chargeback reason nessage <br/> Inform the message according to the table XXXXXXX|string|yes|128|
+|`ChargebackBrandGroups[n].Details[n].SaleDate`|Acquirer authorization date <br/> Format: YYYY-MM-DD|date|yes|10|
+|`ChargebackBrandGroups[n].Details[n].TransactionAmount`|Transaction amount in cents <br/> Inform the same value informed in the field `Payment.Amount` when creating the transaction <br/> Ex: 123456 = r$ 1.234,56|long|yes|-|
+|`ChargebackBrandGroups[n].Details[n].ProofOfSale`|Acquirer unique sequential number (NSU) <br/> Inform the same value received in the `Payment.ProofOfSale` field of the response of the creation of the transaction|string|yes|20|
 
 ## Response
 
@@ -677,7 +677,7 @@ Exemple:
 }
 ```
 
-|Parâmetro|Descrição|Tipo|
+|Parameter|Description|Type|
 |:-|:-|:-:|
 |`Id`|Chargeback ID at Risk Notification API |guid|
 |`CreatedDate`|Chargeback creation date at Risk Notification API<br/> Ex.: 2018-09-01 09:51:25|date|
