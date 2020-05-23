@@ -898,7 +898,24 @@
 
 <h2 id="contesting-a-chargeback">Contesting a chargeback</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Files"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"FileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file1.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdfghjkle ********** lkjhgfdsa"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"FileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file2.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zxcvbnmasd ********** qwertyuio"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"FileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file3.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qwertyuiop ********** asdfghjkl"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="request-5">Request</h3>
 
@@ -971,16 +988,30 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Type</th>
       <th style="text-align: left">Required</th>
+      <th style="text-align: left">Size</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">form-data <br /> File extension jpeg, jpg or png <br /> Note: All files must add up to a maximum of 7mb in size. <br /> Note2: The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Files[n].FileName</code></td>
+      <td style="text-align: left">File name with extension</td>
+      <td style="text-align: left"><br /> File extension jpeg, jpg or png <br /> Note: All files must add up to a maximum of 7mb in size <br /> The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: left">yes</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Files[n].Content</code></td>
+      <td style="text-align: left">Base64 file content</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -1010,7 +1041,7 @@
 
 <h2 id="contesting-a-nonexistent-chargeback">Contesting a nonexistent chargeback</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 <h3 id="request-6">Request</h3>
 
@@ -1130,7 +1161,7 @@
 
 <h2 id="contesting-a-previously-contested-or-accepted-chargeback">Contesting a previously contested or accepted chargeback</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 <h3 id="request-7">Request</h3>
 
@@ -1250,7 +1281,7 @@
 
 <h2 id="contesting-a-chargeback-and-not-sending-the-contestation-files">Contesting a chargeback and not sending the contestation files</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 <h3 id="request-8">Request</h3>
 
@@ -1321,8 +1352,14 @@
 <h3 id="response-8">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FileNotFound"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File not found"</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"contestationRequest.Files[0].FileName"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"FileName can not be null or empty."</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"contestationRequest.Files[0].Content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Content can not be null or empty."</span><span class="w">
+    </span><span class="p">]}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1368,9 +1405,32 @@
   </tbody>
 </table>
 
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message stating that the request is invalid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
+      <td style="text-align: left">Message stating that the file name was not sent</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].Content</code></td>
+      <td style="text-align: left">Message stating that the content file was not sent</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="contesting-a-chargeback-by-submitting-the-contestation-file-with-an-extension-different-than-jpeg-jpg-or-png">Contesting a chargeback by submitting the contestation file with an extension different than jpeg, jpg or png</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 <h3 id="request-9">Request</h3>
 
@@ -1441,8 +1501,11 @@
 <h3 id="response-9">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileExtension"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file extension"</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"contestationRequest.Files[0].FileName"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"</span><span class="w">
+    </span><span class="p">]}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1472,25 +1535,25 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Code that the contestation file was sent with an invalid extension, different than jpeg, jpg or png</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message stating that the request is invalid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Message that the contestation file was sent with an invalid extension, different than jpeg, jpg or png</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
+      <td style="text-align: left">Message stating that the file was sent with an invalid extension</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="contesting-a-chargeback-by-submitting-contest-files-larger-than-7mb">Contesting a chargeback by submitting contest files larger than 7mb</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 <h3 id="request-10">Request</h3>
 
@@ -1561,8 +1624,7 @@
 <h3 id="response-10">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFileLength"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid file length"</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File(s) file1.png, file2.png has length bigger than the size limit of 7MB."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1592,25 +1654,136 @@
 <table>
   <thead>
     <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message stating which file (s) are larger than 7mb</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contesting-a-chargeback-by-sending-files-and-the-sum-of-the-size-of-all-is-greater-than-7mb">Contesting a chargeback by sending files and the sum of the size of all is greater than 7mb</h2>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+<h3 id="request-11">Request</h3>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo da autorização</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr</td>
+      <td style="text-align: left">Identificador da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na querystring</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Chargeback related case number</td>
+      <td style="text-align: center">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-11">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Files has length bigger than the size limit of 7MB."</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
       <th style="text-align: left">Key</th>
       <th style="text-align: left">Value</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
-      <td style="text-align: left">Code that contest files exceeded 7mb in size</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
     </tr>
     <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Message that contest files exceeded 7mb in size</td>
+      <td style="text-align: left">Message stating that all files sent by adding their sizes is greater than 7mb</td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="queries">Queries</h1>
 
-<h3 id="request-11">Request</h3>
+<h3 id="request-12">Request</h3>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
 
@@ -1706,7 +1879,7 @@
   </tbody>
 </table>
 
-<h3 id="response-11">Response</h3>
+<h3 id="response-12">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
