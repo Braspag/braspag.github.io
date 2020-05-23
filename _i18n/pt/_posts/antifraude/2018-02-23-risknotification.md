@@ -130,48 +130,42 @@ Exemplo:
 
 ``` json
 {
-	"ChargebackBrandGroups": [{
-		"Brand": "Visa",
-		"Details": 
-		[
-			{
-				"Acquirer": "Cielo",
-				"AcquirerCaseNumber": "2020052301",
-				"AcquirerTransactionId": "0523103051968",
-				"Amount": 100,
-				"AuthorizationCode": "433946",
-				"CardHolder": "Teste Holder",
-				"EstablishmentCode": "TestAffiliation",
-				"MaskedCardNumber": "402400******2931",
-				"ReasonCode": "101",
-				"ReasonMessage": "Responsabilidade EMV - Falsifcação",
-				"SaleDate": "2020-05-23",
-				"TransactionAmount": 100,
-				"ProofOfSale": "3051968"
-			}
-		]
-	},
-	{
-		"Brand": "Master",
-		"Details": 
-		[
-			{
-				"Acquirer": "Cielo",
-				"AcquirerCaseNumber": "2020052302",
-				"AcquirerTransactionId": "0523103114691",
-				"Amount": 100,
-				"AuthorizationCode": "722134",
-				"CardHolder": "Teste Holder",
-				"EstablishmentCode": "TestAffiliation",
-				"MaskedCardNumber": "402400******2931",
-				"ReasonCode": "101",
-				"ReasonMessage": "Responsabilidade EMV - Falsifcação",
-				"SaleDate": "2020-05-23",
-				"TransactionAmount": 100,
-				"ProofOfSale": "3114691"
-			}
-		]
-	}]
+    "ChargebackBrandGroups": [{
+        "Brand": "Visa",
+        "Details": [{
+            "Acquirer": "Cielo",
+            "AcquirerCaseNumber": "2020052301",
+            "AcquirerTransactionId": "0523103051968",
+            "Amount": 100,
+            "AuthorizationCode": "433946",
+            "CardHolder": "Teste Holder",
+            "EstablishmentCode": "TestAffiliation",
+            "MaskedCardNumber": "402400******2931",
+            "ReasonCode": "101",
+            "ReasonMessage": "Responsabilidade EMV - Falsifcação",
+            "SaleDate": "2020-05-23",
+            "TransactionAmount": 100,
+            "ProofOfSale": "3051968"
+        }]
+    },
+    {
+        "Brand": "Master",
+        "Details": [{
+            "Acquirer": "Cielo",
+            "AcquirerCaseNumber": "2020052302",
+            "AcquirerTransactionId": "0523103114691",
+            "Amount": 100,
+            "AuthorizationCode": "722134",
+            "CardHolder": "Teste Holder",
+            "EstablishmentCode": "TestAffiliation",
+            "MaskedCardNumber": "402400******2931",
+            "ReasonCode": "101",
+            "ReasonMessage": "Responsabilidade EMV - Falsifcação",
+            "SaleDate": "2020-05-23",
+            "TransactionAmount": 100,
+            "ProofOfSale": "3114691"
+        }]
+    }]
 }
 ```
 
