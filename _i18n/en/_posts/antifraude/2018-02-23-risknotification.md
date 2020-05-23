@@ -335,7 +335,25 @@ Exemple:
 
 ## Contesting a chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+``` json
+{
+    "Files":
+    [{
+        "FileName": "file1.png",
+        "Content": "asdfghjkle ********** lkjhgfdsa"
+    },
+    {
+        "FileName": "file2.jpg",
+        "Content": "zxcvbnmasd ********** qwertyuio"
+    },
+    {
+        "FileName": "file3.jpg",
+        "Content": "qwertyuiop ********** asdfghjkl"
+    }]
+}
+```
 
 ### Request
 
@@ -357,9 +375,10 @@ Exemple:
 
 **Parameters in the body (Body)**
 
-|Key|Value|Required|
-|:-|:-|:-|
-|`Content-Type`|form-data <br/> File extension jpeg, jpg or png <br/> Note: All files must add up to a maximum of 7mb in size. <br/> Note2: The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19|yes|
+|Parameter|Description|Type|Required|Size|
+|:-|:-|:-|:-|:-|
+|`Files[n].FileName`|File name with extension| <br/> File extension jpeg, jpg or png <br/> Note: All files must add up to a maximum of 7mb in size <br/> The deadline to submit the appeal is 7 calendar days, ie. chargeback from 2019-02-13 is possible to send the contestation until 2019-02-19|string|yes|100|
+|`Files[n].Content`|Base64 file content|string|yes|-|
 
 ### Response
 
@@ -372,7 +391,7 @@ Exemple:
 
 ## Contesting a nonexistent chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -417,7 +436,7 @@ Exemple:
 
 ## Contesting a previously contested or accepted chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -462,7 +481,7 @@ Exemple:
 
 ## Contesting a chargeback and not sending the contestation files
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -486,8 +505,14 @@ Exemple:
 
 ``` json
 {
-    "Code": "FileNotFound",
-    "Message": "File not found"
+    "Message": "The request is invalid.",
+    "ModelState": {
+        "contestationRequest.Files[0].FileName": [
+        "FileName can not be null or empty."
+    ],
+    "contestationRequest.Files[0].Content": [
+        "Content can not be null or empty."
+    ]}
 }
 ```
 
@@ -505,9 +530,15 @@ Exemple:
 |`Code`|Code that contestation file was not sent|
 |`Message`|Message that contestation file was not sent|
 
+|Parameter|Description|
+|:-|:-|
+|`Message`|Message stating that the request is invalid|
+|`Message.ModelState.ContestationRequest.Files[n].FileName`|Message stating that the file name was not sent|
+|`Message.ModelState.ContestationRequest.Files[n].Content`|Message stating that the content file was not sent|
+
 ## Contesting a chargeback by submitting the contestation file with an extension different than jpeg, jpg or png
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -531,8 +562,11 @@ Exemple:
 
 ``` json
 {
-    "Code": "InvalidFileExtension",
-    "Message": "Invalid file extension"
+    "Message": "The request is invalid.",
+    "ModelState": {
+    "contestationRequest.Files[0].FileName": [
+        "The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"
+    ]}
 }
 ```
 
@@ -545,14 +579,14 @@ Exemple:
 
 **Parâmetros no body (Corpo)**
 
-|Key|Value|
+|Parameter|Description|
 |:-|:-|
-|`Code`|Code that the contestation file was sent with an invalid extension, different than jpeg, jpg or png|
-|`Message`|Message that the contestation file was sent with an invalid extension, different than jpeg, jpg or png|
+|`Message`|Message stating that the request is invalid|
+|`Message.ModelState.ContestationRequest.Files[n].FileName`|Message stating that the file was sent with an invalid extension|
 
 ## Contesting a chargeback by submitting contest files larger than 7mb
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -576,8 +610,7 @@ Exemple:
 
 ``` json
 {
-    "Code": "InvalidFileLength",
-    "Message": "Invalid file length"
+    "Message": "File(s) file1.png, file2.png has length bigger than the size limit of 7MB."
 }
 ```
 
@@ -590,10 +623,52 @@ Exemple:
 
 **Parâmetros no body (Corpo)**
 
+|Parameter|Description|
+|:-|:-|
+|`Message`|Message stating which file (s) are larger than 7mb|
+
+## Contesting a chargeback by sending files and the sum of the size of all is greater than 7mb
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+
+### Request
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
+
+**Parâmetros na querystring**
+
+|Parameter|Description|Required|
+|:-|:-|:-:|
+|`CaseNumber`|Chargeback related case number|yes|
+
+### Response
+
+``` json
+{
+    "Message": "Files has length bigger than the size limit of 7MB.",
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
 |Key|Value|
 |:-|:-|
-|`Code`|Code that contest files exceeded 7mb in size|
-|`Message`|Message that contest files exceeded 7mb in size|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|Parameter|Description
+|:-|:-|
+|`Message`|Message stating that all files sent by adding their sizes is greater than 7mb|
 
 # Queries
 
