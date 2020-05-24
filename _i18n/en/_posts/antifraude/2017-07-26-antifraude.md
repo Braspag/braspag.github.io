@@ -6,7 +6,7 @@ search: true
 translated: true
 categories: manual
 tags:
-    - Gestão de Risco
+    - Risk Management
 language_tabs:
   json: JSON
   shell: cURL
