@@ -3,11 +3,14 @@ layout: manual
 title: Antifraud - Integration Manual
 description: Technical integration API Antifraud Gateway Braspag
 search: true
+translated: true
 categories: manual
 tags:
-  - Risk Management
+    - Gestão de Risco
 language_tabs:
-  json: JSON    
+  json: JSON
+  shell: cURL
+  html: HTML 
 ---
 
 # Overview
