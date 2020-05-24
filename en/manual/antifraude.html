@@ -55,6 +55,10 @@
                     
                     <li><a data-language-name='json'>JSON</a></li>
                     
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                    <li><a data-language-name='html'>HTML</a></li>
+                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -66,6 +70,26 @@
                         <div class="submenu-itens">
                             <a href="http://www.braspag.com.br/suporte/" class="help">Help</a>
 
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://braspag.github.io//manual/antifraude">
+                                    
+
+                                        <img alt="Português" src="https://braspag.github.io//en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://braspag.github.io//en/manual/antifraude">
+                                    
+
+                                        <img alt="English" src="https://braspag.github.io//en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
                             
                         </div>
 
@@ -7756,6 +7780,10 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
         
         langs += "<a data-language-name='json'>JSON</a>";
         
+        langs += "<a data-language-name='shell'>cURL</a>";
+        
+        langs += "<a data-language-name='html'>HTML</a>";
+        
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
@@ -7763,7 +7791,7 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
         <script src="https://braspag.github.io//en/assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json", ]);
+                setupLanguages([  "json",  "shell",  "html", ]);
             });
         </script>
         
