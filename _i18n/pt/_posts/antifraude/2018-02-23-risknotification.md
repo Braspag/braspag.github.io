@@ -843,6 +843,7 @@ Possíveis valores do chargeback.
 |Legacy|Antifraude Legado|
 
 ## Tabela 7 - ReasonCode e ReasonMessage
+
 |:-|:-|:-|:-|
 |137|Mercadoria / Serviços Cancelado|Visa|Não|
 |127|Dados inválidos|Visa|Não|
