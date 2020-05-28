@@ -844,6 +844,7 @@ Possíveis valores do chargeback.
 
 ## Tabela 7 - ReasonCode e ReasonMessage
 
+|Código|Descrição|Bandeira|Fraude?|
 |:-|:-|:-|:-|
 |137|Mercadoria / Serviços Cancelado|Visa|Não|
 |127|Dados inválidos|Visa|Não|
