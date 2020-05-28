@@ -494,14 +494,14 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ReasonCode</code></td>
-      <td style="text-align: left">Código do motivo do chargeback <br /> Informar o código de acordo com a tabela XXXXXXX</td>
+      <td style="text-align: left">Código do motivo do chargeback <br /> Informar o código de acordo - <a href="https://braspag.github.io/manual/chargeback#tabela-7-reasoncode-e-reasonmessage">Tabela 7</a></td>
       <td style="text-align: left">string</td>
       <td>sim</td>
       <td>5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ReasonMessage</code></td>
-      <td style="text-align: left">Mensagem do motivo do chargeback <br /> Informar a mensagem de acordo com a tabela XXXXXXX</td>
+      <td style="text-align: left">Mensagem do motivo do chargeback <br /> Informar a mensagem de acordo - <a href="https://braspag.github.io/manual/chargeback#tabela-7-reasoncode-e-reasonmessage">Tabela 7</a></td>
       <td style="text-align: left">string</td>
       <td>sim</td>
       <td>128</td>
@@ -1970,12 +1970,12 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ReasonCode</code></td>
-      <td style="text-align: left">Código do motivo do chargeback</td>
+      <td style="text-align: left">Código do motivo do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-7-reasoncode-e-reasonmessage">Tabela 7</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ReasonMessage</code></td>
-      <td style="text-align: left">Descrição do motivo do chargeback</td>
+      <td style="text-align: left">Descrição do motivo do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-7-reasoncode-e-reasonmessage">Tabela 7</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
@@ -2275,6 +2275,787 @@
       <td style="text-align: left">Legacy</td>
       <td style="text-align: left">Antifraude Legado</td>
       <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-7---reasoncode-e-reasonmessage">Tabela 7 - ReasonCode e ReasonMessage</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>137</td>
+      <td>Mercadoria / Serviços Cancelado</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>Dados inválidos</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>113</td>
+      <td>Não Autorizada</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>136</td>
+      <td>Crédito não processado</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>Valor incorreto</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>132</td>
+      <td>Recorrência Cancelada</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>Moeda Incorretas</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>Mercadoria / Serviço defeituoso ou diferente do descrito</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>Autorização Recusada</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>134</td>
+      <td>Mercadoria falsifcada</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>135</td>
+      <td>Venda Enganosa</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Responsabilidade EMV - Sem Falsifcação</td>
+      <td>Visa</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>Responsabilidade EMV - Falsifcação</td>
+      <td>Visa</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>Código de transação incorreto</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>Programa Visa de Monitoramento de Fraude</td>
+      <td>Visa</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>Processamento duplicado / pago por outros meios</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>Mercadoria / Serviços não recebidos</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Outras Fraudes - Cartão Presente</td>
+      <td>Visa</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>Apresentação Tardia</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>111</td>
+      <td>Boletm de recuperação de cartões</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>137</td>
+      <td>Transação de crédito original não aceita</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Outras Fraudes - Cartão Ausente</td>
+      <td>Visa</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>Número de conta incorreto</td>
+      <td>Visa</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4846</td>
+      <td>Código Correto da Moeda da Transação Não Fornecido</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4857</td>
+      <td>Transação Telefônica Ativada por Cartão</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4859</td>
+      <td>Serviços Não Prestados</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4812</td>
+      <td>Número da Conta Não Consta no Arquivo (inexistente</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4807</td>
+      <td>Arquivo Boletim de Advertência</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4808</td>
+      <td>Autorização requerida não Obtida</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4870</td>
+      <td>Transferência de Responsabilidade do Chip</td>
+      <td>Master</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4853</td>
+      <td>Desacordo Comercial</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4847</td>
+      <td>Excede o Limite de Piso - Transação Não Autorizada</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4837</td>
+      <td>Sem Autorização do Portador do Cartão</td>
+      <td>Master</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4871</td>
+      <td>Transf. de Responsabilidade do Chip/Senha (Europa)</td>
+      <td>Master</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4849</td>
+      <td>Estabelecimento Comercial de Atividades Suspeitas</td>
+      <td>Master</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4841</td>
+      <td>Transação Recorrente Cancelada</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4842</td>
+      <td>Apresentação Tardia</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4855</td>
+      <td>Mercadoria Não Recebida</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4850</td>
+      <td>Portador Não Reconhece</td>
+      <td>Master</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4840</td>
+      <td>Processamento Fraudulento da Transação</td>
+      <td>Master</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4863</td>
+      <td>Portador Não Reconhece a Transação  Potencial de</td>
+      <td>Master</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4831</td>
+      <td>Valor da Transação é diferente</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4854</td>
+      <td>Contestação do Portador de Cartão (EUA)</td>
+      <td>Master</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4860</td>
+      <td>Crédito Não Processado</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4834</td>
+      <td>Erro de processamento</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4862</td>
+      <td>Transação Falsificada por Fraude da Tarja Magnétic</td>
+      <td>Master</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4835</td>
+      <td>Cartão Inválido ou Vencido</td>
+      <td>Master</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4554</td>
+      <td>Bens e Serviços Não Recebidos</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4515</td>
+      <td>Pagamento por outros meios</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4527</td>
+      <td>Ausência de Impressão</td>
+      <td>Amex</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4523</td>
+      <td>Número de Conta de Associado do Cartão Não Atribuí</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4517</td>
+      <td>Cópia atendida ilegível/incompleta</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4752</td>
+      <td>Erro de Apresentação de Crédito/Débito</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4530</td>
+      <td>Discrepância de Moeda</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4516</td>
+      <td>Cópia não atendida</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4799</td>
+      <td>Trans.de Resp.por Fraude Perda Roubo não rec.</td>
+      <td>Amex</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4536</td>
+      <td>Apresentação Tardia</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4750</td>
+      <td>Débito de Aluguel de Carro Não Qualificado ou Não</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4755</td>
+      <td>Sem Autorização Válida</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4553</td>
+      <td>Mercadoria Defeituosa ou Não Conforme Descrita</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4754</td>
+      <td>Contestação Regulatória/Legal Local</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4540</td>
+      <td>Cartão não presente</td>
+      <td>Amex</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4544</td>
+      <td>Cancelamento de Bens/Serviços Recorrentes</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4513</td>
+      <td>Crédito não processado</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4534</td>
+      <td>ROCs Múltiplos</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4763</td>
+      <td>Direito de Regresso Integral por Fraude</td>
+      <td>Amex</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4507</td>
+      <td>Valor da Transação Incorreto ou Número de Conta</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4798</td>
+      <td>Transferência de Responsabilidade por Fraude - Fal</td>
+      <td>Amex</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4521</td>
+      <td>Autorização inválida</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4512</td>
+      <td>Múltiplos processamentos</td>
+      <td>Amex</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Transação Recorrente Cancelada</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>Autorização Negada</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>Apresentação Tardia</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>Portador não se lembra da transação</td>
+      <td>Elo</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>Transação falsificada (Transferência de Responsabi</td>
+      <td>Elo</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>Duplicidade de Processamento</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Mercadoria com defeito ou em desacordo</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>Fraude em Ambiente de Cartão Não Presente</td>
+      <td>Elo</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Valor da Transação ou número de cartão incorreto</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>Moeda invalida</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Serviço Não Prestado ou Mercadoria Não recebida</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Sem Autorização</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>Crédito Não Processado</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>73</td>
+      <td>Cartão Vencido</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>Fraude em Ambiente de Cartão Presente</td>
+      <td>Elo</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Cartão em Boletim</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>Pagamentos por outros Meios</td>
+      <td>Elo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4812</td>
+      <td>Número da Conta Não Consta no Arquivo (inexistente</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4841</td>
+      <td>Transação Recorrente Cancelada</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4850</td>
+      <td>Portador Não Reconhece</td>
+      <td>Diners</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4846</td>
+      <td>Código Correto da Moeda da Transação Não Fornecido</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4847</td>
+      <td>Excede o Limite de Piso - Transação Não Autorizada</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4859</td>
+      <td>Serviços Não Prestados</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4831</td>
+      <td>Valor da Transação é diferente</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4849</td>
+      <td>Estabelecimento Comercial de Atividades Suspeitas</td>
+      <td>Diners</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4835</td>
+      <td>Cartão Inválido ou Vencido</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4842</td>
+      <td>Apresentação Tardia</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4807</td>
+      <td>Arquivo Boletim de Advertência</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4871</td>
+      <td>Transf. de Responsabilidade do Chip/Senha (Europa)</td>
+      <td>Diners</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4855</td>
+      <td>Mercadoria Não Recebida</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4808</td>
+      <td>Autorização requerida não Obtida</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4837</td>
+      <td>Sem Autorização do Portador do Cartão</td>
+      <td>Diners</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4840</td>
+      <td>Processamento Fraudulento da Transação</td>
+      <td>Diners</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4853</td>
+      <td>Desacordo Comercial</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4834</td>
+      <td>Erro de processamento</td>
+      <td>Diners</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4808</td>
+      <td>Autorização requerida não Obtida</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4834</td>
+      <td>Erro de processamento</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4860</td>
+      <td>Crédito Não Processado</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4857</td>
+      <td>Transação Telefônica Ativada por Cartão</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4850</td>
+      <td>Portador Não Reconhece</td>
+      <td>Hipercard</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4807</td>
+      <td>Arquivo Boletim de Advertência</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4859</td>
+      <td>Serviços Não Prestados</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4862</td>
+      <td>Transação Falsificada por Fraude da Tarja Magnétic</td>
+      <td>Hipercard</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4849</td>
+      <td>Estabelecimento Comercial de Atividades Suspeitas</td>
+      <td>Hipercard</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4853</td>
+      <td>Desacordo Comercial</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4837</td>
+      <td>Sem Autorização do Portador do Cartão</td>
+      <td>Hipercard</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4847</td>
+      <td>Excede o Limite de Piso - Transação Não Autorizada</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4871</td>
+      <td>Transf. de Responsabilidade do Chip/Senha (Europa)</td>
+      <td>Hipercard</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4812</td>
+      <td>Número da Conta Não Consta no Arquivo (inexistente</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4831</td>
+      <td>Valor da Transação é diferente</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4840</td>
+      <td>Processamento Fraudulento da Transação</td>
+      <td>Hipercard</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4841</td>
+      <td>Transação Recorrente Cancelada</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4870</td>
+      <td>Transferência de Responsabilidade do Chip</td>
+      <td>Hipercard</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4863</td>
+      <td>Portador Não Reconhece a Transação  Potencial de</td>
+      <td>Hipercard</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4842</td>
+      <td>Apresentação Tardia</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4854</td>
+      <td>Contestação do Portador de Cartão (EUA)</td>
+      <td>Hipercard</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4855</td>
+      <td>Mercadoria Não Recebida</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4835</td>
+      <td>Cartão Inválido ou Vencido</td>
+      <td>Hipercard</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>4846</td>
+      <td>Código Correto da Moeda da Transação Não Fornecido</td>
+      <td>Hipercard</td>
+      <td>Não</td>
     </tr>
   </tbody>
 </table>
