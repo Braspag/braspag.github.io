@@ -494,14 +494,14 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ReasonCode</code></td>
-      <td style="text-align: left">Código do motivo do chargeback <br /> Informar o código de acordo - <a href="https://braspag.github.io/manual/chargeback#tabela-7-reasoncode-e-reasonmessage">Tabela 7</a></td>
+      <td style="text-align: left">Código do motivo do chargeback <br /> Informar o código de acordo - <a href="https://braspag.github.io/manual/risknotification#tabela-7-reasoncode-e-reasonmessage">Tabela 7 - ReasonCode e ReasonMessage</a></td>
       <td style="text-align: left">string</td>
       <td>sim</td>
       <td>5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ChargebackBrandGroups[n].Details[n].ReasonMessage</code></td>
-      <td style="text-align: left">Mensagem do motivo do chargeback <br /> Informar a mensagem de acordo - <a href="https://braspag.github.io/manual/chargeback#tabela-7-reasoncode-e-reasonmessage">Tabela 7</a></td>
+      <td style="text-align: left">Mensagem do motivo do chargeback <br /> Informar a mensagem de acordo - <a href="https://braspag.github.io/manual/risknotification#tabela-7-reasoncode-e-reasonmessage">Tabela 7 - ReasonCode e ReasonMessage</a></td>
       <td style="text-align: left">string</td>
       <td>sim</td>
       <td>128</td>
@@ -669,7 +669,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-4-status">Tabela 3 - Chargebacks{n}.Status</a></td>
+      <td style="text-align: left">Status do chargeback - <a href="https://braspag.github.io/manual/risknotification#tabela-3-chargebacks[n].status">Tabela 3 - Chargebacks{n}.Status</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">StatusDescription</code></td>
@@ -1970,17 +1970,17 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ReasonCode</code></td>
-      <td style="text-align: left">Código do motivo do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-7-reasoncode-e-reasonmessage">Tabela 7</a></td>
+      <td style="text-align: left">Código do motivo do chargeback - <a href="https://braspag.github.io/manual/risknotification#tabela-7-reasoncode-e-reasonmessage">Tabela 7 - ReasonCode e ReasonMessage</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">ReasonMessage</code></td>
-      <td style="text-align: left">Descrição do motivo do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-7-reasoncode-e-reasonmessage">Tabela 7</a></td>
+      <td style="text-align: left">Descrição do motivo do chargeback - <a href="https://braspag.github.io/manual/risknotification#tabela-7-reasoncode-e-reasonmessage">Tabela 7 - ReasonCode e ReasonMessage</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status do chargegback na Braspag - <a href="https://braspag.github.io/manual/chargeback#tabela-3-chargebacks[n].status">Tabela 3</a></td>
+      <td style="text-align: left">Status do chargegback na Braspag - <a href="https://braspag.github.io/manual/risknotification#tabela-3-chargebacks[n].status">Tabela 3 - Chargebacks{n}.Status</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
@@ -2070,7 +2070,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.AntifraudSourceApplication</code></td>
-      <td style="text-align: left">Origem da plataforma de antifraude - <a href="https://braspag.github.io/manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication">Tabela 6</a></td>
+      <td style="text-align: left">Origem da plataforma de antifraude - <a href="https://braspag.github.io/manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication">Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
@@ -2080,7 +2080,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.NegativeValues</code></td>
-      <td style="text-align: left">Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br /> Os parâmetros são concatenados usando o caracter , <br /> Ex.: CustomerDocumentNumber, ShippingStreet <br /> - <a href="https://braspag.github.io/manual/chargeback#tabela-1-chargebacks[n].negativevalues">Tabela 1</a></td>
+      <td style="text-align: left">Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br /> Os parâmetros são concatenados usando o caracter , <br /> Ex.: CustomerDocumentNumber, ShippingStreet <br /> - <a href="https://braspag.github.io/manual/risknotification#tabela-1-chargebacks[n].negativevalues">Tabela 1</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
@@ -2090,12 +2090,12 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Status</code></td>
-      <td style="text-align: left">Status do evento de marcação da transação que chargeback. Apenas Cybersource - <a href="https://braspag.github.io/manual/chargeback#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status">Tabela 4</a></td>
+      <td style="text-align: left">Status do evento de marcação da transação que chargeback. Apenas Cybersource - <a href="https://braspag.github.io/manual/risknotification#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status">Tabela 4 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Status</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Code</code></td>
-      <td style="text-align: left">Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - <a href="https://braspag.github.io/manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code">Tabela 5</a></td>
+      <td style="text-align: left">Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - <a href="https://braspag.github.io/manual/risknotification#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code">Tabela 5 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Code</a></td>
       <td style="text-align: center">string</td>
     </tr>
   </tbody>
