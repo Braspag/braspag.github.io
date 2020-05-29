@@ -182,8 +182,8 @@ Exemplo:
 |`ChargebackBrandGroups[n].Details[n].CardHolder`|Nome do portador do cartão <br/> Informar o mesmo valor informado no campo `Payment.CrediCard.Holder` na criação da transação <br/> Em produção, este campo pode estar vazio ou contendo outra informação diferente da do nome do portador|string|não|100|
 |`ChargebackBrandGroups[n].Details[n].EstablishmentCode`|Número do estabelecimento ou código de afiliação <br/> Informar o mesmo valor informado no campo `Payment.Credentials.Code` na criação da transação|string|sim|10|
 |`ChargebackBrandGroups[n].Details[n].MaskedCardNumber`|Cartão mascarado <br/> Informar o mesmo valor recebido no campo `Payment.CreditCard.Number` do response da criação da transação|string|sim|16|
-|`ChargebackBrandGroups[n].Details[n].ReasonCode`|Código do motivo do chargeback <br/> Informar o código de acordo - [Tabela 7]({{ site.baseurl_root }}manual/chargeback#tabela-7-reasoncode-e-reasonmessage)|string|sim|5|
-|`ChargebackBrandGroups[n].Details[n].ReasonMessage`|Mensagem do motivo do chargeback <br/> Informar a mensagem de acordo - [Tabela 7]({{ site.baseurl_root }}manual/chargeback#tabela-7-reasoncode-e-reasonmessage)|string|sim|128|
+|`ChargebackBrandGroups[n].Details[n].ReasonCode`|Código do motivo do chargeback <br/> Informar o código de acordo - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|sim|5|
+|`ChargebackBrandGroups[n].Details[n].ReasonMessage`|Mensagem do motivo do chargeback <br/> Informar a mensagem de acordo - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|sim|128|
 |`ChargebackBrandGroups[n].Details[n].SaleDate`|Data de autorização da transação <br/> Formato: YYYY-MM-DD|date|sim|10|
 |`ChargebackBrandGroups[n].Details[n].TransactionAmount`|Valor da transação em centavos <br/> Informar o mesmo valor informado no campo `Payment.Amount` na criação da transação <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`ChargebackBrandGroups[n].Details[n].ProofOfSale`|Comprovante de venda ou NSU <br/> Informar o mesmo valor recebido no campo `Payment.ProofOfSale` do response da criação da transação|string|sim|20|
@@ -241,7 +241,7 @@ Exemplo:
 |Key|Value|
 |:-|:-|
 |`CaseNumber`|Número do caso do chargeback|
-|`Status`|Status do chargeback - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/chargeback#tabela-4-status)|
+|`Status`|Status do chargeback - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|
 |`StatusDescription`|Descrição do status do chargeback|
 
 ## Aceitando um chargeback inexistente
@@ -757,9 +757,9 @@ Exemplo:
 |`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
 |`CaseNumber`|Número do caso relacionado ao chargeback|string|
 |`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`ReasonCode`|Código do motivo do chargeback - [Tabela 7]({{ site.baseurl_root }}manual/chargeback#tabela-7-reasoncode-e-reasonmessage)|string|
-|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 7]({{ site.baseurl_root }}manual/chargeback#tabela-7-reasoncode-e-reasonmessage)|string|
-|`Status`|Status do chargegback na Braspag - [Tabela 3]({{ site.baseurl_root }}manual/chargeback#tabela-3-chargebacks[n].status)|string|
+|`ReasonCode`|Código do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
+|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
+|`Status`|Status do chargegback na Braspag - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|string|
 |`Comment`|Comentário que deseja associar ao chargeback e que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
 |`IsFraud`|Identifica se o chargeback é de fraude|bool|
 |`Transaction.AcquirerType`|Identificador da adquirentre|string|
@@ -777,12 +777,12 @@ Exemplo:
 |`Transaction.Brand`|Bandeira do cartão de crédito|string|
 |`Transaction.AntifraudMerchantId`|Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway|guid|
 |`Transaction.AntifraudTransactionId`|Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway|guid|
-|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6]({{ site.baseurl_root }}manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
+|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication]({{ site.baseurl_root }}manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
 |`Transaction.ProviderTransactionId`|Id da transação no provedor de antifraude|
-|`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1]({{ site.baseurl_root }}manual/chargeback#tabela-1-chargebacks[n].negativevalues)|string|
+|`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1]({{ site.baseurl_root }}manual/risknotification#tabela-1-chargebacks[n].negativevalues)|string|
 |`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource|string|
-|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4]({{ site.baseurl_root }}manual/chargeback#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
-|`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5]({{ site.baseurl_root }}manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Status]({{ site.baseurl_root }}manual/risknotification#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Code]({{ site.baseurl_root }}manual/risknotification#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
 
 # Tabelas
 
