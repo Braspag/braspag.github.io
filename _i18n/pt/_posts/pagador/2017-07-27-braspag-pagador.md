@@ -6116,7 +6116,7 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 
 > O nó Chargeback para estar contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Através deste recebimento, no Painel Admin Braspag você poderá acatar, contestar e acompanhar os resultados das contestações. Sua loja também poderá receber através do Post de Notificação a transação que sofreu o chargeback. As operações contidas no Painel Admin Braspag, também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification).
 
-> O nó FraudAlert para estar contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja. Através deste recebimento, o mesmo ficará disponível no Painel Admin Braspag. E através do Post de Notificação, a sua loja irá receber transação que sofreu o alerta de fraude.
+> O nó FraudAlert para estar contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja. Através deste recebimento, o mesmo ficará disponível no Painel Admin Braspag. E através do Post de Notificação, a sua loja irá receber a transação que sofreu o alerta de fraude.
 
 Para consultar uma transação de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
@@ -6398,8 +6398,8 @@ curl
 |`Payment.Chargebacks[n].Amount`|Valor do chargeback|Número|15|10000|
 |`Payment.Chargebacks[n].CaseNumber`|Número do caso relacionado ao chargeback|Texto|16|Texto alfanumérico|
 |`Payment.Chargebacks[n].Date`|Data do chargeback|Date|10|AAAA-MM-DD|
-|`Payment.Chargebacks[n].ReasonCode`|Código de motivo do chargeback|Texto|10|Texto alfanumérico|
-|`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback|Texto|512|Texto alfanumérico|
+|`Payment.Chargebacks[n].ReasonCode`|Código de motivo do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.ReasonCode e Payment.Chargebacks{n}.ReasonMessage]({{ site.baseurl_root }}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage)|Texto|10|Texto alfanumérico|
+|`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback <br/> <br/> [Lista de Valores - Payment.Chargebacks{n}.ReasonCode e Payment.Chargebacks{n}.ReasonMessage]({{ site.baseurl_root }}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage)|Texto|512|Texto alfanumérico|
 |`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
 |`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|Texto|512|Texto alfanumérico|
 |`Payment.FraudAlert.Date`|Data do alerta de fraude|Date|10|AAAA-MM-DD|
