@@ -7530,3 +7530,137 @@ As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mant
 |Received|Chargeback recebido da adquirente|
 |AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a contestação|
 |ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
+
+## Lista de Valores - Payment.Chargebacks[n].ReasonCode e Payment.Chargebacks[n].ReasonMessage
+
+|Código|Descrição|Bandeira|Fraude?|
+|:-|:-|:-|:-|
+|137|Mercadoria / Serviços Cancelado|Visa|Não|
+|127|Dados inválidos|Visa|Não|
+|113|Não Autorizada|Visa|Não|
+|136|Crédito não processado|Visa|Não|
+|125|Valor incorreto|Visa|Não|
+|132|Recorrência Cancelada|Visa|Não|
+|123|Moeda Incorretas|Visa|Não|
+|133|Mercadoria / Serviço defeituoso ou diferente do descrito|Visa|Não|
+|112|Autorização Recusada|Visa|Não|
+|134|Mercadoria falsifcada|Visa|Não|
+|135|Venda Enganosa|Visa|Não|
+|102|Responsabilidade EMV - Sem Falsifcação|Visa|Sim|
+|101|Responsabilidade EMV - Falsifcação|Visa|Sim|
+|122|Código de transação incorreto|Visa|Não|
+|105|Programa Visa de Monitoramento de Fraude|Visa|Sim|
+|126|Processamento duplicado / pago por outros meios|Visa|Não|
+|131|Mercadoria / Serviços não recebidos|Visa|Não|
+|103|Outras Fraudes - Cartão Presente|Visa|Sim|
+|121|Apresentação Tardia|Visa|Não|
+|111|Boletm de recuperação de cartões|Visa|Não|
+|137|Transação de crédito original não aceita|Visa|Não|
+|104|Outras Fraudes - Cartão Ausente|Visa|Sim|
+|124|Número de conta incorreto|Visa|Não|
+|4846|Código Correto da Moeda da Transação Não Fornecido|Master|Não|
+|4857|Transação Telefônica Ativada por Cartão|Master|Não|
+|4859|Serviços Não Prestados|Master|Não|
+|4812|Número da Conta Não Consta no Arquivo (inexistente|Master|Não|
+|4807|Arquivo Boletim de Advertência|Master|Não|
+|4808|Autorização requerida não Obtida|Master|Não|
+|4870|Transferência de Responsabilidade do Chip|Master|Sim|
+|4853|Desacordo Comercial|Master|Não|
+|4847|Excede o Limite de Piso - Transação Não Autorizada|Master|Não|
+|4837|Sem Autorização do Portador do Cartão|Master|Sim|
+|4871|Transf. de Responsabilidade do Chip/Senha (Europa)|Master|Sim|
+|4849|Estabelecimento Comercial de Atividades Suspeitas|Master|Sim|
+|4841|Transação Recorrente Cancelada|Master|Não|
+|4842|Apresentação Tardia|Master|Não|
+|4855|Mercadoria Não Recebida|Master|Não|
+|4850|Portador Não Reconhece|Master|Sim|
+|4840|Processamento Fraudulento da Transação|Master|Sim|
+|4863|Portador Não Reconhece a Transação  Potencial de|Master|Sim|
+|4831|Valor da Transação é diferente|Master|Não|
+|4854|Contestação do Portador de Cartão (EUA)|Master|Sim|
+|4860|Crédito Não Processado|Master|Não|
+|4834|Erro de processamento|Master|Não|
+|4862|Transação Falsificada por Fraude da Tarja Magnétic|Master|Sim|
+|4835|Cartão Inválido ou Vencido|Master|Não|
+|4554|Bens e Serviços Não Recebidos|Amex|Não|
+|4515|Pagamento por outros meios|Amex|Não|
+|4527|Ausência de Impressão|Amex|Sim|
+|4523|Número de Conta de Associado do Cartão Não Atribuí|Amex|Não|
+|4517|Cópia atendida ilegível/incompleta|Amex|Não|
+|4752|Erro de Apresentação de Crédito/Débito|Amex|Não|
+|4530|Discrepância de Moeda|Amex|Não|
+|4516|Cópia não atendida|Amex|Não|
+|4799|Trans.de Resp.por Fraude Perda Roubo não rec.|Amex|Sim|
+|4536|Apresentação Tardia|Amex|Não|
+|4750|Débito de Aluguel de Carro Não Qualificado ou Não|Amex|Não|
+|4755|Sem Autorização Válida|Amex|Não|
+|4553|Mercadoria Defeituosa ou Não Conforme Descrita|Amex|Não|
+|4754|Contestação Regulatória/Legal Local|Amex|Não|
+|4540|Cartão não presente|Amex|Sim|
+|4544|Cancelamento de Bens/Serviços Recorrentes|Amex|Não|
+|4513|Crédito não processado|Amex|Não|
+|4534|ROCs Múltiplos|Amex|Não|
+|4763|Direito de Regresso Integral por Fraude|Amex|Sim|
+|4507|Valor da Transação Incorreto ou Número de Conta|Amex|Não|
+|4798|Transferência de Responsabilidade por Fraude - Fal|Amex|Sim|
+|4521|Autorização inválida|Amex|Não|
+|4512|Múltiplos processamentos|Amex|Não|
+|41|Transação Recorrente Cancelada|Elo|Não|
+|71|Autorização Negada|Elo|Não|
+|74|Apresentação Tardia|Elo|Não|
+|75|Portador não se lembra da transação|Elo|Sim|
+|62|Transação falsificada (Transferência de Responsabi|Elo|Sim|
+|82|Duplicidade de Processamento|Elo|Não|
+|53|Mercadoria com defeito ou em desacordo|Elo|Não|
+|83|Fraude em Ambiente de Cartão Não Presente|Elo|Sim|
+|80|Valor da Transação ou número de cartão incorreto|Elo|Não|
+|76|Moeda invalida|Elo|Não|
+|30|Serviço Não Prestado ou Mercadoria Não recebida|Elo|Não|
+|72|Sem Autorização|Elo|Não|
+|85|Crédito Não Processado|Elo|Não|
+|73|Cartão Vencido|Elo|Não|
+|81|Fraude em Ambiente de Cartão Presente|Elo|Sim|
+|70|Cartão em Boletim|Elo|Não|
+|86|Pagamentos por outros Meios|Elo|Não|
+|4812|Número da Conta Não Consta no Arquivo (inexistente|Diners|Não|
+|4841|Transação Recorrente Cancelada|Diners|Não|
+|4850|Portador Não Reconhece|Diners|Sim|
+|4846|Código Correto da Moeda da Transação Não Fornecido|Diners|Não|
+|4847|Excede o Limite de Piso - Transação Não Autorizada|Diners|Não|
+|4859|Serviços Não Prestados|Diners|Não|
+|4831|Valor da Transação é diferente|Diners|Não|
+|4849|Estabelecimento Comercial de Atividades Suspeitas|Diners|Sim|
+|4835|Cartão Inválido ou Vencido|Diners|Não|
+|4842|Apresentação Tardia|Diners|Não|
+|4807|Arquivo Boletim de Advertência|Diners|Não|
+|4871|Transf. de Responsabilidade do Chip/Senha (Europa)|Diners|Sim|
+|4855|Mercadoria Não Recebida|Diners|Não|
+|4808|Autorização requerida não Obtida|Diners|Não|
+|4837|Sem Autorização do Portador do Cartão|Diners|Sim|
+|4840|Processamento Fraudulento da Transação|Diners|Sim|
+|4853|Desacordo Comercial|Diners|Não|
+|4834|Erro de processamento|Diners|Não|
+|4808|Autorização requerida não Obtida|Hipercard|Não|
+|4834|Erro de processamento|Hipercard|Não|
+|4860|Crédito Não Processado|Hipercard|Não|
+|4857|Transação Telefônica Ativada por Cartão|Hipercard|Não|
+|4850|Portador Não Reconhece|Hipercard|Sim|
+|4807|Arquivo Boletim de Advertência|Hipercard|Não|
+|4859|Serviços Não Prestados|Hipercard|Não|
+|4862|Transação Falsificada por Fraude da Tarja Magnétic|Hipercard|Sim|
+|4849|Estabelecimento Comercial de Atividades Suspeitas|Hipercard|Sim|
+|4853|Desacordo Comercial|Hipercard|Não|
+|4837|Sem Autorização do Portador do Cartão|Hipercard|Sim|
+|4847|Excede o Limite de Piso - Transação Não Autorizada|Hipercard|Não|
+|4871|Transf. de Responsabilidade do Chip/Senha (Europa)|Hipercard|Sim|
+|4812|Número da Conta Não Consta no Arquivo (inexistente|Hipercard|Não|
+|4831|Valor da Transação é diferente|Hipercard|Não|
+|4840|Processamento Fraudulento da Transação|Hipercard|Sim|
+|4841|Transação Recorrente Cancelada|Hipercard|Não|
+|4870|Transferência de Responsabilidade do Chip|Hipercard|Sim|
+|4863|Portador Não Reconhece a Transação  Potencial de|Hipercard|Sim|
+|4842|Apresentação Tardia|Hipercard|Não|
+|4854|Contestação do Portador de Cartão (EUA)|Hipercard|Sim|
+|4855|Mercadoria Não Recebida|Hipercard|Não|
+|4835|Cartão Inválido ou Vencido|Hipercard|Não|
+|4846|Código Correto da Moeda da Transação Não Fornecido|Hipercard|Não|
