@@ -1171,13 +1171,6 @@ Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma 
 
 <aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
-**Domain**
-
-|Ambiente|Descrição|
-|:-|:-|
-|`Testing`|Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
-|`Production`|Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net|
-
 **Variáveis**
 Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o `session_id`. O `org_id` é um valor predefinido conforme tabela abaixo, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `Customer.BrowserFingerprint`, conforme exemplo abaixo:
 
@@ -1198,7 +1191,7 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 
 <aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 
-### Integração em aplicativos mobile
+** Integração em aplicativos mobile **
 
 > Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
 
