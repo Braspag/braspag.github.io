@@ -5083,7 +5083,7 @@ curl
 |Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_, `FraudAnalysis.CaptureOnLowRisk` igual a _true_ e `Payment.Capture` igual a _false_| |
 |Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a rejeitada, a transação será cancelada ou estornada automaticamente|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.VoidOnHighRisk` igual a _true_|
 
-Se não for especificado o contrário durante a autorização, A Braspag processará sua transação pelo fluxo `FraudAnalysis.Sequence` _AuthorizeFirst_, `FraudAnalysis.SequenceCriteria` _OnSuccess_, `FraudAnalysis.VoidOnHighRisk` _false_ e `FraudAnalysis.CaptureOnLowRisk` _false_.
+Se não for especificado o contrário durante a autorização, a Braspag processará sua transação pelo fluxo `FraudAnalysis.Sequence` _AuthorizeFirst_, `FraudAnalysis.SequenceCriteria` _OnSuccess_, `FraudAnalysis.VoidOnHighRisk` _false_ e `FraudAnalysis.CaptureOnLowRisk` _false_.
 
 ## Criando uma transação com Análise de Fraude Cybersource
 
@@ -5571,7 +5571,7 @@ curl
       "SoftDescriptor":"Mensagem",
       "DoSplit":false,
       "CreditCard":{  
-         "CardNumber":"4551870000000181",
+         "CardNumber":"455187******0181",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
@@ -5927,7 +5927,7 @@ curl
 }
 ```
 
-|Propriedade|Tipo|Descrição
+|Propriedade|Tipo|Descrição|
 |:-|:-|:-|
 |`MerchantOrderId`|Texto|Número do pedido da loja|
 |`Customer.Name`|Texto|Nome completo do comprador|
@@ -6023,7 +6023,7 @@ curl
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|Código do aeroporto de partida|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|Código do aeroporto de chegada|
 |`Payment.FraudAnalysis.Id`|GUID|Id da transação no AntiFraude Braspag|
-|`Payment.FraudAnalysis.Status`|Número|Status da transação no AntiFraude Braspag <br/> [Lista de Vaores - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status)|
+|`Payment.FraudAnalysis.Status`|Número|Status da transação no AntiFraude Braspag <br/> [Lista de Valores - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status)|
 |`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Número|Código de retorno da Cybersouce <br/> [Lista de Valores - Payment.FraudAnalysis.FraudAnalysisReasonCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode)|
 |`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Texto|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: COR-BA^MM-BIN <br/> [Lista de Valores - Payment.FraudAnalysis.ReplyData.AddressInfoCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode)|
 |`Payment.FraudAnalysis.ReplyData.FactorCode`|Texto|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: B^D^R^Z <br/>[Lista de Valores - ProviderAnalysisResult.AfsReply.FactorCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode)|
@@ -6058,7 +6058,7 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
 
 Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
 
-### Cybersource
+### Integração em checkout
 
 Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
