@@ -118,313 +118,6 @@ Exemple:
 
 Braspag, upon receiving the request data, directs the provider to analyze them. Providers use technologies such as device identification, IP geolocation, social network analytics, proxy detection, and speed counters. In real-time you will receive a recommendation from the analysis and you can take an action.
 
-## Analyzing a transaction in ReDShield
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
-
-``` json
-{
-  "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
-  "TotalOrderAmount": 15000,
-  "TransactionAmount": 14000,
-  "Currency": "BRL",
-  "Provider": "RedShield",
-  "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
-  "Tid": "12345678910111216AB8",
-  "Nsu": "951852",
-  "AuthorizationCode":"T12345",
-  "SaleDate": "2016-12-09 10:01:55.662",
-  "SplitingPaymentMethod": "None",
-  "IsRetryTransaction": false,
-  "Card": {
-    "Number" : "4444555566667777",
-    "Holder": "Holder Name",
-    "ExpirationDate": "12/2023",
-    "Cvv": "999",
-    "Brand": "VISA",
-    "EciThreeDSecure": "5"
-  },
-  "Billing": {
-    "Street": "Rua Neturno",
-    "Number": "12345",
-    "Complement": "Sala 123",
-    "Neighborhood": "Centro",
-    "City": "Rio de Janeiro",
-    "State": "RJ",
-    "Country": "BR",
-    "ZipCode": "20080123"
-  },
-  "Shipping": {
-    "Street": "Rua Saturno",
-    "Number": "30000",
-    "Complement": "sl 123",
-    "Neighborhood": "Centro",
-    "City": "Rio de Janeiro",
-    "State": "RJ",
-    "Country": "BR",
-    "ZipCode": "123456789",
-    "Email": "emailentrega@dominio.com.br",
-    "FirstName": "João",
-    "MiddleName": "P",
-    "LastName": "Silvao",
-    "ShippingMethod": "SameDay",
-    "Phone": "552121114700",
-    "WorkPhone": "552121114721",
-    "Mobile": "5521998765432",
-    "Comment": "Em frente ao 322"
-  },
-  "Customer": {
-    "MerchantCustomerId": "10050665740",
-    "FirstName": "João",
-    "MiddleName": "P",
-    "LastName": "Silva",
-    "BirthDate": "1983-10-01",
-    "Gender": "Male",
-    "Email": "emailcomprador@dominio.com.br",
-    "Phone": "552121114700",
-    "WorkPhone": "552121114721",
-    "Mobile": "5521998765432",
-    "Ip": "127.0.0.1",
-    "BrowserFingerprint": "04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==",
-    "Status": "NEW"
-  },
-  "CartItems": [
-    {
-      "ProductName": "Mouse",
-      "UnitPrice": "6500",
-      "MerchantItemId": "4",
-      "Sku": "abc123",
-      "Quantity": 1,
-      "OriginalPrice": "7000",
-      "GiftMessage": "Te amo!",
-      "Description": "Uma description do Mouse",
-      "ShippingInstructions": "Proximo ao 546",
-      "ShippingMethod": "SameDay",
-      "ShippingTrackingNumber": "123456"
-    },
-    {
-      "ProductName": "Teclado",
-      "UnitPrice": "7500",
-      "MerchantItemId": "3",
-      "Sku": "abc456",
-      "Quantity": 1,
-      "OriginalPrice": "8000",
-      "GiftMessage": "Te odeio!",
-      "Description": "Uma description do Teclado",
-      "ShippingInstructions": "Proximo ao 123",
-      "ShippingMethod": "SameDay",
-      "ShippingTrackingNumber": "987654"
-    }
-  ],
-  "CustomConfiguration": {
-    "MerchantWebsite": "www.test.com"
-  },
-  "MerchantDefinedData": [
-    {
-      "Key": "USER_DATA4",
-      "Value": "Valor definido com o Provedor a ser enviado neste campo."
-    },
-    {
-      "Key": "Segment",
-      "Value": "8999"
-    },
-    {
-      "Key": "MerchantId",
-      "Value": "Seller123456"
-    }
-  ],
-  "Airline": {
-    "ThirdPartyBooking": "Y",
-    "Bookingtype": "Corporate",
-    "TicketDeliveryMethod": "Delivery",
-    "BookingReferenceNumber": "L5W4NW",
-    "Passengers": [
-    {
-        "FirstName": "Fulano",
-        "MiddleName": "D",
-        "LastName": "Tal",
-        "PassengerType": "Adult",
-        "Email": "email@mail.com",
-        "Phone": "1234567890",
-        "TicketNumber": "123541",
-        "LoyaltyMemberNumber": "159753852",
-        "Legs" : [
-        {
-            "ArrivalAirport": "AMS",
-            "DepartureAirport": "GIG",
-            "ArrivalCountry": "NLD",
-            "DepartureCountry": "BRA",
-            "AirlineCode": "KLM",
-            "DepartureDateTime": "2018-01-09 18:00",
-            "ClassOfService": "Standard"
-        }]
-    }]
-  }
-}
-```
-
-### Request
-
-**Parameters in the header (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
-
-**Parameters in the body (Body)**
-
-|Parameter|Description|Type|Required|Size|
-|:-|:-|:-:|:-:|-:|
-|`MerchantOrderId`|Merchant order number|string|yes|100|
-|`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|yes|-|
-|`TransactionAmount`|Value of the financial transaction in cents <br/> Ex: 150000 = r$ 1.500,00|long|yes|-|
-|`Currency`|Currency. More information on [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|-|-|
-|`Provider`|Antifraud provider <br/> [Table 1 - Provider]({{ site.baseurl_root }}en/manual/antifraude#table-1-provider)|enum|-|-|
-|`BraspagTransactionId`|Transaction id in Pagador Braspag|guid|no|-|
-|`Tid`|Acquirer transaction id <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the `BraspagTransactionId` field, so you need to send the fields` Nsu`, `AuthorizationCode` and` SaleDate`, besides this one in question|string|no|20|
-|`Nsu`|Acquirer transaction unique sequence number <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `AuthorizationCode` and `SaleDate`, in addition to the one in question|string|no|10|
-|`AuthorizationCode`|Acquirer authorization code <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the `BraspagTransactionId` field, so you need to send the` Tid`, `Nsu` and `SaleDate`, in addition to the one in question|string|no|10|
-|`SaleDate`|Acquirer authorization date <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `Nsu `and` AuthorizationCode`, in addition to the one in question|datetime|no|-|
-|`SplitingPaymentMethod`|Identifies whether the transaction authorization is with one or more cards or with more than one payment methods <br/> [Table 2 - SplitingPaymentMethod]({{ site.baseurl_root }}en/manual/antifraude#table-2-splitingpaymentmethod)|enum|-|-|
-|`IsRetryTransaction`|Retentive of an analysis, and should be sent with value equal to TRUE when the return code on the first attempt equals BP900|bool|no|-|
-|`Card.Number`|Credit card number|string|yes|19|
-|`Card.Holder`|Holder name|string|yes|50|
-|`Card.ExpirationDate`|Credit card expiration date <br/> Ex.: 01/2023|string|yes|7|
-|`Card.Cvv`|Credit card security code|string|yes|4|
-|`Card.Brand`|Credit card brand <br/> [Table 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|-|-|
-|`Card.EciThreeDSecure`|Electronic Commerce Indicator (ECI)|string|no|1|
-|`Card.Save`|Indicates whether credit card data will be stored on the Cartão Protegido|bool|no|-|
-|`Card.Token`|Credit card token saved on the Cartão Protegido|guid|no|-|
-|`Card.Alias`|Credit card alias saved on the Cartão Protegido|string|no|64|
-|`Billing.Street`|Billing address street|string|no|24|
-|`Billing.Number`|Billing address number|string|no|5|
-|`Billing.Complement`|Billing address complement|string|no|14|
-|`Billing.Neighborhood`|Billing address neighborhood|string|no|15|
-|`Billing.City`|Billing address city|string|no|20|
-|`Billing.State`|Billing address state|string|no|2|
-|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|no|2|
-|`Billing.ZipCode`|Billing address zipcode|string|no|9|
-|`Shipping.Street`|Shipping address street|string|no|24|
-|`Shipping.Number`|Shipping address number|string|no|5|
-|`Shipping.Complement`|Shipping address complement|string|no|14|
-|`Shipping.Neighborhood`|Shipping address neighborhood|string|no|15|
-|`Shipping.City`|Shipping address city|string|no|20|
-|`Shipping.State`|Shipping address state|string|no|2|
-|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|no|2|
-|`Shipping.ZipCode`|Shipping address zipcode|string|no|9|
-|`Shipping.Email`|Email of the person responsible to receive the product at the shipping address|string|no|60|
-|`Shipping.FirstName`|First name of person in charge of receiving product at shipping address|string|no|30|
-|`Shipping.MiddleName`|First letter of the middle name of the person in charge of receiving the product at the shipping address|string|no|1|
-|`Shipping.LastName`|Last name of the person in charge of receiving the product at the shipping address|string|no|30|
-|`Shipping.Phone`|Telephone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114700|string|no|19|
-|`Shipping.WorkPhone`|Workphone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114701|string|no|19|
-|`Shipping.Mobile`|Mobile number of the person in charge of receiving the product at the shipping address <br/> Ex.: 5521987654321|string|no|19|
-|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
-|`Shipping.Comment`|Shipping address references|string|no|160|
-|`Customer.MerchantCustomerId`|Customer document number, CPF or CNPJ|string|yes|16|
-|`Customer.FirstName`|Customer first name|string|yes|30|
-|`Customer.MiddleName`|First letter of the middle name customer|string|no|1|
-|`Customer.LastName`|Customer last name|string|yes|30|
-|`Customer.BirthDate`|Customer birthdate <br/> Ex.: 1983-10-01|date|yes|-|
-|`Customer.Gender`|Customer gender <br/> [Table 6 - Customer.Gender]({{ site.baseurl_root }}en/manual/antifraude#table-6-customer.gender)|string|no|6|
-|`Customer.Email`|Customer email|string|no|60|
-|`Customer.Ip`|Customer IP address|string|no|15|
-|`Customer.Phone`|Customer telephone number <br/> Ex.: 552121114700|string|no|19|
-|`Customer.WorkPhone`|Customer workphone number <br/> Ex.: 552121114701|string|no|19|
-|`Customer.Mobile`|Customer mobile number <br/> Ex.: 5521987654321|string|no|19|
-|`Customer.Status`|Merchant customer status <br/> [Table 7 - Customer.Status]({{ site.baseurl_root }}en/manual/antifraude#table-7-customer.status)|string|no|8|
-|`Customer.BrowserFingerPrint`|Device fingerprint and customer IP real geolocation - [Fingerprint configuration]({{ site.baseurl_root }}/en/manual/antifraude#redshield44)|string|yes|6005|
-|`CartItem[n].ProductName`|Product name|string|no|50|
-|`CartItem[n].UnitPrice`|Product unit price <br/> Ex: 10950 = r$ 109,50|long|no|-|
-|`CartItem[n].OriginalPrice`|Product original price <br/> Ex: 11490 = r$ 114,90|long|no|-|
-|`CartItem[n].MerchantItemId`|Merchant product id|string|no|30|
-|`CartItem[n].Sku`|Product SKU|string|no|12|
-|`CartItem[n].Quantity`|Product quantity|int|no|-|
-|`CartItem[n].GiftMessage`|Gift message|string|no|160|
-|`CartItem[n].Description`|Product description|string|no|76|
-|`CartItem[n].ShippingInstructions`|Product delivery instructions|string|no|160|
-|`CartItem[n].ShippingMethod`|Product delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
-|`CartItem[n].ShippingTranckingNumber`|Product tracking number|string|no|19|
-|`Airline.ThirdPartyBooking`|Indicates whether the reservation was scheduled by third parties, such as tourism agencies|bool|no|-|
-|`Airline.BookingType`|Type of booking schedule|string|no|255|
-|`Airline.TicketDeliveryMethod`|Ticket delivery type|string|no|127|
-|`Airline.BookingReferenceNumber`|Booking reference number|string|no|9|
-|`Airline.Passengers[n].FirstName`|Passenger first name|string|no|29|
-|`Airline.Passengers[n].MiddleName`|Passenger middle name|string|no|1|
-|`Airline.Passengers[n].LastName`|Passenger last name|string|no|28|
-|`Airline.Passengers[n].PassengerType`|Passenger type <br/> [Table 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|no|-|
-|`Airline.Passengers[n].Phone`|Passenger telephone number <br/> Ex.: 552121114700|string|no|19|
-|`Airline.Passengers[n].Email`|Passenger email|string|no|60|
-|`Airline.Passengers[n].LoyaltyMemberNumber`|Loyalty member number|string|no|255|
-|`Airline.Passengers[n].TicketNumber`|Ticket number|string|no|20|
-|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More informations on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|no|3|
-|`Airline.Passengers[n].Legs[n].DepartureCountry`|Country code of departure airport. More information on [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|no|3|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|no|3|
-|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Country code of arrival airport. More information on [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|no|3|
-|`Airline.Passengers[n].Legs[n].AirlineCode`|Airline code|string|no|3|
-|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Departure datetime <br/> Ex.: 2018-03-31 19:16:38 |datetime|no|-|
-|`Airline.Passengers[n].Legs[n].ClassOfService`|Class service|string|no|30|
-|`CustomConfiguration.MerchantWebsite`|Merchant website|string|no|60|
-|`MerchantDefinedData[n].Key`|Field key set against antifraud provider <br/> [Table 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|int|no|-|
-|`MerchantDefinedData[n].Value`|Field value set against antifraud provider <br/> [Table 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|var|no|-|
-
-### Response
-
-``` json
-{
-   "TransactionId": "fdf8f357-a723-e811-80c3-0003ff21d83f",
-   "Status": "Accept",
-   "ProviderAnalysisResult": {
-       "ProviderRequestId": "8a829449620619e801620b31d1c85d5a",
-       "Result": {
-           "ProviderCode": "000.000.000",
-           "ProviderDescription": "Transaction succeeded"
-       },
-       "ResultDetails": {
-           "CSITransactionLink": "https://csi-stage.redworldwide.com/index.red#transactiondetail/000548000001XAR20180309093717761",
-           "ProviderStatus": "ACCEPT",
-           "ProviderTransactionId": "381069636258",
-           "ProviderResponseCode": "0150",
-           "ProviderOrderId": "000548000001XAR20180309093717761"
-       },
-       "Ndc": "8a82941859d5969a0159db3f6ecc1418_60d2e8536e244db2bf04146872b00d38"
-   },
-   "Links": [
-       {
-           "Method": "GET",
-           "Href": "http://localhost:1316/Analysis/v2/fdf8f357-a723-e811-80c3-0003ff21d83f",
-           "Rel": "Self"
-       }
-   ]
-}
-
-```
-
-**Parameters in the header (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|201 Created|
-
-**Parameters in the body (Body)**
-
-|Parameter|Description|Type|
-|:-|:-|:-:|
-|`TransactionId`|Transaction id on Antifraud Gateway Braspag|guid|
-|`Status`|Transaction status on Antifraud Gateway Braspag <br/> [Table 20  - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
-|`ProviderAnalysisResult.ProviderRequestId`|ReDShield transaction request id |string|
-|`ProviderAnalysisResult.Result.ProviderCode`|ReDShield return code|string|
-|`ProviderAnalysisResult.Result.ProviderDescription`|ReDShield return message|string|
-|`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link to view transaction details on ReDShield CSI portal|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|ReDShield transaction status <br/> [Table 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
-|`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|ReDShield transaction id|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|ReDShield order id|string|
-|`ProviderAnalysisResult.Ndc`|ReDShield unique request id|string|
-
 ## Analyzing a transaction in Cybersource
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
@@ -484,7 +177,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
     "BrowserCookiesAccepted":true,
     "BrowserEmail":"emailbrowsercomprador@dominio.com.br",
     "BrowserType":"Chrome 58 on Windows 10",
-    "BrowserFingerprint":"braspag123456789"
+    "BrowserFingerprint":"123456789"
   },
   "CartItems": [
     {
@@ -812,298 +505,6 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`FraudAnalysisRequestError`|Collection that will contain messages with fields that do not conform to the size specified in the manual|
 
 # Queries
-
-## Querying a transaction ReDShield
-
-### Request
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
-
-``` json
-{
-  "TransactionId": "fdf8f357-a723-e811-80c3-0003ff21d83f",
-   "Status": "Accept",
-   "ProviderAnalysisResult": {
-       "ProviderRequestId": "8a829449620619e801620b31d1c85d5a",
-       "Result": {
-           "ProviderCode": "000.000.000",
-           "ProviderDescription": "Transaction succeeded"
-       },
-       "ResultDetails": {
-           "CSITransactionLink": "https://csi-stage.redworldwide.com/index.red#transactiondetail/000548000001XAR20180309093717761",
-           "ProviderStatus": "ACCEPT",
-           "ProviderTransactionId": "381069636258",
-           "ProviderResponseCode": "0150",
-           "ProviderOrderId": "000548000001XAR20180309093717761"
-       },
-       "Ndc": "8a82941859d5969a0159db3f6ecc1418_60d2e8536e244db2bf04146872b00d38"
-   },
-   "Links": [
-       {
-           "Method": "GET",
-           "Href": "http://localhost:1316/Analysis/v2/fdf8f357-a723-e811-80c3-0003ff21d83f",
-           "Rel": "Self"
-       }
-   ],
-  "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
-  "TotalOrderAmount": 15000,
-  "TransactionAmount": 14000,
-  "Currency": "BRL",
-  "Provider": "RedShield",
-  "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
-  "SplitingPaymentMethod": "None",
-  "IsRetryTransaction": false,
-  "Card": {
-    "Number" : "4444555566667777",
-    "Holder": "Holder Name",
-    "ExpirationDate": "12/2023",
-    "Cvv": "999",
-    "Brand": "VISA",
-    "EciThreeDSecure": "5"
-  },
-  "Billing": {
-    "Street": "Rua Neturno",
-    "Number": "12345",
-    "Complement": "Sala 123",
-    "Neighborhood": "Centro",
-    "City": "Rio de Janeiro",
-    "State": "RJ",
-    "Country": "BR",
-    "ZipCode": "20080123"
-  },
-  "Shipping": {
-    "Street": "Rua Saturno",
-    "Number": "30000",
-    "Complement": "sl 123",
-    "Neighborhood": "Centro",
-    "City": "Rio de Janeiro",
-    "State": "RJ",
-    "Country": "BR",
-    "ZipCode": "123456789",
-    "Email": "emailentrega@dominio.com.br",
-    "FirstName": "João",
-    "MiddleName": "P",
-    "LastName": "Silvao",
-    "ShippingMethod": "SameDay",
-    "Phone": "552121114700",
-    "WorkPhone": "552121114721",
-    "Mobile": "5521998765432",
-    "Comment": "Em frente ao 322"
-  },
-  "Customer": {
-    "MerchantCustomerId": "10050665740",
-    "FirstName": "João",
-    "MiddleName": "P",
-    "LastName": "Silva",
-    "BirthDate": "1983-10-01",
-    "Gender": "Male",
-    "Email": "emailcomprador@dominio.com.br",
-    "Phone": "552121114700",
-    "WorkPhone": "552121114721",
-    "Mobile": "5521998765432",
-    "Ip": "127.0.0.1",
-    "BrowserFingerprint": "04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==",
-    "Status": "NEW"
-  },
-  "CartItems": [
-    {
-      "ProductName": "Mouse",
-      "UnitPrice": "6500",
-      "MerchantItemId": "4",
-      "Sku": "abc123",
-      "Quantity": 1,
-      "OriginalPrice": "7000",
-      "GiftMessage": "Te amo!",
-      "Description": "Uma description do Mouse",
-      "ShippingInstructions": "Proximo ao 546",
-      "ShippingMethod": "SameDay",
-      "ShippingTrackingNumber": "123456"
-    },
-    {
-      "ProductName": "Teclado",
-      "UnitPrice": "7500",
-      "MerchantItemId": "3",
-      "Sku": "abc456",
-      "Quantity": 1,
-      "OriginalPrice": "8000",
-      "GiftMessage": "Te odeio!",
-      "Description": "Uma description do Teclado",
-      "ShippingInstructions": "Proximo ao 123",
-      "ShippingMethod": "SameDay",
-      "ShippingTrackingNumber": "987654"
-    }
-  ],
-  "CustomConfiguration": {
-    "MerchantWebsite": "www.test.com"
-  },
-  "MerchantDefinedData": [
-    {
-      "Key": "USER_DATA4",
-      "Value": "Valor definido com o Provedor a ser enviado neste campo."
-    },
-    {
-      "Key": "Segment",
-      "Value": "8999"
-    },
-    {
-      "Key": "MerchantId",
-      "Value": "Seller123456"
-    }
-  ],
-  "Airline": {
-    "ThirdPartyBooking": "Y",
-    "Bookingtype": "Corporate",
-    "TicketDeliveryMethod": "Delivery",
-    "BookingReferenceNumber": "L5W4NW",
-    "Passengers": [
-    {
-        "FirstName": "Fulano",
-        "MiddleName": "D",
-        "LastName": "Tal",
-        "PassengerType": "Adult",
-        "Email": "email@mail.com",
-        "Phone": "1234567890",
-        "TicketNumber": "123541",
-        "LoyaltyMemberNumber": "159753852",
-        "Legs" : [
-        {
-            "ArrivalAirport": "AMS",
-            "DepartureAirport": "GIG",
-            "ArrivalCountry": "NLD",
-            "DepartureCountry": "BRA",
-            "AirlineCode": "KLM",
-            "DepartureDateTime": "2018-01-09 18:00",
-            "ClassOfService": "Standard"
-        }]
-    }]
-  }
-}
-```
-
-**Parameters in the header (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
-
-### Response
-
-**Parameters in the header (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
-
-**Parameters in the body (Body)**
-
-|Parameter|Description|Type|
-|:-|:-|:-:|
-|`TransactionId`|Transaction id on Antifraud Gateway Braspag|guid|
-|`Status`|Transaction status on Antifraud Gateway Braspag <br/> [Table 20  - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
-|`ProviderAnalysisResult.ProviderRequestId`|ReDShield transaction request id|string|
-|`ProviderAnalysisResult.Result.ProviderCode`|ReDShield return code|string|
-|`ProviderAnalysisResult.Result.ProviderDescription`|ReDShield return message|string|
-|`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link to view transaction details on ReDShield CSI portal|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|ReDShield transaction status <br/> [Table 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
-|`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|ReDShield transaction id|string|
-|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|ReDShield order id|string|
-|`ProviderAnalysisResult.Ndc`|ReDShield unique request id|string|
-|`MerchantOrderId`|Merchant order number|string|
-|`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|
-|`TransactionAmount`|Value of the financial transaction in cents <br/> Ex: 150000 = r$ 1.500,00|long|
-|`Currency`|Currency. More information on [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|
-|`Provider`|Antifraud provider <br/> [Table 1 - Provider]({{ site.baseurl_root }}//en/manual/antifraude#table-1-provider)|enum|
-|`BraspagTransactionId`|Transaction id in Pagador Braspag|guid|
-|`Tid`|Acquirer transaction id <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the `BraspagTransactionId` field, so you need to send the fields` Nsu`, `AuthorizationCode` and` SaleDate`, besides this one in question|string|
-|`Nsu`|Acquirer transaction unique sequence number <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `AuthorizationCode` and `SaleDate`, in addition to the one in question|string|
-|`AuthorizationCode`|Acquirer authorization code <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the `BraspagTransactionId` field, so you need to send the` Tid`, `Nsu` and `SaleDate`, in addition to the one in question|string|
-|`SaleDate`|Acquirer authorization date <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `Nsu `and` AuthorizationCode`, in addition to the one in question|datetime|
-|`SplitingPaymentMethod`|Identifies whether the transaction authorization is with one or more cards or with more than one payment methods <br/> [Table 2 - SplitingPaymentMethod]({{ site.baseurl_root }}en/manual/antifraude#table-2-splitingpaymentmethod)|enum|
-|`IsRetryTransaction`|Retentive of an analysis, and should be sent with value equal to TRUE when the return code on the first attempt equals BP900|bool|
-|`Card.Number`|Credit card number|string|
-|`Card.Holder`|Holder name|string|
-|`Card.ExpirationDate`|Credit card expiration date <br/> Ex.: 01/2023|string|
-|`Card.Cvv`|Credit card security code|string|
-|`Card.Brand`|Credit card brand <br/> [Table 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|
-|`Card.EciThreeDSecure`|Electronic Commerce Indicator (ECI)|string|
-|`Card.Save`|Indicates whether credit card data will be stored on the Cartão Protegido|bool|
-|`Card.Token`|Credit card token saved on the Cartão Protegido|guid|
-|`Card.Alias`|Credit card alias saved on the Cartão Protegido|string|
-|`Billing.Street`|Billing address street|string|
-|`Billing.Number`|Billing address number|string|
-|`Billing.Complement`|Billing address complement|string|
-|`Billing.Neighborhood`|Billing address neighborhood|string|
-|`Billing.City`|Billing address city|string|
-|`Billing.State`|Billing address state|string|
-|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Billing.ZipCode`|Billing address zipcode|string|
-|`Shipping.Street`|Shipping address street|string|
-|`Shipping.Number`|Shipping address number|string|
-|`Shipping.Complement`|Shipping address complement|string|
-|`Shipping.Neighborhood`|Shipping address neighborhood|string|
-|`Shipping.City`|Shipping address city|string|
-|`Shipping.State`|Shipping address state|string|
-|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Shipping.ZipCode`|Shipping address zipcode|string|
-|`Shipping.Email`|Email of the person responsible to receive the product at the shipping address|string|
-|`Shipping.FirstName`|First name of person in charge of receiving product at shipping address|string|
-|`Shipping.MiddleName`|First letter of the middle name of the person in charge of receiving the product at the shipping address|string|
-|`Shipping.LastName`|Last name of the person in charge of receiving the product at the shipping address|string|
-|`Shipping.Phone`|Telephone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114700|string|
-|`Shipping.WorkPhone`|Workphone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114701|string|
-|`Shipping.Mobile`|Mobile number of the person in charge of receiving the product at the shipping address <br/> Ex.: 5521987654321|string|
-|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|
-|`Shipping.Comment`|Shipping address references|string|
-|`Customer.MerchantCustomerId`|Customer document number, CPF or CNPJ|string|
-|`Customer.FirstName`|Customer first name|string|
-|`Customer.MiddleName`|First letter of the middle name customer|string|
-|`Customer.LastName`|Customer last name|string|
-|`Customer.BirthDate`|Customer birthdate <br/> Ex.: 1983-10-01|date|
-|`Customer.Gender`|Customer gender <br/> [Table 6 - Customer.Gender]({{ site.baseurl_root }}//en/manual/antifraude#table-6-customer.gender)|string|
-|`Customer.Email`|Customer email|string|
-|`Customer.Ip`|Customer IP address|string|
-|`Customer.Phone`|Customer telephone number <br/> Ex.: 552121114700|string|
-|`Customer.WorkPhone`|Customer workphone number <br/> Ex.: 552121114701|string|
-|`Customer.Mobile`|Customer mobile number <br/> Ex.: 5521987654321|string|
-|`Customer.Status`|Merchant customer status <br/> [Table 7 - Customer.Status]({{ site.baseurl_root }}en/manual/antifraude#table-7-customer.status)|string|
-|`Customer.BrowserFingerPrint`|Device fingerprint and customer IP real geolocation|string|
-|`CartItem[n].ProductName`|Product name|string|
-|`CartItem[n].UnitPrice`|Product unit price <br/> Ex: 10950 = r$ 109,50|long|
-|`CartItem[n].OriginalPrice`|Product original price <br/> Ex: 11490 = r$ 114,90|long|
-|`CartItem[n].MerchantItemId`|Merchant product id|string|
-|`CartItem[n].Sku`|Product SKU|string|
-|`CartItem[n].Quantity`|Product quantity|int|
-|`CartItem[n].GiftMessage`|Gift message|string|
-|`CartItem[n].Description`|Product description|string|
-|`CartItem[n].ShippingInstructions`|Product delivery instructions|string|
-|`CartItem[n].ShippingMethod`|Product delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|
-|`CartItem[n].ShippingTranckingNumber`|Product tracking number|string|
-|`Airline.ThirdPartyBooking`|Indicates whether the reservation was scheduled by third parties, such as tourism agencies|bool|
-|`Airline.BookingType`|Type of booking schedule|string|
-|`Airline.TicketDeliveryMethod`|Ticket delivery type|string|
-|`Airline.BookingReferenceNumber`|Booking reference number|string|
-|`Airline.Passengers[n].FirstName`|Passenger first name|string|
-|`Airline.Passengers[n].MiddleName`|Passenger middle name|string|
-|`Airline.Passengers[n].LastName`|Passenger last name|string|
-|`Airline.Passengers[n].PassengerType`|Passenger type <br/> [Table 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|
-|`Airline.Passengers[n].Phone`|Passenger telephone number <br/> Ex.: 552121114700|string|
-|`Airline.Passengers[n].Email`|Passenger email|string|
-|`Airline.Passengers[n].LoyaltyMemberNumber`|Loyalty member number|string|
-|`Airline.Passengers[n].TicketNumber`|Ticket number|string|
-|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More informations on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`Airline.Passengers[n].Legs[n].DepartureCountry`|Country code of departure airport. More information on [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Country code of arrival airport. More information on [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Airline.Passengers[n].Legs[n].AirlineCode`|Airline code|string|
-|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Departure datetime <br/> Ex.: 2018-03-31 19:16:38 |datetime|
-|`Airline.Passengers[n].Legs[n].ClassOfService`|Class service|string|
-|`CustomConfiguration.MerchantWebsite`|Merchant website|string|
-|`MerchantDefinedData[n].Key`|Field key set against antifraud provider <br/> [Table 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|int|no|-|
-|`MerchantDefinedData[n].Value`|Field value set against antifraud provider <br/> [Table 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}en/manual/antifraude#table-36-merchantdefineddata-(redshield))|var|no|-|
 
 ## Querying a transaction Cybersource
 
@@ -1472,7 +873,7 @@ This session describes the Notification POST service, which sends a notification
 
 * The status change URL can only use port 80 (default for http) or port 443 (default for https). We recommend that the merchant always work with SSL for this URL, that is, always HTTPS.
 
-* After the merchant receives the status change notification, it must perform a GET through the URL https://{antifraude endpoint}/analysi/v2/{Id}, sending the transaction ID that was received in the notification of the change of status to get the new status of the transaction.
+* After the merchant receives the status change notification, it must perform a GET through the URL https://{antifraude endpoint}/analysis/v2/{Id}, sending the transaction ID that was received in the notification of the change of status to get the new status of the transaction.
 
 ## Request
 
@@ -1690,171 +1091,12 @@ This section describes how to change the status of transactions in review to acc
 
 # Fingerprint Configuration
 
-This session describes how it works and how to set up the fingerprint on your checkout page and mobiles.
-
-## ReDShield
-
-### Integration with your checkout page(site)
-
-#### How it works?
-
-![Fluxo]({{ site.baseurl_root }}/images/braspag/af/fingerprint.png)
-
-1 - The merchant checkout page sends the attributes of the customer's device to Iovation, thus creating the *blackbox* <br/> 2 - The merchant receives the encrypted Iovation string and writes the same on the checkout page in a field of type *hidden* <br/> 3 - The merchant sends to Braspag, along with the other data of the transaction to be analyzed, the *blackbox* <br/> 4 - Braspag receives all the data, validated and sends to ReDShield <br/> 5 - ReDShield receives all data, sends the *blackbox* to Iovation to decrypt <br/> 6 - RedShield receives from Iovation the attributes of the customer's device
-
-#### How to configure?
-
-1 - Include Iovation's javascript on your checkout page <br/> 2 - Add configuration parameters in javascript <br/> 3 - Create a field of type *hidden* on your page to write the *blackbox* in it send it along with the transaction data to be analyzed
-
-**Note:** Do not cache the script as it may occur that multiple devices are identified as being the same.
-
-* Including javascript from Iovation
-
-To include javascript, add the following element **&lt;script&gt;** to your checkout page.
-
-This is the URL of the Iovation snare.js version: &lt;script type = "text / javascript" src = "https://mpsnare.iesnare.com/snare.js"&gt;&lt;/script&gt;
-
-* Configuration parameters
-
-|Parameter|Description|Default|
-|:-|:-|:-|
-|`io_install_flash`|Determines whether the user will be prompted to install Flash or update the version|false|
-|`io_flash_needs_handler`|This parameter will only be valid if the `io_install_flash` parameter is set to TRUE, otherwise it will not be executed <br/> You can customize your own message here if Flash is not installed <br/> Ex.: var `io_flash_needs_handler` = "Alert('Instalar Flash');"|-|
-|`io_install_stm`|Determines whether the user will be prompted to install Active X, which helps to collect hardware information <br/> This control is only available for Internet Explorer, and if Active X is already installed, this setting will have no effect|false|
-|`io_exclude_stm`|Determines whether Active X should be executed when installed <br/> It is possible to choose to disable control for specific platforms <br/> Possible values: <br/> 0 - runs on all platforms <br/> 1 - does not execute on Windows 9.x (including versions 3.1, 95, 98 and ME) <br/> 2 - does not run on Windows CE <br/> 4 - does not run on Windows XP (including NT, 2000, 2003 and 8 ) <br/> 8 - does not run in Windows Vista <br/> Note: Values are the combination of sums of the above values, for example: 12 - does not run in Windows XP (4) or Windows Vista (8)|15|
-|`io_bbout_element_id`|Id of the HTML element to fill with the *blackbox* <br/> If the `io_bb_callback` parameter is set, it will have no effect|-|
-|`io_enable_rip`|Determines whether to attempt to collect information to obtain the customer's real IP address|true|
-|`io_bb_callback`|Parameter to customize the check of the collection of the *blackbox* has been completed <br/> When using, write the function according to the following syntax: <br/> *io_callback (bb, complete)*, where: <br/> bb - blackbox value <br/> complete - boolean value indicating collection completed|-|
-
-**IMPORTANT!**
-Configuration parameters must be placed before calling the above tag. They determine how Iovation's javascript will work, and errors can occur if they are placed before the javascript call.
-
-**Exemple**
-![Exemple HTML]({{ site.baseurl_root }}/images/braspag/af/exemplohtmlred.png)
-
-## Integration into mobile applications
-
-**Overview**
-This topic explains how to integrate the Iovation mobile SDK into your iOS and Android applications.
-
-** Downloading the SDK **
-If you have not yet downloaded the iOS or Android SDK, you should do so before continuing. To do so, access one of the links below according to the desired one. <br/> [Download Deviceprint SDK iOS](https://github.com/iovation/deviceprint-SDK-iOS) <br/> [Download Deviceprint SDK Android](https://github.com/iovation/deviceprint-SDK-Android)
-
-** About integration **
-Add the Iovation Mobile SDK to your applications to collect information about customer devices. A *blackbox* that contains all available device information will be generated.
-
-![Fingerprint mobile collection flow]({{ site.baseurl_root }}/images/braspag/af/fingerprintmobile.png)
-
-### Integrating with iOS apps
-
-IOS Integration files and requirements
-![IOS integration details]({{ site.baseurl_root }}/images/braspag/af/fingerprintios1en.png)
-
-This version supports iOS 5.1.1 or higher on the following devices:
-- iPhone 3GS and later
-- iPod Touch 3rd generation or later
-- All iPads
-
-* Installing the SDK on iOS
-
-1 - Download and unzip the SDK
-
-2 - In Xcode, drag *iovation.framework* into the navigation area of your project
-![Installation Details SDK]({{site.baseurl_root}}/images/braspag/af/fingerprintios2.png)
-
-3 - In the dialog that appears:
-- Select *Copy items if needed* to copy the framework to the project directory
-- Select the check box for the targets in which you plan to use the framework
-![Installation Details SDK]({{site.baseurl_root}}/images/braspag/af/fingerprintios3.png)
-
-4 - Click finish
-
-5 - Add the following frameworks to the destination of the application in XCode:
-*ExternalAccessory.framework*. If you verify that the Wireless Accessory Configuration is enabled in Xcode 6 or higher and you do not need to, disable and re-add the ExternalAccessory.framework
-*CoreTelephony.framework*
-![Installation Details SDK]({{site.baseurl_root}}/images/braspag/af/fingerprintios4.png)
-
-6 - Optionally, add these frameworks if your application makes use of them:
-*AdSupport.framework*. If your app shows ads
-Note: Do not include if your application does not use ads, as the App Store rejects applications that include the framework but do not use ads
-*CoreLocation.framework*. If your application uses local monitoring
-Note: Do not include, unless your application requests the user's geolocation permission.
-
-* Using the + ioBegin function
-
-The *+ioBegin* function collects information about the device and generates a *blackbox*. This *blackbox* should be sent via the *Customer.BrowserFingerPrint* field in conjunction with the other data for analysis.
-
-* Syntax
-
-> NSSstring * bbox = [iovation ioBegin]
-
-* Return values
-
-> bbox - string containing *blackbox*
-
-**IMPORTANT!**
-The *blackbox* that returned from *+ioBegin* should never be empty. An empty black box indicates that the protection offered by the system may have been compromised.
-
-**Exemple**
-![Code exemple]({{ site.baseurl_root }}/images/braspag/af/exemplocodigo1.png)
-
-### Integrating with Android apps
-
-Android integration files and requirements
-![Details]({{site.baseurl_root}}/images/braspag/af/fingerprintandroiden.png) {:.left} {:title = "Android integration details"}
-
-**NOTE**
-If the listed permissions are not required by the application, the values obtained by using these permissions are ignored. Permissions are not required to get a *blackbox*, but help get more information from the device.
-
-Version 1.2.0 of the Iovation Mobile SDK for Android supports versions of Android 2.1 or higher.
-
-* Installing the SDK on Android
-
-1 - Download and unzip the deviceprint-lib-1.2.0.aar <br/> 2 - Start the IDE of your choice <br/> 3 - In Eclipse and Maven, deploy the *.aar* extension file to the local Maven repository, using maven-deploy. More details at: [Maven Guide](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html) <br/> 4 - In Android Studio, select *File -> New Module*. Expand *More Modules* and choose *Import existing .jar or .aar package* <br/> 5 - Select the file deviceprint-lib-1.2.0.aar, and click *Finish* <br/> 6 - Make sure that the device-lib is a build dependency in the build.gradle file
-
-![Details]({{website.baseurl_root}}/images/braspag/af/fingerprintandroid1.png) {:.left} {:title="Android integration details"}
-
-* Using the ioBegin function
-
-The *ioBegin* function collects information about the device and generates a *blackbox*. This *blackbox* should be sent via the *Customer.BrowserFingerPrint* field in conjunction with the other data for analysis.
-
-* Syntax
-
-> public static String ioBegin (Context context)
-
-* Parameters 
-
-> context - an instance of the class *android.content.Context* used to access information about the device
-
-* Return values
-
-> string containing the *blackbox*
-
-**IMPORTANT**
-The *blackbox* that returned from *ioBegin* should never be empty. An empty *blackbox* indicates that it only contains *0500* indicates that the protection offered by the system may have been compromised.
-
-**IMPORTANT**
-The *device-lib-1.2.0.aar* file should be bundled with the application.
-
-* Compiling the sample application in Android Studio
-
-**IMPORTANT**
-If the option to run the module does not appear, select *File -> Project Structure* and open the *Modules* panel. From there, set the Android SDK version to the list.
-
-![Code Exemple]({{ site.baseurl_root }}/images/braspag/af/exemplocodigo2.png)
-
-1 - Download and unzip the deviceprint-lib-1.2.0.aar <br/> 2 - In Android Studio, select *File -> Open* or click *Open Project* via *quick-start* <br/> 3 - In the directory where you unzipped the *deviceprint-lib-1.2.0.aar*, open the *android-studio-sample-app* directory of the sample application <br/> 4 - Open the *DevicePrintSampleActivity* <br> 5 - With some settings, Android Studio can detect an Android Framework in the project and not configure it. In this case, open the *Event Log* and click *Configure* <br/> 6 - A pop-up will open for you to select the Android Framework. Click *OK* to fix the errors. <br/> 7 - In Android Studio, select *File -> New Module*. Expand *More Modules* and choose *Import existing .jar or .aar package* <br/> 8 - Select the file deviceprint-lib-1.2.0.aar, and click *Finish* <br/> 9 - Make sure device-lib is a build dependency in build.gradle file <br/> ![Android integration details]({{site.baseurl_root}}/images/braspag/af/fingerprintandroid1.png) <br/> 10 - Open the DevicePrintSampleActivity folder
-11 - In the project navigation option, open *src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java* <br/> 12 - Right-click and select *Run DevicePrintSampleAct* <br/> 13 - Select a connected physical device or a virtual Android to run the application <br/> 14 - The application will compile and run
-
-The next example is simple, where it has a button and clicking a text box is filled with the *blackbox*. For a richer example, see the Android Studio sample application included with the SDK.
-
-## Cybersource
+An important component of fraud analysis, Fingerprint is a Javascript that must be inserted on your website to capture important data such as: customer's IP, browser version, operating system etc.
+Often, only the cart data is not enough to guarantee an assertive analysis. The data collected by Fingerprint complement the analysis and ensure that your store is more protected.
 
 It will be necessary to add two tags, the **&lt;script&gt;** inside the **&lt;head&gt;** tag for a correct performance and **&lt;noscript&gt;** within the **&lt;body&gt;** tag, so that the device data collection is performed even if the browser Javascript is disabled.
 
-**IMPORTANT**
-
-If the 2 code segments are not placed on the checkout page, the results may not be accurate.
+<aside class="warning">If the 2 code segments are not placed on the checkout page, the results may not be accurate</aside>
 
 **Domain**
 
@@ -1867,28 +1109,22 @@ If the 2 code segments are not placed on the checkout page, the results may not 
 
 |Variable|Description|
 |:-|:-|
-|`ProviderOrgId`|Sandbox = 1snn5n9w <br/> Production = k8vif92e|
-|`ProviderMerchantId`|Identifier of your merchant on Cybersource. If you do not have it, contact Braspag|
-|`ProviderIdentifier`|Identifier used to cross information obtained from the customer's device. This same identifier must be assigned to the `Customer.BrowserFingerprint` field that will be sent in the analysis request. <br/> The result of the concatenation between the `ProviderMerchantId` field and this, should be assigned to the `session_id` field of the script that will be included in the checkout page. <br/> Example: <br/> `ProviderMerchantId` = braspag <br/> `ProviderIdentifier` = 123456789 <br/> Result = braspag123456789 <br/><br/> Note: This identifier can be any value or the order number, but must be unique for 48 hours.|
+|`org_id`|Sandbox = 1snn5n9w <br/> Production = k8vif92e|
+|`session_id`|Concatenation of the variables `ProviderMerchantId` and` Customer.BrowserFingerprint` <br/> `ProviderMerchantId` = Identifier of your store in Cybersource. If not, contact Braspag <br/> `Customer.BrowserFingerprint` = Identifier used to cross information obtained from the buyer's device. <br/> Obs .: This identifier can be any value or the order number, but it must be unique for 48 hours.|
 
 > Javascript Code
 
 ![Code example]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
-**IMPORTANT**
-Be sure to copy all data correctly and have replaced the variables correctly by their values.
+The variables, when properly filled in, would provide a URL similar to the example below:
 
-** Configuring Your Web Server **
+![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfpaf.png)
 
-All objects refer to h.online-metrix.net, which is the DNS of the fingerprint server. When you are ready for production, you must change the server name to a local URL, and configure a URL redirection for h.online-metrix.net on your web server.
+<aside class = "warning"> Make sure that you copy all the data correctly and that you have replaced the variables correctly with the respective values. </aside>
 
-**IMPORTANT**
-If you do not complete this section, you will not receive correct results, and the fingerprint provider's domain (URL) will be visible, and your consumer is more likely to block it.
+** Integração em aplicativos mobile **
 
-## Integration into mobile applications
-
-** Downloading the SDK **
-If you have not yet downloaded the iOS or Android SDK, you should do so before continuing. To do so, access one of the links below as desired: <br/> [Download Deviceprint SDK iOS]({{site.baseurl_root}}/files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip) <br/> [Download Deviceprint SDK Android]({{site.baseurl_root}}/files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip)
+> Request the SDKs (iOS and Android) and manuals together with the integration ticket.
 
 # Tables
 
@@ -1896,62 +1132,47 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Value|
 |:-|
-|ReDShield|
 |Cybersource|
-
-## Table 2 - SplitingPaymentMethod
-
-|Value|Description|Provider|
-|:-|:-|:-|
-|None|Payment with a card only|ReDShield|
-|CardSplit|Payment with more than one card|ReDShield|
-|MixedPaymentMethodSplit|Payment with more than one payment method|ReDShield|
 
 ## Table 3 - Card.Brand
 
-|Value|Provider|
-|:-|:-|
-|Amex|ReDShield, Cybersource|
-|Diners|ReDShield, Cybersource|
-|Discover|ReDShield, Cybersource|
-|JCB|ReDShield, Cybersource|
-|Master|ReDShield, Cybersource|
-|Dankort|ReDShield, Cybersource|
-|Cartebleue|ReDShield, Cybersource|
-|Maestro|ReDShield, Cybersource|
-|Visa|ReDShield, Cybersource|
-|Elo|ReDShield, Cybersource|
-|Hipercard|ReDShield, Cybersource|
+|Valor|Provider|Observação|
+|:-|:-|:-|
+|Amex|Cybersource|-|
+|Diners|Cybersource|-|
+|Discover|Cybersource|-|
+|JCB|Cybersource|-|
+|Master|Cybersource|-|
+|Dankort|Cybersource|-|
+|Cartebleue|Cybersource|-|
+|Maestro|Cybersource|-|
+|Visa|Cybersource|-|
+|Elo|Cybersource|-|
+|Hipercard|Cybersource|Will be sent to Cybersource as Private Label|
+|Aura|Cybersource|Will be sent to Cybersource as Private Label|
+|Hiper|Cybersource|Will be sent to Cybersource as Private Label|
+|Naranja|Cybersource|Will be sent to Cybersource as Private Label|
+|Nevada|Cybersource|Will be sent to Cybersource as Private Label|
+|Cabal|Cybersource|Will be sent to Cybersource as Private Label|
+|Credz|Cybersource|Will be sent to Cybersource as Private Label|
+|Credsystem|Cybersource|Will be sent to Cybersource as Private Label|
+|Banese|Cybersource|Will be sent to Cybersource as Private Label|
+|Riachuelo|Cybersource|Will be sent to Cybersource as Private Label|
+|Carnet|Cybersource|Will be sent to Cybersource as Private Label|
+|Other|Cybersource|Will be sent to Cybersource as Private Label|
 
 ## Table 4 - ShippingMethod
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|SameDay|Same day delivery|ReDShield, Cybersource|
-|NextDay|Next day delivery|ReDShield, Cybersource|
-|TwoDay|Two-day delivery|ReDShield, Cybersource|
-|ThreeDay|Three day delivery|ReDShield, Cybersource|
-|LowCost|Low cost delivery|ReDShield, Cybersource|
-|Pickup|Store pickup|ReDShield, Cybersource|
-|CarrierDesignatedByCustomer|Customer designated delivery|ReDShield|
-|International|International delivery|ReDShield|
-|Military|Military delivery|ReDShield|
-|Other|Other delivery method|ReDShield, Cybersource|
-|None|No delivery, as it is a service or subscription|ReDShield, Cybersource| 
-
-## Table 6 - Customer.Gender
-
-|Value|Description|Provider|
-|:-|:-|:-|
-|Male|Male|ReDShield|
-|Female|Female|ReDShield|
-
-## Table 7 - Customer.Status
-
-|Value|Description|Provider|
-|:-|:-|:-|
-|New|Identifies when the customer is new to the merchant, never made a purchase|ReDShield|
-|Existing|Identifies when the customer exists in the merchant, has already made a purchase|ReDShield|
+|SameDay|Same day delivery|Cybersource|
+|NextDay|Next day delivery|Cybersource|
+|TwoDay|Two-day delivery|Cybersource|
+|ThreeDay|Three day delivery|Cybersource|
+|LowCost|Low cost delivery|Cybersource|
+|Pickup|Store pickup|Cybersource|
+|Other|Other delivery method|Cybersource|
+|None|No delivery, as it is a service or subscription|Cybersource| 
 
 ## Table 8 - Airline.JourneyType
 
@@ -1964,13 +1185,9 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Adult|Adult|ReDShield, Cybersource|
-|Child|Child|ReDShield, Cybersource|
-|Infant|Infant|ReDShield, Cybersource|
-|Youth|Youth|ReDShield|
-|Student|Student|ReDShield|
-|SeniorCitizen|Senior|ReDShield|
-|Military|Military|ReDShield|
+|Adult|Adult|Cybersource|
+|Child|Child|Cybersource|
+|Infant|Infant|Cybersource|
 
 ## Table 10 - Airline.Passengers[n].Status
 
@@ -2067,28 +1284,21 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Accept|Transaction accepted after fraud analysis |ReDShield, Cybersource|
-|Review|Transaction review after fraud analysis|ReDShield, Cybersource|
-|Reject|Rejected Transaction after fraud analysis|ReDShield, Cybersource|
+|Accept|Transaction accepted after fraud analysis|Cybersource|
+|Review|Transaction review after fraud analysis|Cybersource|
+|Reject|Rejected Transaction after fraud analysis|Cybersource|
 |Pendent|Transaction pending, when sending the same for analysis of fraud occurred a timeout in the response between Braspag and Cybersource|
-|Unfinished|Transaction not finalized for some reason, contract validation or internal error <br/> A transaction analyzed in Cybersource, in the analysis response the `ProviderAnalysisResult.ProviderStatus` field is equal to **REJECT** and the `ProviderAnalysisResult.ProviderCode` other than **481**, the transaction status will be **Unfinished**|ReDShield, Cybersource|
-|ProviderError|Transaction with provider error while being submitted for analysis|ReDShield, Cybersource|
+|Unfinished|Transaction not finalized for some reason, contract validation or internal error <br/> A transaction analyzed in Cybersource, in the analysis response the `ProviderAnalysisResult.ProviderStatus` field is equal to **REJECT** and the `ProviderAnalysisResult.ProviderCode` other than **481**, the transaction status will be **Unfinished**|Cybersource|
+|ProviderError|Transaction with provider error while being submitted for analysis|Cybersource|
 
 ## Table 21 - ProviderStatus
 
 |Value|Description|Provider|From-To with the `Status` field (Transaction status in Antifraud Gateway Braspag)|
 |:-|:-|:-|:-|
-|APPROVE|Approved transaction at provider|ReDShield|Accept|
-|ACCEPT|Accepted transaction at provider|ReDShield, Cybersource|Accept|
-|PEND|Transactio review at provider|ReDShield|Review|
-|CHALLENGE|Transaction review at provider|ReDShield|Review|
+|ACCEPT|Accepted transaction at provider|Cybersource|Accept|
 |REVIEW|Transaction review at provider|Cybersource|Review|
-|CANCEL|Reject transaction at provider|ReDShield|Reject|
-|DENY|Rejected transaction at provider|ReDShield|Reject|
 |REJECT|Rejected transaction at provider|Cybesource|Reject|
-|ENETLP|Transaction with provider error|ReDShield|ProviderError|
-|ENORSP|Transaction with provider error|ReDShield|ProviderError|
-|ERROR|Transaction with provider error|ReDShield, Cybersource|ProviderError|
+|ERROR|Transaction with provider error|Cybersource|ProviderError|
 
 ## Table 22 - ProviderAnalysisResult.ProviderCode
 
@@ -2337,53 +1547,4 @@ If you have not yet downloaded the iOS or Android SDK, you should do so before c
 |N|The rule can not be evaluated because the data is insufficient|Cybersource|
 |E|The rule can not be evaluated because an error has occurred|Cybersource|
 
-## Table 36 - MerchantDefinedData (ReDShield)
-
-|Key|Value|Type|Tamanho|
-|:-|:-|:-|:-|
-|1 a 3|Reserved|-|-|
-|4 a 8|Free and defined fields with the antifraud provider, according to the business rules|var|256|
-|9 a 13|Reserved|-|-|
-|14|Segment|MCC (Merchant Category Code) of your merchant|int|-|
-|15 a 20|Free and defined fields with the antifraud provider, according to the business rules|var|30|
-|21|Reserved|-|-|
-|22|Free and defined fields with the antifraud provider, according to the business rules|var|30|
-|23|Reserved|-|-|
-|24|Free and defined fields with the antifraud provider, according to the business rules|var|30|
-|25|Reserved|-|-|
-
 ## Table 37 - MerchantDefinedData (Cybersource)
-
-|Key|Value|Type|
-|:-|:-|:-|
-|1|Customer has logged in <br/> If the final customer has logged into the site to buy, send: his login <br/> If you made purchase as visitor, send: Guest <br/> If the sale was made directly by a third party, an agent for example does not send the field|string|
-|2|Quantity on days that the client is your client|int|
-|3|Quantity of parcels of the order|int|
-|4|Sales Channel <br/> Possible values: <br/> Call Center -> purchase by phone <br/> Web -> purchase via the web <br/> Portal -> an agent making the purchase for the client <br/> Kiosk -> kiosk purchases <br/> Mobile -> purchases made on mobile phones or tablets|string|
-|5|Send coupon / discount code if customer uses for purchase|string|
-|6|Date of last purchase made by customer <br/> Format: MM-DD-AAAA - Ex.: 12-15-2017|date|
-|7|Seller's code or name|string|
-|8|Attempts made by the customer to make the payment of the same order, which may be with different credit cards and / or through other payment methods|int|
-|9|Identifies if customer will withdraw the product in the store <br/> Possible values: SIM or NAO|string|
-|10|Identifies whether the payment will be made by another person who is not present on the trip or package <br/> Possible values: SIM ou NAO|string|
-|11|Hotel category (how many stars) <br/> Possible values: <br/> 1 -> Simples <br/> 2 -> Economicoy <br> 3 -> Turismo <br/> 4 -> Superior <br/> 5 -> Luxo|int|
-|12|Check in at the hotel <br/> Format: MM-DD-AAAA - Ex.: 12-05-2018|date|
-|12|Check out at the hotel <br/> Format: MM-DD-AAAA - Ex.: 19-05-2018|date|
-|14|Travel category or package <br> Possible values: Nacional or Internacional or National/International|string|
-|15|Name of airline / car rental company / hotel <br/> Send the name of each of the companies, separated by /|string|
-|16|Reservation PNR code <br/> When there is a change of the reservation for this PNR, with anticipation of the flight date, it is important to re-analyze the fraud by sending this PNR again|string|
-|17|It identifies if there was anticipation of reservation <br/> Possible values: SIM or NAO <br/> If yes, it is also fundamental to send the field 16 - Reservation PNR code|string
-|18-25|Reserved for new tourism fields|-|
-|26|Bin (6 first digits) of the credit card|string|
-|27-30|Reserved for internal fields|-|
-|31|Quantity of exchanges of credit card numbers that the customer made to make the payment of the order|int|
-|32|Identifies whether the email was pasted or typed <br/> Possible values: Digitado ou Colado|string|
-|33|Identifies whether the credit card number was pasted or typed <br/> Possible values: Digitado ou Colado|string|
-|34|Identifies if the email has been confirmed for account activation <br/> Possible value: SIM <br/> If an account activation process with email verification has not been confirmed or does not exist, do not send the field|string|
-|35|Identifies the client type <br/> Possible values: Local or Turista <br/> If you do not have this information, do not send the field|string|
-|36|Identifies if a gift card (GiftCard) was used in the purchase <br/> Possible value: SIM <br/> If no card was used in the purchase, do not send the field|string|
-|37|Order submission method <br/> Possible values: Sedex ou Sedex 10 ou 1 Dia ou 2 Dias ou Motoboy ou Mesmo Dia <br/> If you do not have a shipping method, do not send the field|string|
-|38|Customer's telephone number identified through the bina when sales through the sales channel equal to Call Center <br/> Format: DDDNnumber - ex: 2121114720|string|
-|39 a 40|Reserved|-|
-|41 a 95|Free and defined fields with the antifraud provider, according to the business rules|-|
-|96 a 100|Reserved|-|
