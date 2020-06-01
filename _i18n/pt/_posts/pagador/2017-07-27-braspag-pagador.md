@@ -6086,8 +6086,6 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 
 ### Integração em aplicativos mobile
 
-**Integraçao Mobile**
-
 > Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
 
 # Consultas
