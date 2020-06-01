@@ -2966,7 +2966,6 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 
 > Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
 
-
 ## Agenda Financeira
 
 No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).
