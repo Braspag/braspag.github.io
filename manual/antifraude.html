@@ -3547,27 +3547,6 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
 
 <aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
-<p><strong>Domain</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Ambiente</th>
-      <th style="text-align: left">Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Testing</code></td>
-      <td style="text-align: left">Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Production</code></td>
-      <td style="text-align: left">Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net</td>
-    </tr>
-  </tbody>
-</table>
-
 <p><strong>Variáveis</strong>
 Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class="highlighter-rouge">org_id</code> e o <code class="highlighter-rouge">session_id</code>. O <code class="highlighter-rouge">org_id</code> é um valor predefinido conforme tabela abaixo, já o <code class="highlighter-rouge">session_id</code> é composto pela concatenação dos parâmetros <code class="highlighter-rouge">ProviderMerchantId</code> e <code class="highlighter-rouge">Customer.BrowserFingerprint</code>, conforme exemplo abaixo:</p>
 
@@ -3602,7 +3581,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
 
 <aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 
-<h3 id="integração-em-aplicativos-mobile">Integração em aplicativos mobile</h3>
+<p>** Integração em aplicativos mobile **</p>
 
 <blockquote>
   <p>Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.</p>

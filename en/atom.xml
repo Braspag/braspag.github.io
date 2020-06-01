@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-06-01T03:22:54+00:00</updated>
+    <updated>2020-06-01T03:31:59+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33284,27 +33284,6 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
 &lt;p&gt;It will be necessary to add two tags, the &lt;strong&gt;&amp;lt;script&amp;gt;&lt;/strong&gt; inside the &lt;strong&gt;&amp;lt;head&amp;gt;&lt;/strong&gt; tag for a correct performance and &lt;strong&gt;&amp;lt;noscript&amp;gt;&lt;/strong&gt; within the &lt;strong&gt;&amp;lt;body&amp;gt;&lt;/strong&gt; tag, so that the device data collection is performed even if the browser Javascript is disabled.&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;If the 2 code segments are not placed on the checkout page, the results may not be accurate&lt;/aside&gt;
-
-&lt;p&gt;&lt;strong&gt;Domain&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Environment&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Testing&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Use h.online-metrix.net, which is the DNS of the fingerprint server, as shown in the HTML example below&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Production&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Change the domain to a local URL, and configure your web server to redirect this URL to h.online-metrix.net&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
 
 &lt;p&gt;&lt;strong&gt;Variables&lt;/strong&gt;&lt;/p&gt;
 
