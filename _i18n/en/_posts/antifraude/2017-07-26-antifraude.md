@@ -1098,13 +1098,6 @@ It will be necessary to add two tags, the **&lt;script&gt;** inside the **&lt;he
 
 <aside class="warning">If the 2 code segments are not placed on the checkout page, the results may not be accurate</aside>
 
-**Domain**
-
-|Environment|Description|
-|:-|:-|
-|`Testing`|Use h.online-metrix.net, which is the DNS of the fingerprint server, as shown in the HTML example below|
-|`Production`|Change the domain to a local URL, and configure your web server to redirect this URL to h.online-metrix.net|
-
 **Variables**
 
 |Variable|Description|
