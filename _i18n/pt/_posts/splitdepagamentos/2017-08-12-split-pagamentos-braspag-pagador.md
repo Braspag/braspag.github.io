@@ -2925,14 +2925,14 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |12|Pending|Cartão de Crédito e Débito  (Transferência eletrônica) |Esperando retorno da instituição financeira|
 |13|Aborted|Todos|Pagamento cancelado por falha no processamento|
 
-## Configuração do Fingerprint
+### Configuração do Fingerprint
 
 Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja está mais protegida.
 
 Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
 
-### Integração em checkout
+#### Integração em checkout
 
 Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
@@ -2958,7 +2958,7 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 
 <aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 
-### Integração em aplicativos mobile
+#### Integração em aplicativos mobile
 
 > Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
 
