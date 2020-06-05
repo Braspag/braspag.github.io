@@ -2794,7 +2794,7 @@ Nome do campo: ReleasedToAnticipation
 
 **Request**
 
-<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?releasedToAnticipation=Sale&releasedToAnticipation=true</span></aside>
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?releasedToAnticipation=true</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -3526,6 +3526,8 @@ Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é 
 
 O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso A API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.  
 
+> É possível solicitar que todo chargeback seja repassado para o subordinado por padrão, mediante abertura de chamado.
+
 No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.
 
 **Request**
@@ -3656,3 +3658,41 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |6|Boleto registrado pago a menor|
 |7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//manual/risknotification)|
 |8|Alerta de fraude|
+
+## Anexos
+
+### Lista de Status da Transação
+
+Status retornados pela API
+
+|Código|Status do Pagamento|Meio de pagamento|Descrição|
+|------|-------------------|-----------------|---------|
+|0|NotFinished|Todos|Falha ao processar o pagamento|
+|1|Authorized|Todos|Meio de pagamento apto a ser capturado ou pago(Boleto)|
+|2|PaymentConfirmed|Todos|Pagamento confirmado e finalizado|
+|3|Denied|Cartão de Crédito e Débito (Transferência eletrônica) |
+|10|Voided|Todos|Pagamento cancelado|
+|11|Refunded|Cartão de crédito e Débito|Pagamento Cancelado/Estornado|
+|12|Pending|Cartão de Crédito e Débito  (Transferência eletrônica) |Esperando retorno da instituição financeira|
+|13|Aborted|Todos|Pagamento cancelado por falha no processamento|
+|20|Scheduled|Cartão de crédito|Recorrência agendada|
+
+### Lista de Status do AntiFraude
+
+| Código | Descrição  |
+|--------|------------|
+| 0      | Unknown    |
+| 1      | Accept     |
+| 2      | Reject     |
+| 3      | Review     |
+| 4      | Aborted    |
+| 5      | Unfinished |
+
+### Lista de HTTP Status Code
+
+| HTTP Status Code | Descrição             |
+|------------------|-----------------------|
+| 200              | OK                    |
+| 400              | Bad Request           |
+| 404              | Resource Not Found    |
+| 500              | Internal Server Error |
