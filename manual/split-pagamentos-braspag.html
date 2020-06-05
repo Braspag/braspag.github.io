@@ -3433,7 +3433,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?releasedToAnticipation=Sale&amp;releasedToAnticipation=true</span></aside>
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?releasedToAnticipation=true</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">[</span><span class="w">
@@ -5257,6 +5257,10 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <p>O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso A API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.</p>
 
+<blockquote>
+  <p>É possível solicitar que todo chargeback seja repassado para o subordinado por padrão, mediante abertura de chamado.</p>
+</blockquote>
+
 <p>No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.</p>
 
 <p><strong>Request</strong></p>
@@ -5501,6 +5505,145 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
     <tr>
       <td>8</td>
       <td>Alerta de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="anexos">Anexos</h2>
+
+<h3 id="lista-de-status-da-transação">Lista de Status da Transação</h3>
+
+<p>Status retornados pela API</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Status do Pagamento</th>
+      <th>Meio de pagamento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>NotFinished</td>
+      <td>Todos</td>
+      <td>Falha ao processar o pagamento</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Authorized</td>
+      <td>Todos</td>
+      <td>Meio de pagamento apto a ser capturado ou pago(Boleto)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>PaymentConfirmed</td>
+      <td>Todos</td>
+      <td>Pagamento confirmado e finalizado</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Denied</td>
+      <td>Cartão de Crédito e Débito (Transferência eletrônica)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Voided</td>
+      <td>Todos</td>
+      <td>Pagamento cancelado</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Refunded</td>
+      <td>Cartão de crédito e Débito</td>
+      <td>Pagamento Cancelado/Estornado</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Pending</td>
+      <td>Cartão de Crédito e Débito  (Transferência eletrônica)</td>
+      <td>Esperando retorno da instituição financeira</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Aborted</td>
+      <td>Todos</td>
+      <td>Pagamento cancelado por falha no processamento</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Scheduled</td>
+      <td>Cartão de crédito</td>
+      <td>Recorrência agendada</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="lista-de-status-do-antifraude">Lista de Status do AntiFraude</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Accept</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Reject</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Review</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Aborted</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Unfinished</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="lista-de-http-status-code">Lista de HTTP Status Code</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status Code</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Bad Request</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Resource Not Found</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Internal Server Error</td>
     </tr>
   </tbody>
 </table>
