@@ -38,7 +38,10 @@ When the shopper accesses the checkout, the merchant must generate AccessToken f
 
 To request AccessToken, the establishment must POST to the following endpoint in the server-to-server template:
 
-**https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}**
+| Endpoint | Environment |
+| --- | --- |
+| https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Sandbox |
+| https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Production |
 
 In place of **{mid}** you must fill in the MerchantID of your store in Braspag's Pagador platform.
 
