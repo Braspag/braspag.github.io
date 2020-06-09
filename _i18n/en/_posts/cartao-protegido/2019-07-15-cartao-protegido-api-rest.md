@@ -46,8 +46,8 @@ Integration is made through services as Web Services. The model used is quite si
 
 | Endpoint | Environment |
 | --- | --- |
-| https://cartaoprotegidoapisandbox.braspag.com.br/v1/ | Sandbox |
-| https://cartaoprotegidoapi.braspag.com.br/v1/ | Production |
+| https://cartaoprotegidoapisandbox.braspag.com.br/ | Sandbox |
+| https://cartaoprotegidoapi.braspag.com.br/ | Production |
 
 * **POST** - The HTTP POST method is used to create the token.
 * **DEL** - The HTTP DEL method is used for token removal.
