@@ -164,7 +164,24 @@
 
 <p>To request AccessToken, the establishment must POST to the following endpoint in the server-to-server template:</p>
 
-<p><strong>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Endpoint</th>
+      <th>Environment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}</td>
+      <td>Sandbox</td>
+    </tr>
+    <tr>
+      <td>https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}</td>
+      <td>Production</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>In place of <strong>{mid}</strong> you must fill in the MerchantID of your store in Braspag’s Pagador platform.</p>
 

@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-06-09T20:43:02+00:00</updated>
+    <updated>2020-06-09T20:44:58+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -306,7 +306,24 @@
 
 &lt;p&gt;To request AccessToken, the establishment must POST to the following endpoint in the server-to-server template:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Endpoint&lt;/th&gt;
+      &lt;th&gt;Environment&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}&lt;/td&gt;
+      &lt;td&gt;Sandbox&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}&lt;/td&gt;
+      &lt;td&gt;Production&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;p&gt;In place of &lt;strong&gt;{mid}&lt;/strong&gt; you must fill in the MerchantID of your store in Braspag’s Pagador platform.&lt;/p&gt;
 
