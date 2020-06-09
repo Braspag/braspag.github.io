@@ -164,7 +164,24 @@
 
 <p>Para solicitar o AccessToken, o estabelecimento deve realizar um POST para a seguinte endpoint no modelo server-to-server:</p>
 
-<p><strong>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Endpoint</th>
+      <th>Ambiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}</td>
+      <td>Sandbox</td>
+    </tr>
+    <tr>
+      <td>https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}</td>
+      <td>Produção</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>No lugar do <strong>{mid}</strong> deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag.</p>
 
