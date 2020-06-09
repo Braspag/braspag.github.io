@@ -46,8 +46,8 @@ A integração é realizada através de serviços disponibilizados como Web Serv
 
 | Endpoint | Ambiente |
 | --- | --- |
-| https://cartaoprotegidoapisandbox.braspag.com.br/v1/ | Sandbox |
-| https://cartaoprotegidoapi.braspag.com.br/v1/ | Produção |
+| https://cartaoprotegidoapisandbox.braspag.com.br/ | Sandbox |
+| https://cartaoprotegidoapi.braspag.com.br/ | Produção |
 
 * **POST** - O método HTTP POST é utilizado na criação do token.
 * **DEL** - O método HTTP DEL é utilizado para remoção de token.
