@@ -38,7 +38,10 @@ Quando o comprador acessar o checkout, o estabelecimento deve gerar o AccessToke
 
 Para solicitar o AccessToken, o estabelecimento deve realizar um POST para a seguinte endpoint no modelo server-to-server:
 
-**https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid}**
+| Endpoint | Ambiente |
+| --- | --- |
+| https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Sandbox |
+| https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Produção |
 
 No lugar do **{mid}** deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag. 
 
