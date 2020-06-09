@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-06-05T13:03:33+00:00</updated>
+    <updated>2020-06-09T20:43:02+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4124,11 +4124,11 @@ This procedure is also valid for establishments that performed authentication ou
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;https://cartaoprotegidoapisandbox.braspag.com.br/v1/&lt;/td&gt;
+      &lt;td&gt;https://cartaoprotegidoapisandbox.braspag.com.br/&lt;/td&gt;
       &lt;td&gt;Sandbox&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;https://cartaoprotegidoapi.braspag.com.br/v1/&lt;/td&gt;
+      &lt;td&gt;https://cartaoprotegidoapi.braspag.com.br/&lt;/td&gt;
       &lt;td&gt;Production&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
