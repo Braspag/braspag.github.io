@@ -276,6 +276,7 @@
       </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
          </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
@@ -356,6 +357,7 @@ curl
       <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
       <span class="s2">"Email"</span>:<span class="s2">"comprador@braspag.com.br"</span>,
       <span class="s2">"Birthdate"</span>:<span class="s2">"1991-01-02"</span>,
+      <span class="s2">"IpAddress"</span>:<span class="s2">"127.0.0.1"</span>,
       <span class="s2">"Address"</span>:<span class="o">{</span>  
          <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
          <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
@@ -495,6 +497,13 @@ curl
       <td>10</td>
       <td>Não</td>
       <td>Data de nascimento do Comprador no formato AAAA-MM-DD</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IpAddress</code></td>
+      <td>Texto</td>
+      <td>45</td>
+      <td>Não</td>
+      <td>Endereço de IP do comprador. Suporte a IPv4 e IPv6</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
