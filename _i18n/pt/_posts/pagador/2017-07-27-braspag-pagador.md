@@ -107,6 +107,7 @@ Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliaçõ
       "IdentityType":"CPF",
       "Email":"comprador@braspag.com.br",
       "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
       "Address":{  
          "Street":"Alameda Xingu",
          "Number":"512",
@@ -188,6 +189,7 @@ curl
       "IdentityType":"CPF",
       "Email":"comprador@braspag.com.br",
       "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
       "Address":{  
          "Street":"Alameda Xingu",
          "Number":"512",
@@ -265,6 +267,7 @@ curl
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
 |`Customer.Email`|Texto|255|Não|Email do comprador|
 |`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador no formato AAAA-MM-DD|
+|`Customer.IpAddress`|Texto|45|Não|Endereço de IP do comprador. Suporte a IPv4 e IPv6|
 |`Customer.Address.Street`|Texto|255|Não*|Endereço de contato do comprador|
 |`Customer.Address.Number`|Texto|15|Não*|Número endereço de contato do comprador|
 |`Customer.Address.Complement`|Texto|50|Não*|Complemento do endereço de contato do Comprador|
