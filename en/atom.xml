@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-06-22T20:49:16+00:00</updated>
+    <updated>2020-07-03T13:02:37+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -582,9 +582,9 @@
 
 &lt;p&gt;Example of a parameterization on the checkout page:&lt;/p&gt;
 
-&lt;p&gt;To download the code, click [here] (https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/en/_posts/silent-order-post-example.html)&lt;/p&gt;
+&lt;p&gt;To download the code, click [here] (https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/consultation-bin.jpg&quot; alt=&quot;Checkout Page&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/consulta-bin.jpg&quot; alt=&quot;Checkout Page&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;3-authorizing-with-paymenttoken&quot;&gt;3. Authorizing with PaymentToken&lt;/h2&gt;
 
