@@ -116,12 +116,15 @@ The establishment shall parameterize the form elements with the following classe
 |language|**PT** or **EN** or **ES**|
 |enableBinQuery|**true** if you want to enable BIN Query (returns card characteristics). **false** otherwise.|
 |enableVerifyCard|**true** if you want to enable ZeroAuth (returns if the card is valid or not). **false** otherwise.|
+|enableTokenize| **true** if you want to save the card directly on your vault in the Cartão Protegido (retorn a 'cardToken' instead of a 'paymentToken'). **false** otherwise. |
+
 
 **SCRIPT RESPONSE**
 
 |Property|Description|
 |-----------|---------|
 |PaymentToken|Payment Token in the Format of a GUID (36)|
+|CardToken| Permanent token to be used on a payment request on a GUID format (36) Obs.: Only works if 'enableTokenize' is **true**|
 |brand|Returned when enableBinQuery option is **true**. Card Brand Name (Visa, Master, Bond, Amex, Diners, JCB, Hipercard)|
 |forerignCard|Returned when enableBinQuery option is **true**. The field returns **true** if it is a card issued outside Brazil. **false** otherwise|
 |binQueryReturnCode|Returned when enableBinQuery option is **true**. "00" if BIN parsing is successful.|
@@ -149,7 +152,7 @@ The script provided by Braspag provides three events for handling and managed by
 
 Example of a parameterization on the checkout page:
 
-To download the code, click [here] (https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)
+To download the code, click [here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)
 
 ![Checkout Page]({{ site.baseurl_root }}/images/consulta-bin.jpg)
 
