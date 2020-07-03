@@ -149,9 +149,9 @@ The script provided by Braspag provides three events for handling and managed by
 
 Example of a parameterization on the checkout page:
 
-To download the code, click [here] (https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/en/_posts/silent-order-post-example.html)
+To download the code, click [here] (https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)
 
-![Checkout Page]({{ site.baseurl_root }}/images/consultation-bin.jpg)
+![Checkout Page]({{ site.baseurl_root }}/images/consulta-bin.jpg)
 
 ## 3. Authorizing with PaymentToken
 
