@@ -2033,7 +2033,7 @@ curl
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas|
 |`Payment.RecurrentPayment.EndDate`|Texto |10 |Não|Data para termino da recorrência|
-|`Payment.RecurrentPayment.Interval`|Texto |10 |Não|Intervalo da recorrência.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
+|`Payment.RecurrentPayment.Interval`|Texto |10 |Não|Intervalo da recorrência.<br /><ul><li>Monthly (Default)</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
 |`Payment.RecurrentPayment.AuthorizeNow`|Booleano |--- |Sim|Se true, autoriza no momento da requisição. false para agendamento futuro|
 |`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
@@ -2146,7 +2146,7 @@ curl
 |`NextRecurrency`|Data de quando acontecerá a próxima recorrência |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência |Texto |7 |05/2019 (MM/YYYY) |
 |`Interval`|Intervalo entre as recorrência. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
-|`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não. |Booleano |--- |true ou false |
+|`AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser Autorizada ou não. |Booleano |--- |true ou false |
 
 ### Agendamento de uma recorrência
 
@@ -2529,7 +2529,7 @@ curl
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
 |`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
-|`Interval`|Intervalo da recorrência. <ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Texto |2 |Sim|
+|`Interval`|Intervalo da recorrência. <ul><li>Monthly</li><li>Bimonthly</li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Texto |10 |Sim|
 
 #### Resposta
 
