@@ -21,6 +21,7 @@ Quaisquer novos recursos adicionados ao Serviço, também estarão sujeitos aos 
  
 ## SEÇÃO 1 – CONDIÇÕES
 
+
 Reservamos o direito de recusar o serviço a qualquer pessoa por qualquer motivo a qualquer momento no ato da contratação.
 Você concorda em não vender, revender ou explorar qualquer parte do Serviço, sem nossa permissão expressa por escrito.
 Os títulos usados nesse acordo são incluídos apenas por conveniência e não limitam ou afetam os Termos gerais contratuais.
@@ -32,10 +33,12 @@ O processamento dos extratos irá ocorrer a partir da data em que cada PROCESSAD
  
 ## SEÇÃO 2 – FATURAMENTO
 
+
 A contratação da oferta incorrerá em cobranças apenas sobre os serviços ativos em ambiente de produção.
 Os valores descritos nos planos anteriormente apresentados serão acrescidos de ISS em conformidade com a alíquota vigente quando da emissão da nota fiscal relativa aos serviços prestados pela Braspag.
 A contratante atesta que todas as informações fornecidas no cadastro são verdadeiras, precisas e atualizadas.
  
 ## SEÇÃO 3 - INFORMAÇÕES DE CONTATO
+
 
 Qualquer informação adicional ou dúvidas devem ser enviadas para nós através do comercial@braspag.com.br.
