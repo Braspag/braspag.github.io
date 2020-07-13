@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Continuidade de Negócios
+title: TERMO DE USO AGILIZA
 description:
 search: true
 toc_footers: true
