@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: TERMO DE USO AGILIZA
+title: Termo de Uso Agiliza
 description:
 search: true
 toc_footers: true
