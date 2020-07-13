@@ -347,6 +347,10 @@
       <td>enableVerifyCard</td>
       <td><strong>true</strong> if you want to enable ZeroAuth (returns if the card is valid or not). <strong>false</strong> otherwise.</td>
     </tr>
+    <tr>
+      <td>enableTokenize</td>
+      <td><strong>true</strong> if you want to save the card directly on your vault in the Cartão Protegido (retorn a ‘cardToken’ instead of a ‘paymentToken’). <strong>false</strong> otherwise.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -363,6 +367,10 @@
     <tr>
       <td>PaymentToken</td>
       <td>Payment Token in the Format of a GUID (36)</td>
+    </tr>
+    <tr>
+      <td>CardToken</td>
+      <td>Permanent token to be used on a payment request on a GUID format (36) Obs.: Only works if ‘enableTokenize’ is <strong>true</strong></td>
     </tr>
     <tr>
       <td>brand</td>
@@ -440,7 +448,7 @@
 
 <p>Example of a parameterization on the checkout page:</p>
 
-<p>To download the code, click [here] (https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)</p>
+<p>To download the code, click <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html">here</a></p>
 
 <p><img src="https://braspag.github.io//images/consulta-bin.jpg" alt="Checkout Page" /></p>
 
