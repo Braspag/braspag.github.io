@@ -108,6 +108,7 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 ### Defindo parâmetros
 
 **PARÂMETROS DO SCRIPT**
+
 |Propriedade|Descrição|
 |-----------|---------|
 |accessToken| Token de Acesso obtido via API de autenticação da Braspag|
@@ -118,6 +119,7 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 |enableTokenize| **true** se quiser salvar o cartão diretamente no Cartão Protegido (retorna um cardToken ao invés de um paymentToken). **false** caso contrário. |
 
 **RETORNOS DO SCRIPT**
+
 |Propriedade|Descrição|
 |-----------|---------|
 |PaymentToken| Token efêmero utilizado para pagamento no formato de um GUID (36)|
