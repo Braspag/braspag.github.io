@@ -4,7 +4,7 @@ title: 2.2. SDK Android
 description: Gateway Braspag technical integration
 search: true
 translated: true
-categories: manual
+categories: manualp
 tags:
   - 3DS 2.0 Authentication
 ---
