@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-07-13T21:37:53+00:00</updated>
+    <updated>2020-07-13T21:39:12+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -673,10 +673,10 @@ For more details on implementation, please visit: [Pagador API] (https://braspag
     
     <entry>
         <title>2.3. SDK IOS</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/integration-sdk-ios"/>
+        <category term="manualp" />
+        <link href="https://braspag.github.io//en/manualp/integration-sdk-ios"/>
         <updated>2019-09-13T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/integration-sdk-ios</id>
+        <id>https://braspag.github.io//en/manualp/integration-sdk-ios</id>
         <content type="html">&lt;h1 id=&quot;what-is-3ds-20&quot;&gt;What is 3DS 2.0?&lt;/h1&gt;
 
 &lt;p&gt;For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?] (https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)&lt;/p&gt;
@@ -1756,10 +1756,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     
     <entry>
         <title>2.2. SDK Android</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/integration-sdk-android"/>
+        <category term="manualp" />
+        <link href="https://braspag.github.io//en/manualp/integration-sdk-android"/>
         <updated>2019-09-13T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/integration-sdk-android</id>
+        <id>https://braspag.github.io//en/manualp/integration-sdk-android</id>
         <content type="html">&lt;h1 id=&quot;what-is-3ds-20&quot;&gt;What is 3DS 2.0?&lt;/h1&gt;
 
 &lt;p&gt;For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?] (https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)&lt;/p&gt;
