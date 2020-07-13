@@ -18,9 +18,8 @@ tags:
 As informações e serviços disponíveis é oferecido pela Braspag Tecnologia em Pagamentos Ltda. (“Braspag”), com a condição da sua aceitação de todos os termos, condições, políticas e avisos declarados aqui.
  
 Quaisquer novos recursos adicionados ao Serviço, também estarão sujeitos aos Termos e Condições. Você pode revisar a versão mais atual dos Termos a qualquer momento em: [Termo de Uso Agiliza]( https://braspag.github.io//tutorial/tdeusoagiliza) . Reservamos o direito de atualizar, alterar ou trocar qualquer parte desses Termos de serviço ao publicar atualizações e/ou alterações em nosso produto. É sua responsabilidade verificar as alterações feitas nesta página periodicamente. Seu uso contínuo ou acesso ao Serviço após a publicação de quaisquer alterações constitui aceitação de tais alterações.
- 
-## SEÇÃO 1 – CONDIÇÕES
 
+## SEÇÃO 1 – CONDIÇÕES
 
 Reservamos o direito de recusar o serviço a qualquer pessoa por qualquer motivo a qualquer momento no ato da contratação.
 Você concorda em não vender, revender ou explorar qualquer parte do Serviço, sem nossa permissão expressa por escrito.
