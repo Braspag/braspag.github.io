@@ -118,7 +118,6 @@ The establishment shall parameterize the form elements with the following classe
 |enableVerifyCard|**true** if you want to enable ZeroAuth (returns if the card is valid or not). **false** otherwise.|
 |enableTokenize| **true** if you want to save the card directly on your vault in the Cartão Protegido (retorn a 'cardToken' instead of a 'paymentToken'). **false** otherwise. |
 
-
 **SCRIPT RESPONSE**
 
 |Property|Description|
