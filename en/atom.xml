@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-07-13T21:30:43+00:00</updated>
+    <updated>2020-07-13T21:34:15+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8719,10 +8719,10 @@ The Master must provide Subordinate information in order to use it during the On
     
     <entry>
         <title>1. Introduction to 3DS 2.0</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/emv3ds"/>
+        <category term="manualp" />
+        <link href="https://braspag.github.io//en/manualp/emv3ds"/>
         <updated>2018-09-09T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/emv3ds</id>
+        <id>https://braspag.github.io//en/manualp/emv3ds</id>
         <content type="html">&lt;h1 id=&quot;3ds-20-authentication&quot;&gt;3DS 2.0 Authentication&lt;/h1&gt;
 
 &lt;h2 id=&quot;what-is-3ds-20&quot;&gt;What is 3DS 2.0?&lt;/h2&gt;
