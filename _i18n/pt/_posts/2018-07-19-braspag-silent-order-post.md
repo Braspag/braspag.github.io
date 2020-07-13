@@ -120,7 +120,6 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 
 **RETORNOS DO SCRIPT**
 
-
 |Propriedade|Descrição|
 |-----------|---------|
 |PaymentToken| Token efêmero utilizado para pagamento no formato de um GUID (36)|
