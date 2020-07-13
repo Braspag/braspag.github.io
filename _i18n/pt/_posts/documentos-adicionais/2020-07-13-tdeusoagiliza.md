@@ -1,3 +1,14 @@
+---
+layout: tutorial
+title: Continuidade de Negócios
+description:
+search: true
+toc_footers: true
+categories: tutorial
+tags:
+  - Documentos Adicionais
+---
+
 # TERMO DE USO AGILIZA - CONCILIAÇÃO
 
 ## TERMOS E CONDIÇÕES
