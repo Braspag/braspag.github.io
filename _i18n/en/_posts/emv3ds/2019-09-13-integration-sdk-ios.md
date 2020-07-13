@@ -4,7 +4,7 @@ title: 2.3. SDK IOS
 description: Gateway Braspag technical integration
 search: true
 translated: true
-categories: manual
+categories: manualp
 tags:
   - 3DS 2.0 Authentication
 ---
