@@ -42,11 +42,11 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 
 * Deve-se utilizar o identificador da transação no Split de Pagamentos ao realizar o cancelamento.
 * Os status possíveis do cancelameno são:
-    * **Undefined**: cancelamento criado no Split mas ainda não enviado para processamento.
-    * **Pending**: cancelamento foi enviado para processamento.
-    * **Approved**: cancelamento aprovado, mas ainda necessidta de efetivação.
-    * **Successful**: cancelamento concluído.
-    * **Unsuccessful**: cancelamento não pôde ser concluído.
+  * **Undefined**: cancelamento criado no Split mas ainda não enviado para processamento.
+  * **Pending**: cancelamento foi enviado para processamento.
+  * **Approved**: cancelamento aprovado, mas ainda necessidta de efetivação.
+  * **Successful**: cancelamento concluído.
+  * **Unsuccessful**: cancelamento não pôde ser concluído.
 * O acesso à esta API ocorre mediante aprovação da Braspag e somente poderá ser liberada para Masters. Entre em contato através do e-mail split.risco@braspag.com.br informando os seus dados (MerchantId, CNPJ e Razão Social).
 
 ### Cancelamento Total
