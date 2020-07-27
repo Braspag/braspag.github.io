@@ -17,7 +17,7 @@ tags:
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
-Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}.
+Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamento](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}.
 
 ## Configuração
 
