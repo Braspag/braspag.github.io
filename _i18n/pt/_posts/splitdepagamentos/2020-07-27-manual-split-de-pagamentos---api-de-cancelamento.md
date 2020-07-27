@@ -128,7 +128,7 @@ No exemplo abaixo é cancelado o valor de R$25,00 de uma transação capturada n
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-split}/transactions/1acdb9ab-1d5b-4722-9e91-a488217cd32d/void?amount=2500</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-split}/transactions/dbc86b33-9b32-4d2f-a340-74e4ab01eea9/void?amount=2500</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -233,10 +233,10 @@ x-www-form-urlencoded
 
 ```json
 {
-    "Id": "fb6271ae-57f8-48f1-87df-4e5667dd91e1",
+    "Id": "1acdb9ab-1d5b-4722-9e91-a488217cd32d",
     "StatusId": 4,
     "StatusDescription": "Pending",
-    "Amount": 101,
+    "Amount": 2500,
     "VoidSplitPayments": [
         {
             "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
