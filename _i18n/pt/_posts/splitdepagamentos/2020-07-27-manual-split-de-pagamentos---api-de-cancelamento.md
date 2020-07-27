@@ -26,12 +26,12 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 
 * **API Split**: https://splitsandbox.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
-
+ 
 ### Produção
 
 * **API Split**: https://split.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
-
+ 
 ## Autenticação
 
 O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split.
@@ -42,8 +42,8 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 
 ### Premissas
 
-- Deve-se utilizar o identificador da transação no Split de Pagamentos ao realizar o cancelamento.
-- Os status possíveis do cancelameno são:
+* Deve-se utilizar o identificador da transação no Split de Pagamentos ao realizar o cancelamento.
+* Os status possíveis do cancelameno são:
     
     > **Undefined**: cancelamento criado no Split mas ainda não enviado para processamento.
     > **Pending**: cancelamento foi enviado para processamento.
@@ -51,8 +51,8 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
     > **Successful**: cancelamento concluído.
     > **Unsuccessful**: cancelamento não pôde ser concluído.
     
-- O acesso à esta API ocorre mediante aprovação da Braspag e somente poderá ser liberado para Masters. Entre em contato através do e-mail split.risco@braspag.com.br informando os seus dados (MerchantId, CNPJ e Razão Social).
-
+* O acesso à esta API ocorre mediante aprovação da Braspag e somente poderá ser liberado para Masters. Entre em contato através do e-mail split.risco@braspag.com.br informando os seus dados (MerchantId, CNPJ e Razão Social).
+ 
 #### Cancelamento Total
 
 No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
