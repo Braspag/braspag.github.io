@@ -73,7 +73,7 @@ No exemplo abaixo é cancelado o valor total de uma transação capturada no val
     "Id": "d7f1d440-a563-45e8-927b-7b7a913bd745",
     "StatusId": 4,
     "StatusDescription": "Pending",
-    "Amount": 2500,
+    "Amount": 10000,
     "VoidSplitPayments": [
         {
             "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
