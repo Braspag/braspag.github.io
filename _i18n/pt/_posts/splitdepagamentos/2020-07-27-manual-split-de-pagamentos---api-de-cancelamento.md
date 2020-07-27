@@ -49,7 +49,7 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
     * **Unsuccessful**: cancelamento não pôde ser concluído.
 * O acesso à esta API ocorre mediante aprovação da Braspag e somente poderá ser liberada para Masters. Entre em contato através do e-mail split.risco@braspag.com.br informando os seus dados (MerchantId, CNPJ e Razão Social).
 
-#### Cancelamento Total
+### Cancelamento Total
 
 No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
 
@@ -118,7 +118,7 @@ No exemplo abaixo é cancelado o valor total de uma transação capturada no val
 | `VoidSplitPayments[].SubordinateMerchantId`| **MerchantId** (Identificador) do **Subordinado**. | Guid | 36 |
 | `VoidSplitPayments[].VoidedAmount`| Total ou parte do valor destinado ao **Subordinado** a ser cancelado, em centavos. | Inteiro | - |
 | `VoidSplitPayments[].VoideSplits[].MerchantId`| **MerchantId** do master ou subordinado. | Guid | 36 |
-| `VoidSplitPayments[].VoideSplits[].VoidedAmount`| Valor referente ao split do cancelamento, em centavos. | Guid | 36 |
+| `VoidSplitPayments[].VoideSplits[].VoidedAmount`| Valor referente ao split do cancelamento, em centavos. | Inteiro | - |
 
 #### Cancelamento Parcial
 
@@ -201,7 +201,7 @@ No exemplo abaixo é cancelado o valor de R$25,00 de uma transação capturada n
 | `VoidSplitPayments[].SubordinateMerchantId`| **MerchantId** (Identificador) do **Subordinado**. | Guid | 36 |
 | `VoidSplitPayments[].VoidedAmount`| Total ou parte do valor destinado ao **Subordinado** a ser cancelado, em centavos. | Inteiro | - |
 | `VoidSplitPayments[].VoideSplits[].MerchantId`| **MerchantId** do **Master** ou **Subordinado**. | Guid | 36 |
-| `VoidSplitPayments[].VoideSplits[].VoidedAmount`| Valor referente ao split do cancelamento, em centavos. | Guid | 36 |
+| `VoidSplitPayments[].VoideSplits[].VoidedAmount`| Valor referente ao split do cancelamento, em centavos. | Inteiro | - |
 
 Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado, conforme exemplo abaixo:
 
@@ -281,3 +281,4 @@ x-www-form-urlencoded
 | `VoidSplitPayments[].SubordinateMerchantId`| **MerchantId** (Identificador) do **Subordinado**. | Guid | 36 |
 | `VoidSplitPayments[].VoidedAmount`| Total ou parte do valor destinado ao **Subordinado** a ser cancelado, em centavos. | Inteiro | - |
 | `VoidSplitPayments[].VoideSplits[].MerchantId`| **MerchantId** do **Master** ou **Subordinado**. | Guid | 36 |
+| `VoidSplitPayments[].VoideSplits[].VoidedAmount`| Valor referente ao split do cancelamento, em centavos. | Inteiro | - |
