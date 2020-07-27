@@ -16,20 +16,18 @@ tags:
 
 O **Split de Pagamentos** permite o cancelamento de transações realizadas através de terminais físicos (POS, LIO, TEF), conhecidas como transações de cartão presente, ou eCommerce, conhecidas como transações de cartão não presente.
 
-Para transações de eCommerce, as mesmas devem ser canceladas pelo mesmo canal onde a transação ocorreu, sendo o Pagador Braspag ([Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag-pagador){:target="_blank"}) ou a API eCommerce Cielo ([Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}).
+Para transações de eCommerce, as mesmas devem ser canceladas pelo mesmo canal onde a transação ocorreu, sendo o Pagador Braspag ([Split de Pagamentos - Pagador Braspag](https://braspag.github.io//manual/split-pagamentos-braspag-pagador){:target="_blank"}) ou a API eCommerce Cielo ([Split de Pagamentos - API eCommerce Cielo](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}).
 
 ## Ambientes
 
-O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.
-
 ### Sandbox
 
-* **API Split**: https://splitsandbox.braspag.com.br/
+* **API Split**: https://splitsandbox.braspag.com.br/api
 * **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
 
 ### Produção
 
-* **API Split**: https://split.braspag.com.br/
+* **API Split**: https://split.braspag.com.br/api
 * **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
 
 ## Autenticação
@@ -44,14 +42,12 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
 
 * Deve-se utilizar o identificador da transação no Split de Pagamentos ao realizar o cancelamento.
 * Os status possíveis do cancelameno são:
-    
-    > **Undefined**: cancelamento criado no Split mas ainda não enviado para processamento.
-    > **Pending**: cancelamento foi enviado para processamento.
-    > **Approved**: cancelamento aprovado, mas ainda necessidta de efetivação.
-    > **Successful**: cancelamento concluído.
-    > **Unsuccessful**: cancelamento não pôde ser concluído.
-    
-* O acesso à esta API ocorre mediante aprovação da Braspag e somente poderá ser liberado para Masters. Entre em contato através do e-mail split.risco@braspag.com.br informando os seus dados (MerchantId, CNPJ e Razão Social).
+    * **Undefined**: cancelamento criado no Split mas ainda não enviado para processamento.
+    * **Pending**: cancelamento foi enviado para processamento.
+    * **Approved**: cancelamento aprovado, mas ainda necessidta de efetivação.
+    * **Successful**: cancelamento concluído.
+    * **Unsuccessful**: cancelamento não pôde ser concluído.
+* O acesso à esta API ocorre mediante aprovação da Braspag e somente poderá ser liberada para Masters. Entre em contato através do e-mail split.risco@braspag.com.br informando os seus dados (MerchantId, CNPJ e Razão Social).
 
 #### Cancelamento Total
 
