@@ -55,7 +55,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 
 **Request**
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-split}/transactions/{TransactionId}/void?amount={amount}</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions/{TransactionId}/void?amount={amount}</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -64,7 +64,7 @@ x-www-form-urlencoded
 
 No exemplo abaixo é cancelado o valor total de uma transação capturada no valor de R$100,00.
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-split}/transactions/fb6271ae-57f8-48f1-87df-4e5667dd91e1/void?amount=10000</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/transactions/fb6271ae-57f8-48f1-87df-4e5667dd91e1/void?amount=10000</span></aside>
 
 **Response**
 
