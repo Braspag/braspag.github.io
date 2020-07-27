@@ -1,14 +1,14 @@
 ---
 layout: manual
-title: Manual API de Cadastro de Sellers
-description: Split de Pagamentos - Onboarding
+title: Manual API de Agenda v2
+description: Split de Pagamentos - API de Agenda v2
 search: true
 toc_footers: false
 categories: manual
 sort_order: 9
 hub_visible: false
 tags:
-  - Soluções para Marketplace
+
 ---
 
 ## Manual de Conciliação.
@@ -158,14 +158,14 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                   "Fee":0,
                   "DiscountedMdrAmount":40
                },
-               "Merchant":{ 
+               "Merchant":{
                   "Id":"eba3b4ee-4266-4898-84c7-c4b2b8213169",
                   "Type":"Master",
                   "FancyName":"Operacoes Split",
                   "CorporateName":"Operacoes Split"
                },
-               "Schedules":[ 
-                  { 
+               "Schedules":[
+                  {
                      "Id":"1df7f2af-6550-4051-b102-dabba9c2080a",
                      "ForecastedDate":"2020-08-13",
                      "InstallmentNumber":9,
@@ -175,7 +175,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"c6e19c85-4974-4ed1-ae9c-2caac7435968",
                      "ForecastedDate":"2020-07-13",
                      "InstallmentNumber":8,
@@ -185,7 +185,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"a66eb419-9c70-4962-a216-dfe888c61298",
                      "ForecastedDate":"2020-06-15",
                      "InstallmentNumber":7,
@@ -195,7 +195,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"e8afd028-50d7-4d5e-967b-3fad7b46576c",
                      "ForecastedDate":"2020-05-13",
                      "InstallmentNumber":6,
@@ -205,7 +205,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"48d7a48e-400b-4595-bcdb-45d28aa8e5ac",
                      "ForecastedDate":"2020-04-13",
                      "InstallmentNumber":5,
@@ -215,7 +215,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"3dd26db5-c590-4580-a908-3e4fe72f35a3",
                      "ForecastedDate":"2020-03-13",
                      "InstallmentNumber":4,
@@ -225,7 +225,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"c9cf5742-1a69-474d-8366-96d8b0d8c7f8",
                      "ForecastedDate":"2020-02-13",
                      "InstallmentNumber":3,
@@ -235,7 +235,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"7b6bf1db-f1c1-49f8-b12f-dce5e3384f63",
                      "ForecastedDate":"2020-01-13",
                      "InstallmentNumber":2,
@@ -245,7 +245,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"f7c54a66-ff16-47dc-85b8-fc78b5509b1b",
                      "ForecastedDate":"2019-12-13",
                      "InstallmentNumber":1,
@@ -265,7 +265,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"ff636b79-94e3-4a0d-82b7-51349d65b098",
                      "ForecastedDate":"2019-12-13",
                      "InstallmentNumber":1,
@@ -275,7 +275,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"722a7f1f-7ba3-4646-af2f-8b4c5be09eb5",
                      "ForecastedDate":"2020-01-13",
                      "InstallmentNumber":2,
@@ -285,7 +285,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"f0bbb658-3dbd-400e-809a-6e2c9345a34b",
                      "ForecastedDate":"2020-02-13",
                      "InstallmentNumber":3,
@@ -295,7 +295,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"cba824fb-3e3b-4933-832a-b2ae983fe709",
                      "ForecastedDate":"2020-03-13",
                      "InstallmentNumber":4,
@@ -315,7 +315,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"4ae4eaf4-810e-4551-bcc4-f488a3edcf15",
                      "ForecastedDate":"2020-05-13",
                      "InstallmentNumber":6,
@@ -345,7 +345,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
                      "EventStatusId":1,
                      "EventStatus":"Scheduled"
                   },
-                  { 
+                  {
                      "Id":"7df2bfe9-8936-4c7e-bb95-9661f1d79627",
                      "ForecastedDate":"2020-08-13",
                      "InstallmentNumber":9,
