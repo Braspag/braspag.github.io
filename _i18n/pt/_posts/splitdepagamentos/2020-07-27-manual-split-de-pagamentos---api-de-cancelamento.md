@@ -8,7 +8,7 @@ categories: manual
 sort_order: 6
 hub_visible: false
 tags:
-  - Soluções para Marketplace
+
 ---
 
 # Split de Pagamentos - API de Cancelamento
