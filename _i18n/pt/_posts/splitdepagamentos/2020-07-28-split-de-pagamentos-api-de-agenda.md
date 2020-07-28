@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Manual Split de Pagamentos - API de Agenda
-description: Manual integração do Split de Pagamentos para agenda financeira
+title: Split de Pagamentos API de Agenda
+description: Manual integração do Split de Pagamentos
 search: true
 toc_footers: false
 categories: manual
