@@ -379,44 +379,44 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 
 ## **Propriedades contidas no response de uma consulta de cancelamento.**
 
-| Propriedade                                      | Descrição                                                                                                                                                                                                 | Tipo    |
+| Propriedade| Descrição | Tipo |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| `Id`                       			           | Identificador do cancelamento.                                                                                                                                                                            | Guid    |
-| `Amount`                     			           | Valor do cancelamento.                                                                          	                                                                                                       | Long    |
-| `Status`                                         | Status da solicitação de cancelamento.                                                                                                                                                                    | Guid    |
-| `CreatedAt`                       	           | Data de criação do cancelamento na Braspag.                                                                                                                                                               | Date    |
-| `EventDate`                     	               | Data de criação do cancelamento na Cielo.                                                                                                                                                                 | Date    |
-| `Reversed`                                       | Indica se o cancelamento foi revertido.                                                                                                                                                                   | Bool    |
-| `ScheduledAt`                                    | Data em que o cancelamento foi conciliado na Braspag e foram geradas as agendas com eventos de cancelamento.                                                                                              | Date    |
-| `TransactionFares.DiscountedAmount`              | Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.                                                                                                       | Long    |
-| `TransactionFares.AppliedMdr`                    | Mdr aplicado pela Braspag.                                                                   	                                                                                                           | Decimal |
-| `MasterRateDiscountTypeId`            	       | 1 - Commision ou 2 - Sale.                                                        			                                                                                                               | String  |
-| `MasterRateDiscountType`                  	   | Informação sobre o tipo de recebivel do master durante a transação. Sale indica que o master vendeu um produto proprio, já commission aponta que o master recebeu uma comissão em uma venda de terceiros. | String  |
-| `Merchant.Id`                       	   	       | Identificador do merchant.                                                                                                                                                                                | Guid    |
-| `Merchant.Type`                     	           | Tipo do merchant.                                                                          	                                                                                                           | Int     |
-| `Merchant.FancyName`                             | Nome fantasia do merchant.                                                                                                                                                                                | String  |
-| `Merchant.CorporateName`                         | Razão social do merchant.                                                                                                                                                                                 | String  |
-| `MasterSummary.Commision.SplitId`                | Identificador da divisão para o master.                                                                                                                                                                   | Guid    |
-| `MasterSummary.Commision.NetAmount`              | Valor liquido do master após o desconto das taxas.                                                                                                                                                        | Long    |
-| `MasterSummary.Commision.GrossAmount`            | Valor bruto direcionado ao master.                                                                                                                                                                        | Long    |
-| `MasterSummary.TotalGrossAmount`                 | Valor bruto total.                                                                                                                                                                                        | Long    |
-| `MasterSummary.TotalNetAmount`                   | Valor liquido total.                                                                                                                                                                                      | Long    |
-| `Splits[].Id`                     	           | Identificador da divisão para o subordinado.                                                     	                                                                                                       | Guid    |
-| `Splits[].NetAmount  `                           | Valor liquido direcionado ao subordinado.                                                                                                                                                                 | Long    |
-| `Splits[].GrossAmount`                           | Valor bruto direcionado ao subordinado.                                                                                                                                                                   | Long    |
-| `Splits[].Fares.Mdr`                             | Mdr aplicado pelo master.                                                                                                                                                                                 | Decimal |
-| `Splits[].Fares.Fee`              	           | Fee aplicado pelo master.                                                                                                                                                                                 | Int     |
-| `Splits[].Fares.DiscountedMdrAmount`             | Valor de mdr que o master descontou do subordinado                                                                                                                                                        | Long    |
-| `Splits[].Merchant.Id`                       	   | Identificador do merchant.                                                                                                                                                                                | Guid    |
-| `Splits[].Merchant.Type`                     	   | Tipo do merchant.                                                                          	                                                                                                           | Int     |
-| `Splits[].Merchant.FancyName`                    | Nome fantasia do merchant.                                                                                                                                                                                | String  |
-| `Splits[].Merchant.CorporateName`                | Razão social do merchant.                                                                                                                                                                                 | String  |
-| `Splits[].Schedules[].Id`                        | Identificador da agenda.                                                                                                                                                                                  | Guid    |
-| `Splits[].Schedules[].ForecastedDate`            | Data prevista de pagamento.                                                                                                                                                                               | Date    |
-| `Splits[].Schedules[].InstallmentNumber`         | Identifica a qual parcela a agenda responde.                                                                                                                                                              | Int     |
-| `Splits[].Schedules[].InstallmentAmount`         | Valor da agenda.                                                                                                                                                                                          | Long    |
-| `Splits[].Schedules[].EventId`                   | Identificador do evento.                                                                                                                                                                                  | Int     |
-| `Splits[].Schedules[].Event`                     | Evento por extenso.                                                                                                                                                                                       | String  |
-| `Splits[].Schedules[].EventStatusId`             | Identificador de status do evento.                                                                                                                                                                        | Int     |
-| `Splits[].Schedules[].EventStatus`               | Status do evento por extenso.                                                                                                                                                                             | String  |
+| `Id` | Identificador do cancelamento. | Guid |
+| `Amount` | Valor do cancelamento. | Long |
+| `Status` | Status da solicitação de cancelamento. | Guid |
+| `CreatedAt` | Data de criação do cancelamento na Braspag. | Date |
+| `EventDate` | Data de criação do cancelamento na Cielo. | Date |
+| `Reversed` | Indica se o cancelamento foi revertido. | Bool |
+| `ScheduledAt` | Data em que o cancelamento foi conciliado na Braspag e foram geradas as agendas com eventos de cancelamento. | Date |
+| `TransactionFares.DiscountedAmount` | Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado. | Long |
+| `TransactionFares.AppliedMdr` | Mdr aplicado pela Braspag. | Decimal |
+| `MasterRateDiscountTypeId` | 1 - Commision ou 2 - Sale. | String |
+| `MasterRateDiscountType` | Informação sobre o tipo de recebivel do master durante a transação. Sale indica que o master vendeu um produto proprio, já commission aponta que o master recebeu uma comissão em uma venda de terceiros. | String |
+| `Merchant.Id` | Identificador do merchant. | Guid |
+| `Merchant.Type` | Tipo do merchant. | Int |
+| `Merchant.FancyName` | Nome fantasia do merchant. | String |
+| `Merchant.CorporateName` | Razão social do merchant. | String |
+| `MasterSummary.Commision.SplitId` | Identificador da divisão para o master. | Guid |
+| `MasterSummary.Commision.NetAmount` | Valor liquido do master após o desconto das taxas. | Long |
+| `MasterSummary.Commision.GrossAmount` | Valor bruto direcionado ao master. | Long |
+| `MasterSummary.TotalGrossAmount` | Valor bruto total. | Long |
+| `MasterSummary.TotalNetAmount` | Valor liquido total. | Long |
+| `Splits[].Id` | Identificador da divisão para o subordinado. | Guid |
+| `Splits[].NetAmount` | Valor liquido direcionado ao subordinado. | Long |
+| `Splits[].GrossAmount` | Valor bruto direcionado ao subordinado. | Long |
+| `Splits[].Fares.Mdr` | Mdr aplicado pelo master. | Decimal |
+| `Splits[].Fares.Fee` | Fee aplicado pelo master. | Int |
+| `Splits[].Fares.DiscountedMdrAmount` | Valor de mdr que o master descontou do subordinado | Long |
+| `Splits[].Merchant.Id` | Identificador do merchant. | Guid |
+| `Splits[].Merchant.Type` | Tipo do merchant. | Int |
+| `Splits[].Merchant.FancyName` | Nome fantasia do merchant. | String |
+| `Splits[].Merchant.CorporateName` | Razão social do merchant. | String |
+| `Splits[].Schedules[].Id` | Identificador da agenda. | Guid |
+| `Splits[].Schedules[].ForecastedDate` | Data prevista de pagamento. | Date |
+| `Splits[].Schedules[].InstallmentNumber` | Identifica a qual parcela a agenda responde. | Int |
+| `Splits[].Schedules[].InstallmentAmount` | Valor da agenda.| Long |
+| `Splits[].Schedules[].EventId` | Identificador do evento. | Int |
+| `Splits[].Schedules[].Event` | Evento por extenso. | String  |
+| `Splits[].Schedules[].EventStatusId` | Identificador de status do evento. | Int |
+| `Splits[].Schedules[].EventStatus` | Status do evento por extenso. | String |
 
