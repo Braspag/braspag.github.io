@@ -378,7 +378,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 
 ### Propriedades contidas no response de uma consulta de cancelamento
 
-
 | Propriedade| Descrição | Tipo |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
 | `Id` | Identificador do cancelamento. | Guid |
