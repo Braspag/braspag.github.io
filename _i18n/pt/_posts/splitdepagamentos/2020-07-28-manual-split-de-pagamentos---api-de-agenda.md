@@ -46,7 +46,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 **Response:**
 
 ```json
-
 { 
    "PageCount":1,
    "PageIndex":1,
@@ -114,7 +113,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
       }
    ]
 }
-
 ```
 
 **Exemplo 2** - Efetuando a consulta de todas as reversões de cancelamento agendadas no período entre 01/01/2020 e 02/01/2020.
@@ -126,7 +124,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 **Response:**
 
 ```json
-
 { 
    "PageCount":1,
    "PageIndex":1,
@@ -379,7 +376,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
       }
    ]
 }
-
 ```
 
 ## **Propriedades contidas no response de uma consulta de cancelamento.**
@@ -424,4 +420,3 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 | `Splits[].Schedules[].Event` | Evento por extenso. | String  |
 | `Splits[].Schedules[].EventStatusId` | Identificador de status do evento. | Int |
 | `Splits[].Schedules[].EventStatus` | Status do evento por extenso. | String |
-
