@@ -8,24 +8,25 @@ categories: manual
 sort_order: 6
 hub_visible: false
 tags:
+
 ---
 
-#Split de Pagamentos - API de Cancelamento
+# Split de Pagamentos - API de Cancelamento
 
-##Introdução
+## Introdução
 
 O **Split de Pagamentos** permite o cancelamento de transações realizadas através de terminais físicos (POS, LIO, TEF), conhecidas como transações de cartão presente, ou eCommerce, conhecidas como transações de cartão não presente.
 
 Para transações de eCommerce, as mesmas devem ser canceladas pelo mesmo canal onde a transação ocorreu, sendo o Pagador Braspag ([Split de Pagamentos - Pagador Braspag](https://braspag.github.io//manual/split-pagamentos-braspag-pagador){:target="_blank"}) ou a API eCommerce Cielo ([Split de Pagamentos - API eCommerce Cielo](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}).
 
-##Ambientes
+## Ambientes
 
-###Sandbox
+### Sandbox
 
 * **API Split**: https://splitsandbox.braspag.com.br/api
 * **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
 
-###Produção
+### Produção
 
 * **API Split**: https://split.braspag.com.br/api
 * **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
@@ -36,9 +37,9 @@ O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth
 
 Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manual/split-pagamentos-braspag#autentica%C3%A7%C3%A3o){:target="_blank"} para detalhes técnicos.
 
-##Integração
+## Integração
 
-###Premissas
+### Premissas
 
 * Deve-se utilizar o identificador da transação no Split de Pagamentos ao realizar o cancelamento.
 * Os status possíveis do cancelameno são:
@@ -49,7 +50,7 @@ Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manua
   * **(2) Unsuccessful**: cancelamento não pôde ser concluído.
 * O acesso à esta API ocorre mediante aprovação da Braspag e somente poderá ser liberada para Masters. Entre em contato através do e-mail split.risco@braspag.com.br informando os seus dados (MerchantId, CNPJ e Razão Social).
 
-###Cancelamento Total
+### Cancelamento Total
 
 No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
 
