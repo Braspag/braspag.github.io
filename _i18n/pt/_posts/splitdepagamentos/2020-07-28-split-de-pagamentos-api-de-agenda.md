@@ -27,17 +27,13 @@ Os endpoints de conciliação para transações, cancelamentos e chargebacks sup
 | `PageIndex`                  | Página a ser consultada.                                                                                | Int     |
 | `PageSize`                   | Quantidade máxima de items por página. Valores possíveis: 25,50,100                                     | Int     |
 
-> Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.
+## Conciliação de Cancelamentos
 
-## Autenticação
+O endpoint de conciliação de cancelamentos permite consultar dados relativos ao cancelamento de uma transação e também da reversão de um cancelamento.
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split.
+A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um cancelamento por engano e deseja anular o mesmo.
 
-Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manual/split-pagamentos-braspag#autentica%C3%A7%C3%A3o){:target="_blank"} para detalhes técnicos.
-
-## Integração
-
-### Criando uma transação  
+### Exemplos de consultas no endpoint de conciliação de cancelamentos 
 
 **Request**
 
