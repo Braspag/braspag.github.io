@@ -121,7 +121,7 @@ No exemplo abaixo é cancelado o valor total de uma transação capturada no val
 | `VoidSplitPayments[].VoideSplits[].MerchantId`| **MerchantId** do master ou subordinado. | Guid | 36 |
 | `VoidSplitPayments[].VoideSplits[].VoidedAmount`| Valor referente ao split do cancelamento, em centavos. | Inteiro | - |
 
-####Cancelamento Parcial
+#### Cancelamento Parcial
 
 No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento.
 
@@ -218,6 +218,7 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 ```
 
 > Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
+
 ### Consultando um cancelamento
 
 **Request**
