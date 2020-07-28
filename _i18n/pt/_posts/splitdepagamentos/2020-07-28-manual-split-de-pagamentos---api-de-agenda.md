@@ -1,14 +1,14 @@
 ---
 layout: manual
-title: Manual Split de Pagamentos em terminais LIO
-description: Manual integração do Split de Pagamentos em terminais LIO
+title: Manual Split de Pagamentos - API de Agenda
+description: Manual integração do Split de Pagamentos para agenda financeira
 search: true
 toc_footers: false
 categories: manual
 sort_order: 6
 hub_visible: false
 tags:
-  - Soluções para Marketplace
+
 ---
 
 # Split de Pagamentos - Cielo LIO
