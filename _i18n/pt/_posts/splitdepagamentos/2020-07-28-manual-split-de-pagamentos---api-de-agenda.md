@@ -8,6 +8,7 @@ categories: manual
 sort_order: 6
 hub_visible: false
 tags:
+
 ---
 
 # Split de Pagamentos - API de Agenda
