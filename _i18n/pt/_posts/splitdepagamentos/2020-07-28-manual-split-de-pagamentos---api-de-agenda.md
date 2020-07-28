@@ -10,10 +10,10 @@ hub_visible: false
 tags:
 
 ---
+
 # Split de Pagamentos - API de Agenda
 
 ## Introdução
-
 Para facilitar sua conciliação, disponibilizamos endpoints para que sejam obtidos os dados relevantes para o seu negócio.
 
 Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendamento, ou seja, todos os lançamentos relativos já foram registrados na agenda financeira dos participantes.
@@ -29,13 +29,11 @@ Os endpoints de conciliação para transações, cancelamentos e chargebacks sup
 | `PageSize`                   | Quantidade máxima de items por página. Valores possíveis: 25,50,100                                     | Int     |
 
 ## Conciliação de Cancelamentos
-
 O endpoint de conciliação de cancelamentos permite consultar dados relativos ao cancelamento de uma transação e também da reversão de um cancelamento.
 
 A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um cancelamento por engano e deseja anular o mesmo.
 
 ## Exemplos de consultas no endpoint de conciliação de cancelamentos
-
 **Exemplo 1** - Efetuando a consulta de todos os cancelamentos agendados no período entre 01/01/2020 e 02/01/2020 que não foram revertidos.
 
 **Request:**
@@ -113,7 +111,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
    ]
 }
 ```
-
 **Exemplo 2** - Efetuando a consulta de todas as reversões de cancelamento agendadas no período entre 01/01/2020 e 02/01/2020.
 
 **Request:**
