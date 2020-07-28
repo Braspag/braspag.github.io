@@ -11,7 +11,6 @@ tags:
 ---
 
 # Split de Pagamentos - API de Agenda
-
 ## Introdução
 
 Para facilitar sua conciliação, disponibilizamos endpoints para que sejam obtidos os dados relevantes para o seu negócio.
