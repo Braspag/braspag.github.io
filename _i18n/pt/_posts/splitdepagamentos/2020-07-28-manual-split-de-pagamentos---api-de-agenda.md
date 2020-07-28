@@ -5,12 +5,11 @@ description: Manual integração do Split de Pagamentos para agenda financeira
 search: true
 toc_footers: false
 categories: manual
-sort_order: 6
+sort_order: 8
 hub_visible: false
 tags:
 
 ---
-
 # Split de Pagamentos - API de Agenda
 
 ## Introdução
@@ -44,6 +43,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/voids?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-01-02&Reversed=False</span></aside>
 
 **Response:**
+
 ```json
 { 
    "PageCount":1,
@@ -113,6 +113,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
    ]
 }
 ```
+
 **Exemplo 2** - Efetuando a consulta de todas as reversões de cancelamento agendadas no período entre 01/01/2020 e 02/01/2020.
 
 **Request:**
@@ -120,6 +121,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/voids?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-01-02&Reversed=True</span></aside>
 
 **Response:**
+
 ```json
 { 
    "PageCount":1,
