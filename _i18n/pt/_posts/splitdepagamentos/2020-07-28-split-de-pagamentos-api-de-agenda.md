@@ -11,21 +11,21 @@ tags:
 
 ---
 
-# Split de Pagamentos - Cielo LIO
+# Split de Pagamentos - API de Agenda
 
 ## Introdução
 
-O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
+Para facilitar sua conciliação, disponibilizamos endpoints para que sejam obtidos os dados relevantes para o seu negócio.
+Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendamento, ou seja, todos os lançamentos relativos já foram registrados na agenda financeira dos participantes.
+Os endpoints de conciliação para transações, cancelamentos e chargebacks suportam os seguintes parâmetros:
 
-Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-braspag){:target="_blank"}.
-
-## Configuração
-
-Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, onde será necessário configurar o estabelecimento comercial da Braspag, (Facilitador) pelo qual serão realizadas as transações destinadas ao Split de Pagamentos. 
-
-Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um Subordinado, indicando onde o mesmo estará presente fisicamente.
-
-Com isso, no momento da configuração de um terminal, é necessário informar o seu numero lógico para que seja possível a correta configuração e operação da plataforma.
+| Filtro                       | Descrição                                                                                               | Tipo    |
+|------------------------------|---------------------------------------------------------------------------------------------------------|---------|
+| `InitialScheduledAt`         | Data inicial em que uma transação foi agendada.                                                         | Date    |
+| `FinalScheduledAt`           | Data que será utilizada como limite durante a busca                                                     | Data    |
+| `Reversed`                   | Utilizado para indicar se o consumidor deseja pesquisar eventos que foram revertidos.                   | Bool    |
+| `PageIndex`                  | Página a ser consultada.                                                                                | Int     |
+| `PageSize`                   | Quantidade máxima de items por página. Valores possíveis: 25,50,100                                     | Int     |
 
 > Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.
 
