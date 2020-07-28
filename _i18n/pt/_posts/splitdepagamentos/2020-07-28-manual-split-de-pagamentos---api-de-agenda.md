@@ -13,7 +13,7 @@ tags:
 
 # Split de Pagamentos - API de Agenda
 
-## Manual de Conciliação
+## Introdução
 
 Para facilitar sua conciliação, disponibilizamos endpoints para que sejam obtidos os dados relevantes para o seu negócio.
 
@@ -29,7 +29,7 @@ Os endpoints de conciliação para transações, cancelamentos e chargebacks sup
 | `PageIndex`                  | Página a ser consultada.                                                                                | Int     |
 | `PageSize`                   | Quantidade máxima de items por página. Valores possíveis: 25,50,100                                     | Int     |
 
-## Conciliação de cancelamentos
+## Conciliação de Cancelamentos
 
 O endpoint de conciliação de cancelamentos permite consultar dados relativos ao cancelamento de uma transação e também da reversão de um cancelamento.
 
@@ -44,7 +44,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/voids?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-01-02&Reversed=False</span></aside>
 
 **Response:**
-
 ```json
 { 
    "PageCount":1,
@@ -114,7 +113,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
    ]
 }
 ```
-
 **Exemplo 2** - Efetuando a consulta de todas as reversões de cancelamento agendadas no período entre 01/01/2020 e 02/01/2020.
 
 **Request:**
@@ -122,7 +120,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/voids?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-01-02&Reversed=True</span></aside>
 
 **Response:**
-
 ```json
 { 
    "PageCount":1,
