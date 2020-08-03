@@ -208,7 +208,7 @@ Aqui é possível especificar se uma transação será efetuada como crédito ou
 |`Payment.Installments`|Inteiro|2|Sim|Número de parcelas do pedido|
 |`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador|
 |`Payment.CreditCard`|-|-|Sim|Nó contendo as informações do cartão|
-|`Payment.CreditCard.CardNumber`|Texto|16|Sim|Número do cartão do comprador|
+|`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador|
 |`Payment.CreditCard.Holder`|Texto|50|Sim|Nome do comprador impresso no cartão|
 |`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade do cartão composta por MM/AAAA|
 |`Payment.CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
@@ -714,7 +714,7 @@ Caso a transação enviada seja marcada para captura automática, o nó contendo
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
 |`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador|
-|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
+|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
 |`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
@@ -3181,7 +3181,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.DoSplit`|Booleano|---|Não|Indica se a transação será dividida entre vários participantes <br/> Possíveis valores: true / false (default)|
 |`Payment.ExtraDataCollection.Name`|Texto|50|Não|Identificador do campo extra que será enviado|
 |`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo extra que será enviado|
-|`Payment.CreditCard.CardNumber`|Texto|16|Sim|Número do cartão de crédito|
+|`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do cartão de crédito|
 |`Payment.CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão de crédito|
 |`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade do cartão de crédito|
 |`Payment.CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança no verso do cartão de crédito|
