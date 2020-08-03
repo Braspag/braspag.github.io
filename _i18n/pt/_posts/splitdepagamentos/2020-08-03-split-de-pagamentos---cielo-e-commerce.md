@@ -442,7 +442,7 @@ A autorização de uma transação no Split de Pagamentos deve ser realizada atr
 
 Exemplo:
 
-**Request - Transação de Crédito**
+#### Request - Transação de Crédito
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1298,7 +1298,7 @@ Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada
 
 ![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
-**Request - Transação de Débito**
+#### Request - Transação de Débito
 
 Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação do banco correspondente e o nó referente a análise de fraude não deve ser informado.
 
