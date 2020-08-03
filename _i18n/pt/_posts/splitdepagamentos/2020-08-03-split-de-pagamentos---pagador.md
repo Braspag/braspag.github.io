@@ -2200,8 +2200,8 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
                 "ProviderTransactionId": "5671018489636116404007"
             }
         },
-        "DoSplit": true,
-		"PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
+"DoSplit": true,
+"PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
         "Type": "CreditCard",
         "Amount": 10000,
         "ReceivedDate": "2019-08-29 15:04:02",
@@ -2395,8 +2395,8 @@ Com a mesma transação:
                 "ProviderTransactionId": "5671018489636116404007"
             }
         },
-        "DoSplit": true,
-		"PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
+"DoSplit": true,
+"PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
         "Type": "CreditCard",
         "Amount": 10000,
         "ReceivedDate": "2019-08-29 15:04:02",
@@ -2682,8 +2682,8 @@ Nome do campo: ReleasedToAnticipation
                 "ProviderTransactionId": "5671018489636116404007"
             }
         },
-        "DoSplit": true,
-		"PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
+"DoSplit": true,
+"PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
         "Type": "CreditCard",
         "Amount": 10000,
         "ReceivedDate": "2019-08-29 15:04:02",
