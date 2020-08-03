@@ -2007,6 +2007,790 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 > Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
 
+### Opções de Configuração da Transação
+
+Em uma transação do Split, existem configurações opcionais que podem ser utilizadas para controlar alguns aspectos.
+
+#### Origem do Desconto das Taxas
+
+Por padrão, as taxas e tarifas fixas do Split são descontadas do valor de comissão do Master, porém é possível que o desconto seja feito da parte da venda do Master.
+
+> Para que a opção de desconto da parte da venda seja possível, o Master deve possuir venda na transação.
+
+A opção pode ser utilizada no momento da divisão transacional e pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o suporte do Split para que ela seja criada, removida ou atualizada. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
+
+No caso de uma transação criada com uma forma de desconto, o mesmo será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
+
+> Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
+
+##### Tipos de Desconto Possíveis
+
+| Tipo | Descrição |
+|-|-|
+| `Commission` | Com esta opção, o desconto será feito sobre o valor de comissão que o Master tem a receber na transação. |
+| `Sale` | Com esta opção, o desconto será feito sobre o valor de venda que o Master tem a receber na transação. |
+
+##### No Momento Transacional
+
+Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
+
+**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
+**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
+**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.
+
+> Desconto sendo aplicado sobre a comissão.
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    "MerchantOrderId":"201904150001",
+    "Customer":{
+        "Name": "João da Silva Accept",
+        "Identity":"12345678900",
+        "IdentityType":"CPF"
+    },
+    "Payment":{
+        "Provider": "Simulado",
+        "Type":"CreditCard",
+        "DoSplit": true,
+        "Amount":10000,
+        "Capture": true,
+        "Installments":1,
+        "SoftDescriptor":"LojaDoJoao",
+        "CreditCard":{
+            "CardNumber":"4481530710186111",
+            "Holder":"Yamilet Taylor",
+            "ExpirationDate":"12/2022",
+            "SecurityCode":"693",
+            "Brand":"Visa"
+        },
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Commission"
+        },
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                }
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                }
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500
+            }
+        ]
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "201904150001",
+    "Customer": {
+        "Name": "João da Silva Accept",
+        "Identity": "12345678900",
+        "IdentityType": "CPF"
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 4245
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 255
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 2865
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 135
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500,
+                "Fares": {
+                    "Mdr": 2,
+                    "Fee": 0
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 2500
+                    }
+                ]
+            }
+        ],
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Commission"
+        },
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2022",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "20190829030409594",
+        "AcquirerTransactionId": "0829030409594",
+        "AuthorizationCode": "046879",
+        "SoftDescriptor": "LojaDoJoao",
+        "FraudAnalysis": {
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "OnSuccess",
+            "Provider": "Cybersource",
+            "TotalOrderAmount": 10000,
+            "IsRetryTransaction": false,
+            "Id": "b7211f65-87ca-e911-a40a-0003ff21cf74",
+            "Status": 1,
+            "StatusDescription": "Accept",
+            "FraudAnalysisReasonCode": 100,
+            "ReplyData": {
+                "FactorCode": "F^H",
+                "Score": 38,
+                "HostSeverity": 1,
+                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-HIST",
+                "ScoreModelUsed": "default",
+                "VelocityInfoCode": "VEL-NAME",
+                "CasePriority": 3,
+                "ProviderTransactionId": "5671018489636116404007"
+            }
+        },
+        "DoSplit": true,
+		"PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2019-08-29 15:04:02",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2019-08-29 15:04:09",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935/void"
+            }
+        ]
+    }
+}
+```
+
+Com a mesma transação:
+
+> Desconto sendo aplicado sobre a venda.
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    "MerchantOrderId":"201904150001",
+    "Customer":{
+        "Name": "João da Silva Accept",
+        "Identity":"12345678900",
+        "IdentityType":"CPF"
+    },
+    "Payment":{
+        "Provider": "Simulado",
+        "Type":"CreditCard",
+        "DoSplit": true,
+        "Amount":10000,
+        "Capture": true,
+        "Installments":1,
+        "SoftDescriptor":"LojaDoJoao",
+        "CreditCard":{
+            "CardNumber":"4481530710186111",
+            "Holder":"Yamilet Taylor",
+            "ExpirationDate":"12/2022",
+            "SecurityCode":"693",
+            "Brand":"Visa"
+        },
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Sale"
+        },
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                }
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                }
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500
+            }
+        ]
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "201904150001",
+    "Customer": {
+        "Name": "João da Silva Accept",
+        "Identity": "12345678900",
+        "IdentityType": "CPF"
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 4245
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 255
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 2865
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 135
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500,
+                "Fares": {
+                    "Mdr": 2,
+                    "Fee": 0
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 2500
+                    }
+                ]
+            }
+        ],
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Sale"
+        },
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2022",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "20190829030409594",
+        "AcquirerTransactionId": "0829030409594",
+        "AuthorizationCode": "046879",
+        "SoftDescriptor": "LojaDoJoao",
+        "FraudAnalysis": {
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "OnSuccess",
+            "Provider": "Cybersource",
+            "TotalOrderAmount": 10000,
+            "IsRetryTransaction": false,
+            "Id": "b7211f65-87ca-e911-a40a-0003ff21cf74",
+            "Status": 1,
+            "StatusDescription": "Accept",
+            "FraudAnalysisReasonCode": 100,
+            "ReplyData": {
+                "FactorCode": "F^H",
+                "Score": 38,
+                "HostSeverity": 1,
+                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-HIST",
+                "ScoreModelUsed": "default",
+                "VelocityInfoCode": "VEL-NAME",
+                "CasePriority": 3,
+                "ProviderTransactionId": "5671018489636116404007"
+            }
+        },
+        "DoSplit": true,
+		"PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2019-08-29 15:04:02",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2019-08-29 15:04:09",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935/void"
+            }
+        ]
+    }
+}
+```
+
+##### No Momento Pós-Transacional
+
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+[
+    {
+        "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+        "Amount": 6000,
+        "Fares": {
+            "Mdr": 5,
+            "Fee": 30
+        }
+    },
+    {
+        "SubordinateMerchantId" :"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+        "Amount": 4000
+    }
+]
+```
+
+**Response**
+
+```json
+{
+    "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
+    "MasterRateDiscountType": "Sale",
+    "SplitPayments": [
+        {
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+            "Amount": 6000,
+            "Fares": {
+                "Mdr": 5,
+                "Fee": 30
+            },
+            "Splits": [
+                {
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                    "Amount": 5670
+                },
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "Amount": 330
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+            "Amount": 4000,
+            "Fares": {
+                "Mdr": 2,
+                "Fee": 0
+            },
+            "Splits": [
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "Amount": 4000
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### Liberação de Transação para Antecipação
+
+No Split de Pagamentos, para os clientes que estejam habilitados e optem por fazer uso de antecipações, existe a possibilidade de determinar quais transações podem participar de operações de antecipação.
+
+O comportamento padrão é que todas as transações possam fazer parte de operações de antecipação, porém o Master pode determinar quais transações e quando estarão disponíveis.
+
+Existem 4 momentos em que se pode liberar uma transação para participar de operações de antecipação:
+1. Na criação da transação, usando valor pré-configurado;
+2. Na criação da transação, usando valor passado através do request;
+3. Na redivisão pós-transacional da transação;
+4. Através de endpoint específico para liberação de transação para antecipação.
+
+> Uma vez que a transação está liberada para participar de operações de antecipação, a mesma não pode mais ser bloqueada!
+
+##### Usando valor pré-configurado
+
+Entre em contato com o suporte para criar, atualizar ou remover a configuração com o estado (liberado ou bloqueado) com o qual a transação deve ser criada caso nenhum valor seja passado no request.
+
+##### Usando valor passado através do request
+
+Nome do campo: ReleasedToAnticipation
+
+| Valor | Descrição |
+|-|-|
+| **true** | Com esta opção, a transação ficará liberada para antecipação e não poderá mais ser bloqueada. |
+| **false** | Com esta opção, a transação estará bloqueada para ser usada em operações de antecipação e poderá ser liberada em um momento posterior. |
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    "MerchantOrderId":"201904150001",
+    "Customer":{
+        "Name": "João da Silva Accept",
+        "Identity":"12345678900",
+        "IdentityType":"CPF"
+    },
+    "Payment":{
+        "Provider": "Simulado",
+        "Type":"CreditCard",
+        "DoSplit": true,
+        "Amount":10000,
+        "Capture": true,
+        "Installments":1,
+        "SoftDescriptor":"LojaDoJoao",
+        "CreditCard":{
+            "CardNumber":"4481530710186111",
+            "Holder":"Yamilet Taylor",
+            "ExpirationDate":"12/2022",
+            "SecurityCode":"693",
+            "Brand":"Visa"
+        },
+        "FraudAnalysis":{
+            "Provider":"Cybersource",
+            "TotalOrderAmount":10000
+        },
+        "SplitTransaction": {
+            "ReleasedToAnticipation": false
+        },
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                }
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                }
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500
+            }
+        ]
+    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "201904150001",
+    "Customer": {
+        "Name": "João da Silva Accept",
+        "Identity": "12345678900",
+        "IdentityType": "CPF"
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                "Amount": 4500,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                        "Amount": 4245
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 255
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                "Amount": 3000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                        "Amount": 2865
+                    },
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 135
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                "Amount": 2500,
+                "Fares": {
+                    "Mdr": 2,
+                    "Fee": 0
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                        "Amount": 2500
+                    }
+                ]
+            }
+        ],
+        "SplitTransaction": {
+            "ReleasedToAnticipation": false
+        },
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2022",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "20190829030409594",
+        "AcquirerTransactionId": "0829030409594",
+        "AuthorizationCode": "046879",
+        "SoftDescriptor": "LojaDoJoao",
+        "FraudAnalysis": {
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "OnSuccess",
+            "Provider": "Cybersource",
+            "TotalOrderAmount": 10000,
+            "IsRetryTransaction": false,
+            "Id": "b7211f65-87ca-e911-a40a-0003ff21cf74",
+            "Status": 1,
+            "StatusDescription": "Accept",
+            "FraudAnalysisReasonCode": 100,
+            "ReplyData": {
+                "FactorCode": "F^H",
+                "Score": 38,
+                "HostSeverity": 1,
+                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-HIST",
+                "ScoreModelUsed": "default",
+                "VelocityInfoCode": "VEL-NAME",
+                "CasePriority": 3,
+                "ProviderTransactionId": "5671018489636116404007"
+            }
+        },
+        "DoSplit": true,
+		"PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2019-08-29 15:04:02",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2019-08-29 15:04:09",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935/void"
+            }
+        ]
+    }
+}
+```
+
+##### No Momento Pós-Transacional
+
+**Request**
+
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?releasedToAnticipation=true</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+[
+    {
+        "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+        "Amount": 6000,
+        "Fares": {
+            "Mdr": 5,
+            "Fee": 30
+        }
+    },
+    {
+        "SubordinateMerchantId" :"e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+        "Amount": 4000
+    }
+]
+```
+
+**Response**
+
+```json
+{
+    "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
+    "MasterRateDiscountType": "Sale",
+    "ReleasedToAnticipation": true,
+    "SplitPayments": [
+        {
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+            "Amount": 6000,
+            "Fares": {
+                "Mdr": 5,
+                "Fee": 30
+            },
+            "Splits": [
+                {
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                    "Amount": 5670
+                },
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "Amount": 330
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+            "Amount": 4000,
+            "Fares": {
+                "Mdr": 2,
+                "Fee": 0
+            },
+            "Splits": [
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "Amount": 4000
+                }
+            ]
+        }
+    ]
+}
+```
+
+##### Usando endpoint de liberação para antecipação
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/anticipation-api/{PaymentId}/release-to-anticipation</span></aside>
+
+**Response**
+
+<aside class="request"><span class="method post">200 OK</span></aside>
+
 ## Antifraude
 
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
