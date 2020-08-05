@@ -1783,7 +1783,7 @@ curl
 |`Payment.Demonstrative`|Texto |vide tabela abaixo|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
 |`Payment.ExpirationDate`|Date |AAAA-MM-DD|Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
 |`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
+|`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo). Para quebra de linhas no texto utilize sempre a notação em HTML '<br>'|
 |`Payment.NullifyDays`|Número |2 |Não|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo contado a partir da data do vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander.|
 |`Payment.DaysToFine`|Número |15 |Não|Opcional e somente para provider Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex: 3|
 |`Payment.FineRate`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não enviar se utilizar FineAmount. Ex: 10.12345 = 10.12345%|
@@ -2147,6 +2147,154 @@ curl
 |`EndDate`|Data do fim da recorrência |Texto |7 |05/2019 (MM/YYYY) |
 |`Interval`|Intervalo entre as recorrência. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
 |`AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser Autorizada ou não. |Booleano |--- |true ou false |
+
+### Autorizar uma transação recorrente com boleto bancário
+
+O pedido de requisição é o mesmo da criação de um boleto tradicional. Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrência futuras ao autorizar uma transação pela primeira vez na série de recorrências.
+
+A data de vencimento dos boletos recorrerntes será criada baseando-se na data do próximo pedido recorrente mais o que estiver nas configurações do meio de pagamento aqui na Braspag.
+
+Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias = Vencimento do boleto criado automaticamente: 06/01/2021
+
+Entre em contato com o Suporte para definir em quantos dias você quer que seus boletos vençam.
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+
+{
+    [...]
+        "Payment": {
+        "Provider": "Simulado",
+        "Type": "Boleto",
+        "Amount": 1000,
+     
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "RecurrentPayment": {
+            "AuthorizeNow": "true",
+            "StartDate": "2020-01-01",
+            "EndDate": "2020-12-31",
+            "Interval": "Monthly"
+        }
+    }
+}
+
+```
+
+```shell
+
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    [...]
+"Payment": {
+        "Provider": "Simulado",
+        "Type": "Boleto",
+        "Amount": 1000,
+     
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "RecurrentPayment": {
+            "AuthorizeNow": "true",
+            "StartDate": "2020-01-01",
+            "EndDate": "2020-12-31",
+            "Interval": "Monthly"
+        }
+    }
+}
+--verbose
+
+```
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
+|`Payment.RecurrentPayment.StartDate`|Texto |10 |Não|Data para início da recorrência|
+|`Payment.RecurrentPayment.EndDate`|Texto |10 |Não|Data para termino da recorrência|
+|`Payment.RecurrentPayment.Interval`|Texto |10 |Não|Intervalo da recorrência.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
+|`Payment.RecurrentPayment.AuthorizeNow`|Booleano |--- |Sim|Se true, autoriza no momento da requisição. false para agendamento futuro|
+
+#### Resposta
+
+```json
+
+{
+    "MerchantOrderId": "teste001",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "06455914",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "ExpirationDate": "2020-08-15",
+        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d",
+        "BoletoNumber": "100031-0",
+        "BarCodeNumber": "00096834800000129001234270000010003105678900",
+        "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
+        "Address": "N/A, 1",
+        "IsRecurring": false,
+        "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
+        "Type": "Boleto",
+        "Amount": 1000,
+        "ReceivedDate": "2020-01-01 00:00:01",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 1,
+        "RecurrentPayment": {
+            "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
+            "ReasonCode": 0,
+            "ReasonMessage": "Successful",
+            "NextRecurrency": "2020-02-01",
+            "StartDate": "2020-01-01",
+            "EndDate": "2020-12-31",
+            "Interval": "Monthly",
+            "Link": {
+                "Method": "GET",
+                "Rel": "recurrentPayment",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"
+            },
+            "AuthorizeNow": true
+        },
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"
+            }
+        ]
+    }
+}
+
+```
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`RecurrentPaymentId`|Campo Identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`StartDate`|Data do inicio da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`Interval`|Intervalo entre as recorrência. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
+|`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não. |Booleano |--- |true ou false |
 
 ### Agendamento de uma recorrência
 
