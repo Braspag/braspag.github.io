@@ -2211,6 +2211,7 @@ curl
 --verbose
 
 ```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
@@ -2287,6 +2288,80 @@ curl
 }
 
 ```
+
+```shell
+
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "teste001",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "06455914",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "ExpirationDate": "2020-08-15",
+        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d",
+        "BoletoNumber": "100031-0",
+        "BarCodeNumber": "00096834800000129001234270000010003105678900",
+        "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
+        "Address": "N/A, 1",
+        "IsRecurring": false,
+        "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
+        "Type": "Boleto",
+        "Amount": 1000,
+        "ReceivedDate": "2020-01-01 00:00:01",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 1,
+        "RecurrentPayment": {
+            "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
+            "ReasonCode": 0,
+            "ReasonMessage": "Successful",
+            "NextRecurrency": "2020-02-01",
+            "StartDate": "2020-01-01",
+            "EndDate": "2020-12-31",
+            "Interval": "Monthly",
+            "Link": {
+                "Method": "GET",
+                "Rel": "recurrentPayment",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"
+            },
+            "AuthorizeNow": true
+        },
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"
+            }
+        ]
+    }
+}
+--verbose
+
+```
+
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`RecurrentPaymentId`|Campo Identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
