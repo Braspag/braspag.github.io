@@ -3215,7 +3215,7 @@ Para criar uma venda, é necessário fazer um POST para o recurso Payment confor
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
         "Address":
-        {split
+        {
              "Street":"Alameda Xingu",
              "Number":"512",
              "Complement":"27 andar",
@@ -3313,8 +3313,8 @@ curl
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos)|Número |15 |Sim|
 |`Payment.Provider`|Nome da provedora de Meio de Pagamento|Texto |15 |---|
 |`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). |Texto |100 |Condicional|
-|`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). |Texto |100 |Condicional|
-|`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). |Texto |100 |Condicional|
+|`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). **OBS.: Suprimir esse nó para modalidade de Depósito Identificado** |Texto |100 |Condicional|
+|`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). **OBS.: Suprimir esse nó para modalidade de Depósito Identificado** |Texto |100 |Condicional|
 
 #### Resposta
 
