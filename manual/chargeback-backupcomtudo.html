@@ -153,11 +153,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Sandbox</code></td>
       <td style="text-align: left">https:\\authsandbox.braspag.com.br\|</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Produção</code></td>
       <td style="text-align: left">https:\\auth.braspag.com.br\|</td>
     </tr>
   </tbody>
@@ -174,11 +174,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Sandbox</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Sandbox</code></td>
       <td style="text-align: left">https:\\chargebacksandbox.braspag.com.br\|</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Produção</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Produção</code></td>
       <td style="text-align: left">https:\\chargeback.braspag.com.br\|</td>
     </tr>
   </tbody>
@@ -243,11 +243,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/x-www-form-urlencoded</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</td>
     </tr>
   </tbody>
@@ -264,11 +264,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">scope</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">scope</code></td>
       <td style="text-align: left">ChargebackApp</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">grant_type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">grant_type</code></td>
       <td style="text-align: left">client_credentials</td>
     </tr>
   </tbody>
@@ -294,15 +294,15 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">access_token</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">access_token</code></td>
       <td style="text-align: left">O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a Chargeback API</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">token_type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">token_type</code></td>
       <td style="text-align: left">Indica o valor do tipo de token</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">expires_in</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">expires_in</code></td>
       <td style="text-align: left">Expiração do o token de acesso, em segundos <br />O token quando expirar, é necessário obter um novo</td>
     </tr>
   </tbody>
@@ -356,19 +356,19 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
     </tr>
   </tbody>
@@ -388,92 +388,92 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Amount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].Amount</code></td>
       <td style="text-align: left">Valor do chargeback <br /> Ex.: 150000 Ex: 123456 = r$ 1.234,56</td>
       <td style="text-align: center">long</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Date</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].Date</code></td>
       <td style="text-align: left">Data da confirmação do chargeback <br /> Ex.: 2017-12-02</td>
       <td style="text-align: center">date</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Comment</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].Comment</code></td>
       <td style="text-align: left">Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br /> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">512</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ReasonCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].ReasonCode</code></td>
       <td style="text-align: left">Código do motivo do chargeback</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">8</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].ReasonMessage</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].ReasonMessage</code></td>
       <td style="text-align: left">Mensagem do motivo do chargeback</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">128</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].IsFraud</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].IsFraud</code></td>
       <td style="text-align: left">Identifica se o chargeback foi por motivo de fraude</td>
       <td style="text-align: center">bool</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].NegativeValues</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].NegativeValues</code></td>
       <td style="text-align: left">Parâmetros que deseja incluir na lista negativa <br /> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - <a href="https://braspag.github.io/manual/chargeback#tabela-1">Tabela 1</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Id</code></td>
-      <td style="text-align: left">Id da transação no Antifraude <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">BraspagTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados <br /><br /> <strong>IMPORTANTE</strong> <br /> <strong>SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO <code class="highlighter-rouge">Id</code> SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">BraspagTransactionId</code></strong><br /></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].Transaction.Id</code></td>
+      <td style="text-align: left">Id da transação no Antifraude <br /> Este campo se torna obrigatório se o campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não for enviado e se os campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados <br /><br /> <strong>IMPORTANTE</strong> <br /> <strong>SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO <code class="language-plaintext highlighter-rouge">Id</code> SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></strong><br /></td>
       <td style="text-align: center">Guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Tid</code></td>
-      <td style="text-align: left">Identificador da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].Transaction.Tid</code></td>
+      <td style="text-align: left">Identificador da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> se os campos <code class="language-plaintext highlighter-rouge">Id</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">20</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.Nsu</code></td>
-      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].Transaction.Nsu</code></td>
+      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> se os campos <code class="language-plaintext highlighter-rouge">Id</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.AuthorizationCode</code></td>
-      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].Transaction.AuthorizationCode</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> se os campos <code class="language-plaintext highlighter-rouge">Id</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.SaleDate</code></td>
-      <td style="text-align: left">Data da venda da transação <br /> Ex.: 2017-10-15 <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">AuthorizationCode</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].Transaction.SaleDate</code></td>
+      <td style="text-align: left">Data da venda da transação <br /> Ex.: 2017-10-15 <br /> Este campo se torna obrigatório juntamente com <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> se os campos <code class="language-plaintext highlighter-rouge">Id</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
       <td style="text-align: center">date</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Chargebacks[n].Transaction.BraspagTransactionId</code></td>
-      <td style="text-align: left">Id da transação no Pagador Braspag <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">AntifraudTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Chargebacks[n].Transaction.BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Pagador Braspag <br /> Este campo se torna obrigatório se o campo <code class="language-plaintext highlighter-rouge">AntifraudTransactionId</code> não for enviado e se os campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
       <td style="text-align: center">Guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -531,11 +531,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">300 Multiple Choices</td>
     </tr>
   </tbody>
@@ -551,12 +551,12 @@
       <td>Tipo</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Result.ProcessingStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Result.ProcessingStatus</code></td>
       <td>Status do processamento do chargeback - <a href="https://braspag.github.io/manual/chargeback#tabela-2-result.processingstatus">Tabela 2</a></td>
       <td>enum</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Result.ErrorMessages</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Result.ErrorMessages</code></td>
       <td>Mensagens de erro para chargebacks não processados</td>
       <td>string</td>
     </tr>
@@ -595,7 +595,7 @@
 
 <h3 id="passo-2---acessando-a-tela-de-upload-de-arquivo-de-chargeback">Passo 2 - Acessando a tela de Upload de Arquivo de Chargeback</h3>
 
-<p>Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: <code class="highlighter-rouge">Configurações -&gt; Upload de Arquivo de Chargeback</code></p>
+<p>Para realizar o upload do arquivo de chargeback, você deverá acessar a tela através do menu: <code class="language-plaintext highlighter-rouge">Configurações -&gt; Upload de Arquivo de Chargeback</code></p>
 
 <p><img src="https://braspag.github.io//images/braspag/af/acesso.png" alt="Upload de Arquivo de Chargeback" class="centerimg" title="Acessando a tela de Upload de Arquivo de Chargeback" /></p>
 
@@ -625,92 +625,92 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Amount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Amount</code></td>
       <td style="text-align: left">Valor do chargeback <br /> Ex.: 150000 Ex: 123456 = r$ 1.234,56</td>
       <td style="text-align: center">long</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Date</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Date</code></td>
       <td style="text-align: left">Data da confirmação do chargeback <br /> Ex.: 2017-12-02</td>
       <td style="text-align: center">date</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Comment</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Comment</code></td>
       <td style="text-align: left">Comentário que deseja associar ao chargeback que ficará visível no Admin Braspag <br /> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">512</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ReasonCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
       <td style="text-align: left">Código do motivo do chargeback</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">8</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ReasonMessage</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
       <td style="text-align: left">Mensagem do motivo do chargeback</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">128</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">IsFraud</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">IsFraud</code></td>
       <td style="text-align: left">Identifica se o chargeback foi por motivo de fraude</td>
       <td style="text-align: center">bool</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">NegativeValues</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">NegativeValues</code></td>
       <td style="text-align: left">Parâmetros que deseja incluir na lista negativa <br /> Os parâmetros que serão incluídos devem ser acordados com o analista de risco da Cybersource, pois pode impactar diretamente na estratégia de risco - <a href="https://braspag.github.io/manual/chargeback#tabela-1-chargebacks[n].negativevalues">Tabela 1</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
-      <td style="text-align: left">Id da transação no Antifraude <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">BraspagTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados <br /><br /> <strong>IMPORTANTE</strong> <br /> <strong>SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO <code class="highlighter-rouge">Id</code> SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">BraspagTransactionId</code></strong><br /></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td style="text-align: left">Id da transação no Antifraude <br /> Este campo se torna obrigatório se o campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não for enviado e se os campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados <br /><br /> <strong>IMPORTANTE</strong> <br /> <strong>SE A SUA INTEGRAÇÃO COM O ANTIFRAUDE É VIA SOAP E DIRETA, O CAMPO <code class="language-plaintext highlighter-rouge">Id</code> SE TORNA OBRIGATÓRIO, INDEPENDENTE DE QUALQUER OUTRO CAMPO QUE POSSA IDENTIFICAR A TRANSAÇÃO, COMO: <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></strong><br /></td>
       <td style="text-align: center">Guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Tid</code></td>
-      <td style="text-align: left">Identificador da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td style="text-align: left">Identificador da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> se os campos <code class="language-plaintext highlighter-rouge">Id</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">20</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Nsu</code></td>
-      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Nsu</code></td>
+      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> se os campos <code class="language-plaintext highlighter-rouge">Id</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">AuthorizationCode</code></td>
-      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">SaleDate</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Este campo se torna obrigatório juntamente com <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> se os campos <code class="language-plaintext highlighter-rouge">Id</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">SaleDate</code></td>
-      <td style="text-align: left">Data da venda da transação <br /> Ex.: 2017-10-15 <br /> Este campo se torna obrigatório juntamente com <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code> e <code class="highlighter-rouge">AuthorizationCode</code> se os campos <code class="highlighter-rouge">Id</code> e <code class="highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SaleDate</code></td>
+      <td style="text-align: left">Data da venda da transação <br /> Ex.: 2017-10-15 <br /> Este campo se torna obrigatório juntamente com <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> se os campos <code class="language-plaintext highlighter-rouge">Id</code> e <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> não forem enviados</td>
       <td style="text-align: center">date</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
-      <td style="text-align: left">Id da transação no Pagador Braspag <br /> Este campo se torna obrigatório se o campo <code class="highlighter-rouge">AntifraudTransactionId</code> não for enviado e se os campos <code class="highlighter-rouge">Tid</code>, <code class="highlighter-rouge">Nsu</code>, <code class="highlighter-rouge">AuthorizationCode</code> e <code class="highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Pagador Braspag <br /> Este campo se torna obrigatório se o campo <code class="language-plaintext highlighter-rouge">AntifraudTransactionId</code> não for enviado e se os campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> (todos juntos) não forem enviados</td>
       <td style="text-align: center">Guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -724,8 +724,8 @@
 
 <p><img src="https://braspag.github.io//images/braspag/af/tela.png" alt="Upload de Arquivo de Chargeback" class="centerimg" title="Tela de Upload de Arquivo de Chargeback" /></p>
 
-<p>1 - Clique no botão <code class="highlighter-rouge">Choose File</code> para selecionar o arquivo na máquina local.<br />
-2 - Com o arquivo selecionado, clique no botão <code class="highlighter-rouge">Enviar</code> para realizar o upload do arquivo.</p>
+<p>1 - Clique no botão <code class="language-plaintext highlighter-rouge">Choose File</code> para selecionar o arquivo na máquina local.<br />
+2 - Com o arquivo selecionado, clique no botão <code class="language-plaintext highlighter-rouge">Enviar</code> para realizar o upload do arquivo.</p>
 
 <h3 id="passo-5---verificando-o-resultado-do-envio-do-arquivo-de-chargeback">Passo 5 - Verificando o resultado do envio do arquivo de chargeback</h3>
 
@@ -758,25 +758,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -796,47 +796,47 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">AcquirerTransactionId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
       <td style="text-align: left">Identificador da transação na adquirente (TID)</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: left">Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderTransactionId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderTransactionId</code></td>
       <td style="text-align: left">Identificador da transação no provedor de Antifraude</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">AntifraudeTransactionId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AntifraudeTransactionId</code></td>
       <td style="text-align: left">Identificador da transação no Antifraude Braspag</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">StartDate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">StartDate</code></td>
       <td style="text-align: left">Data início da consulta</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EndDate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EndDate</code></td>
       <td style="text-align: left">Data fim da consulta</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">PageIndex</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
       <td style="text-align: left">Número da página desejada</td>
       <td style="text-align: center">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">PageSize</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PageSize</code></td>
       <td style="text-align: left">Quantidade de itens desejado na página. Máximo 250 itens.</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -906,157 +906,157 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Id</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Id</code></td>
       <td style="text-align: left">Id do chargeback na Chargeback API Braspag</td>
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CreatedDate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CreatedDate</code></td>
       <td style="text-align: left">Data de criação do chargeback na Chargeback API Braspag <br /> Ex.: 2018-09-01 09:51:25</td>
       <td style="text-align: center">date</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Date</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Date</code></td>
       <td style="text-align: left">Data do chargeback <br /> Ex.: 2018-08-30</td>
       <td style="text-align: center">date</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Amount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Amount</code></td>
       <td style="text-align: left">Valor do chargeback em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
       <td style="text-align: center">long</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ReasonCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
       <td style="text-align: left">Código do motivo do chargeback</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ReasonMessage</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
       <td style="text-align: left">Descrição do motivo do chargeback</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">Status do charegabck na Braspag - <a href="https://braspag.github.io/manual/chargeback#tabela-3-chargebacks[n].status">Tabela 3</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Comment</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Comment</code></td>
       <td style="text-align: left">Comentário que deseja associar ao chargeback e que ficará visível no Backoffice Braspag <br /> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">IsFraud</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">IsFraud</code></td>
       <td style="text-align: left">Identifica se o chargeback é de fraude</td>
       <td style="text-align: center">bool</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AcquirerType</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.AcquirerType</code></td>
       <td style="text-align: left">Identificador da adquirentre</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.EstablishmentCode</code></td>
       <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.MerchantOrderId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.MerchantOrderId</code></td>
       <td style="text-align: left">Número do pedido da loja</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Tid</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.Tid</code></td>
       <td style="text-align: left">Id da transação na adquirente</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Nsu</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.Nsu</code></td>
       <td style="text-align: left">Número sequencial único da transação na adquirente</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AuthorizationCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.AuthorizationCode</code></td>
       <td style="text-align: left">Código de autorização da transação na adquirente</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.SaleDate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.SaleDate</code></td>
       <td style="text-align: left">Data da autorização da transação na adquirente <br /> Ex.: 2018-08-15</td>
       <td style="text-align: center">date</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.PagadorMerchantId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.PagadorMerchantId</code></td>
       <td style="text-align: left">Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0</td>
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.BraspagTransactionId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.BraspagTransactionId</code></td>
       <td style="text-align: left">Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)</td>
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Amount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.Amount</code></td>
       <td style="text-align: left">Valor da transação em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
       <td style="text-align: center">long</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.CardHolder</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.CardHolder</code></td>
       <td style="text-align: left">Nome do cartão de crédito</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.MaskedCardNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.MaskedCardNumber</code></td>
       <td style="text-align: left">Número do cartão de crédito mascarado</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.Brand</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.Brand</code></td>
       <td style="text-align: left">Bandeira do cartão de crédito</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AntifraudMerchantId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.AntifraudMerchantId</code></td>
       <td style="text-align: left">Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway</td>
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AntifraudTransactionId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.AntifraudTransactionId</code></td>
       <td style="text-align: left">Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway</td>
       <td style="text-align: center">guid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.AntifraudSourceApplication</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.AntifraudSourceApplication</code></td>
       <td style="text-align: left">Origem da plataforma de antifraude - <a href="https://braspag.github.io/manual/chargeback#tabela-6-chargebacks[n].transaction.antifraudsourceapplication">Tabela 6</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderTransactionId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.ProviderTransactionId</code></td>
       <td style="text-align: left">Id da transação no provedor de antifraude</td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.NegativeValues</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.NegativeValues</code></td>
       <td style="text-align: left">Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br /> Os parâmetros são concatenados usando o caracter , <br /> Ex.: CustomerDocumentNumber, ShippingStreet <br /> - <a href="https://braspag.github.io/manual/chargeback#tabela-1-chargebacks[n].negativevalues">Tabela 1</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Id</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Id</code></td>
       <td style="text-align: left">Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource</td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Status</code></td>
       <td style="text-align: left">Status do evento de marcação da transação que chargeback. Apenas Cybersource - <a href="https://braspag.github.io/manual/chargeback#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status">Tabela 4</a></td>
       <td style="text-align: center">string</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.ProviderChargebackMarkingEvent.Code</code></td>
       <td style="text-align: left">Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - <a href="https://braspag.github.io/manual/chargeback#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code">Tabela 5</a></td>
       <td style="text-align: center">string</td>
     </tr>
@@ -1084,25 +1084,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -1122,7 +1122,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -1149,11 +1149,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">200 OK</td>
     </tr>
   </tbody>
@@ -1170,15 +1170,15 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">Status da aceitação do chargeback - Tabela 4</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">StatusDescription</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">StatusDescription</code></td>
       <td style="text-align: left">Descrição do status da aceitação do chargeback</td>
     </tr>
   </tbody>
@@ -1203,25 +1203,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -1241,7 +1241,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -1267,11 +1267,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">404 Not Found</td>
     </tr>
   </tbody>
@@ -1288,11 +1288,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Code</code></td>
       <td style="text-align: left">Código que o chargeback não foi encontrado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td style="text-align: left">Mensagem que o chargeback não foi encontrado</td>
     </tr>
   </tbody>
@@ -1317,25 +1317,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -1355,7 +1355,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -1381,11 +1381,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">400 Bad Request</td>
     </tr>
   </tbody>
@@ -1402,11 +1402,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Code</code></td>
       <td style="text-align: left">Código que o chargeback foi aceito ou contestado anteriomente</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td style="text-align: left">Mensagem que o chargeback foi aceito ou contestado anteriormente</td>
     </tr>
   </tbody>
@@ -1433,25 +1433,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -1471,7 +1471,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -1490,13 +1490,13 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">form-data</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
       <td style="text-align: left"> </td>
-      <td style="text-align: left">Arquivo extensão tif <br /> Obs.: O arquivo deve possuir como nome o número do caso relacionado ao chargeback <br /> Ex.: <code class="highlighter-rouge">CaseNumber</code> = 0000001 -&gt; <code class="highlighter-rouge">File</code> = 0000001.tif <br /> Obs2.: O arquivo deverá ser multi-page com extensão tif de no máximo 7mb de tamanho <br /> Obs3.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019</td>
+      <td style="text-align: left">Arquivo extensão tif <br /> Obs.: O arquivo deve possuir como nome o número do caso relacionado ao chargeback <br /> Ex.: <code class="language-plaintext highlighter-rouge">CaseNumber</code> = 0000001 -&gt; <code class="language-plaintext highlighter-rouge">File</code> = 0000001.tif <br /> Obs2.: O arquivo deverá ser multi-page com extensão tif de no máximo 7mb de tamanho <br /> Obs3.: O prazo para enviar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a contestação até 19/02/2019</td>
       <td style="text-align: left">Sim</td>
     </tr>
   </tbody>
@@ -1515,11 +1515,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">200 OK</td>
     </tr>
   </tbody>
@@ -1544,25 +1544,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -1582,7 +1582,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -1608,11 +1608,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">404 Not Found</td>
     </tr>
   </tbody>
@@ -1629,11 +1629,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Code</code></td>
       <td style="text-align: left">Código que o chargeback não foi encontrado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td style="text-align: left">Mensagem que o chargeback não foi encontrado</td>
     </tr>
   </tbody>
@@ -1658,25 +1658,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -1696,7 +1696,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -1722,11 +1722,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">400 Bad Request</td>
     </tr>
   </tbody>
@@ -1743,11 +1743,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Code</code></td>
       <td style="text-align: left">Código que o chargeback foi contestado ou aceito anteriomente</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td style="text-align: left">Mensagem que o chargeback foi contestado ou aceito anteriormente</td>
     </tr>
   </tbody>
@@ -1772,25 +1772,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -1810,7 +1810,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -1836,11 +1836,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">400 Bad Request</td>
     </tr>
   </tbody>
@@ -1857,11 +1857,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Code</code></td>
       <td style="text-align: left">Código que o chargeback está com nome inválido, diferente do CaseNumber</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td style="text-align: left">Mensagem que o chargeback está com nome inválido, diferente do CaseNumber</td>
     </tr>
   </tbody>
@@ -1886,25 +1886,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -1924,7 +1924,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -1950,11 +1950,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">400 Bad Request</td>
     </tr>
   </tbody>
@@ -1971,11 +1971,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Code</code></td>
       <td style="text-align: left">Código que o chargeback não foi enviado com o arquivo de contestação</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td style="text-align: left">Mensagem que o chargeback não foi enviado com o arquivo de contestação</td>
     </tr>
   </tbody>
@@ -2000,25 +2000,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -2038,7 +2038,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -2064,11 +2064,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">400 Bad Request</td>
     </tr>
   </tbody>
@@ -2085,11 +2085,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Code</code></td>
       <td style="text-align: left">Código que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td style="text-align: left">Mensagem que o chargeback foi enviado com o arquivo de contestação com extensão inválida, diferente de tif</td>
     </tr>
   </tbody>
@@ -2114,25 +2114,25 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td style="text-align: left">Bearer {access_token}</td>
       <td style="text-align: left">Tipo do conteúdo da requisição</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
       <td style="text-align: left">xxxxxxxxxx</td>
       <td style="text-align: left">Código do estabelecimento ou afiliação na adquirente</td>
       <td style="text-align: left">sim</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
       <td style="text-align: left">Identificador da requisição</td>
       <td style="text-align: left">sim</td>
@@ -2152,7 +2152,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
       <td style="text-align: left">Número do caso relacionado ao chargeback</td>
       <td style="text-align: center">sim</td>
     </tr>
@@ -2178,11 +2178,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td style="text-align: left">application/json</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td style="text-align: left">400 Bad Request</td>
     </tr>
   </tbody>
@@ -2199,11 +2199,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Code</code></td>
       <td style="text-align: left">Código que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Message</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td style="text-align: left">Mensagem que o chargeback foi enviado com o arquivo de contestação com tamanho superior a 7mb</td>
     </tr>
   </tbody>
@@ -2268,7 +2268,7 @@
     </tr>
     <tr>
       <td style="text-align: left">NotFound</td>
-      <td style="text-align: left">Transação na encontrada na base de dados para os valores enviados nos campos do nó <code class="highlighter-rouge">Transaction</code></td>
+      <td style="text-align: left">Transação na encontrada na base de dados para os valores enviados nos campos do nó <code class="language-plaintext highlighter-rouge">Transaction</code></td>
     </tr>
   </tbody>
 </table>

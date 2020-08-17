@@ -195,63 +195,63 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
       <td>Store identifier at Braspag</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
       <td>Public Key for Dual Authentication at Braspag</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
       <td>Name of Payment Method’s Provider</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.CardNumber</code></td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
       <td>Shopper’s Card Number for Zero Auth and Consulta BIN. If it is a Consulta BIN request only, send only the BIN</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
       <td>Shopper’s Name Printed on Card</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
       <td>Expiration date printed on card in MM/YYYY format</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
       <td>Number</td>
       <td>4</td>
       <td>Yes</td>
       <td>Security code printed on back of card</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
       <td>Card Brand</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
       <td>Text</td>
       <td>CreditCard or DebitCard</td>
       <td>Yes</td>
@@ -311,77 +311,77 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Zero Auth Status</td>
       <td>Number</td>
       <td>1</td>
       <td>0-Zero Auth query failed1-Query Zero Auth successfully;99-Successful consultation, but card status is inconclusive</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Zero Auth query code returned by the provider. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 Provider Code 82-Invalid Card</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Query message Zero Auth returned by the provider.</td>
       <td>Text</td>
       <td>512</td>
       <td>E.g.: “Authorized Transaction”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Provider</code></td>
       <td>Service Provider</td>
       <td>Text</td>
       <td>15</td>
       <td>Ex. Cielo30</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.CardType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardType</code></td>
       <td>Card Type returned from Consulta BIN</td>
       <td>Text</td>
       <td>15</td>
       <td>E.g.: Credit, Debit or Multiple</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.ForeignCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.ForeignCard</code></td>
       <td>Indicates if it is a card issued outside Brazil</td>
       <td>boolean</td>
       <td>-</td>
       <td>Ex. true or false</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.Code</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Code</code></td>
       <td>BIN Query Return Code</td>
       <td>Number</td>
       <td>2</td>
       <td>Ex. For provider Cielo30, 00 means successful consultation</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.Message</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Message</code></td>
       <td>BIN Query Return Message</td>
       <td>Text</td>
       <td>512</td>
       <td>E.g.: For Cielo30 provider, “Analise autorizada” means successful consultation.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.CorporateCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CorporateCard</code></td>
       <td>Indicates whether the card is corporate</td>
       <td>boolean</td>
       <td>-</td>
       <td>Ex. true or false</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.Issuer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Issuer</code></td>
       <td>Name of card issuer</td>
       <td>Text</td>
       <td>512</td>
       <td>Ex. “Bank Name” (Subject to acquirer’s mapping)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.IssuerCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.IssuerCode</code></td>
       <td>Card issuer code</td>
       <td>Number</td>
       <td>3</td>

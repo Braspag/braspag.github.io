@@ -173,56 +173,56 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">ScheduleToAnticipate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ScheduleToAnticipate</code></td>
       <td>Parte da agenda a ser antecipada [Partial - Total].</td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">AmountToAnticipate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AmountToAnticipate</code></td>
       <td>Valor, em centavos, que deseja antecipar. Obrigatório se ScheduleToAnticipate = Partial</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Loja para a qual antecipar, podendo ser um Subordinado ou Master</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterCdiPercent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterCdiPercent</code></td>
       <td>Percentual CDI cobrado pelo Master. Obrigatório se MerchantId for um Subordinado</td>
       <td>Decimal</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentDate</code></td>
       <td>Data que se deseja antecipar, deve ser maior que data da solicitação + 2 dias úteis</td>
       <td>Date</td>
       <td>YYYY-MM-DD</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Notification.Url</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
       <td>Url que receberá a notificação sobre a mudança de status da antecipação.</td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Notification.Headers[].Key</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Key</code></td>
       <td>Chave de autenticação do endpoint de notificação do status da antecipação.</td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Notification.Headers[].Value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Value</code></td>
       <td>Valor de autenticação do endpoint de notificação do status da antecipação.</td>
       <td>String</td>
       <td>-</td>
@@ -264,14 +264,14 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
       <td>Identificador da antecipação.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da antecipação. [Created - InAnalysis - Approved - Reproved - Processed]</td>
       <td>String</td>
       <td>-</td>
@@ -332,7 +332,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
       <td>Identificador da antecipação.</td>
       <td>Guid</td>
       <td>36</td>
@@ -340,7 +340,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da antecipação. [Created - InAnalysis - Approved - Reproved - Processed].</td>
       <td>String</td>
       <td>-</td>
@@ -348,7 +348,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ScheduleToAnticipate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ScheduleToAnticipate</code></td>
       <td>Parte da agenda a ser antecipada [Partial - Total].</td>
       <td>String</td>
       <td>-</td>
@@ -356,7 +356,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">AmountToAnticipate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AmountToAnticipate</code></td>
       <td>Valor, em centavos, que deseja antecipar. Obrigatório se ScheduleToAnticipate = Partial.</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -364,7 +364,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Loja para a qual antecipar, podendo ser um Subordinado ou Master.</td>
       <td>Guid</td>
       <td>36</td>
@@ -372,7 +372,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterCdiPercent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterCdiPercent</code></td>
       <td>Percentual CDI cobrado pelo Master. Obrigatório se MerchantId for um Subordinado.</td>
       <td>Decimal</td>
       <td>-</td>
@@ -380,7 +380,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterAnticipationRate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterAnticipationRate</code></td>
       <td>Taxa efetiva da antecipação do Master (Se Status for Approved</td>
       <td>Processed).</td>
       <td>Decimal</td>
@@ -388,7 +388,7 @@
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BraspagCdiPercent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BraspagCdiPercent</code></td>
       <td>Percentual do CDI cobrado pela Braspag (Se Status for Approved</td>
       <td>Processed).</td>
       <td>Decimal</td>
@@ -396,7 +396,7 @@
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BraspagAnticipationRate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BraspagAnticipationRate</code></td>
       <td>Taxa efetiva da antecipação da Braspag (Se Status for Approved</td>
       <td>Processed).</td>
       <td>Decimal</td>
@@ -404,7 +404,7 @@
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">AnticipatedGrossAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipatedGrossAmount</code></td>
       <td>Valor da agenda antecipada (Se Status for  Processed).</td>
       <td>Decimal</td>
       <td>-</td>
@@ -412,7 +412,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">AnticipatedNetAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipatedNetAmount</code></td>
       <td>Valor antecipado após processamento (Se Status for  Processed).</td>
       <td>Decimal</td>
       <td>-</td>
@@ -420,7 +420,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterComissionAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterComissionAmount</code></td>
       <td>Valor de comissão do master após processamento (Se Status for  Processed).</td>
       <td>Decimal</td>
       <td>-</td>
@@ -428,7 +428,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentDate</code></td>
       <td>Data que se deseja antecipar, deve ser maior que data da solicitação + 2 dias úteis.</td>
       <td>Date</td>
       <td>YYYY-MM-DD</td>
@@ -436,7 +436,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Notification.Url</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
       <td>Url que receberá a notificação sobre a mudança de status da antecipação.</td>
       <td>String</td>
       <td>-</td>
@@ -444,7 +444,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Notification.Headers[].Key</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Key</code></td>
       <td>Chave de autenticação do endpoint de notificação do status da antecipação.</td>
       <td>String</td>
       <td>-</td>
@@ -452,7 +452,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Notification.Headers[].Value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Value</code></td>
       <td>Valor de autenticação do endpoint de notificação do status da antecipação.</td>
       <td>String</td>
       <td>-</td>
@@ -537,21 +537,21 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">PageIndex</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
       <td>Página a ser consultada.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageSize</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
       <td>Tamanho da página. Valores possíveis: 25, 50, 100.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageCount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageCount</code></td>
       <td>Quantidade de páginas</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -575,11 +575,11 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">UndoToAnticipationCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">UndoToAnticipationCredit</code></td>
       <td>Lançamento de crédito para desfazimento de eventos futuros antecipados.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">AnticipationCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationCredit</code></td>
       <td>Lançamento de crédito de antecipação.</td>
     </tr>
   </tbody>
@@ -596,11 +596,11 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">UndoToAnticipationDebit </code></td>
+      <td><code class="language-plaintext highlighter-rouge">UndoToAnticipationDebit </code></td>
       <td>Lançamento de débito para desfazimento de eventos futuros antecipados.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">AnticipationDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationDebit</code></td>
       <td>Lançamento de débito de antecipação.</td>
     </tr>
   </tbody>
@@ -619,11 +619,11 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Id </code></td>
+      <td><code class="language-plaintext highlighter-rouge">Id </code></td>
       <td>Identificador da antecipação.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ChangeType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
       <td>10 - Análise da antecipação realizada.</td>
     </tr>
   </tbody>

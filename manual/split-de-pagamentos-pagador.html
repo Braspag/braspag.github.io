@@ -318,32 +318,32 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Customer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
       <td>-</td>
       <td>-</td>
       <td>Sim</td>
       <td>Dados do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Texto</td>
       <td>61</td>
       <td>Sim</td>
       <td>Nome do comprador (No ambiente de Sandbox, o último nome do comprador deverá ser <strong>ACCEPT</strong>. Ex.: “João da Silva Accept”)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Texto</td>
       <td>18</td>
       <td>Sim</td>
       <td>Número de documento do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
-      <td>Tipo de documento de identificação do comprador. Ex.: <code class="highlighter-rouge">CPF</code> ou <code class="highlighter-rouge">CNPJ</code></td>
+      <td>Tipo de documento de identificação do comprador. Ex.: <code class="language-plaintext highlighter-rouge">CPF</code> ou <code class="language-plaintext highlighter-rouge">CNPJ</code></td>
     </tr>
   </tbody>
 </table>
@@ -388,7 +388,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Payment</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment</code></td>
       <td>-</td>
       <td>-</td>
       <td>Sim</td>
@@ -396,7 +396,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -404,15 +404,15 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do meio de pagamento. Possíveis Valores: <code class="highlighter-rouge">CreditCard</code> ou <code class="highlighter-rouge">DebitCard</code></td>
+      <td>Tipo do meio de pagamento. Possíveis Valores: <code class="language-plaintext highlighter-rouge">CreditCard</code> ou <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Inteiro</td>
       <td>15</td>
       <td>Sim</td>
@@ -420,15 +420,15 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td>Boleano</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Parâmetro para capturar a transação. Caso o valor seja <code class="highlighter-rouge">False</code> a transação será apenas autorizada. Se for <code class="highlighter-rouge">True</code>, a captura será realizada automaticamente após a autorização.</td>
+      <td>Parâmetro para capturar a transação. Caso o valor seja <code class="language-plaintext highlighter-rouge">False</code> a transação será apenas autorizada. Se for <code class="language-plaintext highlighter-rouge">True</code>, a captura será realizada automaticamente após a autorização.</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.DoSplit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
       <td>Booleano</td>
       <td>-</td>
       <td>Não (Default false)</td>
@@ -436,7 +436,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Inteiro</td>
       <td>2</td>
       <td>Sim</td>
@@ -444,7 +444,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td>Texto</td>
       <td>13</td>
       <td>Sim</td>
@@ -452,7 +452,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.CreditCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard</code></td>
       <td>-</td>
       <td>-</td>
       <td>Sim</td>
@@ -460,7 +460,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
@@ -468,7 +468,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.CreditCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
@@ -476,7 +476,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
@@ -484,7 +484,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
@@ -492,7 +492,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.CreditCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -533,7 +533,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Payment.FraudAnalysis</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
@@ -541,15 +541,15 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
       <td>Texto</td>
       <td>12</td>
       <td>Sim</td>
       <td>Identifica o provedor da solução de análise de fraude</td>
-      <td>Possíveis valores: <code class="highlighter-rouge">Cybersource</code></td>
+      <td>Possíveis valores: <code class="language-plaintext highlighter-rouge">Cybersource</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td>Inteiro</td>
       <td>15</td>
       <td>Não</td>
@@ -617,28 +617,28 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador do Seller na Braspag</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
       <td>Total da venda do Seller específico. R$ 100,00 = 10000</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
       <td>Decimal</td>
       <td>3,2</td>
       <td>Não</td>
       <td>Taxa aplicada pela loja Master sobre o Seller para desconto</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Fares.Fee</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -1054,189 +1054,189 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Numero de identificação do Pedido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Email do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
       <td>Nome do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Texto</td>
       <td>14</td>
       <td>Não</td>
       <td>Número do RG, CPF ou CNPJ do Cliente</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Tipo de documento de identificação do comprador (CPF ou CNPJ)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Mobile</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Mobile</code></td>
       <td>Texto</td>
       <td>14</td>
       <td>Não*</td>
       <td>Celular do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td>Texto</td>
       <td>14</td>
       <td>Não*</td>
       <td>Telefone do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Não*</td>
       <td>Endereço do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Não*</td>
       <td>Número do endereço de entrega do pedido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
       <td>Complemento do endereço de entrega do pedido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td>Texto</td>
       <td>9</td>
       <td>Não*</td>
       <td>CEP do endereço de entrega do pedido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
       <td>Cidade do endereço de entrega do pedido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td>Texto</td>
       <td>2</td>
       <td>Não*</td>
       <td>Estado do endereço de entrega do pedido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td>Texto</td>
       <td>35</td>
       <td>Não*</td>
       <td>Pais do endereço de entrega do pedido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
       <td>Bairro do Comprador.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Nome da provedora de Meio de Pagamento</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do meio de pagamento. Possíveis Valores: <code class="highlighter-rouge">CreditCard</code> ou <code class="highlighter-rouge">DebitCard</code></td>
+      <td>Tipo do meio de pagamento. Possíveis Valores: <code class="language-plaintext highlighter-rouge">CreditCard</code> ou <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
       <td>Valor do Pedido (ser enviado em centavos)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Número</td>
       <td>2</td>
       <td>Sim</td>
       <td>Número de Parcelas</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
       <td>Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td>Texto</td>
       <td>13</td>
       <td>Não</td>
       <td>Texto que será impresso na fatura do portador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
       <td>Número do Cartão do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
       <td>Nome do portador impresso no cartão</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
       <td>Data de validade impresso no cartão</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
       <td>Código de segurança impresso no verso do cartão</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Bandeira do cartão</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
@@ -1940,14 +1940,14 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">AuthenticationUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
       <td>URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.</td>
       <td>Texto</td>
       <td>56</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ReturnUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ReturnUrl</code></td>
       <td>Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.</td>
       <td>Texto</td>
       <td>1024</td>
@@ -2009,28 +2009,28 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
       <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
       <td>Parte do valor total da transação referente a participação do <strong>Subordinado</strong>, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
       <td><strong>MDR(%)</strong> do <strong>Marketplace</strong> a ser descontado do valor referente a participação do <strong>Subordinado</strong></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Fares.Fee</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
       <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>Subordinado</strong>, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -2075,14 +2075,14 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
       <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong> ou <strong>Marketplace</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Splits.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.Amount</code></td>
       <td>Parte do valor calculado da transação a ser recebido pelo <strong>Subordinado</strong> ou <strong>Marketplace</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -2108,7 +2108,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 <p>Para obter um token de acesso:</p>
 
 <ol>
-  <li>Concatene o ClientId e ClientSecret: <code class="highlighter-rouge">ClientId:ClientSecret</code>.</li>
+  <li>Concatene o ClientId e ClientSecret: <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>.</li>
   <li>Codifique o resultado da concatenação em Base64.</li>
   <li>Realize uma requisição ao servidor de autorização:</li>
 </ol>
@@ -2552,14 +2552,14 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">VoidSplitPayments.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">VoidSplitPayments.SubordinateMerchantId</code></td>
       <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">VoidedAmount.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">VoidedAmount.Amount</code></td>
       <td>Total ou parte do valor destinado ao <strong>Subordinado</strong> a ser cancelado, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -2670,11 +2670,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Commission</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Commission</code></td>
       <td>Com esta opção, o desconto será feito sobre o valor de comissão que o Master tem a receber na transação.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Sale</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Sale</code></td>
       <td>Com esta opção, o desconto será feito sobre o valor de venda que o Master tem a receber na transação.</td>
     </tr>
   </tbody>
@@ -3526,217 +3526,217 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
       <td>Chave Publica para Autenticação Dupla na Braspag</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Sim</td>
       <td>Numero de identificação do Pedido. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Sim</td>
       <td>Nome do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do RG, CPF ou CNPJ do Cliente</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
       <td>Tipo de documento de identificação do comprador (CPF ou CNPJ)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Sim</td>
       <td>Endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Sim</td>
       <td>Número endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Não</td>
       <td>Complemento do endereço de contato do Comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td>Texto</td>
       <td>8</td>
       <td>Sim</td>
       <td>CEP do endereço de contato do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Sim</td>
       <td>Bairro do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Sim</td>
       <td>Cidade do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
       <td>Texto</td>
       <td>2</td>
       <td>Sim</td>
       <td>Estado do endereço de contato do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
       <td>Texto</td>
       <td>35</td>
       <td>Sim</td>
       <td>Pais do endereço de contato do comprador</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Nome da provedora de Meio de Pagamento de Boleto (Braspag)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Bank</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Bank</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Nome do Banco que o boleto será emitido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Tipo do Meio de Pagamento. No caso “Boleto”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
       <td>Valor do Pedido (deve ser enviado em centavos)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.BoletoNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Não</td>
       <td>Número do Boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Assignor</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Assignor</code></td>
       <td>Texto</td>
       <td>200</td>
       <td>Não</td>
       <td>Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Demonstrative</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Não</td>
       <td>Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExpirationDate</code></td>
       <td>Date</td>
       <td>AAAA-MM-DD</td>
       <td>Não</td>
       <td>Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Identification</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Identification</code></td>
       <td>Texto</td>
       <td>14</td>
       <td>Não</td>
       <td>CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Instructions</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
       <td>Texto</td>
       <td>vide tabela abaixo</td>
       <td>Não</td>
       <td>Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.NullifyDays</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.NullifyDays</code></td>
       <td>Número</td>
       <td>2</td>
       <td>Não</td>
       <td>Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo contado a partir da data do vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.DaysToFine</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DaysToFine</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
       <td>Opcional e somente para provider Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex: 3</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.FineRate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FineRate</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
       <td>Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não enviar se utilizar FineAmount. Ex: 10.12345 = 10.12345%</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.FineAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FineAmount</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
       <td>Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não enviar se utilizar FineRate.  Ex: 1000 = R$ 10,00</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.DaysToInterest</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DaysToInterest</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
       <td>Opcional e somente para provider Bradesco2.Quantidade de dias após o vencimento para iniciar a cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex: 3</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.InterestRate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InterestRate</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
       <td>Opcional e somente para provider Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (Mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não enviar se utilizar InterestAmount. Ex: 10.12345</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.InterestAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -3818,56 +3818,56 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
       <td>Data de expiração.</td>
       <td>Texto</td>
       <td>10</td>
       <td>2014-12-25</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Url</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Url</code></td>
       <td>URL do Boleto gerado</td>
       <td>string</td>
       <td>256</td>
       <td>https://…/pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BoletoNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BoletoNumber</code></td>
       <td>“NossoNumero” gerado.</td>
       <td>Texto</td>
       <td>50</td>
       <td>2017091101</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BarCodeNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BarCodeNumber</code></td>
       <td>Representação numérica do código de barras.</td>
       <td>Texto</td>
       <td>44</td>
       <td>00091628800000157000494250100000001200656560</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">DigitableLine</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DigitableLine</code></td>
       <td>Linha digitável.</td>
       <td>Texto</td>
       <td>256</td>
       <td>00090.49420 50100.000004 12006.565605 1 62880000015700</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Address</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Address</code></td>
       <td>Endereço do Loja cadastrada no banco</td>
       <td>Texto</td>
       <td>256</td>
       <td>Av. Teste, 160</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da Transação.</td>
       <td>Byte</td>
       <td>2</td>
@@ -3901,43 +3901,43 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
     <tr>
       <td>Análise antes da autorização</td>
       <td>Antes da transação ser enviada para a autorização, o AntiFraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AnalyseFirst</em></td>
+      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AnalyseFirst</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Análise após a autorização</td>
       <td>Antes da transação ser enviada para o AntiFraude, a mesma será enviada para a autorização</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em></td>
+      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Análise de risco somente se a transação for autorizada</td>
       <td>O AntiFraude será acionado apenas para analisar transações com o staus <em>autorizada</em>. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a <em>OnSuccess</em></td>
+      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a <em>OnSuccess</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Autorização com captura automática após a análise de risco</td>
       <td>O AntiFraude será acionado para realizar a análise de risco e se o status for aceito a autorização com captura automática poderá ser realizada</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AnalyseFirst</em>, <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a <em>OnSuccess</em> e <code class="highlighter-rouge">Payment.Capture</code> igual a <em>true</em></td>
+      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AnalyseFirst</em>, <code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a <em>OnSuccess</em> e <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a <em>true</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Capturar apenas se uma transação for segura</td>
       <td>Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em>, <code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> igual a <em>true</em> e <code class="highlighter-rouge">Payment.Capture</code> igual a <em>false</em></td>
+      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em>, <code class="language-plaintext highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> igual a <em>true</em> e <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a <em>false</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Cancelar uma transação comprometida</td>
       <td>Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a rejeitada, a transação será cancelada ou estornada automaticamente</td>
-      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em> e <code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> igual a <em>true</em></td>
+      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em> e <code class="language-plaintext highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> igual a <em>true</em></td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<p>Se não for especificado o contrário durante a autorização, o Split processará sua transação pelo fluxo <code class="highlighter-rouge">FraudAnalysis.Sequence</code> <em>AnalyseFirst</em>, <code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code> <em>OnSuccess</em>, <code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> <em>false</em> e <code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> <em>false</em>.</p>
+<p>Se não for especificado o contrário durante a autorização, o Split processará sua transação pelo fluxo <code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> <em>AnalyseFirst</em>, <code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> <em>OnSuccess</em>, <code class="language-plaintext highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> <em>false</em> e <code class="language-plaintext highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> <em>false</em>.</p>
 
 <p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós “FraudAnalysis”, “Cart”, “MerchantDefinedFields” e “Travel (somente para venda de passagens aéreas)”.</p>
 
@@ -4110,609 +4110,609 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">50</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Número do pedido da loja</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Name</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">120</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Nome completo do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">16</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Número do documento de identificação do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">255</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Tipo de documento de identificação do comprador <br /> Possíveis valores: CPF ou CNPJ</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">100</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">E-mail do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Birthdate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
       <td style="text-align: left">Date</td>
       <td style="text-align: left">10</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1991-01-10</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 5521976781114</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">54</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Logradouro do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">5</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Número do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">14</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Complemento do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">9</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Código postal do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">50</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Cidade do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">2</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Estado do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">2</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">45</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Bairro do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">54</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Logradouro do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">5</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Número do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">14</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Complemento do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">9</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Código postal do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">50</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Cidade do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">2</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Estado do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">2</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">45</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Bairro do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Nome da provedora da autorização</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">100</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Tipo do meio de pagamento. <br /> Obs.: Somente o tipo <em>CreditCard</em> funciona com análise de fraude</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Valor da transação financeira em centavos <br /> Ex: 150000 = r$ 1.500,00</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço <br /> Obs.: Esse valor não é adicionado ao valor da autorização</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Currency</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">3</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Moeda na qual o pagamento será feito <br /> Possíveis valores: BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Country</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">3</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">País na qual o pagamento será realizado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">2</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Número de parcelas</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Interest</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">10</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Tipo de parcelamento <br /> Possíveis valores: ByMerchant / ByIssuer</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Indica se a autorização deverá ser com captura automática <br /> Possíveis valores: true / false (default) <br /> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade <br /> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Indica se a transação deve ser autenticada <br /> Possíveis valores: true / false (default) <br /> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Recurrent</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
-      <td style="text-align: left">Indica se a transação é do tipo recorrente <br /> Possíveis valores: true / false (default) <br /> Obs.: Este campo igual a <em>true</em> não irá criar uma recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV e servindo de indicação para a adquirente que é a cobrança de uma transação de uma recorrência <br /> Obs2.: Somente para transações Cielo <br /> Obs3.: O campo <code class="highlighter-rouge">Payment.Authenticate</code> deve ser igual a <em>false</em> quando este for igual a <em>true</em></td>
+      <td style="text-align: left">Indica se a transação é do tipo recorrente <br /> Possíveis valores: true / false (default) <br /> Obs.: Este campo igual a <em>true</em> não irá criar uma recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV e servindo de indicação para a adquirente que é a cobrança de uma transação de uma recorrência <br /> Obs2.: Somente para transações Cielo <br /> Obs3.: O campo <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> deve ser igual a <em>false</em> quando este for igual a <em>true</em></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">13</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Texto que será impresso na fatura do portador <br /> Obs.: O valor deste campo tem que ser claro e fácil de identificar pelo portador o estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.DoSplit</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Indica se a transação será dividida entre vários participantes <br /> Possíveis valores: true / false (default)</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">50</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Identificador do campo extra que será enviado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">1024</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Valor do campo extra que será enviado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">19</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Número do cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Holder</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">25</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Nome do portador impresso no cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">7</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Data de validade do cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">4</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Código de segurança no verso do cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Brand</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">10</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Bandeira do cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Alias</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Alias</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">64</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">14</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Tipo de fluxo da análise de fraude <br /> Possíveis valores: AnalyseFirst / AuthorizeFirst</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">9</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Critério do fluxo da análise de fraude <br /> Possíveis valores: OnSuccess</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">10</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Provedor de AntiFraude <br /> Possíveis valores: Cybersource</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Indica se a transação após a análise de fraude será capturada <br /> Possíveis valores: true / false (default) <br /> Obs.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br /> Obs2.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br /> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente <em>AuthorizeFirst</em></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Indica se a transação após a análise de fraude será cancelada <br /> Possíveis valores: true / false (default) <br /> Obs.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for de alto risco (Reject) a transação anteriormente autorizada será cancelada <br /> Obs2.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será cancelada após a Braspag receber a notificação da alteração de status e esta for alto risco (Reject) <br /> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente <em>AuthorizeFirst</em></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">100</td>
       <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas</td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.HostName</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.HostName</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">60</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.CookiesAccepted</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.CookiesAccepted</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Identifica se o browser do comprador aceita cookies <br /> Possíveis valores: true / false (default)</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.Email</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.Email</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">100</td>
       <td style="text-align: left">Não</td>
-      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(<code class="highlighter-rouge">Customer.Email</code>)</td>
+      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(<code class="language-plaintext highlighter-rouge">Customer.Email</code>)</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.Type</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">40</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br /> Ex.: Google Chrome, Mozilla Firefox, Safari, etc</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">45</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Endereço de IP do comprador. Formato IPv4 ou IPv6</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador é para presente</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser devolvido a loja <br /> Possíveis valores: true / false (default)</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.GiftCategory</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.GiftCategory</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">9</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-1-payment.fraudanalysis.cart.tems[n].giftcategory">Tabela 1 - Payment.Fraudanalysis.Cart.Items{n}.GiftCategory</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.HostHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.HostHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">6</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-2-payment.fraudanalysis.cart.items[n].hosthedge">Tabela 2 - Payment.Fraudanalysis.Cart.Items{n}.HostHedge</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">6</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-3-payment.fraudanalysis.cart.items[n].nonsensicalhedge">Tabela 3 - Cart.Items{n}.NonSensicalHedge</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">6</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-4-payment.fraudanalysis.cart.items[n].obscenitieshedge">Tabela 4 - Payment.Fraudanalysis.Cart.Items{n}.ObscenitiesHedge</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.PhoneHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.PhoneHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">6</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-5-payment.fraudanalysis.cart.items[n].phonehedge">Tabela 5 - Payment.Fraudanalysis.Cart.Items{n}.PhoneHedge</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">255</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Nome do Produto</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Quantidade do produto</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">255</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = r$ 109,50</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Risk</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Risk</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">6</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nível de risco do produto associado a quantidade de chargebacks <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-6-payment.fraudanalysis.cart.items[n].risk">Tabela 6 - Payment.Fraudanalysis.CartI.tems{n}.Risk</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.TimeHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.TimeHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">6</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-7-payment.fraudanalysis.cart.items[n].timehedge">Tabela 7 - Payment.Fraudanalysis.Cart.Items{n}.TimeHedge</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Type</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">19</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Categoria do produto <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-8-payment.fraudanalysis.cart.items[n].type">Tabela 8 - Payment.Fraudanalysis.Cart.Items{n}.Type</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.VelocityHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.VelocityHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">6</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-9-payment.fraudanalysis.cart.items[n].velocityhedge">Tabela 9 - Payment.Fraudanalysis.Cart.Items{n}.VelocityHedge</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Id</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Id</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">2</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">ID das informações adicionais a serem enviadas <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-20-payment.fraudanalysis.merchantdefinedfields">Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Value</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Value</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">255</td>
       <td style="text-align: left">Sim</td>
       <td style="text-align: left">Valor das informações adicionais a serem enviadas <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-20-payment.fraudanalysis.merchantdefinedfields">Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">120</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nome completo do responsável a receber o produto no endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">8</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-10-payment.fraudanalysis.shipping.method">Tabela 10 - Payment.Fraudanalysis.Shipping.Method</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.JourneyType</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.JourneyType</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">32</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Tipo de viagem <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-11-payment.fraudanalysis.travel.journeytype">Tabela 11 - Payment.FraudAnalysis.Travel.JourneyType</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Data e hora de partida <br /> Ex.: 2018-03-31 19:16:38</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">120</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Nome completo do passageiro</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Identity</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Identity</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">32</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Número do documento do passageiro</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Status</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Classificação da empresa aérea <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-12-payment.fraudanalysis.travel.passengers[n].status">Tabela 12 - Payment.FraudAnalysis.Travel.Passengers{n}.Status</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Rating</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Rating</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">13</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Tipo do passageiro <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-13-payment.fraudanalysis.travel.passengers[n].rating">Tabela 13 - Payment.FraudAnalysis.Travel.Passengers{n}.PassengerType</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Email</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Email</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">255</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">E-mail do passageiro</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Phone</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Phone</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">15</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Telefone do passageiro <br /> Ex.: 552121114700</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">3</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Código do aeroporto de partida. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">3</td>
       <td style="text-align: left">Não</td>
@@ -4722,7 +4722,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </table>
 
 <blockquote>
-  <p>Os campos do nó <code class="highlighter-rouge">FraudAnalysis.Travel</code> se tornam obrigatórios caso o segmento do seu negócio seja aéreas.</p>
+  <p>Os campos do nó <code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel</code> se tornam obrigatórios caso o segmento do seu negócio seja aéreas.</p>
 </blockquote>
 
 <h4 id="response">Response</h4>
@@ -4928,607 +4928,607 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Número do pedido da loja</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Name</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome completo do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Número do documento de identificação do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Tipo de documento de identificação do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Email</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">E-mail do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Birthdate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
       <td style="text-align: left">Date</td>
       <td style="text-align: left">Data de nascimento do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Número do telefone do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Logradouro do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Número do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Complemento do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Código postal do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Cidade do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Estado do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">País do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Bairro do endereço de cobrança</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Logradouro do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Número do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Complemento do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Código do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Cidade do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Estado do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">País do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Bairro do endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome da provedora da autorização</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Tipo do meio de pagamento</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Valor da transação financeira em centavos</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Montante do valor da autorização que deve ser destinado à taxa de serviço</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Currency</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Moeda na qual o pagamento será feito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Country</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">País na qual o pagamento será realizado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Número de parcelas</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Interest</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Tipo de parcelamento</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Indica se a autorização deverá ser com captura automática</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Indica se a transação deve ser autenticada</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Recurrent</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Indica se a transação é do tipo recorrente</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Texto que será impresso na fatura do portador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.DoSplit</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Indica se a transação será dividida entre vários participantes</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Identificador do campo extra que será enviado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Valor do campo extra que será enviado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Code</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Code</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Afiliação gerada pela adquirente</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Key</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Key</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Chave de afiliação/token gerado pela adquirente</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Username</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Username</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Usuário gerado no credenciamento com a adquirente Getnet</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Password</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Password</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Senha gerada no credenciamento com a adquirente Getnet</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Credentials.Signature</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Signature</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">ID do terminal no credenciamento com a adquirente Global Payments</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Número do cartão de crédito truncado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Holder</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome do portador impresso no cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Data de validade do cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Código de segurança no verso do cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Brand</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Bandeira do cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Indica se os dados do cartão de crédito foram armazenados no Cartão Protegido</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.Alias</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Alias</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CreditCard.CardToken</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardToken</code></td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Tipo de fluxo da análise de fraude</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Critério do fluxo da análise de fraude</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Provedor de AntiFraude</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Indica se a transação após a análise de fraude será capturada</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Indica se a transação após a análise de fraude será cancelada</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Valor total do pedido em centavos</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.HostName</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.HostName</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.CookiesAccepted</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.CookiesAccepted</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Identifica se o browser do comprador aceita cookies</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.Email</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.Email</code></td>
       <td style="text-align: left">Texto</td>
-      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(<code class="highlighter-rouge">Customer.Email</code>)</td>
+      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(<code class="language-plaintext highlighter-rouge">Customer.Email</code>)</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.Type</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Endereço de IP do comprador. Formato IPv4 ou IPv6</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador é para presente</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser devolvido a loja</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.GiftCategory</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.GiftCategory</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.HostHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.HostHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.PhoneHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.PhoneHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome do Produto</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Quantidade do produto</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Preço unitário do produto</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Risk</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Risk</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nível de risco do produto associado a quantidade de chargebacks</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.TimeHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.TimeHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Type</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Type</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Categoria do produto</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Cart.Items.VelocityHedge</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.VelocityHedge</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Id</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Id</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">ID das informações adicionais a serem enviadas</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Value</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Value</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Valor das informações adicionais a serem enviadas</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome completo do responsável a receber o produto no endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Meio de entrega do pedido</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.JourneyType</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.JourneyType</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Tipo de viagem</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Data e hora de partida</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome completo do passageiro</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Identity</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Identity</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Número do documento do passageiro</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Status</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Classificação da empresa aérea</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Rating</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Rating</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Tipo do passageiro</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Email</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Email</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">E-mail do passageiro</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Phone</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Phone</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Telefone do passageiro</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Código do aeroporto de partida</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Código do aeroporto de chegada</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Id</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Id</code></td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Id da transação no AntiFraude Braspag</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Status</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Status da transação no AntiFraude Braspag <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-14-payment.fraudanalysis.status">Tabela 14 - Payment.FraudAnalysis.Status</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.FraudAnalysisReasonCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FraudAnalysisReasonCode</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Código de retorno da Cybersouce <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-15-payment.fraudanalysis.fraudanalysisreasoncode">Tabela 15 - Payment.FraudAnalysis.FraudAnalysisReasonCode</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.AddressInfoCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.AddressInfoCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br /> Os códigos são concatenados usando o caracter ^ Ex.: COR-BA^MM-BIN <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-16-payment.fraudanalysis.replydata.addressinfocode">Tabela 16 - Payment.FraudAnalysis.ReplyData.AddressInfoCode</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.FactorCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.FactorCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Códigos que afetaram a pontuação da análise <br /> Os códigos são concatenados usando o caracter ^. Ex.: B^D^R^Z <br /><a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-17-payment.fraudanalysis.replydata.factorcode">Tabela 17 - ProviderAnalysisResult.AfsReply.FactorCode</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.Score</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.Score</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Score da análise de fraude. Valor entre 0 e 100</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.BinCountry</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.BinCountry</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Código do país do BIN do cartão usado na análise. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.CardIssuer</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.CardIssuer</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome do banco ou entidade emissora do cartão de crédito</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.CardScheme</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.CardScheme</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Bandeira do cartão</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.HostSeverity</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.HostSeverity</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.InternetInfoCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.InternetInfoCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br /> Os códigos são concatenados usando o caracter ^. Ex.: FREE-EM^RISK-EM <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-18-payment.fraudanalysis.replydata.internetinfocode">Tabela 18 - Payment.FraudAnalysis.ReplyData.InternetInfoCode</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.IpRoutingMethod</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.IpRoutingMethod</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Método de roteamento do comprador obtido a partir do endereço de IP <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-19-payment.fraudanalysis.replydata.iproutingmethod">Tabela 19 - Payment.FraudAnalysis.ReplyData.IpRoutingMethod</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.ScoreModelUsed</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.ScoreModelUsed</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.CasePriority</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.CasePriority</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.FraudAnalysis.ReplyData.ProviderTransactionId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.ProviderTransactionId</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Id da transação na Cybersource</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.PaymentId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Identificador da transação no Pagador Braspag</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.AcquirerTransactionId</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.AcquirerTransactionId</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Identificador da transação na adquirente</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ProofOfSale</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Número do comprovante de venda na adquirente (NSU - Número sequencial único da transação)</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.AuthorizationCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.AuthorizationCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Código de autorização na adquirente</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
       <td style="text-align: left">Datetime</td>
       <td style="text-align: left">Data em que a transação foi recebida no Pagador Braspag <br /> Ex.: 2018-01-16 16:38:19</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CapturedDate</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
       <td style="text-align: left">Datetime</td>
       <td style="text-align: left">Data em que a transação foi capturada na adquirente <br /> Ex.: 2018-01-16 16:38:20</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.CapturedAmount</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Valor capturado da transação <br /> Ex.: 123456 = r$ 1.234,56</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ECI</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ECI</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Eletronic Commerce Indicator. Código gerado em uma transação de crédito com autenticação externa</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ReasonCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReasonCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Código de retorno da operação</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ReasonMessage</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReasonMessage</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Mensagem de retorno da operação</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.Status</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
       <td style="text-align: left">Número</td>
       <td style="text-align: left">Status da transação no Pagador <br /> <a href="https://braspag.github.io/manual/split-pagamentos-braspag-pagador#tabela-21-payment.status">Tabela 21 - Payment.Status</a></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ProviderReturnCode</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Código retornado pela adquirente ou banco</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">Payment.ProviderReturnMessage</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnMessage</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">Mensagem retornada pela adquirente ou banco</td>
     </tr>
@@ -5958,11 +5958,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
     </tr>
     <tr>
       <td style="text-align: left">101</td>
-      <td style="text-align: left">A transação enviada para análise de fraude está faltando um ou mais campos necessários <br /> Verificar no response o campo <code class="highlighter-rouge">ProviderAnalysisResult.Missing</code> <br /> Possível ação: Reenviar a transação com a informação completa</td>
+      <td style="text-align: left">A transação enviada para análise de fraude está faltando um ou mais campos necessários <br /> Verificar no response o campo <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.Missing</code> <br /> Possível ação: Reenviar a transação com a informação completa</td>
     </tr>
     <tr>
       <td style="text-align: left">102</td>
-      <td style="text-align: left">A transação enviada para análise de fraude possui um ou mais campos com valores inválidos <br /> Verificar no response o campo <code class="highlighter-rouge">ProviderAnalysisResult.Invalid</code> <br /> Possível ação: Reenviar a transação com a informação correta</td>
+      <td style="text-align: left">A transação enviada para análise de fraude possui um ou mais campos com valores inválidos <br /> Verificar no response o campo <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.Invalid</code> <br /> Possível ação: Reenviar a transação com a informação correta</td>
     </tr>
     <tr>
       <td style="text-align: left">150</td>
@@ -6976,7 +6976,7 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
 <aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
 <p><strong>Variáveis</strong>
-Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class="highlighter-rouge">org_id</code> e o <code class="highlighter-rouge">session_id</code>. O <code class="highlighter-rouge">org_id</code> é um valor predefinido conforme tabela abaixo, já o <code class="highlighter-rouge">session_id</code> é composto pela concatenação dos parâmetros <code class="highlighter-rouge">ProviderMerchantId</code> e <code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code>, conforme exemplo abaixo:</p>
+Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class="language-plaintext highlighter-rouge">org_id</code> e o <code class="language-plaintext highlighter-rouge">session_id</code>. O <code class="language-plaintext highlighter-rouge">org_id</code> é um valor predefinido conforme tabela abaixo, já o <code class="language-plaintext highlighter-rouge">session_id</code> é composto pela concatenação dos parâmetros <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> e <code class="language-plaintext highlighter-rouge">FraudAnalysis.FingerPrintId</code>, conforme exemplo abaixo:</p>
 
 <table>
   <thead>
@@ -6987,12 +6987,12 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">org_id</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">org_id</code></td>
       <td style="text-align: left">para Sandbox = 1snn5n9w <br /> para Produção = k8vif92e</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">session_id</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">ProviderMerchantId</code> = Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag <br /> <code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code> = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">session_id</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> = Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag <br /> <code class="language-plaintext highlighter-rouge">FraudAnalysis.FingerPrintId</code> = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
     </tr>
   </tbody>
 </table>
@@ -7036,57 +7036,57 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="highlighter-rouge">Credit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Credit</code></td>
       <td>Lançamento de crédito das parcelas de uma transação.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="highlighter-rouge">FeeCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FeeCredit</code></td>
       <td>Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
     </tr>
     <tr>
       <td>5</td>
-      <td><code class="highlighter-rouge">RefundCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RefundCredit</code></td>
       <td>Lançamento de crédito devido a um cancelamento.</td>
     </tr>
     <tr>
       <td>7</td>
-      <td><code class="highlighter-rouge">ChargebackCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackCredit</code></td>
       <td>Lançamento de crédito devido a um chargeback.</td>
     </tr>
     <tr>
       <td>9</td>
-      <td><code class="highlighter-rouge">UndoChargebackCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">UndoChargebackCredit</code></td>
       <td>Lançamento de crédito para reversão de um chargeback.</td>
     </tr>
     <tr>
       <td>11</td>
-      <td><code class="highlighter-rouge">AntiFraudFeeCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeCredit</code></td>
       <td>Lançamento de crédito referente à transação de antifraude.</td>
     </tr>
     <tr>
       <td>13</td>
-      <td><code class="highlighter-rouge">AntiFraudFeeWithReviewCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeWithReviewCredit</code></td>
       <td>Lançamento de crédito referente à transação de antifraude com revisão manual.</td>
     </tr>
     <tr>
       <td>15</td>
-      <td><code class="highlighter-rouge">AdjustmentCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AdjustmentCredit</code></td>
       <td>Lançamento de um crédito como ajuste.</td>
     </tr>
     <tr>
       <td>17</td>
-      <td><code class="highlighter-rouge">ChargebackReversalCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackReversalCredit</code></td>
       <td>Lançamento de crédito referente a reversão de um chargeback.</td>
     </tr>
     <tr>
       <td>19</td>
-      <td><code class="highlighter-rouge">AnticipationCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationCredit</code></td>
       <td>Lançamento de crédito referente a antecipação.</td>
     </tr>
     <tr>
       <td>20</td>
-      <td><code class="highlighter-rouge">AnticipationCommissionCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationCommissionCredit</code></td>
       <td>Lançamento de crédito referente a comissão de uma antecipação.</td>
     </tr>
   </tbody>
@@ -7105,52 +7105,52 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   <tbody>
     <tr>
       <td>2</td>
-      <td><code class="highlighter-rouge">Debit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Debit</code></td>
       <td>Lançamento de débito das parcelas de uma transação.</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="highlighter-rouge">FeeDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FeeDebit</code></td>
       <td>Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
     </tr>
     <tr>
       <td>6</td>
-      <td><code class="highlighter-rouge">RefundDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RefundDebit</code></td>
       <td>Lançamento de débito devido a um cancelamento.</td>
     </tr>
     <tr>
       <td>8</td>
-      <td><code class="highlighter-rouge">ChargebackDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackDebit</code></td>
       <td>Lançamento de débito devido a um chargeback.</td>
     </tr>
     <tr>
       <td>10</td>
-      <td><code class="highlighter-rouge">UndoChargebackDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">UndoChargebackDebit</code></td>
       <td>Lançamento de débito para reversão de um chargeback.</td>
     </tr>
     <tr>
       <td>12</td>
-      <td><code class="highlighter-rouge">AntiFraudFeeDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeDebit</code></td>
       <td>Lançamento de débito referente à transação de antifraude.</td>
     </tr>
     <tr>
       <td>14</td>
-      <td><code class="highlighter-rouge">AntiFraudFeeWithReviewDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeWithReviewDebit</code></td>
       <td>Lançamento de débito referente à transação de antifraude com revisão manual.</td>
     </tr>
     <tr>
       <td>16</td>
-      <td><code class="highlighter-rouge">AdjustmentDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AdjustmentDebit</code></td>
       <td>Lançamento de um débito como ajuste.</td>
     </tr>
     <tr>
       <td>18</td>
-      <td><code class="highlighter-rouge">ChargebackReversalDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackReversalDebit</code></td>
       <td>Lançamento de débito referente a reversão de um chargeback.</td>
     </tr>
     <tr>
       <td>22</td>
-      <td><code class="highlighter-rouge">AnticipationCommissionDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationCommissionDebit</code></td>
       <td>Lançamento de débito referente a comissão de uma antecipação.</td>
     </tr>
   </tbody>
@@ -7186,7 +7186,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">InitialForecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InitialForecastedDate</code></td>
       <td>Data de pagamento prevista inicial a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
@@ -7194,7 +7194,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>CurrentDate</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FinalForecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FinalForecastedDate</code></td>
       <td>Data de pagamento prevista final a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
@@ -7202,7 +7202,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>InitialForecastedDate</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">InitialPaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InitialPaymentDate</code></td>
       <td>Data de pagamento inicial a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
@@ -7210,7 +7210,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FinalPaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FinalPaymentDate</code></td>
       <td>Data de pagamento final a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
@@ -7218,7 +7218,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>InitialPaymentDate</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageIndex</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
       <td>Página a ser consultada.</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -7226,7 +7226,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageSize</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
       <td>Tamanho da página. Valores possíveis: 25, 50, 100.</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -7234,7 +7234,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>25</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">EventStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">EventStatus</code></td>
       <td>Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit - Anticipated].</td>
       <td>String</td>
       <td>-</td>
@@ -7242,7 +7242,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>Todos</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">IncludeAllSubordinates</code></td>
+      <td><code class="language-plaintext highlighter-rouge">IncludeAllSubordinates</code></td>
       <td>Inclui todos os subordinados na consulta.</td>
       <td>Boolean</td>
       <td>-</td>
@@ -7250,7 +7250,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>false</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantIds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantIds</code></td>
       <td>Lojas a serem consideradas na consulta.</td>
       <td>Guid</td>
       <td>-</td>
@@ -7371,67 +7371,67 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].Id</code></td>
       <td>Identificador do evento na agenda financiera.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].PaymentId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].PaymentId</code></td>
       <td>Identificador da transação.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].MerchantId</code></td>
       <td>Identificador da loja.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].PaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].PaymentDate</code></td>
       <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)</td>
       <td>Data</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].ForecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].ForecastedDate</code></td>
       <td>Data de liquidação prevista.</td>
       <td>Data</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].Installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].Installments</code></td>
       <td>Número de parcelas da transação.</td>
       <td>Inteiro</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].InstallmentAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].InstallmentAmount</code></td>
       <td>Valor, em centavos, da parcela a liquidar.</td>
       <td>Inteiro</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].InstallmentNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].InstallmentNumber</code></td>
       <td>Número da parcela a liquidar.</td>
       <td>Inteiro</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].Event</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].Event</code></td>
       <td>Identificador do evento.</td>
       <td>Inteiro</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].EventDescription</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].EventDescription</code></td>
       <td>Descrição do evento.</td>
       <td>String</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].EventStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].EventStatus</code></td>
       <td>Status do evento. [Scheduled - Pending - Settled - Error - WaitingForAdjustementDebit]</td>
       <td>String</td>
       <td>-</td>
@@ -7458,7 +7458,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">InitialCaptureDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InitialCaptureDate</code></td>
       <td>Data inicial a ser consultada, considerando a data de captura das transações.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
@@ -7466,7 +7466,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>CurrentDate</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FinalCaptureDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FinalCaptureDate</code></td>
       <td>Data final a ser consultada, considerando a data de captura das transações.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
@@ -7474,7 +7474,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>InitialCaptureDate</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageIndex</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
       <td>Página a ser consultada.</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -7482,7 +7482,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageSize</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
       <td>Tamanho da página.  Valores possíveis: 25, 50, 100.</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -7490,7 +7490,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>25</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">EventStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">EventStatus</code></td>
       <td>Status do evento [Scheduled - Pending - Settled - Error - Anticipated].</td>
       <td>String</td>
       <td>-</td>
@@ -7498,7 +7498,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>Todos</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">IncludeAllSubordinates</code></td>
+      <td><code class="language-plaintext highlighter-rouge">IncludeAllSubordinates</code></td>
       <td>Inclui todos os subordinados na consulta.</td>
       <td>Boolean</td>
       <td>-</td>
@@ -7506,7 +7506,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>false</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantIds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantIds</code></td>
       <td>Lojas a serem consideradas na consulta.</td>
       <td>Guid</td>
       <td>-</td>
@@ -7594,67 +7594,67 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].PaymentId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].PaymentId</code></td>
       <td>Identificador da transação.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].CaptureDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].CaptureDate</code></td>
       <td>Data de captura da transação.</td>
       <td>Data</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].MerchantId</code></td>
       <td>Identificador da loja.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].PaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].PaymentDate</code></td>
       <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)</td>
       <td>Data</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].ForecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].ForecastedDate</code></td>
       <td>Data de liquidação prevista.</td>
       <td>Data</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].Installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].Installments</code></td>
       <td>Número de parcelas a liquidar.</td>
       <td>Inteiro</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].InstallmentsAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].InstallmentsAmount</code></td>
       <td>Valor, em centavos, da parcela a liquidar.</td>
       <td>Inteiro</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].InstallmentNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].InstallmentNumber</code></td>
       <td>Número da parcela a liquidar.</td>
       <td>Inteiro</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].Event</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].Event</code></td>
       <td>Identificador do evento.</td>
       <td>Inteiro</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].EventDescription</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].EventDescription</code></td>
       <td>Descrição do evento.</td>
       <td>String</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].EventStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].EventStatus</code></td>
       <td>Status do evento. [Scheduled - Pending - Settled - Error - Anticipated]</td>
       <td>String</td>
       <td>-</td>
@@ -7769,42 +7769,42 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">merchantIdToDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchantIdToDebit</code></td>
       <td>Merchant do qual o valor será debitado.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchantIdToCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchantIdToCredit</code></td>
       <td>Merchant para o qual o valor será creditado.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">forecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">forecastedDate</code></td>
       <td>Data prevista para lançamento do ajuste na agenda financeira.</td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
       <td>Valor em centavos do ajuste.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
       <td>Decrição do ajuste.</td>
       <td>String</td>
       <td>500</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">transactionId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">transactionId</code></td>
       <td>Identificador da transação para qual o ajuste está sendo lançado.</td>
       <td>Guid</td>
       <td>-</td>
@@ -7842,14 +7842,14 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>Identificador do ajuste.</td>
       <td>Guid</td>
       <td>36</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>Status do ajustes [Created - Scheduled - Processed - Canceled ].</td>
       <td>String</td>
       <td>-</td>
@@ -7896,13 +7896,13 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code></td>
       <td>Identificador do Subordinado.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ChargebackAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackAmount</code></td>
       <td>Valor do chargeback que deverá ser repassado ao Subordinado, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -7961,7 +7961,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">ChargebackSplitPayments.ChargebackSplits</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackSplitPayments.ChargebackSplits</code></td>
       <td>Lista contendo a divisão do chargeback para cada participante.</td>
       <td>Guid</td>
       <td>36</td>
@@ -8005,14 +8005,14 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code></td>
       <td>Texto</td>
       <td>36</td>
       <td>Sim</td>
       <td>Merchantid identificador do subordinado</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Locked</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Locked</code></td>
       <td>Booleano</td>
       <td>—</td>
       <td>Sim</td>
@@ -8048,21 +8048,21 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4</td>
       <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Identificador que representa a transação</td>
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ChangeType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
       <td>Especifica o tipo de notificação. Vide tabela abaixo</td>
       <td>Número</td>
       <td>1</td>

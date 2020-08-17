@@ -185,70 +185,70 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
       <td>Valor da transação em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Installments</code></td>
       <td>Número de Parcelas da transação.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Product</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Product</code></td>
       <td>Tipo da transação [CreditCard - DebitCard].</td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
       <td>Bandeira do cartão utilizado na transação [Visa - Master - Elo - Amex - Diners - Discover].</td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PaymentDetails.AffiliationCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentDetails.AffiliationCode</code></td>
       <td>Código do estabelecimento Cielo configurado na LIO e utilizado na transação.</td>
       <td>String</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PaymentDetails.Nsu</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentDetails.Nsu</code></td>
       <td>Número Sequencial Único da transação.</td>
       <td>String</td>
       <td>max(10)</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PaymentDetails.AuthorizationCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentDetails.AuthorizationCode</code></td>
       <td>Código de Autorização da transação.</td>
       <td>String</td>
       <td>max(10)</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PaymentDetails.TerminalLogicNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentDetails.TerminalLogicNumber</code></td>
       <td>Número lógico do terminal LIO onde ocorreu a transação.</td>
       <td>String</td>
       <td>max(10)</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PaymentDetails.AuthorizationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentDetails.AuthorizationDate</code></td>
       <td>Data de autorização da transação [YYYY-MM-DD].</td>
       <td>Date</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments</code></td>
       <td>Nó contendo a informação de divisão da transação.</td>
       <td>-</td>
       <td>-</td>
@@ -269,28 +269,28 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
       <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
       <td>Parte do valor total da transação referente a participação do <strong>Subordinado</strong>, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
       <td><strong>MDR(%)</strong> do <strong>Marketplace</strong> a ser descontado do valor referente a participação do <strong>Subordinado</strong>.</td>
       <td>Decimal</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Fares.Fee</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
       <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>Subordinado</strong>, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
@@ -367,21 +367,21 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
       <td>Identificador da transação.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
       <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong> ou <strong>Marketplace</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Splits.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.Amount</code></td>
       <td>Parte do valor calculado da transação a ser recebido pelo <strong>Subordinado</strong> ou <strong>Marketplace</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
       <td>Inteiro</td>
       <td>-</td>

@@ -195,63 +195,63 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Braspag</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
       <td>Chave Publica para Autenticação Dupla na Braspag</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Nome da provedora de Meio de Pagamento</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.CardNumber</code></td>
       <td>Texto</td>
       <td>16</td>
       <td>Sim</td>
       <td>Número do Cartão do comprador para Zero Auth e Consulta BIN. Caso seja uma somente requisição de Consulta BIN, enviar somente o BIN</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
       <td>Nome do Comprador impresso no cartão</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
       <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
       <td>Código de segurança impresso no verso do cartão</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Bandeira do cartão</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
       <td>Texto</td>
       <td>CreditCard ou DebitCard</td>
       <td>Sim</td>
@@ -311,77 +311,77 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status do Zero Auth</td>
       <td>Número</td>
       <td>1</td>
       <td>0-Falha na consulta ao Zero Auth; 1-Consulta Zero Auth com sucesso; 99-Consulta com sucesso, porém o status do cartão é inconclusivo;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Código da consulta Zero Auth retornado pelo provedor.</td>
       <td>Número</td>
       <td>2</td>
       <td>Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código 82-cartão inválido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Mensagem da consulta Zero Auth retornado pelo provedor.</td>
       <td>Texto</td>
       <td>512</td>
       <td>Ex. “Transacao Autorizada”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Provider</code></td>
       <td>Provedor do serviço</td>
       <td>Texto</td>
       <td>15</td>
       <td>Ex. Cielo30</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.CardType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardType</code></td>
       <td>Tipo do Cartão retornado da Consulta BIN</td>
       <td>Texto</td>
       <td>15</td>
       <td>Ex. Crédito, Débito ou Múltiplo</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.ForeignCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.ForeignCard</code></td>
       <td>Indicação se é um cartão emitido fora do Brasil</td>
       <td>booleano</td>
       <td>-</td>
       <td>Ex. true ou false</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.Code</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Code</code></td>
       <td>Código de retorno da Consulta BIN</td>
       <td>Número</td>
       <td>2</td>
       <td>Ex. Para provedor Cielo30, 00 significa consulta realizada com sucesso.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.Message</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Message</code></td>
       <td>Mensagem de retorno da Consulta BIN</td>
       <td>Texto</td>
       <td>512</td>
       <td>Ex. Para provedor Cielo30, “Analise autorizada” significa consulta realizada com sucesso.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.CorporateCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CorporateCard</code></td>
       <td>Indicação se o cartão é corporativo</td>
       <td>booleano</td>
       <td>-</td>
       <td>Ex. true ou false</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.Issuer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Issuer</code></td>
       <td>Nome do emissor do cartão</td>
       <td>Texto</td>
       <td>512</td>
       <td>Ex. “Banco da Praça” (Sujeito à mapeamento do adquirente)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">BinData.IssuerCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BinData.IssuerCode</code></td>
       <td>Código do emissor do cartão</td>
       <td>Número</td>
       <td>3</td>

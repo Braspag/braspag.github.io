@@ -123,27 +123,27 @@ Os endpoints de conciliação para transações, cancelamentos e chargebacks sup
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">InitialScheduledAt</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InitialScheduledAt</code></td>
       <td>Data inicial em que uma transação foi agendada.</td>
       <td>Date</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FinalScheduledAt</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FinalScheduledAt</code></td>
       <td>Data que será utilizada como limite durante a busca</td>
       <td>Data</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Reversed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Reversed</code></td>
       <td>Utilizado para indicar se o consumidor deseja pesquisar eventos que foram revertidos.</td>
       <td>Bool</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageIndex</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
       <td>Página a ser consultada.</td>
       <td>Int</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageSize</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
       <td>Quantidade máxima de items por página. Valores possíveis: 25,50,100</td>
       <td>Int</td>
     </tr>
@@ -509,192 +509,192 @@ Os endpoints de conciliação para transações, cancelamentos e chargebacks sup
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
       <td>Identificador do cancelamento.</td>
       <td>Guid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
       <td>Valor do cancelamento.</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da solicitação de cancelamento.</td>
       <td>Guid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreatedAt</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreatedAt</code></td>
       <td>Data de criação do cancelamento na Braspag.</td>
       <td>Date</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">EventDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">EventDate</code></td>
       <td>Data de criação do cancelamento na Cielo.</td>
       <td>Date</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Reversed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Reversed</code></td>
       <td>Indica se o cancelamento foi revertido.</td>
       <td>Bool</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ScheduledAt</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ScheduledAt</code></td>
       <td>Data em que o cancelamento foi conciliado na Braspag e foram geradas as agendas com eventos de cancelamento.</td>
       <td>Date</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">TransactionFares.DiscountedAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TransactionFares.DiscountedAmount</code></td>
       <td>Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">TransactionFares.AppliedMdr</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TransactionFares.AppliedMdr</code></td>
       <td>Mdr aplicado pela Braspag.</td>
       <td>Decimal</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterRateDiscountTypeId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterRateDiscountTypeId</code></td>
       <td>1 - Commision ou 2 - Sale.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterRateDiscountType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterRateDiscountType</code></td>
       <td>Informação sobre o tipo de recebivel do master durante a transação. Sale indica que o master vendeu um produto proprio, já commission aponta que o master recebeu uma comissão em uma venda de terceiros.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Merchant.Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Merchant.Id</code></td>
       <td>Identificador do merchant.</td>
       <td>Guid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Merchant.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Merchant.Type</code></td>
       <td>Tipo do merchant.</td>
       <td>Int</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Merchant.FancyName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Merchant.FancyName</code></td>
       <td>Nome fantasia do merchant.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Merchant.CorporateName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Merchant.CorporateName</code></td>
       <td>Razão social do merchant.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterSummary.Commision.SplitId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterSummary.Commision.SplitId</code></td>
       <td>Identificador da divisão para o master.</td>
       <td>Guid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterSummary.Commision.NetAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterSummary.Commision.NetAmount</code></td>
       <td>Valor liquido do master após o desconto das taxas.</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterSummary.Commision.GrossAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterSummary.Commision.GrossAmount</code></td>
       <td>Valor bruto direcionado ao master.</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterSummary.TotalGrossAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterSummary.TotalGrossAmount</code></td>
       <td>Valor bruto total.</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MasterSummary.TotalNetAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MasterSummary.TotalNetAmount</code></td>
       <td>Valor liquido total.</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Id</code></td>
       <td>Identificador da divisão para o subordinado.</td>
       <td>Guid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].NetAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].NetAmount</code></td>
       <td>Valor liquido direcionado ao subordinado.</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].GrossAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].GrossAmount</code></td>
       <td>Valor bruto direcionado ao subordinado.</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Fares.Mdr</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Fares.Mdr</code></td>
       <td>Mdr aplicado pelo master.</td>
       <td>Decimal</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Fares.Fee</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Fares.Fee</code></td>
       <td>Fee aplicado pelo master.</td>
       <td>Int</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Fares.DiscountedMdrAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Fares.DiscountedMdrAmount</code></td>
       <td>Valor de mdr que o master descontou do subordinado</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Merchant.Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Merchant.Id</code></td>
       <td>Identificador do merchant.</td>
       <td>Guid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Merchant.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Merchant.Type</code></td>
       <td>Tipo do merchant.</td>
       <td>Int</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Merchant.FancyName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Merchant.FancyName</code></td>
       <td>Nome fantasia do merchant.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Merchant.CorporateName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Merchant.CorporateName</code></td>
       <td>Razão social do merchant.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Schedules[].Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Schedules[].Id</code></td>
       <td>Identificador da agenda.</td>
       <td>Guid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Schedules[].ForecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Schedules[].ForecastedDate</code></td>
       <td>Data prevista de pagamento.</td>
       <td>Date</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Schedules[].InstallmentNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Schedules[].InstallmentNumber</code></td>
       <td>Identifica a qual parcela a agenda responde.</td>
       <td>Int</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Schedules[].InstallmentAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Schedules[].InstallmentAmount</code></td>
       <td>Valor da agenda.</td>
       <td>Long</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Schedules[].EventId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Schedules[].EventId</code></td>
       <td>Identificador do evento.</td>
       <td>Int</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Schedules[].Event</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Schedules[].Event</code></td>
       <td>Evento por extenso.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Schedules[].EventStatusId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Schedules[].EventStatusId</code></td>
       <td>Identificador de status do evento.</td>
       <td>Int</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Splits[].Schedules[].EventStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Splits[].Schedules[].EventStatus</code></td>
       <td>Status do evento por extenso.</td>
       <td>String</td>
     </tr>

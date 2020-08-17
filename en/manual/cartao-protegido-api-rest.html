@@ -264,15 +264,15 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Basic <em>(Authorization)</em></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>application/x-www-form-urlencoded</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">grant_type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">grant_type</code></td>
       <td>client_credentials</td>
     </tr>
   </tbody>
@@ -305,17 +305,17 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">access_token</code></td>
+      <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
       <td>The requested access token. The application can use this token to authenticate with the protected resource</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">token_type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">token_type</code></td>
       <td>Indicates the value of the token type</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">expires_in</code></td>
+      <td><code class="language-plaintext highlighter-rouge">expires_in</code></td>
       <td>Expiration of the access token, in seconds <br /> The token when expiring, it is necessary to get a new</td>
       <td> </td>
     </tr>
@@ -370,56 +370,56 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
       <td>Yes</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox / Production)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td>** Bearer ** _ (Authorization) _<br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td>application / json</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Alias</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
       <td>Text</td>
       <td>64</td>
       <td>No</td>
       <td>Card Alias. The value of this information must be unique (cannot repeat).</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.Number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.Number</code></td>
       <td>Number</td>
       <td>16</td>
       <td>Yes</td>
       <td>Shopper Card Number</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
       <td>Shopper’s Name Printed on Card</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
       <td>Expiration date printed on card in MM / YYYY format</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
       <td>Number</td>
       <td>4</td>
       <td>Yes</td>
@@ -506,49 +506,49 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Alias</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
       <td>Credit Card Alias</td>
       <td>Text</td>
       <td>64</td>
       <td>Any text that is unique to the establishment’s token base</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
       <td>Token on Cartão Protegido representing card data</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
       <td>Token Expiration Date, format MM/YYYY</td>
       <td>Text</td>
       <td>7</td>
       <td>MM/YYYY</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.Number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.Number</code></td>
       <td>Número</td>
       <td>16</td>
       <td>Sim</td>
       <td>Masked card number</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
       <td>Name of cardholder printed on card</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
       <td>Expiration date printed on card in MM/YYYY format</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Card.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
       <td>Number</td>
       <td>4</td>
       <td>Yes</td>
@@ -585,28 +585,28 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
       <td>Yes</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox / Production)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td><strong>Bearer</strong> _ (Authorization) _<br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td>application/json</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
@@ -661,7 +661,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
       <td>Token on Cartão Protegido representing card data</td>
       <td>GUID</td>
       <td>36</td>
@@ -672,7 +672,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
@@ -683,7 +683,7 @@
       <td>Text</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
       <td>Indicates the provider that stored the card.</td>
       <td>-</td>
       <td>Possible values: Braspag or Master</td>
@@ -694,7 +694,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Account.Number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Account.Number</code></td>
       <td>Masked Buyer Card Number</td>
       <td>Text</td>
       <td>16</td>
@@ -705,7 +705,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Account.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Account.Holder</code></td>
       <td>Shopper’s Name printed on card, without accented characters</td>
       <td>Text</td>
       <td>25</td>
@@ -716,7 +716,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Account.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Account.ExpirationDate</code></td>
       <td>Expiration date printed on card in MM / YYYY format</td>
       <td>Text</td>
       <td>7</td>
@@ -757,28 +757,28 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
       <td>Yes</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td><strong>Bearer</strong> <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td>application/json</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Alias</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
       <td>Text</td>
       <td>64</td>
       <td>No</td>
@@ -815,7 +815,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
       <td>Token on Cartão Protegido representing card data</td>
       <td>GUID</td>
       <td>36</td>
@@ -862,35 +862,35 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
       <td>Yes</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td>** Bearer ** <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td>application/json</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">RemovedBy</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RemovedBy</code></td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
       <td>Who requested the removal. Possible values: ‘Merchant’ or ‘CardHolder’</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Reason</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
@@ -943,14 +943,14 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
       <td>Token on Cartão Protegido representing card data</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
@@ -997,35 +997,35 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
       <td>Yes</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td><strong>Bearer</strong> <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td>application/json</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">RemovedBy</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RemovedBy</code></td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
       <td>Who requested the removal. Possible values: ‘Merchant’ or ‘CardHolder’</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Reason</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
@@ -1088,14 +1088,14 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
       <td>Token on Cartão Protegido representing card data</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
@@ -1132,21 +1132,21 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
       <td>Yes</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Authorization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
       <td><strong>Bearer</strong> <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Content-Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
@@ -1220,7 +1220,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">TokenReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
       <td>Token on Cartão Protegido representing card data</td>
       <td>GUID</td>
       <td>36</td>
@@ -1228,7 +1228,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
