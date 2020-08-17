@@ -7118,7 +7118,8 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex, Sorocred|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST|
 |GlobalPayments|Visa, Master|Provider para transações na plataforma de e-commerce Global Payments|
 |Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone|
-|Safra|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Safra|
+|Safra|Visa, Master, Hipercard, Elo, Amex|Provider para transações na plataforma de e-commerce Safra (legado)|
+|Safra2|Visa, Master, Hipercard, Elo, Amex|Provider para transações na plataforma de e-commerce Safra|
 |FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data|
 |Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte|
@@ -7127,8 +7128,11 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |RedeSitef|Visa, Master, Hipercard, Diners|Provider para transações na plataforma Rede com tecnologia TEF|
 |CieloSitef|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma Cielo com tecnologia TEF|
 |SantanderSitef|Visa, Master|Provider para transações na plataforma Getnet com tecnologia TEF|
-|DMCard|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
+|Banese|Banese|Provider para transações com a bandeira BaneseCard|
+|BrasilCard|BrasilCard|Provider para transações com a bandeira BrasilCard|
 |Credsystem|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
+|Credz|Credz|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
+|DMCard|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
 
 ### Providers pra Débito
 
@@ -7138,6 +7142,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Cielo30|Visa, Master|Provider para transações de débito na plataforma de e-commerce Cielo 3.0|
 |Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce GetNet|
 |Rede2|Visa, Master|Provider para transações de débito na plataforma de e-commerce Rede|
+|Safra2|Visa, Master|Provider para transações de débito na plataforma de e-commerce Safra|
 |FirstData|Visa, Master|Provider para transações de débito na plataforma de e-commerce First Data|
 |GlobalPayments|Visa, Master|Provider para transações de débito na plataforma de e-commerce Global Payments|
 
