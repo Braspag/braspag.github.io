@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Manual de Integração Apple Pay &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/apple-pay" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/apple-pay" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="http://www.braspag.com.br/suporte/" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://braspag.github.io//manual/apple-pay">
+                                    
+
+                                        <img alt="Português" src="https://braspag.github.io//assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://braspag.github.io//en/manual/apple-pay">
+                                    
+
+                                        <img alt="English" src="https://braspag.github.io//assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/apple-pay">Manual de Integração Apple Pay</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="apple-pay">Apple Pay</h1>
+
+<p>Apple Pay é uma carteira virtual. Ele permite que os compradores realizem pagamentos em lojas virtuais e apps utilizando de forma prática e segura, seus cartões de crédito e débito armazenados em suas contas e dispositivos Apple.</p>
+
+<h1 id="pré-requisitos">Pré-requisitos</h1>
+
+<ol>
+  <li>Para utilização da Apple Pay é necessário que a loja já esteja cadastrada no programa AppleID. Para realizar o cadastro, acesse a URL descrita abaixo e siga todos os passos requeridos pela Apple:</li>
+</ol>
+
+<p>(<a href="https://developer.apple.com/programs/enroll/">https://developer.apple.com/programs/enroll/</a>)</p>
+
+<ol>
+  <li>Seguir os passos dessa documentação para completar a integração junto à Apple</li>
+  <li>Contratar o Pagador API REST como gateway de pagamento</li>
+  <li>Contratar o Cielo 3.0 como adquirência</li>
+  <li>Integrar com o Pagador API REST (<a href="https://braspag.github.io/manual/braspag-pagador">https://braspag.github.io/manual/braspag-pagador</a>)</li>
+</ol>
+
+<h1 id="etapa-1-configurando-o-merchant-identifier">Etapa 1. Configurando o Merchant Identifier</h1>
+
+<h2 id="passo-1-criando-o-merchant-identifier">Passo 1. Criando o Merchant Identifier</h2>
+
+<p>O primeiro passo é a criação do Merchant Identifier através do portal de desenvolvedores da Apple.</p>
+
+<ol>
+  <li>Na seção <strong>Certicates, Identifiers &amp; Profiles</strong></li>
+</ol>
+
+<p><a href="https://developer.apple.com/account/resources">https://developer.apple.com/account/resources</a></p>
+
+<p>selecione <strong>“Identifiers”</strong> no menu lateral, então clique no botão (+) no canto superior esquerdo.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay01.png" alt="Step1.1" /></p>
+
+<ol>
+  <li>Selecione <strong>“Merchant IDs”</strong>, e então clique no <strong>“Continue”</strong>.</li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay02.png" alt="Step1.2" /></p>
+
+<ol>
+  <li>Coloque um valor no campo <strong>“Merchant description”</strong> e <strong>“Identifier Name”</strong>, e clique em <strong>“Continue”</strong>.</li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay03.png" alt="Step1.3" /></p>
+
+<ol>
+  <li>Clique em <strong>“Register”</strong>.</li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay04.png" alt="Step1.4" /></p>
+
+<h2 id="passo-2-solicitar-o-certificado-csr-à-braspag">Passo 2. Solicitar o certificado “.CSR” à Braspag</h2>
+
+<p>O próximo passo é solicitar à Braspag a geração do certificado no formato “.CSR”. Para tanto, entre em contato com o time de atendimento da Braspag através do canal abaixo:</p>
+
+<p><a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">https://suporte.braspag.com.br/hc/pt-br/requests/new</a></p>
+
+<p>Na solicitação, informar:</p>
+
+<ol>
+  <li>O <strong>Merchant Identifier</strong> criado no Passo 1</li>
+  <li>O <strong>Merchant ID</strong> de sua loja na Braspag em Produção.</li>
+</ol>
+
+<p>Nossa equipe de atendimento retornará com o arquivo “.CSR” em até 48 horas úteis.</p>
+
+<h2 id="passo-3-criar-o-certificado-de-processamento-do-pagamento-na-apple">Passo 3. Criar o certificado de processamento do pagamento na Apple</h2>
+
+<p>Com o objetivo de criar um certificado de processamento de pagamento à ser utilizado em sua loja virtual ou aplicativo, é necessário seguir os passos abaixo:</p>
+
+<ol>
+  <li>No menu <strong>Certicates, Identifier &amp; Profiles</strong></li>
+</ol>
+
+<p><a href="https://developer.apple.com/account/resources">https://developer.apple.com/account/resources</a></p>
+
+<p>Selecione <strong>Identifiers</strong> no menu lateral.</p>
+
+<ol>
+  <li>Selecione <strong>Identifiers</strong>, encontre o utilizando-se o filtro localizado à direita superior (“Merchant IDs”)</li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay05.png" alt="Step2.1" /></p>
+
+<ol>
+  <li>À direita selecione o identifier criado anteriormente</li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay06.png" alt="Step2.2" /></p>
+
+<ol>
+  <li>Perto do <strong>“Apple Pay Payment Processing Certificate”</strong> clique em <strong>“Create Certificate”</strong>.</li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay07.png" alt="Step2.3" /></p>
+
+<ol>
+  <li>Deixe a opção “No” em <strong>“Edit or Configure Merchant ID”</strong></li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay08.png" alt="Step2.4" /></p>
+
+<ol>
+  <li>Na caixa de diálogo escolha o certificado “.CSR” enviado pela Braspag.</li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay09.png" alt="Step2.5" /></p>
+
+<ol>
+  <li>Clique em <strong>“Continue”</strong></li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay10.png" alt="Step2.6" /></p>
+
+<ol>
+  <li>Clique em <strong>“Download”</strong> para baixar o arquivo “.CER”.</li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/applepay11.png" alt="Step2.7" /></p>
+
+<p>Para mais detalhes acesse:</p>
+
+<p><a href="https://help.apple.com/developer-account/#/devb2e62b839">https://help.apple.com/developer-account/#/devb2e62b839</a></p>
+
+<h2 id="etapa-2-integração-com-apple-pay">Etapa 2. Integração com Apple Pay</h2>
+
+<p>Boa parte do processo para disponibilização do botão “Pagar com Apple Pay” no seu app ou site será realizado na sua integração junto à wallet, por isso recomendamos que siga as orientações disponíveis no site da Apple em <a href="https://developer.apple.com/documentation">https://developer.apple.com/documentation</a>. A implementação é totalmente self-service.</p>
+
+<p>Após todo o processo realizado na API da Apple, eles deverão retornar um JSON contendo dois campos importantes na que serão utilizados no próximo passo. Eles se chamam <code class="language-plaintext highlighter-rouge">paymentData.data</code> e <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"applePayData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"paymentData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EC_v1"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"as01vRj+n9crY2vome7zc+u7Tz0+qg2La/8IUHpJIjFN6ThhUqLnSrskQHTrEbcYPiMksFK0+ddo9sZu70uJQJH1I+44N6PrVhilNDem97vOXq2VYDXiVJ27F/Q9wGQDgZBeGcZ6Pml9SIelHqUauBcQoOatrlnWPUL8kbdpT8WqgzXyaCh7oeTz=z6++rp/ofjvSjnGtOqAUsnrzvw4uzkcyKUSsfROdJ6B/Xzgu/T9fMIr5UxXD2DPF1SNh3ydEJABKz4HFjDW7ObvbQeua4GYxJdpQLpI3NgUbJy91E/LOyb/+PcCtO+0=a41tBrfnTTF9qsPuCIw8HWIEEKSRofn27NTofxev/i+nHEfqEtqNrN/epIvhzceD/gDiGetfiLKMzf94ARmpWUAMC=="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"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"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ephemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MFkwEwZJKoZIzj0CAQYIKo12zj0DAQcDQgAEo+ReGClSmQ4hDJD1yh9nci3V4l7kPm2AQtKZMMvuNS0iK5sn/1A9l3kw1B1xCqOycZmnPSng7p5hpTvrei1BCA=="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"publicKeyHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KXN06+BtJu6yEfF9zDhr7f4M/2HwVybnx0FGfC520gB="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71c5b61c3791546e94d2b4893a6c69aaac2ab86b5c113c83a7d89057906a9b5f"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"paymentMethod"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MasterCard 1212"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"network"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MasterCard"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"transactionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81C5B61C3791646E94D2B4893A6C69BBBC2AB86B5C363C83A7D89057906A9BAC"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"x_document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24562608994"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"x_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João da Silva"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="observações">Observações</h3>
+
+<ol>
+  <li>Durante a implementação da Apple haverá uma referência ao certificado <strong>“.CER”</strong> gerado no passo anterior para criptografar os dados durante a comunicação com a Apple.</li>
+  <li>No fluxo de integração não se deve realizar a implementação do processo de descriptografia dos dados retornados pela Apple pois, para clientes Braspag, este trabalho será realizado por nossa solução de gateway Pagador.</li>
+</ol>
+
+<h2 id="etapa-3-integração-com-pagador-descriptograia-e-autorização">Etapa 3. Integração com Pagador (descriptograia e autorização)</h2>
+
+<p>A autorização com o token do Apple Pay acontece da mesma forma que uma autorização padrão de um cartão de crédito, porém, ao invés de fornecer os dados do cartão abertos, deverá fornecer o token recebido pelo Apple Pay, conforme o exemplo abaixo:</p>
+
+<h3 id="request">Request</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="err">(…)</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ApplePay"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="s2">"['paymentData.data']"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"['ephemeralPublicKey.header.EphemeralPublicKey']"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Parâmetros do Header</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Descrição</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantID</td>
+      <td>GUID(36)</td>
+      <td>ID do estabelecimento no Pagador.</td>
+    </tr>
+    <tr>
+      <td>MerchantKey</td>
+      <td>String(24)</td>
+      <td>Chave da API para o Pagador</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Parâmetro</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Descrição</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantOrderId</td>
+      <td>String (50)</td>
+      <td>Número de identificação do Pedido</td>
+    </tr>
+    <tr>
+      <td>Customer</td>
+      <td>Nó com dados do comprador</td>
+      <td>Vide <a href="https://braspag.github.io/manual/braspag-pagador?json#requisi%C3%A7%C3%A3o">documentação do Pagador</a></td>
+    </tr>
+    <tr>
+      <td>Payment.Type</td>
+      <td>String (100)</td>
+      <td>Tipo do Meio de Pagamento. Possibilidades: “CreditCard” ou “DebitCard”</td>
+    </tr>
+    <tr>
+      <td>Payment.Amount</td>
+      <td>Número (15)</td>
+      <td>Valor do Pedido (ser enviado em centavos)</td>
+    </tr>
+    <tr>
+      <td>Payment.Provider</td>
+      <td>String (15)</td>
+      <td>Nome da provedora de Meio de Pagamento. Para transações Apple Pay, utilize “Cielo30”</td>
+    </tr>
+    <tr>
+      <td>Payment.Installments</td>
+      <td>Número (2)</td>
+      <td>Número de Parcelas</td>
+    </tr>
+    <tr>
+      <td>Payment.Wallet.Type</td>
+      <td>String (15)</td>
+      <td>Nome da provedora de Meio de Pagamento. Para transações Apple Pay, utilize “ApplePay”</td>
+    </tr>
+    <tr>
+      <td>Payment.Wallet.WalletKey</td>
+      <td>String</td>
+      <td>Preencher com o valor do parâmetro <strong>“paymentData.data”</strong> retornado pelo Apple Pay</td>
+    </tr>
+    <tr>
+      <td>Payment.Wallet.AdditionalData.EphemeralPublicKey</td>
+      <td>String</td>
+      <td>Preencher com o valor do parâmetro <strong>“ephemeralPublicKey.header.EphemeralPublicKey”</strong> retornado pelo Apple Pay</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">(…)</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">(…)</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">(…)</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">(…)</span><span class="w">
+        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ApplePay"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"as01vRj+n9crY2vome7zc+u7Tz0+qg2La/8IUHpJIjFN6ThhUqLnSrskQHTrEbcYPiMksFK0+ddo9sZu70uJQJH1I+44N6PrVhilNDem97vOXq2VYDXiVJ27F/Q9wGQDgZBeGcZ6Pml9SIelHqUauBcQoOatrlnWPUL8kbdpT8WqgzXyaCh7oeTz=z6++rp/ofjvSjnGtOqAUsnrzvw4uzkcyKUSsfROdJ6B/Xzgu/T9fMIr5UxXD2DPF1SNh3ydEJABKz4HFjDW7ObvbQeua4GYxJdpQLpI3NgUbJy91E/LOyb/+PcCtO+0=a41tBrfnTTF9qsPuCIw8HWIEEKSRofn27NTofxev/i+nHEfqEtqNrN/epIvhzceD/gDiGetfiLKMzf94ARmpWUAMC=="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MFkwEwZJKoZIzj0CAQYIKo12zj0DAQcDQgAEo+ReGClSmQ4hDJD1yh9nci3V4l7kPm2AQtKZMMvuNS0iK5sn/1A9l3kw1B1xCqOycZmnPSng7p5hpTvrei1BCA=="</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">(…)</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="err">(…)</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do <a href="https://braspag.github.io//manual/braspag-pagador#resposta">Pagador</a>, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="http://www.braspag.com.br/fale-conosco/">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json", ]);
+            });
+        </script>
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:715256,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
