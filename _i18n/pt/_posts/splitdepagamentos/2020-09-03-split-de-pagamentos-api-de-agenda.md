@@ -27,6 +27,142 @@ Os endpoints de conciliação para transações, cancelamentos e chargebacks sup
 | `PageIndex`                  | Página a ser consultada.                                                                                | Int     |
 | `PageSize`                   | Quantidade máxima de items por página. Valores possíveis: 25,50,100                                     | Int     |
 
+## Conciliação de Vendas
+
+O endpoint de conciliação de vendas permite consultar os dados relativo as transações conciliadas que ocorreram em determinado range de data. 
+
+### Exemplos de consultas no endpoint de conciliação de Vendas
+
+**Exemplo 1** - Efetuando a consulta de todos os cancelamentos agendados no período entre 26/08/2020 e 28/08/2020 que não foram revertidos..
+
+**Request:**
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/v2/transactions?initialScheduledAt=2020-09-03&finalScheduledAt=2020-09-04&Reversed=False</span></aside>
+
+**Response:**
+
+```json
+{
+    "PageCount": 1,
+    "PageIndex": 1,
+    "PageSize": 25,
+    "Items": [
+        {
+            "PaymentId": "eaeb0522-1430-4f6e-91a5-492bf613a912",
+            "Amount": 10000,
+            "Installments": 1,
+            "ChannelId": 1,
+            "Channel": "ECommerce",
+            "ScheduledAt": "2020-09-03",
+            "Reversed": false,
+            "TransactionFares": {
+                "Fee": 23,
+                "Schedules": [
+                    {
+                        "Id": "9e8e0150-70c5-4c74-abae-1eead76c1100",
+                        "ForecastedDate": "2020-10-05",
+                        "InstallmentNumber": 1,
+                        "InstallmentAmount": 23,
+                        "EventId": 3,
+                        "Event": "FeeCredit",
+                        "EventStatusId": 1,
+                        "EventStatus": "Scheduled"
+                    },
+                    {
+                        "Id": "dbab53e6-f49b-465c-b693-b954e6610430",
+                        "ForecastedDate": "2020-10-05",
+                        "InstallmentNumber": 1,
+                        "InstallmentAmount": 23,
+                        "EventId": 4,
+                        "Event": "FeeDebit",
+                        "EventStatusId": 1,
+                        "EventStatus": "Scheduled"
+                    }
+                ],
+                "DiscountedAmount": 100,
+                "AppliedMdr": 1.00
+            },
+            "PaymentArrangement": {
+                "BrandId": 1,
+                "Brand": "Visa",
+                "ProductId": 1,
+                "Product": "CreditCard"
+            },
+            "TransactionDetails": {
+                "CaptureDate": "2020-09-03",
+                "Nsu": "301817",
+                "AuthorizationCode": "855208",
+                "AuthorizationDate": "2020-09-03",
+                "StatusId": 2,
+                "Status": "Pago",
+                "CardNumber": "448153******6111",
+                "OrderId": "2589631247"
+            },
+            "MasterRateDiscountTypeId": "1",
+            "MasterRateDiscountType": "Commission",
+            "Merchant": {
+                "Id": "4f522430-0e1b-41c7-baaa-9599a32d8307",
+                "Type": "Master",
+                "FancyName": "LOJAWEB",
+                "CorporateName": "LOJAWEB"
+            },
+            "MasterSummary": {
+                "Commission": {
+                    "SplitId": "012988ad-8c3b-4192-ae1a-8cfb589e13e0",
+                    "NetAmount": 400,
+                    "GrossAmount": 500,
+                    "Schedules": [
+                        {
+                            "Id": "cd20d20c-e857-4d22-aadc-89bc82433906",
+                            "ForecastedDate": "2020-10-05",
+                            "InstallmentNumber": 1,
+                            "InstallmentAmount": 400,
+                            "EventId": 1,
+                            "Event": "Credit",
+                            "EventStatusId": 1,
+                            "EventStatus": "Scheduled"
+                        }
+                    ]
+                },
+                "TotalGrossAmount": 500,
+                "TotalNetAmount": 400
+            },
+            "Splits": [
+                {
+                    "PayoutBlocked": false,
+                    "Id": "51685fdf-8346-472e-98e7-c415246f7caa",
+                    "NetAmount": 9500,
+                    "GrossAmount": 10000,
+                    "Fares": {
+                        "Mdr": 5.00,
+                        "Fee": 0,
+                        "DiscountedMdrAmount": 500
+                    },
+                    "Merchant": {
+                        "Id": "ea344bea-ce13-4b58-951f-49ff78fff44b",
+                        "Type": "Subordinate",
+                        "FancyName": "LOJAWEBSubordinado02",
+                        "CorporateName": "LOJAWEBSubordinado02"
+                    },
+                    "Schedules": [
+                        {
+                            "Id": "01521cdc-35b2-4bd0-b381-dab95e3b2cde",
+                            "ForecastedDate": "2020-10-05",
+                            "InstallmentNumber": 1,
+                            "InstallmentAmount": 9500,
+                            "EventId": 1,
+                            "Event": "Credit",
+                            "EventStatusId": 1,
+                            "EventStatus": "Scheduled"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
 ## Conciliação de Cancelamentos
 
 O endpoint de conciliação de cancelamentos permite consultar dados relativos ao cancelamento de uma transação e também da reversão de um cancelamento.
