@@ -237,7 +237,7 @@ Aqui é possível especificar se uma transação será efetuada como crédito ou
 |`Payment.Amount`|Inteiro|15|Sim|Valor do pedido em centavos. Ex.: R$ 1.559,85 = 155985|
 |`Payment.Capture`|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja `False` a transação será apenas autorizada. Se for `True`, a captura será realizada automaticamente após a autorização.|
 |`Payment.Installments`|Inteiro|2|Sim|Número de parcelas do pedido|
-|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador|
+|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
 |`Payment.CreditCard`|-|-|Sim|Nó contendo as informações do cartão|
 |`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador|
 |`Payment.CreditCard.Holder`|Texto|50|Sim|Nome do comprador impresso no cartão|
@@ -690,7 +690,7 @@ Caso a transação enviada seja marcada para captura automática, o nó contendo
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
@@ -3082,7 +3082,7 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Payment.Capture`|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja `False` a transação será apenas autorizada. Se for `True`, a captura será realizada automaticamente após a autorização.|
 |`Payment.ServiceTaxAmount`|Inteiro|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço  |Obs.: Esse valor não é adicionado ao valor da autorização|
 |`Payment.Installments`|Inteiro|2|Sim|Número de parcelas do pedido|
-|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador|
+|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
 |`Payment.CreditCard`|-|-|Sim|Nó contendo as informações do cartão|
 |`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador|
 |`Payment.CreditCard.Holder`|Texto|50|Sim|Nome do comprador impresso no cartão|
