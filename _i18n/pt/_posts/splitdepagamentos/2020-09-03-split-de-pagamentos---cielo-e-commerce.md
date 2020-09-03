@@ -3128,14 +3128,13 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o
 
 O modelo do Javascript é o seguinte:
 
-<block>
-<head>
+`<head>
     <script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=1snn5n9w&session_id=braspag123456789"></script>
 </head>
 <body>
     <iframe style="width: 100px; height: 100px; border:0; position:absolute;top:-5000px;" src="https://h.online-metrix.net/fp/tags.js?org_id=1snn5n9w&session_id=braspag123456789"></iframe>
 </body>
-</block>
+</block>`
 
 As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
 
