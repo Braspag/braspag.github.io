@@ -3883,7 +3883,40 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja está mais protegida.
 
-Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
+Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
+
+<aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
+
+**Variáveis**
+Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o `session_id`. O `org_id` é um valor predefinido conforme tabela abaixo, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `Customer.BrowserFingerprint`, conforme exemplo abaixo:
+
+|Variável|Descrição|
+|:-|:-|
+|`org_id`|para Sandbox = 1snn5n9w <br/> para Produção = k8vif92e|
+|`session_id`|Concatenação das variáveis `ProviderMerchantId` e `Customer.BrowserFingerprint` <br/> `ProviderMerchantId` = Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag <br/> `Customer.BrowserFingerprint` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
+
+**Aplicação**
+
+O modelo do Javascript é o seguinte:
+
+```json
+<head>
+    <script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=1snn5n9w&session_id=braspag123456789"></script>
+</head>
+<body>
+    <iframe style="width: 100px; height: 100px; border:0; position:absolute;top:-5000px;" src="https://h.online-metrix.net/fp/tags.js?org_id=1snn5n9w&session_id=braspag123456789"></iframe>
+</body>
+```
+
+As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
+
+![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfpaf.png)
+
+<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
+
+** Integração em aplicativos mobile **
+
+> Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
 
 #### Integração em checkout
 
