@@ -206,7 +206,7 @@ Aqui é possível especificar se uma transação será efetuada como crédito ou
 |`Payment.Capture`|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja `False` a transação será apenas autorizada. Se for `True`, a captura será realizada automaticamente após a autorização.|
 |`Payment.DoSplit`|Booleano|-|Não (Default false)|Booleano que indica se a transação será dividida entre várias contas (true) ou não (false)|
 |`Payment.Installments`|Inteiro|2|Sim|Número de parcelas do pedido|
-|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador|
+|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
 |`Payment.CreditCard`|-|-|Sim|Nó contendo as informações do cartão|
 |`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador|
 |`Payment.CreditCard.Holder`|Texto|50|Sim|Nome do comprador impresso no cartão|
@@ -713,7 +713,7 @@ Caso a transação enviada seja marcada para captura automática, o nó contendo
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
@@ -3177,7 +3177,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.Capture`|Booleano|---|Não|Indica se a autorização deverá ser com captura automática <br/> Possíveis valores: true / false (default) <br/> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade <br/> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude|
 |`Payment.Authenticate`|Booleano|---|Não|Indica se a transação deve ser autenticada <br/> Possíveis valores: true / false (default) <br/> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
 |`Payment.Recurrent`|Booleano|---|Não|Indica se a transação é do tipo recorrente <br/> Possíveis valores: true / false (default) <br/> Obs.: Este campo igual a _true_ não irá criar uma recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV e servindo de indicação para a adquirente que é a cobrança de uma transação de uma recorrência <br/> Obs2.: Somente para transações Cielo <br/> Obs3.: O campo `Payment.Authenticate` deve ser igual a _false_ quando este for igual a _true_|
-|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador <br/> Obs.: O valor deste campo tem que ser claro e fácil de identificar pelo portador o estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador <br/>. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
 |`Payment.DoSplit`|Booleano|---|Não|Indica se a transação será dividida entre vários participantes <br/> Possíveis valores: true / false (default)|
 |`Payment.ExtraDataCollection.Name`|Texto|50|Não|Identificador do campo extra que será enviado|
 |`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo extra que será enviado|
@@ -3463,7 +3463,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.Capture`|Booleano|Indica se a autorização deverá ser com captura automática|
 |`Payment.Authenticate`|Booleano|Indica se a transação deve ser autenticada|
 |`Payment.Recurrent`|Booleano|Indica se a transação é do tipo recorrente|
-|`Payment.SoftDescriptor`|Texto|Texto que será impresso na fatura do portador|
+|`Payment.SoftDescriptor`|Texto|Texto que será impresso na fatura do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
 |`Payment.DoSplit`|Booleano|Indica se a transação será dividida entre vários participantes|
 |`Payment.ExtraDataCollection.Name`|Texto|Identificador do campo extra que será enviado|
 |`Payment.ExtraDataCollection.Value`|Texto|Valor do campo extra que será enviado|
