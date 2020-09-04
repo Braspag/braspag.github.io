@@ -3128,7 +3128,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o
 
 O modelo do Javascript é o seguinte:
 
-```js
+```html
 <html>
 <head>
     <script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=1snn5n9w&session_id=braspag123456789"></script>
