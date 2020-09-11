@@ -7116,7 +7116,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Redecard|Visa, Master, Hipercard, Hiper, Diners|Provider para transações na plataforma legado Rede Komerci|
 |Rede|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede (e-Rede) na versão SOAP|
 |Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex, Sorocred|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST|
-|GlobalPayments|Visa, Master|Provider para transações na plataforma de e-commerce Global Payments|
+|GlobalPayments|Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex|Provider para transações na plataforma de e-commerce Global Payments|
 |Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone|
 |Safra|Visa, Master, Hipercard, Elo, Amex|Provider para transações na plataforma de e-commerce Safra (legado)|
 |Safra2|Visa, Master, Hipercard, Elo, Amex|Provider para transações na plataforma de e-commerce Safra|
