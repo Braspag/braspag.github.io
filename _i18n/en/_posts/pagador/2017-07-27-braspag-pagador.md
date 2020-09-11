@@ -1769,7 +1769,7 @@ curl
 |`Payment.Demonstrative`|Text|see table below|No|Statement Text. If filled, overrides the value set on the payment method. The rule varies according to the Provider used (see table below)|
 |`Payment.ExpirationDate`|Date|YYYY-MM-DD|No|Boleto's expiration date. If you are not previously registered with the payment method, this field is required. If sent on request, overrides the value set on the payment method.|
 |`Payment.Identification`|Text|14|No|Assignor's CNPJ. If filled, overrides the value set on the payment method|
-|`Payment.Instructions`|Text|see table below|No|Boleto's Instructions. If completed, overrides the value set on the payment method. The rule varies according to the Provider used (see table below)|
+|`Payment.Instructions`|Text|see table below|No|Boleto's Instructions. If completed, overrides the value set on the payment method. The rule varies according to the Provider used (see table below). To break lines in this text always use HTML notation `<br>`|
 |`Payment.NullifyDays`|Number|2|No|Deadline for automatic nullification of the boleto. The automatic boleto cancellation will take place after the number of days set in this field from the due date. For example, a boleto due on Dec 15th which has on its registration deadline of 5 days may be paid until Dec 20th, after this date the title is canceled. *Feature valid only for registered boletos of Banco Santander.|
 |`Payment.DaysToFine`|Number|15|No|Optional and only for Bradesco2 provider. Number of days after the due date to charge a fine amount, as integers. E.g.: 3|
 |`Payment.FineRate`|Number|15|No|Optional and only for Bradesco2 provider. Amount of fine after due date, as a percentage, based on the amount of the boleto (%). Allowed decimal with up to 5 decimal places. Do not submit if using FineAmount. E.g.: 1012345 = 10.12345%|
@@ -2315,6 +2315,229 @@ curl
 |`EndDate`|Date of end of recurrence.|Text|7|05/2019 (MM/YYYY)|
 |`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly</li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Boolean to know if the first recurrence will already be Authorized or not.|Boolean|---|true or false|
+
+### Authorize a recurring transaction with boleto
+
+The request is the same as the creation of a traditional boleto. Add the `RecurrentPayment` node to the `Payment` node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.
+
+The expiration date of recurring boletos will be created based on the date of the next recurring order plus whatever is in the payment method settings here at Braspag.
+
+E.g.: Day of next charge: 01/01/2021 + 5 days = Expiration of the ticket created automatically: 06/01/2021
+
+Contact Support to determine how many days you want your boletos generated via Recurrence to expire.
+
+#### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+
+{
+    [...]
+        "Payment": {
+        "Provider": "Simulado",
+        "Type": "Boleto",
+        "Amount": 1000,
+     
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "RecurrentPayment": {
+            "AuthorizeNow": "true",
+            "StartDate": "2020-01-01",
+            "EndDate": "2020-12-31",
+            "Interval": "Monthly"
+        }
+    }
+}
+
+```
+
+```shell
+
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    [...]
+"Payment": {
+        "Provider": "Simulado",
+        "Type": "Boleto",
+        "Amount": 1000,
+     
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "RecurrentPayment": {
+            "AuthorizeNow": "true",
+            "StartDate": "2020-01-01",
+            "EndDate": "2020-12-31",
+            "Interval": "Monthly"
+        }
+    }
+}
+--verbose
+
+```
+
+|Property|Type|Size|Mandatory|Description|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Text|15|Yes|Payment Method Provider Name|
+|`Payment.Type`|Text|100|Yes|Type of Payment Method|
+|`Payment.Amount`|Number|15|Yes|Total amount (in cents)|
+|`Payment.RecurrentPayment.StartDate`|Text|10|No|Recurrent start date|
+|`Payment.RecurrentPayment.EndDate`|Text|10|No|Recurrent end date|
+|`Payment.RecurrentPayment.Interval`|Text|10|No|Recurrency interval.<br/><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
+|`Payment.RecurrentPayment.AuthorizeNow`|Boolean|--- |Yes|If `true`, authorize at the same moment of the request. `false` to just make a schedulement|
+
+#### Response
+
+```json
+
+{
+    "MerchantOrderId": "teste001",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "06455914",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "ExpirationDate": "2020-08-15",
+        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d",
+        "BoletoNumber": "100031-0",
+        "BarCodeNumber": "00096834800000129001234270000010003105678900",
+        "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
+        "Address": "N/A, 1",
+        "IsRecurring": false,
+        "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
+        "Type": "Boleto",
+        "Amount": 1000,
+        "ReceivedDate": "2020-01-01 00:00:01",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 1,
+        "RecurrentPayment": {
+            "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
+            "ReasonCode": 0,
+            "ReasonMessage": "Successful",
+            "NextRecurrency": "2020-02-01",
+            "StartDate": "2020-01-01",
+            "EndDate": "2020-12-31",
+            "Interval": "Monthly",
+            "Link": {
+                "Method": "GET",
+                "Rel": "recurrentPayment",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"
+            },
+            "AuthorizeNow": true
+        },
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"
+            }
+        ]
+    }
+}
+
+```
+
+```shell
+
+curl
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "teste001",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "06455914",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "ExpirationDate": "2020-08-15",
+        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d",
+        "BoletoNumber": "100031-0",
+        "BarCodeNumber": "00096834800000129001234270000010003105678900",
+        "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
+        "Address": "N/A, 1",
+        "IsRecurring": false,
+        "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
+        "Type": "Boleto",
+        "Amount": 1000,
+        "ReceivedDate": "2020-01-01 00:00:01",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 1,
+        "RecurrentPayment": {
+            "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
+            "ReasonCode": 0,
+            "ReasonMessage": "Successful",
+            "NextRecurrency": "2020-02-01",
+            "StartDate": "2020-01-01",
+            "EndDate": "2020-12-31",
+            "Interval": "Monthly",
+            "Link": {
+                "Method": "GET",
+                "Rel": "recurrentPayment",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"
+            },
+            "AuthorizeNow": true
+        },
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"
+            }
+        ]
+    }
+}
+--verbose
+
+```
+
+|Property|Description|Type|Size|Format|
+|-----------|---------|----|-------|-------|
+|`RecurrentPaymentId`|Identifier field of the next recurrence.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`NextRecurrency`|Date of the next recurrence.|Text|7|05/2019 (MM/YYYY)|
+|`StartDate`|Start date of recurrence.|Text |7|05/2019 (MM/YYYY)|
+|`EndDate`|End date of recurrence.|Text |7|05/2019 (MM/YYYY)|
+|`Interval`|Recurrency interval. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
+|`AuthorizeNow`|If `true`, authorize at the same moment of the request. `false` to just make a schedulement|Boolean|--- |true ou false |
 
 ### Change Shopper Data
 
@@ -6886,9 +7109,10 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |Rede|Visa, Master, Hipercard, Hyper, Diners, Elo, Amex|Provider for transactions in e-commerce platform Rede (e-Rede) in SOAP version|
 |Rede2|Visa, Master, Hipercard, Hyper, Diners, Link, Amex|Provider for transactions in e-commerce platform Rede (e-Rede) in REST version|
 |Getnet|Visa, Master, Elo, Amex|Provider for transactions on Getnet e-commerce platform|
-|GlobalPayments|Visa, Master|Provider for transactions on Global Payments e-commerce platform|
+|GlobalPayments|Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex|Provider for transactions on Global Payments e-commerce platform|
 |Stone|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Stone|
 |Safra|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Safra|
+|Safra2|Visa, Master, Hipercard, Elo|Provider for transactions on new e-commerce platform Safra|
 |FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider for Guarani (PYG), Argentine Pesos (ARG) and Real (BRL) transactions on the First Data e-commerce platform|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Orange and Nevada|Provider for Argentine Peso (ARG) transactions on the Sub1 First Data legacy platform|
 |Banorte|Visa, Master, Carnet|Provider for Mexican Peso (MXN) transactions on Banorte e-commerce platform|
