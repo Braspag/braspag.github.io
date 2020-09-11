@@ -2152,11 +2152,11 @@ curl
 
 O pedido de requisição é o mesmo da criação de um boleto tradicional. Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrência futuras ao autorizar uma transação pela primeira vez na série de recorrências.
 
-A data de vencimento dos boletos recorrerntes será criada baseando-se na data do próximo pedido recorrente mais o que estiver nas configurações do meio de pagamento aqui na Braspag.
+A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente mais o que estiver nas configurações do meio de pagamento aqui na Braspag.
 
 Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias = Vencimento do boleto criado automaticamente: 06/01/2021
 
-Entre em contato com o Suporte para definir em quantos dias você quer que seus boletos vençam.
+Entre em contato com o Suporte para definir em quantos dias você quer que seus boletos gerados via Recorrência vençam.
 
 #### Requisição
 
