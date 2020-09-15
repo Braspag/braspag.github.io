@@ -31,7 +31,7 @@ O Pagador oferece uma gama de SDKs disponiveis no Repositório oficial Github:
 |[**Ruby**](https://github.com/Braspag/BraspagApiRubySdk)                |
 |[**.NET**](https://github.com/Braspag/BraspagApiDotNetSdk)              |
 
-|SDK Silent Order Post                                                   |
+|SDK Silent Order Post                                                    |
 |------------------------------------------------------------------------|
 |[**Android**](https://github.com/Braspag/silent-order-post-android)     |
 |[**Dart**](https://github.com/Braspag/braspag_silent_order_post_dart)   |
