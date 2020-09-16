@@ -98,6 +98,7 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 
 1. No processo de cadastramento do site, para que possamos enviar comunicações sobre produtos e ofertas, coletamos o nome completo, e-mail, número de telefone do titular. 
 Essas informações são necessárias para identificar e viabilizar os nossos serviços ou contratações.
+
 2. A **Braspag** poderá coletar informações inseridas ativamente pelo Titular ou Representante legal, no momento do contato ou cadastro e, ainda, informações que podem ser coletadas automaticamente ao utilizar nossos serviços, como, por exemplo, dados atrelados a sua conexão, tais como: 
 
 * Endereço de IP;
@@ -177,7 +178,7 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 * Informações sobre a possibilidade de o usuário não fornecer o consentimento, bem como de ser informado sobre as consequências em caso de negativa;
 * Revogação de consentimento.
 
-2. Os direitos acima expostos poderão ser exercidos diretamente pelo Titular ou Representante Legal, através das solicitações enviadas pelo portal de suporte ao cliente (https://suporte.braspag.com.br) ou através do e-mail dpo@braspag.com.br.
+2. Os direitos acima expostos poderão ser exercidos diretamente pelo Titular ou Representante Legal, através das solicitações enviadas pelo portal de [suporte ao cliente](https://suporte.braspag.com.br) ou através do e-mail **dpo@braspag.com.br**.
 
 3. A eventual solicitação de exclusão de informações essenciais para a gestão de seu cadastro junto a **Braspag** poderá implicar no término de sua relação contratual, com consequente cancelamento dos serviços então prestados.
 
@@ -185,7 +186,7 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 
 ### A. COLABORADORES, FORNECEDORES OU OUTROS STAKEHOLDERS
 
-1. Ao observarem quaisquer desvios às diretrizes desta Política, poderão relatar o fato ao Canal de Ética: 0800 941 9563, www.canaldeetica.com.br/braspag, podendo ou não se identificar.
+1. Ao observarem quaisquer desvios às diretrizes desta Política, poderão relatar o fato ao Canal de Ética: 0800 941 9563, https://www.canaldeetica.com.br/braspag/, podendo ou não se identificar.
 
 2. Internamente, o descumprimento das diretrizes desta Política enseja a aplicação de medidas de responsabilização dos agentes que a descumprirem conforme a respectiva gravidade do descumprimento.  
 
@@ -193,7 +194,7 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 
 1. Esta Política entra em vigor na data de sua aprovação e revoga quaisquer normas e procedimentos em contrário.
 
-2. A **Braspag** reserva-se ao direito, a seu exclusivo critério, de modificar, alterar, acrescentar ou remover partes desta política a qualquer momento. Recomendamos que você verifique esta política toda vez que navegar no site da [**Braspag**](https://www.braspag.com.br/).
+2. A **Braspag** reserva-se ao direito, a seu exclusivo critério, de modificar, alterar, acrescentar ou remover partes desta política a qualquer momento. Recomendamos que você verifique esta política toda vez que navegar no [site da **Braspag**](https://www.braspag.com.br/).
 
 ## X. HISTÓRICO DE REVISÕES
 
