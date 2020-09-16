@@ -90,9 +90,10 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 
 3.	Quanto a sua natureza, as informações podem ser classificadas em 2 (dois) grupos:
 
-    *	Dados fornecidos pelo Titular: São aqueles inseridos ou encaminhados pelo titular do dado ou seu representante legal, decorrentes do contato ou cadastro junto à **Braspag**.
-    
-    *	Dados coletados a partir do uso dos nossos serviços: São aqueles relacionados a utilização de meios eletrônicos de pagamento, capturados, transmitidos e/ou compartilhados no contexto e limite necessário para o processamento das transações eletrônicas de pagamento ou para a transmissão de informações relativas a transações não financeiras objeto de serviço prestado pela **Braspag**. 
+-	Dados fornecidos pelo Titular: São aqueles inseridos ou encaminhados pelo titular do dado ou seu representante legal, decorrentes do contato ou cadastro junto à **Braspag**. 
+
+-	Dados coletados a partir do uso dos nossos serviços: São aqueles relacionados a utilização de meios eletrônicos de pagamento, capturados, transmitidos e/ou compartilhados no contexto e limite necessário para o processamento das transações eletrônicas de pagamento ou para a transmissão de informações relativas a transações não financeiras objeto de serviço prestado pela **Braspag**. 
+
 4.	As práticas de privacidade específicas em relação a outros produtos e serviços que a **Braspag** vier a disponibilizar aos seus clientes estarão associadas à aceitação e/ou consentimento dado pelo cliente ou terceiro de cada produto ou serviço.
 
 ### C. DADOS COLETADOS, FORMA E FINALIDADE DA COLETA
@@ -102,12 +103,12 @@ Essas informações são necessárias para identificar e viabilizar os nossos se
 
 2. A **Braspag** poderá coletar informações inseridas ativamente pelo Titular ou Representante legal, no momento do contato ou cadastro e, ainda, informações que podem ser coletadas automaticamente ao utilizar nossos serviços, como, por exemplo, dados atrelados a sua conexão, tais como: 
 
-    * Endereço de IP;
-    * Característica do dispositivo e/ou navegador;
-    * Data e Hora;
-    * Dispositivo utilizado;
-    * Informações sobre os cliques e as páginas acessadas dentro do site **Braspag**; e
-    * Hábitos de utilização, dentre outras informações.
+- Endereço de IP;
+- Característica do dispositivo e/ou navegador;
+- Data e Hora;
+- Dispositivo utilizado;
+- Informações sobre os cliques e as páginas acessadas dentro do site **Braspag**; e
+- Hábitos de utilização, dentre outras informações.
 
 3. A **Braspag** utiliza as informações coletadas para os seguintes propósitos: 
 
@@ -124,7 +125,6 @@ Essas informações são necessárias para identificar e viabilizar os nossos se
     * Tratar dados pessoais com base em seu legítimo interesse, sempre no limite de sua expectativa, e nunca em prejuízo de seus interesses, direitos e liberdades fundamentais.
     * Coletar informações, mediante a autorização prévia, serem utilizadas para fins comerciais.
 
-
 6. Nos casos onde o Titular ou Representante Legal queira solicitar a sua exclusão dos informativos publicitários da **Braspag**, poderá, a qualquer momento, nos contatar através do e-mail dpo@braspag.com.br, manifestando sua oposição.
 
 ### D. COMPARTILHAMENTO DOS DADOS
@@ -138,8 +138,8 @@ Essas informações são necessárias para identificar e viabilizar os nossos se
     * Mediante ordem judicial ou pelo requerimento das autoridades administrativas que detenham competência legal para sua requisição.
     
     * Nos casos de transferências de dados, que ocorram para fora do território brasileiro, a **Braspag** se compromete a fazer somente para os países que proporcionem um grau de proteção à Legislação Brasileira em vigor ou mediante adoção de garantias e salvaguardas como cláusulas específicas, cláusulas-padrão ou normas corporativas globais, bem como mediante a prévia coleta do seu consentimento específico ou a observância das demais hipóteses autorizadas por lei.
-    
-2.	A **Braspag**, via de regra, para finalidades gerais aqui dispostas, não realiza o tratamento de dados pessoais sensíveis, como definidos pela LGPD, 
+
+2. A **Braspag**, via de regra, para finalidades gerais aqui dispostas, não realiza o tratamento de dados pessoais sensíveis, como definidos pela LGPD, 
 tampouco dados de crianças, assim considerados os indivíduos conforme estatuto da Criança e Adolescente, ‎Lei nº 13.257, sendo certo que,
 na remota hipótese em que for necessário o tratamento dessas informações,
 a **Braspag** solicitará o consentimento específico e destacado aos pais ou responsáveis destes e/ou realizaremos o tratamento dessas informações com base nas demais hipóteses autorizadas trazidas pela LGPD.
@@ -184,7 +184,7 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 
 3. A eventual solicitação de exclusão de informações essenciais para a gestão de seu cadastro junto a **Braspag** poderá implicar no término de sua relação contratual, com consequente cancelamento dos serviços então prestados.
 
-##  VIII. GESTÃO DE CONSEQUÊNCIAS
+## VIII. GESTÃO DE CONSEQUÊNCIAS
 
 ### A. COLABORADORES, FORNECEDORES OU OUTROS STAKEHOLDERS
 
