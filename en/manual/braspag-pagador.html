@@ -3286,7 +3286,7 @@ curl
       <td>Text</td>
       <td>see table below</td>
       <td>No</td>
-      <td>Boleto’s Instructions. If completed, overrides the value set on the payment method. The rule varies according to the Provider used (see table below)</td>
+      <td>Boleto’s Instructions. If completed, overrides the value set on the payment method. The rule varies according to the Provider used (see table below). To break lines in this text always use HTML notation <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code></td>
       <td> </td>
     </tr>
     <tr>
@@ -4307,11 +4307,330 @@ curl
   </tbody>
 </table>
 
+<h3 id="authorize-a-recurring-transaction-with-boleto">Authorize a recurring transaction with boleto</h3>
+
+<p>The request is the same as the creation of a traditional boleto. Add the <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node to the <code class="language-plaintext highlighter-rouge">Payment</code> node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.</p>
+
+<p>The expiration date of recurring boletos will be created based on the date of the next recurring order plus whatever is in the payment method settings here at Braspag.</p>
+
+<p>E.g.: Day of next charge: 01/01/2021 + 5 days = Expiration of the ticket created automatically: 06/01/2021</p>
+
+<p>Contact Support to determine how many days you want your boletos generated via Recurrence to expire.</p>
+
+<h4 id="request-10">Request</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+        </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+     
+        </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"AuthorizeNow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-31"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl
+<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="o">[</span>...]
+<span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"Boleto"</span>,
+        <span class="s2">"Amount"</span>: 1000,
+     
+        <span class="s2">"Instructions"</span>: <span class="s2">"Aceitar somente até a data de vencimento."</span>,
+        <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
+            <span class="s2">"AuthorizeNow"</span>: <span class="s2">"true"</span>,
+            <span class="s2">"StartDate"</span>: <span class="s2">"2020-01-01"</span>,
+            <span class="s2">"EndDate"</span>: <span class="s2">"2020-12-31"</span>,
+            <span class="s2">"Interval"</span>: <span class="s2">"Monthly"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Mandatory</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Payment Method Provider Name</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Yes</td>
+      <td>Type of Payment Method</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Total amount (in cents)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Recurrent start date</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Recurrent end date</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Recurrency interval.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>If <code class="language-plaintext highlighter-rouge">true</code>, authorize at the same moment of the request. <code class="language-plaintext highlighter-rouge">false</code> to just make a schedulement</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-11">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455914"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-15"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100031-0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BarCodeNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00096834800000129001234270000010003105678900"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DigitableLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00091.23423 40000.010004 31056.789008 6 83480000012900"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A, 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58e4bde3-1abc-4aef-a58a-741f4c53940d"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01 00:00:01"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a08a622b-71f2-4553-9345-5f3c4fbbacb0"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"NextRecurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-31"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Link"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recurrentPayment"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"AuthorizeNow"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl
+<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"teste001"</span>,
+    <span class="s2">"Customer"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Nome do Comprador"</span>,
+        <span class="s2">"Identity"</span>: <span class="s2">"12345678909"</span>,
+        <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>,
+        <span class="s2">"Address"</span>: <span class="o">{</span>
+            <span class="s2">"Street"</span>: <span class="s2">"Alameda Xingu"</span>,
+            <span class="s2">"Number"</span>: <span class="s2">"512"</span>,
+            <span class="s2">"Complement"</span>: <span class="s2">"27 andar"</span>,
+            <span class="s2">"ZipCode"</span>: <span class="s2">"06455914"</span>,
+            <span class="s2">"City"</span>: <span class="s2">"São Paulo"</span>,
+            <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
+            <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+            <span class="s2">"District"</span>: <span class="s2">"Alphaville"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"Instructions"</span>: <span class="s2">"Aceitar somente até a data de vencimento."</span>,
+        <span class="s2">"ExpirationDate"</span>: <span class="s2">"2020-08-15"</span>,
+        <span class="s2">"Url"</span>: <span class="s2">"https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d"</span>,
+        <span class="s2">"BoletoNumber"</span>: <span class="s2">"100031-0"</span>,
+        <span class="s2">"BarCodeNumber"</span>: <span class="s2">"00096834800000129001234270000010003105678900"</span>,
+        <span class="s2">"DigitableLine"</span>: <span class="s2">"00091.23423 40000.010004 31056.789008 6 83480000012900"</span>,
+        <span class="s2">"Address"</span>: <span class="s2">"N/A, 1"</span>,
+        <span class="s2">"IsRecurring"</span>: <span class="nb">false</span>,
+        <span class="s2">"PaymentId"</span>: <span class="s2">"58e4bde3-1abc-4aef-a58a-741f4c53940d"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"Boleto"</span>,
+        <span class="s2">"Amount"</span>: 1000,
+        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2020-01-01 00:00:01"</span>,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+        <span class="s2">"ReasonCode"</span>: 0,
+        <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+        <span class="s2">"Status"</span>: 1,
+        <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
+            <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"a08a622b-71f2-4553-9345-5f3c4fbbacb0"</span>,
+            <span class="s2">"ReasonCode"</span>: 0,
+            <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+            <span class="s2">"NextRecurrency"</span>: <span class="s2">"2020-02-01"</span>,
+            <span class="s2">"StartDate"</span>: <span class="s2">"2020-01-01"</span>,
+            <span class="s2">"EndDate"</span>: <span class="s2">"2020-12-31"</span>,
+            <span class="s2">"Interval"</span>: <span class="s2">"Monthly"</span>,
+            <span class="s2">"Link"</span>: <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"recurrentPayment"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"</span>
+            <span class="o">}</span>,
+            <span class="s2">"AuthorizeNow"</span>: <span class="nb">true</span>
+        <span class="o">}</span>,
+        <span class="s2">"Links"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"</span>
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Identifier field of the next recurrence.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NextRecurrency</code></td>
+      <td>Date of the next recurrence.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StartDate</code></td>
+      <td>Start date of recurrence.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
+      <td>End date of recurrence.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
+      <td>Recurrency interval.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizeNow</code></td>
+      <td>If <code class="language-plaintext highlighter-rouge">true</code>, authorize at the same moment of the request. <code class="language-plaintext highlighter-rouge">false</code> to just make a schedulement</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>true ou false</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="change-shopper-data">Change Shopper Data</h3>
 
 <p>To change shopper data on an existing recurrence, simply PUT as per the example.</p>
 
-<h4 id="request-10">Request</h4>
+<h4 id="request-11">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -4575,7 +4894,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4588,7 +4907,7 @@ HTTP Status 200
 
 <p>To change the end date of the existing recurrence, just make a PUT as shown.</p>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -4659,7 +4978,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4672,7 +4991,7 @@ HTTP Status 200
 
 <p>To change the range of an existing recurrence, just make a PUT as per the example.</p>
 
-<h4 id="request-12">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -4743,7 +5062,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4758,7 +5077,7 @@ HTTP Status 200
 
 <aside class="notice">Rule: If the new day entered is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is May 5, and the next recurrence is May 25. When I upgrade to the 10, the next recurrence date will be May 10. If the new day entered is before the current day, we will update the recurrence day, but this will take effect only after the next recurrence has been successfully executed. E.g.: Today is 5th, and the next recurrence is May 25. When I upgrade to day 3, the date of the next recurrence will remain on May 25, and after it runs, the next will be scheduled for June 3. If the new day entered is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is 5th, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3</aside>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-14">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -4829,7 +5148,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4842,7 +5161,7 @@ HTTP Status 200
 
 <p>To modify the transaction value of an existing recurrence, simply make a PUT as per the example.</p>
 
-<h4 id="request-14">Request</h4>
+<h4 id="request-15">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -4915,7 +5234,7 @@ curl
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -4930,7 +5249,7 @@ HTTP Status 200
 
 <p>This operation only modifies the date of the next payment, i.e. future recurrences will remain with the original characteristics.</p>
 
-<h4 id="request-15">Request</h4>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -5001,7 +5320,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5024,7 +5343,7 @@ HTTP Status 200
 
 <aside class="notice">Attention: This change affects all Payment node data. So to keep the previous data you must enter the fields that will not change with the same values that were already saved.</aside>
 
-<h4 id="request-16">Request</h4>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -5295,7 +5614,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -5306,7 +5625,7 @@ curl
 
 <p>To disable a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-17">Request</h4>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -5362,7 +5681,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -5373,7 +5692,7 @@ curl
 
 <p>To reactivate a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-18">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -5429,7 +5748,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5448,7 +5767,7 @@ HTTP Status 200
 
 <p>Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank</p>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5592,7 +5911,7 @@ HTTP Status 200
 
 <p>To create a sale, you must POST the Payment feature as shown.</p>
 
-<h4 id="request-19">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5848,7 +6167,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
@@ -6481,7 +6800,7 @@ HTTP Status 200
 
 <p>The second integration step is to effect the authorization flow via Braspag’s gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.</p>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-21">Request</h4>
 
 <p>Default Request Example <em>Apple Pay</em></p>
 
@@ -6620,7 +6939,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-22">Response</h5>
+<h5 id="response-23">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -6784,7 +7103,7 @@ HTTP Status 200
 
 <h4 id="samsung-pay">Samsung Pay</h4>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-22">Request</h4>
 
 <p>Default Request Example <em>Samsung Pay</em></p>
 
@@ -6914,7 +7233,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-23">Response</h5>
+<h5 id="response-24">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -7068,7 +7387,7 @@ HTTP Status 200
 
 <h4 id="google-pay">Google Pay</h4>
 
-<h4 id="request-22">Request</h4>
+<h4 id="request-23">Request</h4>
 
 <p>Default Request Example <em>Google Pay</em></p>
 
@@ -7207,7 +7526,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-24">Response</h5>
+<h5 id="response-25">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -7375,7 +7694,7 @@ HTTP Status 200
   <p>To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.</p>
 </blockquote>
 
-<h4 id="request-23">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7527,7 +7846,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-25">Response</h5>
+<h5 id="response-26">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -7674,7 +7993,7 @@ HTTP Status 200
   <p>To use <em>Visa Checkout</em> you need to contract the service by contacting Visa directly.</p>
 </blockquote>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7827,7 +8146,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-26">Response</h5>
+<h5 id="response-27">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -7969,7 +8288,7 @@ HTTP Status 200
 
 <p>A transaction with an <em>Alelo</em> Card is similar to a Debit Card, but without the authentication process. <br />Currently, only the “Alelo” Provider supports processing of this mode.</p>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8115,7 +8434,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="response-27">Response</h4>
+<h4 id="response-28">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -8309,11 +8628,11 @@ The solution is suitable for establishments that receive payments with cards iss
 
 <p><strong>STEP 1</strong>- Transaction Authorization Request:</p>
 
-<h4 id="request-26">Request</h4>
+<h4 id="request-27">Request</h4>
 
 <p>There is no difference between a standard authorization request and a DCC authorization request.</p>
 
-<h5 id="response-28">Response</h5>
+<h5 id="response-29">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -8559,7 +8878,7 @@ The solution is suitable for establishments that receive payments with cards iss
 
 <p><strong>STEP 3</strong>- Confirmation of the transaction with the buyer’s chosen currency:</p>
 
-<h4 id="request-27">Request</h4>
+<h4 id="request-28">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
 
@@ -8624,7 +8943,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-29">Response</h5>
+<h5 id="response-30">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -8803,7 +9122,7 @@ curl
 
 <h2 id="saving-a-card-during-an-authorization">Saving a card during an authorization</h2>
 
-<h4 id="request-28">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <p>To save a credit card used in a transaction, simply send the <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> parameter as <em>true</em> in the standard authorization request.</p>
 
@@ -8970,7 +9289,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-30">Response</h5>
+<h5 id="response-31">Response</h5>
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code> parameter will return the token to be saved for future transactions with the same card.</p>
 
@@ -9159,7 +9478,7 @@ curl
 
 <p>This is an example of how to use the previously saved Card Token to create a transaction. For security reasons, a Card Token has not kept the Security Code (CVV). Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.</p>
 
-<h4 id="request-29">Request</h4>
+<h4 id="request-30">Request</h4>
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard</code> node within the <code class="language-plaintext highlighter-rouge">Payment</code> node will change as shown below.</p>
 
@@ -9290,7 +9609,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-31">Response</h5>
+<h5 id="response-32">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -9467,7 +9786,7 @@ curl
 
 <p>This is an example of how to use the previously saved Alias to create a transaction. For security reasons, an Alias has not kept the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.</p>
 
-<h4 id="request-30">Request</h4>
+<h4 id="request-31">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9603,7 +9922,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-32">Response</h5>
+<h5 id="response-33">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -9841,7 +10160,7 @@ curl
 
 <p>For CyberSource fraud analysis to be performed during a credit card transaction, you must supplement the authorization agreement with the “FraudAnalysis”, “Cart”, “MerchantDefinedFields” and “Travel (only for airline tickets)” nodes.</p>
 
-<h4 id="request-31">Request</h4>
+<h4 id="request-32">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10857,7 +11176,7 @@ curl
   <p>The fields of the <code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel</code> node become mandatory if your business segment is an airline company.</p>
 </blockquote>
 
-<h5 id="response-33">Response</h5>
+<h5 id="response-34">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -11968,7 +12287,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
 
-<h4 id="request-32">Request</h4>
+<h4 id="request-33">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -12024,7 +12343,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   </tbody>
 </table>
 
-<h5 id="response-34">Response</h5>
+<h5 id="response-35">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -12860,7 +13179,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
 
-<h4 id="request-33">Request</h4>
+<h4 id="request-34">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -12916,7 +13235,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   </tbody>
 </table>
 
-<h5 id="response-35">Response</h5>
+<h5 id="response-36">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -13400,7 +13719,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a sale by store identifier, you must GET the resource/sales as shown.</p>
 
-<h4 id="request-34">Request</h4>
+<h4 id="request-35">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
@@ -13456,7 +13775,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   </tbody>
 </table>
 
-<h5 id="response-36">Response</h5>
+<h5 id="response-37">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -13516,7 +13835,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a Recurrence request, you need to get a GET as per the example.</p>
 
-<h4 id="request-35">Request</h4>
+<h4 id="request-36">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -13572,7 +13891,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   </tbody>
 </table>
 
-<h5 id="response-37">Response</h5>
+<h5 id="response-38">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
@@ -13924,7 +14243,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     </tr>
     <tr>
       <td>GlobalPayments</td>
-      <td>Visa, Master</td>
+      <td>Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex</td>
       <td>Provider for transactions on Global Payments e-commerce platform</td>
     </tr>
     <tr>
@@ -13936,6 +14255,11 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
       <td>Safra</td>
       <td>Visa, Master, Hipercard, Elo</td>
       <td>Provider for transactions on e-commerce platform Safra</td>
+    </tr>
+    <tr>
+      <td>Safra2</td>
+      <td>Visa, Master, Hipercard, Elo</td>
+      <td>Provider for transactions on new e-commerce platform Safra</td>
     </tr>
     <tr>
       <td>FirstData</td>
