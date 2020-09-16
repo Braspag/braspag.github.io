@@ -128,13 +128,13 @@ Essas informações são necessárias para identificar e viabilizar os nossos se
 
 1. As informações coletadas pela **Braspag** são exclusivamente para atendimento das finalidades informadas nesta Política e dentro do limite necessário ao desempenho das atividades relativas ao curso normal dos seus negócios, sendo assim o compartilhamento das informações coletadas poderá ocorrer em algumas das hipóteses descritas abaixo, incluindo, mas não se limitando a:
 
-    * Empresas parceiras e fornecedores, no desenvolvimento e prestações de serviços voltados ao Titular ou Representante Legal;
-    
-    * Com autoridades públicas ou entidades governamentais para a proteção dos interesses da **Braspag**, do Titular ou do Representante Legal, em qualquer tipo de conflito, incluindo ações judiciais e processos administrativos;
-    
-    * Mediante ordem judicial ou pelo requerimento das autoridades administrativas que detenham competência legal para sua requisição.
-    
-    * Nos casos de transferências de dados, que ocorram para fora do território brasileiro, a **Braspag** se compromete a fazer somente para os países que proporcionem um grau de proteção à Legislação Brasileira em vigor ou mediante adoção de garantias e salvaguardas como cláusulas específicas, cláusulas-padrão ou normas corporativas globais, bem como mediante a prévia coleta do seu consentimento específico ou a observância das demais hipóteses autorizadas por lei.
+* Empresas parceiras e fornecedores, no desenvolvimento e prestações de serviços voltados ao Titular ou Representante Legal;
+
+* Com autoridades públicas ou entidades governamentais para a proteção dos interesses da **Braspag**, do Titular ou do Representante Legal, em qualquer tipo de conflito, incluindo ações judiciais e processos administrativos;
+
+* Mediante ordem judicial ou pelo requerimento das autoridades administrativas que detenham competência legal para sua requisição.
+
+* Nos casos de transferências de dados, que ocorram para fora do território brasileiro, a **Braspag** se compromete a fazer somente para os países que proporcionem um grau de proteção à Legislação Brasileira em vigor ou mediante adoção de garantias e salvaguardas como cláusulas específicas, cláusulas-padrão ou normas corporativas globais, bem como mediante a prévia coleta do seu consentimento específico ou a observância das demais hipóteses autorizadas por lei.
 
 2. A **Braspag**, via de regra, para finalidades gerais aqui dispostas, não realiza o tratamento de dados pessoais sensíveis, como definidos pela LGPD, 
 tampouco dados de crianças, assim considerados os indivíduos conforme estatuto da Criança e Adolescente, ‎Lei nº 13.257, sendo certo que,
