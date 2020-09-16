@@ -53,8 +53,7 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 
 ### A. ADMINISTRADORES E COLABORADORES
 
-1.	Observar e zelar pelo cumprimento da presente Política e, quando assim se fizer necessário, acionar a área de Compliance para consulta sobre situações que envolvam conflito com esta Política ou mediante a ocorrência de situações nela descritas. 
-É imprescindível que cada pessoa compreenda o papel da privacidade e proteção de dados em suas atividades diárias e participe dos programas de conscientização.
+1. Observar e zelar pelo cumprimento da presente Política e, quando assim se fizer necessário, acionar a área de Compliance para consulta sobre situações que envolvam conflito com esta Política ou mediante a ocorrência de situações nela descritas. É imprescindível que cada pessoa compreenda o papel da privacidade e proteção de dados em suas atividades diárias e participe dos programas de conscientização.
 
 ### B. COMPLIANCE
 
@@ -72,35 +71,33 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 
 ### A. DISPOSIÇÕES GERAIS
 
-1.	Esta política visa demostrar o compromisso da BRASPAG em:
+1. Esta política visa demostrar o compromisso da BRASPAG em:
+2. Zelar pela privacidade e proteção de dados pessoais dos clientes, dos colaboradores e parceiros da **Braspag**, em função do desempenho de suas atividades;
 
-2.	Zelar pela privacidade e proteção de dados pessoais dos clientes, dos colaboradores e parceiros da **Braspag**, em função do desempenho de suas atividades;
+3. Adotar diretrizes que assegurem o cumprimento, de forma abrangente, de normas e boas práticas relativas à privacidade e proteção de dados pessoais;
 
-3.	Adotar diretrizes que assegurem o cumprimento, de forma abrangente, de normas e boas práticas relativas à privacidade e proteção de dados pessoais;
+4. Promover a transparência sobre a forma pela qual a **Braspag** trata os dados pessoais;
 
-4.	Promover a transparência sobre a forma pela qual a **Braspag** trata os dados pessoais;
-
-5.	Fortalecer as medidas de proteção em relação aos riscos de incidentes de segurança que envolvam dados pessoais.
+5. Fortalecer as medidas de proteção em relação aos riscos de incidentes de segurança que envolvam dados pessoais.
 
 ### B. INFORMAÇÕES SUJEITAS À POLÍTICA
 
 1.	Todas os dados pessoais e/ou dados pessoais sensíveis ou coletados no contexto da prestação dos serviços pela BRASPAG Tecnologia em Pagamento Ltda., com sede na Alameda Xingu 512, 27º andar, Alphaville, CEP 06455-911, no município de Barueri, no estado de São Paulo, inscrita no CNPJ sob o n° 07.355.049/0001-06 aos seus clientes para aceitação de meios eletrônicos de pagamento, compreendendo a captura, transporte e processamento de informações de transações, bem como a oferta de outros serviços e produtos correlatos; e
 
-2.	Dados de colaboradores e terceiros no contexto de obrigação contratual ou legal.
+2. Dados de colaboradores e terceiros no contexto de obrigação contratual ou legal.
 
-3.	Quanto a sua natureza, as informações podem ser classificadas em 2 (dois) grupos:
+3. Quanto a sua natureza, as informações podem ser classificadas em 2 (dois) grupos:
 
--	Dados fornecidos pelo Titular: São aqueles inseridos ou encaminhados pelo titular do dado ou seu representante legal, decorrentes do contato ou cadastro junto à **Braspag**. 
+* Dados fornecidos pelo Titular: São aqueles inseridos ou encaminhados pelo titular do dado ou seu representante legal, decorrentes do contato ou cadastro junto à **Braspag**. 
 
--	Dados coletados a partir do uso dos nossos serviços: São aqueles relacionados a utilização de meios eletrônicos de pagamento, capturados, transmitidos e/ou compartilhados no contexto e limite necessário para o processamento das transações eletrônicas de pagamento ou para a transmissão de informações relativas a transações não financeiras objeto de serviço prestado pela **Braspag**. 
+* Dados coletados a partir do uso dos nossos serviços: São aqueles relacionados a utilização de meios eletrônicos de pagamento, capturados, transmitidos e/ou compartilhados no contexto e limite necessário para o processamento das transações eletrônicas de pagamento ou para a transmissão de informações relativas a transações não financeiras objeto de serviço prestado pela **Braspag**. 
 
-4.	As práticas de privacidade específicas em relação a outros produtos e serviços que a **Braspag** vier a disponibilizar aos seus clientes estarão associadas à aceitação e/ou consentimento dado pelo cliente ou terceiro de cada produto ou serviço.
+4. As práticas de privacidade específicas em relação a outros produtos e serviços que a **Braspag** vier a disponibilizar aos seus clientes estarão associadas à aceitação e/ou consentimento dado pelo cliente ou terceiro de cada produto ou serviço.
 
 ### C. DADOS COLETADOS, FORMA E FINALIDADE DA COLETA
 
-1.	No processo de cadastramento do site, para que possamos enviar comunicações sobre produtos e ofertas, coletamos o nome completo, e-mail, número de telefone do titular. 
+1. No processo de cadastramento do site, para que possamos enviar comunicações sobre produtos e ofertas, coletamos o nome completo, e-mail, número de telefone do titular. 
 Essas informações são necessárias para identificar e viabilizar os nossos serviços ou contratações.
-
 2. A **Braspag** poderá coletar informações inseridas ativamente pelo Titular ou Representante legal, no momento do contato ou cadastro e, ainda, informações que podem ser coletadas automaticamente ao utilizar nossos serviços, como, por exemplo, dados atrelados a sua conexão, tais como: 
 
 - Endereço de IP;
@@ -112,10 +109,10 @@ Essas informações são necessárias para identificar e viabilizar os nossos se
 
 3. A **Braspag** utiliza as informações coletadas para os seguintes propósitos: 
 
-    * Atender o objetivo ao qual o Titular forneceu a informação;
-    * Ampliar as nossas ofertas de comercialização e divulgação de produtos e serviços que podem ser do interesse do Titular;
-    * Personalizar e melhorar os produtos e serviços fornecidos ao Titular ou Representante Legal;
-    * Prevenir fraudes e minimizar perdas financeiras, dentre outros casos que possam fugir ao convencional.
+* Atender o objetivo ao qual o Titular forneceu a informação;
+* Ampliar as nossas ofertas de comercialização e divulgação de produtos e serviços que podem ser do interesse do Titular;
+* Personalizar e melhorar os produtos e serviços fornecidos ao Titular ou Representante Legal;
+* Prevenir fraudes e minimizar perdas financeiras, dentre outros casos que possam fugir ao convencional.
 
 4. As informações dos usuários poderão ser utilizadas em demais serviços prestados diretamente pela **Braspag** respeitadas as finalidades expostas ao usuário e a autorização previamente concedida, quando houver exigência legal de coleta desta.
 
@@ -170,15 +167,15 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 
 1.	Em cumprimento da regulamentação aplicável, no que diz respeito ao tratamento de dados pessoais, a **Braspag** respeita e garante ao usuário, a possibilidade de apresentar solicitações baseadas nos seguintes direitos:
 
-    * Confirmação de existência de tratamento;
-    * Acesso aos dados;
-    * Correção de dados incompletos, inexatos ou desatualizados;
-    * Anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com a lei;
-    * Portabilidade dos dados ao outro fornecedor de serviço ou produto, mediante requisição expressa pelo usuário;
-    * Eliminação dos dados tratados com consentimento do usuário;
-    * Obtenção de informações sobre as entidades públicas ou privadas com as quais a **Braspag** compartilhara seus dados;
-    * Informações sobre a possibilidade de o usuário não fornecer o consentimento, bem como de ser informado sobre as consequências em caso de negativa;
-    * Revogação de consentimento.
+* Confirmação de existência de tratamento;
+* Acesso aos dados;
+* Correção de dados incompletos, inexatos ou desatualizados;
+* Anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com a lei;
+* Portabilidade dos dados ao outro fornecedor de serviço ou produto, mediante requisição expressa pelo usuário;
+* Eliminação dos dados tratados com consentimento do usuário;
+* Obtenção de informações sobre as entidades públicas ou privadas com as quais a **Braspag** compartilhara seus dados;
+* Informações sobre a possibilidade de o usuário não fornecer o consentimento, bem como de ser informado sobre as consequências em caso de negativa;
+* Revogação de consentimento.
 
 2. Os direitos acima expostos poderão ser exercidos diretamente pelo Titular ou Representante Legal, através das solicitações enviadas pelo portal de suporte ao cliente (https://suporte.braspag.com.br) ou através do e-mail dpo@braspag.com.br.
 
