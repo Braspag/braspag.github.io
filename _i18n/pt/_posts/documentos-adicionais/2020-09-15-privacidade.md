@@ -82,7 +82,7 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 
 ### B. INFORMAÇÕES SUJEITAS À POLÍTICA
 
-1.	Todas os dados pessoais e/ou dados pessoais sensíveis ou coletados no contexto da prestação dos serviços pela BRASPAG Tecnologia em Pagamento Ltda., com sede na Alameda Xingu 512, 27º andar, Alphaville, CEP 06455-911, no município de Barueri, no estado de São Paulo, inscrita no CNPJ sob o n° 07.355.049/0001-06 aos seus clientes para aceitação de meios eletrônicos de pagamento, compreendendo a captura, transporte e processamento de informações de transações, bem como a oferta de outros serviços e produtos correlatos; e
+1. Todas os dados pessoais e/ou dados pessoais sensíveis ou coletados no contexto da prestação dos serviços pela BRASPAG Tecnologia em Pagamento Ltda., com sede na Alameda Xingu 512, 27º andar, Alphaville, CEP 06455-911, no município de Barueri, no estado de São Paulo, inscrita no CNPJ sob o n° 07.355.049/0001-06 aos seus clientes para aceitação de meios eletrônicos de pagamento, compreendendo a captura, transporte e processamento de informações de transações, bem como a oferta de outros serviços e produtos correlatos; e
 
 2. Dados de colaboradores e terceiros no contexto de obrigação contratual ou legal.
 
@@ -100,12 +100,12 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 Essas informações são necessárias para identificar e viabilizar os nossos serviços ou contratações.
 2. A **Braspag** poderá coletar informações inseridas ativamente pelo Titular ou Representante legal, no momento do contato ou cadastro e, ainda, informações que podem ser coletadas automaticamente ao utilizar nossos serviços, como, por exemplo, dados atrelados a sua conexão, tais como: 
 
-- Endereço de IP;
-- Característica do dispositivo e/ou navegador;
-- Data e Hora;
-- Dispositivo utilizado;
-- Informações sobre os cliques e as páginas acessadas dentro do site **Braspag**; e
-- Hábitos de utilização, dentre outras informações.
+* Endereço de IP;
+* Característica do dispositivo e/ou navegador;
+* Data e Hora;
+* Dispositivo utilizado;
+* Informações sobre os cliques e as páginas acessadas dentro do site **Braspag**; e
+* Hábitos de utilização, dentre outras informações.
 
 3. A **Braspag** utiliza as informações coletadas para os seguintes propósitos: 
 
@@ -118,9 +118,9 @@ Essas informações são necessárias para identificar e viabilizar os nossos se
 
 5. A **Braspag**, em alguns casos, poderá:
 
-    * Tratar dados pessoais quando necessário para cumprimento de obrigação legal ou regulatória ou no exercício regular de direitos em processo judicial, administrativo ou arbitral. 
-    * Tratar dados pessoais com base em seu legítimo interesse, sempre no limite de sua expectativa, e nunca em prejuízo de seus interesses, direitos e liberdades fundamentais.
-    * Coletar informações, mediante a autorização prévia, serem utilizadas para fins comerciais.
+* Tratar dados pessoais quando necessário para cumprimento de obrigação legal ou regulatória ou no exercício regular de direitos em processo judicial, administrativo ou arbitral. 
+* Tratar dados pessoais com base em seu legítimo interesse, sempre no limite de sua expectativa, e nunca em prejuízo de seus interesses, direitos e liberdades fundamentais.
+* Coletar informações, mediante a autorização prévia, serem utilizadas para fins comerciais.
 
 6. Nos casos onde o Titular ou Representante Legal queira solicitar a sua exclusão dos informativos publicitários da **Braspag**, poderá, a qualquer momento, nos contatar através do e-mail dpo@braspag.com.br, manifestando sua oposição.
 
@@ -165,7 +165,7 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 
 ## VII. OS DIREITOS DOS TITULARES
 
-1.	Em cumprimento da regulamentação aplicável, no que diz respeito ao tratamento de dados pessoais, a **Braspag** respeita e garante ao usuário, a possibilidade de apresentar solicitações baseadas nos seguintes direitos:
+1. Em cumprimento da regulamentação aplicável, no que diz respeito ao tratamento de dados pessoais, a **Braspag** respeita e garante ao usuário, a possibilidade de apresentar solicitações baseadas nos seguintes direitos:
 
 * Confirmação de existência de tratamento;
 * Acesso aos dados;
