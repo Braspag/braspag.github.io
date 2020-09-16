@@ -7504,7 +7504,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 
 ## Cartões para Teste (Simulado)
 
-O Simulado é um meio de pagamento que emula a utilizaçao de pagamentos com Cartão de Crétido. Com esse meio de pagamento é possivel simular todos os fluxos de Autorização, Captura e Cancelamento.
+O Simulado é um meio de pagamento que emula a utilizaçao de pagamentos com Cartão de Crédito. Com esse meio de pagamento é possivel simular todos os fluxos de Autorização, Captura e Cancelamento.
 
 Para melhor utilização do Meio de Pagamento Simulado, estamos disponibilizando cartões de testes na tabela abaixo.
 
@@ -7521,7 +7521,7 @@ Os status das transações serão conforme a utilização de cada cartão.
 |Não Autorizado|0000.0000.0000.0008|70|Problemas com o Cartão de Crédito|
 |Autorização Aleatória|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
 
-As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).
+As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY). Não utilize pontos ou separadores entre os números do cartão utilizado.
 
 ## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].GiftCategory
 
