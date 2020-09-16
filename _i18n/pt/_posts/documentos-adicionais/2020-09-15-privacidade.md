@@ -193,7 +193,7 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 
 1. Esta Política entra em vigor na data de sua aprovação e revoga quaisquer normas e procedimentos em contrário.
 
-2. A **Braspag** reserva-se ao direito, a seu exclusivo critério, de modificar, alterar, acrescentar ou remover partes desta política a qualquer momento. Recomendamos que você verifique esta política toda vez que navegar no site da **Braspag**.
+2. A **Braspag** reserva-se ao direito, a seu exclusivo critério, de modificar, alterar, acrescentar ou remover partes desta política a qualquer momento. Recomendamos que você verifique esta política toda vez que navegar no site da [**Braspag**](https://www.braspag.com.br/).
 
 ## X. HISTÓRICO DE REVISÕES
 
