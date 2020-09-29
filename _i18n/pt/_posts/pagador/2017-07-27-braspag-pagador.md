@@ -312,6 +312,8 @@ curl
 |`Payment.PaymentFacilitator.SubEstablishment.State`|Texto|2|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Estado do sub Merchant.|
 |`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Número|9|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código postal do sub Merchant.|
 |`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Número|13|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Número de telefone do sub Merchant.|
+|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Número|14|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>CNPJ ou CPF do sub Merchant.|
+|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Número|3|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código país do sub Merchant com base no ISO 3166.|
 |`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
