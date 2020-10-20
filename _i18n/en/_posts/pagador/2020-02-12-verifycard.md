@@ -64,7 +64,7 @@ curl
 |`MerchantId`|Guid|36|Yes|Store identifier at Braspag|
 |`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
 |`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
-|`Card.CardNumber`|Text|16|Yes|Shopper's Card Number for Zero Auth and Consulta BIN. If it is a Consulta BIN request only, send only the BIN|
+|`Card.CardNumber`|Text|16|Yes|Shopper's Card Number for Zero Auth and Consulta BIN. If it is a Consulta BIN request only, send only the BIN (6 or 9 digits)|
 |`Card.Holder`|Text|25|Yes|Shopper's Name Printed on Card|
 |`Card.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM/YYYY format|
 |`Card.SecurityCode`|Number|4|Yes|Security code printed on back of card|
