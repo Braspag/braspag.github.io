@@ -7103,10 +7103,7 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |Provider|Brand|Description|
 |--------|-----|---------|
 |Simulated|---|Sandbox Provider|
-|Cielo|Visa, Master, Amex, Link, Aura, Jcb, Diners, Discover|Provider for Transactions on Legacy Platform Cielo 1.5|
 |Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|Provider for transactions on the Cielo 3.0 e-commerce platform|
-|Redecard|Visa, Master, Hipercard, Hiper, Diners|Provider for Transactions on Legacy Platform Komerci's Rede|
-|Rede|Visa, Master, Hipercard, Hyper, Diners, Elo, Amex|Provider for transactions in e-commerce platform Rede (e-Rede) in SOAP version|
 |Rede2|Visa, Master, Hipercard, Hyper, Diners, Link, Amex|Provider for transactions in e-commerce platform Rede (e-Rede) in REST version|
 |Getnet|Visa, Master, Elo, Amex|Provider for transactions on Getnet e-commerce platform|
 |GlobalPayments|Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex|Provider for transactions on Global Payments e-commerce platform|
@@ -7117,10 +7114,7 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Orange and Nevada|Provider for Argentine Peso (ARG) transactions on the Sub1 First Data legacy platform|
 |Banorte|Visa, Master, Carnet|Provider for Mexican Peso (MXN) transactions on Banorte e-commerce platform|
 |Credibanco|Visa, Master, Diners, Amex, Credential|Provider for Colombian Peso (COP) transactions on Credibanco e-commerce platform|
-|Transbank|Visa, Master, Diners, Amex|Provider for Chilean pesos (CLP) transactions on Transbank e-commerce platform|
-|RedeSitef|Visa, Master, Hipercard, Diners|Provider for Transactions on Rede Platform with TEF Technology|
-|CieloSitef|Visa, Master, Amex, Link, Aura, Jcb, Diners, Discover|Provider for Transactions on Cielo Platform with TEF Technology|
-|SantanderSitef|Visa, Master|Provider for Getnet platform transactions with TEF technology|
+|Transbank2|Visa, Master, Diners, Amex|Provider for Chilean pesos (CLP) transactions on Transbank e-commerce platform|
 |DMCard|---|---|
 
 ### Providers for Debit
