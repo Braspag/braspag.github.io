@@ -64,7 +64,7 @@ curl
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Card.CardNumber`|Texto|16|Sim|Número do Cartão do comprador para Zero Auth e Consulta BIN. Caso seja uma somente requisição de Consulta BIN, enviar somente o BIN|
+|`Card.CardNumber`|Texto|16|Sim|Número do Cartão do comprador para Zero Auth e Consulta BIN. Caso seja uma somente requisição de Consulta BIN, enviar somente o BIN (de 6 ou 9 dígitos)|
 |`Card.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
 |`Card.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
 |`Card.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
