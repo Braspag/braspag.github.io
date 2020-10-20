@@ -7112,24 +7112,17 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Provider|Brand|Descrição|
 |--------|-----|---------|
 |Simulado|---|Provider de Sandbox|
-|Cielo|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Sorocred|Provider para transações na plataforma legado Cielo 1.5|
 |Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper, Sorocred|Provider para transações na plataforma de e-commerce Cielo 3.0|
 |Getnet|Visa, Master, Elo, Amex, Hipercard|Provider para transações na plataforma de e-commerce Getnet|
-|Redecard|Visa, Master, Hipercard, Hiper, Diners|Provider para transações na plataforma legado Rede Komerci|
-|Rede|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex|Provider para transações na plataforma de e-commerce Rede (e-Rede) na versão SOAP|
 |Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex, Sorocred|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST|
 |GlobalPayments|Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex|Provider para transações na plataforma de e-commerce Global Payments|
 |Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone|
-|Safra|Visa, Master, Hipercard, Elo, Amex|Provider para transações na plataforma de e-commerce Safra (legado)|
 |Safra2|Visa, Master, Hipercard, Elo, Amex|Provider para transações na plataforma de e-commerce Safra|
 |FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data|
 |Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte|
 |Credibanco|Visa, Master, Diners, Amex, Credential|Provider para transações em pesos colombianos (COP) na plataforma de e-commerce Credibanco|
-|Transbank|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank|
-|RedeSitef|Visa, Master, Hipercard, Diners|Provider para transações na plataforma Rede com tecnologia TEF|
-|CieloSitef|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover|Provider para transações na plataforma Cielo com tecnologia TEF|
-|SantanderSitef|Visa, Master|Provider para transações na plataforma Getnet com tecnologia TEF|
+|Transbank2|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank|
 |Banese|Banese|Provider para transações com a bandeira BaneseCard|
 |BrasilCard|BrasilCard|Provider para transações com a bandeira BrasilCard|
 |Credsystem|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
