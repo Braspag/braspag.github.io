@@ -4246,9 +4246,9 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
 
 ## Voucher
 
-### Criando uma transação com voucher Alelo
+### Criando uma transação com voucher
 
-Uma transação com um Cartão Alelo se efetua de uma forma semelhante a um Cartão de Débito, porém, sem o processo de autenticação. <BR><BR>Atualmente, somente o Provider "Alelo" suporta processamento desta modalidade.
+Uma transação com um Cartão Voucher se efetua de uma forma semelhante a um Cartão de Débito, porém, sem o processo de autenticação. <BR><BR>Atualmente, suportamos o Provider "Alelo" e "Ticket" nessa modalidade.
 
 #### Requisição
 
@@ -4305,14 +4305,14 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento. Atualmente somente a "Cielo" suporta esta forma de pagamento via Pagador|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento.|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas|
 |`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento|Texto |1024 |Sim|
 |`DebitCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`DebitCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`DebitCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
+|`DebitCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA. <BR> OBS.: Vouchers "Ticket" não possuem data de validade impressa no cartão. <BR> Envie uma data posterior ao dia atual para que a transação seja processada|
 |`DebitCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
 |`DebitCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 
@@ -7146,6 +7146,7 @@ Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes
 |Provider|Brand|Descrição|
 |--------|-----|---------|
 |Alelo|Elo|Provider para transações de voucher (vale refeição/alimentação) na plataforma Alelo|
+|Ticket|Ticket|Provider para transações de voucher (vale refeição/alimentação) na plataforma Ticket|
 
 ### Providers para Zero Auth via VerifyCard
 
