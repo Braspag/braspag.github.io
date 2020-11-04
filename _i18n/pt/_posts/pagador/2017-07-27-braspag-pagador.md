@@ -100,7 +100,7 @@ Caso a sua loja utilize os serviços de Retentaiva ou Loadbalance, as afiliaçõ
 
 ```json
 {  
-   "MerchantOrderId":"2017051002",
+   "MerchantOrderId":"2017051001",
    "Customer":{  
       "Name":"Nome do Comprador",
       "Identity":"12345678909",
