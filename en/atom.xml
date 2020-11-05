@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2020-11-05T13:14:57+00:00</updated>
+    <updated>2020-11-05T13:54:33+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -9139,12 +9139,6 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -9365,16 +9359,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -9490,16 +9478,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -9610,16 +9592,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -9749,16 +9725,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -9875,16 +9845,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -9995,16 +9959,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -10115,16 +10073,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -10264,16 +10216,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -10387,16 +10333,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;MerchantID &lt;br /&gt; Note: If this Key was not sent, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; must be sent&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;conditional&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -10502,16 +10442,10 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;Id da loja na Braspag &lt;br /&gt; Obs.: Caso esta Key não seja enviada, obrigatoriamente a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EstablishmentCode&lt;/code&gt; deverá ser enviada&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identificador da requisição&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;sim&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parâmetros na querystring&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parâmetros na route&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -10603,12 +10537,6 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authorization&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Bearer {access_token}&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Authorization type&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Request identifier&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
