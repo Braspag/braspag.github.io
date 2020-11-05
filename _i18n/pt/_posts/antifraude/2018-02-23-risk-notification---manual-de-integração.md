@@ -128,6 +128,7 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|condicional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
 ``` json
 {
@@ -210,6 +211,7 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|condicional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
 **Parâmetros na rota**
 
@@ -256,8 +258,9 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|condicional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
@@ -300,8 +303,9 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
@@ -364,8 +368,9 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
@@ -401,8 +406,9 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
@@ -445,8 +451,9 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
@@ -489,8 +496,9 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
@@ -540,8 +548,9 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
@@ -587,8 +596,9 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
@@ -629,8 +639,9 @@ Exemplo:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
@@ -669,6 +680,7 @@ Exemplo:
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
 **Parâmetros na querystring**
 
