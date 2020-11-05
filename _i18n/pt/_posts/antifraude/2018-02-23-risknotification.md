@@ -213,7 +213,7 @@ Exemplo:
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
 |`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na rota**
+**Parâmetros na querystring**
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
