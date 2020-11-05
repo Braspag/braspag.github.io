@@ -128,7 +128,6 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
 ``` json
 {
@@ -211,9 +210,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parameters in the querystring**
+**Parameters in the route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -258,9 +256,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parameters in the querystring**
+**Parameters in the route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -303,9 +300,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parameters in the querystring**
+**Parameters in the route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -368,9 +364,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parameters in the querystring**
+**Parameters in the route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -406,9 +401,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parameters in the querystring**
+**Parameters in the route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -451,9 +445,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parameters in the querystring**
+**Parameters in the route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -496,9 +489,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parameters in the querystring**
+**Parameters in the route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -553,9 +545,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parameters in the querystring**
+**Parameters in the route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -601,9 +592,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
 |`EstablishmentCode`|xxxxxxxxxx|Establishment Code <br/> Note: If this Key was not sent, `MerchantId` must be sent|conditional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|MerchantID <br/> Note: If this Key was not sent, `EstablishmentCode` must be sent|conditional|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
-**Parameters in the querystring**
+**Parameters in the route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -644,9 +634,8 @@ Exemple:
 |`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Identificador da requisição|sim|
 
-**Parâmetros na querystring**
+**Parâmetros na route**
 
 |Parameter|Description|Required|
 |:-|:-|:-:|
@@ -685,7 +674,6 @@ Exemple:
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Request content type|yes|
 |`Authorization`|Bearer {access_token}|Authorization type|yes|
-|`RequestId`|rrrrrrrr-rrrr-rrrr-rrrr-rrrrrrrrrrrr|Request identifier|yes|
 
 **Parameters in the querystring**
 
