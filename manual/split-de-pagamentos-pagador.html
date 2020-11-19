@@ -4134,7 +4134,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">255</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Sim</td>
       <td style="text-align: left">Tipo de documento de identificação do comprador <br /> Possíveis valores: CPF ou CNPJ</td>
     </tr>
     <tr>
@@ -4148,7 +4148,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
       <td style="text-align: left">Date</td>
       <td style="text-align: left">10</td>
-      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Não</td>
       <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1991-01-10</td>
     </tr>
     <tr>
@@ -4218,56 +4218,56 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">54</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">Logradouro do endereço de entrega</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">5</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">Número do endereço de entrega</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">14</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">Complemento do endereço de entrega</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">9</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">Código postal do endereço de entrega</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">50</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">Cidade do endereço de entrega</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">2</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">Estado do endereço de entrega</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">2</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">45</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">Bairro do endereço de entrega</td>
     </tr>
     <tr>
@@ -4471,7 +4471,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">100</td>
       <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas</td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas <br /> <a href="https://braspag.github.io/manual/antifraude#configuração-do-fingerprint">Como configurar o Devicefingerprint</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.HostName</code></td>
@@ -4631,7 +4631,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">120</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">Nome completo do responsável a receber o produto no endereço de entrega</td>
     </tr>
     <tr>
@@ -4645,7 +4645,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">15</td>
-      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Obrigatório caso faça entrega</td>
       <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
     </tr>
     <tr>
