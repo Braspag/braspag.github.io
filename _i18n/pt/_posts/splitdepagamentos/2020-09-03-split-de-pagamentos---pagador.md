@@ -3146,9 +3146,9 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`MerchantOrderId`|Texto|50|Sim|Número do pedido da loja|
 |`Customer.Name`|Texto|120|Sim|Nome completo do comprador|
 |`Customer.Identity`|Texto|16|Sim|Número do documento de identificação do comprador|
-|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador <br/> Possíveis valores: CPF ou CNPJ|
+|`Customer.IdentityType`|Texto|255|Sim|Tipo de documento de identificação do comprador <br/> Possíveis valores: CPF ou CNPJ|
 |`Customer.Email`|Texto|100|Sim|E-mail do comprador|
-|`Customer.Birthdate`|Date|10|Sim|Data de nascimento do comprador <br/> Ex.: 1991-01-10|
+|`Customer.Birthdate`|Date|10|Não|Data de nascimento do comprador <br/> Ex.: 1991-01-10|
 |`Customer.Phone`|Texto|15|Sim|Número do telefone do comprador <br/> Ex.: 5521976781114|
 |`Customer.Address.Street`|Texto|54|Sim|Logradouro do endereço de cobrança|
 |`Customer.Address.Number`|Texto|5|Sim|Número do endereço de cobrança|
@@ -3158,14 +3158,14 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Customer.Address.State`|Texto|2|Sim|Estado do endereço de cobrança|
 |`Customer.Address.Country`|Texto|2|Sim|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
 |`Customer.Address.District`|Texto|45|Sim|Bairro do endereço de cobrança|
-|`Customer.DeliveryAddress.Street`|Texto|54|Não|Logradouro do endereço de entrega|
-|`Customer.DeliveryAddress.Number`|Texto|5|Não|Número do endereço de entrega|
-|`Customer.DeliveryAddress.Complement`|Texto|14|Não|Complemento do endereço de entrega|
-|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|Código postal do endereço de entrega|
-|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço de entrega|
-|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega|
-|`Customer.DeliveryAddress.Country`|Texto|2|Não|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
-|`Customer.DeliveryAddress.District`|Texto|45|Não|Bairro do endereço de entrega|
+|`Customer.DeliveryAddress.Street`|Texto|54|Obrigatório caso faça entrega|Logradouro do endereço de entrega|
+|`Customer.DeliveryAddress.Number`|Texto|5|Obrigatório caso faça entrega|Número do endereço de entrega|
+|`Customer.DeliveryAddress.Complement`|Texto|14|Obrigatório caso faça entrega|Complemento do endereço de entrega|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Obrigatório caso faça entrega|Código postal do endereço de entrega|
+|`Customer.DeliveryAddress.City`|Texto|50|Obrigatório caso faça entrega|Cidade do endereço de entrega|
+|`Customer.DeliveryAddress.State`|Texto|2|Obrigatório caso faça entrega|Estado do endereço de entrega|
+|`Customer.DeliveryAddress.Country`|Texto|2|Obrigatório caso faça entrega|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Customer.DeliveryAddress.District`|Texto|45|Obrigatório caso faça entrega|Bairro do endereço de entrega|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora da autorização|
 |`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. <br/> Obs.: Somente o tipo _CreditCard_ funciona com análise de fraude|
 |`Payment.Amount`|Número|15|Sim|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|
@@ -3194,7 +3194,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será capturada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será cancelada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de alto risco (Reject) a transação anteriormente autorizada será cancelada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será cancelada após a Braspag receber a notificação da alteração de status e esta for alto risco (Reject) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|
-|`Payment.FraudAnalysis.FingerPrintId`|Texto|100|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas|
+|`Payment.FraudAnalysis.FingerPrintId`|Texto|100|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas <br/> [Como configurar o Devicefingerprint]({{ site.baseurl_root }}manual/antifraude#configuração-do-fingerprint)|
 |`Payment.FraudAnalysis.Browser.HostName`|Texto|60|Não|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|
 |`Payment.FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Sim|Identifica se o browser do comprador aceita cookies <br/> Possíveis valores: true / false (default)|
 |`Payment.FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|
@@ -3217,9 +3217,9 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Texto|6|Não|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 9 - Payment.Fraudanalysis.Cart.Items{n}.VelocityHedge]({{ site.baseurl_root }}manual/split-pagamentos-braspag-pagador#tabela-9-payment.fraudanalysis.cart.items[n].velocityhedge)|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Número|2|Sim|ID das informações adicionais a serem enviadas <br/> [Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields]({{ site.baseurl_root }}manual/split-pagamentos-braspag-pagador#tabela-20-payment.fraudanalysis.merchantdefinedfields)|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Texto|255|Sim|Valor das informações adicionais a serem enviadas <br/> [Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields]({{ site.baseurl_root }}manual/split-pagamentos-braspag-pagador#tabela-20-payment.fraudanalysis.merchantdefinedfields)|
-|`Payment.FraudAnalysis.Shipping.Addressee`|Texto|120|Não|Nome completo do responsável a receber o produto no endereço de entrega|
+|`Payment.FraudAnalysis.Shipping.Addressee`|Texto|120|Obrigatório caso faça entrega|Nome completo do responsável a receber o produto no endereço de entrega|
 |`Payment.FraudAnalysis.Shipping.Method`|Texto|8|Não|Meio de entrega do pedido <br/> [Tabela 10 - Payment.Fraudanalysis.Shipping.Method]({{ site.baseurl_root }}manual/split-pagamentos-braspag-pagador#tabela-10-payment.fraudanalysis.shipping.method)|
-|`Payment.FraudAnalysis.Shipping.Phone`|Texto|15|Não|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|
+|`Payment.FraudAnalysis.Shipping.Phone`|Texto|15|Obrigatório caso faça entrega|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|
 |`Payment.FraudAnalysis.Travel.JourneyType`|Texto|32|Não|Tipo de viagem <br/> [Tabela 11 - Payment.FraudAnalysis.Travel.JourneyType]({{ site.baseurl_root }}manual/split-pagamentos-braspag-pagador#tabela-11-payment.fraudanalysis.travel.journeytype)|
 |`Payment.FraudAnalysis.Travel.DepartureTime`|DateTime|---|Não|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|
 |`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto|120|Não|Nome completo do passageiro|
