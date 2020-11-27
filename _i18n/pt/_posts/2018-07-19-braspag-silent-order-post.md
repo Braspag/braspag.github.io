@@ -117,6 +117,7 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 |enableBinQuery| **true** se quiser habilitar o Consulta BIN (retorna as características do cartão). **false** caso contrário. |
 |enableVerifyCard| **true** se quiser habilitar o ZeroAuth (retorna se o cartão é válido ou não). **false** caso contrário. |
 |enableTokenize| **true** se quiser salvar o cartão diretamente no Cartão Protegido (retorna um cardToken ao invés de um paymentToken). **false** caso contrário. |
+|cvvrequired| **false** se quiser desligar a obrigatoriedade de envio do CVV. **true** caso contrário. |
 
 **RETORNOS DO SCRIPT**
 
