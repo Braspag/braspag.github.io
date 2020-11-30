@@ -1363,9 +1363,15 @@ curl
 
 <h3 id="transação-com-autenticação">Transação com autenticação</h3>
 
-<p>Quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de chargeback da transação passa a ser do emissor, ou seja, a loja não receberá contestações.</p>
+<p>Quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de chargeback da transação passa a ser do emissor; ou seja, a loja não receberá contestações.</p>
 
-<p>Existem duas maneiras para autenticar transações na Braspag: <strong>Padrão</strong> quando o lojista não possui uma conexão direta com um autenticador (MPI), e espera que o meio de pagamento redirecione o cliente para o ambiente de autenticação. <strong>Externa</strong> quando o lojista possui um autenticador próprio (MPI) e não espera que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação.</p>
+<p>Existem duas maneiras para autenticar transações na Braspag:</p>
+<ul>
+  <li><strong>Padrão</strong> - quando o lojista não possui uma conexão direta com um autenticador (MPI), e espera que o meio de pagamento redirecione o cliente para o ambiente de autenticação.</li>
+  <li><strong>Externa</strong> - quando o lojista possui um autenticador próprio (MPI) e não espera que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação.</li>
+</ul>
+
+<aside class="warning">O 3DS 1.0 não é válido para mobile, mas em breve haverá atualização para o [3DS 2.0](https://braspag.github.io//manualp/emv3ds).</aside>
 
 <h4 id="autenticação-padrão">Autenticação Padrão</h4>
 
