@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "json", "2.0.2"
+gem "json", "2.3.0"
 gem 'jekyll'
 gem 'jekyll-paginate'
 gem 'kramdown'
