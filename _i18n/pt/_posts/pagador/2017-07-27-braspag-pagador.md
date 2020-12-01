@@ -640,7 +640,9 @@ Existem duas maneiras para autenticar transações na Braspag:
 * **Padrão** - quando o lojista não possui uma conexão direta com um autenticador (MPI), e espera que o meio de pagamento redirecione o cliente para o ambiente de autenticação.
 * **Externa** - quando o lojista possui um autenticador próprio (MPI) e não espera que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação.
 
-<aside class="warning">O 3DS 1.0 não é válido para mobile, mas em breve haverá atualização para o <a href="https://braspag.github.io//manualp/emv3ds">3DS 2.0</a>.</aside>
+<aside class="warning">O 3DS 1.0 não funciona em ambiente mobile.</aside>
+
+Indicamos, para estes casos, a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds).
 
 #### Autenticação Padrão
 
