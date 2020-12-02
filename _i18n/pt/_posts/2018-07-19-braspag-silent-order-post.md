@@ -15,16 +15,16 @@ language_tabs:
 
 Integração que a Braspag oferece aos lojistas, onde os dados de pagamentos são trafegados de forma segura, mantendo o controle total sobre a experiência de checkout.
 
-Esse método possibilita o envio dos dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados de pagamento, tais como número do cartão e data de validade são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.
+Esse método possibilita o envio dos dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados de pagamento, tais como número do cartão e data de validade, são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.
 
 É ideal para lojistas que exigem um alto grau de segurança, sem perder a identidade de sua página, permitindo total personalização na sua página de checkout.
 
 # Características
 
-* Captura de dados de pagamento diretamente para os sistemas da Braspag por meio dos campos definidos no seu checkout através de um script (javascript).
+* Captura de dados de pagamento diretamente para os sistemas da Braspag por meio dos campos definidos no seu checkout através de um script (javascript)
 * Compatibilidade com todos os meios de pagamentos disponibilizados no Gateway Pagador (Nacional e Internacional)
 * Redução do escopo de PCI DSS
-* Mantenha controle total sobre a experiência de checkout mantendo o look & feel de sua marca
+* Mantenha controle total sobre a experiência de checkout mantendo o *look & feel* de sua marca
 
 # Fluxo Transacional
 
