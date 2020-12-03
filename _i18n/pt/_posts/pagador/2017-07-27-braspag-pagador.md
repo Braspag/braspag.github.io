@@ -7084,7 +7084,7 @@ Resposta esperada da Loja: HTTP Status Code 200 OK
 
 Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.
 
-<aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações de boleto e cartão de crédito pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
+<aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
 ```json
 {
