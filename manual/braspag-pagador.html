@@ -13983,11 +13983,13 @@ Transação com vida acima de 12 meses - entrar em contato com seu Executivo Com
 
 <h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>Para receber a notificação de alteração de status deve-se ter configurado no cadastro de sua loja na Braspag, o campo URL Status Pagamento para receber os parametros conforme o exemplo ao lado.</p>
+<p>Para receber a notificação de alteração de status, deve-se ter configurado o campo <code class="language-plaintext highlighter-rouge">URL Status Pagamento</code> durante o cadastro de sua loja na Braspag. Assim, você irá receber os parâmetros conforme demonstrado no exemplo.</p>
 
 <p>Resposta esperada da Loja: HTTP Status Code 200 OK</p>
 
-<p>Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes enviar o Post de Notificação.</p>
+<p>Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.</p>
+
+<aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações de boleto e cartão de crédito pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
