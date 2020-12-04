@@ -15,15 +15,17 @@ language_tabs:
 
 # Introdução ao Pagador API
 
-**O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.**
+**O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.**
 
-Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para respectivos ambientes: **Sandbox** e **Produção**. [Para executar](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
+Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para os respectivos ambientes: **Sandbox** e **Produção**. [Para executar](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.
 
 ## Ambientes
 
+Utilize o ambiente Sandbox para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no ambiente de produção.
+
 ### Ambiente Sandbox
 
-Experimente as nossas APIs sem compromisso!
+Experimente as nossas APIs sem compromisso.
 
 |Informação|Descrição|
 |----|----|
@@ -33,19 +35,21 @@ Experimente as nossas APIs sem compromisso!
 
 ### Ambiente de Produção
 
-Já estou pronto para entrar em Produção!
+Realizados os testes, disponibilize sua solução em ambiente de Produção.
 
 |Informação|Descrição|
 |---|---|
-|Credenciais de Acesso à API|Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!|
+|Credenciais de Acesso à API|Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.|
 |Endpoint Transacional|https://api.braspag.com.br/|
 |Endpoint para Serviços de Consultas|https://apiquery.braspag.com.br/|
 
 ## Suporte Braspag
 
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda à sexta, das 9h às 19h, e telefone de emergência 24×7, através de ferramenta via web. Contamos com a equipe que poderá atender em português, inglês e espanhol</aside>
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda à sexta, das 9h às 19h, telefone de emergência 24 horas por dia e através de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
-* Atendimento Web: [Zendesk](http://suporte.braspag.com.br/)
+* Atendimento Web: [Zendesk](http://suporte.braspag.com.br/)<br>
+
+Consulte o nosso artigo [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag) para mais informações sobre nosso Suporte. 
 
 ## Características da Solução
 
