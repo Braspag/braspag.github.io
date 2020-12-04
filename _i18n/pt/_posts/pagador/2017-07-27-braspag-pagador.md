@@ -25,7 +25,7 @@ Utilize o ambiente Sandbox para realizar testes dos nossos produtos e serviços 
 
 ### Ambiente Sandbox
 
-Realize testes com as nossas APIs sem compromisso.
+Experimente as nossas APIs sem compromisso.
 
 |Informação|Descrição|
 |----|----|
@@ -45,7 +45,7 @@ Realizados os testes, disponibilize sua solução em ambiente de Produção.
 
 ## Suporte Braspag
 
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda à sexta, das 9h às 19h, e telefone de emergência 24 horas por dia, através de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda à sexta, das 9h às 19h, telefone de emergência 24 horas por dia e através de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
 * Atendimento Web: [Zendesk](http://suporte.braspag.com.br/)<br>
 
