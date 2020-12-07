@@ -651,9 +651,9 @@ curl
 
 Quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de chargeback da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
-<aside class="warning">O 3DS 1.0 não funciona em ambiente mobile.</aside>
+<aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
 
-Indicamos, para estes casos, a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds" target="_blank">3DS 2.0</a>.
+Indicamos, portanto, a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds" target="_blank">3DS 2.0</a> também no ambiente mobile.
 
 Existem duas maneiras para autenticar transações na Braspag:
 
@@ -1076,9 +1076,9 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
 |`Payment.ExternalAuthentication.Xid`|Texto| - |Valor Xid submetido na requisição de autorização|
 |`Payment.ExternalAuthentication.Eci`|Número|1|Valor ECI submetido na requisição de autorização|
 
-### Transação com cartão de débito
+### Transação com Cartão de Débito
 
-Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação.
+Uma transação com um cartão de débito se efetua de uma forma semelhante à de um cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
 
 #### Requisição
 
@@ -1088,17 +1088,17 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
    [...]
    },
      "Payment": {
-        "Provider": "Simulado",
-        "Type": "DebitCard",
+        "Provider":"Simulado",
+        "Type":"DebitCard",
         "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
+        "Currency":"BRL",
+        "Country":"BRA",
         "Installments": 1,
-        "Interest": "ByMerchant",
+        "Interest":"ByMerchant",
         "Capture": true,
         "Authenticate": true,
         "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
+        "SoftDescriptor":"Mensagem",
         "DebitCard":{
          "CardNumber":"4551870000000181",
          "Holder":"Nome do Portador",
