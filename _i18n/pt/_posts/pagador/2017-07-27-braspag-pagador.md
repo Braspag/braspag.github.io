@@ -62,13 +62,13 @@ Conheça alguns dos atributos que mais se destacam na plataforma Braspag eCommer
 * **Facilidade de testes**: a plataforma Braspag oferece um ambiente Sandbox publicamente acessível, que permite ao desenvolvedor a criação de uma conta de testes sem a necessidade de credenciamento, facilitando e agilizando o início da integração.
 * **Credenciais**: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega no cabeçalho da requisição HTTP da mensagem.
 * **Segurança**: a troca de informações se dá sempre entre o Servidor da Loja e da Braspag, ou seja, sem o browser do comprador.
-* **Integração Multiplataforma**: a integração é realizada através de Web Service REST.
+* **Integração Multiplataforma**: a integração é realizada através de APIs REST.
 
 ## Arquitetura
 
-A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do *path*, que é o endereço do recurso.
+A integração é realizada através de serviços disponibilizados como APIs REST. O modelo empregado é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do *path*, que é o endereço do recurso.
 
-|Método|Descrição|
+|Método HTTP|Descrição|
 |---|---|
 |**GET**|Para consultas de recursos já existentes. Por exemplo, consulta de transações.|
 |**POST**|Para criação de uma transação.|
@@ -107,7 +107,7 @@ Caso a sua loja utilize os serviços de **Retentativa** ou **Loadbalance**, as a
 
 <aside class="notice">Os parâmetros contidos dentro dos nós <code>Address</code> e <code>DeliveryAddress</code> são obrigatórios quando a transação é submetida ao <b>AntiFraude</b> ou análise do <b>Velocity</b>. Na tabela de parâmetros mais abaixo, eles estão marcados com um * na coluna de obrigatoriedade.</aside>
 
-Segue um exemplo de envio de requisição e resposta:
+Seguem exemplos de envio de requisição e resposta:
 
 #### Requisição
 
