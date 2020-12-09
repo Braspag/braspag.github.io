@@ -1984,6 +1984,8 @@ x-www-form-urlencoded
 
 Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
 
+> O prazo de cancelamento de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.
+
 #### Cancelamento Total
 
 No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
