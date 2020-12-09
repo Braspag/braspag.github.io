@@ -141,17 +141,17 @@
             <div class="post">
   <h1 id="introdução-ao-pagador-api">Introdução ao Pagador API</h1>
 
-<p><strong>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.</strong></p>
+<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.</p>
 
-<p>Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para os respectivos ambientes: <strong>Sandbox</strong> e <strong>Produção</strong>. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.</p>
+<p>Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para os respectivos ambientes: Sandbox e Produção. <a href="https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md/">Para executar</a> uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.</p>
 
 <h2 id="ambientes">Ambientes</h2>
 
-<p>Utilize o ambiente Sandbox para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no ambiente de produção.</p>
+<p>Utilize o <strong>Ambiente Sandbox</strong> para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no <em>*Ambiente de Produção</em>.</p>
 
 <h3 id="ambiente-sandbox">Ambiente Sandbox</h3>
 
-<p>Experimente as nossas APIs sem compromisso.</p>
+<p>Experimente as nossas APIs sem compromisso!</p>
 
 <table>
   <thead>
@@ -163,15 +163,15 @@
   <tbody>
     <tr>
       <td>Credenciais de Acesso à API</td>
-      <td>Acesse o Cadastro do Sandbox e crie uma conta de testes.<br />Ao fim do cadastro você receberá um <code class="language-plaintext highlighter-rouge">MerchantId</code> e um <code class="language-plaintext highlighter-rouge">MerchantKey</code>,<br /> que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API</td>
+      <td>Acesse o <a href="https://cadastrosandbox.braspag.com.br/">Cadastro do Sandbox</a> e crie uma conta de testes. Ao fim do cadastro você receberá um <code class="language-plaintext highlighter-rouge">MerchantId</code> e um <code class="language-plaintext highlighter-rouge">MerchantKey</code>, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.</td>
     </tr>
     <tr>
       <td>Endpoint Transacional</td>
-      <td>API Sandbox Braspag</td>
+      <td><a href="https://apisandbox.braspag.com.br/">API Sandbox Braspag</a></td>
     </tr>
     <tr>
       <td>Endpoint para Serviços de Consultas</td>
-      <td>API Query Sandbox Braspag</td>
+      <td><a href="https://apiquerysandbox.braspag.com.br/">API Query Sandbox Braspag</a></td>
     </tr>
   </tbody>
 </table>
@@ -190,32 +190,28 @@
   <tbody>
     <tr>
       <td>Credenciais de Acesso à API</td>
-      <td>Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.</td>
+      <td>Envie um email para  para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.</td>
     </tr>
     <tr>
       <td>Endpoint Transacional</td>
-      <td>API Braspag</td>
+      <td><a href="https://api.braspag.com.br/">API Braspag</a></td>
     </tr>
     <tr>
       <td>Endpoint para Serviços de Consultas</td>
-      <td>API Query Braspag</td>
+      <td><a href="https://apiquery.braspag.com.br/">API Query Braspag</a></td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="suporte-braspag">Suporte Braspag</h2>
 
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e da ferramenta via web [Zendesk](http://suporte.braspag.com.br/). Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
-<ul>
-  <li>Atendimento Web: Zendesk<br /></li>
-</ul>
-
-<p>Consulte o nosso artigo Atendimento Braspag para mais informações sobre nosso Suporte.</p>
+<p>Consulte o nosso artigo <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Atendimento Braspag</a> para mais informações sobre nosso serviço de suporte.</p>
 
 <h2 id="características-da-solução">Características da Solução</h2>
 
-<p>A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP.Net, Java, PHP, Ruby e Python.</p>
+<p>A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: <em>ASP, ASP.Net, Java, PHP, Ruby e Python</em>.</p>
 
 <p>Conheça alguns dos atributos que mais se destacam na plataforma Braspag eCommerce:</p>
 
@@ -225,12 +221,12 @@
   <li><strong>Facilidade de testes</strong>: a plataforma Braspag oferece um ambiente Sandbox publicamente acessível, que permite ao desenvolvedor a criação de uma conta de testes sem a necessidade de credenciamento, facilitando e agilizando o início da integração.</li>
   <li><strong>Credenciais</strong>: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega no cabeçalho da requisição HTTP da mensagem.</li>
   <li><strong>Segurança</strong>: a troca de informações se dá sempre entre o Servidor da Loja e da Braspag, ou seja, sem o browser do comprador.</li>
-  <li><strong>Integração Multiplataforma</strong>: a integração é realizada através de APIs REST.</li>
+  <li><strong>Integração Multiplataforma</strong>: a integração é realizada através de APIs REST, que permitem a utilização de diferentes aplicações.</li>
 </ul>
 
 <h2 id="arquitetura">Arquitetura</h2>
 
-<p>A integração é realizada através de serviços disponibilizados como APIs REST. O modelo empregado é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do <em>path</em>, que é o endereço do recurso.</p>
+<p>Através de serviços disponibilizados como APIs REST, o modelo empregado na integração é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do <em>path</em>, que é o endereço do recurso.</p>
 
 <table>
   <thead>
@@ -242,7 +238,7 @@
   <tbody>
     <tr>
       <td><strong>GET</strong></td>
-      <td>Para consultas de recursos já existentes. Por exemplo, consulta de transações.</td>
+      <td>Para consultas de recursos já existentes, ex.: consulta de transações.</td>
     </tr>
     <tr>
       <td><strong>POST</strong></td>
@@ -250,12 +246,14 @@
     </tr>
     <tr>
       <td><strong>PUT</strong></td>
-      <td>Para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.</td>
+      <td>Para atualização de um recurso já existente, ex.: captura ou cancelamento de uma transação previamente autorizada.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Para que possa aproveitar todos os recursos disponíveis em nossa API, é importante você antes conhecer os seguintes conceitos envolvidos no processamento de uma transação de cartão de crédito:</p>
+<h2 id="termos-transacionais">Termos Transacionais</h2>
+
+<p>Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é importante você antes conhecer os seguintes conceitos envolvidos no processamento de uma transação de cartão de crédito:</p>
 
 <table>
   <thead>
@@ -267,18 +265,30 @@
   <tbody>
     <tr>
       <td><strong>Autorização</strong></td>
-      <td>Operação que viabiliza o processamento de uma venda com um cartão de crédito. A pré-autorização irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança na fatura para o consumidor.</td>
+      <td>Operação que viabiliza o processamento de uma venda com um cartão de crédito. A autorização (também chamada pré-autorização) irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança na fatura para o consumidor.</td>
     </tr>
     <tr>
       <td><strong>Captura</strong></td>
-      <td>Confirmação necessária para que a cobrança seja efetivada. O tempo limite para capturar uma transação pré-autorizada varia entre adquirentes, mas pode ser de até 5 dias após a data da pré-autorização. Com a <strong>Captura Automática</strong>, a transação pode ser autorizada e capturada no mesmo momento, isentando o lojista de enviar confirmação.</td>
+      <td>Confirmação necessária para que a cobrança seja efetivada. O tempo limite para capturar uma transação pré-autorizada varia entre adquirentes, mas pode ser de até 5 dias após a data da pré-autorização.</td>
+    </tr>
+    <tr>
+      <td><strong>Captura Automática</strong></td>
+      <td>Com este recurso, a transação pode ser <strong>autorizada</strong> e <strong>capturada</strong> num mesmo momento, isentando o lojista de enviar a confirmação.</td>
+    </tr>
+    <tr>
+      <td><strong>Cancelamento</strong></td>
+      <td>Recurso necessário quando, por algum motivo, não se quer mais efetivar uma venda. No caso de uma transação apenas <strong>autorizada</strong>, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido <strong>capturada</strong>, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.</td>
+    </tr>
+    <tr>
+      <td><strong>Estorno</strong></td>
+      <td>Recurso de cancelamento de compra aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida ao processo de estorno pela adquirente.</td>
     </tr>
   </tbody>
 </table>
 
 <aside class="warning">Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
 
-<p>Alguns outros recursos e termos importantes para suas transações estão listados a seguir:</p>
+<p>Alguns outros recursos importantes para suas transações estão listados a seguir:</p>
 
 <table>
   <thead>
@@ -297,33 +307,25 @@
       <td>Processo que possibilita realizar uma venda que passará por autenticação do banco emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o banco o risco de fraude.</td>
     </tr>
     <tr>
-      <td><strong>Cancelamento</strong></td>
-      <td>Recurso necessário quando, por algum motivo, não se quer mais efetivar uma venda. No caso de uma transação apenas <strong>autorizada</strong>, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido <strong>capturada</strong>, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.</td>
-    </tr>
-    <tr>
       <td><strong>Cartão Protegido</strong></td>
       <td>Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de <em>token</em>, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como “Compra com 1 clique” e “Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.</td>
-    </tr>
-    <tr>
-      <td><strong>Estorno</strong></td>
-      <td>Recurso de cancelamento de compra aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida ao processo de estorno pela adquirente.</td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="pagamentos">Pagamentos</h1>
 
-<p>A API do Pagador trabalha com transações das seguintes formas de pagamento: cartão de crédito, cartão de débito, boleto bancário, transferência eletrônica, e-wallet e voucher.</p>
+<p>A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, boleto bancário, transferência eletrônica, e-wallet e voucher.</p>
 
 <h2 id="cartão-de-crédito-e-débito">Cartão de Crédito e Débito</h2>
 
 <h3 id="criando-uma-transação">Criando uma Transação</h3>
 
-<p>Para autorizar uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó <code class="language-plaintext highlighter-rouge">Payment.Credentials</code>, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.</p>
+<p>Ao requisitar a <strong>autorização</strong> de uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó <code class="language-plaintext highlighter-rouge">Payment.Credentials</code>, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.</p>
 
-<p>Caso a sua loja utilize os serviços de <strong>Retentativa</strong> ou <strong>Loadbalance</strong>, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, clique aqui) e envie sua requisição.</p>
+<p>Caso a sua loja utilize os serviços de <em>Retentativa</em> ou <em>Loadbalance</em>, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">clique aqui</a> e envie sua requisição.</p>
 
-<aside class="notice">Os parâmetros contidos dentro dos nós Address e DeliveryAddress são obrigatórios quando a transação é submetida ao AntiFraude ou análise do Velocity. Na tabela de parâmetros mais abaixo, eles estão marcados com um * na coluna de obrigatoriedade.</aside>
+<p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <em>AntiFraude</em> ou à análise do <em>Velocity</em>. Na tabela de parâmetros, mais abaixo, esses parâmetros estarão marcados com um * na coluna de obrigatoriedade.</p>
 
 <p>Seguem exemplos de envio de requisição e resposta:</p>
 
@@ -1263,7 +1265,7 @@ curl
 
 <h3 id="capturando-uma-transação">Capturando uma Transação</h3>
 
-<p>Uma transação submetida com o parâmetro <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a <em>false</em> necessita de uma solicitação de captura para confirmar a transação posteriormente.</p>
+<p>Quando uma transação é submetida com o parâmetro <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a <em>false</em>, é necessária uma solicitação de captura para confirmar a transação posteriormente.</p>
 
 <p>Transações que não forem capturadas até a  target=”_blank”&gt;data limite) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.</p>
 
