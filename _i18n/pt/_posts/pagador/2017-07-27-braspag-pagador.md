@@ -562,9 +562,9 @@ curl
 
 ### Capturando uma Transação
 
-Quando uma transação é submetida com o parâmetro `Payment.Capture` igual a _false_, é necessária uma solicitação de captura para confirmar a transação posteriormente.
+Quando uma transação é submetida com o parâmetro `Payment.Capture` igual a _false_, é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.
 
-Transações que não forem capturadas até a <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno> target="_blank">data limite</a>) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.
+Transações que não são capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.
 
 #### Requisição
 
