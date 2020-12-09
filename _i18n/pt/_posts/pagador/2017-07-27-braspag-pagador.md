@@ -29,7 +29,7 @@ Experimente as nossas APIs sem compromisso!
 
 |Informação|Descrição|
 |----|----|
-|Credenciais de Acesso à API|Acesse o [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/) e crie uma conta de testes. Ao fim do cadastro você receberá um `MerchantId` e um `MerchantKey`, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API|
+|Credenciais de Acesso à API|Acesse o [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/) e crie uma conta de testes. Ao fim do cadastro você receberá um `MerchantId` e um `MerchantKey`, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.|
 |Endpoint Transacional|[API Sandbox Braspag](https://apisandbox.braspag.com.br/)|
 |Endpoint para Serviços de Consultas|[API Query Sandbox Braspag](https://apiquerysandbox.braspag.com.br/)|
 
@@ -45,9 +45,9 @@ Realizados os testes, disponibilize sua solução em ambiente de Produção.
 
 ## Suporte Braspag
 
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e de ferramenta via web pelo [Zendesk](http://suporte.braspag.com.br/). Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e da ferramenta via web [Zendesk](http://suporte.braspag.com.br/). Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
-Consulte o nosso artigo [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag) para mais informações sobre nosso Suporte. 
+Consulte o nosso artigo [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag) para mais informações sobre nosso serviço de suporte. 
 
 ## Características da Solução
 
@@ -84,11 +84,9 @@ Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é
 |**Cancelamento**|Recurso necessário quando, por algum motivo, não se quer mais efetivar uma venda. No caso de uma transação apenas **autorizada**, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido **capturada**, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.|
 |**Estorno**|Recurso de cancelamento de compra aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida ao processo de estorno pela adquirente.|
 
-
 <aside class="warning">Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
 
-
-Alguns outros recursos e termos importantes para suas transações estão listados a seguir:
+Alguns outros recursos importantes para suas transações estão listados a seguir:
 
 |Termo|Descrição|
 |---|---|
@@ -104,11 +102,11 @@ A API do Pagador trabalha com transações referentes às seguintes formas de pa
 
 ### Criando uma Transação
 
-Para a **autorização** de uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó `Payment.Credentials`, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.
+Ao requisitar a **autorização** de uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó `Payment.Credentials`, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.
 
 Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, [clique aqui](https://suporte.braspag.com.br/hc/pt-br/requests/new) e envie sua requisição.
 
-Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao *AntiFraude* ou à análise do *Velocity*. Na tabela de parâmetros, mais abaixo, eles estarão marcados com um * na coluna de obrigatoriedade.
+Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao *AntiFraude* ou à análise do *Velocity*. Na tabela de parâmetros, mais abaixo, esses parâmetros estarão marcados com um * na coluna de obrigatoriedade.
 
 Seguem exemplos de envio de requisição e resposta:
 
