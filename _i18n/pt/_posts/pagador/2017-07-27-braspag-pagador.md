@@ -86,7 +86,6 @@ Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é
 
 <aside class="warning">Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
 
-
 Alguns outros recursos importantes para suas transações estão listados a seguir:
 
 |Termo|Descrição|
