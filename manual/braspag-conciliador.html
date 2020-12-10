@@ -4253,6 +4253,7 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
       <th>Descritor</th>
       <th>Descrição</th>
       <th>Exemplo</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -4260,31 +4261,37 @@ Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados
       <td>CorrelatedId</td>
       <td>GUID enviado na requisição</td>
       <td>4749e676-2507-442d-a1c6-c25c08e2d2af</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Success</td>
       <td>Indica se a operação foi concluída.</td>
       <td>false/true</td>
+      <td> </td>
     </tr>
     <tr>
       <td>ErrorReportCollection</td>
       <td>Coleção de erros que será  retornada em caso de Sucess=”false”</td>
       <td>ErrorReport.Code = 39,ErrorReport.Message  = “Erro interno do sistema”.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>ErrorReport.Code</td>
       <td>Código de erros para  Sucess=”false”</td>
       <td>39/44/46</td>
+      <td> </td>
     </tr>
     <tr>
       <td>ErrorReport.Message</td>
       <td>Mensagem de erro correspondente ao código informado</td>
       <td>39 - Erro interno do sistema.<br />44 - Acesso não autorizado, IP não cadastrado<br />46 - Usuário incorreto, e/ou não tem acesso a loja.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>FileContent</td>
       <td>Para requisições com Sucess=”true”, será enviado o conteúdo binário codificado na base64 UTF-8</td>
       <td>QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>

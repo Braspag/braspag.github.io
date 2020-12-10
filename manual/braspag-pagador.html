@@ -139,15 +139,15 @@
             </div>
 
             <div class="post">
-  <h1 id="introdução-ao-pagador-api">Introdução ao Pagador API</h1>
+  <h1 id="introdução-à-api-do-pagador">Introdução à API do Pagador</h1>
 
-<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.</p>
+<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a <strong>API do Pagador</strong>, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.</p>
 
-<p>Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para os respectivos ambientes: Sandbox e Produção. <a href="https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md/">Para executar</a> uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.</p>
+<p>Todas as operações requerem credenciais de acesso (<em>Merchant ID</em> e <em>Merchant Key</em>) específicos para os respectivos ambientes: Sandbox e Produção. Para <a href="https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md/">executar</a> uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.</p>
 
 <h2 id="ambientes">Ambientes</h2>
 
-<p>Utilize o <strong>Ambiente Sandbox</strong> para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no <em>*Ambiente de Produção</em>.</p>
+<p>Utilize o <strong>Ambiente Sandbox</strong> para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no <strong>Ambiente de Produção</strong>.</p>
 
 <h3 id="ambiente-sandbox">Ambiente Sandbox</h3>
 
@@ -190,7 +190,7 @@
   <tbody>
     <tr>
       <td>Credenciais de Acesso à API</td>
-      <td>Envie um email para  para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.</td>
+      <td>Envie um email para <em>comercial@braspag.com.br</em> para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.</td>
     </tr>
     <tr>
       <td>Endpoint Transacional</td>
@@ -205,9 +205,9 @@
 
 <h2 id="suporte-braspag">Suporte Braspag</h2>
 
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e da ferramenta via web [Zendesk](http://suporte.braspag.com.br/). Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e da ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
-<p>Consulte o nosso artigo <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Atendimento Braspag</a> para mais informações sobre nosso serviço de suporte.</p>
+<p>Acesse nossa ferramenta de atendimento web <a href="http://suporte.braspag.com.br/">Zendesk</a> e consulte o nosso artigo <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Atendimento Braspag</a> para mais informações sobre nosso serviço de suporte.</p>
 
 <h2 id="características-da-solução">Características da Solução</h2>
 
@@ -226,7 +226,7 @@
 
 <h2 id="arquitetura">Arquitetura</h2>
 
-<p>Através de serviços disponibilizados como APIs REST, o modelo empregado na integração é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do <em>path</em>, que é o endereço do recurso.</p>
+<p>O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do <em>path</em>, que é o endereço do recurso.</p>
 
 <table>
   <thead>
@@ -273,7 +273,7 @@
     </tr>
     <tr>
       <td><strong>Captura Automática</strong></td>
-      <td>Com este recurso, a transação pode ser <strong>autorizada</strong> e <strong>capturada</strong> num mesmo momento, isentando o lojista de enviar a confirmação.</td>
+      <td>Opção que permite que a transação possa ser <strong>autorizada</strong> e <strong>capturada</strong> num mesmo momento, isentando o lojista de enviar a confirmação.</td>
     </tr>
     <tr>
       <td><strong>Cancelamento</strong></td>
@@ -1265,9 +1265,9 @@ curl
 
 <h3 id="capturando-uma-transação">Capturando uma Transação</h3>
 
-<p>Quando uma transação é submetida com o parâmetro <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a <em>false</em>, é necessária uma solicitação de captura para confirmar a transação posteriormente.</p>
+<p>Quando uma transação é submetida com o parâmetro <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a <em>false</em>, é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.</p>
 
-<p>Transações que não forem capturadas até a  target=”_blank”&gt;data limite) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.</p>
+<p>Transações que não são capturadas até a <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">data limite</a> são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.</p>
 
 <h4 id="requisição-1">Requisição</h4>
 
@@ -1432,9 +1432,9 @@ curl
 
 <aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
 
-<p>Indicamos, portanto, a utilização da versão 3DS 2.0 também no ambiente mobile.</p>
+<p>Indicamos, portanto, a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds">3DS 2.0</a> também no ambiente mobile.</p>
 
-<p>Existem duas maneiras para autenticar transações na Braspag:</p>
+<p>Existem duas maneiras de autenticar transações na Braspag:</p>
 
 <ul>
   <li><strong>Padrão</strong> - quando o lojista não possui uma conexão direta com um autenticador (MPI)</li>
@@ -2368,7 +2368,7 @@ curl
 
 <h3 id="transação-com-coronavoucher">Transação com “Coronavoucher”</h3>
 
-<p>O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição é do tipo Cartão de Débito, porém, será <strong>sem autenticação</strong>, conforme o exemplo abaixo.</p>
+<p>O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém sem <strong>sem autenticação</strong>, conforme o exemplo abaixo.</p>
 
 <h4 id="requisição-5">Requisição</h4>
 
