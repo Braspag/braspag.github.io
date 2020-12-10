@@ -15,9 +15,9 @@ language_tabs:
 
 # Introdução à API do Pagador
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a **API do Pagador**, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a **API do Pagador**, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e resposta.
 
-Todas as operações requerem credenciais de acesso (*Merchant ID* e *Merchant Key*) específicos para os respectivos ambientes: Sandbox e Produção. Para [executar](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md/) uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.
+Todas as operações requerem credenciais de acesso (*Merchant ID* e *Merchant Key*) específicos para os respectivos ambientes: Sandbox e Produção. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.
 
 ## Ambientes
 
@@ -84,15 +84,15 @@ Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é
 |**Cancelamento**|Recurso necessário quando, por algum motivo, não se quer mais efetivar uma venda. No caso de uma transação apenas **autorizada**, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido **capturada**, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.|
 |**Estorno**|Recurso de cancelamento de compra aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida ao processo de estorno pela adquirente.|
 
-<aside class="warning">Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
-
-Alguns outros recursos importantes para suas transações estão listados a seguir:
+<aside class="warning">Lembre-se: Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
+<br><br>
+Alguns recursos importantes que oferecemos para suas transações estão listados a seguir:
 
 |Termo|Descrição|
 |---|---|
 |**AntiFraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.|
 |**Autenticação**|Processo que possibilita realizar uma venda que passará por autenticação do banco emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o banco o risco de fraude.|
-|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de *token*, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "Compra com 1 clique” e "Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.|
+|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de *token*, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como *Compra com 1 clique* e *Retentativa de envio de transação*, sempre preservando a integridade e a confidencialidade das informações.|
 
 # Pagamentos
 
@@ -106,7 +106,7 @@ Ao requisitar a **autorização** de uma transação de crédito, é necessário
 
 Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, [clique aqui](https://suporte.braspag.com.br/hc/pt-br/requests/new) e envie sua requisição.
 
-Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao *AntiFraude* ou à análise do *Velocity*. Na tabela de parâmetros, mais abaixo, esses parâmetros estarão marcados com um * na coluna de obrigatoriedade.
+Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao *AntiFraude* ou à análise do *Velocity*. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
 
 Seguem exemplos de envio de requisição e resposta:
 
@@ -650,11 +650,13 @@ curl
 
 ### Transação com Autenticação
 
-Quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de chargeback da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
+Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim o processo de validação da compra online.
+
+Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
 <aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
 
-Indicamos, portanto, a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) também no ambiente mobile.
+No ambiente mobile, indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação.
 
 Existem duas maneiras de autenticar transações na Braspag:
 
@@ -970,7 +972,7 @@ curl
 
 ##### Resposta
 
-Uma transação com autenticação externa receberá, além do retorno padrão da transação de autorização, o nó `Payment.ExternalAuthentication` com as mesmas informações envidas na requisição.
+Uma transação com autenticação externa receberá, além do retorno padrão da transação de autorização, o nó `Payment.ExternalAuthentication` com as mesmas informações enviadas na requisição.
 
 ```json
 
@@ -1244,7 +1246,7 @@ Uma transação com um cartão de débito se efetua de uma forma semelhante à d
 
 ### Transação com "Coronavoucher"
 
-O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém sem **sem autenticação**, conforme o exemplo abaixo. 
+O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém **sem autenticação**, conforme o exemplo abaixo. 
 
 #### Requisição
 
