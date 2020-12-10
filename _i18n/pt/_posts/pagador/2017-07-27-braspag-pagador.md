@@ -13,15 +13,15 @@ language_tabs:
   html: HTML
 ---
 
-# Introdução ao Pagador API
+# Introdução à API do Pagador
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a **API do Pagador**, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.
 
-Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para os respectivos ambientes: Sandbox e Produção. [Para executar](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md/) uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.
+Todas as operações requerem credenciais de acesso (*Merchant ID* e *Merchant Key*) específicos para os respectivos ambientes: Sandbox e Produção. Para [executar](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md/) uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.
 
 ## Ambientes
 
-Utilize o **Ambiente Sandbox** para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no **Ambiente de Produção*.
+Utilize o **Ambiente Sandbox** para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no **Ambiente de Produção**.
 
 ### Ambiente Sandbox
 
@@ -39,15 +39,15 @@ Realizados os testes, disponibilize sua solução em ambiente de Produção.
 
 |Informação|Descrição|
 |---|---|
-|Credenciais de Acesso à API|Envie um email para <comercial@braspag.com.br> para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.|
+|Credenciais de Acesso à API|Envie um email para *comercial@braspag.com.br* para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.|
 |Endpoint Transacional|[API Braspag](https://api.braspag.com.br/)|
 |Endpoint para Serviços de Consultas|[API Query Braspag](https://apiquery.braspag.com.br/)|
 
 ## Suporte Braspag
 
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e da ferramenta via web [Zendesk](http://suporte.braspag.com.br/). Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e da ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
-Consulte o nosso artigo [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag) para mais informações sobre nosso serviço de suporte. 
+Acesse nossa ferramenta de atendimento web [Zendesk](http://suporte.braspag.com.br/) e consulte o nosso artigo [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag) para mais informações sobre nosso serviço de suporte. 
 
 ## Características da Solução
 
@@ -64,7 +64,7 @@ Conheça alguns dos atributos que mais se destacam na plataforma Braspag eCommer
 
 ## Arquitetura
 
-Através de serviços disponibilizados como APIs REST, o modelo empregado na integração é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do *path*, que é o endereço do recurso.
+O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do *path*, que é o endereço do recurso.
 
 |Método HTTP|Descrição|
 |---|---|
@@ -80,11 +80,12 @@ Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é
 |---|---|
 |**Autorização**|Operação que viabiliza o processamento de uma venda com um cartão de crédito. A autorização (também chamada pré-autorização) irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança na fatura para o consumidor.|
 |**Captura**|Confirmação necessária para que a cobrança seja efetivada. O tempo limite para capturar uma transação pré-autorizada varia entre adquirentes, mas pode ser de até 5 dias após a data da pré-autorização.|
-|**Captura Automática**|Com este recurso, a transação pode ser **autorizada** e **capturada** num mesmo momento, isentando o lojista de enviar a confirmação.|
+|**Captura Automática**|Opção que permite que a transação possa ser **autorizada** e **capturada** num mesmo momento, isentando o lojista de enviar a confirmação.|
 |**Cancelamento**|Recurso necessário quando, por algum motivo, não se quer mais efetivar uma venda. No caso de uma transação apenas **autorizada**, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido **capturada**, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.|
 |**Estorno**|Recurso de cancelamento de compra aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida ao processo de estorno pela adquirente.|
 
 <aside class="warning">Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
+
 
 Alguns outros recursos importantes para suas transações estão listados a seguir:
 
@@ -560,9 +561,9 @@ curl
 
 ### Capturando uma Transação
 
-Quando uma transação é submetida com o parâmetro `Payment.Capture` igual a _false_, é necessária uma solicitação de captura para confirmar a transação posteriormente.
+Quando uma transação é submetida com o parâmetro `Payment.Capture` igual a _false_, é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.
 
-Transações que não forem capturadas até a <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno> target="_blank">data limite</a>) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.
+Transações que não são capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.
 
 #### Requisição
 
@@ -654,9 +655,9 @@ Quando uma transação é submetida ao processo de autenticação, o portador se
 
 <aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
 
-Indicamos, portanto, a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds" target="_blank">3DS 2.0</a> também no ambiente mobile.
+Indicamos, portanto, a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) também no ambiente mobile.
 
-Existem duas maneiras para autenticar transações na Braspag:
+Existem duas maneiras de autenticar transações na Braspag:
 
 * **Padrão** - quando o lojista não possui uma conexão direta com um autenticador (MPI)
 * **Externa** - quando o lojista possui um autenticador próprio (MPI)
