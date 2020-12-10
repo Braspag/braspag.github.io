@@ -1245,7 +1245,7 @@ Uma transação com um cartão de débito se efetua de uma forma semelhante à d
 
 ### Transação com "Coronavoucher"
 
-O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição é do tipo Cartão de Débito, porém, será **sem autenticação**, conforme o exemplo abaixo. 
+O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém sem **sem autenticação**, conforme o exemplo abaixo. 
 
 #### Requisição
 
