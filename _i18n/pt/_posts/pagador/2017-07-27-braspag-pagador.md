@@ -2065,6 +2065,7 @@ curl
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas|
 |`Payment.RecurrentPayment.EndDate`|Texto |10 |Não|Data para termino da recorrência|
 |`Payment.RecurrentPayment.Interval`|Texto |10 |Não|Intervalo da recorrência.<br /><ul><li>Monthly (Default)</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
+|`Payment.RecurrentPayment.DailyInterval`|Número|2|Não|Padrão da recorrência em dias.
 |`Payment.RecurrentPayment.AuthorizeNow`|Booleano |--- |Sim|Se true, autoriza no momento da requisição. false para agendamento futuro|
 |`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
