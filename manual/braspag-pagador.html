@@ -141,9 +141,9 @@
             <div class="post">
   <h1 id="introdução-à-api-do-pagador">Introdução à API do Pagador</h1>
 
-<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a <strong>API do Pagador</strong>, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.</p>
+<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a <strong>API do Pagador</strong>, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e resposta.</p>
 
-<p>Todas as operações requerem credenciais de acesso (<em>Merchant ID</em> e <em>Merchant Key</em>) específicos para os respectivos ambientes: Sandbox e Produção. Para <a href="https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md/">executar</a> uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.</p>
+<p>Todas as operações requerem credenciais de acesso (<em>Merchant ID</em> e <em>Merchant Key</em>) específicos para os respectivos ambientes: Sandbox e Produção. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.</p>
 
 <h2 id="ambientes">Ambientes</h2>
 
@@ -286,9 +286,8 @@
   </tbody>
 </table>
 
-<aside class="warning">Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
-
-<p>Alguns outros recursos importantes para suas transações estão listados a seguir:</p>
+<aside class="warning">Lembre-se: Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
+<p>Alguns recursos importantes que oferecemos para suas transações estão listados a seguir:</p>
 
 <table>
   <thead>
@@ -308,7 +307,7 @@
     </tr>
     <tr>
       <td><strong>Cartão Protegido</strong></td>
-      <td>Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de <em>token</em>, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como “Compra com 1 clique” e “Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.</td>
+      <td>Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de <em>token</em>, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como <em>Compra com 1 clique</em> e <em>Retentativa de envio de transação</em>, sempre preservando a integridade e a confidencialidade das informações.</td>
     </tr>
   </tbody>
 </table>
@@ -325,7 +324,7 @@
 
 <p>Caso a sua loja utilize os serviços de <em>Retentativa</em> ou <em>Loadbalance</em>, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">clique aqui</a> e envie sua requisição.</p>
 
-<p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <em>AntiFraude</em> ou à análise do <em>Velocity</em>. Na tabela de parâmetros, mais abaixo, esses parâmetros estarão marcados com um * na coluna de obrigatoriedade.</p>
+<p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <em>AntiFraude</em> ou à análise do <em>Velocity</em>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
 
 <p>Seguem exemplos de envio de requisição e resposta:</p>
 
@@ -1428,11 +1427,13 @@ curl
 
 <h3 id="transação-com-autenticação">Transação com Autenticação</h3>
 
-<p>Quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de chargeback da transação passa a ser do emissor; ou seja, a loja não receberá contestações.</p>
+<p>Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim o processo de validação da compra online.</p>
+
+<p>Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de <em>chargeback</em> (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.</p>
 
 <aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
 
-<p>Indicamos, portanto, a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds">3DS 2.0</a> também no ambiente mobile.</p>
+<p>No ambiente mobile, indicamos a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds">3DS 2.0</a> para autenticação.</p>
 
 <p>Existem duas maneiras de autenticar transações na Braspag:</p>
 
@@ -1927,7 +1928,7 @@ curl
 
 <h5 id="resposta-3">Resposta</h5>
 
-<p>Uma transação com autenticação externa receberá, além do retorno padrão da transação de autorização, o nó <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> com as mesmas informações envidas na requisição.</p>
+<p>Uma transação com autenticação externa receberá, além do retorno padrão da transação de autorização, o nó <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> com as mesmas informações enviadas na requisição.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2368,7 +2369,7 @@ curl
 
 <h3 id="transação-com-coronavoucher">Transação com “Coronavoucher”</h3>
 
-<p>O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém sem <strong>sem autenticação</strong>, conforme o exemplo abaixo.</p>
+<p>O auxílio emergencial disponibilizado pelo governo pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém <strong>sem autenticação</strong>, conforme o exemplo abaixo.</p>
 
 <h4 id="requisição-5">Requisição</h4>
 
