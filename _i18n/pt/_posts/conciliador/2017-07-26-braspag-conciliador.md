@@ -1266,7 +1266,7 @@ O Webservice está disponível através da URL:
 | ErrorReportCollection | Coleção de erros que será  retornada em caso de Sucess="false"                                 | ErrorReport.Code = 39,ErrorReport.Message  = “Erro interno do sistema”.                                                               |
 | ErrorReport.Code      | Código de erros para  Sucess="false"                                                           | 39/44/46                                                                                                                              |
 | ErrorReport.Message   | Mensagem de erro correspondente ao código informado                                            | 39 - Erro interno do sistema.<br>44 - Acesso não autorizado, IP não cadastrado<br>46 - Usuário incorreto, e/ou não tem acesso a loja. |
-| FileContent           | Para requisições com Sucess="true", será enviado o conteúdo binário codificado na base64 UTF-8 | QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==                                                                                              |
+| FileContent           | Para requisições com Sucess="true", será enviado o conteúdo binário codificado na base64 UTF-8 | QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg== | |
 
 ## Apêndice:
 
