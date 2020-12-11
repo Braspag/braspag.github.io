@@ -3806,7 +3806,9 @@ curl
 
 <h3 id="autorizar-uma-transação-recorrente">Autorizar uma transação recorrente</h3>
 
-<p>Adicione o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> ao nó <code class="language-plaintext highlighter-rouge">Payment</code> para agendar as recorrência futuras ao autorizar uma transação pela primeira vez na série de recorrências.</p>
+<p>Adicione o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> ao nó <code class="language-plaintext highlighter-rouge">Payment</code> para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.</p>
+
+<p>Os parâmetros <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> e <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code>, marcados com um * na coluna de obrigatoriedade, não devem ser utilizados em conjunto.</p>
 
 <h4 id="requisição-9">Requisição</h4>
 
@@ -3920,8 +3922,15 @@ curl
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
       <td>Texto</td>
       <td>10</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>Intervalo da recorrência.<br />Monthly (Default)Bimonthly Quarterly SemiAnnual Annual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Não*</td>
+      <td>Padrão da recorrência em dias.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
