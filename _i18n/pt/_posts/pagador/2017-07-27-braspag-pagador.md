@@ -652,7 +652,7 @@ curl
 
 Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim o processo de validação da compra online.
 
-Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
+Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor (banco), onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
 <aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
 
@@ -665,7 +665,7 @@ Existem duas maneiras de autenticar transações na Braspag:
 
 #### Autenticação Padrão
 
-Na autenticação padrão, o lojista que não possui uma conexão direta com um autenticador (MPI) espera que o meio de pagamento redirecione o cliente para o ambiente de autenticação.
+Na autenticação padrão, o lojista que não possui uma conexão direta com um autenticador (MPI) conta com que o meio de pagamento redirecione o cliente para o ambiente de autenticação.
 
 ##### Requisição
 
@@ -876,7 +876,7 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 
 #### Autenticação Externa
 
-Na autenticação externa, o lojista que possui um autenticador próprio (MPI) não espera que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação.
+Na autenticação externa, o lojista que possui um autenticador próprio (MPI) não precisa que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação.
 
 ##### Requisição
 
@@ -1081,7 +1081,7 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
 
 ### Transação com Cartão de Débito
 
-Uma transação com um cartão de débito se efetua de uma forma semelhante à de um cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
+Uma transação com cartão de débito se efetua de forma semelhante à de cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
 
 #### Requisição
 
@@ -1309,7 +1309,7 @@ O auxílio emergencial disponibilizado pelo governo pode ser consumido através 
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento. Atualmente somente a **"Cielo30" suporta esta forma de pagamento via Pagador|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento.<br>Atualmente, somente a **"Cielo30** suporta esta forma de pagamento via Pagador|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas. Fixo 1 para cartão de débito|
@@ -1401,10 +1401,9 @@ O auxílio emergencial disponibilizado pelo governo pode ser consumido através 
 
 ### Transação com QR Code
 
-Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método `POST` conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status "Pendente" na Braspag e gerar o QR Code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex. "Pago", "Não pago" ou "Não autorizado).
-O exemplo abaixo contempla o mínimo de campos necessários a serem enviados para a autorização.
+Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método `POST` conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status *Pendente* na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: *Pago*, *Não pago* ou *Não autorizado*).
 
-<aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
+O exemplo abaixo contempla o mínimo de campos necessários a serem enviados para a autorização:
 
 #### Requisição
 
@@ -1453,11 +1452,11 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 |-----------|---------|----|-------|-----------|
 |`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do comprador.|Texto|255|Não|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. Atualmente somente disponível na "Cielo"|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento. Enviar **qrcode** para pagamento com QR Code.|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido (ser enviado em centavos).|Número|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Atualmente somente disponível na "Cielo".|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. Enviar *qrcode* para pagamento com QR code.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido (maior que zero), em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
-|`Payment.Capture`|Enviar **true** para uma transação de captura automática.|Booleano|-|Não|
+|`Payment.Capture`|Enviar *true* para uma transação de captura automática.|Booleano|-|Não|
 
 #### Resposta
 
@@ -1538,19 +1537,19 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`QrCodeBase64Image`|QR Code codificado em base 64. Por exemplo, a imagem do QR Code poderá ser apresentada na página utilizando um código HTML como este: <img src="data:image/png;base64,{código da imagem em base 64}">|Texto|Variável|Texto alfanumérico|
+|`QrCodeBase64Image`|QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: ``<img src="data:image/png;base64,{código da imagem em base 64}">``|Texto|Variável|Texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Status da transação. No caso da transação de geração com QR Code, o status inicial é "12" (Pendente).|Byte|-|2|
+|`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (Pendente).|Byte|-|2|
 |`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirênica|Texto|512|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
 
-### Cancelando/Estornando uma transação
+### Cancelando/Estornando uma Transação
 
-Para cancelar uma transação que utilizou cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
+Para cancelar uma transação que utilizou cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso *Payment* conforme o exemplo.
 
-Cada adqurirente tem seus prazos limites para permitir o estorno de uma transação. Nesse [artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
+Cada adquirente tem seus prazos limites para permitir o estorno de uma transação. Neste [artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
 
-<aside class="warning">A disponibilidade do serviço de Estorno varia de adquirente para adquirente.</aside>
+A disponibilidade do serviço de estorno varia de adquirente para adquirente.
 
 #### Requisição
 
@@ -1624,11 +1623,11 @@ curl
 
 ### Transação com Velocity Check
 
-O Velocity Check é uma ferramenta de combate à fraudes massivas, que disparam rajadas de transações com dados de pagamento repetidos.  Ele analisa a frequência de elementos de rastreabilidade tais como Número do Cartão, CPF, CEP de entrega, entre outros, e bloqueia transações suspeitas.
+O *Velocity Check* é uma ferramenta de combate a fraudes massivas, que disparam rajadas de transações com dados de pagamento repetidos.  A ferramenta analisa a frequência de elementos de rastreabilidade, tais como Número do Cartão, CPF, CEP de entrega, entre outros, bloqueando transações suspeitas.
 
-A funcionalidade deve ser contratada à parte, e posteriormente habilitada em sua loja via painel. Quando o Velocity está ativo, a resposta da transação trará um nó específico chamado "Velocity", com os detalhes da análise.
+A funcionalidade deve ser contratada à parte, e posteriormente habilitada em sua loja via painel. Quando o *Velocity* está ativo, a resposta da transação traz o nó `Velocity`, com os detalhes da análise.
 
-No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP 171 - Rejected by fraud risk (velocity, com ReasonCode 16 - AbortedByFraud).
+No caso da rejeição pela regra de *Velocity*, o `ProviderReasonCode` será *BP 171 - Rejected by fraud risk* (velocity, com *ReasonCode 16 - AbortedByFraud*).
 
 #### Resposta
 
@@ -1672,10 +1671,10 @@ No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP 171 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`VelocityAnalysis.Id`|Identificador da análise efetuada|GUID|36|
-|`VelocityAnalysis.ResultMessage`|Accept ou Reject|Texto|25|
+|`VelocityAnalysis.ResultMessage`|*Accept* ou *Reject*|Texto|25|
 |`VelocityAnalysis.Score`|100|Número|10|
-|`VelocityAnalysis.RejectReasons.RuleId`|Código da Regra que rejeitou|Número|10|
-|`VelocityAnalysis.RejectReasons.Message`|Descrição da Regra que rejeitou|Texto|512|
+|`VelocityAnalysis.RejectReasons.RuleId`|Código da regra que rejeitou|Número|10|
+|`VelocityAnalysis.RejectReasons.Message`|Descrição da regra que rejeitou|Texto|512|
 
 ## Boletos
 
