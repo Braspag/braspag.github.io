@@ -60,7 +60,7 @@ Conheça alguns dos atributos que mais se destacam na plataforma Braspag eCommer
 * **Facilidade de testes**: a plataforma Braspag oferece um ambiente Sandbox publicamente acessível, que permite ao desenvolvedor a criação de uma conta de testes sem a necessidade de credenciamento, facilitando e agilizando o início da integração.
 * **Credenciais**: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega no cabeçalho da requisição HTTP da mensagem.
 * **Segurança**: a troca de informações se dá sempre entre o Servidor da Loja e da Braspag, ou seja, sem o browser do comprador.
-* **Integração Multiplataforma**: a integração é realizada através de APIs REST, que permitem a utilização de diferentes aplicações.
+* **Integração multiplataforma**: a integração é realizada através de APIs REST, que permitem a utilização de diferentes aplicações.
 
 ## Arquitetura
 
@@ -275,22 +275,22 @@ curl
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|GUID|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|GUID|36|Não|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
+|`MerchantKey`|Texto|40|Sim|Chave pública para autenticação dupla na Braspag|
+|`RequestId`|GUID|36|Não|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|
+|`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido|
 |`Customer.Name`|Texto|255|Sim|Nome do comprador|
-|`Customer.Identity`|Texto |14 |Não|Número do CPF ou CNPJ do Cliente|
+|`Customer.Identity`|Texto |14 |Não|Número do CPF ou CNPJ do cliente|
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
 |`Customer.Email`|Texto|255|Não|Email do comprador|
-|`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador no formato AAAA-MM-DD|
+|`Customer.Birthdate`|Date|10|Não|Data de nascimento do comprador no formato AAAA-MM-DD|
 |`Customer.IpAddress`|Texto|45|Não|Endereço de IP do comprador. Suporte a IPv4 e IPv6|
 |`Customer.Address.Street`|Texto|255|Não*|Endereço de contato do comprador|
-|`Customer.Address.Number`|Texto|15|Não*|Número endereço de contato do comprador|
-|`Customer.Address.Complement`|Texto|50|Não*|Complemento do endereço de contato do Comprador|
+|`Customer.Address.Number`|Texto|15|Não*|Número do endereço de contato do comprador|
+|`Customer.Address.Complement`|Texto|50|Não*|Complemento do endereço de contato do comprador|
 |`Customer.Address.ZipCode`|Texto|9|Não*|CEP do endereço de contato do comprador|
 |`Customer.Address.City`|Texto|50|Não*|Cidade do endereço de contato do comprador|
 |`Customer.Address.State`|Texto|2|Não*|Estado do endereço de contato do comprador|
-|`Customer.Address.Country`|Texto|35|Não*|Pais do endereço de contato do comprador|
+|`Customer.Address.Country`|Texto|35|Não*|País do endereço de contato do comprador|
 |`Customer.Address.District`|Texto |50 |Não*|Bairro do comprador|
 |`Customer.DeliveryAddress.Street`|Texto|255|Não*|Endereço do comprador|
 |`Customer.DeliveryAddress.Number`|Texto|15|Não*|Número do endereço de entrega do pedido|
@@ -298,47 +298,47 @@ curl
 |`Customer.DeliveryAddress.ZipCode`|Texto|9|Não*|CEP do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.City`|Texto|50|Não*|Cidade do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.State`|Texto|2|Não*|Estado do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Country`|Texto|35|Não*|Pais do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Country`|Texto|35|Não*|País do endereço de entrega do pedido|
 |`Customer.DeliveryAddress.District`|Texto |50|Não*|Bairro da entrega|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
+|`Payment.Amount`|Número|15|Sim|Valor do pedido, em centavos|
 |`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização|
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP)|
 |`Payment.Country`|Texto|3|Não|País na qual o pagamento será feito|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
+|`Payment.Installments`|Número|2|Sim|Número de parcelas|
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Emissor (ByIssuer)|
-|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.Authenticate`|Booleano|---|Não (Default false)|Booleano que indica se a transação deve ser autenticada (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.Recurrent`|Booleano|---|Não (Default false)|Booleano que indica se a transação é do tipo recorrente (true) ou não (false). Este com valor true não originará uma nova Recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações Cielo. Authenticate deve ser false quando Recurrent é true|
+|`Payment.Capture`|Booleano|---|Não (Default *false*)|Booleano que indica se a autorização deve ser com captura automática (*true*) ou não (*false*). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
+|`Payment.Authenticate`|Booleano|---|Não (Default *false*)|Booleano que indica se a transação deve ser autenticada (*true*) ou não (*false*). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
+|`Payment.Recurrent`|Booleano|---|Não (Default *false*)|Booleano que indica se a transação é do tipo recorrente (*true*) ou não (*false*). Este com valor *true* não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações Cielo. *Authenticate* deve ser *false* quando *Recurrent* é *true*|
 |`Payment.SoftDescriptor`|Texto|13|Não|Valor que será concatenado com o valor de cadastro na adquirente para identificação na fatura|
-|`Payment.DoSplit`|Booleano|---|Não (Default false)|Booleano que indica se a transação será dividida entre várias contas (true) ou não (false)|
-|`Payment.ExtraDataCollection.Name`|Texto|50|Não|Nome do campo que será gravado o Dado Extra|
-|`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo que será gravado o Dado Extra|
+|`Payment.DoSplit`|Booleano|---|Não (Default *false*)|Booleano que indica se a transação será dividida entre várias contas (*true*) ou não (*false*)|
+|`Payment.ExtraDataCollection.Name`|Texto|50|Não|Nome do campo que será gravado como dado extra|
+|`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo que será gravado como dado extra|
 |`Payment.Credentials.Code`|Texto|100|Sim|Afiliação gerada pela adquirente|
 |`Payment.Credentials.Key`|Texto|100|Sim|Chave de afiliação/token gerado pela adquirente|
 |`Payment.Credentials.Username`|Texto|50|Não|Usuário gerado no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)|
 |`Payment.Credentials.Password`|Texto|50|Não|Senha gerada no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)|
 |`Payment.Credentials.Signature`|Texto|--|Não|Enviar o TerminalID da adquirente Global Payments Ex.: 001. Para Safra colocar o Nome do Estabelecimento, Cidade e o Estado concatenado com ponto-e-vírgula (;). Ex: NomedaLoja;São Paulo;SP|
-|`Payment.PaymentFacilitator.EstablishmentCode`|Número|11|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)|
-|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Número|15|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
-|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|Número|4|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>MCC do sub Merchant.|
-|`Payment.PaymentFacilitator.SubEstablishment.Address`|Texto|22|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Endereço do sub Merchant.|
-|`Payment.PaymentFacilitator.SubEstablishment.City`|Texto|13|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Cidade do sub Merchant.|
-|`Payment.PaymentFacilitator.SubEstablishment.State`|Texto|2|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Estado do sub Merchant.|
-|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Número|9|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código postal do sub Merchant.|
-|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Número|13|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Número de telefone do sub Merchant.|
-|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Número|14|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>CNPJ ou CPF do sub Merchant.|
-|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Número|3|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código país do sub Merchant com base no ISO 3166.|
-|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
+|`Payment.PaymentFacilitator.EstablishmentCode`|Número|11|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)|
+|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Número|15|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|Número|4|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>MCC do sub-merchant.|
+|`Payment.PaymentFacilitator.SubEstablishment.Address`|Texto|22|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Endereço do sub-merchant.|
+|`Payment.PaymentFacilitator.SubEstablishment.City`|Texto|13|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Cidade do sub-merchant.|
+|`Payment.PaymentFacilitator.SubEstablishment.State`|Texto|2|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Estado do sub-merchant.|
+|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Número|9|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código postal do sub-merchant.|
+|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Número|13|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Número de telefone do sub-merchant.|
+|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Número|14|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>CNPJ ou CPF do sub-merchant.|
+|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Número|3|Sim para facilitadores|**Aplicável para Provider Cielo30 ou Rede2**<br><br>Código do país do sub-merchant com base no ISO 3166.|
+|`CreditCard.CardNumber`|Texto|16|Sim|Número do cartão do comprador|
 |`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
 |`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
-|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
+|`CreditCard.SaveCard`|Booleano|---|Não (Default *false*)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 |`CreditCard.Alias`|Texto|64|Não|Nome atribuído pelo lojista ao cartão salvo como CardToken|
-|`CreditCard.CardOnFile.Usage`|Texto|-|Não|**Aplicável somente para Provider=Cielo30**<br><br>**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|**Aplicável somente para Provider=Cielo30**<br><br>Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência|
+|`CreditCard.CardOnFile.Usage`|Texto|-|Não|**Aplicável somente para Provider=Cielo30**<br><br>*First* se o cartão foi armazenado e é seu primeiro uso.<br>*Used* se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|**Aplicável somente para Provider=Cielo30**<br><br>Indica o propósito de armazenamento de cartões, caso o campo "Usage" seja "Used".<br>*Recurring* - Compra recorrente programada (ex. assinaturas)<br>*Unscheduled* - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>*Installments* - Parcelamento através da recorrência|
 
 #### Resposta
 
@@ -545,16 +545,16 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Campo identificador do pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`CapturedDate`|Data em que a transação foi capturada a transação|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`CapturedDate`|Data em que a transação foi capturada|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`CapturedAmount`|Valor capturado (sem pontuação)|Número|15|100 equivale a R$ 1,00|
-|`ECI`|Eletronic Commerce Indicator. Representa o resultado da autenticação|Texto|2|Exemplos: 5|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
+|`ECI`|Electronic Commerce Indicator. Representa o resultado da autenticação|Texto|2|Exemplos: 5|
+|`ReasonCode`|Código de retorno da operação|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação|Byte|2|Ex. 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 
@@ -562,7 +562,7 @@ curl
 
 Quando uma transação é submetida com o parâmetro `Payment.Capture` igual a _false_, é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.
 
-Transações que não são capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) são automaticamente desfeitas pelas Adquirentes. Clientes podem ter negociações específicas com as Adquirentes para que alterem esse prazo limite de captura.
+Transações que não são capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) são automaticamente desfeitas pelas adquirentes. Clientes podem ter negociações específicas com as adquirentes para que alterem esse prazo limite de captura.
 
 #### Requisição
 
@@ -583,9 +583,9 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. | GUID | 36 | Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API. | Texto | 40 | Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`PaymentId`|Campo Identificador do Pedido. | GUID | 36 | Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API. | Texto | 40 | Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
+|`PaymentId`|Campo identificador do pedido. | GUID | 36 | Sim|
 |`Amount`|Valor a ser capturado (em centavos). Verificar se a adquirente utilizada suporta uma captura parcial | Número | 15 | Não|
 |`ServiceTaxAmount`|Aplicável para companhias aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. | Número | 15 | Não|
 
@@ -644,13 +644,13 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da Transação. | Byte | 2 | Ex. 1 |
+|`Status`|Status da transação. | Byte | 2 | Ex. 1 |
 |`ReasonCode`|Código de retorno da adquirente. | Texto | 32 | Texto alfanumérico |
 |`ReasonMessage`|Mensagem de retorno da adquirente. | Texto | 512 | Texto alfanumérico |
 
 ### Transação com Autenticação
 
-Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim o processo de validação da compra online.
+Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim no processo de validação da compra online.
 
 Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor (banco), onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
@@ -669,7 +669,7 @@ Na autenticação padrão, o lojista que não possui uma conexão direta com um 
 
 ##### Requisição
 
-O Parâmetro `Payment.Authenticate` deverá ser enviado como *true*, como no exemplo abaixo:
+O parâmetro `Payment.Authenticate` deverá ser enviado como *true*, como no exemplo abaixo:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -747,14 +747,14 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. Para transaçõe autenticadas, neste campo, deve-se enviar o valor "True". *Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.ReturnUrl`|Texto|1024|Sim (quando Autenticate é true)|URL para onde o usuário será redirecionado após o fim da autenticação|
-|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
-|`CreditCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora do meio de pagamento|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento|
+|`Payment.Amount`|Número|15|Sim|Valor do pedido, em centavos|
+|`Payment.Installments`|Número|2|Sim|Número de parcelas|
+|`Payment.Authenticate`|Booleano|---|Não (Default *false*)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor *true*. * Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.|
+|`Payment.ReturnUrl`|Texto|1024|Sim (quando Authenticate é *true*)|URL para onde o usuário será redirecionado após o fim da autenticação.|
+|`CreditCard.CardNumber`|Texto|16|Sim|Número do cartão do comprador|
+|`CreditCard.Holder`|Texto|25|Sim|Nome do comprador impresso no cartão|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
 |`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
