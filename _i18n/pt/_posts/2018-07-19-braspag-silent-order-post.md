@@ -141,11 +141,11 @@ O script fornecido pela Braspag fornece os três seguintes eventos para manipula
 
 |Evento|Descrição|
 |-----------|---------|
-|**onSuccess**| Evento em caso de sucesso. Será retornado o *PaymentToken* e também os dados do cartão, caso tenha solicitado realizar a verificação do cartão. Por questões de segurança, esse *PaymentToken* poderá ser usado apenas para uma única autorização. Após o processamento do mesmo, ele será invalidado. |
+|**onSuccess**| Evento em caso de sucesso. Será retornado o *PaymentToken* e também os dados do cartão, caso tenha solicitado realizar a verificação do cartão. Por questões de segurança, esse *PaymentToken* poderá ser usado apenas para uma única autorização. Após seu processamento ele será invalidado. |
 |**onError**| Evento em caso de erro. Será retornado o código e a descrição do erro. |
 |**onInvalid**| Evento em caso de fornecimento de dados incorretos. Serão retornados detalhes de campos com erro. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol. |
 
-<aside class="warning">Por questões de segurança esse *PaymentToken* poderá ser usado apenas para uma única autorização. Após o processamento do mesmo, ele será invalidado.</aside>
+<aside class="warning">Por questões de segurança, o PaymentToken poderá ser usado apenas para uma única autorização. Após seu processamento, ele será invalidado.</aside>
 
 ### Exemplo
 
