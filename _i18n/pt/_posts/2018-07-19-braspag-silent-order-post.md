@@ -36,7 +36,7 @@ Por permitir total personalização na página de checkout da loja, essa soluç�
 
 Quando o comprador acessar o checkout, o estabelecimento deve gerar o *AccessToken* a partir da API de autenticação da Braspag (*oAuth*). Em caso de sucesso, a API retornará um *AccessToken* que deverá ser preenchido no script a ser carregado na página. 
 
-Para solicitar o *AccessToken*, o estabelecimento deve realizar um envie de requisição utilizando o VERBO HTTP **POST** para o seguinte endpoint no modelo server-to-server:
+Para solicitar o *AccessToken*, o estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP **POST** para o seguinte endpoint no modelo server-to-server:
 
 | Endpoint | Ambiente |
 | --- | --- |
