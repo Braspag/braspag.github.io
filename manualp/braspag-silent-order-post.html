@@ -12,7 +12,7 @@
 
     <title>
         
-        Manual de integração Silent Order Post &middot; Documentações e tutoriais
+        Manual de Integração Silent Order Post &middot; Documentações e tutoriais
         
     </title>
 
@@ -125,7 +125,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//manualp/braspag-silent-order-post">Manual de integração Silent Order Post</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manualp/braspag-silent-order-post">Manual de Integração Silent Order Post</a></li>
                                     
                                 
                             
@@ -137,19 +137,19 @@
             <div class="post">
   <h1 id="silent-order-post">Silent Order Post</h1>
 
-<p>Integração que a Braspag oferece aos lojistas, onde os dados de pagamentos são trafegados de forma segura, mantendo o controle total sobre a experiência de checkout.</p>
+<p>Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout. Ela é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.</p>
 
-<p>Esse método possibilita o envio dos dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados de pagamento, tais como número do cartão e data de validade, são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.</p>
+<p>Este método possibilita o envio de dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados do pagamento, tais como número do cartão e data de validade, são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.</p>
 
-<p>É ideal para lojistas que exigem um alto grau de segurança, sem perder a identidade de sua página, permitindo total personalização na sua página de checkout.</p>
+<p>Por permitir total personalização na página de checkout da loja, essa solução é ideal para lojistas que exigem um alto grau de segurança, sem perder a identidade de sua página.</p>
 
 <h1 id="características">Características</h1>
 
 <ul>
-  <li>Captura de dados de pagamento diretamente para os sistemas da Braspag por meio dos campos definidos no seu checkout através de um script (javascript)</li>
-  <li>Compatibilidade com todos os meios de pagamentos disponibilizados no Gateway Pagador (Nacional e Internacional)</li>
-  <li>Redução do escopo de PCI DSS</li>
-  <li>Mantenha controle total sobre a experiência de checkout mantendo o <em>look &amp; feel</em> de sua marca</li>
+  <li>Captura de dados do pagamento diretamente para os sistemas da Braspag, por meio dos campos definidos no seu checkout, através de um script (javascript).</li>
+  <li>Compatibilidade com todos os meios de pagamentos disponibilizados no Gateway Pagador (Nacional e Internacional).</li>
+  <li>Redução do escopo de PCI DSS.</li>
+  <li>Controle total sobre a experiência de checkout, mantendo o <em>look &amp; feel</em> de sua marca.</li>
 </ul>
 
 <h1 id="fluxo-transacional">Fluxo Transacional</h1>
@@ -158,11 +158,11 @@
 
 <h1 id="integração">Integração</h1>
 
-<h2 id="1-obtendo-accesstoken">1. Obtendo AccessToken</h2>
+<h2 id="1-obtendo-accesstoken">1. Obtendo <em>AccessToken</em></h2>
 
-<p>Quando o comprador acessar o checkout, o estabelecimento deve gerar o AccessToken a partir da API de autenticação da Braspag (oAuth). Em caso de sucesso, a API retornará um AccessToken que deve ser preenchido no script a ser carregado na página.</p>
+<p>Quando o comprador acessar o checkout, o estabelecimento deve gerar o <em>AccessToken</em> a partir da API de autenticação da Braspag (<em>oAuth</em>). Em caso de sucesso, a API retornará um <em>AccessToken</em> que deverá ser preenchido no script a ser carregado na página.</p>
 
-<p>Para solicitar o AccessToken, o estabelecimento deve realizar um POST para a seguinte endpoint no modelo server-to-server:</p>
+<p>Para solicitar o <em>AccessToken</em>, o estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para o seguinte endpoint no modelo server-to-server:</p>
 
 <table>
   <thead>
@@ -185,7 +185,7 @@
 
 <p>No lugar do <strong>{mid}</strong> deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag.</p>
 
-<p>Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
+<p><em>Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</em></p>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -221,7 +221,7 @@
 
 <h3 id="resposta">Resposta</h3>
 
-<p>Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo entre outras informações o ticket (AccessToken)</p>
+<p>Como resposta, o estabelecimento receberá um json (<em>HTTP 201 Created</em>) contendo, entre outras informações, o ticket (<em>AccessToken</em>).</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
@@ -247,28 +247,28 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja no Pagador</td>
+      <td>Identificador da loja no Pagador.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AccessToken</code></td>
-      <td>Token de Acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo de já estipulado na resposta, através do atributo ExpiresIn (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.</td>
+      <td>Token de Acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo <em>ExpiresIn</em> (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.</td>
       <td>Texto</td>
       <td>–</td>
       <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Issued</code></td>
-      <td>Data e hora da geração</td>
+      <td>Data e hora da geração.</td>
       <td>Texto</td>
       <td>–</td>
       <td>AAAA-MM-DDTHH:MM:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ExpiresIn</code></td>
-      <td>Data e hora da expiração</td>
+      <td>Data e hora da expiração.</td>
       <td>Texto</td>
       <td>–</td>
       <td>AAAA-MM-DDTHH:MM:SS</td>
@@ -276,15 +276,15 @@
   </tbody>
 </table>
 
-<aside class="notice">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário a requisição não será autorizada (HTTP 401 NotAuthorized). Por favor, identificar qual será o IP de saída que acessará a API e na sequência solicitar o cadastro do mesmo através do canal de atendimento Braspag: https://suporte.braspag.com.br/hc/pt-br</aside>
+<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada (*HTTP 401 NotAuthorized*).</aside>
 
-<h2 id="2-implementando-o-script">2. Implementando o script</h2>
+<p>Por favor, identifique qual será o IP de saída que acessará a API e na sequência solicite o cadastro do mesmo através do canal de atendimento Braspag: <a href="https://suporte.braspag.com.br/hc/pt-br">https://suporte.braspag.com.br/hc/pt-br</a>.</p>
 
-<h3 id="mapeando-classes">Mapeando classes</h3>
+<h2 id="2-implementando-o-script">2. Implementando o Script</h2>
 
-<p>O estabelecimento deverá fazer o download do script disponibilizado pela Braspag, e anexá-lo a sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento. O download poderá ser realizado a partir da seguinte URL:</p>
+<h3 id="mapeando-classes">Mapeando Classes</h3>
 
-<aside class="notice">https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js</aside>
+<p>O estabelecimento deverá fazer o <a href="https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js">download do script</a> disponibilizado pela Braspag e anexá-lo à sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento.</p>
 
 <p>O estabelecimento deverá parametrizar os elementos formulário com as seguintes classes:</p>
 
@@ -305,17 +305,17 @@
       <td><strong>bp-sop-cardnumber</strong></td>
     </tr>
     <tr>
-      <td>Data de Validade do cartão de crédito/débito</td>
+      <td>Data de validade do cartão de crédito/débito</td>
       <td><strong>bp-sop-cardexpirationdate</strong></td>
     </tr>
     <tr>
-      <td>Código de Segurança do cartão de crédito/débito</td>
+      <td>Código de segurança do cartão de crédito/débito</td>
       <td><strong>bp-sop-cardcvvc</strong></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="defindo-parâmetros">Defindo parâmetros</h3>
+<h3 id="definindo-parâmetros">Definindo Parâmetros</h3>
 
 <p><strong>PARÂMETROS DO SCRIPT</strong></p>
 
@@ -329,31 +329,31 @@
   <tbody>
     <tr>
       <td>accessToken</td>
-      <td>Token de Acesso obtido via API de autenticação da Braspag</td>
+      <td>Token de acesso obtido via API de autenticação da Braspag.</td>
     </tr>
     <tr>
       <td>environment</td>
-      <td><strong>sandbox</strong> ou <strong>production</strong></td>
+      <td><em>sandbox</em> ou <em>production</em>.</td>
     </tr>
     <tr>
       <td>language</td>
-      <td><strong>pt</strong> ou <strong>en</strong> ou <strong>es</strong></td>
+      <td><em>pt</em> ou <em>en</em> ou <em>es</em>.</td>
     </tr>
     <tr>
       <td>enableBinQuery</td>
-      <td><strong>true</strong> se quiser habilitar o Consulta BIN (retorna as características do cartão). <strong>false</strong> caso contrário.</td>
+      <td><em>true</em> se quiser habilitar o Consulta BIN (retorna as características do cartão). <em>false</em> caso contrário. Obs.: Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>enableVerifyCard</td>
-      <td><strong>true</strong> se quiser habilitar o ZeroAuth (retorna se o cartão é válido ou não). <strong>false</strong> caso contrário.</td>
+      <td><em>true</em> se quiser habilitar o ZeroAuth (retorna se o cartão é válido ou não). <em>false</em> caso contrário.</td>
     </tr>
     <tr>
       <td>enableTokenize</td>
-      <td><strong>true</strong> se quiser salvar o cartão diretamente no Cartão Protegido (retorna um cardToken ao invés de um paymentToken). <strong>false</strong> caso contrário.</td>
+      <td><em>true</em> se quiser salvar o cartão diretamente no Cartão Protegido (retorna um <em>cardToken</em> ao invés de um <em>paymentToken</em>). <em>false</em> caso contrário.</td>
     </tr>
     <tr>
-      <td>cvvrequired</td>
-      <td><strong>false</strong> se quiser desligar a obrigatoriedade de envio do CVV. <strong>true</strong> caso contrário.</td>
+      <td>cvvRequired</td>
+      <td><em>false</em> se quiser desligar a obrigatoriedade de envio do CVV. <em>true</em> caso contrário.</td>
     </tr>
   </tbody>
 </table>
@@ -365,59 +365,71 @@
     <tr>
       <th>Propriedade</th>
       <th>Descrição</th>
+      <th>Condição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>PaymentToken</td>
-      <td>Token efêmero utilizado para pagamento no formato de um GUID (36)</td>
+      <td>Token efêmero utilizado para pagamento no formato de um GUID (36).</td>
+      <td>—</td>
     </tr>
     <tr>
       <td>CardToken</td>
-      <td>Token permanente utilizado para pagamento no formato de um GUID (36) Obs.: Apenas se enableTokenize estiver como “true”</td>
+      <td>Token permanente utilizado para pagamento no formato de um GUID (36).</td>
+      <td>Quando <em>enableTokenize</em> for <em>true</em>.</td>
     </tr>
     <tr>
       <td>brand</td>
-      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard)</td>
-    </tr>
-    <tr>
-      <td>forerignCard</td>
-      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. O campo retorna <strong>true</strong> se é um cartão emitido fora do brasil. <strong>false</strong> caso contrário</td>
+      <td>Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard).</td>
+      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>binQueryReturnCode</td>
-      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. “00” se a análise do BIN for um sucesso.</td>
+      <td>“00” se a análise do BIN for um sucesso.</td>
+      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>binQueryReturnMessage</td>
-      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Ex. “Transacao Autorizada” se a análise do BIN for um sucessso</td>
-    </tr>
-    <tr>
-      <td>VerifyCardStatus</td>
-      <td>Retornado quando a opção enableVerifyCard for <strong>true</strong>. 0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida</td>
-    </tr>
-    <tr>
-      <td>VerifyCardReturnCode</td>
-      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código “00” significa sucesso na validação</td>
-    </tr>
-    <tr>
-      <td>VerifyCardReturnMessage</td>
-      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Ex. “Transacao Autorizada”</td>
+      <td>Ex. “Transacao Autorizada” se a análise do BIN for um sucesso.</td>
+      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>CardBin</td>
-      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Ex: “455187”</td>
+      <td>Ex: “455187”.</td>
+      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>CardLast4Digits</td>
-      <td>Retornado quando a opção enableBinQuery for <strong>true</strong>. Ex: “0181”</td>
+      <td>Ex: “0181”.</td>
+      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+    </tr>
+    <tr>
+      <td>foreignCard</td>
+      <td>O campo retorna <em>true</em> se é um cartão emitido fora do Brasil. <em>false</em> caso contrário.</td>
+      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+    </tr>
+    <tr>
+      <td>VerifyCardReturnCode</td>
+      <td>Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código “00” significa sucesso na validação.</td>
+      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+    </tr>
+    <tr>
+      <td>VerifyCardReturnMessage</td>
+      <td>Ex. “Transacao Autorizada”.</td>
+      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+    </tr>
+    <tr>
+      <td>VerifyCardStatus</td>
+      <td>0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida.</td>
+      <td>Quando <em>enableVerifyCard</em> for <em>true</em>.</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="implementando-eventos">Implementando eventos</h3>
+<h3 id="implementando-eventos">Implementando Eventos</h3>
 
-<p>O script fornecido pela Braspag fornece três eventos para manipulação e tratamento por parte do estabelecimento.</p>
+<p>O script fornecido pela Braspag fornece os três seguintes eventos para manipulação e tratamento por parte do estabelecimento:</p>
 
 <table>
   <thead>
@@ -429,11 +441,11 @@
   <tbody>
     <tr>
       <td><strong>onSuccess</strong></td>
-      <td>Evento em caso de sucesso. Será retornado o PaymentToken, e também os dados do cartão caso tenha solicitado realizar a verificação do cartão. Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado.</td>
+      <td>Evento em caso de sucesso. Será retornado o <em>PaymentToken</em> e também os dados do cartão, caso tenha solicitado realizar a verificação do cartão. Por questões de segurança, esse <em>PaymentToken</em> poderá ser usado apenas para uma única autorização. Após o processamento do mesmo, ele será invalidado.</td>
     </tr>
     <tr>
       <td><strong>onError</strong></td>
-      <td>Evento em caso de erro. Será retornado o código e a descrição do erro</td>
+      <td>Evento em caso de erro. Será retornado o código e a descrição do erro.</td>
     </tr>
     <tr>
       <td><strong>onInvalid</strong></td>
@@ -442,7 +454,7 @@
   </tbody>
 </table>
 
-<aside class="notice">Por questões de segurança esse PaymentToken poderá ser usado apenas para uma autorização. Após o processamento do mesmo, este será invalidado.</aside>
+<aside class="warning">Por questões de segurança esse *PaymentToken* poderá ser usado apenas para uma única autorização. Após o processamento do mesmo, ele será invalidado.</aside>
 
 <h3 id="exemplo">Exemplo</h3>
 
@@ -454,10 +466,10 @@
 
 <h2 id="3-autorizando-com-paymenttoken">3. Autorizando com PaymentToken</h2>
 
-<p>Após a obtenção do PaymentToken através do script, executa-se o processo de autorização, enviando o PaymentToken no lugar de dados do cartão.</p>
+<p>Após a obtenção do <em>PaymentToken</em> através do script, execute o processo de autorização, enviando o <em>PaymentToken</em> no lugar de dados do cartão.</p>
 
-<p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador. 
-Para maior detalhe sobre a implementação, acesse: <a href="https://braspag.github.io//manual/braspag-pagador">API Pagador</a>:</p>
+<p>Veja o exemplo abaixo, descrevendo o envio dos dados de autenticação da requisição de autorização da API do Pagador. 
+Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag.github.io//manual/braspag-pagador">Manual da API do Pagador</a>.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
 
@@ -514,7 +526,7 @@ Para maior detalhe sobre a implementação, acesse: <a href="https://braspag.git
   <tbody>
     <tr>
       <td>Payment.Card.PaymentToken</td>
-      <td>Fornecer o PaymentToken gerado através do script. Esta informação substitui os dados do cartão</td>
+      <td>Fornece o PaymentToken gerado através do script. Esta informação substitui os dados do cartão.</td>
       <td>GUID (36)</td>
       <td>Sim</td>
     </tr>
