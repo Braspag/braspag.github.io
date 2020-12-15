@@ -45,7 +45,7 @@ Para solicitar o *AccessToken*, o estabelecimento deve realizar um envio de requ
 
 No lugar do **{mid}** deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag. 
 
-*Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000*
+*Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**00000000-0000-0000-0000-000000000000***
 
 ### Requisição
 
@@ -82,13 +82,13 @@ Como resposta, o estabelecimento receberá um json (*HTTP 201 Created*) contendo
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`MerchantId`|Identificador da loja no Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`AccessToken`|Token de Acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`AccessToken`|Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
 |`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada (*HTTP 401 NotAuthorized*).</aside>
+<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada (HTTP 401 NotAuthorized).</aside>
 
-Por favor, identifique qual será o IP de saída que acessará a API e na sequência solicite o cadastro do mesmo através do canal de atendimento Braspag: [https://suporte.braspag.com.br/hc/pt-br](https://suporte.braspag.com.br/hc/pt-br).
+Identifique qual será o IP de saída que acessará a API e na sequência solicite o cadastro do mesmo através do canal de atendimento Braspag: [https://suporte.braspag.com.br/hc/pt-br](https://suporte.braspag.com.br/hc/pt-br).
 
 ## 2. Implementando o Script
 
@@ -96,7 +96,7 @@ Por favor, identifique qual será o IP de saída que acessará a API e na sequê
 
 O estabelecimento deverá fazer o [download do script](https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js) disponibilizado pela Braspag e anexá-lo à sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento.
 
-O estabelecimento deverá parametrizar os elementos formulário com as seguintes classes:
+O estabelecimento deverá parametrizar os elementos de formulário com as seguintes classes:
 
 |Propriedade|Nome da Classe|
 |-----------|---------|
@@ -127,12 +127,12 @@ O estabelecimento deverá parametrizar os elementos formulário com as seguintes
 |CardToken| Token permanente utilizado para pagamento no formato de um GUID (36). |Quando *enableTokenize* for *true*. |
 |brand| Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard). |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
 |binQueryReturnCode| "00" se a análise do BIN for um sucesso. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|binQueryReturnMessage| Ex. “Transacao Autorizada” se a análise do BIN for um sucesso. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|CardBin| Ex: “455187”.|Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|CardLast4Digits| Ex: “0181”.|Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
+|binQueryReturnMessage| Ex.: “Transacao Autorizada” se a análise do BIN for um sucesso. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
+|CardBin| Ex.: “455187”.|Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
+|CardLast4Digits| Ex.: “0181”.|Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
 |foreignCard| O campo retorna *true* se é um cartão emitido fora do Brasil. *false* caso contrário. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
 |VerifyCardReturnCode| Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código "00" significa sucesso na validação. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|VerifyCardReturnMessage| Ex. “Transacao Autorizada”. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
+|VerifyCardReturnMessage| Ex.: “Transacao Autorizada”. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
 |VerifyCardStatus| 0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida. |Quando *enableVerifyCard* for *true*. |
 
 ### Implementando Eventos
@@ -149,9 +149,8 @@ O script fornecido pela Braspag fornece os três seguintes eventos para manipula
 
 ### Exemplo
 
+Para baixar o código, clique [aqui](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html).
 Exemplo de uma parametrização na página de checkout:
-
-Para baixar o código, clique [aqui](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)
 
 ![Pagina Checkout]({{ site.baseurl_root }}/images/consulta-bin.jpg)
 
