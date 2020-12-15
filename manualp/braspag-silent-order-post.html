@@ -185,7 +185,7 @@
 
 <p>No lugar do <strong>{mid}</strong> deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag.</p>
 
-<p><em>Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</em></p>
+<p><em>Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=<strong>00000000-0000-0000-0000-000000000000</strong></em></p>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -254,7 +254,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AccessToken</code></td>
-      <td>Token de Acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo <em>ExpiresIn</em> (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.</td>
+      <td>Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo <em>ExpiresIn</em> (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.</td>
       <td>Texto</td>
       <td>–</td>
       <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
@@ -276,9 +276,9 @@
   </tbody>
 </table>
 
-<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada (*HTTP 401 NotAuthorized*).</aside>
+<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada (HTTP 401 NotAuthorized).</aside>
 
-<p>Por favor, identifique qual será o IP de saída que acessará a API e na sequência solicite o cadastro do mesmo através do canal de atendimento Braspag: <a href="https://suporte.braspag.com.br/hc/pt-br">https://suporte.braspag.com.br/hc/pt-br</a>.</p>
+<p>Identifique qual será o IP de saída que acessará a API e na sequência solicite o cadastro do mesmo através do canal de atendimento Braspag: <a href="https://suporte.braspag.com.br/hc/pt-br">https://suporte.braspag.com.br/hc/pt-br</a>.</p>
 
 <h2 id="2-implementando-o-script">2. Implementando o Script</h2>
 
@@ -286,7 +286,7 @@
 
 <p>O estabelecimento deverá fazer o <a href="https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js">download do script</a> disponibilizado pela Braspag e anexá-lo à sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento.</p>
 
-<p>O estabelecimento deverá parametrizar os elementos formulário com as seguintes classes:</p>
+<p>O estabelecimento deverá parametrizar os elementos de formulário com as seguintes classes:</p>
 
 <table>
   <thead>
@@ -391,17 +391,17 @@
     </tr>
     <tr>
       <td>binQueryReturnMessage</td>
-      <td>Ex. “Transacao Autorizada” se a análise do BIN for um sucesso.</td>
+      <td>Ex.: “Transacao Autorizada” se a análise do BIN for um sucesso.</td>
       <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>CardBin</td>
-      <td>Ex: “455187”.</td>
+      <td>Ex.: “455187”.</td>
       <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>CardLast4Digits</td>
-      <td>Ex: “0181”.</td>
+      <td>Ex.: “0181”.</td>
       <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
@@ -416,7 +416,7 @@
     </tr>
     <tr>
       <td>VerifyCardReturnMessage</td>
-      <td>Ex. “Transacao Autorizada”.</td>
+      <td>Ex.: “Transacao Autorizada”.</td>
       <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
@@ -458,9 +458,8 @@
 
 <h3 id="exemplo">Exemplo</h3>
 
-<p>Exemplo de uma parametrização na página de checkout:</p>
-
-<p>Para baixar o código, clique <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html">aqui</a></p>
+<p>Para baixar o código, clique <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html">aqui</a>.
+Exemplo de uma parametrização na página de checkout:</p>
 
 <p><img src="https://braspag.github.io//images/consulta-bin.jpg" alt="Pagina Checkout" /></p>
 
