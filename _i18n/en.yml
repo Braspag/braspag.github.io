@@ -9,13 +9,13 @@ global:
   toggle_left: Toggle
   sidebar: left column
   darkbox: right column
-  complementary: Complementary materials
+  complementary: Complementary Material
   search: Search
   home: Home
   need_help_title: Need Help?
-  need_help_description: If you didn't find your answer, <a href="http://www.braspag.com.br/fale-conosco/">send us a message</a>
+  need_help_description: If you can't find your answer, <a href="http://www.braspag.com.br/fale-conosco/">send us a message</a>
   hub_title: Braspag Developers
-  hub_description: Documents, articles and tutorials of all Braspag products are available on this page
+  hub_description: Documents, articles and tutorials for all Braspag products are available on this page.
 langs:
   en: English
   pt: Português
