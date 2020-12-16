@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Manual de integração API Rest
-description: Integração técnica Gateway Braspag
+title: Manual de Integração API Rest
+description: Integração Técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
@@ -94,7 +94,7 @@ Alguns recursos importantes que oferecemos para suas transações estão listado
 |**Autenticação**|Processo que possibilita realizar uma venda que passará por autenticação do banco emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o banco o risco de fraude.|
 |**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de *token*, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como *Compra com 1 clique* e *Retentativa de envio de transação*, sempre preservando a integridade e a confidencialidade das informações.|
 
-# Pagamentos
+# Meios de Pagamento
 
 A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, boleto bancário, transferência eletrônica, e-wallet e voucher.
 
@@ -7140,6 +7140,9 @@ Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio
 
 ## Lista de Providers
 
+No caso de integração SOAP, você pode encontrar uma lista de *providers*, com seus correspondentes *payment methods* listados [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092-Lista-de-Payment-Method).
+As listas a seguir se referem a *providers* na integração REST:  
+
 ### Providers para Crédito
 
 |Provider|Brand|Descrição|
@@ -7158,11 +7161,10 @@ Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio
 |Transbank2|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank|
 |Banese|Banese|Provider para transações com a bandeira BaneseCard|
 |BrasilCard|BrasilCard|Provider para transações com a bandeira BrasilCard|
-|Credsystem|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
 |Credz|Credz|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
 |DMCard|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
 
-### Providers pra Débito
+### Providers para Débito
 
 |Provider|Brand|Descrição|
 |--------|-----|---------|
@@ -7174,7 +7176,7 @@ Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio
 |FirstData|Visa, Master|Provider para transações de débito na plataforma de e-commerce First Data|
 |GlobalPayments|Visa, Master|Provider para transações de débito na plataforma de e-commerce Global Payments|
 
-### Providers pra Voucher
+### Providers para Voucher
 
 |Provider|Brand|Descrição|
 |--------|-----|---------|
@@ -7205,7 +7207,7 @@ Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio
 |--------|
 |Braspag, Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
 
-### Providers para Transferência Eletronica (Débito Online)
+### Providers para Transferência Eletrônica (Débito Online)
 
 |Provider|
 |--------|
