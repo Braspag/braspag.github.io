@@ -108,7 +108,7 @@ Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afili
 
 Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao *AntiFraude* ou à análise do *Velocity*. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
 
-<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração ao longo da transação. Contudo, novos números podem ser gerados para o pedido e utilizados durante a transação. Isso pode ocorrer por adequação a regras da adquirente ou em caso de números de identificação do pedido repetidos.</aside>
+<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo até o final do fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
 Seguem exemplos de envio de requisição e resposta:
 
@@ -557,12 +557,12 @@ curl
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos).|Texto|512|Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
 
 ### Capturando uma Transação
 
-Quando uma transação é submetida com o parâmetro `Payment.Capture` igual a _false_, é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.
+Quando uma transação é submetida com o parâmetro `Payment.Capture` igual a *false*, é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.
 
 Transações que não são capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) são automaticamente desfeitas pelas adquirentes. Clientes podem ter negociações específicas com as adquirentes para que alterem esse prazo limite de captura.
 
@@ -586,9 +586,9 @@ curl
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. | GUID | 36 | Sim|
 |`MerchantKey`|Chave pública para autenticação dupla na API. | Texto | 40 | Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
 |`PaymentId`|Campo identificador do pedido. | GUID | 36 | Sim|
-|`Amount`|Valor a ser capturado (em centavos). Verificar se a adquirente utilizada suporta uma captura parcial | Número | 15 | Não|
+|`Amount`|Valor a ser capturado, em centavos. Verificar se a adquirente utilizada suporta uma captura parcial. | Número | 15 | Não|
 |`ServiceTaxAmount`|Aplicável para companhias aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. | Número | 15 | Não|
 
 #### Resposta
@@ -749,17 +749,17 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora do meio de pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do pedido, em centavos|
-|`Payment.Installments`|Número|2|Sim|Número de parcelas|
-|`Payment.Authenticate`|Booleano|---|Não (Default *false*)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor *true*. * Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.|
-|`Payment.ReturnUrl`|Texto|1024|Sim (quando Authenticate é *true*)|URL para onde o usuário será redirecionado após o fim da autenticação.|
-|`CreditCard.CardNumber`|Texto|16|Sim|Número do cartão do comprador|
-|`CreditCard.Holder`|Texto|25|Sim|Nome do comprador impresso no cartão|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.Authenticate`|Define se o comprador será direcionado ao banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor *true*. * Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.|Booleano|---|Não (default *false*)|
+|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim da autenticação.|Texto|1024|Sim (quando *Authenticate* é *true*)|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
 ##### Resposta
 
@@ -864,17 +864,17 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
-|`AuthenticationUrl`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de autenticação|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex. 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos).|Texto|512|Transação Aprovada|
+|`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
 #### Autenticação Externa
 
@@ -966,11 +966,11 @@ curl
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`| Texto | - | Sim | O valor Cavv é retornado pelo mecanismo de autenticação externa |
-|`Payment.ExternalAuthentication.Xid`|Texto| - |Sim|O valor Xid é retornado pelo mecanismo de autenticação externa|
-|`Payment.ExternalAuthentication.Eci`|Número|1|Sim|O valor Eci é retornado pelo mecanismo de autenticação externa|
+|`Payment.ExternalAuthentication.Cavv`|Valor retornado pelo mecanismo de autenticação externa.|Texto | - | Sim |
+|`Payment.ExternalAuthentication.Xid`|Valor retornado pelo mecanismo de autenticação externa.|Texto| - |Sim|
+|`Payment.ExternalAuthentication.Eci`|Valor retornado pelo mecanismo de autenticação externa.|Número|1|Sim|
 
 ##### Resposta
 
@@ -1077,13 +1077,13 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
 
 |Propriedade|Tipo|Tamanho|Descrição|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`| Texto | - |Valor Cavv submetido na requisição de autorização|
-|`Payment.ExternalAuthentication.Xid`|Texto| - |Valor Xid submetido na requisição de autorização|
-|`Payment.ExternalAuthentication.Eci`|Número|1|Valor ECI submetido na requisição de autorização|
+|`Payment.ExternalAuthentication.Cavv`|Valor Cavv submetido na requisição de autorização.|Texto| - |
+|`Payment.ExternalAuthentication.Xid`|Valor Xid submetido na requisição de autorização.|Texto| - |
+|`Payment.ExternalAuthentication.Eci`|Valor ECI submetido na requisição de autorização.|Número|1|
 
 ### Transação com Cartão de Débito
 
-Uma transação com cartão de débito se efetua de forma semelhante à de cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
+Uma transação com cartão de débito se efetua de forma semelhante à do cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
 
 #### Requisição
 
@@ -1150,18 +1150,18 @@ Uma transação com cartão de débito se efetua de forma semelhante à de cart�
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento. Atualmente somente a "Cielo" suporta esta forma de pagamento via Pagador|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento|Texto |1024 |Sim|
-|`DebitCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
-|`DebitCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`DebitCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`DebitCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`DebitCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Atualmente somente a **Cielo** suporta esta forma de pagamento via Pagador.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. No caso, o cartão de débito (*DebitCard*).|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento.|Texto |1024|Sim|
+|`DebitCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`DebitCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`DebitCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
 #### Resposta
 
@@ -1234,17 +1234,17 @@ Uma transação com cartão de débito se efetua de forma semelhante à de cart�
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
-|`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex. 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
+|`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 ### Transação com "Coronavoucher"
 
@@ -1309,17 +1309,17 @@ O auxílio emergencial disponibilizado pelo governo pode ser consumido através 
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento.<br>Atualmente, somente a **"Cielo30** suporta esta forma de pagamento via Pagador|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas. Fixo 1 para cartão de débito|
-|`DebitCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
-|`DebitCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`DebitCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`DebitCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`DebitCard.Brand`|Texto|10|Sim |Bandeira do cartão, para este tipo de transação, sempre **Elo**|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Atualmente, somente a **"Cielo30** suporta esta forma de pagamento via Pagador|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. No caso, o cartão de débito (DebitCard).|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas. Fixo *1* para o cartão de débito.|Número|2|Sim|
+|`DebitCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`DebitCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`DebitCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`DebitCard.Brand`|Bandeira do cartão. Para este tipo de transação, sempre *Elo*.|Texto|10|Sim|
 
 #### Resposta
 
@@ -1390,16 +1390,16 @@ O auxílio emergencial disponibilizado pelo governo pode ser consumido através 
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex. 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
 
 ### Transação com QR Code
 
