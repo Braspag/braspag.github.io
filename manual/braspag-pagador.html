@@ -326,7 +326,7 @@
 
 <p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <em>AntiFraude</em> ou à análise do <em>Velocity</em>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
 
-<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração ao longo da transação. Contudo, novos números podem ser gerados para o pedido e utilizados durante a transação. Isso pode ocorrer por adequação a regras da adquirente ou em caso de números de identificação do pedido repetidos.</aside>
+<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo até o final do fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
 <p>Seguem exemplos de envio de requisição e resposta:</p>
 
@@ -1249,14 +1249,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
@@ -1312,7 +1312,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Não</td>
@@ -1326,7 +1326,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Valor a ser capturado (em centavos). Verificar se a adquirente utilizada suporta uma captura parcial</td>
+      <td>Valor a ser capturado, em centavos. Verificar se a adquirente utilizada suporta uma captura parcial.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -1537,80 +1537,80 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome da provedora do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome da provedora do meio de pagamento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do meio de pagamento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Valor do pedido, em centavos</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
       <td>Número</td>
       <td>2</td>
       <td>Sim</td>
-      <td>Número de parcelas</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor <em>true</em>. * Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (Default <em>false</em>)</td>
-      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor <em>true</em>. * Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.</td>
+      <td>Não (default <em>false</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>URL para onde o usuário será redirecionado após o fim da autenticação.</td>
       <td>Texto</td>
       <td>1024</td>
-      <td>Sim (quando Authenticate é <em>true</em>)</td>
-      <td>URL para onde o usuário será redirecionado após o fim da autenticação.</td>
+      <td>Sim (quando <em>Authenticate</em> é <em>true</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Número do cartão do comprador.</td>
       <td>Texto</td>
       <td>16</td>
       <td>Sim</td>
-      <td>Número do cartão do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Nome do comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
-      <td>Nome do comprador impresso no cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão, no formato MM/AAAA.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
-      <td>Código de segurança impresso no verso do cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Bandeira do cartão.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Bandeira do cartão</td>
     </tr>
   </tbody>
 </table>
@@ -1727,77 +1727,77 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Id da transação no provedor de meio de pagamento</td>
+      <td>Id da transação no provedor de meio de pagamento.</td>
       <td>Texto</td>
       <td>40</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Número do Comprovante de Venda</td>
+      <td>Número do comprovante de venda.</td>
       <td>Texto</td>
       <td>20</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização</td>
+      <td>Código de autorização.</td>
       <td>Texto</td>
       <td>300</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido</td>
+      <td>Campo identificador do pedido.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Braspag</td>
+      <td>Data em que a transação foi recebida pela Braspag.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Código de retorno da Operação</td>
+      <td>Código de retorno da operação.</td>
       <td>Texto</td>
       <td>32</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Mensagem de retorno da Operação</td>
+      <td>Mensagem de retorno da operação.</td>
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação</td>
+      <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
       <td>Ex. 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL para qual o Lojista deve redirecionar o Cliente para o fluxo de autenticação</td>
+      <td>URL para o qual o portador será redirecionado para autenticação.</td>
       <td>Texto</td>
       <td>256</td>
       <td>https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08</td>
@@ -1897,33 +1897,33 @@ curl
   <thead>
     <tr>
       <th>Propriedade</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
+      <td>Valor retornado pelo mecanismo de autenticação externa.</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>O valor Cavv é retornado pelo mecanismo de autenticação externa</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
+      <td>Valor retornado pelo mecanismo de autenticação externa.</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>O valor Xid é retornado pelo mecanismo de autenticação externa</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
+      <td>Valor retornado pelo mecanismo de autenticação externa.</td>
       <td>Número</td>
       <td>1</td>
       <td>Sim</td>
-      <td>O valor Eci é retornado pelo mecanismo de autenticação externa</td>
     </tr>
   </tbody>
 </table>
@@ -2041,28 +2041,28 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
+      <td>Valor Cavv submetido na requisição de autorização.</td>
       <td>Texto</td>
       <td>-</td>
-      <td>Valor Cavv submetido na requisição de autorização</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
+      <td>Valor Xid submetido na requisição de autorização.</td>
       <td>Texto</td>
       <td>-</td>
-      <td>Valor Xid submetido na requisição de autorização</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
+      <td>Valor ECI submetido na requisição de autorização.</td>
       <td>Número</td>
       <td>1</td>
-      <td>Valor ECI submetido na requisição de autorização</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="transação-com-cartão-de-débito">Transação com Cartão de Débito</h3>
 
-<p>Uma transação com cartão de débito se efetua de forma semelhante à de cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.</p>
+<p>Uma transação com cartão de débito se efetua de forma semelhante à do cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.</p>
 
 <h4 id="requisição-4">Requisição</h4>
 
@@ -2131,82 +2131,82 @@ curl
   <thead>
     <tr>
       <th>Propriedade</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome da provedora do meio de pagamento. Obs.: Atualmente somente a <strong>Cielo</strong> suporta esta forma de pagamento via Pagador.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome da provedora de Meio de Pagamento. Atualmente somente a “Cielo” suporta esta forma de pagamento via Pagador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento. No caso, o cartão de débito (<em>DebitCard</em>).</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
       <td>Número</td>
       <td>2</td>
       <td>Sim</td>
-      <td>Número de Parcelas</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>URL para onde o usuário será redirecionado após o fim do pagamento</td>
+      <td>URL para onde o usuário será redirecionado após o fim do pagamento.</td>
       <td>Texto</td>
       <td>1024</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
+      <td>Número do cartão do comprador.</td>
       <td>Texto</td>
       <td>16</td>
       <td>Sim</td>
-      <td>Número do Cartão do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
+      <td>Nome do comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
-      <td>Nome do Comprador impresso no cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão, no formato MM/AAAA.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
-      <td>Código de segurança impresso no verso do cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td>Bandeira do cartão.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Bandeira do cartão</td>
     </tr>
   </tbody>
 </table>
@@ -2291,77 +2291,77 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Id da transação no provedor de meio de pagamento</td>
+      <td>Id da transação no provedor de meio de pagamento.</td>
       <td>Texto</td>
       <td>40</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Número do Comprovante de Venda</td>
+      <td>Número do comprovante de venda.</td>
       <td>Texto</td>
       <td>20</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização</td>
+      <td>Código de autorização.</td>
       <td>Texto</td>
       <td>300</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido</td>
+      <td>Campo identificador do pedido.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Braspag</td>
+      <td>Data em que a transação foi recebida pela Braspag.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Código de retorno da Operação</td>
+      <td>Código de retorno da operação.</td>
       <td>Texto</td>
       <td>32</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Mensagem de retorno da Operação</td>
+      <td>Mensagem de retorno da operação.</td>
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação</td>
+      <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
       <td>Ex. 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL para o qual o portador será redirecionado para autenticação</td>
+      <td>URL para o qual o portador será redirecionado para autenticação.</td>
       <td>Texto</td>
       <td>56</td>
       <td>https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f</td>
@@ -2434,75 +2434,75 @@ curl
   <thead>
     <tr>
       <th>Propriedade</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome da provedora do meio de pagamento. Obs.: Atualmente, somente a <strong>“Cielo30</strong> suporta esta forma de pagamento via Pagador</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome da provedora de Meio de Pagamento.<br />Atualmente, somente a <strong>“Cielo30</strong> suporta esta forma de pagamento via Pagador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento. No caso, o cartão de débito (DebitCard).</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas. Fixo <em>1</em> para o cartão de débito.</td>
       <td>Número</td>
       <td>2</td>
       <td>Sim</td>
-      <td>Número de Parcelas. Fixo 1 para cartão de débito</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
+      <td>Número do cartão do comprador.</td>
       <td>Texto</td>
       <td>16</td>
       <td>Sim</td>
-      <td>Número do Cartão do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
+      <td>Nome do comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
-      <td>Nome do Comprador impresso no cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão, no formato MM/AAAA.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
-      <td>Código de segurança impresso no verso do cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td>Bandeira do cartão. Para este tipo de transação, sempre <em>Elo</em>.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Bandeira do cartão, para este tipo de transação, sempre <strong>Elo</strong></td>
     </tr>
   </tbody>
 </table>
@@ -2585,70 +2585,70 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Id da transação no provedor de meio de pagamento</td>
+      <td>Id da transação no provedor de meio de pagamento.</td>
       <td>Texto</td>
       <td>40</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Número do Comprovante de Venda</td>
+      <td>Número do comprovante de venda.</td>
       <td>Texto</td>
       <td>20</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização</td>
+      <td>Código de autorização.</td>
       <td>Texto</td>
       <td>300</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido</td>
+      <td>Campo identificador do pedido.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Braspag</td>
+      <td>Data em que a transação foi recebida pela Braspag.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Código de retorno da Operação</td>
+      <td>Código de retorno da operação.</td>
       <td>Texto</td>
       <td>32</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Mensagem de retorno da Operação</td>
+      <td>Mensagem de retorno da operação.</td>
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação</td>
+      <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
       <td>Ex. 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
