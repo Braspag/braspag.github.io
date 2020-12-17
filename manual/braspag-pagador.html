@@ -326,6 +326,8 @@
 
 <p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <em>AntiFraude</em> ou à análise do <em>Velocity</em>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
 
+<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração ao longo da transação. Contudo, novos números podem ser gerados para o pedido e utilizados durante a transação. Isso pode ocorrer por adequação a regras da adquirente ou em caso de números de identificação do pedido repetidos.</aside>
+
 <p>Seguem exemplos de envio de requisição e resposta:</p>
 
 <h4 id="requisição">Requisição</h4>
@@ -492,467 +494,467 @@ curl
   <thead>
     <tr>
       <th>Propriedade</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na Braspag.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificador da loja na Braspag</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na Braspag.</td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
-      <td>Chave pública para autenticação dupla na Braspag</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Não</td>
-      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
-      <td>Número de identificação do pedido</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do comprador.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
-      <td>Nome do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Número do CPF ou CNPJ do cliente.</td>
       <td>Texto</td>
       <td>14</td>
       <td>Não</td>
-      <td>Número do CPF ou CNPJ do cliente</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ).</td>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
-      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>Email do comprador.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
-      <td>Email do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
+      <td>Data de nascimento do comprador no formato AAAA-MM-DD.</td>
       <td>Date</td>
       <td>10</td>
       <td>Não</td>
-      <td>Data de nascimento do comprador no formato AAAA-MM-DD</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IpAddress</code></td>
+      <td>Endereço de IP do comprador. Suporte a IPv4 e IPv6.</td>
       <td>Texto</td>
       <td>45</td>
       <td>Não</td>
-      <td>Endereço de IP do comprador. Suporte a IPv4 e IPv6</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Endereço de contato do comprador.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Não*</td>
-      <td>Endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Número do endereço de contato do comprador.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Não*</td>
-      <td>Número do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Complemento do endereço de contato do comprador.</td>
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
-      <td>Complemento do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>CEP do endereço de contato do comprador.</td>
       <td>Texto</td>
       <td>9</td>
       <td>Não*</td>
-      <td>CEP do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td>Cidade do endereço de contato do comprador.</td>
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
-      <td>Cidade do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
+      <td>Estado do endereço de contato do comprador.</td>
       <td>Texto</td>
       <td>2</td>
       <td>Não*</td>
-      <td>Estado do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
+      <td>País do endereço de contato do comprador.</td>
       <td>Texto</td>
       <td>35</td>
       <td>Não*</td>
-      <td>País do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td>Bairro do endereço de contato do comprador.</td>
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
-      <td>Bairro do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Endereço de entrega do comprador.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Não*</td>
-      <td>Endereço do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Número do endereço de entrega.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Não*</td>
-      <td>Número do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Complemento do endereço de entrega.</td>
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
-      <td>Complemento do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>CEP do endereço de entrega.</td>
       <td>Texto</td>
       <td>9</td>
       <td>Não*</td>
-      <td>CEP do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Cidade do endereço de entrega.</td>
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
-      <td>Cidade do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Estado do endereço de entrega.</td>
       <td>Texto</td>
       <td>2</td>
       <td>Não*</td>
-      <td>Estado do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>País do endereço de entrega.</td>
       <td>Texto</td>
       <td>35</td>
       <td>Não*</td>
-      <td>País do endereço de entrega do pedido</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td>Bairro do endereço de entrega.</td>
       <td>Texto</td>
       <td>50</td>
       <td>Não*</td>
-      <td>Bairro da entrega</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome da provedora do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome da provedora de Meio de Pagamento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do Meio de Pagamento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Valor do pedido, em centavos</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
+      <td>Moeda em que o pagamento será feito (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP).</td>
       <td>Texto</td>
       <td>3</td>
       <td>Não</td>
-      <td>Moeda na qual o pagamento será feito (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
+      <td>País em que o pagamento será feito.</td>
       <td>Texto</td>
       <td>3</td>
       <td>Não</td>
-      <td>País na qual o pagamento será feito</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
       <td>Número</td>
       <td>2</td>
       <td>Sim</td>
-      <td>Número de parcelas</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
+      <td>Tipo de parcelamento - Loja (<em>ByMerchant</em>) ou Emissor (<em>ByIssuer</em>).</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
-      <td>Tipo de parcelamento - Loja (ByMerchant) ou Emissor (ByIssuer)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Indica se a autorização deve ser com captura automática (<em>true</em>) ou não (<em>false</em>). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.</td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default <em>false</em>)</td>
-      <td>Booleano que indica se a autorização deve ser com captura automática (<em>true</em>) ou não (<em>false</em>). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Indica se a transação deve ser autenticada (<em>true</em>) ou não (<em>false</em>). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.</td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default <em>false</em>)</td>
-      <td>Booleano que indica se a transação deve ser autenticada (<em>true</em>) ou não (<em>false</em>). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
+      <td>Indica se a transação é do tipo recorrente (<em>true</em>) ou não (<em>false</em>). Este com valor <em>true</em> não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. <em>Authenticate</em> deve ser <em>false</em> quando <em>Recurrent</em> é <em>true</em>. <strong>Somente para transações Cielo.</strong></td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default <em>false</em>)</td>
-      <td>Booleano que indica se a transação é do tipo recorrente (<em>true</em>) ou não (<em>false</em>). Este com valor <em>true</em> não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações Cielo. <em>Authenticate</em> deve ser <em>false</em> quando <em>Recurrent</em> é <em>true</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Valor que será concatenado com o valor de cadastro na adquirente para identificação na fatura.</td>
       <td>Texto</td>
       <td>13</td>
       <td>Não</td>
-      <td>Valor que será concatenado com o valor de cadastro na adquirente para identificação na fatura</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
+      <td>Indica se a transação será dividida entre várias contas (<em>true</em>) ou não (<em>false</em>).</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (Default <em>false</em>)</td>
-      <td>Booleano que indica se a transação será dividida entre várias contas (<em>true</em>) ou não (<em>false</em>)</td>
+      <td>Não (default <em>false</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Nome do campo que será gravado como dado extra.</td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Nome do campo que será gravado como dado extra</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Valor do campo que será gravado como dado extra.</td>
       <td>Texto</td>
       <td>1024</td>
       <td>Não</td>
-      <td>Valor do campo que será gravado como dado extra</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Code</code></td>
+      <td>Afiliação gerada pela adquirente.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Afiliação gerada pela adquirente</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Key</code></td>
+      <td>Chave de afiliação/token gerado pela adquirente.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Chave de afiliação/token gerado pela adquirente</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Username</code></td>
+      <td>Usuário gerado no credenciamento com a adquirente <strong>Getnet</strong> (envio obrigatório se a transação é direcionada para Getnet).</td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Usuário gerado no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Password</code></td>
+      <td>Senha gerada no credenciamento com a adquirente <strong>Getnet</strong> (envio obrigatório se a transação é direcionada para Getnet).</td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Senha gerada no credenciamento com a adquirente Getnet (o campo deve obrigatoriamente ser enviado se a transação é direcionada para Getnet)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Signature</code></td>
+      <td>Envio do <em>TerminalID</em> da adquirente <strong>Global Payments</strong>, ex.: 001. Para <strong>Safra</strong> colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: <em>NomedaLoja;São Paulo;SP</em>.</td>
       <td>Texto</td>
       <td>–</td>
       <td>Não</td>
-      <td>Enviar o TerminalID da adquirente Global Payments Ex.: 001. Para Safra colocar o Nome do Estabelecimento, Cidade e o Estado concatenado com ponto-e-vírgula (;). Ex: NomedaLoja;São Paulo;SP</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).</td>
       <td>Número</td>
       <td>11</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
-      <td>Número</td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).Número</td>
       <td>15</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Mcc</code></td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />MCC do sub-merchant.</td>
       <td>Número</td>
       <td>4</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />MCC do sub-merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Address</code></td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Endereço do sub-merchant.</td>
       <td>Texto</td>
       <td>22</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Endereço do sub-merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.City</code></td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Cidade do sub-merchant.</td>
       <td>Texto</td>
       <td>13</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Cidade do sub-merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.State</code></td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Estado do sub-merchant.</td>
       <td>Texto</td>
       <td>2</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Estado do sub-merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PostalCode</code></td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código postal do sub-merchant.</td>
       <td>Número</td>
       <td>9</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código postal do sub-merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Número de telefone do sub-merchant.</td>
       <td>Número</td>
       <td>13</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Número de telefone do sub-merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Identity</code></td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />CNPJ ou CPF do sub-merchant.</td>
       <td>Número</td>
       <td>14</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />CNPJ ou CPF do sub-merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code></td>
+      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código do país do sub-merchant com base no ISO 3166.</td>
       <td>Número</td>
       <td>3</td>
       <td>Sim para facilitadores</td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código do país do sub-merchant com base no ISO 3166.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Número do cartão do comprador.</td>
       <td>Texto</td>
       <td>16</td>
       <td>Sim</td>
-      <td>Número do cartão do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Nome do portador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
-      <td>Nome do portador impresso no cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
-      <td>Código de segurança impresso no verso do cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Bandeira do cartão.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Bandeira do cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Identifica se o cartão será salvo para gerar o token (<em>CardToken</em>).</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (Default <em>false</em>)</td>
-      <td>Booleano que identifica se o cartão será salvo para gerar o token (CardToken)</td>
+      <td>Não (default <em>false</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Alias</code></td>
+      <td>Nome atribuído pelo lojista ao cartão salvo como <em>CardToken</em>.</td>
       <td>Texto</td>
       <td>64</td>
       <td>Não</td>
-      <td>Nome atribuído pelo lojista ao cartão salvo como CardToken</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td><strong>Aplicável somente para Provider=Cielo30</strong><br /><em>First</em> se o cartão foi armazenado e é seu primeiro uso.<br /><em>Used</em> se o cartão foi armazenado e já utilizado em outra transação.</td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td><strong>Aplicável somente para Provider=Cielo30</strong><br /><em>First</em> se o cartão foi armazenado e é seu primeiro uso.<br /><em>Used</em> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td><strong>Aplicável somente para Provider=Cielo30</strong><br />Indica o propósito de armazenamento de cartões, caso o campo <em>Usage</em> seja <em>Used</em>.<br /><em>Recurring</em> - Compra recorrente programada, ex.: assinaturas.<br /><em>Unscheduled</em> - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br /><em>Installments</em> - Parcelamento através da recorrência.</td>
       <td>Texto</td>
       <td>-</td>
       <td>Condicional</td>
-      <td><strong>Aplicável somente para Provider=Cielo30</strong><br />Indica o propósito de armazenamento de cartões, caso o campo “Usage” seja “Used”.<br /><em>Recurring</em> - Compra recorrente programada (ex. assinaturas)<br /><em>Unscheduled</em> - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br /><em>Installments</em> - Parcelamento através da recorrência</td>
     </tr>
   </tbody>
 </table>
@@ -1170,91 +1172,91 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Id da transação no provedor de meio de pagamento</td>
+      <td>Id da transação no provedor de meio de pagamento.</td>
       <td>Texto</td>
       <td>40</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Número do comprovante de venda</td>
+      <td>Número do comprovante de venda.</td>
       <td>Texto</td>
       <td>20</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização</td>
+      <td>Código de autorização.</td>
       <td>Texto</td>
       <td>300</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo identificador do pedido</td>
+      <td>Campo identificador do pedido.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Braspag</td>
+      <td>Data em que a transação foi recebida pela Braspag.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CapturedDate</code></td>
-      <td>Data em que a transação foi capturada</td>
+      <td>Data em que a transação foi capturada.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CapturedAmount</code></td>
-      <td>Valor capturado (sem pontuação)</td>
+      <td>Valor capturado, sem pontuação.</td>
       <td>Número</td>
       <td>15</td>
       <td>100 equivale a R$ 1,00</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Electronic Commerce Indicator. Representa o resultado da autenticação</td>
+      <td>Electronic Commerce Indicator. Representa o resultado da autenticação.</td>
       <td>Texto</td>
       <td>2</td>
       <td>Exemplos: 5</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Código de retorno da operação</td>
+      <td>Código de retorno da operação.</td>
       <td>Texto</td>
       <td>32</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Mensagem de retorno da operação</td>
+      <td>Mensagem de retorno da operação.</td>
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da transação</td>
+      <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
       <td>Ex. 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
